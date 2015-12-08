@@ -1,0 +1,34 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="sunyingzi" id="customer_vehicle_stat_1">
+        <createTable tableName="customer_vehicle_stat">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="customer_id" type="bigint"/>
+            <column name="vehicle_id" type="bigint"/>
+            <column name="last_date" type="bigint"/>
+            <column name="total_amount" type="double"/>
+            <column name="total_arrears" type="double"/>
+        </createTable>
+        <addPrimaryKey tableName="customer_vehicle_stat" columnNames="id" constraintName="pk_customer_vehicle_stat"/>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="customer_vehicle_stat_2">
+    <modifyColumn tableName="customer_vehicle_stat">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

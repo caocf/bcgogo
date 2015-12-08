@@ -1,0 +1,93 @@
+(一) 更新数据库
+
+(二) 更新数据(库：bcuser) 请按照顺序执行
+
+update `user` set `status`='active';
+update user_group set type='CRM'  where id in(41000005,41000006);
+
+INSERT INTO `department` (`id`, `created`, `last_update`, `version`, `name`, `description`, `parent_id`, `shop_id`, `status`, `sort`) VALUES (-1, 1, 1, 1, '统购', '统购平台', NULL, 0, NULL, NULL);
+
+
+INSERT INTO `module` (`id`, `created`, `last_update`, `version`, `value`, `name`, `parent_id`) VALUES (500000001, 1, 1, 1, '系统管理', 'CRM_SYS_MANAGE', NULL);
+INSERT INTO `module` (`id`, `created`, `last_update`, `version`, `value`, `name`, `parent_id`) VALUES (500000002, 1, 1, 1, '采购管理', 'CRM_PURCHASE_MANAGE', NULL);
+INSERT INTO `module` (`id`, `created`, `last_update`, `version`, `value`, `name`, `parent_id`) VALUES (500000003, 1, 1, 1, '客户管理', 'CRM_CUSTOMER_MANAGE', NULL);
+INSERT INTO `module` (`id`, `created`, `last_update`, `version`, `value`, `name`, `parent_id`) VALUES (500000004, 1, 1, 1, '销售管理', 'CRM_SALE_MANAGE', NULL);
+INSERT INTO `module` (`id`, `created`, `last_update`, `version`, `value`, `name`, `parent_id`) VALUES (500000005, 1, 1, 1, '客服管理', 'CRM_CUSTOMER_SERVICE', NULL);
+INSERT INTO `module` (`id`, `created`, `last_update`, `version`, `value`, `name`, `parent_id`) VALUES (500000006, 1, 1, 1, '工作中心', 'CRM_WORKING_CENTER', NULL);
+
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000001','1','1','1','CRM_SYS_ROLE_SEARCH','active','查询角色','查询角色','CRM','500000001');
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000002','1','1','1','CRM_SYS_ROLE_ADD','active','新增角色','新增角色','CRM','500000001');
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000003','1','1','1','CRM_SYS_ROLE_UPDATE','active','修改角色','修改角色','CRM','500000001');
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000005','1','1','1','CRM_SYS_ROLE_DISABLE','active','禁用角色','禁用角色','CRM','500000001');
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000006','1','1','1','CRM_SYS_ROLE_ENABLE','active','启用角色','启用角色','CRM','500000001');
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000007','1','1','1','CRM_SYS_USER_SEARCH','active','查询用户','查询用户','CRM','500000001');
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000008','1','1','1','CRM_SYS_USER_ADD','active','新增用户','新增用户','CRM','500000001');
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000009','1','1','1','CRM_SYS_USER_UPDATE','active','修改用户','修改用户','CRM','500000001');
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000010','1','1','1','CRM_SYS_USER_DISABLE','active','禁用用户','禁用用户','CRM','500000001');
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000011','1','1','1','CRM_SYS_USER_ENABLE','active','启用用户','启用用户','CRM','500000001');
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000012','1','1','1','CRM_SYS_USER_DELETE','active','删除用户','删除用户','CRM','500000001');
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000013','1','1','1','CRM_SYS_DEPARTMENT','active','维护部门职位信息','维护部门职位信息','CRM','500000001');
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000014','1','1','1','CRM_SYS_LOG_SEARCH','active','日志查询','日志查询','CRM','500000001');
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000015','1','1','1','CRM_SYS_LOG_EXPORT','active','导出日志','导出日志','CRM','500000001');
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000016','1','1','1','CRM_SYS_PASSWORD','active','修改密码','修改密码','CRM','500000001');
+
+
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`) VALUES ('520000001','1','1','1','系统维护','','','','系统管理','1',null,null,'true');
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`) VALUES ('520010001','1','1','1','角色配置','Ext.controller.sys.RoleConfiguration','COMPONENT','','角色配置','1',520000001,510000001,'true');
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`) VALUES ('520010002','1','1','1','用户管理','Ext.controller.sys.UserConfiguration','COMPONENT','','用户管理','2',520000001,510000007,'true');
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`) VALUES ('520010003','1','1','1','系统日志','Ext.controller.sys.LogController','COMPONENT','','系统日志','3',520000001,510000014,'true');
+
+
+在 admin下 增加资源
+             name                     value                          type          memo
+====================================role:CRM_SYS_ROLE_SEARCH====================================
+CRM_sys_role_search          Ext.view.sys.role.search             render        查询角色
+====================================role:CRM_sys_role_add====================================
+CRM_sys_role_add             Ext.view.sys.role.add                render        新增角色
+====================================role:CRM_sys_role_update====================================
+CRM_sys_role_update          Ext.view.sys.role.update             render        修改角色
+====================================role:CRM_sys_role_disable====================================
+CRM_sys_role_disable         Ext.view.sys.role.disable            render        禁用角色
+====================================role:CRM_sys_role_enable====================================
+CRM_sys_role_enable          Ext.view.sys.role.enable             render        启用角色
+====================================role:CRM_sys_user_search====================================
+CRM_sys_user_search          Ext.view.sys.user.search             render        查询用户
+====================================role:CRM_sys_user_add====================================
+CRM_sys_user_add             Ext.view.sys.user.add                render        新增用户
+====================================role:CRM_sys_user_update====================================
+CRM_sys_user_update          Ext.view.sys.user.update             render        修改用户
+====================================role:CRM_sys_user_disable====================================
+CRM_sys_user_disable         Ext.view.sys.user.disable            render        禁用用户
+====================================role:CRM_sys_user_enable====================================
+CRM_sys_user_enable          Ext.view.sys.user.enable             render        启用用户
+====================================role:CRM_sys_user_delete====================================
+CRM_sys_user_delete          Ext.view.sys.user.delete             render        删除用户
+====================================role:CRM_sys_department====================================
+CRM_sys_department           Ext.view.sys.department              render        维护部门职位信息
+====================================role:CRM_sys_log_search====================================
+CRM_sys_log_search           Ext.view.sys.log.search              render        日志查询
+====================================role:CRM_sys_log_export====================================
+CRM_sys_log_export           Ext.view.sys.log.export              render        导出日志
+====================================role:CRM_sys_password====================================
+CRM_sys_password             Ext.view.sys.password                render        修改密码
+
+
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000001,540000001,1,1,1);
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000002,540000002,1,1,1);
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000003,540000003,1,1,1);
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000004,540000004,1,1,1);
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000005,540000005,1,1,1);
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000006,540000006,1,1,1);
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000007,540000007,1,1,1);
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000008,540000008,1,1,1);
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000009,540000009,1,1,1);
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000010,540000010,1,1,1);
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000011,540000011,1,1,1);
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000012,540000012,1,1,1);
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000013,540000013,1,1,1);
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000014,540000014,1,1,1);
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000015,540000015,1,1,1);
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000016,540000016,1,1,1);
+
+
+清memCache

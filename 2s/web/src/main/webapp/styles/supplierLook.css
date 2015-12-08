@@ -1,0 +1,78 @@
+@charset "utf-8";
+/* CSS Document */
+
+.selectTime{
+	border:1px solid #ADADAD;
+	height:25px;
+	width:100px;
+	float:left;
+	margin-bottom:5px;
+	background:#fff;
+}
+.selectTime input{
+	border:none;
+	width:75px;
+	height:23px;
+	line-height:19px;
+	float:left;
+	padding-left:6px;
+}
+.dui_time label,.dui_time .selectTime { color:#000; display:block; float:left;}
+.dui_time label{ height:25px; line-height:25px; margin-right:5px;}
+.heji,.duizhang_he{ text-align:right; padding-right:30px; color:#000;}
+.duizhang_he{ padding:0px; padding-top:10px;}
+.duizhang_he label{ margin-right:10px;}
+.jieCount{background:url(../images/chkNormal2.png) no-repeat; width:90px; height:25px; text-align:center; line-height:25px; color:#FFFFFF; border:none; margin-left:400px; margin-top:0px;cursor:pointer;}
+ .jieCount:hover{background:url(../images/btnHover2.png) no-repeat; color:#663A02;}
+.duizhang_td tr td{ height:15px;}
+.duizhang_td  .bg td{ line-height:15px; padding-top:2px; height:23px;}
+.dui_title{ margin-bottom:10px; height:10px;}
+.dui_title label{font-weight:bold;}
+.dui_title label,.dui_title span{ display:block; float:left;color:#000;}
+.dui_title span{ float:right; }
+.jie_info{ font-size:14px; float:left; color:#366a9a; font-weight:bold; display:block; margin:10px 0px;}
+.jie_detail{ border:1px solid #d5d4d4; background:#f2f2f2; color:#3e3e3e; padding:17px 20px; line-height:25px;margin: 0 10px 10px 10px;}
+.jie_detail div{
+    float:left;
+    /*margin-top:30px; */
+}
+.jie_detail div label{color:#3e3e3e;}
+.jie_detail ul{ float:right; }
+.jie_detail ul li { clear:both;}
+.jie_detail ul li label{width:70px; color:#000;}
+.jie_detail ul li label,.jie_detail ul li span{ display:block; float:left; color:#3e3e3e;}
+.qizhong h2,.qizhong h1 {font-size:12px; font-weight:normal; display:block; float:left;}
+.qizhong h2{ margin-right:25px;}
+.dui_time span{ display:block; float:right; margin-top:5px;}
+.yinshou{width:84px; text-align:right;}
+
+
+
+
+
+.tabRu{
+	border-collapse: collapse;
+	table-layout: fixed;
+	width:100%;
+}
+.tabRu td{height:25px; line-height:25px; text-align:left; padding-left:6px;}
+.tabRu .fonts{ font-weight:bold;}
+
+.almost div{
+    float:none;
+    margin:0px;
+    padding-left:6px;
+    font-weight:bold;
+}
+
+.jie_detail .info div{
+    float: none;
+}
+
+.almost .blue_color:hover{ color:#FF4800; text-decoration:blink;}
+.almost .borders{ text-decoration:line-through;}
+
+
+
+
+

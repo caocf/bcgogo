@@ -1,0 +1,36 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhangjuntao" id="shop_operate_history_1">
+        <createTable tableName="shop_operate_history">
+            <column name="id" type="bigint"/>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="operate_shop_id" type="bigint"/>
+            <column name="operate_user_id" type="bigint"/>
+            <column name="operate_time" type="bigint"/>
+            <column name="operate_type" type="varchar(50)"/>
+            <column name="reason" type="varchar(500)"/>
+        </createTable>
+        <addPrimaryKey tableName="shop_operate_history" columnNames="id" constraintName="pk_shop_operate_history"/>
+        <createIndex tableName="shop_operate_history" indexName="idx_shop_operate_history_shopId_userId">
+            <column name="operate_user_id"/>
+            <column name="operate_shop_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="shop_operate_history_2" author="zhangjuntao">
+        <addColumn tableName="shop_operate_history">
+            <column name="trial_end_time" type="bigint"/>
+            <column name="trial_start_time" type="bigint"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

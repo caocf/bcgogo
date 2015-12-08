@@ -1,0 +1,36 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhangjuntao" id="module_1">
+        <createTable tableName="module">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="value" type="varchar(100)"/>
+            <column name="name" type="varchar(100)"/>
+            <column name="parent_id" type="bigint"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="module_2" author="zhangjuntao">
+        <addPrimaryKey tableName="module" columnNames="id" constraintName="pk_module"/>
+    </changeSet>
+
+    <changeSet id="module_3_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="module">
+            <column name="type" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="model_4_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="module">
+            <column name="sort" type="bigint"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

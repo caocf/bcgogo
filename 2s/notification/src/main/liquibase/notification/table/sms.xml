@@ -1,0 +1,62 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="ndong" id="sms_1">
+        <createTable tableName="sms">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="shop_id" type="bigint"/>
+            <column name="user_id" type="bigint"/>
+            <column name="contact_group_ids" type="varchar(500)"/>
+            <column name="contact_ids" type="varchar(1000)"/>
+            <column name="content" type="varchar(500)"/>
+            <column name="edit_date" type="bigint"/>
+            <column name="send_time" type="bigint"/>
+            <column name="sms_type" type="varchar(50)"/>
+            <column name="deleted" type="varchar(50)"/>
+        </createTable>
+
+        <addPrimaryKey tableName="sms" columnNames="id" constraintName="pk_sms"/>
+
+    </changeSet>
+
+    <changeSet id="sms_2" author="ndong">
+        <addColumn tableName="sms">
+            <column name="sms_send_scene" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="sms_3" author="ndong" >
+        <createIndex tableName="sms" indexName="IDX_SMS_SHOP_ID">
+            <column name="shop_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="sms_4" author="ndong">
+        <modifyColumn tableName="sms">
+            <column name="contact_ids" type="varchar(10000)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="sms_5" author="ndong">
+        <addColumn tableName="sms">
+            <column name="app_flag" type="boolean"></column>
+            <column name="sms_flag" type="boolean"></column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="sms_6" author="ndong">
+        <addColumn tableName="sms">
+            <column name="count_sms_sent" type="bigint"></column>
+            <column name="count_app_sent" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

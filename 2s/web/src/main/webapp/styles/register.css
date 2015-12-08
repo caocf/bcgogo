@@ -1,0 +1,1219 @@
+body {
+    color: #FFFFFF;
+    font-family: "宋体", Arial;
+    font-size: 12px;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 0;
+}
+
+.user {
+    color: #5F5F5F;
+    float: left;
+    font-family: "微软雅黑";
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px 0 0;
+    width: 150px;
+}
+
+.tabRegister {
+    width: 740px;
+    height: 100%;
+    border-collapse: collapse;
+    /*table-layout: fixed;*/
+}
+
+.tabRegister td {
+    color: #3C3B3B;
+    height: 40px;
+    line-height: 40px;
+    padding-right: 5px;
+    text-align: right;
+}
+
+.tabRegister .regTitle {
+    background: url(../images/registerTop.png) no-repeat;
+    width: 387px;
+    height: 25px;
+}
+
+.tabRegister .regTitle td {
+    color: #FDFDFE;
+    font-size: 14px;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 6px;
+    text-align: left;
+}
+
+.tabRegister td .txt {
+    border: 1px solid #CCCCCC;
+    height: 20px;
+    line-height: 20px;
+    color: #515151;
+    padding-left: 3px;
+    width: 100%;
+    float: left;
+}
+
+.tabRegister td .lbl {
+    float: left;
+    margin-right: 10px;
+}
+
+.tabRegister td .lbl input {
+    vertical-align: middle;
+    margin: -3px 5px 0px 0px;
+}
+
+.tabRegister .btnFile {
+    background: url(../images/sure.jpg) no-repeat;
+    width: 65px;
+    height: 27px;
+    text-align: center;
+    line-height: 27px;
+    color: #999999;
+    border: none;
+    margin-top: -2px;
+    cursor: pointer;
+}
+
+.yellow_color {
+    color: #FF4800;
+    float: left;
+}
+
+.tabRegister .description td {
+    height: 15px;
+    line-height: 15px;
+    color: #515151;
+    text-align: left;
+}
+
+.tabRegister .regBtn {
+    background: url(../images/regBtn.png) no-repeat;
+    width: 259px;
+    height: 34px;
+    text-align: center;
+    line-height: 34px;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    float: left;
+    margin-top: 20px;
+}
+
+.tabRegister .description .blue_color {
+    line-height: 35px;
+    float: left;
+    cursor: pointer;
+}
+
+.tabRegister .description .blue_color:hover {
+    color: #FF4800;
+    text-decoration: underline;
+}
+
+.tabRegister .yanzh {
+    background: url(../images/yanzhenma.jpg) no-repeat;
+    width: 121px;
+    height: 53px;
+    display: inline-block;
+    float: left;
+}
+
+.tabRegister .click {
+    color: #0f466f;
+    float: left;
+    padding-top: 15px;
+}
+
+.tabRegister .softType td {
+    line-height: 25px;
+}
+
+.tabRegister .radType {
+    display: inline-block;
+    float: left;
+    text-align: left;
+}
+
+.tabRegister .radType input {
+    vertical-align: middle;
+    margin: -5px 5px 0px 0px;
+}
+
+.tabRegister .registerTextarea td {
+    height: 70px;
+}
+
+.tabRegister td textarea.txt {
+    height: 50px;
+}
+
+.tabRegister .get {
+    background: url(../images/btnAgree.png) no-repeat 0px -21px;
+    color: #FFFFFF;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    width: 64px;
+    margin-left: 5px;
+    float: left;
+    margin-top: 10px;
+}
+
+.tabRegister .get:hover {
+    background: url(../images/btnHoverss.png) no-repeat;
+    color: #663A02;
+}
+
+.tabRegister .already {
+    background: url(../images/btnAgree.png) no-repeat;
+    height: 21px;
+    line-height: 22px;
+    width: 64px;
+    display: block;
+    color: #515151;
+    margin-left: 5px;
+    text-align: center;
+}
+
+.tabRegister .btnSure {
+    /*padding-left: 80px;*/
+}
+
+.tabRegister .btnSure a {
+    background: url(../images/chkNormal3.png) no-repeat;
+    width: 130px;
+    height: 25px;
+    text-align: center;
+    line-height: 28px;
+    display: block;
+    cursor: pointer;
+    float: left;
+    margin-right: 10px;
+}
+
+.tabRegister .btnSure a:hover {
+    background: url(../images/chkNormal3.png) no-repeat 0px -25px;
+    color: #663A02;
+}
+.tabRegister .wrong, .register_image .wrong, .select-t .wrongg, .register-content .wrong  {
+    background: url(../images/selicons.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.tabRegister .right, .register_image .right {
+    background: url(../images/selicons.png) no-repeat 0px -16px;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-top: -6px;
+    vertical-align: middle;
+    padding-left: 5px;
+}
+
+.tabRegister .tabChk .lbl {
+    margin-right: 4px;
+}
+
+.tabRegister .tabChk .lbl input {
+    margin-right: 2px;
+}
+
+.tabRegister .softType td {
+    line-height: 25px;
+}
+
+.tabRegister .softType td label {
+    display: block;
+    text-align: left;
+}
+
+.regMain {
+    background: url(../images/register/bg_register.png) no-repeat;
+    width: 316px;
+    height: 434px;
+    padding: 10px;
+    float: left;
+}
+
+.regMain .titles {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 35px;
+}
+
+.regMain .divSelect {
+    background: url(../images/lblImg.png) no-repeat;
+    width: 290px;
+    height: 33px;
+    line-height: 35px;
+    color: #474646;
+    margin: 0px 0px 10px 0px;
+    padding-left: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.regMain .selected {
+    background: url(../images/radClick.png) no-repeat;
+    width: 14px;
+    height: 14px;
+    padding-left: 18px;
+    color: #0b70ce;
+    font-weight: bold;
+}
+
+.regMain .select {
+    background: url(../images/radNor.png) no-repeat;
+    width: 14px;
+    height: 14px;
+    padding-left: 20px;
+}
+
+.nextBtn {
+    background: url(../images/btnNext.png) no-repeat;
+    display: block;
+    width: 318px;
+    height: 34px;
+    text-align: center;
+    line-height: 36px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.productInfo {
+    color: #444545;
+    float: left;
+    left: 326px;
+    position: absolute;
+    width: 440px;
+    margin: -27px 0 0 -10px;
+}
+
+.productInfo .proTitle {
+    background: url("../images/msgTop.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    height: 37px;
+    line-height: 37px;
+    margin: 0 0 0 -24px;
+    padding-left: 30px;
+    width: 359px;
+}
+
+.productInfo .proBody {
+    background: url("../images/msgBody.png") repeat-y scroll 0 0 transparent;
+    float: left;
+    height: 100%;
+    line-height: 22px;
+    padding: 3px 10px;
+    width: 315px;
+}
+
+.productInfo .proBody h3, .productInfo .proBody h4, .productInfo .proBody span {
+    width: 100%;
+}
+
+.productInfo .proBody span {
+    font-size: 14px;
+    line-height: 15px;
+    padding-top: 5px;
+}
+
+.productInfo .proBottom {
+    background: url("../images/msgBottom.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 15px;
+    width: 335px;
+}
+
+.gray_color {
+    color: #999999;
+}
+
+.m_topMain .l_topTitle_register {
+    width: 190px;
+    float: left;
+    font-size: 14px;
+    line-height: 25px;
+    text-align: center;
+}
+
+.productInfo .proBody .msg {
+    margin-right: 22px;
+}
+
+.productInfo div.price {
+    color: #444447;
+    display: block;
+    float: left;
+    height: 30px;
+    padding-right: 5px;
+    text-decoration: line-through;
+    width: auto;
+}
+
+.productInfo span.promotions {
+    font-weight: bold;
+    font-size: 12px;
+    width: auto;
+}
+
+.shopSelect {
+    cursor: pointer;
+}
+
+.tabRegister .registerDescription td {
+    height: 15px;
+    line-height: 15px;
+    color: #515151;
+    text-align: left;
+}
+
+.tabRegister .registerDescription .blue_color {
+    line-height: 35px;
+    float: left;
+    cursor: pointer;
+}
+
+.tabRegister .registerDescription .blue_color:hover {
+    color: #FF4800;
+    text-decoration: underline;
+}
+
+.tabRegister .alerts {
+    background: url("../images/selicons.png") no-repeat scroll 0 -34px transparent;
+    display: inline-block;
+    height: 16px;
+    margin-top: -6px;
+    vertical-align: middle;
+    width: 16px;
+}
+
+.tips {
+    padding-left: 5px;
+}
+
+.tips span {
+    padding-left: 3px;
+}
+
+.file-box {
+    position: relative;
+    width: 100%
+}
+
+.file {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    height: 24px;
+    filter: alpha(opacity:0);
+    opacity: 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+.registerBg {
+    background: url("../images/registerImg.png") no-repeat;
+    float: right;
+    height: 501px;
+    margin-top: 5px;
+    width: 481px;
+}
+
+.tabRegister .rad input {
+    margin: -5px 3px 0 0;
+    vertical-align: middle;
+}
+
+.tabRegister .regTitle .more {
+    background: url("../images/downArrow.png") no-repeat scroll 32px 8px transparent;
+    cursor: pointer;
+    float: right;
+    padding-left: 2px;
+    padding-right: 28px;
+}
+
+.moreRegisterInfo {
+    display: none;
+}
+
+.add_new {
+    float: right;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.tabRegisterInfo {
+    width: 590px;
+    height: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.alertMain .tabRecord tr {
+    border: 1px solid #D6D6D6;
+}
+
+.tabRegisterInfo .tabTitle {
+    background: url(../images/upTitBg.png) repeat-x;
+    height: 28px;
+    border: 1px solid #d6d6d6;
+    color: #007eff;
+    line-height: 28px;
+    width: 438px;
+}
+
+.tabRegisterInfo td {
+    height: 25px;
+    line-height: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: keep-all;
+}
+
+.tabRegisterInfo td input.txt {
+    border: 1px solid #CCCCCC;
+    color: #515151;
+    height: 19px;
+    width: 84%;
+}
+
+.tabRegisterInfo td .opera_plus, .tabRegister td .opera_plus {
+    float: left;
+    background: url(../images/opera2.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.tabRegisterInfo td .opera_minus, .tabRegister td .opera_minus {
+    float: left;
+    background: url(../images/opera1.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tabRegister .register_info {
+    float: left;
+    width: 190px;
+    text-align: left;
+    padding-right: 5px;
+    line-height: 30px;
+}
+
+.tabRegister .register_info input.txt {
+    border-width: 0 0 1px 0;
+    width: 110px;
+    margin-top: 4px;
+}
+
+/*-------------------经营范围(注册专用)-------------------------*/
+
+.tabRegister .rangeList {
+    line-height: normal;
+}
+
+.tabRegister .promotion_content {
+    float: left;
+    border: 1px solid #DAD9D9;
+    background-color: #F5F5F5;
+    padding: 5px 10px 10px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.tabRegister .promotion_set {
+    float: left;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.tabRegister .promotion_content .hide_content {
+    position: absolute;
+    z-index: 1;
+    border: 1px solid #ff6600;
+    background-color: #fef3c5;
+    padding: 0px 10px 10px;
+    color: #000000;
+    margin-top: -1px;
+}
+
+.tabRegister .promotion_content .list, .tabRegister .promotion_content .hide_content a {
+    line-height: 22px;
+    display: inline-block;
+    margin: 0px;
+    white-space: nowrap;
+    color: #272727;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 5px;
+    padding: 0 4px 0px 5px;
+}
+
+.tabRegister .promotion_content .list {
+    margin-top: 5px;
+}
+
+.tabRegister .promotion_content .hide_content a {
+    height: 24px;
+    padding: 0px 8px;
+    line-height: 25px;
+    margin-right: 5px;
+    border: 1px solid #BBBBBB;
+}
+
+.tabRegister .promotion_content .hide_content a:hover {
+    border: 1px solid #FF6600;
+    color: #FF6600;
+}
+
+.tabRegister .promotion_content .hide_content a.thirdCategoryClicked {
+    border: 1px solid #FF6600;
+    background: #f5f5f5 url(../images/icon_range.png) no-repeat right bottom;
+    text-align: center;
+    color: #FF6600;
+}
+
+.tabRegister .promotion_content label.hover {
+    border: 1px solid #ff6600;
+    border-width: 1px 1px 0 1px;
+    background-color: #fef3c5;
+    position: relative;
+    z-index: 2;
+    color: #FF6600;
+    padding: 0px 3px 0px 4px;
+    margin-top: -1px;
+}
+
+.tabRegister .promotion_content label.clicked {
+    color: #FF6600;
+}
+
+.tabRegister .select {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.tabRegister .select .select_left, .tabRegister .select .select_body, .tabRegister .select .select_right {
+    float: left;
+    background: url(../images/select_left.png) no-repeat;
+    width: 4px;
+    height: 21px;
+    display: inline-block;
+}
+
+.tabRegister .select .select_body {
+    background-color: #FF6600;
+    line-height: 23px;
+    width: auto;
+    color: #FFFFFF;
+    padding: 0px 3px;
+}
+
+.tabRegister .select .select_right {
+    background: url(../images/select_right.png) no-repeat;
+    width: 3px;
+}
+
+.tabRegister .select .select_body .select_close {
+    float: right;
+    background: url(../images/select_close.png) no-repeat right 4px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* second-level item styles start here! */
+.tabRegister .select_blue {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.tabRegister .select_blue .select_left, .tabRegister .select_blue .select_body, .tabRegister .select_blue .select_right {
+    float: left;
+    background: url(../images/select_left_blue.png) no-repeat;
+    width: 4px;
+    height: 21px;
+    display: inline-block;
+}
+
+.tabRegister .select_blue .select_body {
+    background-color: #3d7dff;
+    line-height: 23px;
+    width: auto;
+    color: #FFFFFF;
+    padding: 0px 3px;
+}
+
+.tabRegister .select_blue .select_right {
+    background: url(../images/select_right_blue.png) no-repeat;
+    width: 3px;
+}
+
+.tabRegister .select_blue .select_body .select_close {
+    float: right;
+    background: url(../images/select_close_blue.png) no-repeat right 4px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* end */
+
+.tabRegister .promotion_content .hide_content a.hovered {
+    border: 1px solid #006cff;
+    background: #f5f5f5 url(../images/icon_Norrange.png) no-repeat right bottom;
+    text-align: center;
+    color: #006cff;
+}
+
+/*-------------------注册右侧、左侧背景图片-------------------------*/
+.register_image {
+    background: url(../images/registerImg.png) no-repeat right top;
+    height: 501px;
+}
+
+.leftBody {
+    float: left;
+    width: 638px;
+    padding: 20px;
+    background: url(../images/register/bg_form.png) repeat transparent;
+    border: solid 1px #e7e7e7;
+    border-radius: 3px;
+    box-shadow: -1px 3px 3px #f7f7f7;
+
+}
+
+/*-----------------------------------------------------------------------注册页面重构------------------------------------------------------------*/
+.m_topMain {
+    background: url("../images/firstTop.jpg") repeat-x scroll 0 0 transparent;
+    color: #BEBEBE;
+    height: 27px;
+    width: 100%;
+}
+
+#register {
+    margin: 0 auto;
+    width: 800px;
+}
+
+.register-content {
+    background: url("../images/register/registerBg.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    font-size: 14px;
+    padding: 16px;
+    width: 758px;
+}
+
+.register-content .register-btn, .register-content .register-btn2 {
+    cursor: pointer;
+}
+
+.step-01, .step-02, .step-03 {
+    background: url("../images/register/step_1_r2_c2.jpg") no-repeat scroll 0 0 transparent;
+    color: #A1A1A1;
+    height: 30px;
+    margin-bottom: 13px;
+    width: 750px;
+}
+
+.step-02 {
+    background: url("../images/register/step_2_r2_c3.jpg") no-repeat scroll 0 0 transparent;
+}
+
+.step-03 {
+    background: url("../images/register/step_2_r2_c4.jpg") no-repeat scroll 0 0 transparent;
+}
+
+.step-01 span, .step-02 span, .step-03 span {
+    color: #FFFFFF;
+}
+
+.step-01 li, .step-02 li, .step-03 li {
+    float: left;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    width: 250px;
+}
+
+.register-content .title {
+    background: url("../images/register/step_2_r2_c2.jpg") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    width: 729px;
+}
+
+.register-content .title span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.register-content .title .add {
+    background: url("../images/register/add_1_r2_c2.jpg") no-repeat scroll left center transparent;
+    float: right;
+    font-size: 12px;
+    padding-left: 15px;
+    width: 60px;
+}
+
+.register-content .title .add a {
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.font12 {
+    font-size: 12px;
+}
+
+.register-btn, .register-btn2 {
+    background: url("../images/register/register_btn.jpg") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    height: 34px;
+    line-height: 34px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 142px;
+}
+
+.register-btn2 {
+    background: url("../images/register/register_btn2.jpg") no-repeat scroll 0 0 transparent;
+    color: #008AEB;
+}
+
+.register-bar {
+    padding: 40px;
+    text-align: center;
+}
+
+.register-phone {
+    background: url("../images/register/register_phone.png") no-repeat scroll 0 0 transparent;
+    float: right;
+    height: 42px;
+    margin: 15px 10px 0;
+    width: 330px;
+}
+
+.register-qq {
+    background: url("../images/icon_QQchat.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    float: right;
+    height: 22px;
+    margin: 25px 17px 0 0;
+    width: 92px;
+}
+
+.scopeBusiness {
+    color: #282828;
+    width: 750px;
+}
+
+.scopeBusiness .left {
+    float: left;
+    width: 90px;
+}
+
+.scopeBusiness .right {
+    float: right;
+    width: 660px;
+}
+
+.scopeBusiness .select-t {
+    line-height: 25px;
+}
+
+.scopeBusiness .right .select-t span {
+    margin-right: 20px;
+}
+
+.searchScope235 {
+    float: left;
+    margin-left: 10px;
+    margin-right: 25px;
+    width: 235px;
+}
+
+.searchScope235 .select {
+    font-size: 12px;
+    line-height: 24px;
+    width: 200px;
+}
+
+.searchScope {
+    background: none repeat scroll 0 0 #FBFBFB;
+    border: 1px solid #DCDCDC;
+    padding: 8px;
+    width: 182px;
+}
+
+.searchScope .top {
+    border-bottom: 1px dashed #ACACAC;
+    font-family: "微软雅黑";
+    font-size: 14px;
+    padding-bottom: 8px;
+}
+
+.searchScope .top a {
+    color: #008AFF;
+    margin: 0 2px 0 1px;
+}
+
+.searchScope li {
+    line-height: 24px;
+}
+
+.unfold, .fold {
+    background: url("../images/register/unfold.jpg") no-repeat scroll left center transparent;
+    padding-left: 15px;
+}
+
+.fold {
+    background: url("../images/register/fold.jpg") no-repeat scroll left center transparent;
+}
+
+.searchScope dd {
+    color: #656565;
+    font-size: 12px;
+    line-height: 20px;
+    padding-left: 15px;
+}
+
+.searchScope li span {
+    display: block;
+    float: left;
+    width: 40px;
+}
+
+.search-scope {
+    border: 1px solid #AFAFAF;
+    float: left;
+    height: 20px;
+    width: 133px;
+}
+
+.search-btn {
+    background: url("../images/register/search_2_r2_c2.jpg") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    float: left;
+    height: 22px;
+    width: 43px;
+}
+
+.register-bg {
+    background: none repeat scroll 0 0 #E5E5E5;
+    border-radius: 3px 3px 3px 3px;
+    font-size: 12px;
+    padding: 10px;
+}
+
+.register-bg .cartBottom {
+    background: url("../images/borderBottom.png") no-repeat scroll 0 0 transparent;
+}
+
+.register-bg .tab_cuSearch {
+    float: left;
+    width: 730px;
+}
+
+.register-bg .tab_cuSearch tr td {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #DBDADA;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px 0 0;
+}
+
+.register-bg .tab_cuSearch tr.titBody_Bg {
+    background: url("../images/lineBg_top.png") repeat-x scroll 0 0 #FFFFFF;
+    height: 100%;
+}
+
+.register-bg .tab_cuSearch tr.titBody_Bg td {
+    color: #000000;
+    padding: 12px 6px 0 0;
+    vertical-align: top;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.register-bg .tab_cuSearch tr.titBottom_Bg td {
+    background: url("../images/lineBg_bottom.png") repeat-x scroll 0 0 transparent;
+    border: medium none;
+    height: 8px;
+}
+
+.register-bg .tab_cuSearch tr.titleBg {
+    background: url("../images/titBg.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    height: 26px;
+    line-height: 26px;
+}
+
+.register-bg .tab_cuSearch tr.space td {
+    height: 8px;
+    line-height: 8px;
+}
+
+.cuSearch .tab_cuSearch tr.titBottom_Bg td {
+    background: url("../images/lineBg_bottom.png") repeat-x scroll 0 0 transparent;
+    border: medium none;
+    height: 8px;
+}
+
+.register-bg .tab_cuSearch tr.titBody_Bg td input.txt {
+    border: 1px solid #CCCCCC;
+    color: #515151;
+    height: 19px;
+    width: 94%;
+}
+
+.tabRegisterInfo td .opera_plus, .tabRegister td .opera_plus {
+    background: url("../images/opera2.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    height: 16px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 16px;
+}
+
+.tabRegisterInfo td .opera_minus, .tabRegister td .opera_minus {
+    background: url("../images/opera1.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    height: 16px;
+    width: 16px;
+}
+
+.tabRegister .register_info {
+    float: left;
+    line-height: 30px;
+    padding-right: 5px;
+    text-align: left;
+    width: 190px;
+}
+
+.tabRegister .register_info input.txt {
+    border-width: 0 0 1px;
+    margin-top: 4px;
+    width: 110px;
+}
+
+.tip-content {
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.tip-content .left {
+    width: 50px;
+    color: #FD0001;
+    float: left;
+    text-align: center;
+}
+
+.tip-content .right {
+    float: left;
+    color: #969696;
+}
+
+.uploadPhoto-content {
+    width: 292px;
+    margin-bottom: 20px;
+}
+
+.uploadPhoto {
+    width: 280px;
+    height: 24px;
+    background: url(../images/register/r_3_r4_c3.jpg) no-repeat center 40% #F2F2F2;
+    border: #D7D7D7 1px solid;
+    text-align: center;
+    color: #A4A3A8;
+    padding-top: 150px;
+    margin: 15px 0 5px 10px;
+}
+
+.uploadPhoto-bar {
+    padding: 5px;
+    text-align: center;
+}
+
+.uploadPhoto-btn {
+    color: #3B3B3B;
+    height: 22px;
+    padding-left: 80px;
+    cursor: pointer;
+
+    padding: 0 5px 0 5px;
+    color: #3B3B3B;
+}
+
+.storePhotos {
+    background: #F2F2F2;
+    border: #CECECE 1px solid;
+    width: 565px;
+    margin: 15px 0 5px 10px;
+    color: #3B3B3B;
+    font-size: 12px;
+}
+
+.storePhotos .top {
+    border-bottom: #CECECE 1px solid;
+    padding: 10px 0 5px 18px;
+}
+
+.storePhotos .top li {
+    width: 95px;
+    overflow: hidden;
+    float: left;
+    margin-right: 14px;
+    text-align: center;
+}
+
+.store-photos {
+    width: 93px;
+    height: 24px;
+    background: url(../images/register/r_3_r4_c2.jpg) no-repeat center 40% #F2F2F2;
+    border: #D7D7D7 1px solid;
+    text-align: center;
+    color: #A4A3A8;
+    padding-top: 53px;
+    margin: 15px 0 5px 0px;
+}
+
+.orange-color {
+    color: #FE6700;
+}
+
+.storePhotos .bottom {
+    line-height: 38px;
+    text-align: center;
+}
+
+.storePhotos .upload {
+    height: 22px;
+    line-height: 22px;
+    margin: 10px 0 10px 0;
+    float: left;
+}
+
+.storePhotos .get {
+    background: url(../images/btnAgree.png) no-repeat 0px -21px;
+    color: #FFFFFF;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    width: 64px;
+    margin-left: 5px;
+    margin: 10px 0 10px 0;
+    float: left;
+}
+
+.confirm a {
+    background: url(../images/chkNormal3.png) no-repeat;
+    width: 130px;
+    height: 25px;
+    text-align: center;
+    line-height: 28px;
+    display: block;
+    cursor: pointer;
+    float: left;
+    margin-right: 10px;
+    float: left;
+}
+
+.confirm a:hover {
+    background: url(../images/chkNormal3.png) no-repeat 0px -25px;
+    color: #663A02;
+}
+
+.re-election a {
+    height: 23px;
+    background: url(../images/register/r_3_r2_c2.jpg) repeat-x;
+    border: #C9C9C9 1px solid;
+    text-align: center;
+    color: #3B3B3B;
+    float: left;
+    line-height: 23px;
+    padding: 0 15px 0 15px;
+    cursor: pointer;
+    border: 1px solid #dedede;
+    -moz-border-radius: 3px; /* Gecko browsers */
+    -webkit-border-radius: 3px; /* Webkit browsers */
+    border-radius: 3px; /* W3C syntax */
+}
+
+.lbl {
+    float: left;
+    /*margin-right: 10px;*/
+    width: 110px;
+}
+
+.downloadClient {
+    float: left;
+    line-height: 25px;
+    margin-left: 5px;
+}
+
+.downloadClient a {
+    color: #fff;
+}
+
+.line-dashed {
+    clear: both;
+    height: 10px;
+    border-bottom: #ccc 1px dashed;
+}
+.img_div-photos{width:176px; height:74px; background:url(../images/register/r_3_r4_c2.jpg) no-repeat center 40% #F2F2F2; border:#D7D7D7 1px solid; text-align:center; color:#A4A3A8; padding-top:103px; margin:15px 0 5px 0px;}
+.map_position{    background: url("../images/position.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 18px;
+    vertical-align: middle;
+    width: 16px;}

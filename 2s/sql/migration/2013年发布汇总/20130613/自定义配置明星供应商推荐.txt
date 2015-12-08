@@ -1,0 +1,43 @@
+﻿1、更正 resource
+  receivable_payable_stat_payable_print 供应商交易打印(不能删，待修改其value)
+  修改成：  supplier_transactions_print   WEB.STAT.BUSINESS_ANALYSIS.SUPPLIER_TRANSACTIONS.PRINT    SHOP 供应商交易打印 render
+
+  在系统管理-自定义配置管理  增角色 《页面配置》其中增加
+    增资源{page_custom_config_menu      WEB.SYSTEM_SETTINGS.CUSTOM_CONFIG.PAGE.CONFIG   SHOP   页面配置菜单   menu}
+    增资源{page_customizer_config_show                           /web/pageCustomizerConfig.do?method=show   SHOP   显示配置页面   request}
+    增资源{page_customizer_config_updateProductPageConfig        /web/pageCustomizerConfig.do?method=updateProductPageConfig   SHOP   更新商品页面配置   request}
+    增资源{page_customizer_config_updateOrderPageConfig          /web/pageCustomizerConfig.do?method=updateOrderPageConfig   SHOP   更新单据页面配置   request}
+    增资源{page_customizer_config_restorePageConfig              /web/pageCustomizerConfig.do?method=restorePageConfig   SHOP   页面配置还原   request}
+
+  在车辆施工、采购、入库的 新增单据角色
+    增资源{page_obtainActiveRecommendSupplierByProductId         /web/activeRecommendSupplier.do?method=obtainActiveRecommendSupplierByProductId   SHOP   供应商主动推荐   request}
+
+  库存管理下加入
+  web/inventoryCheck.do?method=getInventoryCheckByProductId
+
+  SHOP-基本  增加
+    增资源{page_customizer_config_getProductPageConfig           /web/pageCustomizerConfig.do?method=getProductPageConfig   SHOP   获得商品页面配置   request}
+    增资源{page_customizer_config_getOrderPageConfig             /web/pageCustomizerConfig.do?method=getOrderPageConfig   SHOP   获得单据页面配置   request}
+
+  SHOP 初级版基本权限 高级版基本权限 综合基本权限 中加入
+   增资源 {WEB_VERSION_ACTIVE_RECOMMEND_SUPPLIER         WEB.VERSION.ACTIVE_RECOMMEND_SUPPLIER   SHOP  供应商主动推荐    logic}
+
+  增menu
+  INSERT INTO `menu` (`id`, `created`, `last_update`, `version`, `grade`, `label`, `resource_id`, `parent_id`, `href`, `sort`, `menu_name`)
+  VALUES (1000021045134322, 1366183657914, 1366183657914, 0, 3, '页面配置', -1, 1000000000010004, 'pageCustomizerConfig.do?method=show', 30, 'WEB_SYSTEM_SETTINGS_CUSTOM_CONFIG_PAGE_CONFIG');
+  update menu set resource_id=(select id from resource where `value`='WEB.SYSTEM_SETTINGS.CUSTOM_CONFIG.PAGE.CONFIG') where id=1000021045134322;
+
+
+  CRM--shop操作权限--shop数据初始化
+ （新）createDefaultPageConfig	/web/init.do?method=createDefaultPageConfig	 SHOP   初始化默认页面配置    request
+
+
+  页面配置 分配版本和用户组
+
+
+2、 config配置
+  后台增加 config配置   CUSTOMIZER_CONFIG  ON   自定义开关
+
+3、执行 init.do?method=createDefaultPageConfig
+
+

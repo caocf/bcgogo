@@ -1,0 +1,25 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhangjuntao" id="instalment_plan_algorithm_zhangjuntao_1">
+        <createTable tableName="instalment_plan_algorithm">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(50)"/>
+            <column name="periods_month_rate" type="double"/>
+            <column name="periods" type="int"/>
+            <column name="terminally_ratio" type="varchar(500)"/>
+            <column name="memo" type="varchar(500)"/>
+        </createTable>
+        <addPrimaryKey tableName="instalment_plan_algorithm" columnNames="id" constraintName="pk_instalment_plan_algorithm"/>
+    </changeSet>
+</databaseChangeLog>

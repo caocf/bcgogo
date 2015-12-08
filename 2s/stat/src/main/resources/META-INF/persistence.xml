@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                                 http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+  <persistence-unit name="stat" transaction-type="RESOURCE_LOCAL">
+    <class>com.bcgogo.stat.model.AssistantStat</class>
+    <class>com.bcgogo.stat.model.BizStat</class>
+    <class>com.bcgogo.stat.model.CustomerStat</class>
+    <class>com.bcgogo.stat.model.ServiceVehicleCount</class>
+    <class>com.bcgogo.stat.model.BusinessAccount</class>
+    <class>com.bcgogo.stat.model.BusinessCategory</class>
+    <class>com.bcgogo.stat.model.BusinessCategoryStat</class>
+
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+  </persistence-unit>
+
+  <persistence-unit name="report" transaction-type="RESOURCE_LOCAL">
+    <class>com.bcgogo.txn.model.RepairOrder</class>
+
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+  </persistence-unit>
+
+  <persistence-unit name="userreport" transaction-type="RESOURCE_LOCAL">
+
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+  </persistence-unit>
+
+
+
+</persistence>

@@ -1,0 +1,140 @@
+后台增加 config配置   SHOPPING_CART_MAX_CAPACITY  50   购物车最大容量
+后台增加 config配置   SHOPPING_CART_WARN_CAPACITY  45   购物车提醒容量
+
+仓管  经理 老板  跟在线采购一样
+
+
+在shop下新增子模块：汽配在线
+
+
+（一）角色
+//----------------------------------------------new role-----------------------------------------------------------------------------
+汽配在线  模块下    配件报价
+汽配在线  模块下		客户库存
+汽配在线  模块下		商品上架
+汽配在线  模块下		在线退货
+
+把整个 进销存--订单中心   移动到  汽配在线 下面去
+
+（三）资源
+//===============================================汽配在线--配件报价  (朱星星)   =============================================
+（新）AutoAccessoryOnline                                       render              WEB.AUTOACCESSORYONLINE.BASE                                    汽配在线基本
+（新）CommodityQuotations                                       render              WEB.AUTOACCESSORYONLINE.COMMODITYQUOTATIONS.BASE                配件报价基本
+（新）web_autoAccessoryOnline                                   request             /web/navigator.do?method=autoAccessoryOnline                    汽配在线
+（新）web_autoAccessoryOnline_commodityQuotations               request             /web/autoAccessoryOnline.do?method=toCommodityQuotations        配件报价页面跳转
+（新）web_autoAccessoryOnline_getCommodityQuotationsList        request             /web/autoAccessoryOnline.do?method=getCommodityQuotationsList   获取配件报价数据
+（新）web_autoAccessoryOnline_validatorPurchaseProduct          request             /web/autoAccessoryOnline.do?method=validatorPurchaseProduct     采购商品校验
+（旧）web_remind_messages_toCommodityQuotations                 request             /web/message.do?method=toCommodityQuotations                    站内信消息跳转到配件页面
+
+删除 供应商管理--商品报价  模块下 查询角色
+删除 供应商管理--商品报价  模块下 采购商品校验 角色
+删除 供应商管理--商品报价  模块
+删除资源value为：WEB.SUPPLIER_MANAGER.PRODUCT_QUOTATION,
+				/web/RFbuy.do?method=toCommodityQuotations,
+				/web/customer.do?method=getAllWholeSalerStock,
+				/web/customer.do?method=validatorPurchaseProduct
+
+//===============================================汽配在线--客户库存  (朱星星)   =============================================
+（旧）AutoAccessoryOnline                                       render              WEB.AUTOACCESSORYONLINE.BASE                                    汽配在线基本
+（新）RelatedCustomerStock                                      render              WEB.AUTOACCESSORYONLINE.RELATEDCUSTOMERSTOCK.BASE               客户库存基本
+（旧）web_autoAccessoryOnline                                   request             /web/navigator.do?method=autoAccessoryOnline                    汽配在线
+（新）web_autoAccessoryOnline_relatedCustomerStock              request             /web/autoAccessoryOnline.do?method=toRelatedCustomerStock       客户库存页面跳转
+（新）web_autoAccessoryOnline_getAllRelatedCustomerStock        request             /web/autoAccessoryOnline.do?method=getAllRelatedCustomerStock   获取所有关联客户库存数据
+（新）web_autoAccessoryOnline_getRelatedCustomerStock           request             /web/autoAccessoryOnline.do?method=getRelatedCustomerStock      获取指定关联客户库存数据
+
+删除 客户管理--客户库存  模块下 查询角色
+删除 客户管理--客户库存  模块
+删除资源value为：WEB.CUSTOMER_MANAGER.INVERTORY,
+				/web/RFbuy.do?method=toRelatedCustomerStock,
+				/web/customer.do?method=getAllRelatedCustomerStock,
+				/web/customer.do?method=getRelatedCustomerStock
+
+
+//===============================================汽配在线--商品上架  (朱星星)   =============================================
+（旧）AutoAccessoryOnline                                       render              WEB.AUTOACCESSORYONLINE.BASE                                    汽配在线基本
+（新）GoodsInOffSales                                           render              WEB.AUTOACCESSORYONLINE.GOODS_IN_OFF_SALES_MANAGE               商品上架维护基本
+（旧）web_autoAccessoryOnline                                   request             /web/navigator.do?method=autoAccessoryOnline                    汽配在线
+
+把 进销存--销售管理--商品上架维护角色下的资源全部复制过来（除WEB.TXN.SALE_MANAGE.GOODS_IN_OFF_SALES_MANAGE）
+
+删除 进销存--销售管理  模块下 商品上架维护角色
+删除资源value为：WEB.TXN.SALE_MANAGE.GOODS_IN_OFF_SALES_MANAGE
+
+//===============================================汽配在线--订单中心  (朱星星)   =============================================
+（旧）AutoAccessoryOnline                                       render              WEB.AUTOACCESSORYONLINE.BASE                                    汽配在线基本
+（旧）web_autoAccessoryOnline                                   request             /web/navigator.do?method=autoAccessoryOnline                    汽配在线
+
+修改资源Value：/web/txn.do?method=getTodoOrders    为：/web/orderCenter.do?method=getTodoOrders,
+		       /web/txn.do?method=showOrderCenter  为：/web/orderCenter.do?method=showOrderCenter
+
+
+//===============================================汽配在线--购物车  (朱星星)   =============================================
+（旧）AutoAccessoryOnline                                       render              WEB.AUTOACCESSORYONLINE.BASE                                    汽配在线基本
+（新）ShoppingCart                                              render              WEB.AUTOACCESSORYONLINE.SHOPPINGCART                            购物车基本
+（旧）web_autoAccessoryOnline                                   request             /web/navigator.do?method=autoAccessoryOnline                    汽配在线
+（新）web_autoAccessoryOnline_shoppingCartList                  request             /web/shoppingCart.do?method=shoppingCartManage                  购物车页面跳转
+（新）web_autoAccessoryOnline_getShoppingCartData               request             /web/shoppingCart.do?method=getShoppingCartData                 获取购物车数据
+（新）web_autoAccessoryOnline_updateShoppingCartItemAmount      request             /web/shoppingCart.do?method=updateShoppingCartItemAmount        更新购物车商品数量
+（新）web_autoAccessoryOnline_deleteShoppingCartItemById        request             /web/shoppingCart.do?method=deleteShoppingCartItemById          删除购物车商品
+（新）web_autoAccessoryOnline_getShoppingCartItemCount          request             /web/shoppingCart.do?method=getShoppingCartItemCount            获取购物车商品种类数量
+（新）web_autoAccessoryOnline_clearInvalidShoppingCartItems     request             /web/shoppingCart.do?method=clearInvalidShoppingCartItems       清除购物车失效商品
+（新）web_autoAccessoryOnline_addProductToShoppingCart          request             /web/shoppingCart.do?method=addProductToShoppingCart            商品加入购物车
+
+
+//===============================================进销存--入库管理--采购单--新增  (朱星星)   =============================================
+（新）web_txn_purchase_createPurchaseOrderOnlineByShoppingCart request             /web/RFbuy.do?method=createPurchaseOrderOnlineByShoppingCart    购物车生成在线采购单
+（新）web_txn_purchase_createPurchaseOrderOnlineByProduct      request             /web/RFbuy.do?method=createPurchaseOrderOnlineByProduct         产品生成在线采购单
+（新）web_txn_purchase_savePurchaseOrderOnline                 request             /web/RFbuy.do?method=savePurchaseOrderOnline                    保存在线采购单
+（新）web_txn_purchase_ajaxValidatorPurchaseOrderOnline        request             /web/RFbuy.do?method=ajaxValidatorPurchaseOrderOnline           校验在线采购单
+（新）web_txn_purchase_updatePurchaseOrderOnline               request             /web/RFbuy.do?method=updatePurchaseOrderOnline                  在线采购单改单
+（新）web_txn_purchase_modifyPurchaseOrderOnline               request             /web/RFbuy.do?method=modifyPurchaseOrderOnline                  在线采购单改单页面
+
+ //===============================================汽配在线--在线退货  (邱鑫宇)   =============================================
+  （旧）AutoAccessoryOnline                                       render              WEB.AUTOACCESSORYONLINE.BASE                                    汽配在线基本
+  （旧）web_autoAccessoryOnline                                   request             /web/navigator.do?method=autoAccessoryOnline                    汽配在线
+ （新）OnlinePurchaseReturn                                      render              WEB.AUTOACCESSORYONLINE.PURCHASE.RETURN                            在线入库退货
+ （新）web_autoAccessoryOnline_toOnlinePurchaseReturnSelect      request             /web/onlineReturn.do?method=toOnlinePurchaseReturnSelect           在线退货选择商品页面跳转
+ （新）web_autoAccessoryOnline_getOnlinePurchaseList             request             /web/onlineReturn.do?method=getOnlinePurchaseList                  在线采购单查找
+ （新）web_autoAccessoryOnline_onlinePurchaseReturnEdit          request             /web/onlineReturn.do?method=onlinePurchaseReturnEdit            生成在线退货单
+
+   web_txn_return_validateReturnOrder 修改为：
+   web_onlineReturn_validateReturnOrder                           request             /web/onlineReturn.do?method=validateReturnOrder                  在线退货单保存校验
+    删掉其他角色下该资源  添加到在线退货
+
+   web_txn_return_modifyReturnStorage 修改为：
+   web_onlineReturn_modifyReturnStorage                           request             /web/onlineReturn.do?method=modifyReturnStorage                  在线入库退货单修改
+    删掉其他角色下该资源  添加到在线退货
+
+    web_onlineReturn_saveOnlineReturnStorage                      request             /web/onlineReturn.do?method=saveOnlineReturnStorage              保存在线入库单
+
+ //===============================================汽配在线--在线退货基本权限  (邱鑫宇)   =============================================
+ 配给汽配在线下面所有角色
+ web_autoAccessoryOnlineOrderCenter                               request             /web/navigator.do?method=autoAccessoryOnlineOrderCenter          汽配在线订单中心跳转
+
+
+//===========================================================  版本资源======================================================================================================
+WEB_VERSION_DISABLE_VEHICLE_CONSTRUCTION        logic               WEB.VERSION.DISABLE_VEHICLE_CONSTRUCTION    //禁用车辆施工菜单                 除 WASH_SHOP("微型版")基本权限 其他都有
+WEB_VERSION_ONLINE_ORDER_CENTER                 logic               WEB.VERSION.ONLINE_ORDER_CENTER             //首页和head显示订单中心         配给三个汽配版
+WEB_VERSION_ONLINE_PURCHASE_CENTER              logic               WEB.VERSION.ONLINE_PURCHASE_CENTER           //首页和head采购中心            配给汽修版
+
+
+    shop-LOGIN_BASE
+        （新）userGuideNotRemind    	/web/guide.do?method=notRemind	 SHOP   新手指引-以后不再提醒(开始和继续处）    request
+六.初始化
+1. 数据库sql更新
+新手指引，bcuser库
+  update user_guide_step set url = 'orderCenter.do?method=showOrderCenter',message = '商品上架-订单中心',next_step = 'PRODUCT_ONLINE_GUIDE_GOODS_ONLINE' where `name` in('PRODUCT_ONLINE_GUIDE_TXN');
+  DELETE from user_guide_step where `name` = 'PRODUCT_ONLINE_GUIDE_SALE';
+  update user_guide_step set url = 'goodsInOffSales.do?method=goodsInOffSalesManage',previous_step = 'PRODUCT_ONLINE_GUIDE_TXN' where name = 'PRODUCT_ONLINE_GUIDE_GOODS_ONLINE';
+  //在线采购
+DELETE FROM user_guide_step where flow_name = 'PRODUCT_PRICE_GUIDE';
+DELETE FROM user_guide_history where flow_name = 'PRODUCT_PRICE_GUIDE';
+INSERT INTO `user_guide_step` (`id`, `created`, `last_update`, `version`, `name`, `flow_name`, `previous_step`, `next_step`, `is_head`, `is_tail`, `message`, `url`) VALUES (16601, 1364899493507, 1364899493507, 0, 'PRODUCT_PRICE_GUIDE_BEGIN', 'PRODUCT_PRICE_GUIDE', NULL, 'PRODUCT_PRICE_GUIDE_PURCHASE_CENTER', 'TRUE', 'FALSE', '查看报价开始', NULL);
+INSERT INTO `user_guide_step` (`id`, `created`, `last_update`, `version`, `name`, `flow_name`, `previous_step`, `next_step`, `is_head`, `is_tail`, `message`, `url`) VALUES (16602, 1364899493507, 1364899493507, 0, 'PRODUCT_PRICE_GUIDE_PURCHASE_CENTER', 'PRODUCT_PRICE_GUIDE', 'PRODUCT_PRICE_GUIDE_BEGIN', 'PRODUCT_PRICE_GUIDE_PURCHASE', 'FALSE', 'FALSE', '订单中心', 'navigator.do?method=autoAccessoryOnline');
+INSERT INTO `user_guide_step` (`id`, `created`, `last_update`, `version`, `name`, `flow_name`, `previous_step`, `next_step`, `is_head`, `is_tail`, `message`, `url`) VALUES (16603, 1364899493507, 1364899493507, 0, 'PRODUCT_PRICE_GUIDE_PURCHASE', 'PRODUCT_PRICE_GUIDE', 'PRODUCT_PRICE_GUIDE_PURCHASE_CENTER', 'PRODUCT_PRICE_GUIDE_MORE_PRODUCT', 'FALSE', 'FALSE', '商品采购', 'autoAccessoryOnline.do?method=toCommodityQuotations');
+INSERT INTO `user_guide_step` (`id`, `created`, `last_update`, `version`, `name`, `flow_name`, `previous_step`, `next_step`, `is_head`, `is_tail`, `message`, `url`) VALUES (16604, 1364899493507, 1364899493507, 0, 'PRODUCT_PRICE_GUIDE_MORE_PRODUCT', 'PRODUCT_PRICE_GUIDE', 'PRODUCT_PRICE_GUIDE_PURCHASE', NULL, 'FALSE', 'TRUE', '更多供应商报价', 'autoAccessoryOnline.do?method=toCommodityQuotations');
+ jackchen登录后执行：
+     init.do?method=initUserGuideStep
+
+
+2. solr 更新schema和重做索引  order  order_item

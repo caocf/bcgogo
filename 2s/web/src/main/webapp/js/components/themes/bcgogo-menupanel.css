@@ -1,0 +1,28 @@
+.bcgogo_menupanel_mousehit {padding: 0;}
+.bcgogo_menupanel {margin: 0;margin-left: 50px;
+    /*border: solid 1px #aaaaaa;*/
+    display:table;padding: 10px;
+    position:relative;
+    box-shadow: 1px 1px 5px #555;
+    /*background: transparent url("res/menupanel/menupanel_bg.png") repeat;*/
+    background-color: #000000;
+    opacity:0.89;
+    filter: alpha(opacity=89);
+}
+.bcgogo_menupanel .Jarrow_content {height: 6px; }
+.bcgogo_menupanel .Jarrow {
+    background: url(res/menupanel/menupanel_arrow.png) no-repeat;width: 9px;height: 6px;}
+.bcgogo_menupanel .Jarrow_right {float:right;}
+.bcgogo_menupanel .Jarrow_left {float:left;}
+.bcgogo_menupanel .Jrow {margin-bottom: 0px;}
+.bcgogo_menupanel .Jrow .Jcolumn {
+    float:left; margin-right: 5px; /*border: 1px solid #777777;*/padding:15px;/*width: 100px;*/
+    padding-top: 0;
+    line-height: 20px;font-size: 12px;
+}
+.bcgogo_menupanel .Jrow .Jlast {margin-right: 0;}
+.bcgogo_menupanel .Jrow .Jclear {clear: both;float: none;}
+.bcgogo_menupanel .Jrow .Jcolumn a {text-decoration: none;padding-top: 5px;}
+.bcgogo_menupanel .Jrow .Jcolumn .Javailable:hover {text-decoration: underline;color:#ff8310}
+.bcgogo_menupanel .Jrow .Jcolumn .Jtitle {font-weight: bold;color:#fff;display: block;}
+.bcgogo_menupanel .Jrow .Jcolumn .Jitem {color:#a8a8a8;display: block;}

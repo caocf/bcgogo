@@ -1,0 +1,49 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="mazdong" id="customer_card_1">
+        <createTable tableName="customer_card">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="customer_id" type="bigint"/>
+            <column name="card_type" type="bigint"/>
+            <column name="state" type="bigint"/>
+            <column name="wash_remain" type="bigint"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="mazdong" id="customer_card_2">
+        <addPrimaryKey tableName="customer_card" columnNames="id" constraintName="pk_customer_card"/>
+    </changeSet>
+
+    <changeSet author="mazdong" id="customer_card_3">
+        <addColumn tableName="customer_card">
+            <column name="shop_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="customer_card_4">
+        <createIndex tableName="customer_card" indexName="IDX_CUSTOMERCARD_SHOPIDCUSTOMERID">
+            <column name="shop_id" />
+            <column name="customer_id" />
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="customer_card_5">
+    <modifyColumn tableName="customer_card">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

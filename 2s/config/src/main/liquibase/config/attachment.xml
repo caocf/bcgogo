@@ -1,0 +1,30 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhangjuntao" id="attachment_1">
+        <createTable tableName="attachment">
+            <column name="id" type="bigint"/>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="type" type="varchar(50)"/>
+            <column name="name" type="varchar(100)"/>
+            <column name="content" type="mediumblob"/>
+            <column name="memo" type="varchar(500)"/>
+        </createTable>
+        <addPrimaryKey tableName="attachment" columnNames="id" constraintName="pk_attachment"/>
+        <createIndex tableName="attachment" indexName="idx_attachment_shopId_">
+            <column name="shop_id"/>
+            <column name="type"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

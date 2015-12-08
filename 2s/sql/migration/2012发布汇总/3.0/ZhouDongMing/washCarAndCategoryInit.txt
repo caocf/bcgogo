@@ -1,0 +1,3 @@
+各店铺类目、服务初始化
+各店铺洗车卡-->会员卡合并
+http://localhost:8080/web/init.do?method=initWashCardToMember

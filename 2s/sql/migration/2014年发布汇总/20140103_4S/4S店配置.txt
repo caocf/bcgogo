@@ -1,0 +1,57 @@
+
+1.增加shop_version
+执行如下sql:
+bcuser: INSERT INTO `shop_version` (`id`, `created`, `last_update`, `version`, `value`, `name`, `description`, `soft_price`)
+VALUES (100010010000000, 1357467243156, 1357467243156, 0, '4S店专业版', 'FOUR_S_SHOP','4S店专业版','5900');
+
+product库
+insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('100010010000000','1','1','1','200000001','4S店专业版','',5900,'');
+update product.bcgogo_product set show_to_shop_versions = CONCAT(show_to_shop_versions,',100010010000000')   where id = 100000004;
+
+ 2.在Admin中添加config 配置
+ fourSShopVersions                       100010010000000           属于4S店专业版的shopVersion
+
+3.分配权限：
+
+在crm-权限维护-版本维护中 找到4S店专业版：
+保存4S店专业版所含角色：
+查询中心：单据查询全选、对账查询勾选
+待办事项模块：预约管理全选、客服服务类、维修美容类 自定义提醒全选
+车辆施工：除了车辆施工下单据角色以外 其余都勾选
+客户管理：我的客户勾选：合并记录查询、对账查询、新增/修改、查询、对账结算、合并、删除； 短信管理全选、会员套餐管理全选、车型统计全选
+
+消息中心：勾选删除收到的消息、收到的消息
+财务统计：
+  营业分析勾选：分项销售、客户交易；
+  营业统计：营业额统计勾选：洗车统计查询/打印 车辆施工统计查询/打印；会员消费统计全选；营业流水统计勾选
+  应收应付统计：应收款全选
+
+系统管理：系统提醒全选、基本资料下基本资料勾选、员工管理全选、数据导入全选、自定义配置管理：功能配置全选,页面配置勾选； 贷款转账全选
+系统公告全选
+导出权限 全选
+
+在crm 模块-角色-资源维护 中 把供求中心 本店资料整个文件夹 移动到 系统管理 中
+
+
+4.增加用户组
+ 增加用户组：name:老板/财务 memo:所有权限； name:前台 memo:洗车、施工；name:经理/店长 memo:和老板权限一致
+ 老板/财务勾选所有权限
+ 经理/店长勾选所有权限
+
+ 前台勾选：代办事项模块全选、车辆施工全选、客户管理全选、消息中心勾选收到的消息、系统公告勾选、查询中心全选、
+
+5.增加4S店专业版基本权限
+ 在crm-权限维护-模块-角色-资源维护-SHOP中 增加角色 4S店专业版基本权限 name:FOUR_S_SHOP_BASE
+ 复制综合版基本权限到4S店专业版基本权限
+ 删除4S店专业版基本权限 memo为 供应商多联系人、供应商主动推荐、首页和head采购中心、关联供应商四个权限
+ 查找memo为WEB.VERSION.IGNORE_VERIFIER_INVENTORY的资源 添加到 4S店专业版基本权限中
+
+ 增加一下资源到4S店基本权限中
+ WEB_VERSION_FOUR_S_VERSION_BASE        render               WEB.VERSION.FOUR_S_VERSION_BASE    //4S店基本权限
+
+ update bcuser.menu set parent_id=1000000000010001,menu_name='WEB.SYSTEM_SETTINGS.SHOP_DATA_MENU',sort=10 where id=1000000000010002;
+
+
+
+

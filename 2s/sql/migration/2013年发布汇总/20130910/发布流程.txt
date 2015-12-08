@@ -1,0 +1,292 @@
+一.备份现有生产上war包,停掉热备份
+
+二.发布前准备
+1.admin 中 config  配置
+------------------------------------------------（朱星星 start）--------------------------------------------------------
+    ----------------------------------------------开发---------------------------------------------------------------
+    upYun_Domain_Url			   	http://bcgogo-dev.b0.upaiyun.com	                                    图片查看域名
+    upYun_SecretKey	    			wAC+UH58MTDOz6aEqCmZBpXJ9d8=	                                      	密匙
+    upYun_Password	    			bcgogo2012	 													  		密码
+    upYun_Username	    			bcgogo-developer	                                                    操作员账号
+    upYun_Bucket	    			bcgogo-dev															    图片空间名称
+
+-------------------------------------------------测试-----------------------------------------------------------------
+    upYun_Domain_Url			   	http://bcgogo-check.b0.upaiyun.com	                                    图片查看域名
+    upYun_SecretKey	    			OKnWt/4Rbms+oosCeVi2tK1xCL0=	                                      	密匙
+    upYun_Password	    			bcgogo.com	 													  		密码
+    upYun_Username	    			bcgogo	                                                                操作员账号
+    upYun_Bucket	    			bcgogo-check															图片空间名称
+
+-------------------------------------------------生产------------------------------------------------------------------
+    upYun_Domain_Url			   	http://image.bcgogo.com	                                                图片查看域名
+    upYun_SecretKey	    			XQwrBtXYHpam3Y0rtXbkup27u8Y=	                                      	密匙
+    upYun_Password	    			bcgogo.com	 													  		密码
+    upYun_Username	    			bcgogo-online	                                                        操作员账号
+    upYun_Bucket	    			bcgogo-online															图片空间名称
+
+
+---------------------------------------------------三个通用------------------------------------------------------------
+    upYun_Upload_Domain_Url			http://v0.api.upyun.com	                                				图片上传域名
+    upYun_Separator	    		  	!																		图片间隔标志符
+    upYun_NotFindImagePath   	  	/common/NotFindImage.png												默认没有图片的显示
+    upYun_ImagePath               	/{year}/{mon}/{day}/%s/{hour}{min}{sec}-{filemd5}{.suffix}             	图片上传保存路径(%s)用shopId替换
+    upYun_AllowImageType           	jpg,jpeg,png															允许上传的图片格式
+    upYun_Expiration            	30																		过期时间(min)
+
+    RecentlyViewedProductNum           5                                                                       最近浏览商品记录数量
+    RecentlyUsedProductCategoryNum     15                                                                       最近使用的商品分类数量
+------------------------------------------------（朱星星 end）--------------------------------------------------------
+------------------------------------------------（邱鑫宇）--------------------------------------------------------
+     CancelRecommendAssociatedCountLimit     配置的值改为     3
+------------------------------------------------（邱鑫宇）--------------------------------------------------------
+
+2. 数据库更新：
+ 根据Liquibase生成的DDL语句更新表结构.
+
+
+3.初始化
+(1)
+begin;
+update bcuser.menu m set label='上架管理', href='goodsInOffSales.do?method=toInSalingGoodsList' where m.label='商品上架';
+update bcuser.menu set parent_id=1000020045134313,label='本店资料',href='shopData.do?method=toManageShopData',sort=70,menu_name='WEB.ONLINE.SHOP_DATA_MENU' where id=1000000000010002;
+update bcuser.menu set label='基本资料', href='shopData.do?method=toManageShopData',menu_name='WEB.ONLINE.SLEF_SHOP_DATA_MENU' where id=1000000000000001;
+update bcuser.menu set href='shopData.do?method=toShopComment',menu_name='WEB.ONLINE.SHOP_COMMENT_MENU' where id=1000000000010007;
+
+update bcuser.menu set label = '我的销售订单' where label = '待办销售';
+update bcuser.menu set label = '我的销售退货' where label = '在线销售退货';
+update bcuser.menu set label = '我的采购订单' where label = '待办采购单';
+update bcuser.menu set label = '我的入库退货' where label = '在线入库退货';
+
+update bcuser.menu set label = '在线销售订单' where label = '我的销售订单';
+update bcuser.menu set label = '在线销售退货单' where label = '我的销售退货';
+update bcuser.menu set label = '在线采购订单' where label = '我的采购订单';
+update bcuser.menu set label = '在线入库退货单' where label = '我的入库退货';
+
+delete from bcuser.menu where menu_name = 'AUTO_ACCESSORY_ONLINE_RETURN_ONLINE';
+
+commit;
+
+(2)product库        (朱星星)
+    update product.product_category set status='ENABLED';
+    update product.product_local_info as pli set pli.in_sales_price=pli.trade_price where pli.sales_status='InSales';
+    update product.product_local_info set in_sales_unit=sell_unit where last_in_sales_time is not null;
+
+(3)config库
+    image_version_config.sql
+
+(4)txn库
+    update txn.sales_order as so set so.customer_shop_id=(select po.shop_id from txn.purchase_order po where po.id = so.purchase_order_id);
+
+(5)删除待处理在线销售单
+-- config库
+delete from config.operation_log where object_id in (select id from txn.sales_order where status_enum = 'PENDING');
+
+-- search库
+delete from search.order_index where order_id in (select id from txn.sales_order where status_enum = 'PENDING');
+delete from search.item_index where order_id in (select id from txn.sales_order where status_enum = 'PENDING');
+
+-- txn库
+delete from txn.sales_order_item where sales_order_id in (select id from sales_order where status_enum = 'PENDING');
+delete from txn.sales_order where status_enum = 'PENDING';
+
+(6)config库
+update shop_contact sc, shop s set sc.name = s.legal_rep
+where sc.is_shop_owner = 1 and sc.shop_id = s.id and (sc.name is null or sc.name = '' or sc.name = '\0') and s.legal_rep is not null;
+
+(7)bcuser 库
+update customer set cancel_recommend_associated_count = 0;
+update supplier set cancel_recommend_associated_count = 0;
+4. Solr Schema更新：
+   (1)替换product的schema.xml
+   (2)替换suggestion 下的schema.xml
+   (3)替换order  下的schema.xml
+三.发布应用
+
+四.配置权限
+CRM -- shop操作权限 -- 数据初始化
+shop_contact_migrate_bugFix            /web/init.do?method=initShopContactBugFix                SHOP   店铺联系人的数据BugFix    request
+
+
+ name                                  value                                                            memo                   type             SystemType
+===============================================================================================================================================
+-----------------------------------------------------手机重复提示------------------------------------------------------------------------------
+SHOP-供应商管理-供应商列表-我的供应商-查询供应商
+getSuppliersByMobile                   /web/customer.do?method=getSuppliersByMobile       通过手机获得对应的供应商    request      shop
+SHOP-客户管理-客户列表-我的客户-查询
+getCustomersByMobile                  /web/customer.do?method=getCustomersByMobile        通过手机获得对应的客户      request      shop
+-----------------------------------------------------本店资料----------------------------------------------------------------------------------
+shop-供求中心-----本店资料----本店资料查询(new)，分配到汽修，汽配
+web_online_shop_toManageShopData            /web/shopData.do?method=toManageShopData     跳转到本店资料信息          request       shop
+web_online_shop_getShopData                 /web/shopData.do?method=getShopData          获取本店资料信息            request       shop
+WEB_SHOP_DATA_RENDER                        WEB.AUTOACCESSORYONLINE.SHOP_DATA            本店资料                    render         shop;
+shop-供求中心-----本店资料----本店资料修改(new)，分配到汽修，汽配
+web_online_shop_saveShopInfo                /web/shopData.do?method=saveShopInfo         更新本店资料                request        shop
+web_online_shop_saveShopContacts            /web/shopData.do?method=saveShopContacts     更新本店联系人              request        shop
+web_online_shop_saveOwnShopBusinessLicenseImageRelation       /web/shopData.do?method=saveOwnShopBusinessLicenseImageRelation       上传营业执照   request        shop
+web_online_shop_saveOwnShopImageRelation                     /web/shopData.do?method=saveOwnShopImageRelation       上传店铺照片   request        shop
+
+shop-供求中心-----本店资料----评分(new) ，分配到汽修，汽配
+web_online_shop_toShopComment               /web/shopData.do?method=toShopComment            跳转到店铺评分                request       shop
+web_online_shop_getShopComment             /web/shopData.do?method=getShopComment           获取店铺评分                  request       shop
+
+shop-供求中心-----本店资料----本店评价（new），分配到汽配店
+WEB_SHOP_COMMENT_RENDER                    WEB.AUTOACCESSORYONLINE.SHOP_COMMENT  本店评分显示                  render         shop;
+
+----------------------------------------------------------- 上架 -----------------------------------------------------------------------------
+shop--供求中心--我要卖配件--商品上架--修改
+ web_online_toGoodsInSalesEditor               /web/goodsInOffSales.do?method=toGoodsInSalesEditor         跳转到商品上架编辑界面         request   shop
+ web_online_toBatchGoodsInSalesEditor          /web/goodsInOffSales.do?method=toBatchGoodsInSalesEditor    跳转到商品批量上架编辑界面     request   shop
+ web_online_toGoodsInSalesFinish               /web/goodsInOffSales.do?method=toGoodsInSalesFinish         跳转到上架成功界面             request   shop
+ web_online_saveGoodsInSales                   /web/goodsInOffSales.do?method=saveGoodsInSales             保存单个商品上架               request   shop
+ web_online_toPreviewShopProductDetail         /web/goodsInOffSales.do?method=toPreviewShopProductDetail   上架预览                       request   shop
+ web_online_batchSaveGoodsInSales              /web/goodsInOffSales.do?method=batchSaveGoodsInSales        批量保存上架商品               request   shop
+ web_online_validateSavePromotionsForInSales   /web/promotions.do?method=validateSavePromotionsForInSales  验证保存促销信息               request   shop
+ web_online_savePromotionsForInSales           /web/promotions.do?method=savePromotionsForInSales          保存上架商品的促销信息         request   shop
+
+ web_deleteProductImageRelation             /web/product.do?method=deleteProductImageRelation           删除商品图片        request   shop
+ web_saveProductImageRelation               /web/product.do?method=saveProductImageRelation            保存商品图片        request   shop
+
+
+ shop--供求中心--我要卖配件--商品上架--查询
+ web_online_toInSalingGoodsList                /web/goodsInOffSales.do?method=toInSalingGoodsList          跳转到上架商品列表     request   shop
+ web_online_toUnInSalingGoodsList              /web/goodsInOffSales.do?method=toUnInSalingGoodsList        跳转到仓库中商品列表   request   shop
+ web_online_getStockProductStat                /web/goodsInOffSales.do?method=getStockProductStat          获取商品统计           request   shop
+ web_online_getProductDetail                   /web/goodsInOffSales.do?method=getProductDetail             获取上架商品详细       request   shop
+
+  shop--供求中心--促销--汽配管理
+  web_online_getPromotionDetail            /web/promotions.do?method=getPromotionDetail             获取促销详细        request   shop
+  web_online_getPromotionsSuggestion       /web/promotions.do?method=getPromotionsSuggestion        获取促销建议        request   shop
+  web_online_getProductPromotionDetail         /web/promotions.do?method=getProductPromotionDetail  获取商品促销详细               request   shop
+
+ shop-供求中心-编辑商品(new) ,分配到汽修和汽配的老板，经理
+ web_updateMultipleGuaranteePeriod         /web/product.do?method=updateMultipleGuaranteePeriod         批量更新质保时间        request   shop
+ web_updateMultipleInSalesPrice            /web/product.do?method=updateMultipleInSalesPrice            批量更新上架售价        request   shop
+
+
+shop--登录后基本权限（朱星星）
+web_getProductCategorySuggestion             /web/searchInventoryIndex.do?method=getProductCategorySuggestion                 商品标准分类下拉建议     request       shop
+web_getProductCategoryDetailList             /web/searchInventoryIndex.do?method=getProductCategoryDetailList                 商品标准分类搜索         request       shop
+web_getAllProductCategorySelectorData        /web/searchInventoryIndex.do?method=getAllProductCategorySelectorData            商品标准分类数据         request       shop
+web_getProductCategoryExactByName            /web/searchInventoryIndex.do?method=getProductCategoryExactByName                根据名称找商品标准分类         request       shop
+web_getProducts                              /web/product.do?method=getProducts                                               查询商品                 request       shop
+web_getServiceTime                           /web/txn.do?method=getServiceTime                                                获取服务器时间           request       shop
+
+----------------------------------------------------------- SHOP数据初始化（朱星星） -----------------------------------------------------------------------------
+CRM--SHOP数据操作权限--SHOP数据初始化
+web_initOldImageToUpYun              /web/init.do?method=initOldImageToUpYun          初始化店铺照片    shop request
+CRM--SHOP数据操作权限--SHOP数据初始化   （邱鑫宇）
+web_initShopCustomerSupplierSync     /web/init.do?method=initShopCustomerSupplierSync 店铺同步初始化   shop request
+
+
+
+----------------------------------------------------------- 图片上传出错日志记录（朱星星） -----------------------------------------------------------------------------
+shop--登录后基本权限
+web_saveImageErrorLog               /web/upYun.do?method=saveImageErrorLog              保存图片上传出错后的错误日志    request   shop
+
+----------------------------------------------------------- 配件报价（朱星星） -----------------------------------------------------------------------------
+shop--供求中心--配件报价
+web_autoAccessoryOnline_saveRecentlyViewedProduct               /web/autoAccessoryOnline.do?method=saveRecentlyViewedProduct             保存最近浏览商品记录    request   shop
+
+
+------------------------------------------------------------  朱健   -----------------------------------------
+	新增资源
+
+
+    店铺资料:
+    SHOP_MSG_DETAIL_SHOW  /web/shopMsgDetail.do?method=renderShopMsgDetail SHOP 汽配版店铺资料页面	request
+    SHOP_PRODUCT_LIST_QUERY /web/shopMsgDetail.do?method=getProductCategoryListSimpleJsonFormat SHOP 查询某个店面的在线商品列表 request
+    SHOP_PRODUCT_DETAIL   /web/shopProductDetail.do?method=toShopProductDetail    SHOP    店面商品详情页面    request
+    以上添加到 登陆后的基本权限
+
+    我要买配件:
+    PRE_ORDER_MAIN /web/preBuyMain.do?method=toPreBuyMain SHOP 我要买配件 request
+    SHOP-供求中心-我要买配件 -> 新增角色 买配件主页   所有版本都有这个权限
+
+    我要卖配件
+    PRE_ORDER_SELL_MAIN /web/preSellMain.do?method=toPreSellMain SHOP 我要卖配件 request
+    SHOP-供求中心-我要卖配件 -> 新增角色 卖配件主页   汽配版
+
+    供求中心 - 订单中心：
+    新增角色 在线销售退货单查询 （角色赋给 所有版本的 老板、经理、前台）
+    ONLINE_SALES_RETURN_ORDER_SEARCH  /web/onlineSalesReturnOrder.do?method=toOnlineSalesReturnOrder SHOP 在线销售退货单查询 request
+    DO_ONLINE_SALES_RETURN_ORDER_SEARCH /web/onlineSalesReturnOrder.do?method=onlineSalesReturnOrderSearch SHOP  在线销售退货单的ajax查询 request
+
+    新增角色 在线入库退货单查询 （角色赋给 所有版本的 老板、经理、仓管）
+    DO_ONLINE_PURCHASE_RETURN_ORDER_SEARCH /web/onlinePurchaseReturnOrder.do?method=onlinePurchaseReturnOrderSearch SHOP 在线入库退货订单ajax查询 request
+    ONLINE_PURCHASE_RETURN_ORDER_SEARCH  /web/onlinePurchaseReturnOrder.do?method=toOnlinePurchaseReturnOrder SHOP 跳转到在线入库退货单查询 request
+
+    初始化product_history表的in_sales_price
+    update txn.product_history as ph set ph.in_sales_price=ph.trade_price;
+    初始化销售退货单里面的customer_shop_id字段
+    UPDATE txn.purchase_return  pr, txn.sales_return sr SET sr.customer_shop_id = pr.shop_id WHERE sr.purchase_return_order_id = pr.id;
+
+    重做索引
+    重做入库退货单的索引
+
+    更新我要买配件 我要卖配件的菜单链接
+    update bcuser.menu set href='preBuyMain.do?method=toPreBuyMain' where menu_name= 'WEB.AUTOACCESSORYONLINE.BUY_ACCESSORY.BASE'; -- 我要买配件
+    update bcuser.menu set href='preSellMain.do?method=toPreSellMain' where menu_name= 'WEB.AUTOACCESSORYONLINE.SALES_ACCESSORY.BASE'; -- 我要卖配件
+
+    更新在线销售退货和在线入库退货菜单链接
+    update bcuser.menu set href='onlineSalesReturnOrder.do?method=toOnlineSalesReturnOrder',label='在线销售退货' where menu_name= 'WEB.SCHEDULE.REMIND_ORDERS.SALE_RETURN'; --在线销售退货
+    update bcuser.menu set href='onlinePurchaseReturnOrder.do?method=toOnlinePurchaseReturnOrder',label='在线入库退货' where menu_name= 'WEB.SCHEDULE.REMIND_ORDERS.PURCHASE_RETURN';--在线入库退货
+
+------------------------------------------------------------ 朱健    ------------------------------------------
+
+------------------------------------------------------------  邱鑫宇在线采购单查询列表   -----------------------------------------
+    角色：客户管理-我的客户-删除
+    资源：web_customer_validateDeleteCustomer   /web/customer.do?method=validateDeleteCustomer    SHOP    删除客户校验    request
+
+    角色：客户管理-我的客户-新增/修改
+    资源：web_customer_validateCustomerMobiles    /web/customer.do?method=validateCustomerMobiles    SHOP    校验客户手机号    request
+
+    角色：供应商管理-我的供应商-新增供应商；供应商管理-我的供应商-资料修改
+    资源：web_supplier_validateSupplierMobiles    /web/supplier.do?method=validateSupplierMobiles    SHOP    校验供应商手机号    request
+
+    角色：供求中心-订单中心-代办采购
+    资源：web_autoAccessoryOnline_onlinePurchaseOrderCount    /web/orderCenter.do?method=getOnlinePurchaseOrderCount    SHOP    代办采购单统计信息    request
+    资源：web_autoAccessoryOnline_getOnlinePurchaseOrders    /web/orderCenter.do?method=getOnlinePurchaseOrders    SHOP    代办在线采购单查询    request
+
+    角色：进销存-销售单-接受/拒绝
+    资源：web_sale_acceptPendingPurchaseOrder  /web/sale.do?method=acceptPendingPurchaseOrder   SHOP    接受待处理的采购单
+    资源：web_sale_refusePendingPurchaseOrder  /web/sale.do?method=refusePendingPurchaseOrder   SHOP    拒绝待处理的采购单
+------------------------------------------------------------  end 在线采购单查询列表  -----------------------------------------
+
+
+------------------------------------------------------------  供应商申请关联 邱鑫宇   -----------------------------------------
+在'汽配专业版基本权限','汽配豪华版基本权限','汽配标准版基本权限','汽配版基本权限' 三个角色下添加资源 name:“web_supplier_applySupplierRelation”
+------------------------------------------------------------  供应商申请关联end   -----------------------------------------
+------------------------------------------------------------  金远在线销售单查询列表   -----------------------------------------
+角色：供求中心-订单中心-代办销售
+
+     资源：web_autoAccessoryOnline_getOnlineSaleOrders    /web/orderCenter.do?method=getOnlineSaleOrders    SHOP    代办在线销售单查询    request
+     资源：web_autoAccessoryOnline_getOnlineSaleNewOrders    /web/orderCenter.do?method=getOnlineSaleNewOrders    SHOP    代办在线销售新订单查询    request
+     资源：web_autoAccessoryOnline_toOnlinePendingPurchaseOrder     /web/sale.do?method=toOnlinePendingPurchaseOrder  SHOP 代办销售单新订单查询采购单   request
+     资源：web_autoAccessoryOnline_getOnlineSaleOrderCount    /web/orderCenter.do?method=getOnlineSaleOrderCount      SHOP   在线销售单的统计值   request
+     资源：web_autoAccessoryOnline_getShortageProducts        /web/storage.do?method=getShortageProducts        SHOP    新订单缺料跳转           request
+     资源：web_autoAccessoryOnline_getPendingPurchaseOrderToPrint       /web/sale.do?method=getPendingPurchaseOrderToPrint  SHOP    新订单打印      request
+     删除资源：value值为：WEB.AUTOACCESSORYONLINE.PURCHASE.RETURN
+
+配置打印模板：
+    进Admin后台，打印模板，上传新模板
+    模板类型：采购订单(注意：不是采购单)
+    模板名称：销售新订单130926
+    显示名称：销售新订单130926
+    浏览，选择 3.0---> sql----> 打印模板---->default_改---->在线采购订单.html
+    点击‘上传文件’
+
+------------------------------------------------------------  end 在线销售单查询列表  -----------------------------------------
+
+在 供求中心-我要买配件-我的求购-求购列表  中添加：
+WEB_SUPPLIER_DEMAND_MY_PRE_ORDER_RENDER    WEB.SUPPLIER_DEMAND.MY_PRE_ORDER_BLOCK      SHOP      我要买配件-我的求购模块    render
+
+五.jackchen 数据初始化
+/web/init.do?method=initShopContactBugFix
+
+config 库数据初始化  UPDATE wholesaler_shop_relation set relation_type = 'RELATED' where relation_type is null;（邱鑫宇）
+/web/init.do?method=initOldImageToUpYun              （朱星星）
+/web/init.do?method=initShopCustomerSupplierSync     （邱鑫宇）
+
+
+六.solr 重做索引
+   重建商品 重建施工项目索引  重建车牌号索引  重建经营范围索引，重建所有单据的索引

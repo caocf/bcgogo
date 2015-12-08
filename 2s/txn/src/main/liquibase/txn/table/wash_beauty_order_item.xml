@@ -1,0 +1,71 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="zhoudongming" id="wash_beauty_order_item_1">
+    <createTable tableName="wash_beauty_order_item">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="wash_beauty_order_id" type="bigint"/>
+      <column name="service_id" type="bigint"/>
+      <column name="pay_type" type="varchar(20)"/>
+      <column name="price" type="float"/>
+      <column name="memo" type="varchar(500)"/>
+      <column name="reserved" type="float"/>
+      <column name="shop_id" type="bigint"/>
+      <column name="percentage" type="double"/>
+      <column name="percentage_amount" type="double"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="wash_beauty_order_item_2" author="zhoudongming">
+    <addPrimaryKey tableName="wash_beauty_order_item" columnNames="id" constraintName="pk_wash_beauty_order_item"/>
+  </changeSet>
+
+  <changeSet id="wash_beauty_order_item_3" author="zhoudongming">
+    <createIndex tableName="wash_beauty_order_item" indexName="IDX_REPAIRORDER_ORDERID">
+      <column name="wash_beauty_order_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="wash_beauty_order_item_4" author="zhoudongming">
+    <addColumn tableName="wash_beauty_order_item">
+      <column name="sales_man_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="wash_beauty_order_item_5" author="jimuchen">
+    <renameColumn tableName="wash_beauty_order_item" oldColumnName="sales_man_id" newColumnName="sales_man_ids" columnDataType="varchar(150)"/>
+    <addColumn tableName="wash_beauty_order_item">
+      <column name="sales_man" type="varchar(100)" />
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="wash_beauty_order_item_6" author="chenfanglei">
+      <addColumn tableName="wash_beauty_order_item">
+          <column name="business_category_id" type="bigint"></column>
+          <column name="business_category_name" type="varchar(200)"></column>
+      </addColumn>
+  </changeSet>
+
+  <changeSet id="wash_beauty_order_item_7" author="jimuchen">
+      <addColumn tableName="wash_beauty_order_item">
+          <column name="service_history_id" type="bigint" />
+      </addColumn>
+  </changeSet>
+
+    <changeSet id="wash_beauty_order_item_8" author="jimuchen">
+        <addColumn tableName="wash_beauty_order_item">
+            <column name="coupon_type" type="varchar(200)"/>
+            <column name="coupon_no" type="varchar(200)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

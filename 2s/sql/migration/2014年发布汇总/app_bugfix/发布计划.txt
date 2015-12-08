@@ -1,0 +1,26 @@
+一.备份现有生产上war包,停掉热备份
+二.发布前准备
+1. 数据库修改：
+ALTER TABLE txn.appoint_order MODIFY remark VARCHAR(1500) CHARACTER SET utf8mb4;
+ALTER TABLE bcuser.app_user_feed_back MODIFY content VARCHAR(2000) CHARACTER SET utf8mb4;
+ALTER TABLE txn.comment_record MODIFY comment_content VARCHAR(1500) CHARACTER SET utf8mb4;
+
+三.发布应用
+
+四.配置
+1. admin->配置
+    (1)config 配置
+            name                             value                                                 描述
+        AppRemainOilMassWarn                  15_25                                               车主剩余油量提醒配置,单位为%
+        AppVehicleErrorCodeWarnIntervals      24                                                  app故障码提醒周期,单位小时
+
+
+2. 权限：
+供求中心--本店资料--本店资料查询。 新增：
+web_online_shop_printRQ             /web/shopData.do?method=printShopRQ         SHOP        打印本店二维码             request
+web_online_shop_getShopRqImage      /web/shopData.do?method=getShopRqImage      SHOP        生成本店二维码图片         request
+
+shop-供求中心-----本店资料----本店评价（new），分配到汽修
+
+ CRM ------SHOP操作权限------SHOP数据初始化   新增资源
+ （新）initErrorImagePath    /web/init.do?method=initErrorImagePath     初始化image     request  shop

@@ -1,0 +1,33 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="ZhangJuntao" id="push_message_feedback_record_ZhangJuntao_1">
+        <createTable tableName="push_message_feedback_record_trace">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="message_id" type="bigint"/>
+            <column name="create_time" type="bigint"/>
+            <column name="type" type="varchar(50)"/>
+
+        </createTable>
+
+        <addPrimaryKey tableName="push_message_feedback_record_trace" columnNames="id"
+                       constraintName="pk_push_message_feedback_record"/>
+
+        <createIndex tableName="push_message_feedback_record_trace" indexName="IDX_MESSAGE_ID_AND_SHOP_ID">
+            <column name="message_id"/>
+            <column name="shop_id"/>
+        </createIndex>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,36 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xzhu" id="quoted_pre_buy_order_xzhu_1">
+        <createTable tableName="quoted_pre_buy_order">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+
+            <column name="editor_id" type="bigint"/>
+            <column name="editor" type="varchar(20)"/>
+            <column name="edit_date" type="bigint"/>
+
+            <column name="vest_date" type="bigint"/>
+            <column name="pre_buy_order_id" type="bigint"/>
+            <column name="customer_shop_id" type="bigint"/>
+            <column name="customer_shop_name" type="varchar(200)"/>
+            <column name="memo" type="varchar(500)"/>
+
+            <column name="deleted" type="varchar(20)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="quoted_pre_buy_order_xzhu_2" author="xzhu">
+        <addPrimaryKey tableName="quoted_pre_buy_order" columnNames="id" constraintName="pk_quoted_pre_buy_order"/>
+    </changeSet>
+</databaseChangeLog>

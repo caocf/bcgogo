@@ -1,0 +1,135 @@
+.i_history{
+  float:left;
+  width:1000px;
+}
+.i_history .i_upCenter{
+  width:988px;
+}
+.i_history .i_upCenter .i_note{
+  width:930px;
+}
+.i_history .i_upBody{
+  width:80%;
+  padding: 10px 20px 10px 30px;
+}
+.i_history .i_upBottom .i_upBottomCenter{
+  width:980px;
+}
+
+.tabMerge{
+  float:right;
+  font-size:12px;
+  font-weight:normal;
+  border-collapse: collapse;
+  *table-layout: fixed;
+  width:98%;
+  color:#515151;
+}
+.tabMerge td{
+  border:1px solid #d5d5d5;
+  padding-left:10px;
+  height:28px;
+}
+.tabMerge .tab_title{
+  background:url(../images/tab_bg.png) repeat-x;
+  height:28px;
+  line-height:28px;
+  color:#0076CC;
+}
+.tabMerge td.tab_title{
+  text-align:center;
+  padding:0px;
+}
+.tabMerge td.tab_cars{
+  color:#0076CC;
+  padding-left:15px;
+}
+.tabMerge td.tab_cars span{
+  font-weight:bold;
+}
+.tabMereCus td{
+  border:none;
+  border-bottom:1px solid #d5d5d5;
+}
+.tabMereCus tr{
+  border-right:1px solid #d5d5d5;
+  border-left:1px solid #d5d5d5;
+}
+.tabMereCus td.tab_title{
+  text-align:left;
+  padding-left:10px;
+}
+.tabMerge .tab_title .radCheck,.tabMerge .tab_title .radNormal,.tabMerge .radCheck,.tabMerge .radNormal{
+  background:url(../images/radCheck.png) no-repeat center center;
+  float:left;
+  width:14px;
+  height:13px;
+  margin-left:-25px;
+  margin-top:8px;
+}
+.tabMerge .tab_title .radNormal, .tabMerge .radNormal{
+  background:url(../images/rad.png) no-repeat center center;
+}
+.tabMerge_selected{
+  border:3px solid #83B3D8;
+}
+.btnClick{
+  margin:0 auto;
+  width:178px;
+}
+
+.btnClick input{
+  background:url(../images/btn_tong.png) no-repeat;
+  width:76px;
+  height:25px;
+  line-height:25px;
+  text-align:center;
+  color:#484848;
+  border:none;
+  margin-right:10px;
+  cursor:pointer;
+}
+
+.btnClick input:hover{
+  background:url(../images/btn_ti.png) no-repeat;
+  color:#FFFFFF;
+}
+.tabMerge .tab_title{
+  border-top:1px solid #d5d5d5;
+}
+.tabMerge .radCheck,.tabMerge .radNormal{
+  margin:0px;
+}
+
+.nameTitle{
+  color: #A62D38;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.selectedBorder{
+ border: 1px;
+}
+
+.mergeConfirm{
+  margin:0 auto;
+  width:178px;
+}
+
+.mergeConfirm input{
+  background:url(../images/btn_tong.png) no-repeat;
+  width:76px;
+  height:25px;
+  line-height:25px;
+  text-align:center;
+  color:#484848;
+  border:none;
+  margin-right:10px;
+  cursor:pointer;
+}
+
+.mergeConfirm input:hover{
+  background:url(../images/btn_ti.png) no-repeat;
+  color:#FFFFFF;
+}
+

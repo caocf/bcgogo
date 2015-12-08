@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+.i_supplierInfo .i_two{width:866px;}
+.more_supplier{width:870px;}
+ .i_supplierInfo .i_upCenter .more_title{width:807px;}
+ .more_supplier .i_upBottom .i_upBottomCenter{width:858px;}
+.more_supplier .i_upBody{width:848px;}
+.search_his{ float:right; margin:10px 10px 0px 0px ;*margin:10px 47px 0px 0px ;}
+.table2{width:850px;}
+.i_main{width:857px;}
+.his_search ul li input { width: 300px;}
+.his_search ul li { margin-right:5px;width:440px;}
+.his_search ul li{ margin-bottom:10px;}
+.his_search ul li label {
+	width:65px;
+}
+.i_main .i_leftBtn{ float:right;}
+.i_main .qian_blue{color:#6699cc;}
+.today_list .his_now {
+	top:10px;
+}
+.i_upBody .i_main{ margin:0px;}
+.his_first{ margin-left:0px;}
+
+.today_list {
+
+	margin-right:28px;
+}
+.car_main{ }
+.car_main .time_search{ width:509px; float:left; margin-top:10px;}
+/*商品历史记录查询*/
+.his_search ul {
+	width:450px;
+}
+.table2 .qian_red{color:#a62d38; }
+.his_search .car_main .his_list{ float:left;width:150px; margin:0px;}

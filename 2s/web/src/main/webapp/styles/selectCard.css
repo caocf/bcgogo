@@ -1,0 +1,100 @@
+.i_searchBrand .i_upBody{
+	width:720px;
+	color:#000000;
+	font-family:"宋体";
+	font-weight:normal;
+	padding-right:10px;
+}
+.i_searchBrand .i_upCenter{
+	width:738px;
+}
+.i_searchBrand .i_upCenter .i_note{
+	width:690px;
+}
+.i_upBottom .i_upBottomCenter{
+	width:730px;
+}
+
+.moneyTotal{
+	float:left;	
+}
+.moneyTotal .total{
+	float:left;
+	padding-right:20px;
+}
+.span{
+	color:#A62D38;
+	font-weight:bold;
+}
+.tabTotal{
+	width:100%;
+	table-layout:fixed;
+	font-weight:normal;
+	
+}
+.tabTotal tr td {
+    height: 30px;
+	line-height:30px;
+}
+.btnInput{
+	float:right;
+    width:720px;
+}
+.btnInput input{
+	background:url(../images/chkTong.png) no-repeat;
+	width:76px;
+	height:25px;
+	line-height:25px;
+	text-align:center;
+	color:#ffffff;
+	font-weight:bold;
+	border:none;
+	cursor:pointer;
+}
+.selRad{
+	float:left;
+}
+.basicMember{
+	height:130px;
+	overflow:hidden;
+	overflow-y:scroll;
+}
+.basicMember .washCard img{
+	padding-left:10px;
+}
+.basicMember .selectBg{
+	background:#EBEBE4;
+}
+.basicMember .cardWords .txtPrice{
+	background:transparent;
+}
+
+.i_searchBrand {
+    width: 745px;
+}
+
+.basicMember .cardWords{
+	width:600px;
+	height:100%;
+	word-break:normal;
+  word-wrap: break-word;
+
+}
+.basicMember .cardWords{
+	width:600px;
+	height:100%;
+	word-break:normal;
+  word-wrap: break-word;
+}
+
+.i_searchBrand .btnInput .buycard {
+    background: url("../images/quickBuyCard.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 28px;
+    width: 100px;
+}
+
+
+
+

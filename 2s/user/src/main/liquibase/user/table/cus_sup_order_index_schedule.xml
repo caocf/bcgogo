@@ -1,0 +1,29 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="jinyuan" id="cus_sup_order_index_schedule_1">
+        <createTable tableName="cus_sup_order_index_schedule" >
+            <column name="id" type="bigint"/>
+            <column name="version" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="customer_id" type="bigint"/>
+            <column name="supplier_id" type="bigint"/>
+            <column name="created_time" type="bigint"/>
+            <column name="finished_time" type="bigint"/>
+            <column name="exe_status" type="varchar(50)"/>
+        </createTable>
+
+        <addPrimaryKey tableName="cus_sup_order_index_schedule" columnNames="id" constraintName="pk_cus_sup_order_index_schedule"/>
+    </changeSet>
+
+</databaseChangeLog>

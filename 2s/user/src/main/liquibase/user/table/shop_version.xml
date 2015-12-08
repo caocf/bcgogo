@@ -1,0 +1,32 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhangjuntao" id="shop_version_1_zhangjuntao">
+        <createTable tableName="shop_version">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="varchar(100)"/>
+            <column name="name" type="varchar(100)"/>
+        </createTable>
+        <addPrimaryKey tableName="shop_version" columnNames="id" constraintName="pk_shop_version"/>
+    </changeSet>
+    <changeSet author="zhangjuntao" id="shop_version_2_zhangjuntao">
+        <addColumn tableName="shop_version">
+            <column name="description" type="varchar(200)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="qiuxinyu" id="shop_version_3_qiuxinyu">
+        <addColumn tableName="shop_version">
+            <column name="soft_price" type="int"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

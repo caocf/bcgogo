@@ -1,0 +1,21 @@
+权限配置:
+进销存-入库退货单-作废   新增:
+purchaseReturnRepeal        /web/goodsReturn.do?method=repeal    入库退货单作废(非在线)   request     SHOP
+purchaseReturnRepealValidate        /web/goodsReturn.do?method=validateRepeal    非在线入库退货单作废前检验   request         SHOP
+
+进销存-销售管理-销售退货单
+新增角色：作废. 配置：所有已具备销售退货单权限的版本、用户组
+salesReturnRepeal     WEB.TXN.SALE_MANAGE.RETURN.REPEAL     销售退货单作废显示     render      SHOP
+salesReturnRepealRequest    /web/salesReturn.do?method=repeal     销售退货单作废     request       SHOP
+validateSalesReturnRepeal     /web/salesReturn.do?method=validateRepeal     销售退货单作废验证     request     SHOP
+
+ shop-进销存--销售管理--销售单--查询
+ web_sale_toSalesOrder /web/sale.do?method=toSalesOrder 查看销售单  request   shop
+
+ web_print_printAssistantStat          /web/assistantStat.do?method=printAssistantStat   打印员工业绩统计  request   shop
+ web_print_printAssistantMember        /web/assistantStat.do?method=printAssistantMember  打印会员卡业绩统计  request   shop
+ web_print_printAssistantService       /web/assistantStat.do?method=printAssistantService  车辆施工业绩统计  request   shop
+ web_print_printAssistantProduct       /web/assistantStat.do?method=printAssistantProduct  商品销售业绩统计  request   shop
+
+ 进入后台admin ，导入打印模板
+ 模板路径：sql/打印模板/default_超级管理统计打印/员工业绩统计

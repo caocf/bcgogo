@@ -1,0 +1,48 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="liuWei" id="assistant_stat_1">
+        <createTable tableName="assistant_stat">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="stat_year" type="bigint"/>
+            <column name="stat_month" type="bigint"/>
+            <column name="stat_day" type="bigint"/>
+            <column name="stat_week" type="bigint"/>
+            <column name="stat_sum" type="numeric(18,2)"/>
+            <column name="sales" type="float"/>
+            <column name="wash" type="float"/>
+            <column name="service" type="float"/>
+            <column name="assistant" type="varchar(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="liuWei" id="assistant_stat_2">
+        <addPrimaryKey tableName="assistant_stat" columnNames="id" constraintName="pk_assistant_stat"/>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="assistant_stat_3">
+    <modifyColumn tableName="assistant_stat">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+   <changeSet id="assistant_stat_4" author="liuWei">
+    <addColumn tableName="assistant_stat">
+      <column name="member_income" type="double"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

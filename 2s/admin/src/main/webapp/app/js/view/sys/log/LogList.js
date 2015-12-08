@@ -1,0 +1,121 @@
+Ext.define('Ext.view.sys.log.LogList', {
+    extend:'Ext.grid.Panel',
+    alias:'widget.sysLogList',
+    store:'Ext.store.sys.CRMOperationLogs',
+    autoScroll:true,
+    columnLines:true,
+    stripeRows:true, //每列是否是斑马线分开
+    forceFit:true, //自动填充，即让所有列填充满gird宽度
+    multiSelect:true, //可以多选
+    autoHeight:true,
+    dockedItems:[
+        {
+            xtype:'toolbar',
+            dock:'top',
+            id:'searchLogComponent',
+            items:[
+                {
+                    xtype:"textfield",
+                    emptyText:"模块",
+                    width:100,
+                    name:'module'
+                },
+                {
+                    xtype:"textfield",
+                    emptyText:"操作类型",
+                    width:100,
+                    name:'type'
+                },
+                {
+                    xtype:"textfield",
+                    emptyText:"操作内容",
+                    width:100,
+                    name:'content'
+                },
+                {
+                    xtype:"textfield",
+                    emptyText:"账号",
+                    width:100,
+                    name:'userNo'
+                },
+                {
+                    xtype:"textfield",
+                    emptyText:"IP地址",
+                    width:100,
+                    name:'ipAddress'
+                },
+                {
+                    xtype:"datefield",
+                    emptyText:"开始",
+                    format: 'Y-m-d',
+                    width:100,
+                    name:'operateTimeStart'
+                },
+                "至",
+                {
+                    xtype:"datefield",
+                    emptyText:"结束",
+                    width:100,
+                    format: 'Y-m-d',
+                    name:'operateTimeEnd'
+                },
+                "-",
+                {
+                    text:"查询",
+                    xtype:'button',
+                    action:'search',
+                    iconCls:"icon-search",
+                    tooltip:"根据条件查询用户信息",
+                    scope:this
+                }
+            ]
+        },
+        {
+            dock:'bottom',
+            xtype:'pagingtoolbar',
+            store:'Ext.store.sys.CRMOperationLogs',
+            displayInfo:true
+        }
+    ],
+    initComponent:function () {
+        var me = this;
+        Ext.apply(me, {
+            columns:[
+                {
+                    header:'No.',
+                    xtype:'rownumberer',
+                    sortable:false,
+                    width:25
+                },
+                {
+                    header:'用户账号',
+                    dataIndex:'userNo'
+                },
+                {
+                    header:'IP地址',
+                    dataIndex:'ipAddress'
+                },
+                {
+                    header:'操作模块',
+                    dataIndex:'module'
+                },
+                {
+                    header:'操作类型',
+                    dataIndex:'type'
+                },
+                {
+                    header:'操作内容',
+                    dataIndex:'content'
+                },
+                {
+                    header:'操作时间',
+                    dataIndex:'operateTime',
+                    renderer:function (val, style, rec, index) {
+                        return val ? Ext.Date.format(new Date(Number(val)), 'Y-m-d') : "";
+                    }
+                }
+            ]
+        });
+        this.callParent(arguments);
+    }
+});

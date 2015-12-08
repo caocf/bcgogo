@@ -1,0 +1,118 @@
+ 一.备份现有生产上war包（纪友文）,停掉热备份
+
+ 二.发布前准备
+    etl库
+
+    CREATE TABLE `gsm_point_trace` (
+      `id` bigint(20) NOT NULL DEFAULT '0',
+      `created` bigint(20) NOT NULL,
+      `last_update` bigint(20) NOT NULL,
+      `version` bigint(20) NOT NULL,
+      `emi` varchar(50) DEFAULT NULL,
+      `app_user_no` varchar(50) DEFAULT NULL,
+      `state` int(11) DEFAULT NULL,
+      `app_password` varchar(50) DEFAULT NULL,
+      `gp_group` varchar(50) DEFAULT NULL,
+      `cell_pos` varchar(50) DEFAULT NULL,
+      `lon` varchar(50) DEFAULT NULL,
+      `lon_dir` varchar(50) DEFAULT NULL,
+      `lat` varchar(50) DEFAULT NULL,
+      `lat_dir` varchar(50) DEFAULT NULL,
+      `velocity` varchar(50) DEFAULT NULL,
+      `heading` varchar(50) DEFAULT NULL,
+      `gp_date` varchar(20) DEFAULT NULL,
+      `gp_time` varchar(20) DEFAULT NULL,
+      `org_info` varchar(2000) DEFAULT NULL,
+      `gsm_vehicle_status` varchar(50) DEFAULT NULL,
+      `group_id` bigint(20) DEFAULT NULL,
+      `upload_time` bigint(20) DEFAULT NULL,
+      `upload_server_time` bigint(20) DEFAULT NULL,
+      `gsm_point_type` varchar(50) DEFAULT NULL,
+      `impact_strength` int(11) DEFAULT NULL,
+      PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+    CREATE TABLE `gsm_vehicle_info_trace` (
+      `id` bigint(20) NOT NULL DEFAULT '0',
+      `created` bigint(20) NOT NULL,
+      `last_update` bigint(20) NOT NULL,
+      `version` bigint(20) NOT NULL,
+      `emi` varchar(50) DEFAULT NULL,
+      `app_user_no` varchar(50) DEFAULT NULL,
+      `state` int(11) DEFAULT NULL,
+      `app_password` varchar(50) DEFAULT NULL,
+      `gvi_load` varchar(50) DEFAULT NULL,
+      `ect` varchar(50) DEFAULT NULL,
+      `shrtft1` varchar(50) DEFAULT NULL,
+      `longft1` varchar(50) DEFAULT NULL,
+      `map` varchar(50) DEFAULT NULL,
+      `rpm` varchar(50) DEFAULT NULL,
+      `vss` varchar(50) DEFAULT NULL,
+      `spark_adv` varchar(50) DEFAULT NULL,
+      `iat` varchar(50) DEFAULT NULL,
+      `maf` varchar(50) DEFAULT NULL,
+      `tps` varchar(50) DEFAULT NULL,
+      `mil_dist` varchar(50) DEFAULT NULL,
+      `fuel_lvl` varchar(50) DEFAULT NULL,
+      `baro` varchar(50) DEFAULT NULL,
+      `vpwr` varchar(50) DEFAULT NULL,
+      `ife` varchar(50) DEFAULT NULL,
+      `runtime` varchar(50) DEFAULT NULL,
+      `ad_mil` varchar(50) DEFAULT NULL,
+      `ad_feh` varchar(50) DEFAULT NULL,
+      `spwr` varchar(50) DEFAULT NULL,
+      `rdtcn` int(11) DEFAULT NULL,
+      `rdtc` varchar(1000) DEFAULT NULL,
+      `org_info` varchar(2000) DEFAULT NULL,
+      `gsm_vehicle_status` varchar(50) DEFAULT NULL,
+      `max_r` varchar(50) DEFAULT NULL,
+      `max_s` varchar(50) DEFAULT NULL,
+      `bad_h` varchar(50) DEFAULT NULL,
+      `cac_afe` varchar(50) DEFAULT NULL,
+      `cac_tfe` varchar(50) DEFAULT NULL,
+      `cac_trfe` varchar(50) DEFAULT NULL,
+      `tr_mil` varchar(50) DEFAULT NULL,
+      `de_mil` varchar(50) DEFAULT NULL,
+      `drit` varchar(50) DEFAULT NULL,
+      `idlet` varchar(50) DEFAULT NULL,
+      `rpdtc` varchar(1000) DEFAULT NULL,
+      `upload_time` bigint(20) DEFAULT NULL,
+      `upload_server_time` bigint(20) DEFAULT NULL,
+      PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+bcuser 库
+CREATE INDEX IDX_drive_log_app_user_no ON drive_log (app_user_no) USING BTREE;
+CREATE INDEX IDX_drive_log_place_note_app_user_no ON drive_log_place_note (app_user_no) USING BTREE;
+CREATE INDEX IDX_drive_log_place_note_drive_log_id ON drive_log_place_note (drive_log_id) USING BTREE;
+
+ 三.发布应用
+
+ 四.配置权限
+      CRM ------SHOP操作权限------SHOP数据初始化   新增资源
+       init_initObdGsmDataTrace    /web/init.do?method=initObdGsmDataTrace    手动执行数据回收     request  shop
+ 五.初始化
+      如果需要手动执行数据回收，jackchen 登录web之后执行：
+      http://localhost:8080/web/init.do?method=initObdGsmDataTrace
+      手动执行必须访问定时钟tomcate执行，否则会出问题
+
+ 六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+.tabMerge{
+	float:left;
+	font-size:12px;
+	font-weight:normal;
+	border-collapse: collapse;
+	*table-layout: fixed;
+	width:100%;
+	color:#515151;
+}
+.tabMerge td{border:1px solid #d5d5d5; padding-left:10px; height:28px;}
+.tabMerge .tab_title{background:url(../images/tab_bg.png) repeat-x; height:28px; line-height:28px; color:#0076CC;}
+.tabMerge td.tab_title{text-align:center; padding:0px;}
+.tabMerge td.tab_cars{color:#0076CC; padding-left:15px;}
+.tabMerge td.tab_cars span{ font-weight:bold;}
+.tabMereCus td{border:none; border-bottom:1px solid #d5d5d5;}
+.tabMereCus tr{border-right:1px solid #d5d5d5; border-left:1px solid #d5d5d5;}
+.tabMereCus td.tab_title{ text-align:left; padding-left:10px;}
+.tabMerge .tab_title .radCheck,.tabMerge .tab_title .radNormal,.tabMerge .radCheck,.tabMerge .radNormal{background:url(../images/radCheck.png) no-repeat center center; float:left; width:14px; height:13px; margin-left:-25px; margin-top:8px;}
+.tabMerge .tab_title .radNormal, .tabMerge .radNormal{background:url(../images/rad.png) no-repeat center center;}
+.btnClick{margin:0 auto; width:178px;}
+.btnClick input{background:url(../images/btn_tong.png) no-repeat; width:76px; height:25px; line-height:25px; text-align:center; color:#484848; border:none; margin-right:10px; cursor:pointer;}
+.btnClick input:hover{background:url(../images/btn_ti.png) no-repeat; color:#FFFFFF;}
+.tabMerge .tab_title{border-top:1px solid #d5d5d5;}
+.tabMerge .radCheck,.tabMerge .radNormal{margin:0px;}
+/*-----------------------------------维修出厂合格证-----------------------------------------------*/
+.tabRepair{ border-right:2px dotted #CCCCCC; padding-right:40px; float:left;}
+.tabRepair td{height:35px; line-height:35px; color:#272727; text-align:right;}
+.txt{border:1px solid #BBBBBB; height:22px; line-height:22px; color:#515151; padding-left:6px;}
+.tabRepair .txt{width:90%;}
+.words{float:left; width:500px; color:#272727; margin-left:40px;}
+.words h3{ text-align:center;}
+.words label{ line-height:25px;}
+.words span{ line-height:25px;}
+.btnSave{margin-left:300px;}
+.btnSave .jieCount{margin-left:45px;}

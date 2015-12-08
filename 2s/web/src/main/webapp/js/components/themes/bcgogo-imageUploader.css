@@ -1,0 +1,18 @@
+.imageuploader-view {background:#fff;position: relative;}
+.imageuploader-view div,ul,li {margin:0;padding:0;list-style: none;}
+.imageuploader-view ul.frame-image {overflow-x:hidden;overflow-y: auto;}
+.imageuploader-view ul li {float:left;position: relative;}
+.imageuploader-view ul li .image-item {position: relative;}
+.imageuploader-view ul li .image-item .item-image {}
+.imageuploader-view ul li .image-item .item-image img {}
+.imageuploader-view ul li .button-delete {
+    float:left;position: absolute;border-radius: 3px;right:0px;top:0px;width:20px;height:20px;cursor:pointer;font-family: Arial;font-size: 18px;line-height: 20px;text-align: center;color:#fff;
+    filter:alpha(opacity=100 finishopacity=100 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#A62D38,endcolorstr=#990000,gradientType=0);
+    -ms-filter:alpha(opacity=100 finishopacity=100 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#A62D38,endcolorstr=#990000,gradientType=0);/*IE8*/
+    background:#990000; /* 一些不支持背景渐变的浏览器 */
+    background:-moz-linear-gradient(top, #A62D38, #990000);
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(#A62D38), to(#990000));
+}
+.imageuploader-view ul li .image-name {font-size: 14px;text-align: center;overflow:hidden;color:#ff7800;}
+.imageuploader-view ul li .image-assist {font-size: 14px;text-align: center;text-decoration: underline;cursor:pointer;color:#005db7;}
+.imageuploader-view .frame-uploading {position: absolute;text-align: center;background: url(res/imageupload/waiting_circle.gif) no-repeat  transparent center;}

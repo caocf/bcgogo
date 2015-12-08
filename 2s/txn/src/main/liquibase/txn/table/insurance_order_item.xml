@@ -1,0 +1,39 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="qiuxinyu" id="insurance_order_item_1">
+    <createTable tableName="insurance_order_item">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="insurance_order_id" type="bigint"/>
+      <column name="product_id" type="bigint"/>
+      <column name="amount" type="double"/>
+      <column name="price" type="double"/>
+      <column name="commodity_code" type="varchar(70)"/>
+      <column name="product_name" type="varchar(200)"/>
+      <column name="brand" type="varchar(200)"/>
+      <column name="model" type="varchar(200)"/>
+      <column name="spec" type="varchar(200)"/>
+      <column name="vehicle_brand" type="varchar(200)"/>
+      <column name="vehicle_model" type="varchar(200)"/>
+      <column name="unit" type="varchar(20)"/>
+      <column name="total" type="double"/>
+    </createTable>
+      <addPrimaryKey tableName="insurance_order_item" columnNames="id" constraintName="pk_insurance_order_item"/>
+  </changeSet>
+
+  <changeSet id="insurance_order_item_2" author="jimuchen">
+    <createIndex tableName="insurance_order_item" indexName="IDX_INSURANCE_ORDER_ID">
+      <column name="insurance_order_id" />
+    </createIndex>
+  </changeSet>
+</databaseChangeLog>

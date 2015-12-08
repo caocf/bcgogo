@@ -1,0 +1,257 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="caiwei" id="item_index_1">
+    <createTable tableName="item_index">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="uuid" type="char(36)"/>
+      <column name="shop_id" type="bigint"/>
+      <column name="order_id" type="bigint"/>
+      <column name="item_id" type="bigint"/>
+      <column name="customer_id" type="bigint"/>
+      <column name="order_time_created" type="bigint"/>
+      <column name="vehicle" type="char(20)"/>
+      <column name="order_type" type="char(20)"/>
+      <column name="item_type" type="char(20)"/>
+      <column name="item_name" type="char(100)"/>
+      <column name="order_status" type="char(20)"/>
+    </createTable>
+    <addPrimaryKey tableName="item_index" columnNames="id" constraintName="pk_item_index"/>
+    <createIndex tableName="item_index" indexName="idx_item_index_vehicle">
+      <column name="vehicle"/>
+      <column name="shop_id"/>
+      <column name="order_time_created"/>
+    </createIndex>
+    <createIndex tableName="item_index" indexName="idx_item_index_item_name">
+      <column name="shop_id"/>
+      <column name="order_time_created"/>
+      <column name="item_name"/>
+
+    </createIndex>
+    <createIndex tableName="item_index" indexName="idx_item_index_item_time">
+      <column name="order_id"/>
+      <column name="order_type"/>
+      <column name="item_id"/>
+      <column name="item_type"/>
+    </createIndex>
+    <createIndex tableName="item_index" indexName="idx_item_index_ids">
+      <column name="shop_id"/>
+      <column name="order_time_created"/>
+    </createIndex>
+
+  </changeSet>
+  <changeSet id="item_index_2" author="zhouxiaochen">
+    <addColumn tableName="item_index">
+      <column name="customer_or_supplier_name" type="varchar(100)"/>
+      <column name="item_brand" type="varchar(100)"/>
+      <column name="item_spec" type="varchar(100)"/>
+      <column name="item_model" type="varchar(100)"/>
+      <column name="item_count" type="int"/>
+    </addColumn>
+    <createIndex tableName="item_index" indexName="idx_item_index_itembrand_ids">
+      <column name="shop_id"/>
+      <column name="customer_or_supplier_name"/>
+      <column name="item_brand"/>
+      <column name="item_spec"/>
+      <column name="item_model"/>
+      <column name="order_time_created"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="item_index_3" author="wujiaolong">
+    <addColumn tableName="item_index">
+      <column name="item_price" type="double"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="item_index_4" author="wujiaolong">
+    <addColumn tableName="item_index">
+      <column name="services" type="varchar(50)"/>
+      <column name="order_total_amount" type="double"/>
+      <column name="arrears" type="double"/>
+      <column name="payment_time" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="item_index_5" author="wujiaolong">
+    <addColumn tableName="item_index">
+      <column name="vehicle_brand" type="varchar(20)"/>
+      <column name="vehicle_model" type="varchar(20)"/>
+      <column name="vehicle_year" type="varchar(20)"/>
+      <column name="vehicle_engine" type="varchar(20)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="item_index_6">
+    <createIndex tableName="item_index" indexName="idx_item_index_shopid_customerid">
+      <column name="shop_id"/>
+      <column name="customer_id"/>
+    </createIndex>
+  </changeSet>
+  <changeSet author="qiuxinyu" id="item_index_7">
+    <createIndex tableName="item_index" indexName="IDX_ITEM_INDEX_SHOPID_ORDERID_ORDERSTATUS">
+      <column name="shop_id"/>
+      <column name="order_id"/>
+      <column name="order_status"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="chenfanglei" id="item_index_8">
+    <addColumn tableName="item_index">
+      <column name="item_cost_price" type="double"/>
+    </addColumn>
+  </changeSet>
+  <changeSet author="liuWei" id="item_index_9">
+    <createIndex tableName="item_index" indexName="IDX_ITEM_INDEX_SHOPID_CREATED_ORDERTYPE_ITEMTYPE">
+      <column name="shop_id"/>
+      <column name="created"/>
+      <column name="order_type"/>
+      <column name="item_type"/>
+      <column name="order_status"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="qiuxinyu" id="item_index_10">
+    <addColumn tableName="item_index">
+      <column name="unit" type="varchar(20)"/>
+    </addColumn>
+  </changeSet>
+  <changeSet author="zoujianhong" id="item_index_11">
+    <addColumn tableName="item_index">
+      <column name="total_cost_price" type="double"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="liuWei" id="item_index_12">
+    <modifyColumn tableName="item_index">
+      <column name="item_count" type="double"/>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet author="wujiaolong" id="item_index_13">
+    <addColumn tableName="item_index">
+      <column name="customer_card_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+  <changeSet id="item_index_14" author="zhangjuntao">
+    <modifyColumn tableName="item_index">
+      <column name="item_name" type="varchar(200)"></column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="item_index_15" author="wujiaolong">
+    <addColumn tableName="item_index">
+      <column name="item_memo" type="varchar(200)"/>
+    </addColumn>
+  </changeSet>
+  <changeSet id="item_index_16" author="qiuxinyu">
+    <addColumn tableName="item_index">
+      <column name="product_id" type="bigint"/>
+    </addColumn>
+    <createIndex tableName="item_index" indexName="IDX_ITEM_INDEX_SHOPID_CUSTOMERID_PRODUCTID">
+      <column name="shop_id"/>
+      <column name="customer_id"/>
+      <column name="product_id"/>
+    </createIndex>
+  </changeSet>
+<!--
+  <changeSet id="item_index_17" author="jimuchen">
+    <addColumn tableName="item_index">
+      <column name="order_type_enum" type="varchar(50)"/>
+      <column name="item_type_enum" type="varchar(50)"/>
+      <column name="order_status_enum" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+-->
+  <changeSet author="jimuchen" id="item_index_18">
+    <modifyColumn tableName="item_index">
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="item_index_19" author="chenfanglei">
+    <addColumn tableName="item_index">
+      <column name="member_card_id" type="bigint"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="item_index_20" author="chenfanglei">
+    <addColumn tableName="item_index">
+      <column name="service_id" type="bigint"></column>
+      <column name="increased_times" type="int"></column>
+      <column name="vehicles" type="varchar(50)"></column>
+      <column name="deadline" type="bigint"></column>
+      <column name="card_times" type="int"></column>
+      <column name="balance_times" type="int"></column>
+      <column name="old_times" type="int"></column>
+      <column name="increased_times_limit_type" type="varchar(20)"></column>
+      <column name="card_times_limit_type" type="varchar(20)"></column>
+      <column name="old_times_limit_type" type="varchar(20)"></column>
+      <column name="balance_times_limit_type" type="varchar(20)"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="item_index_21" author="jimuchen">
+    <modifyColumn tableName="item_index">
+      <column name="vehicle_brand" type="varchar(50)"/>
+      <column name="vehicle_model" type="varchar(50)"/>
+      <column name="vehicle_year" type="varchar(50)"/>
+      <column name="vehicle_engine" type="varchar(50)"/>
+    </modifyColumn>
+  </changeSet>
+	<changeSet author="qiuxinyu" id="item_index_22">
+		<addColumn tableName="item_index">
+			<column name="commodity_code" type="varchar(70)"/>
+		</addColumn>
+	</changeSet>
+
+    <changeSet id="item_index_23" author="chenfanglei">
+        <addColumn tableName="item_index">
+            <column name="business_category_id" type="bigint"></column>
+            <column name="business_category_name" type="varchar(200)"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="item_index_24" author="chenfanglei">
+        <addColumn tableName="item_index">
+            <column name="product_kind" type="varchar(500)"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="item_index_25" author="chenfanglei">
+        <addColumn tableName="item_index">
+            <column name="after_member_discount_order_total" type="double"></column>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="item_index_26">
+    <dropIndex tableName="item_index" indexName="idx_item_index_ids"/>
+    <dropIndex tableName="item_index" indexName="idx_item_index_shopid_customerid"/>
+  </changeSet>
+
+  <changeSet id="item_index_27" author="jimuchen">
+    <modifyColumn tableName="item_index">
+      <column name="services" type="varchar(200)"/>
+    </modifyColumn>
+  </changeSet>
+
+    <changeSet id="item_index_28" author="yangwj">
+        <modifyColumn tableName="item_index">
+            <column name="vehicle_brand" type="varchar(200)"/>
+            <column name="vehicle_model" type="varchar(200)"/>
+        </modifyColumn>
+    </changeSet>
+
+</databaseChangeLog>

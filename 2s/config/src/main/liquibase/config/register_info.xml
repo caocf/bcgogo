@@ -1,0 +1,35 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="qiuxinyu" id="register_info_1">
+        <createTable tableName="register_info">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="register_shop_id" type="bigint"/>
+            <column name="register_type" type="varchar(20)"/>
+            <column name="inviter_type" type="varchar(20)"/>
+            <column name="inviter_shop_id" type="bigint"/>
+            <column name="invitee_type" type="varchar(20)"/>
+            <column name="invitee_id" type="bigint"/>
+            <column name="invitation_code" type="varchar(20)"/>
+            <column name="register_time" type="bigint"/>
+
+        </createTable>
+        <addPrimaryKey tableName="register_info" columnNames="id" constraintName="pk_register_info"/>
+    </changeSet>
+    <changeSet id="register_info_2" author="zhangjuntao">
+        <modifyColumn tableName="register_info">
+            <column name="register_type" type="varchar(50)"/>
+        </modifyColumn>
+    </changeSet>
+</databaseChangeLog>

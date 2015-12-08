@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+.title_line label,.title_line span{display:block; float:left; }
+.title_line span{ height:1px; width:365px; border-bottom:1px dashed #000; margin-top:5px;}
+#add_info tr .right,#worke_info tr .right{text-align:right; padding-right:5px; line-height:30px;}
+#add_info tr td label,#add_info tr td input{ display:block; float:left;}
+#add_info tr td label{ margin-top:5px; margin-right:9px;}
+#add_info tr td{}
+#worke_info{ margin-top:10px; margin-right:20px; }
+#worke_info  tr td{}
+
+.i_searchBrand .i_upCenter{
+	width:498px;
+}
+.i_searchBrand .i_upCenter .i_note{
+	width:450px;
+}
+.i_upBottom .i_upBottomCenter{
+	width:490px;
+}
+.i_searchBrand .i_upBody{
+	width:490px;}
+	
+	.btnClick{ margin-top:10px;}
+	.i_searchBrand .i_upBody{ font-weight:normal; color:#000;}

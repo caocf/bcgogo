@@ -1,0 +1,83 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="mazidong" id="sales_return_item_1">
+        <createTable tableName="sales_return_item">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="sales_return_id" type="bigint"/>
+            <column name="product_id" type="bigint"/>
+            <column name="amount" type="float"/>
+            <column name="price" type="float"/>
+            <column name="total" type="float"/>
+            <column name="memo" type="varchar(500)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="sales_return_item_2" author="zhuyinjia">
+        <addPrimaryKey tableName="sales_return_item" columnNames="id" constraintName="pk_sales_return_item"/>
+    </changeSet>
+
+    <changeSet author="luyi" id="sales_return_item_3">
+        <createIndex tableName="sales_return_item" indexName="IDX_SALESRETURNITEM_SALESRETURNID">
+            <column name="sales_return_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="jimuchen" id="sales_return_item_4">
+        <modifyColumn tableName="sales_return_item">
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </modifyColumn>
+    </changeSet>
+    <changeSet author="xzhu" id="sales_return_item_5">
+        <addColumn tableName="sales_return_item">
+            <column name="unit" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="xzhu" id="sales_return_item_6">
+        <addColumn tableName="sales_return_item">
+            <column name="customer_order_item_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="jimuchen" id="sales_return_item_7">
+        <addColumn tableName="sales_return_item">
+            <column name="cost_price" type="float"/>
+            <column name="total_cost_price" type="float"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="sales_return_item_8" author="liuWei">
+        <addColumn tableName="sales_return_item">
+            <column name="business_category_id" type="bigint"></column>
+            <column name="business_category_name" type="varchar(200)"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="sales_return_item_9" author="jimuchen">
+      <addColumn tableName="sales_return_item">
+          <column name="product_history_id" type="bigint" />
+      </addColumn>
+    </changeSet>
+
+  <changeSet id="sales_return_item_10" author="jimuchen">
+    <modifyColumn tableName="sales_order_item">
+      <column name="total" type="double(20,2)"/>
+      <column name="price" type="double(20,2)"/>
+      <column name="cost_price" type="double(20,2)"/>
+      <column name="total_cost_price" type="double(20,2)"/>
+		</modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

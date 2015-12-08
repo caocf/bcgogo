@@ -1,0 +1,30 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <!-- 店面议价记录 -->
+    <changeSet author="zhangjuntao" id="shop_bargain_record_1">
+        <createTable tableName="shop_bargain_record">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="bargain_status" type="varchar(50)"/>
+            <column name="original_price" type="double"/>
+            <column name="application_price" type="double"/>
+            <column name="applicant_id" type="bigint"/>
+            <column name="auditor_id" type="bigint"/>
+            <column name="application_time" type="bigint"/>
+            <column name="audit_time" type="bigint"/>
+            <column name="application_reason" type="varchar(500)"/>
+            <column name="audit_reason" type="varchar(500)"/>
+        </createTable>
+        <addPrimaryKey tableName="shop_bargain_record" columnNames="id" constraintName="pk_shop_bargain_record"/>
+    </changeSet>
+</databaseChangeLog>

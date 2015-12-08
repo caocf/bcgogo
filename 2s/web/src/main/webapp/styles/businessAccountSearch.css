@@ -1,0 +1,177 @@
+
+@charset "utf-8";
+.businessAccount_first table tr td label, .businessAccount_first table tr td .txt_hao {
+    display: block;
+    float: left;
+}
+.businessAccount_first table tr td .txt_hao {
+    margin-top: 5px;
+}
+.businessAccount_first table tr td .btn_add, .businessAccount_first table tr td .btn_search {
+    background: url("../images/btn_tong.png") repeat scroll 0 0 transparent;
+    border: medium none;
+    height: 25px;
+    width: 76px;
+}
+.businessAccount_first table tr td .btn_add {
+    float: right;
+    margin-right: 50px;
+}
+.businessAccount_first table tr td .btn_search {
+    margin-left: 500px;
+}
+.businessAccount_first table tr td .xiala {
+    position: relative;
+}
+.businessAccount_first table tr td .xiala ul {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #ADADAD;
+    position: absolute;
+    top: 20px;
+    width: 109px;
+}
+.businessAccount_first table tr td .xiala ul li {
+    height: 20px;
+    line-height: 20px;
+}
+.businessAccount_first table tr td .xiala ul li:hover {
+    background: none repeat scroll 0 0 #ADADAD;
+}
+.xiala img {
+    display: block;
+    float: left;
+}
+
+
+#businessAccount_show tr td {
+    text-align: center;
+}
+
+#businessAccount_show .totalRow{
+    padding-left:10px;
+    text-align:right;
+    font-weight:bold;
+}
+table tr .red, table tr .blue {
+    color: #FF0000;
+    font-weight: bold;
+}
+table tr .blue {
+    color: #3CA701;
+}
+#businessAccount_show tr td label {
+    font-weight: normal;
+    margin-right: 20px;
+}
+
+
+
+
+table tr td input {
+    border: 1px solid #ADADAD;
+}
+.businessAccount_first span {
+    background: url("../images/right_tui.png") no-repeat scroll 0 0 transparent;
+    clear: both;
+    display: block;
+    height: 3px;
+    width: 1003px;
+}
+.businessAccount_first table {
+    background: url("../images/center_tui.png") repeat-y scroll 0 0 transparent;
+    border-collapse: collapse;
+    display: block;
+    width: 1003px;
+}
+.businessAccount_first table tr td {
+    line-height: 45px;
+    text-align: center;
+}
+.i_main .caogao {
+    background: url("../images/caogao.png") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    display: block;
+    float: right;
+    height: 21px;
+    margin-right: 10px;
+    margin-top: 25px;
+    width: 119px;
+}
+.businessAccount_first table tr td input {
+    display: block;
+    float: left;
+}
+.businessAccount_first table tr .xiangxi_td a {
+    color: #007CDA;
+    text-decoration: underline;
+}
+.businessAccount_first table tr .xiangxi_td input {
+    margin-top: 10px;
+}
+.businessAccount_first table tr td .xiangxi {
+    background: url("../images/btn_la.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    height: 13px;
+    margin-right: 5px;
+    margin-top: 15px;
+    width: 13px;
+}
+.businessAccount_first table tr .xiangxi_td input, .businessAccount_first table tr .xiangxi_td a {
+    display: block;
+    float: left;
+}
+.businessAccount_first .right_businessAccount {
+    background: url("../images/left_tui.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 3px;
+    width: 1003px;
+}
+.selectTime {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #ADADAD;
+    float: left;
+    height: 25px;
+    margin-bottom: 5px;
+    width: 110px;
+}
+.selectTime input {
+    text-align: center;
+    border: medium none;
+    float: left;
+    height: 23px;
+    line-height: 23px;
+    padding-left: 6px;
+    width: 100px;
+}
+.i_mainRight #businessAccount_show {
+    border: 1px solid #C9C6C6;
+    border-collapse: collapse;
+    margin: 10px 0;
+    width: 1003px;
+}
+
+#businessAccount_show tr {
+    padding: 0 5px;
+}
+#businessAccount_show tr td input {
+    height: 21px;
+}
+.i_mainRight #businessAccount_show tr td .dele_a {
+    color: #C00000;
+    text-decoration: underline;
+}
+#businessAccount_show .title_tb {
+    background: url("../images/title_tbcenter.png") repeat-x scroll 0 0 transparent;
+    color: #FFFFFF;
+    text-align: center;
+    height:26px;
+}
+.i_mainRight #businessAccount_show .heji_tb td {
+    color: #7F7F7F;
+    font-weight: bold;
+}
+
+.table-row-original .editItem,.table-row-original .deleteItem{
+    padding:0 3px;
+}

@@ -1,0 +1,43 @@
+.up_storage{ font-family:"����";}
+.up_storage .i_upCenter{width:758px;}
+.up_storage .i_upBottom .i_upBottomCenter{width:750px;}
+.up_storage .more_his{ font-size:12px; font-weight:normal;}
+.up_storage .more_his div{ float:left; line-height:25px;}
+.up_storage .i_upBody{padding:10px; width:740px;}
+.tableInfo .almost{float:left; line-height:26px;}
+.tableInfo .almost span{color:#A62D38; font-weight:bold;}
+.tableInfo .table_btn{float:right;}
+.tableInfo .table_btn input{
+	background:url(../images/cus_add.png) no-repeat;
+	width:86px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	color:#6699CC;
+	border:none;
+	cursor:pointer;
+}
+.up_storage .more_his .inquiryTitle{ font-weight:bold; padding-right:20px; line-height:25px;}
+.up_storage .more_his .inquiryTitle span{font-weight:normal;}
+.up_storage div.i_upLeft, .up_storage div.i_upRight {
+    width: 2px;
+}
+.up_storage {
+    text-align: left;
+}
+.up_storage div {
+    width: auto;
+}
+up_storage .tableInfo {
+    width: 100%;
+}
+.up_storage .orderHandle {
+    padding-top: 0;
+    width: 100%;
+}
+.tabTitle .statistics {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+    width:137px;
+}

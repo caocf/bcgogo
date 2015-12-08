@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--obd gsm quartz-->
+    <bean name="obdGsmScheduleDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.ObdGsmSchedule"/>
+        <property name="jobDataAsMap">
+            <map>
+                <entry key="maxSendTimes" value="5"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="obdGsmScheduleTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="obdGsmScheduleDetail"/>
+        <property name="cronExpression" value="*/30 * * * * ?"/>
+    </bean>
+    <!--obd gsm_point trace quartz-->
+    <bean name="obdGsmPointTraceScheduleDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.ObdGsmPointTraceSchedule"/>
+        <property name="jobDataAsMap">
+            <map>
+                <entry key="maxSendTimes" value="5"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="obdGsmPointTraceScheduleTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="obdGsmPointTraceScheduleDetail"/>
+        <!--<property name="cronExpression" value="0 10 * * * ?"/>-->
+        <property name="cronExpression" value="0 0 22 * * ?"/>
+    </bean>
+
+    <!--obd gsm vehicleInfo trace quartz-->
+    <bean name="obdGsmVehicleInfoTraceScheduleDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.ObdGsmVehicleInfoTraceSchedule"/>
+        <property name="jobDataAsMap">
+            <map>
+                <entry key="maxSendTimes" value="5"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="obdGsmVehicleInfoTraceScheduleTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="obdGsmVehicleInfoTraceScheduleDetail"/>
+        <!--<property name="cronExpression" value="0 10 * * * ?"/>-->
+        <property name="cronExpression" value="0 0 22 * * ?"/>
+    </bean>
+
+    <!--sms send quartz-->
+    <bean name="smsSendJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.SmsSendSchedule"/>
+        <property name="jobDataAsMap">
+            <map>
+                <entry key="maxSendTimes" value="5"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="smsSendTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="smsSendJobDetail"/>
+        <property name="cronExpression" value="*/30 * * * * ?"/>
+    </bean>
+
+    <!--客户导入-->
+    <bean name="importCustomerJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.ImportCustomerSchedule"/>
+    </bean>
+    <bean id="importCustomerTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="importCustomerJobDetail"/>
+        <property name="cronExpression" value="10 * * * * ?"/>
+    </bean>
+
+    <!--短信统计-->
+    <bean name="smsAccountJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.SmsAccountSchedule"/>
+    </bean>
+    <bean id="smsAccountTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="smsAccountJobDetail"/>
+        <property name="cronExpression" value="1 * * * * ?"/>
+    </bean>
+
+    <!--邀请码发送-->
+    <bean name="invitationCodeRecycleJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.InvitationCodeSchedule"/>
+    </bean>
+    <bean id="invitationCodeRecycleTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="invitationCodeRecycleJobDetail"/>
+        <property name="cronExpression" value="0 0 2 * * ?"/>
+    </bean>
+
+
+    <bean id="scheduler2" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="invitationCodeRecycleTrigger"/>
+                <ref local="obdGsmScheduleTrigger"/>
+                <ref local="smsSendTrigger"/>
+                <ref local="importCustomerTrigger"/>
+                <ref local="smsAccountTrigger"/>
+                <ref local="driveLogStatScheduleTrigger"/>
+                <ref local="obdGsmPointTraceScheduleTrigger"/>
+                <ref local="obdGsmVehicleInfoTraceScheduleTrigger"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--DriveLogStatSchedule-->
+    <bean name="driveLogStatSchedule" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.DriveLogStatSchedule"/>
+
+    </bean>
+    <bean id="driveLogStatScheduleTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="driveLogStatSchedule"/>
+        <property name="cronExpression" value="0 0 12 * * ?"/>
+    </bean>
+</beans>

@@ -1,0 +1,43 @@
+1、数据库更新：
+执行product库的ddl 新建一个product_supplier表    (qxy)
+user库supplier 表ddl
+短信ddl
+txn库更新ddl
+
+2、solr更新
+更新所有 Solr中的 schema.xml 文件 和solr  配置xml
+增加一个customer_supplier
+
+3、sql 权限添加
+
+4、数据库数据初始化
+登录系统执行之后执行
+http://localhost:8080/web/init.do?method=initProductSupplier    初始化product_supplier表   (qxy)
+http://localhost:8080/web/payable.do?method=initPurchaseInventoryPayable    初始化应付款
+http://localhost:8080/web/init.do?method=initSupplierRecord     初始化supplier_record表
+
+update supplier sp,(select p.supplier_id as sp_id, max(p.vest_date)  as max_time from txn.purchase_inventory p group by p.supplier_id ) p2
+set sp.last_inventory_time = p2.max_time
+where sp.id = p2.sp_id;
+
+5、solr初始化
+执行标准库产品 reindex
+执行本店，或者全部店铺 产品 reindex
+执行客户供应商 reindex
+执行Order reindex
+6、 admin后面添加系统配置
+config 配置：
+YI_MEI_INDUSTRY_SERIAL_NUMBER        0SDK-EAA-6688-JEQTO
+YI_MEI_INDUSTRY_PASSWORD             bcgogo
+YI_MEI_INDUSTRY_KEY                  357021
+
+YI_MEI_MARKETING_SERIAL_NUMBER       0SDK-EAA-6688-JEUTK
+YI_MEI_MARKETING_PASSWORD            bcgogo
+YI_MEI_MARKETING_KEY                 404153
+
+修改 SmsSenderStrategy 为 YiMei,3TONG,SWE    (测试版只要修改成：YiMei)
+
+
+
+
+

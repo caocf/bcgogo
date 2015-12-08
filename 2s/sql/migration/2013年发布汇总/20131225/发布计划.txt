@@ -1,0 +1,43 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+
+三.发布应用 （纪友文）
+
+四.添加权限
+   ---------------------------------------------------------------------金远----------------------------------------------------
+  SHOP-导出权限：
+  exportAssistantStatDetail  /web/export.do?method=exportAssistantStatDetail       SHOP     导出员工业绩详细    request
+  exportBusinessStaffTransaction  /web/export.do?method=exportBusinessStaffTransaction   SHOP     导出员工业绩    request
+  
+  ---------------------------------------------------------------------杨文军----------------------------------------------------
+  SHOP 客户管理 客户列表 我的客户 对账查询 改到 SHOP 查询中心 对账查询
+  SHOP 查询中心 对账查询
+  web_statement_order_redirectSearchCustomerBill_menu	web.statement.order.redirectSearchCustomerBill	SHOP	对账单查询	menu
+
+	insert into menu (id,created,last_update,version,grade,label,resource_id,parent_id,href,sort,menu_name) values 
+	(1000021045134323,unix_timestamp(now())*1000,unix_timestamp(now())*1000,0,2,'对账查询',
+	(select id from resource where value='web.statement.order.redirectSearchCustomerBill'),1000020047084307,
+	'statementAccount.do?method=redirectSearchCustomerBill',15,'web_statement_order_redirectSearchCustomerBill');
+
+  ---------------------------------------------------------------------------------------------------------------------------
+
+  (2)短信配置
+          名称：店铺在线购买硬件生成订单后通知BCGOGO客服
+          类型：bcgogoOrderSms
+        必要性：必要
+          场景：BCGOGO_ORDER_SMS
+          内容：{shopName}刚刚提交销售订单{bcgogoOrderReceiptNo}，请马上去处理一下吧！可联系{contact} {mobile}。
+
+  config配置
+
+  BcgogoOrderSmsPhoneNumber      15062442223       客服手机号
+
+五.初始化
+
+ customer_supplier  schema更新，更新相应目录下的 conf\schema.xml,并重建所有客户索引
+
+ 重建所有单据的索引
+

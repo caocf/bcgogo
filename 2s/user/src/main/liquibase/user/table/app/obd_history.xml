@@ -1,0 +1,46 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xinYuQiu" id="obd_history_1">
+        <createTable tableName="obd_history">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="obd_id" type="bigint"/>
+            <column name="sn" type="varchar(50)"/>
+            <column name="sell_shop_id" type="bigint"/>
+            <column name="sell_time" type="bigint"/>
+            <column name="imei" type="varchar(50)"/>
+            <column name="obd_type" type="varchar(50)"/>
+            <column name="obd_version" type="varchar(50)"/>
+            <column name="spec" type="varchar(50)"/>
+            <column name="color" type="varchar(50)"/>
+            <column name="open_crash" type="varchar(20)"/>
+            <column name="open_shake" type="varchar(20)"/>
+            <column name="obd_status" type="varchar(20)"/>
+            <column name="storage_id" type="bigint"/>
+            <column name="seller_id" type="bigint"/>
+            <column name="agent_id" type="bigint"/>
+            <column name="owner_id" type="bigint"/>
+            <column name="owner_name" type="varchar(50)"/>
+            <column name="owner_type" type="varchar(20)"/>
+        </createTable>
+        <addPrimaryKey tableName="obd_history" columnNames="id" constraintName="pk_obd_history"/>
+    </changeSet>
+    <changeSet id="obd_history_2_sinYuQiu" author="sinYuQiu">
+        <addColumn tableName="obd_history">
+            <column name="storage_time" type="bigint"/>
+            <column name="obd_sim_type" type="varchar(20)"/>
+            <column name="pack" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

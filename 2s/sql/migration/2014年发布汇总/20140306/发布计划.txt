@@ -1,0 +1,108 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+2.执行如下sql
+在user库
+insert into user_limit values('10000010001000004','1','1318928485391','1318928485391','-1','结算提醒','SETTLED_REMINDER','NECESSARY','null')
+
+三.发布应用
+
+
+四.添加权限
+  --------------------------------------------------马燕------------------------------------------------------------------------------------------------------------
+  短信模板更新3个：
+  模板名：结算提醒  模板类型：settledRemindMsg  必要性：必要  场景：SETTLED_REMIND 内容：尊敬的车主：您在本店的维修服务已结算，感谢您的光临
+  模板名：手机端短信  模板类型：isChooseMobileApp  必要性：不必要  场景：MOBILE_APP
+  模板名：手机短信  模板类型：isChooseMobileSms  必要性：不必要  场景：MOBILE_SMS
+
+  SHOP--车辆施工--车辆施工 交车结算角色中增加如下资源：
+  web_sendMessageRemind   /web/txn.do?method=sendMessageRemind SHOP 发送结算提醒  request
+  web_judgeCustomerType   /web/txn.do?method=judgeCustomerType SHOP 判断客户类别  request
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------金远----------------------------------------------------
+CRM----店铺业务统计 新增角色“当前采购统计”
+新增资源 shop_product_stat   Ext.controller.normalProductInventoryStat.ShopProductStatController   CRM  当前采购统计   render   把资源添加到(当前采购统计)角色下
+
+从bcuser库获得“当前采购统计”角色的ID(方法如下)：
+ select id from bcuser.role where value = '当前采购统计';
+将刚刚查出来的“当前采购统计”角色ID 替换 下面sql中的  xxxxxxxxxxxxxx
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`)
+  VALUES ('520200003','1','1','1','当前采购统计','Ext.controller.normalProductInventoryStat.ShopProductStatController','COMPONENT','','当前采购统计','2',520200001,xxxxxxxxxxxxxx,'true');
+
+在系统维护-->角色配置中  将 当前采购统计的权限 分配给系统管理角色
+
+bcuser库：
+update tree_menu set text="标准化采购统计" where id=520200002
+product库
+update `normal_product` set select_brand_model='ALL_MODEL';
+update `product` set relevance_status='YES' where normal_product_id is not null;
+
+-----------------------------------------------------zhangjuntao-------------------------------------------------------------------------------
+ 1、SHOP->待办事项模块->待办事项->增加角色(故障提醒)
+  增加资源：
+     web_shopFaultInfo_showShopFaultInfoList                    /web/shopFaultInfo.do?method=showShopFaultInfoList                        SHOP   故障查询页面   request
+     web_shopFaultInfo_searchShopFaultInfoList                  /web/shopFaultInfo.do?method=searchShopFaultInfoList                      SHOP   故障查询请求   request
+     web_shopFaultInfo_getShopFaultInfoVehicleNoSuggestion      /web/shopFaultInfo.do?method=getShopFaultInfoVehicleNoSuggestion          SHOP   故障车牌号建议   request
+     web_shopFaultInfo_getShopFaultInfoMobileSuggestion         /web/shopFaultInfo.do?method=getShopFaultInfoMobileSuggestion             SHOP   故障车手机建议   request
+     web_shopFaultInfo_shopFaultInfo                            /web/shopFaultInfo.do?method=getFaultInfoCodeSMSTemplate                  SHOP   获得故障短信模板   request
+     web_shopFaultInfo_sendSMSAndAppNotice                      /web/shopFaultInfo.do?method=sendSMSAndAppNotice                          SHOP   发故障送短信消息   request
+     web_shopFaultInfo_deleteFaultInfoCode                      /web/shopFaultInfo.do?method=deleteFaultInfoCode                          SHOP   故障删除   request
+     web_shopFaultInfo_ShopFaultInfoMenu                        WEB.SCHEDULE.SHOP_FAULT_INFO.BASE                                         SHOP   故障查询菜单   menu
+ 2、分配版本：汽修（豪华、综合、初级,4S）
+ 分配用户组：老板/店长
+3、sql 增加菜单:
+ create procedure initMenu()
+     begin
+         declare _id bigint;
+         declare _created bigint;
+         declare _last_update bigint;
+         declare _resource_id bigint;
+         declare _count int;
+         select max(id)+1 into _id from menu;
+         set _created:=unix_timestamp(now())*1000;
+         set _last_update:=unix_timestamp(now())*1000;
+         select id into _resource_id from resource where value='WEB.SCHEDULE.SHOP_FAULT_INFO.BASE';
+         select count(*) into _count from menu where label = '故障查询';
+         if _count < 1 then
+             insert into menu(id, created, last_update, version, grade, label, resource_id, parent_id, href, sort, menu_name) values
+                 (_id, _created, _last_update, 0 , 2, '故障查询', _resource_id, 1000020044934293, 'shopFaultInfo.do?method=showShopFaultInfoList', 60, 'WEB.SCHEDULE.SHOP_FAULT_INFO.BASE');
+         end if;
+     end;
+     call initMenu();
+     drop procedure initMenu;
+
+ 4. 短信模板
+  故障短信模板 ：
+   faultInfoCodeMsg
+   FAULT_INFO_CODE_SMS
+   必要
+   您好，您的车辆{licenceNo}于{time}出现{faultCode}故障提醒，请尽快来店检查，详情咨询{mobile}。
+     ———————————————————————end———————————————-——————————————————
+
+———————————————————————邱鑫宇———————————————-——————————————————
+新增资源:
+ web_txn_appoint_createAppointOrderByShopFaultCodeIds                 shop    request 			/web/appoint.do?method=createAppointOrderByShopFaultCodeIds      故障码生成预约单
+ 将该资源添加到：
+ SHOP---代办事项---预约管理---预约单处理
+ SHOP->待办事项模块->待办事项->故障提醒
+
+  CRM-----SHOP操作权限------SHOP数据初始化：
+  web_initFaultCodePushMessage               /web/init.do?method=initFaultCodePushMessage         SHOP   初始化故障查询  request
+
+
+五.初始化
+ product   先删除所有商品(包括标准商品)   重做solr索引
+ jackchen 账号登陆 执行初始化：init.do?method=initFaultCodePushMessage
+
+
+
+六.上传打印模板
+
+将最新的预约单模板（bcgogo-UI\打印模板\default_改\预约单.html）上传，覆盖之前的模板
+
+
+七.功能验证（测试组）， 如果不通过执行回滚步骤。
+

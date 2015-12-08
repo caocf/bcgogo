@@ -1,0 +1,37 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xzhu" id="shopping_cart_item">
+        <createTable tableName="shopping_cart_item">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+
+            <column name="user_id" type="bigint"/>
+            <column name="edit_date" type="bigint"/>
+
+            <column name="amount" type="double"/>
+            <column name="supplier_id" type="bigint"/>
+            <column name="product_local_info_id" type="bigint"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="shopping_cart_item_xzhu_1" author="xzhu">
+        <addPrimaryKey tableName="shopping_cart_item" columnNames="id" constraintName="pk_shopping_cart_item"/>
+    </changeSet>
+
+    <changeSet author="xzhu" id="shopping_cart_item_xzhu_2">
+        <addColumn tableName="shopping_cart_item">
+            <column name="supplier_shop_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

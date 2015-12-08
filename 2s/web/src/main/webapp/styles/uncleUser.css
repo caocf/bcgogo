@@ -1,0 +1,258 @@
+@charset "utf-8";
+/* CSS Document */
+#i_mainRight h3{
+    font-size:14px;
+    color:#666;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+#cont_user{
+    width:280px;
+}
+#owe_record{
+    width:238px;
+}
+table tr td{
+    font-size:12px;
+}
+.td_second{
+    color:#666;
+}
+
+.qiankuan_cont{
+    float:left;
+}
+.num_cont{
+    display:block;
+    float:left;
+    margin-left:20px;
+    color:#fff;
+    text-align:center;
+    background:url(../images/saleBtn.jpg) no-repeat;
+    width:60px;
+    height:20px;
+}
+.payable_link{
+    display:block;
+    float:left;
+    color:#fff;
+    text-align:center;
+    background:url(../images/saleBtn.jpg) no-repeat;
+    width:60px;
+    height:20px;
+}
+.btn_executive{
+    float:right;
+    margin:0px 0px 5px 0px;
+}
+.btn_executive input,.suer_xiu input{
+    background:url(../images/chkTong.png) no-repeat;
+    border:none;
+    color:#fff;
+    line-height:26px;
+    letter-spacing:2px;
+    width:76px;
+    height:25px;
+}
+.suer_xiu input:hover {
+    background:url(../images/chkTi.png) no-repeat;
+    color:#663A02;
+    cursor: pointer;
+}
+.btn_executive input,.suer_right input,.suer_left input{
+    background:url(../images/chkTong.png) no-repeat;
+    border:none;
+    color:#fff;
+    line-height:26px;
+    letter-spacing:2px;
+    width:76px;
+    height:25px;
+}
+.btn_executive input:hover {
+    background:url(../images/chkTi.png) no-repeat;
+    cursor: pointer;
+    color:#663A02;
+}
+.more_his{
+    color:#666;
+    font-size:12px;
+}
+.more_his strong{
+    font-size:14px;
+    font-weight:bold;
+    margin:0px 20px 0px 10px;
+}
+#histy{
+    margin-bottom:10px;
+    border-top:4px solid #6d8fb9;
+    border-top: 4px solid #6d8fb9;
+    border-left:1px solid #BBBBBB;
+    border-right:1px solid #BBBBBB;
+    border-bottom:1px solid #BBBBBB;
+}
+.i_main .i_mainLeft .user_name a,#a_name2{
+    width:56px;
+    display:block;
+    float:left;
+    margin-right:3px;
+}
+#a_name2{
+    width:55px;
+}
+/*--引导页---*/
+table tr  .photo span{
+    display:block;
+    float:left;
+    line-height: 14px;
+}
+table tr  .photo input{
+    display:block;
+    float:left;
+}
+table tr  .photo a{
+    background:url(../images/duan.png) no-repeat right center;
+    margin:0px 5px 0px 0px;
+    width:22px;
+    height:14px;
+    float:right;
+}
+#history tr  .photo a{
+    margin-top:3px;
+}
+table tr  .td_second a{
+    margin-top:0px;
+}
+
+.i_mainRight h3{
+    width:100%;
+}
+.i_mainRight h3 a{
+    display:block;
+    float:right;
+    color:#6a9bcd;
+    font-size:12px;
+}
+
+
+.supper a{
+    text-align:center;
+    margin-left:25px;
+    font-size:14px;
+}
+
+.suer_xiu{
+    float:left;
+}
+.suer_right{
+    float:right;
+}
+.suer_xiu .suer_a{
+    background:url(../images/chkNormal2.png) no-repeat;
+    width:90px;
+}
+.suer_xiu .suer_a:hover {
+    background:url(../images/btnHover2.png) no-repeat;
+    color:#663A02;
+    cursor: pointer;
+}
+.suer_right .suer_a{
+    background:url(../images/chkNormal2.png) no-repeat;
+    width:90px;
+}
+.suer_right .suer_a:hover {
+    background:url(../images/btnHover2.png) no-repeat;
+    color:#663A02;
+    cursor: pointer;
+}
+.table1 tr td input{
+    width:240px;
+}
+.his_tab tr td input{
+    width:140px;
+}
+.tab_3 tr td input{
+    width:200px;
+}
+.tab_4 tr td input{
+    width:100px;
+}
+.tab_a tr td input{
+    width:170px;
+}
+.uncle_txt {
+    margin-left: 5px;
+    width: 75px;
+}
+#histy tr td .txt_bao {
+    display: block;
+    line-height: 25px;
+}
+.img_user {
+    display: block;
+    float: right;
+    height: 22px;
+    margin-right: 2px;
+    width: 20px;
+}
+.tab_a .jiesuan{
+    float:none;
+}
+.suer_left{
+    float:left;
+}
+.suer_left .suer_a{
+    background:url(../images/chkNormal2.png) no-repeat;
+    width:90px;
+}
+
+.suer_left .suer_a:hover {
+    background:url(../images/btnHover2.png) no-repeat;
+    color:#663A02;
+    cursor: pointer;
+}
+.lineTop{background:url(../images/line_top.png) no-repeat; width:1003px; height:6px;}
+.lineBody{background:url(../images/line_bg.png) repeat-y; width:973px; height:100%; color:#272727; float:left; padding:10px 15px;}
+.lineBottom{background:url(../images/line_bottom.png) no-repeat; width:1003px; height:5px; float:left;}
+.lineBody .divLine{width:100%; height:100%; float:left; font-size:14px;}
+.lineBody .divLine .title{width:70px;}
+.lineBody .divLine .radio{margin-right:10px; }
+.lineBody .divLine .radio input{ margin:0px 5px 2px 0px; vertical-align:text-bottom;}
+.lineBody .divLine .select{border:1px solid #ADADAD; float:left; width:208px; }
+.lineBody .divLine .select input{border:none; float:left; width:88%; height:19px; line-height:21px; color:#AEAEAE;padding-left:6px;}
+.lineBody .divLine .select .btnSel{background:url(../images/selicon.png) no-repeat; width:18px; height:19px; display:block; float:left; cursor:pointer;}
+.lineBody .divLine .btnSelect{background:url(../images/btnNor2.png) no-repeat; color:#FF4800; width:64px; height:21px; line-height:24px; text-align:center; padding-bottom:1px; cursor:pointer; border:none; margin-top:5px;}
+.lineBody .divLine .btnSelect:hover{background:url(../images/btnHor2.png) no-repeat; color:#FFFFFF;}
+.lineBody .divLine .textarea{border:1px solid #ADADAD; resize:none; width:800px; height:100px; color:#666666; padding-left:6px; padding-top:6px; float:left; background:#FFFFFF; line-height:20px; font-size:12px; overflow-y:hidden;}
+.lineBody .divLine .divNumber{border:1px solid #9999cc; background:#ccccff; color:#0066cc; height:22px; line-height:25px; width:140px; padding-left:6px; padding-right:6px;}
+.lineBody .divLine .divNumber .close{background:url(../images/divClose.png) no-repeat; width:13px; height:13px; cursor:pointer; display:block; float:right; margin-top:5px;}
+/*.btnSure{padding-left:70px; float:left;}*/
+.btnSure .sure{background:url(../images/btnNormals.png) no-repeat; height:21px; width:64px; text-align:center; line-height:21px; border:none; cursor:pointer; color:#FFFFFF; padding-bottom:2px;}
+.btnSure .sure:hover{background:url(../images/btnHoverss.png) no-repeat; color:#663A02;}
+.btnSure label{padding:0px 0px 0px 5px; margin-top:3px; font-size:12px; }
+.btnSure label input{ vertical-align:text-bottom; margin-bottom:1px; margin-right:5px;}
+
+.lineBody .txt{color:#666666; width:80px; margin-right:10px;}
+.lineBody .selTit{float:left; margin:0px; margin-right:10px;}
+.lineBody .btn_search{margin:0px;}
+
+.btnDelete {
+    background: url("../images/btnNormals.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    height: 21px;
+    line-height: 21px;
+    padding-bottom: 2px;
+    text-align: center;
+    width: 64px;
+}
+
+.btnDelete:hover{
+    background:url(../images/btnHoverss.png) no-repeat;
+    color:#663A02;
+}
+
+.table2 a.up, .table2 a.up:hover, .table2 a.down, .table2 a.down:hover{ background-position: right top; text-decoration:none; float:none; padding:0px 12px 0px 0px;}
+.upInfo{ border-top:1px solid #FF4800;}
+.upInfo .divList{ margin-left:10px; float:left;}
+.table2 .hoverLine td{ border: 1px solid #ff4800; border-width:1px 0px;}

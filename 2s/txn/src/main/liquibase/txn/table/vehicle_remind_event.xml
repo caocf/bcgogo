@@ -1,0 +1,36 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lijie" id="vehicle_remind_event_1">
+    <createTable tableName="vehicle_remind_event">
+        <column name="id" type="bigint"/>
+        <column name="created" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="last_update" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="version" type="bigint">
+            <constraints nullable="true"/>
+        </column>
+        <column name="shop_id" type="bigint"/>
+        <column name="vehicle_id" type="bigint"/>
+        <column name="event_type" type="bigint"/>
+        <column name="event_date" type="bigint"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet  id="vehicle_remind_event_2" author="lijie">
+    <addPrimaryKey tableName="vehicle_remind_event" columnNames="id" constraintName="pk_vehicle_remind_event"/>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="vehicle_remind_event_3">
+    <modifyColumn tableName="vehicle_remind_event">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

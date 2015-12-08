@@ -1,0 +1,31 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet id="sms_index_1" author="ndong" >
+        <createTable tableName="sms_index">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="sms_id" type="bigint"/>
+            <column name="sms_type" type="varchar(20)"/>
+            <column name="content" type="text"/>
+        </createTable>
+        <addPrimaryKey tableName="sms_index" columnNames="id" constraintName="pk_sms_index"/>
+    </changeSet>
+
+    <changeSet id="sms_index_2" author="ndong" >
+        <createIndex tableName="sms_index" indexName="IDX_SMS_SMS_ID">
+            <column name="sms_id"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,46 @@
+
+.systemBody {
+  border: 1px solid #CCCCCC;
+  color: #5F5F5F;
+  float: left;
+  padding: 29px;
+  width: 100%;
+}
+
+.systemBody h2 {
+    color: #0074F6;
+    font-family: "微软雅黑";
+    font-weight: bold;
+    text-align: center;
+}
+
+.systemBody .systemTime {
+    background: none repeat scroll 0 0 #F2F2F2;
+    float: left;
+    height: 100%;
+    width: 100%;
+}
+
+.systemBody .systemTime .sys {
+    border-right: 1px solid #CCCCCC;
+    float: left;
+    margin: 10px 10px 10px 15px;
+    width: 460px;
+}
+
+.systemBody .systemTime .sys .sysList {
+    color: #0094FF;
+    cursor: pointer;
+    display: block;
+    line-height: 28px;
+}
+
+.systemBody .systemTime .sys .sysList:hover {
+    color: #FF4800;
+    text-decoration: underline;
+}
+
+.systemBody .systemTime .sys .sysTime {
+    float: right;
+    padding-right: 25px;
+}

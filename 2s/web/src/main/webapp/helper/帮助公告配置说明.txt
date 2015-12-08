@@ -1,0 +1,17 @@
+1.更新至最新代码
+2.登录后台admin，添加配置(下面只是样例，请不要修改直接修改成如下， 修改成你对应的ip 或 域名 ! )
+   key                  value                          描述
+help_resources_domain   http://127.0.0.1:8080/web      帮助资源(flv,mp4,swf...)的服务器域名
+
+
+备注：
+  1.controller：HelpController
+  2.帮助jsp页面文件所在路径 webapp/helper
+  /test/paymentAuthentication.swf 就是资源的相对路径
+
+  所有的资源数据暂时都写死在代码中， swf(help resources) 资源暂时先放在应用服务器上， 后期迁移至媒体资源服务器。
+
+  3.crossdomain.xml 使用方法， 需要放置在web 服务器应用主目录下。
+
+
+

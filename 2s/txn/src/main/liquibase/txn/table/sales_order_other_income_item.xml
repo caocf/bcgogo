@@ -1,0 +1,50 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet author="chenfanglei" id="sales_order_other_income_item_1">
+        <createTable tableName="sales_order_other_income_item">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="order_id" type="bigint"/>
+            <column name="name" type="varchar(200)"/>
+            <column name="price" type="double"/>
+            <column name="memo" type="varchar(500)" />
+        </createTable>
+    </changeSet>
+    <changeSet author="chenfanglei" id="sales_order_other_income_item_2">
+        <addPrimaryKey tableName="sales_order_other_income_item" columnNames="id" constraintName="pk_sales_order_other_income_item"/>
+    </changeSet>
+
+    <changeSet author="chenfanglei" id="sales_order_other_income_item_3">
+        <createIndex tableName="sales_order_other_income_item" indexName="IDX_SALES_ORDER_OTHER_INCOME_ITEM_SHOP_ID_ID">
+            <column name="id"/>
+            <column name="shop_id"/>
+        </createIndex>
+
+        <createIndex tableName="sales_order_other_income_item" indexName="IDX_SALES_ORDER_OTHER_INCOME_ITEM_SHOP_ID_ORDER_ID">
+            <column name="shop_id"/>
+            <column name="order_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="sales_order_other_income_item_4" author="lw">
+      <addColumn tableName="sales_order_other_income_item">
+        <column name="calculate_cost_price" type="varchar(50)"/>
+        <column name="cost_price" type="double"/>
+        <column name="other_income_calculate_way" type="varchar(50)"/>
+        <column name="other_income_price_rate" type="double"/>
+      </addColumn>
+    </changeSet>
+
+
+
+</databaseChangeLog>

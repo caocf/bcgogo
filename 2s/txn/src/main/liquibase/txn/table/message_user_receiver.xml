@@ -1,0 +1,22 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet author="ZhangJuntao" id="message_user_receiver_1">
+        <createTable tableName="message_user_receiver">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="receiver_user_id" type="bigint"/>
+            <column name="message_receiver_id" type="bigint"/>
+            <column name="status" type="varchar(20)"/>
+        </createTable>
+        <addPrimaryKey tableName="message_user_receiver" columnNames="id" constraintName="pk_message_user_receiver"/>
+    </changeSet>
+</databaseChangeLog>

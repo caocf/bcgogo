@@ -1,0 +1,41 @@
+一.备份现有生产上war包,停掉热备份
+
+二.发布前准备
+1. 权限事先配置, 并导出表到sql文件, 并导入至生产数据库. 详见menu.txt.  导出的表包括:
+【
+  user_group_role
+  shop_role
+  resource
+  role
+  role_resource
+  module
+  menu
+】
+
+2. 将hibernate_unique_key表的值更新成测试服务器的值(或更大)
+
+三.发布应用并更新Solr Schema
+更新Solr Schema
+product,  order_item,  customer_supplier
+
+四.初始化及Solr索引
+1. DML更新
+ update repair_order_item ri,repair_order ro set ri.shop_id = ro.shop_id  where  ri.repair_order_id = ro.id and ri.shop_id is null;
+ update repair_order_service rs,repair_order ro set rs.shop_id = ro.shop_id  where  rs.repair_order_id = ro.id and rs.shop_id is null;
+
+2. 初始化
+jackchen登录后执行：
+ init.do?method=initSupplierInventory
+ jackchen登录后执行：
+init.do?method=initProductThrough&shopId=10000010018221723    (此店铺是高级版 需要初始化)
+
+3. Solr做索引:
+所有产品, 所有单据, 所有客户及供应商
+
+五.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

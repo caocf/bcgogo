@@ -1,0 +1,88 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xiaojian" id="customer_vehicle_1">
+        <createTable tableName="customer_vehicle">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="customer_id" type="bigint"/>
+            <column name="vehicle_id" type="bigint"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="xiaojian" id="customer_vehicle_2">
+        <addPrimaryKey tableName="customer_vehicle" columnNames="id" constraintName="pk_customer_vehicle"/>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="customer_vehicle_3">
+        <createIndex tableName="customer_vehicle" indexName="IDX_CUSTOMERVEHICLE_CUSTOMERID">
+            <column name="customer_id"/>
+        </createIndex>
+        <createIndex tableName="customer_vehicle" indexName="IDX_CUSTOMERVEHICLE_VEHICLEID">
+            <column name="vehicle_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="wujiaolong" id="customer_vehicle_4">
+        <addColumn tableName="customer_vehicle">
+            <column name="maintain_time" type="bigint"/>
+            <column name="insure_time" type="bigint"/>
+            <column name="examine_time" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="customer_vehicle_5">
+    <modifyColumn tableName="customer_vehicle">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet author="dongnan" id="customer_vehicle_6">
+    <addColumn tableName="customer_vehicle">
+      <column name="status" type="varchar(30)"/>
+    </addColumn>
+  </changeSet>
+
+    <changeSet id="customer_vehicle_7_xinYuQiu" author="xinYuQiu">
+        <addColumn tableName="customer_vehicle">
+            <column name="maintain_mileage" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet id="customer_vehicle_8_lw" author="lw">
+    <addColumn tableName="customer_vehicle">
+      <column name="total_consume" type="double"/>
+      <column name="consume_times" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="customer_vehicle_9_lw" author="lw">
+    <addColumn tableName="customer_vehicle">
+      <column name="last_expenditure_date" type="bigint"/>
+      <column name="last_order_type" type="varchar(30)"/>
+      <column name="last_order_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="customer_vehicle_10_lw" author="lw">
+    <addColumn tableName="customer_vehicle">
+      <column name="last_maintain_mileage" type="bigint"/>
+      <column name="last_maintain_time" type="bigint"/>
+      <column name="maintain_mileage_period" type="bigint"/>
+      <column name="maintain_time_period" type="bigint"/>
+      <column name="next_maintain_mileage_access" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

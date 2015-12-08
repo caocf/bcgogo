@@ -1,0 +1,52 @@
+一.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，姬牧晨）
+
+2. Solr schema:  更新 order_item,product
+
+三.发布应用 （纪友文）
+
+四.添加权限 (生产发布时跳过，权限自定义已包含）
+  1.执行对账单.txt内容
+（一）角色
+//----------------------------------------------new role-----------------------------------------------------------------------------
+
+
+（二）建立关联
+
+
+（三）资源
+          name                                           type           value                                                          备注
+//-----------------------------------------------------new resource------------------------------------------------------------------------
+//===============================================CRM--shop--登录后基本权限  (姬牧晨)   =============================================
+web_txn_customer_history_price                    request       /web/txn.do?method=getLatestCustomerPrice       客户上一次商品销售价
+web_base_systemTime                               request       /web/shop.do?method=getCurrentSysTime           当前服务器时间-毫秒
+
+web_txn_getOrderItemSuggestion                    request       /web/searchInventoryIndex.do?method=getOrderItemSuggestion    历史单据Item级下拉建议
+web_txn_getOrderItemDetails                       request       /web/searchInventoryIndex.do?method=getOrderItemDetails     查询历史单据Item级记录
+
+//===============================================CRM--shop--合并记录查询  (董楠)   =============================================
+web_txn_customer_toMergeRecord                  request         /web/customer.do?method=toMergeRecord             跳转到合并记录
+web_txn_customer_getMergeRecords                request         /web/customer.do?method=getMergeRecords           查询合并记录
+web_txn_customer_getMergedCustomerSnap          request         /web/customer.do?method=getMergedCustomerSnap      查询合并记录快照
+
+//=============================================== 对账单-打印（陈方雷） =====================================================================
+web_statementAccount_print                      request         /web/statementAccount.do?method=print           打印对账单
+
+//=============================================== SHOP-客户管理-短信管理-短信发送(金远)========================================================
+web_customer_getCustomerAndSupplierList         request         /web/remind.do?method=getCustomerAndSupplierList  获取联系人组信息
+五.初始化
+1. jackchen登录后执行：
+
+2. solr 重做索引  order,product
+
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

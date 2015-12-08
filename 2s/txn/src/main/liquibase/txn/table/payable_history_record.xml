@@ -1,0 +1,130 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <!--付款历史记录 payable_history_record-->
+    <changeSet author="zhangchuanlong" id="payable_history_record_1">
+        <createTable tableName="payable_history_record">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <!-- 店面ID-->
+            <column name="shop_id" type="bigint"/>
+            <!-- 扣款-->
+            <column name="deduction" type="float"/>
+            <!-- 欠款挂账-->
+            <column name="credit_amount" type="float"/>
+            <!-- 现金-->
+            <column name="cash" type="float"/>
+            <!-- 银行卡-->
+            <column name="bank_card_amount" type="float"/>
+            <!-- 支票-->
+            <column name="check_amount" type="float"/>
+            <!-- 支票号码-->
+            <column name="check_no" type="varchar(50)"/>
+            <!-- 用定金-->
+            <column name="deposit_amount" type="float"/>
+            <!-- 实付-->
+            <column name="actually_paid" type="float"/>
+            <!-- 采购入库单ID-->
+            <column name="purchase_inventory_id" type="bigint"/>
+            <!-- 结算历史ID-->
+            <column name="payable_history_id" type="bigint"/>
+            <!-- 供应商ID-->
+            <column name="supplier_id" type="bigint"/>
+            <!-- 应付款ID-->
+            <column name="payable_id" type="bigint"/>
+            <!--材料品名-->
+            <column name="material_name" type="varchar(500)"/>
+            <!--总额-->
+            <column name="amount" type="float"/>
+            <!--已付金额-->
+            <column name="paid_amount" type="float"/>
+        </createTable>
+        <addPrimaryKey tableName="payable_history_record" columnNames="id" constraintName="pk_payable_history_record"/>
+        <modifyColumn tableName="payable_history_record">
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </modifyColumn>
+    </changeSet>
+    <changeSet id="payable_history_record_2" author="zhangchuanlong">
+        <addColumn tableName="payable_history_record">
+            <column name="status" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="payable_history_record_3" author="zhangchuanlong">
+        <modifyColumn tableName="payable_history_record">
+            <column name="check_no" type="varchar(50)"></column>
+        </modifyColumn>
+    </changeSet>
+
+     <changeSet id="payable_history_record_4" author="liuWei">
+        <addColumn tableName="payable_history_record">
+            <column name="payment_type_enum" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="payable_history_record_5" author="liuWei">
+        <addColumn tableName="payable_history_record">
+            <column name="pay_time" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="liuWei" id="payable_history_record_6">
+        <modifyColumn tableName="payable_history_record">
+            <column name="payment_type_enum" type="varchar(50)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="payable_history_record_7" author="chenfanglei">
+        <addColumn tableName="payable_history_record">
+            <column name="strike_amount" type="float"></column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="liuWei" id="payable_history_record_8">
+        <addColumn tableName="payable_history_record">
+            <column name="day_type" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="liuWei" id="payable_history_record_9">
+        <createIndex tableName="payable_history_record" indexName="IDX_SHOPID_PAYTIME">
+        <column name="shop_id"/>
+        <column name="pay_time"/>
+      </createIndex>
+    </changeSet>
+
+    <changeSet author="liuWei" id="payable_history_record_10">
+      <createIndex tableName="payable_history_record" indexName="IDX_SHOPID_INVENTORYID">
+        <column name="shop_id"/>
+        <column name="purchase_inventory_id"/>
+      </createIndex>
+    </changeSet>
+
+    <changeSet id="payable_history_record_11" author="chenfanglei">
+        <addColumn tableName="payable_history_record">
+            <column name="purchase_return_id" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="payable_history_record_12" author="jimuchen">
+      <addColumn tableName="payable_history_record">
+          <column name="payer" type="varchar(20)" />
+          <column name="payer_id" type="bigint" />
+      </addColumn>
+    </changeSet>
+
+    <changeSet id="payable_history_record_13" author="liuWei">
+      <addColumn tableName="payable_history_record">
+          <column name="statement_amount" type="double" />
+      </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

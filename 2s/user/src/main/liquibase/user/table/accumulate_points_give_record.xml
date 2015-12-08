@@ -1,0 +1,36 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="chenfanglei" id="accumulate_points_give_record_1">
+        <createTable tableName="accumulate_points_give_record">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="shop_id" type="bigint"></column>
+            <column name="customer_id" type="bigint"></column>
+            <column name="member_id" type="bigint"></column>
+            <column name="amount" type="bigint"></column>
+            <column name="executor_id" type="bigint"></column>
+  
+        </createTable>
+    </changeSet>
+
+    <changeSet id="accumulate_points_give_record_2" author="chenfanglei">
+        <addPrimaryKey tableName="accumulate_points_give_record" columnNames="id" constraintName="pk_accumulate_points_give_record"></addPrimaryKey>
+    </changeSet>
+
+    <changeSet id="accumulate_points_give_record_3" author="chenfanglei">
+        <createIndex tableName="accumulate_points_give_record" indexName="idx_accumulate_points_give_record_1">
+            <column name="member_id"></column>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,99 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="mzdong" id="sms_recharge_1">
+        <createTable tableName="sms_recharge">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="shop_id" type="bigint"/>
+            <column name="recharge_time" type="bigint"/>
+            <column name="recharge_number" type="varchar(50)"/>
+            <column name="sms_balance" type="float"/>
+            <column name="recharge_amount" type="float"/>
+            <column name="state" type="bigint"/>
+        </createTable>
+
+        <addPrimaryKey tableName="sms_recharge" columnNames="id" constraintName="pk_sms_recharge"/>
+
+    </changeSet>
+
+    <changeSet author="mzdong" id="sms_recharge_2">
+        <addColumn tableName="sms_recharge">
+            <column name="pay_time" type="bigint"/>
+            <column name="user_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="mzdong" id="sms_recharge_3">
+        <addUniqueConstraint tableName="sms_recharge" columnNames="recharge_number"
+                             constraintName="unique_recharge_number"/>
+    </changeSet>
+
+    <changeSet author="luyi" id="sms_recharge_4">
+        <createIndex tableName="sms_recharge" indexName="IDX_SMSRECHARGE_SHOPID">
+            <column name="shop_id"/>
+        </createIndex>
+        <createIndex tableName="sms_recharge" indexName="IDX_SMSRECHARGE_SHOPID_RECHARGETIME">
+            <column name="shop_id"/>
+            <column name="recharge_time"/>
+        </createIndex>
+        <createIndex tableName="sms_recharge" indexName="IDX_SMSRECHARGE_RECHARGENUMBER">
+            <column name="recharge_number"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="sms_recharge_5">
+        <dropIndex indexName="IDX_SMSRECHARGE_SHOPID" tableName="sms_recharge" />
+    </changeSet>
+
+  <changeSet author="jimuchen" id="sms_recharge_6">
+    <modifyColumn tableName="sms_recharge">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet author="jinyuan" id="sms_recharge_7">
+        <addColumn tableName="sms_recharge">
+            <column name="receiptNo" type="varchar(50)"/>
+            <column name="recharge_method" type="varchar(50)"/>
+            <column name="status" type="varchar(50)"/>
+        </addColumn>
+  </changeSet>
+
+    <changeSet author="jinyuan" id="sms_recharge_8">
+        <addColumn tableName="sms_recharge">
+            <column name="payment_way" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="jinyuan" id="sms_recharge_9">
+        <addColumn tableName="sms_recharge">
+            <column name="present_amount" type="float"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="jinyuan" id="sms_recharge_10">
+        <addColumn tableName="sms_recharge">
+            <column name="payee_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="jinyuan" id="sms_recharge_11">
+        <addColumn tableName="sms_recharge">
+            <column name="audit_time" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

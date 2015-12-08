@@ -1,0 +1,37 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="mzdong" id="shop_business_1">
+    <createTable tableName="shop_business" >
+      <column name="id" type="bigint"/>
+      <column name="version" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="business_id" type="bigint"/>
+      <column name="state" type="bigint"/>
+      <column name="memo" type="varchar(500)"/>
+    </createTable>
+  </changeSet>
+
+    <changeSet author="zoujianhong" id="shop_business_2">
+        <createIndex tableName="shop_business" indexName="idx_shop_business_shopid">
+            <column name="shop_id"/>
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="shop_business_3">
+    <modifyColumn tableName="shop_business">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

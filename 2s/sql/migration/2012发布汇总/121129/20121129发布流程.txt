@@ -1,0 +1,39 @@
+一.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+二.数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，邹建宏）
+
+三.发布应用 （纪友文）
+
+四.添加权限
+
+（一）
+（二）资源
+
+          name                                           type           value                                                          备注
+//--------------------------------------------------------------------------new resource----------------------------------------------------------------------------------------------------
+
+//===============================================  	web_member_normal   (陈方雷)   =======================================
+ 	web_member_getMemberDiscount                       request    /web/member.do?method=getMemberDiscount         获取会员折扣
+ 	web_member_getMemberDiscountAndValidatePassword    request    /web/member.do?method=getMemberDiscountAndValidatePassword  获取会员折扣并且判断密码
+
+五.数据初始化
+update txn.receivable set txn.receivable.after_member_discount_total = txn.receivable.total where txn.receivable.after_member_discount_total is null;
+update txn.reception_record set txn.reception_record.after_member_discount_total = txn.reception_record.order_total where txn.reception_record.after_member_discount_total is null;
+update txn.sales_order set txn.sales_order.after_member_discount_total = txn.sales_order.total where txn.sales_order.after_member_discount_total is null;
+update txn.repair_order set txn.repair_order.after_member_discount_total = txn.repair_order.total where txn.repair_order.after_member_discount_total is null;
+update txn.wash_beauty_order set txn.wash_beauty_order.after_member_discount_total = txn.wash_beauty_order.total where txn.wash_beauty_order.after_member_discount_total is null;
+update search.item_index set search.item_index.after_member_discount_order_total = search.item_index.order_total_amount where search.item_index.after_member_discount_order_total is null;
+
+六.solr order的schema更新
+
+七.reindex solr,product务必更新
+
+八.权限配置结束需要手动刷新资源！ （纪友文）
+
+九.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

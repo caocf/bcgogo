@@ -1,0 +1,45 @@
+<!--文件名festival可能是liquibase关键字,mvn报错，文件名改为festival_s-->
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="ndong" id="ndong_1">
+    <createTable tableName="festival">
+      <column name="id" type="bigint"/>
+      <column name="version" type="bigint" />
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="user_id" type="bigint"/>
+      <column name="title" type="varchar(100)"/>
+      <column name="content" type="mediumblob"/>
+      <column name="release_date" type="bigint"/>
+      <column name="pre_day" type="bigint"/>
+      <column name="start_remind_date" type="bigint"/>
+      <column name="end_remind_date" type="bigint"/>
+      <column name="release_man_id" type="bigint"/>
+      <column name="release_man" type="varchar(50)"/>
+      <column name="status" type="varchar(50)"/>
+      <column name="create_date" type="bigint"/>
+      <column name="frequency" type="varchar(50)"/>
+    </createTable>
+    <addPrimaryKey tableName="festival" columnNames="id" constraintName="pk_festival"/>
+  </changeSet>
+
+  <changeSet author="ndong" id="ndong_2">
+    <createIndex tableName="festival" indexName="IDX_FESTIVAL_RELEASEDATE">
+      <column name="release_date"/>
+    </createIndex>
+    <createIndex tableName="festival" indexName="IDX_FESTIVAL_STARTREMINDDATE">
+      <column name="start_remind_date"/>
+    </createIndex>
+    <createIndex tableName="festival" indexName="IDX_FESTIVAL_ENDREMINDDATE">
+      <column name="end_remind_date"/>
+    </createIndex>
+  </changeSet>
+
+</databaseChangeLog>

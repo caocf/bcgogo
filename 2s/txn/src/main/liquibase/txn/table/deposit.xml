@@ -1,0 +1,47 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+   <!--定金表 deposit-->
+    <changeSet author="zhangchuanlong" id="deposit_1">
+        <createTable tableName="deposit">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="shop_id" type="bigint"/>
+            <column name="cash" type="float"/>
+            <column name="bank_card_amount" type="float"/>
+            <column name="check_amount" type="float"/>
+            <column name="check_no" type="varchar(50)"/>
+            <column name="actually_paid" type="float"/>
+            <column name="supplier_id" type="varchar(20)"/>
+
+        </createTable>
+        <addPrimaryKey tableName="deposit" columnNames="id" constraintName="pk_deposit"/>
+        <modifyColumn tableName="deposit">
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="deposit_2" author="zhangchuanlong">
+         <modifyColumn tableName="deposit">
+            <column name="supplier_id" type="bigint">
+            </column>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet author="jinyuan" id="deposit_3">
+        <addColumn tableName="deposit">
+            <column name="memo" type="varchar(500)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

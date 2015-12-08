@@ -1,0 +1,69 @@
+@charset "utf-8";
+/* CSS Document */
+.tuihuo_tb{
+	border:1px solid #BEBEBE;
+	margin-bottom:0px;
+}
+.tuihuo_tb .tui_title{
+	width:1001px;
+	background:url(../images/title_top.png) repeat-x;
+	height:62px;
+	line-height:31px;
+	padding:0px 15px;
+}
+#tb_tui{
+	margin:10px 15px;
+	border-collapse:collapse;
+    border-width:0 1px 1px;
+    border-style:solid;
+    border-color:#BBBBBB;
+}
+#tb_tui td{
+	text-align:center;
+}
+#tb_tui .tab_title td{
+	background:#fff url(../images/count_center.png) repeat-x;
+	border:none;
+	height:26px;
+	color:#fff;
+}
+#tb_tui .tab_title .tab_first{
+	background:#fff url(../images/cont_left.png) no-repeat;
+	width:2px;
+}
+#tb_tui .tab_title .tab_last{
+	background:url(../images/cont_right.png) no-repeat;
+	width:1px;
+}
+.heji_tb td{
+	font-weight:bold;
+}
+.bottom_input input{
+	display:block;
+	float:right;
+	background:url(../images/yinyen.png) no-repeat;
+	width:91px;
+	letter-spacing:2px;
+	height:29px;
+	border:none;
+	margin-right:10px;
+}
+.bottom_input input:hover{
+	background:url(../images/hoveryinye.png) no-repeat;
+	color:#fff;
+}
+
+.i_main .caogao{
+	display:block;
+	float:right;
+	background:url(../images/caogao.png) no-repeat;
+	width:119px;
+	height:21px;
+	color:#fff;
+	margin-right:10px;
+}
+.i_main .caogao{
+	line-height:21px;
+	text-align:center;
+}
+

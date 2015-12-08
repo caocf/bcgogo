@@ -1,0 +1,65 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="lijie" id="to_box_1">
+        <createTable tableName="to_box">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="shop_id" type="bigint"/>
+            <column name="type" type="bigint"/>
+            <column name="receive_mobile" type="varchar(20)"/>
+            <column name="content" type="varchar(500)"/>
+            <column name="user_id" type="bigint"/>
+            <column name="sender" type="varchar(20)"/>
+            <column name="priority" type="bigint"/>
+            <column name="send_times" type="bigint"/>
+            <column name="last_send_time" type="datetime"/>
+            <column name="last_send_channel" type="bigint"/>
+            <column name="start_time" type="datetime"/>
+            <column name="expire_time" type="datetime"/>
+            <column name="status" type="bigint"/>
+        </createTable>
+
+        <addPrimaryKey tableName="to_box" columnNames="id" constraintName="pk_to_box"/>
+
+    </changeSet>
+
+    <changeSet author="mzdong" id="to_box_2">
+        <addColumn tableName="to_box">
+            <column name="sms_id" type="bigint"/>
+            <column name="raw_data" type="text"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="mzdong" id="to_box_3">
+    <modifyColumn tableName="to_box">
+      <column name="sms_id" type="varchar(50)"/>
+    </modifyColumn>
+  </changeSet>
+
+   <changeSet author="lijie" id="to_box_4">
+        <createIndex tableName="to_box" indexName="idx_to_box_shopid_status">
+            <column name="shop_id"/>
+            <column name="status"/>
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="to_box_5">
+    <modifyColumn tableName="to_box">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

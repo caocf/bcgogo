@@ -1,0 +1,27 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="ndong" id="normal_product_modify_record_1">
+        <createTable tableName="normal_product_modify_record">
+            <column name="id" type="bigint"/>
+            <column name="user_id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="normal_product_id" type="bigint"/>
+            <column name="shop_product_id" type="bigint"/>
+            <column name="scene" type="varchar(50)"/>
+
+        </createTable>
+        <addPrimaryKey tableName="normal_product_modify_record" columnNames="id" constraintName="pk_normal_product_modify_record"/>
+    </changeSet>
+
+
+</databaseChangeLog>

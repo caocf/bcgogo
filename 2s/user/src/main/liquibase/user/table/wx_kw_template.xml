@@ -1,0 +1,32 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet  id="wx_kw_template_1" author="ndong">
+        <createTable tableName="wx_kw_template">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="public_no" type="varchar(100)"/>
+            <column name="title" type="varchar(50)"/>
+            <column name="template_id" type="varchar(100)"/>
+            <column name="first" type="varchar(100)"/>
+            <column name="remark" type="varchar(500)"/>
+            <column name="top_color" type="varchar(50)"/>
+            <column name="first_color" type="varchar(50)"/>
+            <column name="keyword1_color" type="varchar(50)"/>
+            <column name="keyword2_color" type="varchar(50)"/>
+            <column name="keyword3_color" type="varchar(50)"/>
+            <column name="remark_color" type="varchar(50)"/>
+            <column name="deleted" type="varchar(20)"/>
+        </createTable>
+        <addPrimaryKey tableName="wx_kw_template" columnNames="id" constraintName="pk_wx_kw_template"/>
+    </changeSet>
+</databaseChangeLog>

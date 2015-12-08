@@ -1,0 +1,135 @@
+@charset "utf-8";
+/* CSS Document */
+/*-----------------------------------returnsStorage.html-------------------------------------------------------*/
+table tr td input{ border:1px solid #ADADAD;}
+.tuihuo_first span{ display:block; clear:both; background:url(../images/right_tui.png) no-repeat; width:1003px; height:3px;}
+.tuihuo_first{ border-collapse:collapse; background:url(../images/center_tui.png) repeat-y;width:1003px; display:block;}
+.tuihuo_first table tr td{ text-align:right;  line-height:35px;}
+.i_main .caogao{ display:block; float:right; background:url(../images/caogao.png) no-repeat; width:119px; height:21px; color:#fff; margin-right:10px; margin-top:25px;}
+.tuihuo_first table tr td input{ height:19px; line-height:22px; display:block; float:left;}
+/*.tuihuo_first table tr .xiangxi_td  a{color:#007cda; text-decoration:underline;}*/
+.tuihuo_first table tr .xiangxi_td input{ margin-top:7px; }
+.tuihuo_first table tr td .xiangxi{ background:url(../images/btn_la.png) no-repeat; border:none; width:13px; height:13px; margin-right:5px;}
+.tuihuo_first table tr .xiangxi_td input,.tuihuo_first table tr .xiangxi_td a{ display:block; float:left;}
+.tuihuo_first .right_tuihuo{ background:url(../images/left_tui.png) no-repeat; width:1003px; height:3px; display:block; float:left;}
+.selectTime{
+	border:1px solid #ADADAD;
+	height:25px;
+	width:110px;
+	float:left;
+	margin-bottom:5px;
+	background:#fff;
+}
+.selectTime input{
+	border:none;
+	width:80px;
+	height:23px;
+	line-height:23px;
+	float:left;
+	padding-left:6px;
+}
+
+
+.i_mainRight #tuihuo_show{ border-collapse:collapse;margin:10px 0px;width:1003px;border:1px solid #C9C6C6;}
+.i_main .caogao{ line-height:21px; text-align:center;float:right;}
+/*-----------------------------------returnsStorage.html,cuSearch.html-------------------------------------------------------*/
+#tuihuo_show tr{padding:0px 5px; }
+#tuihuo_show tr td{ height:31px; text-align:left;}
+#tuihuo_show tr td input{ height:21px;}
+.i_mainRight #tuihuo_show tr td .dele_a{ color:#c00000; text-decoration:underline;}
+#tuihuo_show .title_tb{ background:url(../images/title_tbcenter.png) repeat-x; color:#fff; text-align:center;}
+.i_mainRight #tuihuo_show .heji_tb td{ font-weight:bold;color:#7f7f7f;}
+
+.ti_btn input{ display:block; float:left;/* background:url(../images/btn_tong.png) no-repeat;*/background:url(../images/chkTong.png) no-repeat; width:76px; height:25px; line-height:25px;border:none; margin-right:10px; color:#fff;}
+.ti_btn .sure_tui{  margin-left:400px;}
+.ti_btn input:hover{/*background:url(../images/btn_ti.png) no-repeat;color:#fff;*/background:url(../images/chkTi.png) no-repeat; color:#663A02; cursor:pointer;}
+#tb_tui tr .redColor{ color:#ff4800; }
+#tb_tui tr td {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+#tb_tui tr td:hover{ cursor:pointer;}
+
+.tuihuo_show tr td{border:1px solid #C9C6C6; border-width:1px 0px 1px 0px;}
+.tuihuo_show .radLbl{margin:0px 5px -3px -7px; vertical-align:text-bottom; }
+
+.jihua_tb{padding-bottom:10px;}
+.tuihuo_first table.jihua_tb td{ line-height:40px; color:#515151; height:50px;}
+.jihua_tb input.txt{width:100px; padding-left:6px; margin-right:10px; color:#666666;}
+.jihua_tb input.btnSel,.jihua_tb input.btnAdd{background:url(../images/btnNor2.png) no-repeat; width:64px; height:21px; text-align:center; color: #FF4800; cursor:pointer; border:none;}
+.jihua_tb input.btnSel:hover{background:url(../images/btnHor2.png) no-repeat; color:#FFFFFF;}
+.jihua_tb .lbl{margin:0px; line-height:22px; font-size:12px; margin-top:10px;}
+.jihua_tb .lbl input{margin-right:5px;}
+.jihua_tb input.btnNew{background:url(../images/btnNormals.png) no-repeat; width:64px; height:21px; text-align:center; color:#FFFFFF; border:none; cursor:pointer; margin-left:10px; padding-bottom: 2px; margin-top:10px;}
+.jihua_tb input.btnNew:hover{background:url(../images/btnHoverss.png) no-repeat; color:#663A02;}
+.jihua_tb .textArea{height:80px;width:96%; border:1px solid #ADADAD; display:block; float:left; background:#FFFFFF;}
+.jihua_tb .textArea .divNumber{ background:#CCCCFF; border:1px solid #9999CC;color: #0066CC; height:22px; line-height: 25px; padding-left: 6px; padding-right: 6px; width: 140px; font-size:12px; margin:6px 0px 0px 6px; text-align:left;}
+.jihua_tb .textArea .divNumber span{background:none; width:auto;}
+.jihua_tb .textArea .divNumber .close{background:url(../images/divClose.png) no-repeat; width:13px; height:13px; cursor: pointer; display: block; float: right; margin-top:2px;}
+.jihua_tb input.btnAdd{background:url(../images/btnNor3.png) no-repeat; width:78px; height:21px;}
+.jihua_tb input.btnAdd:hover{background:url(../images/btnHor3.png.png) no-repeat; color:#FFFFFF;}
+
+
+.divSlip div{color:#FFFFFF;}
+.tuihuo_first table tr a{color: #006ECA; text-decoration:none;}
+a.up, a.down,a.up:hover,a.down:hover{ background-position:32px 12px;}
+
+.i_main .i_mainRight table.tabPro td{ text-align:left; height:35px;}
+
+.tabMore tr td input{width:90%;}
+.imgAdd{background:url(../images/opera2.png) no-repeat 0px 8px; width:15px; height:21px; cursor:pointer; display:inline-block; float: right;}
+
+.tuihuo_first .tabMsg{width:100%; table-layout:fixed;}
+.tuihuo_first .tabMsg  tr td input{width:90%;}
+.tuihuo_first table tr .pay{float:left; width:154px; margin:6px 0px 0px 0px; text-align:left;}
+
+
+
+
+/*---------------------帮助公告-------------------------------*/
+.btnDis{ background:url(../images/btnDis.png) no-repeat; width:144px; height:30px; text-align:center; line-height:30px; color:#1B5EA1; display:block; font-size:14px; font-weight:bold;}
+.description{padding:10px 15px;}
+.description div,.description h3{ line-height:25px;}
+.description .alert{ background:url(../images/helpAlert.png) no-repeat; width:510px; height:140px; display:block;}
+.description .titDes a{ width:114px; height:33px; text-align:center; line-height:33px; display:inline-block; color:#474747; font-size:14px; cursor:pointer;}
+.description .titDes a.hover{ background:url(../images/btnPay.png) no-repeat; color:#FF5E04;}
+.description  .flash{ background:#FFFFFF; float:left; height:100%; width:785px; margin-left:1px; text-align:center; padding:10px 0px 30px 0px;}
+.description .intro{ background:#FFFFFF; float:left; height:100%; width:755px; margin-left:1px; padding:10px 15px;}
+.description div{ cursor:pointer;}
+.description .w_code{}
+.description .w_code a{ margin:10px;}
+.description .function{ width:207px; float:left; text-align:center; margin:10px;}
+.description .function .img{width:207px;}
+.description .function .function_txt{ color:#ff6600; font-size:14px; font-weight:bold; line-height:30px;}
+.description .to_right{ background:url(../images/right-blue.png) no-repeat; width:26px; height:26px; float:left; margin:140px 10px;}
+
+
+
+/*---------------------供应商评分-------------------------------*/
+.lblScore{ line-height:22px; color:#474747; margin:0px 10px; font-size:14px;}
+.scoreInfo{color:#474747; margin:0px 10px; border:1px solid #BEBEBE; padding:10px;}
+.scoreInfo span.name{text-align:right; display:inline-block; font-size:14px;}
+.scoreInfo .scoreStar{ background:url(../images/stars.png) no-repeat; width:75px; height:14px; display:inline-block; margin-right:20px;}
+.scoreInfo .addComment{ background:url(../images/btnBuy_star.png) no-repeat; width:64px; height:21px; line-height:22px; text-align:center; color:#FFFFFF; display:inline-block; cursor:pointer;}
+.scoreInfo .addComment:hover{ background:url(../images/tishi_hover.png) no-repeat; color:#663A02;}
+.scoreInfo .comment{ font-size:14px; line-height:25px;}
+.scoreInfo .comment span{ font-size:12px;}
+.scoreInfo .addWord{ padding-left:40px; color:#999999;}
+#tb_tui td a.reviews{ background:url(../images/chkBtn.png) no-repeat; width:52px; height:21px; line-height:22px; text-align:center; display:inline-block; color:#FFFFFF; cursor:pointer; font-size:14px; margin: 5px 5px 0px 0px; float:right;}
+#tb_tui td a.reviews:hover{ background:url(../images/chkBtn.png) no-repeat -54px 0px; color:#813D00;}
+#tb_tui td a.bigStar{ background:url(../images/bigStar.png) no-repeat 0px 7px; display:inline-block; padding-left:18px; color:#ff0c00; margin-right:5px;}
+
+
+/*---------------------商品入库/商品入库退货-------------------------------*/
+.tuihuo_first .warehouseList{float:left;white-space:normal; text-align:left;line-height:25px;}
+.tuihuo_first .warehouseList .rad{ white-space:nowrap; display:inline-block;}
+.tuihuo_first .warehouseList .rad input{ vertical-align:middle; margin:0px 3px 4px 0px; width:auto;}
+.tuihuo_first .warehouseList .rad input, .tuihuo_first .warehouseList input.txt{ float:none; display:inline;}
+
+
+.tuihuo_first em{ font-style:normal;}
+.tuihuo_border_ringht{ border-right:#DCDBDB 1px solid;}
+.tuihuo_border_bottom{border-bottom:#DCDBDB 1px solid;}
+
+

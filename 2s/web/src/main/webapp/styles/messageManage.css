@@ -1,0 +1,24 @@
+.lineTop{background:url(../images/line_top.png) no-repeat; width:1003px; height:6px;}
+.lineBody{background:url(../images/line_bg.png) repeat-y scroll 0 0 transparent; width:973px; height:100%; color:#272727; float:left; padding:10px 15px;}
+.lineBottom{background:url(../images/line_bottom.png) no-repeat; width:1003px; height:5px; float:left;}
+.lineBody .divLine{width:100%; height:100%; float:left; font-size:14px;}
+.lineBody .divLine .title{width:70px;}
+.lineBody .divLine .radio{margin-right:10px; }
+.lineBody .divLine .radio input{ margin:0px 5px 2px 0px; vertical-align:text-bottom;}
+.lineBody .divLine .select{border:1px solid #ADADAD; float:left; width:208px; }
+.lineBody .divLine .select input{border:none; float:left; width:88%; height:19px; line-height:21px; color:#AEAEAE;padding-left:6px;}
+.lineBody .divLine .select .btnSel{background:url(../images/selicon.png) no-repeat; width:18px; height:19px; display:block; float:left; cursor:pointer;}
+.lineBody .divLine .btnSelect{background:url(../images/btnNor2.png) no-repeat; color:#FF4800; width:64px; height:21px; line-height:24px; text-align:center; padding-bottom:1px; cursor:pointer; border:none; margin-top:5px;}
+.lineBody .divLine .btnSelect:hover{background:url(../images/btnHor2.png) no-repeat; color:#FFFFFF;}
+.lineBody .divLine .textarea{border:1px solid #ADADAD; resize:none; width:800px; height:100px; color:#666666; padding-left:6px; padding-top:6px; float:left; background:#FFFFFF; line-height:20px; font-size:12px; overflow-y:hidden;}
+.lineBody .divLine .divNumber{border:1px solid #9999cc; background:#ccccff; color:#0066cc; height:22px; line-height:25px;  padding-left:6px; padding-right:6px;}
+.lineBody .divLine .divNumber .close{background:url(../images/divClose.png) no-repeat; width:13px; height:13px; cursor:pointer; display:block; float:right; margin-top:5px;}
+.btnSure{padding-left:70px; float:left;}
+.btnSure .sure{background:url(../images/btnNormals.png) no-repeat; height:21px; width:64px; text-align:center; line-height:21px; border:none; cursor:pointer; color:#FFFFFF; padding-bottom:2px;}
+.btnSure .sure:hover{background:url(../images/btnHoverss.png) no-repeat; color:#663A02;}
+.btnSure label{padding:0px 0px 0px 5px; margin-top:3px; font-size:12px; }
+.btnSure label input{ vertical-align:text-bottom; margin-bottom:1px; margin-right:5px;}
+
+.lineBody .txt{color:#666666; width:80px; margin-right:10px;}
+.lineBody .selTit{float:left; margin:0px; margin-right:10px;}
+.lineBody .btn_search{margin:0px;}

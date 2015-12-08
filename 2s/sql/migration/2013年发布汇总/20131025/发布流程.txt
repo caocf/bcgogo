@@ -1,0 +1,33 @@
+一.备份现有生产上war包,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，姬牧晨）
+
+三.发布应用
+   只发布admin !!!
+
+四.添加权限
+ -----------------------------------------------------------金远--------------------------------------------------------------------------
+在 CRM-----客户管理-----查看试用客户，查看客户线索，编辑客户，注册客户 中，都添加以下权限
+getServiceCatrgory             /admin/shopManage.do?method=getServiceCatrgory      SHOP     得到服务范围         request
+getShopVehicleBrandModelByShopId           /admin/businessScope.do?method=getShopVehicleBrandModelByShopId  SHOP    得到店面主营车型   request
+getCheckedVehicleBrandModel         /admin/businessScope.do?method=getCheckedVehicleBrandModel       SHOP    得到复选框中的车型        request
+
+在CRM------客户管理-----删除线索客户中添加权限
+updateShopStatus                /admin/shopManage.do?method=updateShopStatus            SHOP     删除线索客户         request
+
+
+五.初始化
+1. 数据库sql更新
+product库：
+    update shop_vehicle_brand_model set deleted = 'FALSE';
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+回滚步骤：
+1.关闭服务
+2.恢复生产数据库
+3.使用旧war包重新发布
+4.验证功能
+
+

@@ -1,0 +1,37 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+2.执行如下sql
+  update txn.running_stat_change set customer_deposit_pay_expenditure = 0, customer_debt_discount = 0;
+
+  (新)update txn.payable_history_record set payment_type_enum = 'INVENTORY_REPEAL'  where payment_type_enum is null and status = 'REPEAL' and day_type ='OTHER_DAY';
+三.发布应用
+  1. 发布web, admin
+  2. 发布定时钟
+  3. 发布api
+
+四.添加权限
+  --------------------------------------------------金远----------------------------------------------------
+ SHOP-------查询中心-----单据查询---系统单据：
+ web_showOrderOperationLog          /web/txn.do?method=showOrderOperationLog  SHOP    单据操作记录   request
+ web_getUserIdBySalesManId          /web/user.do?method=getUserIdBySalesManId    SHOP   通过salesManId得到userId    request
+
+ CRM-----SHOP操作权限------SHOP数据初始化：
+ web_initOperationLog               /web/init.do?method=initOperationLog         SHOP   初始化操作记录userName字段  request
+ web_initOperationLogType               /web/init.do?method=initOperationLogType         SHOP   初始化操作记录operation_type字段  request
+  ----------------------------------------------------------------------------------------------------------
+五.初始化
+        jackchen 账号登陆 执行初始化：init.do?method=initOperationLog
+                                      init.do?method=initOperationLogType
+        solr order替换schema.xml  重做所有单据索引
+六.上传打印模板
+   1.bcgogo-UI\打印模板\default_超级管理统计打印\营业统计-商品销售.html
+   2.bcgogo-UI\打印模板\default_超级管理统计打印\营业统计-车辆施工.html
+   3.bcgogo-UI\打印模板\default_超级管理统计打印\营业统计-洗车.html
+
+   4.bcgogo_ui\打印模板\default_改\应付款结算单.html 模板类型：应付款结算单
+
+七.功能验证（测试组）， 如果不通过执行回滚步骤。
+

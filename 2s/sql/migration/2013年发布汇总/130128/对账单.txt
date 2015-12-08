@@ -1,0 +1,80 @@
+
+1.执行如下sql
+//客户累计消费 刘伟
+update txn.receivable  set member_id = null where member_id = 0;
+
+update txn.receivable set after_member_discount_total = total where after_member_discount_total = 0;
+
+update txn.receivable a ,txn.repair_order b set a.customer_id = b.customer_id, a.vest_date  = b.vest_date,a.debt_type='CUSTOMER_DEBT_RECEIVABLE', a.receipt_no = b.receipt_no where a.shop_id = b.shop_id and a.order_id = b.id;
+
+update txn.receivable a ,txn.wash_beauty_order b set a.customer_id = b.customer_id, a.vest_date  = b.vest_date,a.debt_type='CUSTOMER_DEBT_RECEIVABLE', a.receipt_no = b.receipt_no where a.shop_id = b.shop_id and a.order_id = b.id;
+
+update txn.receivable a ,txn.wash_order b set a.customer_id = b.customer_id, a.vest_date  = b.created,a.debt_type='CUSTOMER_DEBT_RECEIVABLE' where a.shop_id = b.shop_id and a.order_id = b.id ;
+
+update txn.receivable a ,txn.member_card_order b set a.customer_id = b.customer_id, a.vest_date  = b.vest_date,a.debt_type='CUSTOMER_DEBT_RECEIVABLE' where a.shop_id = b.shop_id and a.order_id = b.id ;
+
+update txn.receivable a ,txn.member_card_return b set a.customer_id = b.customer_id, a.vest_date  = b.return_date,a.debt_type='CUSTOMER_DEBT_PAYABLE' where a.shop_id = b.shop_id and a.order_id = b.id ;
+
+update txn.receivable a ,txn.sales_return b set a.customer_id = b.customer_id, a.vest_date  = b.vest_date, a.debt_type='CUSTOMER_DEBT_PAYABLE',a.receipt_no = b.receipt_no where a.shop_id = b.shop_id and a.order_id = b.id ;
+
+update txn.receivable a ,txn.sales_order b set a.customer_id = b.customer_id, a.vest_date  = b.vest_date,a.debt_type='CUSTOMER_DEBT_RECEIVABLE', a.receipt_no = b.receipt_no where a.shop_id = b.shop_id and a.order_id = b.id ;
+
+
+update txn.receivable a set status_enum = 'FINISH' where order_id in ( select order_id from txn.repair_order where  status_enum = 'REPAIR_SETTLED' ) and status_enum is null;
+//检查语句 select * from txn.receivable where status_enum is null;//查询结果应为0条
+update bcuser.customer_record a set total_amount = ( select sum(settled_amount + debt) from txn.receivable where customer_id = a.customer_id  and status_enum = 'FINISH' and order_type_enum in ('REPAIR', 'SALE', 'WASH', 'WASH_BEAUTY'))
+
+//---2013.1.24新增--//
+update bcuser.customer_record a set total_amount = 0 where total_amount is null;
+update txn.reception_record set record_num = 0 where record_num is null;
+update txn.reception_record set order_status_enum = 'WASH_REPEAL' where order_status_enum is null and order_type_enum = 'WASH_BEAUTY';
+
+//---2013.1.25新增--//
+update txn.payable a ,txn.purchase_return b  set a.receipt_no = b.receipt_no ,a.pay_time = b.vest_date where a.purchase_inventory_id = b.id and ( a.pay_time  is null or a.receipt_no is null );
+
+//---2013.1.26新增-- 不要在测试执行- 直接在生产执行//
+ delete from txn.payable where purchase_inventory_id in ( select  a.purchase_return_id  from txn.supplier_return_payable a left join txn.purchase_return b on a.purchase_return_id = b.id  where  b.id is null  ) and order_type = 'RETURN';
+
+//---2013.1.28新增--//
+2. Solr schema: 更新 order schema.xml 并重建 所有单据索引。
+
+2.添加角色:
+  1、在后台crm->权限维护 -> 模块-角色-资源维护->SHOP->客户管理->客户资料 增加新角色 客户对账单
+  2. 在后台crm->权限维护 -> 模块-角色-资源维护->SHOP->供应商管理->供应商资料 增加新角色 供应商对账单
+  3.增加资源
+
+						name                                        type               value                                                            备注                    systemType
+	//===============================================  对账单 ====================================
+	web_statement_order_redirectSearchCustomerBill         request           /web/statementAccount.do?method=redirectSearchCustomerBill        对账单查询                SHOP
+
+	web_statement_order_redirectCreateCustomerBill         request           /web/statementAccount.do?method=redirectCreateCustomerBill        跳转到对账单生成页面                SHOP
+
+	web_statement_order_searchStatementAccountOrder         request           /web/statementAccount.do?method=searchStatementAccountOrder      获得对账单列表            SHOP
+
+	web_statement_order_getCurrentStatementAccountOrder        request           /web/statementAccount.do?method=getCurrentStatementAccountOrder   生成对账单                SHOP
+
+	web_statement_order_statementOrderAccount         request           /web/statementAccount.do?method=statementOrderAccount        跳转到对账单结算                SHOP
+
+	web_statement_order_settleStatementAccountOrder         request           /web/statementAccount.do?method=settleStatementAccountOrder       对账单结算                SHOP
+
+	web_statement_order_getOperatorByCustomerOrSupplierId       request           /web/statementAccount.do?method=getOperatorByCustomerOrSupplierId  获取对账单结算人列表                SHOP
+
+	web_statement_order_showStatementAccountOrderById      request           /web/statementAccount.do?method=showStatementAccountOrderById  查看对账单                SHOP
+  4.把这些资源分别增加到 客户对账单角色中 和供应商对账单角色中
+
+//---2013.1.24新增--//
+  5.增加一个资源
+  	web_init_initReceivableHistory      request           /web/init.do?method=initReceivableHistory  初始化付款历史                SHOP
+  	把这个资源添加到CRM-> SHOP操作权限->SHOP数据初始化中;
+
+ //---2013.1.24新增--//
+ 用jackchen登陆系统 执行初始化init.do?method=initReceivableHistory
+
+  //---2013.1.28新增--//
+ update txn.supplier_record  a set credit_amount  = ( select sum(credit_amount ) from txn.payable where debt_type = 'SUPPLIER_DEBT_PAYABLE'  and status !='REPEAL'  and supplier_id = a.supplier_id and shop_id = a.shop_id );
+
+update txn.supplier_record  a set debt  =  0 - ( select sum(credit_amount) from txn.payable where debt_type = 'SUPPLIER_DEBT_RECEIVABLE'  and status !='REPEAL' and supplier_id = a.supplier_id  and shop_id = a.shop_id );
+update receivable set debt_type='CUSTOMER_DEBT_PAYABLE' where order_type_enum = 'SALE_RETURN' and debt_type is null;
+update receivable set debt_type = 'CUSTOMER_DEBT_RECEIVABLE' where debt_type is null;
+
+

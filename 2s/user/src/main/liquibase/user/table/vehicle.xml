@@ -1,0 +1,186 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="mazidong" id="vehicle_1">
+        <createTable tableName="vehicle">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="licence_area_id" type="bigint"/>
+            <column name="licence_no" type="varchar(20)"/>
+            <column name="customer_id" type="bigint"/>
+            <column name="customer" type="varchar(20)"/>
+            <column name="engine_no" type="varchar(20)"/>
+            <column name="vin" type="varchar(20)"/>
+            <column name="car_id" type="bigint"/>
+            <column name="brand" type="varchar(20)"/>
+            <column name="mfr" type="varchar(50)"/>
+            <column name="model" type="varchar(50)"/>
+            <column name="year" type="varchar(10)"/>
+            <column name="engine_type" type="varchar(10)"/>
+            <column name="trim" type="varchar(50)"/>
+            <column name="color" type="varchar(10)"/>
+            <column name="memo" type="varchar(500)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="xiaojian" id="vehicle_2">
+        <dropColumn tableName="vehicle" columnName="customer_id"/>
+        <dropColumn tableName="vehicle" columnName="customer"/>
+    </changeSet>
+
+    <changeSet author="mzdong" id="vehicle_3">
+        <dropColumn tableName="vehicle" columnName="engine_type"/>
+        <addColumn tableName="vehicle">
+            <column name="car_date" type="bigint"/>
+            <column name="engine" type="varchar(20)"/>
+        </addColumn>
+        <modifyColumn tableName="vehicle">
+            <column name="color" type="varchar(20)"/>
+            <column name="year" type="varchar(20)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet author="xiaojian" id="vehicle_4">
+        <addPrimaryKey tableName="vehicle" columnNames="id" constraintName="pk_vehicle"/>
+    </changeSet>
+
+    <changeSet author="mzdong" id="vehicle_4">
+
+        <addColumn tableName="vehicle">
+            <column name="brand_id" type="bigint"/>
+            <column name="mfr_id" type="bigint"/>
+            <column name="model_id" type="bigint"/>
+            <column name="year_id" type="bigint"/>
+            <column name="engine_id" type="bigint"/>
+        </addColumn>
+
+    </changeSet>
+
+    <changeSet author="zhouxiaochen" id="vehicle_5">
+
+        <addColumn tableName="vehicle">
+            <column name="chassis_number" type="varchar(50)"/>
+            <!--车架号-->
+        </addColumn>
+
+    </changeSet>
+
+    <changeSet author="xiaojian" id="vehicle_6">
+        <addColumn tableName="vehicle">
+            <column name="licence_no_revert" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="xiaojian" id="vehicle_7">
+        <createIndex tableName="vehicle" indexName="idx_licence_no">
+            <column name="shop_id"/>
+            <column name="licence_no"/>
+        </createIndex>
+        <createIndex tableName="vehicle" indexName="idx_licence_no_revert">
+            <column name="shop_id"/>
+            <column name="licence_no_revert"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="vehicle_8">
+        <dropIndex indexName="idx_licence_no_revert" tableName="vehicle" />
+    </changeSet>
+
+  <changeSet author="jimuchen" id="vehicle_9">
+    <modifyColumn tableName="vehicle">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+    <changeSet author="weilingfeng" id="vehicle_10">
+        <addColumn tableName="vehicle">
+            <column name="start_mileage" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="vehicle_11" author="chenfanglei">
+        <addColumn tableName="vehicle">
+            <column name="status" type="varchar(20)"></column>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="liuWei" id="vehicle_12">
+    <modifyColumn tableName="vehicle">
+      <column name="engine_no" type="varchar(50)"/>
+      <column name="brand" type="varchar(50)"/>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet author="jinyuan" id="vehicle_13">
+    <addColumn tableName="vehicle">
+            <column name="contact" type="varchar(50)"></column>
+            <column name="mobile"  type="varchar(20)"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="vehicle_14">
+      <createIndex tableName="vehicle" indexName="idx_vehicle_created">
+          <column name="created"/>
+      </createIndex>
+  </changeSet>
+
+  <changeSet author="zhangjuntao" id="vehicle_15_zhangjuntao">
+      <createIndex tableName="vehicle" indexName="IDX_VEHICLE_LICENCE_NO">
+          <column name="licence_no"/>
+      </createIndex>
+  </changeSet>
+
+    <changeSet author="jimuchen" id="vehicle_16">
+        <addColumn tableName="vehicle">
+            <column name="obd_mileage" type="double" />
+        </addColumn>
+        <modifyColumn tableName="vehicle">
+            <column name="start_mileage" type="double" />
+        </modifyColumn>
+    </changeSet>
+    <changeSet id="vehicle_17_sinYuQiu" author="sinYuQiu">
+        <addColumn tableName="vehicle">
+            <column name="mileage_last_update_time" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+
+    <changeSet author="xzhu" id="vehicle_xzhu_17">
+        <addColumn tableName="vehicle">
+            <column name="obd_id"  type="bigint"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="jimuchen" id="vehicle_18">
+        <addColumn tableName="vehicle">
+            <column name="gsm_obd_imei"  type="varchar(100)"></column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="vehicle_xzhu_19" author="xzhu">
+        <addColumn tableName="vehicle">
+            <column name="gsm_obd_imei_mobile" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="vehicle_20_sinYuQiu" author="sinYuQiu">
+        <addColumn tableName="vehicle">
+            <column name="last_obd_mileage" type="double(20,2)"/>
+        </addColumn>
+    </changeSet>
+   <changeSet author="ndong" id="vehicle_21">
+    <createIndex tableName="vehicle" indexName="IDX_VEHICLE_GSM_OBD_IMEI">
+       <column name="gsm_obd_imei"/>
+    </createIndex>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,156 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="zhoudongming" id="wash_beauty_order_1">
+    <createTable tableName="wash_beauty_order">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="date" type="bigint"/>
+      <column name="no" type="varchar(20)"/>
+      <column name="dept_id" type="bigint"/>
+      <column name="dept" type="varchar(20)"/>
+      <column name="vechicle_id" type="bigint"/>
+      <column name="vechicle" type="varchar(20)"/>
+      <column name="customer_id" type="bigint"/>
+      <column name="customer" type="varchar(100)"/>
+      <column name="start_mileage" type="float"/>
+      <column name="end_mileage" type="float"/>
+      <column name="fuel_number" type="varchar(50)"/>
+      <column name="start_date" type="bigint"/>
+      <column name="end_date" type="bigint"/>
+      <column name="executor_id" type="bigint"/>
+      <column name="executor" type="varchar(20)"/>
+      <column name="total" type="float"/>
+      <column name="memo" type="varchar(500)"/>
+      <column name="editor_id" type="bigint"/>
+      <column name="editor" type="varchar(20)"/>
+      <column name="edit_date" type="bigint"/>
+      <column name="reviewer_id" type="bigint"/>
+      <column name="reviewer" type="varchar(20)"/>
+      <column name="review_date" type="bigint"/>
+      <column name="invalidator_id" type="bigint"/>
+      <column name="invalidator" type="varchar(20)"/>
+      <column name="invalidate_date" type="bigint"/>
+      <column name="status" type="bigint"/>
+      <column name="total_cost_price" type="double"/>
+      <column name="vest_date" type="bigint"/>
+    </createTable>
+  </changeSet>
+  <changeSet id="wash_beauty_order_2" author="zhoudongming">
+    <addPrimaryKey tableName="wash_beauty_order" columnNames="id" constraintName="pk_wash_beauty_order"/>
+  </changeSet>
+  <changeSet id="wash_beauty_order_3" author="zhoudongming">
+    <modifyColumn tableName="wash_beauty_order">
+      <column name="status" type="varchar(20)"/>
+    </modifyColumn>
+  </changeSet>
+
+    <changeSet id="wash_beauty_order_4" author="chenfanglei">
+        <addColumn tableName="wash_beauty_order">
+            <column name="receipt_no" type="varchar(20)"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="wash_beauty_order_5" author="chenfanglei">
+        <createIndex tableName="wash_beauty_order" indexName="IDX_WASHBEAUTYORDER_RECEIPT_NO">
+            <column name="shop_id"></column>
+            <column name="receipt_no"></column>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="wash_beauty_order_6" author="chenfanglei">
+        <addColumn tableName="wash_beauty_order">
+            <column name="after_member_discount_total" type="double"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="wash_beauty_order_7" author="jimuchen">
+        <addColumn tableName="wash_beauty_order">
+            <column name="customer_company" type="varchar(20)"/>
+            <column name="customer_contact" type="varchar(200)"/>
+            <column name="customer_mobile" type="varchar(20)"/>
+            <column name="customer_landline" type="varchar(20)"/>
+            <column name="customer_address" type="varchar(50)"/>
+            <column name="member_no" type="varchar(50)"/>
+            <column name="member_type" type="varchar(50)"/>
+            <column name="member_status" type="varchar(50)"/>
+
+            <column name="vehicle_engine" type="varchar(20)"/>
+            <column name="vehicle_engine_no" type="varchar(50)"/>
+            <column name="vehicle_brand" type="varchar(50)"/>
+            <column name="vehicle_model" type="varchar(50)"/>
+            <column name="vehicle_color" type="varchar(20)"/>
+            <column name="vehicle_buy_date" type="bigint"/>
+            <column name="vehicle_chassis_no" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="wash_beauty_order_8" author="liuWei">
+        <addColumn tableName="wash_beauty_order">
+            <column name="statement_account_order_id" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+
+  <changeSet id = "wash_beauty_order_9" author="jimuchen">
+		<modifyColumn tableName="wash_beauty_order">
+      <column name="customer_mobile" type="varchar(100)"/>
+      <column name="customer_landline" type="varchar(100)"/>
+      <column name="customer_address" type="varchar(100)"/>
+		</modifyColumn>
+	</changeSet>
+
+  <changeSet id="wash_beauty_order_10" author="jinyuan">
+        <addColumn tableName="wash_beauty_order">
+            <column name="vehicle_contact" type="varchar(20)"></column>
+            <column name="vehicle_mobile" type="varchar(11)"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="wash_beauty_order_11" author="lw">
+        <createIndex tableName="wash_beauty_order" indexName="IDX_SHOPID_VESTDATE">
+            <column name="shop_id"></column>
+            <column name="vest_date"></column>
+        </createIndex>
+    </changeSet>
+
+  <changeSet id="wash_beauty_order_12" author="jimuchen">
+      <addColumn tableName="wash_beauty_order">
+          <column name="customer_contact_id" type="bigint" />
+      </addColumn>
+  </changeSet>
+
+  <changeSet id="wash_beauty_order_13" author="lw">
+    <addColumn tableName="wash_beauty_order">
+      <column name="app_user_no" type="varchar(100)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="wash_beauty_order_14" author="liuWei">
+    <createIndex tableName="wash_beauty_order" indexName="idx_app_user_no">
+      <column name="app_user_no"></column>
+    </createIndex>
+  </changeSet>
+
+    <changeSet id="wash_beauty_order_15_xinYuQiu" author="xinYuQiu">
+    <addColumn tableName="wash_beauty_order" >
+        <column name="appoint_order_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+    <changeSet id="wash_beauty_order_16_xinYuQIu" author="xinYuQiu">
+        <dropIndex tableName="wash_beauty_order" indexName="idx_app_user_no"/>
+    </changeSet>
+    <changeSet id="wash_beauty_order_17_xinYuQIu" author="liuWei">
+      <createIndex tableName="wash_beauty_order" indexName="idx_app_user_no">
+        <column name="app_user_no"/>
+      </createIndex>
+    </changeSet>
+</databaseChangeLog>

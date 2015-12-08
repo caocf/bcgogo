@@ -1,0 +1,114 @@
+一.添加权限
+后台添加：
+（一）角色
+                    name                                        备注
+//----------------------------------------------new role-----------------------------------------------------------------------------
+web_shopSystem_stat_itemStat                              分项统计
+web_shopSystem_stat_costStat                              成本统计
+web_shopSystem_stat_salesStat                             畅销滞销统计
+web_businessCategory                                      营业分类              所有店面所有人都有此权限
+（二）建立关联
+用户组操作：増加“成本统计”和“畅销滞销统计”，“分项统计”角色到“老板/财务"和“BCGOGO管理员”用户组 下
+Shop版本操作：増加“成本统计”和“畅销滞销统计”，“分项统计” 角色到 所有shop版本 下
+
+（三）资源
+          name                                      type                       value                                        备注
+//-----------------------------------------------------------------new resource-------------------------------------------------------------
+//===============================================  web_droplist_vehicle	初始化权限 角色 (朱星星)===================================================
+web_searchInventoryIndex_getVehicleLicenceNoSuggestion                    request                /web/searchInventoryIndex.do?method=getVehicleLicenceNoSuggestion
+
+//===============================================  web_bcgogoSystem  	初始化权限 角色 (姬牧晨)===================================================
+web_bcgogoSystem_init_initPurchaseCostStat        request               /web/init.do?method=initPurchaseCostStat      成本统计初始化
+web_bcgogoSystem_init_initPurchaseInventoryMonth  request               /web/init.do?method=initPurchaseInventoryMonthAndSupplierTranMonthStat    成本统计入库月初始化
+web_bcgogoSystem_init_initPurchaseReturnMonth     request               /web/init.do?method=initPurchaseReturnMonthStat     退货单统计月初始化
+web_bcgogoSystem_init_initSalesMonthStat          request               /web/init.do?method=initSalesMonthStat     销售统计月初始化
+
+//=====================================  web_shopSystem_stat_costStat  成本统计 角色 (姬牧晨)===================================================
+web_shopSystem_stat_costStat_getCostStat          request               /web/costStat.do?method=getCostStat           采购成本统计
+web_shopSystem_stat_costStat_getSupplierStat      request               /web/costStat.do?method=getSupplierStat       供应商交易统计
+web_shopSystem_stat_costStat_getPriceStat         request               /web/costStat.do?method=getPriceStat          价格波动统计
+web_shopSystem_stat_costStat_getReturnStat        request               /web/costStat.do?method=getReturnStat         退货统计
+//=====================================  web_shopSystem_stat_costStat  成本统计 角色 (韦凌枫)===================================================
+web_shopSystem_stat_costStat_getPriceFluctuationLineChartData         request               /web/costStat.do?method=getPriceFluctuationLineChartData          获取价格波动折线图的数据
+
+//=====================================  web_shopSystem_stat_salesStat 畅销滞销统计 角色 (姬牧晨)===================================================
+web_shopSystem_stat_salesStat_getGoodSaleCost     request               /web/salesStat.do?method=getGoodSaleCost      畅销品统计
+web_shopSystem_stat_salesStat_getBadSaleCost      request               /web/salesStat.do?method=getBadSaleCost       滞销品统计
+
+
+//=====================================  web_shopSystem_stat_itemStat  分项统计 角色 (朱星星)===================================================
+web_shopSystem_stat_itemStat_getItemStat          request               /web/itemStat.do?method=getItemStat           分项统计
+web_shopSystem_stat_itemStat_getItemStatData      request               /web/itemStat.do?method=getItemStatData       分项统计
+
+//=====================================  web_businessCategory           营业分类(陈方雷) ===============================================================
+ web_businessCategory_category_getCategory        requset               /web/category.do?method=getCategory           获取营业分类列表
+ web_businessCategory_category_updateCategoryName        requset               /web/category.do?method=updateCategoryName 更新营业分类
+ web_businessCategory_category_getCategoryByServiceId        requset               /web/category.do?method=getCategoryByServiceId  根据服务id获取对应的营业分类
+
+//======================================== web_bcgogoSystem             营业分类初始化(陈方雷)=================================================
+web_bcgogoSystem_init_initBusinessCategory              request         /web/init.do?method=initBusinessCategory   营业分类初始化
+web_bcgogoSystem_init_initCategory                      request         /web/init.do?method=initCategory           初始化默认的营业分类
+
+//======================================== web_supplier_list             退货单统计供应商评价(刘伟)=================================================
+web_supplier_updateSupplierScore       request         /web/supplier.do?method=updateSupplierScore   退货单统计供应商评价
+
+// ===============================web_txn_return 退货单作废（李金龙）==================================
+web_goodsReturn_copyReturnStorage  request  /web/goodsReturn.do?method=copyReturnStorage   退货单复制
+
+  //===============================================  web_shopSystem_import 超级管理-单据导入（董楠）  ===================================================
+web_shopSystem_import_order             request     /web/importOrder.do?method=uploadExcel             上传单据模板
+web_shopSystem_import_order_from_excel  request     /web/importOrder.do?method=importOrderFromExcel     导入上传的单据
+
+ //===============================================  web_txn_historySearch 超级管理-单据导入（董楠）  ===================================================
+web_txn_historySearch_inquiryImportedOrder  request      /web/inquiryCenter.do?method=inquiryImportedOrder     查询导入单据
+web_txn_historySearch_toInquiryImportedOrder  request    /web/inquiryCenter.do?method=toInquiryImportedOrder   查询导入单据链接
+
+（四）短信模板添加：
+                模板名：客户会员密码修改
+                模板类型：changeMemberPassword
+                场景：CHANGE_PASSWORD
+                必要性：NECESSARY
+                内容：{name}会员：您好！您的会员卡密码已经修改：新密码:<{newpassword}>。如有任何问题请与我们的工作人员联系。
+
+
+二.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+三.数据库更新：
+1. 删除txn下的imported_order表
+2. 删除txn下databasechangelog表中的imported_order相关数据
+3. 根据Liquibase生成的DDL语句更新表结构.（肖开波，邹建宏）
+
+五.发布应用 （纪友文）
+
+六.初始化
+1. 退货单作废将原先数据初始化
+   update txn.purchase_return set status ='PURCHASE_RETURN_DONE'
+
+2. 营业分类初始化
+  init.do?method=initCategory
+  init.do?method=initBusinessCategory
+  update  search.item_index ii,txn.wash_beauty_order_item woi set ii.business_category_id = woi.business_category_id,ii.business_category_name = woi.business_category_name  where ii.item_id = woi.id;
+  update  search.item_index ii,repair_order_service ros set ii.business_category_id = ros.business_category_id,ii.business_category_name = ros.business_category_name  where ii.item_id = ros.id;
+
+3. 成本统计相关初始化
+   TXN: update purchase_return set vest_date = created where vest_date is null;
+   jackchen登录后执行：
+      http://XXXXX/web/init.do?method=initPurchaseCostStat                // 包含以下三个初始化
+   或分别执行：
+      http://XXXXX/web/init.do?method=initPurchaseInventoryMonthAndSupplierTranMonthStat
+      http://XXXXX/web/init.do?method=initPurchaseReturnMonthStat
+      http://XXXXX/web/init.do?method=initSalesMonthStat
+
+
+
+七.solr schema所有更新  并且 新增了order_item core   最后执行重做索引
+
+
+功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

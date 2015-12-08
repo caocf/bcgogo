@@ -1,0 +1,38 @@
+密码初始化成1：
+init.do?method=initPasswordForDevelopers
+
+scheduleTrigger.do?method=createOverdueAppointRemindMessage
+
+scheduleTrigger.do?method=smsSendSchedule
+
+scheduleTrigger.do?method=createAppVehicleMessage
+
+init.do?method=schedule
+九.发送初始化短信
+---张峻滔  admin 下
+promotionalSms.do?method=sentInvitationCodeSms&sendTime=2013-02-26 09:00
+smsjob 中检查 发送时间是否是预期时间
+
+
+init.do?method=createDefaultPageConfig
+
+scheduleTrigger.do?method=createAppVehicleMessage
+
+
+ //后台增加赠送短信
+http://localhost:8080/admin/smsDonate.do?method=addSmsDonate&shopId=10000010014171318&smsDonationValue=10
+
+-Dis.production.environment=false
+
+juhe.do?method=initJuheViolateRegulationCitySearchCondition
+
+=============定位发布流程=============
+更新数据库
+CRM--SHOP数据操作权限--SHOP数据初始化
+web_initAddressDetail              /web/shopInit.do?method=initAddressDetail          初始化AddressDetail    shop request
+jackchen登录后执行：
+shopInit.do?method=initAddressDetail
+config HTTP_SERVER_URL   修改成   mapproxy.bcgogo.com/v1
+1、店铺注册，crm定位
+2、店铺详细页面
+3、8种消息

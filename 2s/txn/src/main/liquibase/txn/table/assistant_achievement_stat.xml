@@ -1,0 +1,107 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lw" id="assistant_achievement_stat_1">
+    <createTable tableName="assistant_achievement_stat">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+
+      <column name="shop_id" type="bigint"></column>
+
+      <column name="stat_year" type="bigint"></column>
+      <column name="stat_month" type="bigint"></column>
+
+      <column name="stat_type" type="varchar(50)"></column>
+      <column name="department_id" type="bigint"></column>
+      <column name="assistant_id" type="bigint"></column>
+
+      <column name="standard_hours" type="double"></column>
+      <column name="standard_service" type="double"></column>
+      <column name="actual_hours" type="double"></column>
+      <column name="actual_service" type="double"></column>
+      <column name="service_achievement" type="double"></column>
+
+      <column name="sale" type="double"></column>
+      <column name="sale_achievement" type="double"></column>
+
+      <column name="wash" type="double"></column>
+      <column name="wash_times" type="bigint"></column>
+      <column name="wash_achievement" type="double"></column>
+
+      <column name="member" type="double"></column>
+      <column name="member_times" type="bigint"></column>
+      <column name="member_achievement" type="double"></column>
+
+      <column name="stat_sum" type="double"></column>
+      <column name="achievement_sum" type="double"></column>
+      <column name="stat_time" type="bigint"></column>
+
+
+    </createTable>
+  </changeSet>
+
+  <changeSet id="assistant_achievement_stat_2" author="lw">
+    <addPrimaryKey tableName="assistant_achievement_stat" columnNames="id"
+                   constraintName="pk_assistant_achievement_stat"></addPrimaryKey>
+  </changeSet>
+
+  <changeSet id="assistant_achievement_stat_3" author="liuWei">
+    <addColumn tableName="assistant_achievement_stat">
+      <column name="assistant" type="varchar(150)"/>
+      <column name="department" type="varchar(150)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="assistant_achievement_stat_4" author="liuWei">
+    <addColumn tableName="assistant_achievement_stat">
+      <column name="service_achievement_by_assistant" type="double"/>
+      <column name="sales_achievement_by_assistant" type="double"/>
+      <column name="sales_profit_achievement" type="double"/>
+      <column name="sales_profit_achievement_by_assistant" type="double"/>
+      <column name="wash_achievement_by_assistant" type="double"/>
+      <column name="member_achievement_by_assistant" type="double"/>
+      <column name="member_renew" type="double"/>
+      <column name="member_renew_times" type="double"/>
+      <column name="member_renew_achievement" type="double"/>
+      <column name="member_renew_achievement_by_assistant" type="double"/>
+      <column name="business_account" type="double"/>
+      <column name="business_account_achievement" type="double"/>
+      <column name="business_account_achievement_by_assistant" type="double"/>
+      <column name="achievement_sum_by_assistant" type="double"/>
+      <column name="achievement_order_type" type="varchar(50)"/>
+      <column name="service_id" type="bigint"/>
+      <column name="service_name" type="varchar(500)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="liuWei" id="assistant_achievement_stat_5">
+    <createIndex tableName="assistant_achievement_stat" indexName="IDX_STAT_YEAR_STAT_MONTH">
+      <column name="shop_id"/>
+      <column name="stat_year"/>
+      <column name="stat_month"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="assistant_achievement_stat_6" author="liuWei">
+    <addColumn tableName="assistant_achievement_stat">
+      <column name="sales_profit" type="double"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="liuWei" id="assistant_achievement_stat_7">
+    <createIndex tableName="assistant_achievement_stat" indexName="IDX_SHOP_ID_SERVICE_ID">
+      <column name="shop_id"/>
+      <column name="service_id"/>
+    </createIndex>
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,56 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lw" id="assistant_achievement_history_1">
+    <createTable tableName="assistant_achievement_history">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+
+      <column name="shop_id" type="bigint"></column>
+      <column name="assistant_id" type="bigint"></column>
+      <column name="assistant_name" type="varchar(200)"></column>
+      <column name="department_id" type="bigint"></column>
+      <column name="department_name" type="varchar(200)"></column>
+      <column name="change_time" type="bigint"></column>
+      <column name="change_user_id" type="bigint"></column>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="assistant_achievement_history_2" author="lw">
+    <addPrimaryKey tableName="assistant_achievement_history" columnNames="id"
+                   constraintName="pk_assistant_achievement_history"></addPrimaryKey>
+  </changeSet>
+
+  <changeSet id="assistant_achievement_history_3" author="lw">
+    <createIndex tableName="assistant_achievement_history" indexName="idx_shopid_assistantid">
+      <column name="shop_id"></column>
+      <column name="assistant_id"></column>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="assistant_achievement_history_4" author="lw">
+    <renameColumn tableName="assistant_achievement_history" oldColumnName="change_time" newColumnName="department_change_time"
+                  columnDataType="bigint"/>
+    <addColumn tableName="assistant_achievement_history">
+      <column name="wash_beauty_achievement" type="double"/>
+      <column name="service_achievement" type="double"/>
+      <column name="sales_achievement" type="double"/>
+      <column name="sales_profit_achievement" type="double"/>
+      <column name="member_new_type" type="varchar(50)"/>
+      <column name="member_new_achievement" type="double"/>
+      <column name="member_renew_type" type="varchar(50)"/>
+      <column name="member_renew_achievement" type="double"/>
+      <column name="achievement_change_time" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

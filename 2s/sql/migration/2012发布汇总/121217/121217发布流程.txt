@@ -1,0 +1,68 @@
+一.添加权限
+
+（一）
+
+1.给初级版店铺增加角色：web_txn_sales_return 	销售退货单(刘伟)
+
+（二）资源
+
+          name                                           type           value                                                          备注
+//--------------------------------------------------------------------------new resource----------------------------------------------------------------------------------------------------
+
+//===============================================  	web_txn_inventory   (陈方雷)   =======================================
+ 	web_txn_inventory_getProductDateToPrint                request    /web/stockSearch.do?method=getProductDateToPrint         库存界面打印
+
+//===============================================  	web_supplier_list (陈方雷)   =======================================
+ web_supplier_list_getPayableToPrint                     request    /web/arrears.do?method=getPayableToPrint                应付款打印
+ web_supplier_list_getReceivableToPrint                  request    /web/arrears.do?method=getReceivableToPrint             应收款打印
+
+//===============================================  	web_shopSystem_stat_itemStat  (陈方雷)   =======================================
+ web_shopSystem_stat_itemStat_getItemStatDataToPrint      request    /web/itemStat.do?method=getItemStatDataToPrint           分项统计打印
+
+//===============================================  	 	web_shopSystem_stat_businessAccount (陈方雷)   =======================================
+  web_shopSystem_stat_businessAccount_getDateToPrint      request    /web/businessAccount.do?method=getDateToPrint           营业外记账打印
+
+//===============================================    web_shopSystem_stat_running (陈方雷) ======================================
+ web_shopSystem_stat_running_getDataToPrint               request    /web/runningStat.do?method=getDataToPrint              流水打印
+
+//===============================================    web_shopSystem_stat_businessStat(陈方雷)  ======================================
+ web_shopSystem_stat_businessStat_getBusinessStatDetailToPrint    request    /web/businessStat.do?method=getBusinessStatDetailToPrint 营业统计打印
+
+//===============================================    web_shopSystem_stat_memberStat (陈方雷) ======================================
+ web_shopSystem_stat_getBusinessMemberInfoToPrint         request       /web/member.do?method=getBusinessMemberInfoToPrint    会员消费打印
+
+ //===============================================    web_txn_draft(董楠)  ======================================
+ web_txn_draft_saveSalesReturnDraft                       request       /web/draft.do?method=saveSalesReturnDraft    保存销售退货单草稿
+
+//==================================================  web_member_normal (李毅)=================================
+web_member_normal_updateWorkerName                        request       /web/member.do?method=updateWorkerName    施工人下拉列表更新单项
+
+//==================================================  web_member_normal (陈方雷)=================================
+web_member_normal_getMemberType                       request       /web/member.do?method=getMemberType     购卡界面会员类型列表吧
+
+
+二.按照 "CRM发布流程.txt" 中步骤执行相关操作。（肖开波）
+
+三.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+四.数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，姬牧晨）
+
+五.发布应用 （纪友文）
+
+六.添加短信模板 （模板内容复制过程可能产生空格，后台添加时可以手动删除）
+模板名：预约服务提醒
+类型：appointService
+场景：CUSTOMER_REMIND_APPOINT_SERVICE
+必要性：NECESSARY
+内容：尊敬的{licenceNo}车主您好！感谢您对本店的一贯照顾，您预约的{appointName}服务时间为今年{mouth}月{day}日，本店竭诚欢迎您的光临，详情致电{shopMobile},{shopName}店敬启。
+
+七.上传销售退货单打印模板（陈方雷）
+
+八.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文）
+4.验证功能（纪友文）

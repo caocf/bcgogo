@@ -1,0 +1,46 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <!--应付款表  payable-->
+
+    <changeSet author="xzhu" id="operation_log_1">
+        <createTable tableName="operation_log">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <!-- 店面ID-->
+            <column name="shop_id" type="bigint"/>
+            <column name="user_id" type="bigint"/>
+            <column name="operation_type" type="varchar(20)"/>
+            <column name="object_id" type="bigint"/>
+            <column name="object_type" type="varchar(20)"/>
+            <column name="content" type="varchar(500)"/>
+        </createTable>
+        <addPrimaryKey tableName="operation_log" columnNames="id" constraintName="pk_operation_log"/>
+    </changeSet>
+    <changeSet id="operation_log_2" author="xzhu">
+        <modifyColumn tableName="operation_log">
+            <column name="object_type" type="varchar(100)"/>
+            <column name="operation_type" type="varchar(100)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet author="jimuchen" id="operation_log_3">
+        <createIndex tableName="operation_log" indexName="IDX_OPERATION_LOG_OBJECTID">
+            <column name="object_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="operation_log_4" author="jinyuan">
+        <addColumn tableName="operation_log">
+            <column name="user_name" type="varchar(500)"></column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

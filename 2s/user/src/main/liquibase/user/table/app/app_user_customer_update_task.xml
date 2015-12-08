@@ -1,0 +1,31 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="lw" id="app_user_customer_update_task_1">
+        <createTable tableName="app_user_customer_update_task">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="operator_id" type="bigint"/>
+            <column name="operator_type" type="varchar(50)"/>
+            <column name="exe_status" type="varchar(50)"/>
+            <column name="created_time" type="bigint"/>
+            <column name="exe_time" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="app_user_customer_update_task" columnNames="id" constraintName="pk_app_user_customer_update_task"/>
+    </changeSet>
+
+  <changeSet id="app_user_customer_update_task_2" author="lw">
+    <addColumn tableName="app_user_customer_update_task">
+      <column name="task_type" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+</databaseChangeLog>

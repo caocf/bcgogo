@@ -1,0 +1,41 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+   <!--@Deprecated by zhangjuntao-->
+    <changeSet author="shaolei" id="blance_1">
+        <createTable tableName="tem_blance">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="sms_balance" type="float"/>
+            <column name="recharge_amount" type="float"/>
+        </createTable>
+    </changeSet>
+     <changeSet author="shaolei" id="blance_2">
+        <addColumn tableName="tem_blance">
+            <column name="name" type="varchar(100)"/>
+            <column name="legal_rep" type="varchar(200)"/>
+            <column name="mobile" type="varchar(20)"/>
+            <column name="address" type="varchar(200)"/>
+        </addColumn>
+    </changeSet>
+        <changeSet  id="blance_3" author="zhuyinjia">
+    <addPrimaryKey tableName="tem_blance" columnNames="id" constraintName="pk_tem_blance"/>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="blance_4">
+    <modifyColumn tableName="tem_blance">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+</databaseChangeLog>

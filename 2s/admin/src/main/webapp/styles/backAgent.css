@@ -1,0 +1,174 @@
+@charset "utf-8";
+/* CSS Document */
+.body {
+	padding-bottom:20px;
+}
+/*左侧列表*/
+
+/*右侧内容*/
+.rightText input {
+	color:#cccccc;
+}
+.rightMain {
+	background:#fff url(../images/agent.png) no-repeat left top;
+}
+.rightMain h1 {
+	font-size:18px;
+	color:#616162;
+	margin-top:10px;
+	margin-left:10px;
+}
+/*搜索*/
+.bodyRight .addAgent {
+	background:url(../images/addAgent.png) no-repeat;
+	width:99px;
+	height:23px;
+	_background:none;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/addAgent.png", sizingMethod="crop");
+	border:none;
+	color:#fff;
+	font-weight:bold;
+}
+.bodyRight .rightTime {
+	margin-top:5px;
+}
+.timeBody {
+	font-size:14px;
+	font-weight:bold;
+}
+/*搜索结束*/
+/*table*/
+
+.rightMain table {
+	color:#000;
+*margin-top:-4px;
+}
+.rightMain table thead tr th {
+	background:#F2F2F2 url(../images/agent_line.png) no-repeat bottom right;
+	height:22px;
+	line-height:22px;
+	font-weight:bold;
+	font-size:14px;
+}
+.rightMain table thead tr th {
+	border-bottom:1px solid #E8E8E8;
+}
+ .rightMain table tbody tr td{
+	background: url(../images/agent_line.png) no-repeat bottom right;
+	height:22px;
+}
+.rightMain table tbody tr td {
+	text-align:center;
+	color:#333;
+	height:25px;
+	line-height:25px;
+	border-bottom:1px solid #E8E8E8;
+}
+.rightMain table tbody tr .font, .rightMain table tbody tr td a {
+	color:#6c93c9;
+    cursor: pointer;
+}
+.rightMain table tbody tr .edit_back {
+	color:#E0E0E0;
+}
+.agent_bg {
+	background:#F2F2F2;
+}
+/*table结束*/
+/*分页*/
+.i_leftBtn {
+	clear:both;
+	float:right;
+	margin-top:10px;
+	margin-bottom:15px;
+}
+.i_leftBtn div {
+	float:left;
+	background:url(../images/page.png) no-repeat;
+	width:19px;
+	height:21px;
+	line-height:21px;
+	color:#000000;
+	font-size:12px;
+	text-align:center;
+	margin:3px 0px 0px 5px;
+	cursor:pointer;
+}
+.i_leftBtn div.lastPage{
+	margin:0px;
+	background:url(../images/leftPage.png) no-repeat;
+	width:50px;
+	height:25px;
+	color:#FFFFFF;
+	line-height:25px;
+	padding-left:6px;
+}
+.i_leftBtn div.nextPage{
+	margin:0px;
+	background:url(../images/rightPage.PNG) no-repeat;
+	width:48px;
+	height:25px;
+	color:#FFFFFF;
+	line-height:25px;
+	padding-right:8px;
+	margin-left:5px;
+}
+
+/*分页结束*/
+/*右侧内容结束*/
+.bottom_crile {
+	height:11px;
+}
+.bottom_crile .crile, .bottom_crile .bottom_x {
+	background:url(../images/bottom_crile.png) no-repeat;
+	width:12px;
+	height:11px;
+	display:block;
+	float:left;
+	_background:none;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/bottom_crile.png", sizingMethod="crop");
+}
+.bottom_crile .bottom_x {
+	background:url(../images/bottom_crilex.png) repeat-x;
+	width:855px;
+	height:11px;
+}
+
+.back_tab .target {
+    float: left;
+    width: 53px;
+}
+/*.back_tab td,.back_tabSale td,.son_back td,.agent_tb td{
+	background:url(../images/agent_line.png) no-repeat;
+	background-position: right bottom;
+}*/
+.rightMain .rightTime .timeBody .leftIcon,.rightMain .rightTime .timeBody .rightIcon,.rightMain .rightTime .timeBody span{
+	float:left;
+}
+.rightMain .rightTime .timeBody span{
+	padding-right:5px;
+	color:#FFFFFF;
+}
+.rightMain .rightTime .timeBody .leftIcon input{
+	background:url(../images/leftBtn.png) no-repeat 2px 6px;
+	width:25px;
+	height:20px;
+	border:none;
+	margin-top:3px;
+	cursor:pointer;
+}
+.rightMain .rightTime .timeBody .rightIcon input{
+	background:url(../images/rightBtn.png) no-repeat 2px 6px;
+	width:25px;
+	height:20px;
+	border:none;
+	margin-top:3px;
+	cursor:pointer;
+}
+.rightMain .agent_tb{
+	padding:0px 0px 10px 0px;
+}
+.rightMain .back_tabSale .target{
+	float:left;
+	width:99px;
+}

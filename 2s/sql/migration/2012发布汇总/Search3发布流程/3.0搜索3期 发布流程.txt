@@ -1,0 +1,39 @@
+1、数据库更新：
+
+2、solr更新
+更新 order Solr中的 schema.xml 文件 和 solr
+
+3、sql 权限添加
+（一）角色
+                    name                                        备注
+//-------------------------------------------------------------------------------------------------new role----------------------------------------------------------------------------------------------------
+               web_shopSystem_admin_loanTransfers             货款转账
+（二）资源
+          name                                           type           value                                                          备注
+//-------------------------------------------------------------------------------------------------new resource----------------------------------------------------------------------------------------------------
+//===============================================  web_basic_login  	不登陆可使用的权限 (张峻滔)===================================================
+web_chinapay_smsRechargeReceive               request         /web/chinapay.do?method=smsRechargeReceive                             短信充值银联后台
+web_chinapay_loanTransfersReceive             request         /web/chinapay.do?method=loanTransfersReceive                           货款转账银联后台
+//===============================================  web_txn_wash  	洗车 (邱)===================================================
+web_txn_wash_washBeautyOrderRepeal            request         /web/washBeauty.do?method=washBeautyOrderRepeal                        洗车作废
+web_txn_wash_washBeautyOrderCopy              request         /web/washBeauty.do?method=washBeautyOrderCopy                          洗车复制
+//===============================================  web_shopSystem_admin_loanTransfers 货款转账 	 (张峻滔)===================================================
+web_shopSystem_admin_loanTransfers_page_render         render         /web/systemManager/admin/loanTransfers                           货款转账（页面控制）
+web_shopSystem_admin_loanTransfers_showPage            request         /web/loanTransfers.do?method=showPage                           货款转账（历史记录）
+web_shopSystem_admin_loanTransfers_saveLoan            request         /web/loanTransfers.do?method=saveLoan                           货款转账（转账）
+web_shopSystem_admin_loanTransfers_saveLoanComplete    request         /web/loanTransfers.do?method=saveLoanComplete                   货款转账（充值完成）
+
+
+4、数据库数据初始化
+
+5、solr初始化
+执行Order reindex
+
+6、 admin后面添加系统配置
+config 配置：
+生产：CHINA_PAY_BACK_URL   http://61.147.80.131/web/    银联返回url
+
+
+
+
+

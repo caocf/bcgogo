@@ -1,0 +1,13 @@
+<assembly>
+  <id>sql</id>
+  <baseDirectory>/</baseDirectory>
+  <formats>
+    <format>jar</format>
+  </formats>
+  <fileSets>
+    <fileSet>
+      <directory>src/main/liquibase</directory>
+      <outputDirectory>/</outputDirectory>
+    </fileSet>
+  </fileSets>
+</assembly>

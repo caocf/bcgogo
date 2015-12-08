@@ -1,0 +1,65 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="qiuxinyu" id="gsm_vehicle_info_trace_1">
+        <createTable tableName="gsm_vehicle_info_trace">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="emi" type="varchar(50)"/>
+            <column name="app_user_no" type="varchar(50)"/>
+            <column name="state" type="int"/>
+            <column name="app_password" type="varchar(50)"/>
+            <column name="gvi_load" type="varchar(50)"/>
+            <column name="ect" type="varchar(50)"/>
+            <column name="shrtft1" type="varchar(50)"/>
+            <column name="longft1" type="varchar(50)"/>
+            <column name="map" type="varchar(50)"/>
+            <column name="rpm" type="varchar(50)"/>
+            <column name="vss" type="varchar(50)"/>
+            <column name="spark_adv" type="varchar(50)"/>
+            <column name="iat" type="varchar(50)"/>
+            <column name="maf" type="varchar(50)"/>
+            <column name="tps" type="varchar(50)"/>
+            <column name="mil_dist" type="varchar(50)"/>
+            <column name="fuel_lvl" type="varchar(50)"/>
+            <column name="baro" type="varchar(50)"/>
+            <column name="vpwr" type="varchar(50)"/>
+            <column name="ife" type="varchar(50)"/>
+            <column name="runtime" type="varchar(50)"/>
+            <column name="ad_mil" type="varchar(50)"/>
+            <column name="ad_feh" type="varchar(50)"/>
+            <column name="spwr" type="varchar(50)"/>
+            <column name="rdtcn" type="int"/>
+            <column name="rdtc" type="varchar(1000)"/>
+            <column name="org_info" type="varchar(2000)"/>
+            <column name="gsm_vehicle_status" type="varchar(50)"/>
+        </createTable>
+        <addPrimaryKey tableName="gsm_vehicle_info_trace" columnNames="id" constraintName="pk_gsm_vehicle_info_trace"/>
+    </changeSet>
+    <changeSet id="gsm_vehicle_info_trace_2_sinYuQiu" author="sinYuQiu">
+        <addColumn tableName="gsm_vehicle_info_trace">
+            <column name="max_r" type="varchar(50)"/>
+            <column name="max_s" type="varchar(50)"/>
+            <column name="bad_h" type="varchar(50)"/>
+            <column name="cac_afe" type="varchar(50)"/>
+            <column name="cac_tfe" type="varchar(50)"/>
+            <column name="cac_trfe" type="varchar(50)"/>
+            <column name="tr_mil" type="varchar(50)"/>
+            <column name="de_mil" type="varchar(50)"/>
+            <column name="drit" type="varchar(50)"/>
+            <column name="idlet" type="varchar(50)"/>
+            <column name="rpdtc" type="varchar(1000)"/>
+            <column name="upload_time" type="bigint"/>
+            <column name="upload_server_time" type="bigint"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

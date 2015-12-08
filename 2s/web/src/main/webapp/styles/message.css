@@ -1,0 +1,2136 @@
+@charset "utf-8";
+
+/* CSS Document */
+.i_main .i_mainRight {
+    color: #787777;
+}
+
+a, #info_tab .title_info td label {
+    color: #0094ff;
+    font-size: 12px;
+}
+
+#top_tab tr td, #info_tab .title_info td {
+    font-size: 14px;
+    color: #787777;
+    font-weight: bold;
+}
+
+#top_tab tr .more_cu a, #top_tab tr .more_cu img {
+    display: block;
+    float: right;
+    font-size: 12px;
+}
+
+#top_tab tr .more_cu a {
+    font-weight: normal;
+    color: #007cda;
+}
+
+#top_tab tr .more_cu img {
+    margin: 2px 20px 0px 5px;
+}
+
+#info_tab {
+    font-size: 14px;
+}
+
+#info_tab .title_info td div, .btn_so {
+    background: url(../images/rightTit.jpg) no-repeat;
+    width: 70px;
+    height: 26px;
+    margin-left: 10px;
+    line-height: 26px;
+    font-size: 12px;
+    color: #484848;
+    font-weight: normal;
+}
+
+.btn_so {
+    border: none;
+}
+
+#info_tab tr td input {
+    margin: 0px 8px;
+    padding-left: 5px;
+}
+
+#messageTable tr .set_show, #messageTable tr .shang_xian {
+    background: url(../images/setMoney.png) no-repeat;
+    width: 72px;
+    height: 18px;
+    border: none;
+    color: #fff;
+}
+
+#messageTable tr .shang_xian {
+    width: 51px;
+    height: 18px;
+    background: url(../images/blue_btn.png) no-repeat;
+}
+
+#messageTable tr td a {
+    text-decoration: none;
+}
+
+#messageTable tr td input {
+    height: 15px;
+}
+
+#messageTable tr td input.txt_s {
+    width: 51px;
+}
+
+#messageTable tr td input.txt_one {
+    width: 72px;
+}
+
+#messageTable tr td input[type=checkbox] {
+    border: none;
+}
+
+#messageTable tr td {
+    text-align: center;
+}
+
+#messageTable tr td .dele_a {
+    color: #0094ff;
+    text-decoration: none;
+}
+
+#messageTable .showProductBtn {
+    display: inline-block;
+    width: 380px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+#top_tab, #info_tab {
+    border-collapse: collapse;
+}
+
+#top_tab tr td, .top_tab .tab_body {
+    background: url(../images/center_mis.png) repeat-x;
+    height: 36px;
+}
+
+#top_tab tr .top_title, .top_tab .top_title {
+    background: url(../images/left_mis.png) no-repeat;
+    width: 2px;
+}
+
+#top_tab tr .bottom_title, .top_tab .bottom_title {
+    background: url(../images/right_mis.png) no-repeat;
+    width: 2px;
+}
+
+.info_div {
+    margin: 10px 0px 10px 0px;
+}
+
+.info_div .center_title, .info_div .top_title, .info_div .bottom_title {
+    display: block;
+    float: left;
+    width: 2px;
+    height: 112px;
+}
+
+.info_div .center_title {
+    background: url(../images/center_lag.png) repeat-x;
+    width: 969px;
+    height: 112px;
+    padding: 15px 15px 15px 15px;
+    font-size: 14px;
+}
+
+.center_title ul {
+}
+
+.serach_cu {
+    margin: 15px 0px 0px 0px;
+}
+
+.center_title ul li {
+    float: left;
+    font-weight: bold;
+    margin-right: 15px;
+    height: 21px;
+    line-height: 21px;
+}
+
+.center_title ul li strong {
+    margin: 0px 10px;
+}
+
+.info_div .top_title {
+    background: url(../images/left_lag.png) no-repeat;
+}
+
+.info_div .bottom_title {
+    background: url(../images/right_lag.png) no-repeat;
+}
+
+.btn_ss span, .btn_so {
+    display: block;
+    float: left;
+    font-weight: normal;
+    background: url(../images/btn_searchh.png) no-repeat;
+    width: 64px;
+    font-size: 12px;
+    text-align: center;
+    height: 21px;
+    line-height: 21px;
+    color: #ff4800;
+}
+
+.serach_cu label, .serach_cu input {
+    display: block;
+    float: left;
+    margin-right: 10px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.serach_cu input {
+    border: 1px solid #ADADAD;
+    padding-left: 5px;
+}
+
+.serach_cu .btn_so {
+    border: none;
+    height: 21px;
+    font-size: 14px;
+}
+
+.more_div {
+    position: relative;
+}
+
+.more_div .more_r, .more_div .more_h {
+    position: absolute;
+    background: url(../images/more_r.png);
+    width: 13px;
+    height: 343px;
+    top: 0px;
+    left: 930px;
+}
+
+.more_div .more_h {
+    background: url(../images/more_h.png);
+}
+
+.i_mainRight #messageTable {
+    margin-top: 0px;
+    border-top: none;
+}
+
+input.btn_so {
+    background: url(../images/chkNormal.png) no-repeat;
+    width: 64px;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 0px;
+    padding-bottom: 2px;
+}
+
+input.btn_so:hover {
+    background: url(../images/chkHover.png) no-repeat;
+    color: #663a02;
+}
+
+.i_mainRight #messageTable td {
+    color: #272727;
+}
+
+#messageTable .title_tb td {
+    color: #FFFFFF;
+}
+
+#messageTable tr td {
+    text-align: left;
+    height: 30px;
+}
+
+#messageTable tr th {
+    text-align: left;
+    height: 30px;
+}
+
+.upInfo {
+    background: #fceba9;
+    float: left;
+    width: 100%;
+    padding: 10px 0px;
+    border-bottom: 1px solid #ff4800;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, .2);
+    -ms-filter: " progid:DXImageTransform.Microsoft.Shadow(color=#dddddd,direction=90,strength=6) progid:DXImageTransform.Microsoft.Shadow(color=#dddddd,direction=180,strength=6) ";
+    *filter: progid: DXImageTransform . Microsoft . Shadow(color = #dddddd, direction = 90, strength = 6) progid : DXImageTransform . Microsoft . Shadow(color = #dddddd, direction = 180, strength = 6);
+}
+
+.upInfo .tabInfo tr td {
+    height: 30px;
+    text-align: right;
+}
+
+.upInfo .tabInfo .btnClick {
+    text-align: left;
+}
+
+.upInfo .tabInfo .btnClick input:hover, .divPrice input.btnClick:hover {
+    background: url(../images/btnHor.png) no-repeat;
+    color: #FFFFFF;
+}
+
+.priceAdjust {
+    float: left;
+    margin-left: 70px;
+}
+
+.priceAdjust .leftPrice {
+    background: url(../images/moneyleft.png) no-repeat;
+    width: 3px;
+    height: 64px;
+    float: left;
+}
+
+.priceAdjust .rightPrice {
+    background: url(../images/moneyRight.png) no-repeat;
+    width: 2px;
+    height: 64px;
+    float: left;
+}
+
+.priceAdjust .bodyPrice {
+    background: url(../images/moneyBg.png) repeat-x;
+    height: 64px;
+    float: left;
+    width: 550px;
+    color: #FF4800;
+}
+
+.priceAdjust .bodyPrice label {
+    font-size: 14px;
+    line-height: 26px;
+    padding-left: 8px;
+}
+
+.priceAdjust .bodyPrice a {
+    line-height: 26px;
+    color: #FF4800;
+    float: right;
+    padding-right: 8px;
+}
+
+.priceAdjust .divPrice {
+    padding: 10px 10px 10px 10px;
+    color: #515050;
+}
+
+.i_mainRight #messageTable .clickTr td {
+    border: 1px solid #ff4800;
+    background: #fceba9;
+    border-width: 1px 0px;
+    color: #ff4800;
+}
+
+.top_tab div {
+    height: 36px;
+    float: left;
+}
+
+.top_tab .tab_body {
+    width: 959px;
+    padding: 5px 20px;
+    color: #272727;
+    padding-top: 8px;
+}
+
+.top_tab .tab_body .btn_so {
+    float: right;
+}
+
+.top_tab .tab_body .txt {
+    border: 1px solid #ADADAD;
+    color: #8F8F8F;
+    height: 19px;
+    line-height: 19px;
+}
+
+.top_tab .tab_body .chk {
+    vertical-align: text-bottom;
+    margin-bottom: 1px;
+    margin-right: 5px;
+}
+
+.btn_Click {
+    width: 76px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.btn_Click input, .send {
+    background: url(../images/chkTong.png) no-repeat;
+    width: 76px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border: none;
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
+.btn_Click input:hover, .send:hover {
+    background: url(../images/chkTi.png) no-repeat;
+    color: #663A02;
+}
+
+.lineTop {
+    background: url(../images/line_top.png) no-repeat;
+    width: 1003px;
+    height: 6px;
+}
+
+.lineBody {
+    background: url(../images/line_bg.png) repeat-y;
+    width: 1003px;
+    height: 100%;
+    color: #666666;
+    float: left;
+    padding: 10px 15px;
+}
+
+.lineBottom {
+    background: url(../images/line_bottom.png) no-repeat;
+    width: 1003px;
+    height: 5px;
+    float: left;
+}
+
+.lineBody a.titleName {
+    color: #7e7e7e;
+    width: 83px;
+    height: 22px;
+    display: inline-block;
+    text-align: center;
+    line-height: 22px;
+    cursor: pointer;
+}
+
+.lineBody .divSearch {
+    border: 1px solid #680000;
+    height: 22px;
+    width: 600px;
+    margin-top: -1px;
+}
+
+.lineBody .divSearch .text {
+    border: none;
+    width: 510px;
+    height: 22px;
+    position: absolute;
+    padding-left: 6px;
+}
+
+.lineBody .divSearch img {
+    padding: 2px 0px 2px 5px;
+}
+
+.lineBody .divSearch .btn_search {
+    background: url(../images/btn_search.png) no-repeat;
+    width: 59px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: right;
+    font-size: 14px;
+}
+
+.lineBody a.hoverTit {
+    background: url(../images/titHover.png) no-repeat;
+    width: 83px;
+    height: 22px;
+    display: inline-block;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.send {
+    float: right;
+}
+
+/*.message{*/
+/*line-height:23px;*/
+/*}*/
+.message a {
+    cursor: pointer;
+}
+
+.message a:hover {
+    color: #FF5E04;
+    text-decoration: underline;
+}
+
+.message a.hoverMessage {
+    color: #FF5E04;
+}
+
+.message .j_clear_span {
+    color: #ff0000;
+}
+
+.lineTop {
+    background: url(../images/line_top.png) no-repeat;
+    width: 1003px;
+    height: 6px;
+}
+
+.lineBody {
+    background: url(../images/line_bg.png) repeat-y;
+    width: 1003px;
+    height: 100%;
+    color: #666666;
+    float: left;
+    padding: 10px 15px;
+}
+
+.lineBottom {
+    background: url(../images/line_bottom.png) no-repeat;
+    width: 1003px;
+    height: 5px;
+    float: left;
+}
+
+.lineBody .divLine {
+    width: 100%;
+    height: 100%;
+    float: left;
+    font-size: 14px;
+}
+
+.lineBody .divLine .title {
+    width: 70px;
+}
+
+.lineBody .divLine .radio {
+    margin-right: 10px;
+}
+
+.lineBody .divLine .radio input {
+    margin: 0px 5px 2px 0px;
+    vertical-align: text-bottom;
+}
+
+.lineBody .divLine .select {
+    border: 1px solid #ADADAD;
+    float: left;
+    width: 208px;
+}
+
+.lineBody .divLine .select input {
+    border: none;
+    float: left;
+    width: 88%;
+    height: 19px;
+    line-height: 21px;
+    color: #AEAEAE;
+    padding-left: 6px;
+}
+
+.lineBody .divLine .select .btnSel {
+    background: url(../images/selectDown.png) no-repeat;
+    width: 18px;
+    height: 19px;
+    display: block;
+    float: left;
+    cursor: pointer;
+}
+
+.lineBody .divLine .btnSelect {
+    background: url(../images/btnNor2.png) no-repeat;
+    color: #FF4800;
+    width: 64px;
+    height: 21px;
+    line-height: 24px;
+    text-align: center;
+    padding-bottom: 1px;
+    cursor: pointer;
+    border: none;
+    margin-top: 5px;
+}
+
+.lineBody .divLine .btnSelect:hover {
+    background: url(../images/btnHor2.png) no-repeat;
+    color: #FFFFFF;
+}
+
+.lineBody .divLine .textarea {
+    border: 1px solid #ADADAD;
+    resize: none;
+    width: 800px;
+    height: 100px;
+    color: #666666;
+    padding-left: 6px;
+    padding-top: 6px;
+    float: left;
+    background: #FFFFFF;
+    line-height: 20px;
+    font-size: 12px;
+    overflow-y: hidden;
+}
+
+.lineBody .divLine .divNumber {
+    border: 1px solid #9999cc;
+    background: #ccccff;
+    color: #0066cc;
+    height: 22px;
+    width: 200px;
+    /*新增小心-选择客户 加上宽度有问题*/
+    line-height: 25px;
+    padding-left: 6px;
+    padding-right: 6px;
+    float: left;
+}
+
+.lineBody .divLine .divNumber:hover {
+    background: #0066DC;
+    color: #FFFFFF;
+}
+
+.lineBody .divLine .divNumber .data-info {
+    display: inline-block;
+    float: left;
+}
+
+.lineBody .divLine .divNumber .close {
+    background: url(../images/divClose.png) no-repeat;
+    width: 13px;
+    height: 13px;
+    cursor: pointer;
+    display: block;
+    float: right;
+    margin: 0 !important;
+}
+
+.btnSure {
+    padding-left: 70px;
+    float: left;
+}
+
+.s-alert .btnSure {
+    padding-left: 0px;
+    float: none;
+}
+
+.btnSure label {
+    padding: 0px 0px 0px 5px;
+    margin-top: 3px;
+    font-size: 12px;
+}
+
+.btnSure label input {
+    vertical-align: text-bottom;
+    margin-bottom: 1px;
+    margin-right: 5px;
+}
+
+.divLine span {
+    margin-right: 10px;
+}
+
+/*选择商品和客户*/
+.select .condition .txt {
+    border: 1px solid #ADADAD;
+    width: 104px;
+    padding-left: 6px;
+    color: #8F8F8F;
+    height: 20px;
+    line-height: 20px;
+}
+
+.select .condition .btnCheck {
+    background: url(../images/btnNormals.png) no-repeat;
+    height: 21px;
+    width: 64px;
+    text-align: center;
+    line-height: 21px;
+    border: none;
+    cursor: pointer;
+    color: #FFFFFF;
+    padding-bottom: 2px;
+}
+
+.select .condition .btnCheck:hover {
+    background: url(../images/btnHoverss.png) no-repeat;
+    color: #663A02;
+}
+
+.select .tabTitle {
+    float: left;
+}
+
+.select .tabTitle .titleLeft {
+    float: left;
+    background: url(../images/cus_left.png) no-repeat;
+    width: 4px;
+    height: 23px;
+}
+
+.select .tabTitle .titleBody {
+    float: left;
+    background: url(../images/cus_bg.png) repeat-x;
+    height: 23px;
+    line-height: 23px;
+    width: 799px;
+    color: #FFFFFF;
+    font-weight: normal;
+}
+
+.select .tabTitle .titleRight {
+    float: left;
+    background: url(../images/cus_right.png) no-repeat;
+    width: 5px;
+    height: 23px;
+}
+
+.select .tabTitle .titleBody div {
+    float: left;
+}
+
+.select .tabTitle .titleBody input, .select .tabProduct td input {
+    vertical-align: text-bottom;
+    margin-bottom: 1px;
+    width: 20px;
+}
+
+.select .tabProduct {
+    border: 1px solid #CCCCCC;
+}
+
+.select .tabProduct td {
+    border-width: 1px 0px 1px 0px;
+    color: #272727;
+}
+
+.select .tabProduct td input {
+    margin-left: 1px;
+}
+
+.btnClick {
+    margin: 0 auto;
+    width: 200px;
+    position: relative;
+}
+
+.select .person {
+    color: #0094FF;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.select .person:hover {
+    color: #FF4800;
+}
+
+.table2 td {
+    font-family: "宋体";
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    color: #000000;
+    padding-left: 6px;
+    font-weight: normal;
+    height: 25px;
+}
+
+.table2 tr.table_title td {
+    line-height: 25px;
+    text-align: left;
+    padding-left: 6px;
+}
+
+.table2 td .tab_arrow {
+    background: url(../images/arrowBlue.jpg) no-repeat 5px 5px;
+    width: 14px;
+    height: 11px;
+    border: none;
+    *background-position: 5px 0px;
+    cursor: pointer;
+}
+
+.table2 {
+    float: left;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+    width: 100%;
+    font-family: "宋体";
+    font-size: 12px;
+    font-weight: normal;
+    position: relative;
+}
+
+/*---------------------------------------------------------------短信管理重构--------------------------------------------------------------*/
+/*短信*/
+.messageContent {
+    width: 988px;
+    margin: 0 auto;
+}
+
+/*左边*/
+.messageContent .messageLeft {
+    width: 162px;
+    float: left;
+    color: #3E3E3E;
+}
+
+.messageContainer_01 {
+    width: 160px;
+    border: 1px solid #C9C9C9;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    padding: 7px 0;
+    margin-bottom: 8px;
+}
+
+.messageContainer_01 li {
+    height: 27px;
+    line-height: 27px;
+    padding-left: 16px;
+    cursor: pointer;
+    margin: 1px 0;
+    font-size: 14px;
+}
+
+.messageContainer_01 .li_img {
+    float: left;
+    width: 22px;
+    margin: 4px 5px 0 0;
+}
+
+.messageContainer_01 .li_selected {
+    background: #FDD1B4;
+    color: #FC6100;
+}
+
+.messageContainer_01 li:hover {
+    background: #FDD1B4;
+    color: #FC6100;
+}
+
+.messageContainer_01 .titNum {
+    background: url(../images/btn_Num.png) no-repeat;
+    width: 23px;
+    height: 13px;
+    float: right;
+    display: inline-block;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 14px;
+    margin: 6px 10px 0px 0px;
+    font-size: 12px;
+}
+
+.messageContainer_01 .titNum:hover {
+    background: url(../images/btn_Num.png) no-repeat 0px -13px;
+    color: #fff;
+}
+
+.orange_color {
+    color: #FC6100;
+}
+
+.gray_color {
+    color: #8d8d8d;
+}
+
+.balance_txt {
+    font-size: 14px;
+    padding-left: 10px;
+    margin: 5px 0;
+}
+
+.balance_left10 {
+    margin-left: 10px;
+}
+
+.balance_left8 {
+    margin-left: 8px;
+}
+
+.grayBtn_64 {
+    background: url(../images/btnAgree.png) no-repeat;
+    width: 64px;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+}
+
+.grayBtn_64:hover {
+    background: url(../images/btnAgree.png) no-repeat;
+    background-position: 0 -21px;
+    color: #fff;
+}
+
+.g-label {
+    float: left;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    width: 64px;
+    font-size: 12px;
+}
+
+.tokenfield-area {
+    margin-left: 71px;
+}
+
+/*右边*/
+.messageContent .messageRight {
+    width: 816px;
+    float: right;
+    color: #3E3E3E;
+}
+
+.messageRight_radius {
+    border: 1px solid #C9C9C9;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background: #E5E5E5;
+    padding: 8px;
+}
+
+.messageRight_radius .content_01 {
+    border: #ddd 1px solid;
+    background: #fff;
+    width: 550px;
+    float: left;
+    min-height: 518px;
+}
+
+.messageRight_radius .content_01 .select_per {
+    line-height: 22px;
+    color: #FC6100;
+    margin-bottom: 3px;
+    padding: 8px 0 0 8px;
+}
+
+.messageRight_radius .content_01 .select_per input {
+    float: left;
+    height: 19px;
+    font-size: 12px;
+    color: #909090;
+    padding: 0 3px;
+}
+
+.blueBtn_52, .blueBtn_77 {
+    width: 52px;
+    background: url(../images/chkBtn.png) no-repeat;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+    color: #fff;
+}
+
+.blueBtn_77 {
+    background: url(../images/btnBuy.png) no-repeat;
+    width: 77px;
+}
+
+.blueBtn_52:hover {
+    color: #fff;
+}
+
+.mes_content {
+    padding: 0px 0 8px 8px;
+}
+
+.mes_textarea {
+    border: #C7C7C7 1px solid;
+    height: 234px;
+    width: 452px;
+    float: left;
+}
+
+.mes_textarea textarea {
+    font-size: 12px;
+    color: #909090;
+    padding: 2px 3px;
+    width: 442px;
+    height: 180px;
+    border: 0;
+    line-height: 15px;
+}
+
+/*.mes_textarea .bottom{ line-height:20px; height:20px; padding:0 3px; color:#909090;}*/
+.messageRight_radius .content_01 .mes_content {
+    padding: 0 0 8px 8px;
+}
+
+.messageRight_radius .content_01 .mes_textarea {
+    border: 1px solid #C7C7C7;
+    float: left;
+    height: 234px;
+    width: 452px;
+}
+
+.messageRight_radius .content_01 .mes_textarea textarea {
+    border: 0 none;
+    color: #909090;
+    font-size: 12px;
+    height: 180px;
+    line-height: 15px;
+    padding: 2px 3px;
+    width: 442px;
+}
+
+.messageRight_radius .content_01 .mes_textarea .bottom {
+    background: none repeat scroll 0 0 #E5E5E5;
+    color: #909090;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 3px;
+}
+
+.messageRight_radius .content_01 .mes_send {
+    padding-left: 48px;
+}
+
+.blueBtn_64 {
+    background: url(../images/btnAgree.png) no-repeat;
+    background-position: 0 -21px;
+    width: 64px;
+    height: 21px;
+    cursor: pointer;
+    line-height: 21px;
+    color: #fff;
+    float: left;
+    text-align: center;
+}
+
+.blueBtn_64:hover {
+    color: #fff;
+}
+
+.checkbox_mes {
+    line-height: 20px;
+}
+
+.checkbox_mes input {
+    float: left;
+    margin: 3px 5px 0 0;
+}
+
+.messageRight_radius .content_02 {
+    border: #ddd 1px solid;
+    background: #fff;
+    width: 236px;
+    float: right;
+    height: 517px;
+}
+
+.messageRight_radius .content_02 .contact_title {
+}
+
+.messageRight_radius .content_02 .contact_title .tab-click {
+    background: #fff;
+    font-size: 14px;
+    float: left;
+    height: 29px;
+    text-align: center;
+    line-height: 29px;
+    width: 117px;
+    cursor: pointer
+}
+
+.messageRight_radius .content_02 .contact_title .tab-normal {
+    background: url("../images/title.jpg") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+    float: left;
+    border: #ddd 1px solid;
+    height: 29px;
+    text-align: center;
+    line-height: 29px;
+    width: 117px;
+}
+
+.messageRight_radius .content_02 .contact_body {
+    padding: 10px;
+}
+
+.search-scope {
+    width: 79%;
+    height: 20px;
+    border: #BFBFBF 1px solid;
+    float: left;
+}
+
+.search-btn {
+    width: 43px;
+    height: 22px;
+    background: url(../images/duiBg.png) repeat-x bottom;
+    border: 0;
+    float: left;
+    border: #BFBFBF 1px solid;
+    border-left: 0;
+    color: #0478DB;
+}
+
+.messageRight_radius .content_02 .contact_title2 {
+    font-weight: bold;
+    height: 20px;
+    line-height: 20px;
+}
+
+.messageRight_radius .content_02 .contact_title2 a {
+    float: right;
+    font-weight: normal;
+}
+
+.messageRight_radius .content_02 .contact_body li {
+    line-height: 22px;
+}
+
+.s-alert .blue_color {
+    color: #006ECA;
+    cursor: pointer;
+}
+
+.s-alert .blue_color:hover {
+    color: #FF6600;
+}
+
+.line_separated {
+    border-bottom: #CDCDCD 1px solid;
+    height: 5px;
+}
+
+/*短信充值*/
+.advertise_r {
+    width: 818px;
+    margin: -5px 0 0 -4px;
+}
+
+.step-01, .step-02, .step-03 {
+    width: 815px;
+    height: 30px;
+    background: url(../images/message/message_r2_c2.jpg) no-repeat;
+    margin-bottom: 13px;
+    color: #a1a1a1;
+    margin: 8px 0;
+}
+
+.step-02 {
+    background: url(../images/message/step_2_r2_c3.jpg) no-repeat;
+}
+
+.step-03 {
+    background: url(../images/message/step_2_r2_c4.jpg) no-repeat;
+}
+
+.step-01 span, .step-02 span, .step-03 span {
+    color: #fff;
+}
+
+.step-01 li, .step-02 li, .step-03 li {
+    width: 270px;
+    float: left;
+    line-height: 30px;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    text-align: center;
+}
+
+.equal2 {
+    border: #CDCDCD 1px solid;
+    border-right: 0;
+    border-top: 0;
+    background: #fff;
+}
+
+.equal2 td {
+    line-height: 20px;
+    border-right: #CDCDCD 1px solid;
+    padding: 6px 15px;
+    border-top: #CDCDCD 1px solid;
+}
+
+.equal2_title {
+    background: url(../images/new-order/title_bg.jpg) repeat-x top #f3f3f3;
+    font-size: 14px;
+    text-align: center;
+}
+
+.message_coin {
+    background: url(../images/message/message_coin.jpg) no-repeat left;
+    padding-left: 20px;
+    float: left;
+    margin-right: 10px;
+}
+
+.rad {
+    margin-right: 5px;
+}
+
+.rad input {
+    margin: 0 3px 3px 0;
+    vertical-align: middle;
+}
+
+.rad .amount_input {
+    border: #CDCDCD 1px solid;
+    height: 19px;
+    width: 45px;
+}
+
+.discount {
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 70px;
+    float: left;
+    margin-right: 20px;
+}
+
+.hot_orange {
+    border: #FF6C05 1px solid;
+    background: #FEF3C5;
+    color: #FF6C05;
+    width: 230px;
+    height: 60px;
+    padding: 5px 10px;
+    line-height: 20px;
+    display: inline-block;
+}
+
+.hot_orange strong {
+    float: left;
+    display: block;
+    width: 40px;
+}
+
+.hot_orange p {
+    float: right;
+    width: 186px;
+}
+
+.promptTxt_right {
+    text-align: right;
+    line-height: 30px;
+}
+
+.btnTit {
+    padding: 8px;
+    text-align: center;
+}
+
+.blueBtn_76 {
+    background: url("../images/big_button.png") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    height: 26px;
+    font-size: 12px;
+    line-height: 26px;
+    border: none;
+    text-align: center;
+    width: 76px;
+    margin: 0 5px 0 5px;
+}
+
+.blueBtn_76:hover {
+    background: url("../images/big_button.png") no-repeat 0 -28px scroll transparent;
+    color: #663A02;
+}
+
+/*短信待发送*/
+.news-table {
+    margin: 0px 0px 5px 0;
+    background: #fff;
+    border-left: #D9D9D9 1px solid;
+    border-top: #D9D9D9 1px solid;
+    background: #fff;
+}
+
+.news-table td {
+    border-bottom: #D9D9D9 1px solid;
+    line-height: 20px;
+    padding: 5px;
+    border-right: #D9D9D9 1px solid;
+}
+
+.news-table .t-head-img-url {
+    padding: 0px
+}
+
+.news-01 {
+    margin-top: 3px;
+}
+
+.news-thbody {
+    background: url("../images/title.jpg") repeat-x scroll 0 0 transparent;
+    padding: 5px 5px 5px 5px;
+}
+
+.news-thbody {
+    background: url("../images/title.jpg") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    padding: 5px;
+}
+
+.txt_border {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #BBBBBB;
+    float: right;
+    height: 19px;
+    width: 180px;
+}
+
+.txt_border .i_search {
+    background: url("../images/txt_i_search.png") no-repeat scroll 45% 45% #DDDDDD;
+    cursor: pointer;
+    float: right;
+    height: 19px;
+    width: 19px;
+}
+
+.txt_border .i_search:hover {
+    background: url("../images/txt_i_search.png") no-repeat scroll 45% 45% #BBBBBB;
+    cursor: pointer;
+    float: right;
+    height: 19px;
+    width: 19px;
+}
+
+.txt_border input {
+    border: medium none;
+    color: #7E7E7E;
+    float: left;
+    font-size: 12px;
+    height: 19px;
+}
+
+.txt, .selTit {
+    border: 1px solid #BBBBBB;
+    color: #7E7E7E;
+    font-size: 12px;
+    height: 19px;
+    line-height: 20px;
+    padding-left: 3px;
+    width: 100px;
+}
+
+.gray_wid67 {
+    width: 67px;
+    height: 18px;
+    background: #e5e5e5;
+    display: inline-block;
+    text-align: center;
+}
+
+.addressList {
+    /*border:1px solid #cacaca;*/
+    border-right: none;
+    height: 19px;
+    float: left;
+}
+
+.addressList a.assis-btn {
+    background: url(../images/navigation.png) repeat-x;
+    height: 19px;
+    line-height: 19px;
+    padding: 0 15px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    color: #007CDA;
+    float: left;
+    border: 1px solid #cacaca;
+    margin-left: 6px;
+}
+
+/*.addressList a:hover{ color:#2579ec;}*/
+.item-group-span {
+    cursor: pointer
+}
+
+.sms_item {
+    cursor: pointer
+}
+
+.template_item {
+    cursor: pointer
+}
+
+/*短信详情*/
+.messageRight_radius .content_03 {
+    border: #ddd 1px solid;
+    background: #fff;
+    margin: 8px 0;
+}
+
+.messageRight_radius .turn_page {
+    float: right;
+    color: #007CDA;
+    line-height: 20px;
+}
+
+.messageRight_radius .turn_page a {
+    color: #007CDA;
+}
+
+.messageRight_radius .turn_page a:hover {
+    color: #FC6100;
+}
+
+.messageRight_radius .content_txt {
+    margin: 5px 10px;
+    line-height: 17px;
+}
+
+.messageRight_radius .content_txt .left {
+    width: 10%;
+    float: left;
+}
+
+.messageRight_radius .content_txt .right {
+    width: 90%;
+    float: right;
+    word-wrap: break-word
+}
+
+.messageRight_radius .content_03 .timing {
+    background: #f5eacc;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 8px;
+}
+
+.messageRight_radius .content_03 .attached {
+    font-size: 14px;
+    line-height: 24px;
+    padding: 0 10px 50px 10px;
+    word-break: break-all;
+}
+
+.news-thtitle {
+    background: #dfeafb;
+}
+
+.detailTop_bg {
+    background: #e9eefb;
+    margin-top: 1px;
+    width: 100%;
+    float: left;
+    padding: 5px 0;
+}
+
+.allContacts {
+    line-height: 16px;
+    margin-top: 15px;
+    width: 592px;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.allContacts .right {
+    float: right;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.allContacts .right a {
+    color: #007CDA;
+}
+
+.messageRight_radius .turn_page .assign-invalid, .messageRight_radius .turn_page .assign-invalid:hover {
+    color: #a0a0a0;
+}
+
+.mes_textarea .bottom {
+    background: none repeat scroll 0 0 #E5E5E5;
+    color: #909090;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 3px;
+}
+
+.tokenfield .token-invalid {
+    background-color: #ffeaea;
+    border-color: #edb8b8;
+    color: #c30 !important;
+
+}
+
+.tokenfield .token-un-editable {
+    background-color: #CCFFFF;
+}
+
+.template-table tr {
+    cursor: pointer;
+}
+
+.allContacts .right a {
+    color: #007CDA;
+}
+
+.message_send {
+    background: #fff;
+    float: left;
+    width: 100%;
+}
+
+.message_send .left {
+    background: url(../images/sel_icon.png) no-repeat;
+    width: 30px;
+    height: 30px;
+    margin: 15px 0 10px 15px;
+    float: left;
+}
+
+.message_send .right {
+    width: 745px;
+    float: right;
+    line-height: 22px;
+    padding: 15px 0 20px 0;
+}
+
+.message_send .right h1 {
+    font-size: 16px;
+    color: #008000;
+}
+
+.message_back, .message_again {
+    background: url(../images/chkNormal2.png);
+    width: 90px;
+    height: 25px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+    margin-right: 10px;
+}
+
+.message_again {
+    background: url(../images/btn_tong.png);
+    width: 76px;
+    color: #333;
+}
+
+.ztree li a.curSelectedNode {
+    width: 159px !important;
+}
+
+.topItem .balance {
+    color: #ffffff;
+}
+
+.ztree li span {
+    /*font-size: 11px;*/
+}
+
+#addContactAlertTest .ui-dialog {
+    margin-top: -300px;
+    margin-left: -300px;
+}
+
+#addContactAlertTest .ui-dialog .ui-dialog-titlebar-close span {
+    margin: -7px;
+}
+
+.contact_edit_btn {
+    background: url(../images/edit_image.png);
+    width: 16px;
+    height: 16px;
+    float: right;
+    cursor: pointer;
+}
+
+.mainTitles .titleWords {
+    padding-left: 0px;
+}
+
+/*************************************微信****************************************************/
+.wechat_line {
+    margin: 5px 0;
+    line-height: 24px;
+}
+
+.wechat_t_left {
+    width: 48px;
+    float: left;
+    text-align: right;
+}
+
+.wechat_t_right {
+    margin-left: 8px;
+    float: left;
+}
+
+.wechat_t_right p {
+    margin-bottom: 5px;
+}
+
+.a_select {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #cdcdcd;
+    color: #007eff;
+    cursor: pointer;
+    display: inline-block;
+    height: 22px;
+    line-height: 23px;
+    padding: 0 8px;
+}
+
+.a-click, .a_select:hover {
+    border: #ff6600 1px solid;
+    color: #ff6600;
+}
+
+.wechat_t_right input {
+    color: #909090;
+    float: left;
+    font-size: 12px;
+    height: 19px;
+    padding: 0 3px;
+    width: 446px;
+}
+
+.wechat_personal {
+    display: block;
+    margin: 8px 0;
+}
+
+.wechat_personal .user-item {
+    cursor: pointer
+}
+
+.wechat_photo {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    float: left;
+    margin-right: 5px;
+}
+
+.wechat_txt {
+    line-height: 30px;
+    float: left
+}
+
+.choose_picture {
+    color: #909090;
+    float: left;
+    font-size: 12px;
+    height: 19px;
+    padding: 0 3px;
+    width: 374px;
+    border: #ccc 1px solid;
+}
+
+.status {
+    float: right;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.wechat_t_right .form-control {
+    border: 1px solid #c7c7c7;
+    padding: 6px 12px 0 12px;
+    float: left;
+}
+
+.wechat_line .wechat_t_right .focus {
+    border: #66afe9 1px solid;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0 none;
+}
+
+.wechat_t_right .form-control input {
+    border: none;
+}
+
+.larger_img {
+    width: 450px;
+    overflow: hidden;
+}
+
+.larger_img img {
+    height: 350px
+}
+
+.personal_list {
+    overflow-y: auto;
+}
+
+.wechat_t_right input {
+    color: #909090;
+    float: left;
+    font-size: 12px;
+    height: 19px;
+    padding: 0 3px;
+    width: 446px;
+}
+
+.wechat_t_right .input_boder {
+    border: 1px solid #c7c7c7
+}
+
+.wechat_t_right .input_boder input {
+    color: #909090;
+    float: left;
+    border: none;
+    font-size: 12px;
+    height: 19px;
+    padding: 0 3px;
+    width: 446px;
+}
+
+.wechat_t_right .form-control .token {
+    float: left;
+}
+
+/*********************************欢迎词设置****************************/
+.shop-config {
+    height: 432px;
+    padding: 15px 0 0 30px;
+}
+
+.shop-config .btn {
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    overflow: visible;
+    padding: 0 22px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.shop-config .d-shop-config {
+    width: 480px;
+    float: left;
+}
+
+.d-shop-config div {
+    margin-top: 10px;
+}
+
+.shop-config .d-shop-config textarea {
+    padding: 8px;
+    width: 400px;
+    min-height: 175px;
+    font-size: 15px;
+}
+
+.shop-config .d-config-pre .shop-config-sample {
+    width: 230px;
+    background-color: #fff;
+    border: 1px solid #e7e7eb;
+    color: #8d8d8d;
+    margin-bottom: 15px;
+    overflow: hidden;
+    padding: 8px 8px 15px 8px;
+    cursor: pointer;
+    /*position: relative;*/
+}
+
+.shop-config .d-config-pre .shop-config-sample:hover {
+    border-color: #ff6600;
+}
+
+.shop-config .d-config-pre {
+    /*width: 300px;*/
+    float: left;
+    margin-left: 15px;
+    margin-top: 40px;
+}
+
+.shop-config .d-config-pre h3 {
+    margin-bottom: 3px;
+}
+
+.msg_sender {
+    border: 1px solid #e7e7eb;
+}
+
+.msg_sender .tab_navs {
+    border-top-width: 0;
+}
+
+.msg_sender .tab_content {
+    padding: 0;
+}
+
+.msg_sender .tab_content .inner {
+    border-width: 0;
+}
+
+.msg_sender .tab_panel {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.msg_sender .emotion_editor {
+    border-width: 0;
+}
+
+.emotion_editor .edit_area {
+    background-color: #fff;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    height: 188px;
+    outline: 0 none;
+    padding: 14px 20px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.emotion_editor .edit_area img {
+    vertical-align: middle;
+}
+
+.emotion_editor {
+    border: 1px solid #e7e7eb;
+    border-radius: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.editor_toolbar {
+    background-color: #fff;
+    border-top: 1px solid #e7e7eb;
+    line-height: 36px;
+    padding: 0 20px;
+}
+
+.editor_toolbar:after {
+    clear: both;
+    content: "​";
+    display: block;
+    height: 0;
+}
+
+.editor_tip {
+    color: #8d8d8d;
+    float: right;
+}
+
+.editor_tip em {
+    font-style: normal;
+    font-weight: 400;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.editor_tip .warn {
+    color: #e15f63;
+}
+
+.emotion_switch {
+    float: left;
+    height: 28px;
+    line-height: 999em;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.emotion_wrp {
+    display: none;
+    left: 30px;
+    position: absolute;
+    top: 27px;
+    width: 421px;
+}
+
+.emotions {
+    -moz-user-select: none;
+    background-color: #e7e7eb;
+    border-right: 1px solid #e7e7eb;
+    border-top: 1px solid #e7e7eb;
+    overflow: hidden;
+}
+
+.emotions_item {
+    background-color: #fff;
+    border-bottom: 1px solid #e7e7eb;
+    border-left: 1px solid #e7e7eb;
+    float: left;
+    font-size: 0;
+    height: 27px;
+    line-height: 27px;
+    text-align: center;
+    width: 27px;
+}
+
+.emotions_item:hover {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.75) !important;
+    /*border-color: blue;*/
+}
+
+.emotions_item i {
+    background: url("../images/default218877.gif") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: inline-block;
+    height: 24px;
+    vertical-align: middle;
+    width: 24px;
+}
+
+.emotions_preview {
+    background-color: #fff;
+    border: 1px solid #e7e7eb;
+    display: block;
+    font-size: 0;
+    height: 80px;
+    line-height: 80px;
+    position: absolute;
+    right: -81px;
+    text-align: center;
+    top: 0;
+    width: 80px;
+}
+
+.emotions_preview img {
+    left: 50%;
+    margin-left: -12px;
+    margin-top: -12px;
+    position: absolute;
+    top: 50%;
+}
+
+.icon_msg_sender {
+    display: inline-block;
+    height: 20px;
+    margin-right: 3px;
+    margin-top: -2px;
+    vertical-align: middle;
+    width: 20px;
+}
+
+.tab_text .icon_msg_sender {
+    background: url("https://mp.weixin.qq.com/mpres/zh_CN/htmledition/comm_htmledition/style/widget/msg_tab_z218878.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+
+.tab_text.selected .icon_msg_sender, .tab_text:hover .icon_msg_sender {
+    background: url("https://mp.weixin.qq.com/mpres/zh_CN/htmledition/comm_htmledition/style/widget/msg_tab_z218878.png") no-repeat scroll 0 -30px rgba(0, 0, 0, 0);
+}
+
+.icon_emotion.emotion_switch {
+    background: url("../images/emotion_editor.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 20px;
+    vertical-align: middle;
+    width: 20px;
+}
+
+.icon_emotion.emotion_switch:hover {
+    background: url("../images/emotion_editor.png") no-repeat scroll 0 -30px rgba(0, 0, 0, 0);
+}
+
+.btn_primary {
+    background-color: #44b549;
+    border-color: #44b549;
+    color: #fff;
+}
+
+.btn_primary button {
+    color: #fff;
+    font-family: inherit;
+    margin-left: 11px
+}
+
+.btn_primary:hover {
+    background-color: #449f0d;
+}
+
+.tool_bar:after {
+    clear: both;
+    content: "​";
+    display: block;
+    height: 0;
+}
+
+.page_advanced_reply .tool_bar {
+    border-top-width: 0;
+    box-shadow: none;
+    margin: 0;
+    padding-top: 0;
+    text-align: left;
+}
+
+.page_advanced_reply .tool_bar .btn {
+    margin-left: 0;
+}
+
+.btn.btn_input {
+    min-width: 104px;
+}
+
+.btn.btn_input {
+    padding: 0;
+}
+
+.tool_bar .btn {
+    margin-right: 1em;
+}
+
+.btn.btn_input {
+    min-width: 104px;
+}
+
+.btn button {
+    background-color: transparent;
+    border: 0 none;
+    display: block;
+    height: 100%;
+    outline: 0 none;
+    overflow: visible;
+    padding: 0 22px;
+}
+
+.wechat_personal .wechat_note .wechat_note_icon {
+    cursor: pointer;
+    background: url("../images/i-note1.jpg") no-repeat scroll;
+    margin-right: 0px;
+    height: 28px;
+    width: 28px;
+    float: right;
+}
+
+.wx-user-editor {
+    padding-left: 55px;
+    font-size: 15px;
+}
+
+.wx-user-editor .i-input {
+    border: 1px solid #c7c7c7;
+    color: #909090;
+    height: 20px;
+    width: 64%;
+}
+
+.wx-user-editor .d-user-info {
+    height: 100px;
+}
+
+.wx-user-editor .d-user-info .user-info-right {
+    margin-left: 20px;
+    padding-top: 5px;
+}
+
+.wx-user-editor .d-user-info > div {
+    float: left;
+}
+
+.wx-user-editor .d-user-info .user-info-left {
+    /*width: 50%;*/
+}
+
+/********************************************************我的粉丝*******************************************************/
+.d-search-border {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #BBBBBB;
+    float: right;
+    height: 26px;
+    width: 215px;
+}
+
+.d-search-border input {
+    border: medium none;
+    color: #7e7e7e;
+    float: left;
+    font-size: 12px;
+    height: 19px;
+}
+
+.d-search-border .i_search {
+    background: url("../images/txt_i_search.png") no-repeat scroll 45% 45% #DDDDDD;
+    cursor: pointer;
+    float: right;
+    height: 26px;
+    width: 26px;
+}
+
+.d-search {
+    height: 35px;
+}
+
+.d-search input {
+    height: 26px;
+    width: 185px;
+}
+
+.d-opr {
+    height: 21px;
+}
+
+.blue-opr-btn {
+    background: url("../images/btnBuy.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #FFFFFF;
+    cursor: pointer;
+    float: left;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    width: 77px;
+    padding-right: 10px;
+}
+
+.messageRight .stat-group {
+    background: #ffffff;
+    color: #272727;
+    height: 36px;
+    line-height: 38px;
+    padding: 0 15px;
+    width: 768px;
+}
+
+.addressList a.main-btn, .d-opr a {
+    background: url("../images/btnBuy.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #FFFFFF;
+    cursor: pointer;
+    float: left;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    width: 77px;
+}
+
+.d-opr a{
+      margin: 6px 0 0 15px;
+}
+
+.news-table .t-title {
+    font-weight: bold;
+
+}
+
+.news-table .fan-note {
+    float: right;
+    cursor: pointer;
+}
+
+.msg-detail .m-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 10px 0 10px 0;
+}
+
+.msg-detail .m-description {
+    margin: 10px 0 10px 0;
+}

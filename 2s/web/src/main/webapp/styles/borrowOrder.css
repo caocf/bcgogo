@@ -1,0 +1,431 @@
+
+.titBody {
+    clear: both;
+    float: left;
+    height: 100%;
+    width: 100%;
+}
+
+.lineTitle {
+    background: url("../images/title.png") no-repeat scroll 0 0 transparent;
+    color: #1B5EA1;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    height: 33px;
+    line-height: 35px;
+    padding-left: 10px;
+    width: 1003px;
+}
+
+.allocation {
+    float: left;
+    width: 100%;
+}
+
+.allocation .divTit {
+    line-height: 35px;
+}
+.titBody .divTit {
+    color: #000000;
+    float: left;
+    line-height: 24px;
+    padding-right: 20px;
+}
+
+
+
+.txt, .selTit {
+    border: 1px solid #BBBBBB;
+    color: #515151;
+    height: 19px;
+    line-height: 20px;
+    padding-left: 6px;
+    width: 100px;
+}
+
+allocation .allocation_left, .allocation .allocation_center, .allocation .allocation_right {
+    background: url("../images/left_lag.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 112px;
+    width: 3px;
+}
+
+
+
+.allocation .allocation_left, .allocation .allocation_center, .allocation .allocation_right {
+    background: url("../images/left_lag.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 112px;
+    width: 3px;
+}
+
+.allocation .allocation_right {
+    background: url("../images/right_lag.png") no-repeat scroll 0 0 transparent;
+}
+.allocation .allocation_left, .allocation .allocation_center, .allocation .allocation_right {
+    background: url("../images/left_lag.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 112px;
+    width: 3px;
+}
+
+.allocation .allocation_center {
+    background: url("../images/center_lag.png") repeat-x scroll 0 0 transparent;
+    color: #272727;
+    padding: 10px;
+    width: 977px;
+}
+
+.tabTitle {
+    color: #272727;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.allocation .search .btn_so, .btn_searchr {
+    background: url("../images/chkNormal.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    height: 21px;
+    line-height: 21px;
+    padding: 0 0 2px;
+    text-align: center;
+    width: 64px;
+}
+.allocation .search .btn_so:hover {
+    background: url("../images/chkNormal.png") no-repeat scroll 0 -29px transparent;
+}
+.btnPan {
+    background: url("../images/chkNormal2.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: right;
+    height: 25px;
+    line-height: 25px;
+    margin-right: 14px;
+    margin-top: 4px;
+    text-align: center;
+    width: 90px;
+}
+.btnPan:hover {
+    background: url("../images/btnHover2.png") no-repeat scroll 0 0 transparent;
+    color: #663A02;
+    text-decoration: none;
+}
+
+
+.tabMore {
+    color: #000000;
+}
+
+.tab .tabSlip {
+    border-width: 0;
+}
+.tabSlip {
+    /*border: 1px solid #BBBBBB;*/
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tab> #borrowOrderTable{
+    table-layout: fixed;
+}
+
+.tab .titleBg, .tabCart .titleBg {
+    background: url("../images/titBg.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    height: 26px;
+    line-height: 26px;
+}
+.tabSlip .titleBg {
+    background: url("../images/tab_bg.png") repeat-x scroll 0 0 transparent;
+    color: #006ECA;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 10px;
+}
+
+.tabSlip td {
+    color: #272727;
+    height: 28px;
+    line-height: 28px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: keep-all;
+}
+/*---------------addBorrowOrder---------------------------------*/
+/*.tabMore {*/
+/*color: #000000;*/
+/*}*/
+
+/*.i_main .i_mainRight .borrowerDetail input:not([name=borrower_type_select]){*/
+    /*float: left;*/
+    /*width: 130px*/
+/*}*/
+
+.titBody .tabMore tr td {
+    line-height: 30px;
+    text-align: right;
+}
+
+
+/*.titBody a.up, .titBody a.down {*/
+/*background-position: 30px 10px;*/
+/*color: #006ECA;*/
+/*padding-right: 10px;*/
+/*}*/
+
+
+.divSlip td {
+    background: url("../images/title_tbcenter.png") repeat-x scroll 0 0 transparent;
+    color: #FFFFFF;
+    height: 32px;
+    line-height: 32px;
+}
+
+/*.tabSlip {*/
+/*border: 1px solid #BBBBBB;*/
+/*border-collapse: collapse;*/
+/*table-layout: fixed;*/
+/*width: 100%;*/
+/*}*/
+
+
+
+.txt, .selTit {
+    border: 1px solid #BBBBBB;
+    color: #515151;
+    height: 19px;
+    line-height: 20px;
+    padding-left: 6px;
+    width: 150px;
+}
+
+.tabPick .txt {
+    width: 80%;
+}
+
+.titBody .remark {
+    color: #000000;
+    line-height: 22px;
+    margin-bottom: 10px;
+    word-wrap:break-word  ;
+}
+
+.titBody .remark .textarea {
+    height: 60px;
+    width: 88%;
+}
+
+.titBody .remark div {
+    float: left;
+    text-align: right;
+    width: 100px;
+}
+
+.printImg {
+    cursor: pointer;
+    float: left;
+    width: 40px;
+}
+
+.divImg .sureWords, .printImg .sureWords {
+    color: #000000;
+}
+.divImg .sureWords {
+    width: 100%;
+}
+
+.vestDateStr{
+    width: 150px;
+}
+
+#borrowOrderTable a{
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.tabPrev td {
+    border: 1px solid #BBBBBB;
+    padding-left: 3px;
+}
+
+.tabSlip td {
+    height: 28px;
+    line-height: 28px;
+    /*color: #272727;*/
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tabPrev tr.tr_bg td {
+    background: url(../images/title_top.png) repeat-x;
+    color: #006ECA;
+}
+
+#returnOrderTable input{
+    width: 40px;
+}
+
+.tabMerge {
+    border-collapse: collapse;
+    color: #515151;
+    float: left;
+    font-size: 12px;
+    font-weight: normal;
+    width: 98%;
+    margin-left: 10px;
+}
+
+.tabMereCus tr {
+    border-left: 1px solid #D5D5D5;
+    border-right: 1px solid #D5D5D5;
+}
+
+.tabMereCus td {
+    border-image: none;
+    /*border-style: none none solid;*/
+    border-width: medium medium 1px;
+}
+.tabMerge td {
+    height: 28px;
+    /*padding-left: 10px;*/
+}
+
+.tabMerge .tab_title {
+    border-top: 1px solid #D5D5D5;
+}
+.tabMerge .tab_title {
+    background: url("../images/tab_bg.png") repeat-x scroll 0 0 transparent;
+    color: #0076CC;
+    height: 28px;
+    line-height: 28px;
+}
+.tabMereCus tr {
+    border-left: 1px solid #D5D5D5;
+    border-right: 1px solid #D5D5D5;
+}
+
+.titBody .tabMore tr td span {
+    float: left;
+}
+
+.btnClick {
+    margin: 0 auto;
+    width: 178px;
+}
+
+.btnClick input {
+    background: url("../images/btn_tong.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #484848;
+    cursor: pointer;
+    height: 25px;
+    line-height: 25px;
+    margin-right: 10px;
+    text-align: center;
+    width: 76px;
+}
+
+.btnClick input:hover {
+    background: url("../images/btn_ti.png") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+}
+
+.allocation .divTit {
+    line-height: 35px;
+}
+
+.allocation .search {
+    padding-left: 60px;
+    width: 100%;
+}
+
+.tab {
+    border-color: #CCCCCC;
+    border-image: none;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    float: left;
+    padding: 10px;
+}
+
+.tab .titleBg, .tabCart .titleBg {
+    background: url("../images/titBg.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    height: 26px;
+    line-height: 26px;
+}
+
+.tab .titleBg td {
+    border: medium none;
+    color: #FFFFFF;
+}
+
+.lineTitle span:hover{
+    color: #FF5E04;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.tabMerge td {
+    /*border-style: none none solid;*/
+    /*border: 1px solid #D5D5D5;*/
+    height: 28px;
+    /*padding-left: 10px;*/
+}
+
+#returnOrderTable .tab_title {
+    background: url("../images/titBg.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    height: 26px;
+    line-height: 26px;
+}
+/*.cartBody #returnOrderTable,.cartBody .storehouse{*/
+/*background: url("../images/borderBody.png") repeat-y scroll 0 0 transparent;*/
+/*height: 100%;*/
+/*}*/
+#returnOrder_dialog{
+    margin: 10px 10px;
+}
+#returnOrder_dialog .cartBody{
+    background: url("../images/borderBody.png") repeat-y scroll 0 0 transparent;
+    height:300px;
+}
+#returnOrder_dialog .storehouse{
+    padding-top: 11px;
+    padding-bottom: 11px;
+}
+#returnOrderTable .bg {
+    background: url("../images/lineBg_top.png") repeat-x scroll 0 0 #FFFFFF;
+    height: 41px;
+    width: 100%;
+}
+#returnOrder_dialog .cartBody tr td .txtHover {
+    border: 1px solid #FF6600;
+    /*border: medium none;*/
+    /*height: 29px;*/
+    padding-left: 8px;
+    width: 44px;
+}
+#returnOrder_dialog .cartBody .table2 .divList {
+    color: #424242;
+    float: left;
+    font-weight: normal;
+    line-height: 30px;
+    width: 400px;
+}
+

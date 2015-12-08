@@ -1,0 +1,99 @@
+@charset "utf-8";
+/* CSS Document */
+
+.tuihuo_first table tr td label,.tuihuo_first table tr td .txt_hao{
+	display:block;
+	float:left;
+}
+.tuihuo_first table tr td .txt_hao{
+	margin-top:5px;
+}
+.tuihuo_first table tr td  .btn_add,.tuihuo_first table tr td .btn_search{
+	background:url("../images/btn_tong.png");
+	border:none;
+	width:76px;
+	height:25px;
+}
+.tuihuo_first table tr td  .btn_add{
+	float:right;
+	margin-right:50px;
+}
+.tuihuo_first table tr td .btn_search{
+	margin-left:25px;
+}
+.tuihuo_first table tr td .xiala{
+	position:relative;
+}
+.tuihuo_first table tr td .xiala ul{
+	position:absolute;
+	top:20px;
+	width:109px;
+	border:1px solid #ADADAD;
+	background:#fff;
+}
+.tuihuo_first table tr td .xiala ul li{
+	height:20px;
+	line-height:20px;
+}
+.tuihuo_first table tr td .xiala ul li:hover{
+	background:#ADADAD;
+}
+.xiala img{
+	display:block;
+	float:left;
+}
+.loan_div table tr td .xiala ul {
+	width:199px;
+}
+.loan_div table tr td .xiala input,.loan_div table tr td .xiala img{
+	margin-top:10px;
+}
+.loan_div table tr td .xiala img{
+	margin-right:20px;
+}
+.loan_div table tr td .queding_btn{
+	margin:10px 0px;
+	background:url(../images/btn_tong.png);
+	border:none;
+	width:76px;
+	height:25px;
+	color:#000;
+	letter-spacing:2px;
+	cursor:pointer;
+}
+.loan_div table tr td .queding_btn:hover{
+	background:url(../images/btn_ti.png);
+	color:#fff;
+}
+
+.loan_div table tr td .daikuan{
+	margin-top:10px;
+}
+
+#tuihuo_show tr td{
+	text-align:center;
+}
+table tr  .red,table tr  .blue{
+	color:#ff0000;
+	font-weight:bold;
+}
+table tr  .blue{
+	color:#3ca701;
+}
+#tuihuo_show tr td label{
+	margin-right:20px;
+	font-weight:normal;
+}
+
+.loan_div table tr .ruanjian label{
+	margin-right:10px;
+	display:block;
+	float:left;
+	line-height:2.2;
+}
+.loan_div table tr  .ruanjian input{
+	border:none;
+	margin-top:10px;
+	display:block;
+	float:left;
+}

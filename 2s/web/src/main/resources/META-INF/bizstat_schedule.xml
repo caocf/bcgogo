@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--员工业绩统计-->
+    <bean name="bizstat" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.stat.BizStatSchedule"/>
+    </bean>
+
+    <bean id="bizstatTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="bizstat"/>
+        <property name="cronExpression" value="0 0 0 * * ?"/>
+        <!--<property name="cronExpression" value="1 * * * * ?"/>-->
+    </bean>
+
+    <bean id="bizstatScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="bizstatTrigger"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--上周销量、入库量统计-->
+    <bean name="lastWeekSalesInventoryStat" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.stat.SalesInventoryWeekStatSchedule"/>
+    </bean>
+
+    <bean id="lastWeekSalesInventoryStatTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="lastWeekSalesInventoryStat"/>
+        <property name="cronExpression" value="0 0 0 * * ?"/>
+        <!--<property name="cronExpression" value="1 * * * * ?"/>-->
+    </bean>
+
+    <bean id="lastWeekSalesInventoryStatScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="lastWeekSalesInventoryStatTrigger"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--urlMonitorStat-->
+    <bean name="urlMonitorStat" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.stat.UrlMonitorStatSchedule"/>
+    </bean>
+
+    <bean id="urlMonitorStatTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="urlMonitorStat"/>
+        <property name="cronExpression" value="0 0 0 * * ?"/>
+        <!--<property name="cronExpression" value="1 * * * * ?"/>-->
+    </bean>
+
+    <bean id="urlMonitorStatScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="urlMonitorStatTrigger"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <!--供应商点评统计-->
+    <bean name="commentStat" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.stat.SupplierCommentSchedule"/>
+    </bean>
+
+    <bean id="supplierCommentStatTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="commentStat"/>
+        <property name="cronExpression" value="0 0 */3 * * ?"/>
+        <!--<property name="cronExpression" value="1 * * * * ?"/>-->
+    </bean>
+
+    <bean id="supplierCommentStatScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="supplierCommentStatTrigger"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--手机端用户和店铺客户匹配-->
+    <bean name="appUserCustomerMatch" class="org.springframework.scheduling.quartz.JobDetailBean">
+      <property name="jobClass" value="com.bcgogo.schedule.stat.AppUserCustomerMatchSchedule"/>
+    </bean>
+
+    <bean id="appUserCustomerMatchTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+      <property name="jobDetail" ref="appUserCustomerMatch"/>
+      <!--<property name="cronExpression" value="0 0 0 * * ?"/>-->
+      <!--<property name="cronExpression" value="1 * * * * ?"/>-->
+      <property name="cronExpression" value="0 */10 * * * ?"/> <!-- 10分钟执行一次成本分析监听 -->
+
+    </bean>
+
+    <bean id="appUserCustomerMatchScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+      <property name="triggers">
+        <list>
+          <ref local="appUserCustomerMatchTrigger"/>
+        </list>
+      </property>
+    </bean>
+
+    <!--手机端用户和店铺客户匹配-->
+    <!--<bean name="appUserMatch" class="org.springframework.scheduling.quartz.JobDetailBean">-->
+      <!--<property name="jobClass" value="com.bcgogo.schedule.stat.AppUserMatchSchedule"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="appUserMatchTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">-->
+      <!--<property name="jobDetail" ref="appUserMatch"/>-->
+      <!--<property name="cronExpression" value="0 0 0 * * ?"/>-->
+      <!--&lt;!&ndash;<property name="cronExpression" value="1 * * * * ?"/>&ndash;&gt;-->
+    <!--</bean>-->
+
+    <!--<bean id="appUserMatchScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">-->
+      <!--<property name="triggers">-->
+        <!--<list>-->
+          <!--<ref local="appUserMatchTrigger"/>-->
+        <!--</list>-->
+      <!--</property>-->
+    <!--</bean>-->
+
+
+    <!--成本分析-->
+    <bean name="costStat" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.stat.CostStatSchedule"/>
+    </bean>
+
+    <bean id="costStatTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="costStat"/>
+        <property name="cronExpression" value="0 */10 * * * ?"/> <!-- 10分钟执行一次成本分析监听 -->
+    </bean>
+
+    <bean id="costStatScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="costStatTrigger"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--价格波动-->
+    <bean name="priceFluctuationStat" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.stat.PriceFluctuationStatSchedule"/>
+    </bean>
+
+    <bean id="priceFluctuationStatTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="priceFluctuationStat"/>
+        <property name="cronExpression" value="0 0 1 * * ?"/> <!-- 每天凌晨1点，执行一次价格波动分析监听 -->
+    </bean>
+
+    <bean id="priceFluctuationStatScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="priceFluctuationStatTrigger"/>
+            </list>
+        </property>
+        <property name="autoStartup" value="true"/>
+    </bean>
+
+    <!--后台CRM采购统计-->
+    <bean name="purchaseInventoryStat" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.stat.PurchaseInventorySchedule"/>
+    </bean>
+
+    <bean id="purchaseInventoryStatTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="purchaseInventoryStat"/>
+        <property name="cronExpression" value="0 0 0 * * ?"/>
+        <!--<property name="cronExpression" value="1 * * * * ?"/>-->
+    </bean>
+
+    <bean id="purchaseInventoryStatScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="purchaseInventoryStatTrigger"/>
+            </list>
+        </property>
+        <property name="autoStartup" value="true"/>
+    </bean>
+
+    <!--30分钟店铺自动接受预约单-->
+    <bean name="autoAcceptAppointOrder" class="org.springframework.scheduling.quartz.JobDetailBean">
+      <property name="jobClass" value="com.bcgogo.schedule.stat.ShopAutoAcceptAppointSchedule"/>
+    </bean>
+
+    <bean id="autoAcceptAppointOrderTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+      <property name="jobDetail" ref="autoAcceptAppointOrder"/>
+      <property name="cronExpression" value="0 */10 * * * ?"/>
+      <!-- 10分钟执行一次成本分析监听 -->
+    </bean>
+
+    <bean id="autoAcceptAppointOrderScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+      <property name="triggers">
+        <list>
+          <ref local="autoAcceptAppointOrderTrigger"/>
+        </list>
+      </property>
+    </bean>
+
+
+    <!--店铺宣传时间到期自动处理成已过期-->
+    <bean name="shopAdvertOverdueHandle" class="org.springframework.scheduling.quartz.JobDetailBean">
+      <property name="jobClass" value="com.bcgogo.schedule.stat.ShopAdvertOverdueSchedule"/>
+    </bean>
+
+    <bean id="shopAdvertOverdueHandleTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+      <property name="jobDetail" ref="shopAdvertOverdueHandle"/>
+      <property name="cronExpression" value="0 0 0 * * ?"/>
+      <!--<property name="cronExpression" value="1 * * * * ?"/>-->
+    </bean>
+
+    <bean id="shopAdvertOverdueHandleTriggerScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+      <property name="triggers">
+        <list>
+          <ref local="shopAdvertOverdueHandleTrigger"/>
+        </list>
+      </property>
+    </bean>
+
+    <!--违章记录自动发送消息到app-->
+    <bean name="sendViolateRegulationMsgToApp" class="org.springframework.scheduling.quartz.JobDetailBean">
+      <property name="jobClass" value="com.bcgogo.schedule.stat.SendVRegulationMsgToAppSchedule"/>
+    </bean>
+
+    <bean id="sendViolateRegulationMsgTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+      <property name="jobDetail" ref="sendViolateRegulationMsgToApp"/>
+      <property name="cronExpression" value="0 0 10 ? * SAT"/>
+      <!--<property name="cronExpression" value="1 * * * * ?"/>-->
+    </bean>
+
+    <bean id="sendViolateRegulationMsgToAppScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+      <property name="triggers">
+        <list>
+          <ref local="sendViolateRegulationMsgTrigger"/>
+        </list>
+      </property>
+    </bean>
+
+
+</beans>

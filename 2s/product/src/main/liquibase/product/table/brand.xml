@@ -1,0 +1,43 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="wujiaolong" id="brand_1">
+        <createTable tableName="brand">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="uuid" type="char(36)"/>
+            <column name="name" type="varchar(200)"/>
+            <column name="name_en" type="varchar(200)"/>
+            <column name="first_letter" type="varchar(200)"/>
+            <column name="state" type="bigint"/>
+            <column name="memo" type="varchar(2000)"/>
+            <column name="shop_id" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="brand" columnNames="id" constraintName="pk_brand"/>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="brand_2">
+        <createIndex tableName="brand" indexName="idx_brand_firstletter">
+            <column name="first_letter"/>
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="brand_3">
+    <modifyColumn tableName="brand">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+
+</databaseChangeLog>

@@ -1,0 +1,184 @@
+.bcgogo-multiselect-two-dialog {
+    width:600px;height:300px;font-size: 13px;color:#000;position: relative; line-height: normal;
+}
+
+.bcgogo-multiselect-two-dialog-title {position:relative;width: 600px;text-align: left;color:#000;}
+.bcgogo-multiselect-two-dialog-title .group-select-dialog-title {float:left;margin:0;padding:0;width:200px;margin-top: 5px;margin-bottom: 5px;}
+.bcgogo-multiselect-two-dialog-title .group-ensure-dialog-title {float:left;margin:0;padding:0;width:200px;margin-top: 5px;margin-bottom: 5px;margin-left: 50px;}
+.bcgogo-multiselect-two-dialog-title .group-ensure-dialog-title .button-clear {color:#008aff;float:right;cursor:pointer;}
+
+
+
+.bcgogo-multiselect-two-dialog .select-dialog {
+    width: 200px;height: 300px;border: solid 1px #dddcdc;box-shadow: 0px 0px 5px #ddd inset;
+    position: absolute;border-radius: 2px;overflow-y: auto;overflow-x: auto;
+}
+
+
+.bcgogo-multiselect-two-dialog .select-dialog .category-list {
+    width: 185px;position: relative;float:left;padding: 5px;
+}
+
+.bcgogo-multiselect-two-dialog .select-dialog .category-list span {
+    padding: 0;margin: 0;padding: 2px;color:#409cfe;/*font-weight: bold;*/word-wrap: normal;white-space: normal;
+    float:left;position: relative;cursor: pointer;font-size: 14px;text-align: left;
+    font-family: "Arial";line-height: 20px;
+}
+
+.bcgogo-multiselect-two-dialog .select-dialog .category-list span:hover {
+    color:#ff6600;
+}
+
+.bcgogo-multiselect-two-dialog .select-dialog .category-list span.item-actived {
+    color:#ff6600;
+}
+
+.bcgogo-multiselect-two-dialog .select-dialog .category-list .hover-item {}
+
+.bcgogo-multiselect-two-dialog .select-dialog .category-list .select-item {
+    color:#ff6600
+}
+
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list {
+    width:200px;float:left;position:relative;
+}
+
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list > ul {
+    list-style: none;margin: 5px;border-radius: 3px;padding: 0;
+}
+
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list .second-tree-level-item {
+    margin:0;padding:0;padding: 0px 5px 0px 5px; margin-bottom: 4px;text-align: left;
+}
+
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list .second-tree-level-item > ul {
+    list-style: none;margin:5px;border-radius: 3px;padding: 0px 0px 0px 20px;color: #000;
+}
+
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list .third-tree-level-item {
+    margin:0;padding: 0;margin-bottom: 4px;color: #555;padding-left: 2px;text-align: left;
+}
+
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list .third-tree-level-item:hover {
+    background: #deedfc;border-radius: 3px;cursor: pointer;
+}
+
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list .hover-item {
+    background: #deedfc;
+}
+
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list .select-item {
+    background: #deedfc;
+}
+
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list .item-spread {
+    width:16px;height:16px;border: solid 1px #a5a5a5;display: block;float:left;line-height: 18px;
+    font-size: 14px;padding: 0;margin: 0;text-align: center;margin-right: 4px;cursor: pointer;
+    /*别忘记加个 + */
+}
+
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list .item-retract {
+    width:14px;height:14px;border: solid 1px #a5a5a5;display: block;float:left;line-height: 18px;
+    font-size: 14px;padding: 0;margin: 0;text-align: center;margin-right: 4px;cursor: pointer;
+    /*别忘记加个 - */
+}
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list .item-label {
+    height: 16px;line-height: 20px;float:left;margin: 0;padding: 0;display: block;width:80%;
+    cursor: pointer; font-size:14px;
+}
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list .item-label:hover {
+    background: #fff1e8;border-radius: 3px;color:#ff6600;
+}
+
+.bcgogo-multiselect-two-dialog .ensure-dialog {
+    width: 200px;height: 300px;border: solid 1px #dddcdc;box-shadow: 0px 0px 5px #ddd inset;
+    position: absolute;left:250px;border-radius: 2px; padding: 0px;overflow-y: auto;
+    clear:right;font-size:14px;
+}
+
+.bcgogo-multiselect-two-dialog .ensure-dialog > ul {
+    list-style: none;padding: 0;margin: 5px;
+}
+
+.bcgogo-multiselect-two-dialog .ensure-dialog li {
+    padding: 0px 0px 0px 0px; margin:0;margin-bottom: 3px;width: 100%;text-align: left;
+}
+
+.bcgogo-multiselect-two-dialog .ensure-dialog li > span {
+    line-height: 22px;display: block;float:left;width: 80%;
+}
+
+.bcgogo-multiselect-two-dialog .ensure-dialog .item-yellow {
+    color:#00a6f2;
+}
+
+.bcgogo-multiselect-two-dialog .ensure-dialog .item-yellow:hover {
+    background: #fff1e8;border-radius: 3px;color:#ff7417;
+}
+
+.bcgogo-multiselect-two-dialog .ensure-dialog .item-blue {}
+
+.bcgogo-multiselect-two-dialog .ensure-dialog .item-blue:hover {
+    background: #bfe1ff;border-radius: 3px;
+}
+
+.bcgogo-multiselect-two-dialog .ensure-dialog .delete-button {
+    width:16px; height:16px;color:red; line-height: 20px;border: solid 1px #ccc;border-radius: 3px;
+    background: url(res/multiselectTwoDialog/close_button.png) no-repeat white center center;
+    cursor: pointer;float:right;
+    /* suggestion: we can use chinese multiply char instead */
+}
+
+.bcgogo-multiselect-two-dialog .ensure-dialog .delete-button:hover {
+    border-color: #aaa;box-shadow: 0px 0px 3px #ccc;
+}
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list .item-selected {
+    color: #00A6F2;
+}
+/********************************************************************/
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list .item-hide {
+    display: none !important;
+}
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list .item-show {
+    display: block !important;
+}
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list .parent-tree-level-item {
+    margin:0;padding:0;padding: 0px 5px 0px 5px; margin-bottom: 4px;text-align: left;
+}
+
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list .parent-tree-level-item > ul {
+    list-style: none;margin:5px;border-radius: 3px;padding: 0px 0px 0px 20px;color: #000;
+}
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list .leaf-tree-level-item {
+    margin:0;padding: 0;margin-bottom: 4px;color: #555;padding-left: 2px;text-align: left;
+}
+
+.bcgogo-multiselect-two-dialog .select-dialog .tree-list .leaf-tree-level-item:hover {
+    background: #deedfc;border-radius: 3px;cursor: pointer;
+}
+
+.bcgogo-multiselect-two-dialog .select-dialog .search-condition {
+    width: 185px;position: relative;float:left;padding: 5px;
+}
+.bcgogo-multiselect-two-dialog .select-dialog .search-condition .search-scope {
+    border: 1px solid #AFAFAF;
+    float: left;
+    height: 18px;
+    width: 153px;
+}
+
+/*.bcgogo-multiselect-two-dialog .select-dialog .search-condition .search-btn {*/
+    /*background: url("res/txt_i_search.png") no-repeat scroll 0 0 transparent;*/
+    /*border: 0 none;*/
+    /*float: left;*/
+    /*height: 22px;*/
+    /*width: 43px;*/
+    /*cursor: pointer;*/
+/*}*/
+
+.bcgogo-multiselect-two-dialog .select-dialog .search-condition .search-btn {
+    background: url("res/txt_i_search.png") no-repeat scroll 45% 45% #DDDDDD;
+    cursor: pointer;
+    height: 19px;
+    width: 19px;
+}

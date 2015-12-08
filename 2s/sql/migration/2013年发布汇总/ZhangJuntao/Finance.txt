@@ -1,0 +1,139 @@
+一.更新数据库
+二.更新数据
+INSERT INTO `instalment_plan_algorithm` (`id`, `created`, `last_update`, `version`, `terminally_ratio`, `memo`, `name`, `periods`, `periods_month_rate`)
+VALUES (1, 1, 1, 1, '0.2,0.16,0.16,0.16,0.16,0.16', '6期分期规则', '6期', 6, 1);
+INSERT INTO `instalment_plan_algorithm` (`id`, `created`, `last_update`, `version`, `terminally_ratio`, `memo`, `name`, `periods`, `periods_month_rate`)
+ VALUES (2, 1, 1, 1, '0.12,0.08,0.08,0.08,0.08,0.08,0.08,0.08,0.08,0.08,0.08,0.08', '12期分期规则', '12期', 12, 1);
+
+update shop set bargain_status='NO_BARGAIN';
+update shop set payment_status='NON_PAYMENT' where shop_status='REGISTERED_TRIAL';
+update shop set payment_status='FULL_PAYMENT' where shop_status='REGISTERED_PAID';
+
+三.配置权限
+(1)权限：
+  CRM->增加子模块（财务管理）
+  财务管理->增加角色(客户支付管理菜单、客户软硬件账单菜单、客户短信账单菜单、公司短信账单菜单)
+     从role下获得【获得（客户支付管理菜单id）:10000010042034106】【获得（客户软硬件账单菜单id）:10000010042354135】
+                 【获得（客户短信账单菜单 id）:10000010042694169】【获得（公司短信账单菜单 id）:10000010042694170】
+  新增资源 payment_to_be_paid_list CRM.FINANCE_MANAGER.PAYMENT.TO_BE_PAID.LIST CRM 财务管理-待支付-查询 render   把资源添加到(查询客户待支付记录)角色下
+  新增资源 payment_pending_review_list CRM.FINANCE_MANAGER.PAYMENT.PENDING_REVIEW.LIST CRM 财务管理-待审核-查询 render   把资源添加到(查询客户待审核记录)角色下
+  新增资源 payment_has_been_paid_list CRM.FINANCE_MANAGER.PAYMENT.HAS_BEEN_PAID.LIST CRM 财务管理-已支付-查询 render   把资源添加到(查询客户已支付记录)角色下
+
+  insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`)
+  VALUES ('700000001','1','1','1','财务管理','','','','财务管理','3',null,null,'true');
+  # 客户支付管理菜单id 替换 下面sql中的  10000010042034106
+  insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`)
+  VALUES ('700010001','1','1','1','客户支付管理','Ext.controller.finance.BcgogoReceivableController','COMPONENT','','客户支付管理','1',700000001,10000010042034106,'true');
+  # 客户软硬件账单菜单id 替换 下面sql中的  10000010042354135
+  insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`)
+  VALUES ('700010002','1','1','1','客户软硬件账单','Ext.controller.finance.BcgogoHardSoftAccountController','COMPONENT','','客户软硬件账单','1',700000001,10000010042354135,'true');
+  # 客户短信账单菜单id 替换 下面sql中的  10000010042694169
+  insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`)
+  VALUES ('700010003','1','1','1','客户短信账单','Ext.controller.finance.ShopSmsAccountController','COMPONENT','','客户短信账单','1',700000001,10000010042694169,'true');
+  #公司短信账单菜单id 替换 下面sql中的  10000010042694170
+  insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`)
+  VALUES ('700010004','1','1','1','公司短信账单','Ext.controller.finance.BcgogoSmsAccountController','COMPONENT','','客户短信账单','1',700000001,10000010042694170,'true');
+
+
+  (2)CRM--shop操作权限--shop数据初始化
+     （新）initBcgogoReceivable	/web/init.do?method=initBcgogoReceivable	             SHOP   初始化试用版待支付记录    request
+     （新）initShopSmsAccount	/web/init.do?method=initShopSmsAccount	                 SHOP   初始化赠送支付记录        request
+     （新）initShopSmsBalanceAccount	/web/init.do?method=initShopSmsBalanceAccount	   SHOP   初始化剩余短信记录        request
+     （新）initShopSmsRechargeAccount	/web/init.do?method=initShopSmsRechargeAccount	 SHOP   初始化充值记录            request
+     （新）initShopSmsOutBoxAccount	/web/init.do?method=initShopSmsOutBoxAccount	     SHOP   初始化消费短信            request
+
+  （3）CRM角色
+        删除 角色【已注册客户编辑】以及 下面的资源
+        修改角色【待审核客户编辑】 为【编辑客户】
+        修改角色【查看已注册客户】 为【查看已缴费客户】
+        修改资源【CRM.CUSTOMER_MANAGER.CHECK_PENDING.EDIT】 为 【CRM.CUSTOMER_MANAGER.CUSTOMER.EDIT】
+
+     在【财务管理】模块增加以下角色 资源：
+      （新）查询客户待支付记录
+            （新）payment_to_be_paid_list	 CRM.FINANCE_MANAGER.PAYMENT.TO_BE_PAID.LIST	     CRM   财务管理-待支付-查询            render
+      （新）查询客户待审核记录
+            （新）payment_pending_review_list	 CRM.FINANCE_MANAGER.PAYMENT.PENDING_REVIEW.LIST	     CRM   财务管理-待审核-查询      render
+      （新）查询客户已支付记录
+            （新）payment_has_been_paid_list	 CRM.FINANCE_MANAGER.PAYMENT.HAS_BEEN_PAID.LIST	     CRM   财务管理-已支付-查询            render
+      （新）新增客户硬件待支付记录
+            （新）payment_add_hardware_payable	 CRM.FINANCE_MANAGER.PAYMENT.ADD_HARDWARE_PAYABLE	     CRM   财务管理-增加硬件待支付          render
+      （新）新增客户软件待支付记录
+            （新）payment_add_software_payable	 CRM.FINANCE_MANAGER.PAYMENT.ADD_SOFTWARE_PAYABLE	     CRM   财务管理-增加软件待支付          render
+      （新）客户线下支付提交
+            （新）payment_submit_payable	 CRM.FINANCE_MANAGER.PAYMENT.SUBMIT_PAYABLE	     CRM   财务管理-增加软件已支付          render
+     （新）新增客户软件已支付记录
+            （新）payment_add_software_paid	 CRM.FINANCE_MANAGER.PAYMENT.ADD_SOFTWARE_PAID	     CRM   财务管理-增加软件已支付          render
+      （新）客户支付审核
+             （新）payment_audit	 CRM.FINANCE_MANAGER.PAYMENT.AUDIT	     CRM   财务管理-审核          render
+
+      （新）客户短信账单
+             （新）shop_sms_account_list	 CRM.FINANCE_MANAGER.ACCOUNT.SHOP_SMS.LIST	     CRM   财务管理-客户短信账单          render
+      （新）客户短信详细账单
+             （新）shop_sms_account_detail	 CRM.FINANCE_MANAGER.ACCOUNT.SHOP_SMS.DETAIL	     CRM   财务管理-客户短信详细账单      render
+     （新）客户短信退费
+             （新）shop_sms_account_refund	 CRM.FINANCE_MANAGER.ACCOUNT.SHOP_SMS.REFUND	     CRM   财务管理-客户短信退费          render
+
+      （新）公司充值录入
+             （新）add_bcgogo_sms_recharge	 CRM.FINANCE_MANAGER.ACCOUNT.BCGOGO_SMS_RECHARGE.ADD	     CRM   财务管理-公司充值录入    render
+     在【客户管理】模块增加以下角色 资源：
+       （新） 查看试用客户
+             （新）registered_trial_list	 CRM.CUSTOMER_MANAGER.REGISTERED_TRIAL.LIST	     CRM   客户管理-查看试用客户    render
+      （新） 试用客户延期
+             （新）registered_trial_extension	 CRM.CUSTOMER_MANAGER.REGISTERED_TRIAL.EXTENSION	     CRM   客户管理-试用客户延期    render
+       （新） 议价申请
+             （新）bargain_apply	 CRM.CUSTOMER_MANAGER.REGISTERED_TRIAL.BARGAIN_APPLY	     CRM   客户管理-议价申请    render
+       （新） 议价审核
+             （新）bargain_audit	 CRM.CUSTOMER_MANAGER.REGISTERED_TRIAL.BARGAIN_AUDIT	     CRM   客户管理-议价审核    render
+        (旧) 查看待审核客户
+                （新）check_pending_list	 CRM.CUSTOMER_MANAGER.CHECK_PENDING.LIST	     CRM   客户管理-查看待审核客户    render
+四. config 配置
+  【【XXXXXXXXXXXX：outBox 中最新Id】 SMS_ACCOUNT_OUT_BOX_START_ID XXXXXXXXXXXX  outBox中最新Id
+
+   （新）公司短信账单
+               （新）bcgogo_sms_account_list	 CRM.FINANCE_MANAGER.ACCOUNT.BCGOGO_SMS.LIST	     CRM   财务管理-公司短信账单          render
+
+ （新）客户软硬件账单
+             （新）hardware_software_account_list	 CRM.FINANCE_MANAGER.ACCOUNT.HARDWARE_SOFTWARE.LIST	     CRM   财务管理-客户软硬件账单        render
+
+  】 不需要执行
+
+五.jackchen登录后执行：
+    init.do?method=initBcgogoReceivable
+    init.do?method=initShopSmsAccount
+    init.do?method=initShopSmsBalanceAccount
+    init.do?method=initShopSmsRechargeAccount
+    init.do?method=initShopSmsOutBoxAccount
+
+六.给管理员权限配置本次后台添加的角色
+
+ 在SHOP-> 系统管理增加模块 在线支付 在该模块增加 在线支付 角色
+ 在线支付角色 用户组用户组：经理/店长  老板/财务  版本：所有店铺版本 ，新增资源
+ web_sys_bcgogoReceivable                             render           WEB.SYSTEM_SETTINGS.BCGOGO_RECEIVABLE                    SHOP        进入在线支付
+ web_sys_bcgogoReceivable_getBcgogoReceivableList     request          /web/bcgogoReceivable.do?method=getBcgogoReceivableList  SHOP        获得待支付列表
+ web_sys_bcgogoReceivable_getBcgogoReceivedList       request          /web/bcgogoReceivable.do?method=getBcgogoReceivedList    SHOP        获得已支付列表
+ web_sys_bcgogoReceivable_getInstalmentPlanDetails    request          /web/bcgogoReceivable.do?method=getInstalmentPlanDetails  SHOP       获得分期支付详情
+web_sys_bcgogoReceivable_bcgogoReceivableRecord    request          /web/bcgogoReceivable.do?method=bcgogoReceivableRecord  SHOP 进入到在线支付页面
+
+web_sys_bcgogoReceivable_hardwareOnlineReceivable      request          /web/bcgogoReceivable.do?method=hardwareOnlineReceivable  SHOP        在线支付-硬件全额付款
+web_sys_bcgogoReceivable_softwareOnlineReceivable      request          /web/bcgogoReceivable.do?method=softwareOnlineReceivable  SHOP        在线支付-软件付款（全额或分期）
+web_sys_bcgogoReceivable_instalmentOnLineReceivable    request      /web/bcgogoReceivable.do?method=instalmentOnLineReceivable  SHOP        在线支付-继续分期付款
+
+web_sys_bcgogoReceivable_getInstalmentPlanAlgorithmsById    request          /web/bcgogoReceivable.do?method=getInstalmentPlanAlgorithmsById  SHOP 在线支付-根据分期id获得分期详情
+
+web_sys_bcgogoReceivable_hardwareOnlineComplete    request          /web/bcgogoReceivable.do?method=hardwareOnlineComplete      SHOP      在线支付-硬件付款-充值完成
+web_sys_bcgogoReceivable_softwareOnlineComplete    request          /web/bcgogoReceivable.do?method=softwareOnlineComplete      SHOP        在线支付-软件付款（全额或分期）-充值完成
+web_sys_bcgogoReceivable_instalmentOnLineComplete    request        /web/bcgogoReceivable.do?method=instalmentOnLineComplete    SHOP        在线支付-继续分期付款 -充值完成
+
+web_sys_bcgogoReceivable_bcgogoReceivableRecord     request          /web/bcgogoReceivable.do?method=bcgogoReceivableRecord     SHOP        在线支付页面
+(旧)WEB.SYSTEM_SETTINGS.BASE
+
+角色 -- 基本
+web_chinapay_bcgogoHardwareReceive     /web/chinapay.do?method=bcgogoHardwareReceive  SHOP 硬件付款银联后台    request
+web_chinapay_bcgogoSoftwareReceive     /web/chinapay.do?method=bcgogoSoftwareReceive  SHOP 软件首次付款银联后台    request
+web_chinapay_instalmentOnLineReceivable     /web/chinapay.do?method=instalmentOnLineReceivable  SHOP 软件分期再次付款银联后台    request
+
+
+
+
+
+

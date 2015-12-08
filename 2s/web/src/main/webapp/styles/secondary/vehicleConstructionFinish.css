@@ -1,0 +1,81 @@
+.body {
+    color: #000000;
+    float: left;
+}
+
+.body h1{
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "宋体";
+    padding: 5px;
+}
+
+.body .inlineBlock {
+    display: inline-block;
+}
+
+.body .float_clear {
+    overflow: hidden;
+}
+
+.body .content {
+    margin: 0px 10px 0px 10px;
+    width: 983px;
+}
+
+.body .title {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 3px;
+}
+
+.body table {
+    border-left: 1px solid #BEBEBE;
+    border-top: 1px solid #BEBEBE;
+}
+
+.body table td {
+    height: 30px;
+    line-height: 30px;
+    border-right: 1px solid #BEBEBE;
+    border-bottom: 1px solid #BEBEBE;
+    text-align: center;
+}
+
+.body table .left {
+    background: url("../../images/title_top.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    color: #366A9A;
+}
+
+.body table .right {
+    color: #4D4D4D;
+}
+
+.body .line {
+    font-weight: bold;
+    font-family: "宋体" Arial;
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+}
+
+.body .operate {
+    display: inline-block;
+    text-align: center;
+    padding-top: 10px;
+    width: 62px;
+    height: 62px;
+    cursor: pointer;
+}
+
+.body .operate:hover {
+    color: #fd5300;
+}
+
+.body .float_left {
+    float: left;
+}
+
+.body .float_right {
+    float: right;
+}

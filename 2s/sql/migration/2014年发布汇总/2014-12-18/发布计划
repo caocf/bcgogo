@@ -1,0 +1,54 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+
+
+三.发布应用
+  1. 发布web,admin,api
+
+四.数据库更新
+CREATE TABLE `shop_internal_vehicle` (
+  `id` bigint(20) NOT NULL DEFAULT '0',
+  `created` bigint(20) NOT NULL,
+  `last_update` bigint(20) NOT NULL,
+  `version` bigint(20) NOT NULL,
+  `shop_id` bigint(20) DEFAULT NULL,
+  `vehicle_id` bigint(20) DEFAULT NULL,
+  `deleted` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+四.添加权限
+SHOP-客户管理-车辆管理 增加角色“内部车辆”
+新增资源：
+name                                      value                                                          systemType  memo            type
+InternalVehicleManager                    WEB.CUSTOMER_MANAGER.VEHICLE_MANAGE.INTERNAL_VEHICLE_MANAGER   SHOP        内部车辆管理菜单  menu
+web_vehicleManage_getInternalVehicleList  /web/internalVehicle.do?method=getInternalVehicleList          SHOP        内部车辆行程统计  request
+web_vehicleManage_tointernalVehicleListContent   /web/internalVehicle.do?method=internalVehicleListContentPage  SHOP  内部车辆内容页面 request
+web_vehicleManage_tointernalVehicleList   /web/internalVehicle.do?method=internalVehicleListPage          SHOP         内部车辆页面    request
+web_vehicleManage_getInternalVehicleDriveLogList  /web/internalVehicle.do?method=getInternalVehicleDriveList  SHOP     内部车辆行程列表 request
+
+这些资源添加到“内部车辆”
+将“内部车辆” 分配给4S店 老板，经理
+
+	INSERT INTO `menu` VALUES (1000000000031, unix_timestamp(now())*1000, unix_timestamp(now())*1000,
+	0, 3, '内部车辆',(select id from resource where value='WEB.CUSTOMER_MANAGER.VEHICLE_MANAGE.INTERNAL_VEHICLE_MANAGER'),
+	1000030045084318, 'internalVehicle.do?method=internalVehicleListPage', 40, 'WEB.CUSTOMER_MANAGER.VEHICLE_MANAGE.INTERNAL_VEHICLE_MANAGER');
+
+
+
+五.初始化
+
+修改数据库参数
+
+
+
+
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+
+
+

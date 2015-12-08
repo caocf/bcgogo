@@ -1,0 +1,69 @@
+﻿一.备份现有生产上war包,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+2. Solr schema: 更新 product schema.xml,customer_supplier schema.xml
+
+三.发布应用 （纪友文）
+
+四.添加权限
+1.执行sql文件：节假日.sql,执行后进入crm,CRM-系统管理增加资源
+ name                        valuel                        systemtype      memo       type
+ CRM_sys_festival_save     Ext.view.sys_festival_save        CRM          保存节日     render
+2.后台CRM 配置 看标准化.txt,采购统计.txt
+
+（一）角色
+
+
+（二）建立关联
+
+
+（三）资源
+        name                                           type               value                                                    备注                    systemType
+
+
+//===============================================  	系统管理-系统提醒-节假日提醒 (董楠)====================================
+web_sys_admin_reminder_getFestivals                request           /admin/sysReminder.do?method=getFestivals                   获取节日列表                CRM
+web_sys_admin_reminder_saveOrUpdateFestival        request           /admin/sysReminder.do?method=saveOrUpdateFestival           保存节日                    CRM
+web_sys_admin_reminder_deleteFestival              request           /admin/sysReminder.do?method=deleteFestival                 删除节日                    CRM
+web_sys_admin_reminder_getFestivalById             request           /admin/sysReminder.do?method=getFestivalById                获取节日                    CRM
+web_sys_reminder_festival                          render            WEB.SYS.REMINDER_FESTIVAL                                   节日提醒                    SHOP
+
+//===============================================   车辆施工-施工单-合格证生产及打印(陈方雷) ===================================================
+web_txn_createQualified                            request           /web/txn.do?method=createQualified             生产修改及查看合格证       SHOP
+web_txn_saveOrUpdateQualifiedCredentials           request           /web/txn.do?method=saveOrUpdateQualifiedCredentials   保存修改合格证     SHOP
+web_txn_printQualifiedCredentials                  request           /web/txn.do?method=printQualifiedCredentials    打印合格证               SHOP
+web_txn_getQualifiedCredentials                    request           /web/txn.do?method=getQualifiedCredentials      获取此施工单的对应合格证  SHOP
+
+//===============================================   初始化 （陈方雷）================================================================
+web_sys_init_initNormalBrandAndModel                    request           /web/init.do?method=initNormalBrandAndModel    初始化标准车型,车辆品牌    SHOP
+web_sys_init_method=moveSupplierReturnPayableToPayable  request           /web/init.do?method=moveSupplierReturnPayableToPayable    把supplier_return_payable表迁移到payable表中    SHOP
+五.初始化
+
+1.supplierReturnPayable 迁移到 payable表中
+update payable set order_type ='INVENTORY',debt_type = 'SUPPLIER_DEBT_PAYABLE';
+update supplier_return_payable set move_status = 'no';
+执行 init.do?method=moveSupplierReturnPayableToPayable
+update running_stat set customer_return_debt = 0,supplier_return_debt =0;
+
+2.初始化标准车辆品牌和车型
+执行 init.do?method=initNormalBrandAndModel
+
+3.初始化receivable表
+按顺序执行
+1.update receivable set debt_type='CUSTOMER_DEBT_PAYABLE' where order_type_enum = 'SALE_RETURN' and debt_type is null;
+2.update receivable set debt_type = 'CUSTOMER_DEBT_RECEIVABLE' where debt_type is null;
+4.在notification库执行festival.sql
+
+六. solr 重做索引  product ,customer_supplier
+
+
+七.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

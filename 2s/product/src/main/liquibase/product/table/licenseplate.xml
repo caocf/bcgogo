@@ -1,0 +1,60 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhangchuanlong" id="licenseplate_1">
+        <createTable tableName="licenseplate">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="uuid" type="char(36)"/>
+            <column name="carno" type="varchar(2)"/>
+            <column name="area_name" type="varchar(20)"/>
+            <column name="area_firstname" type="char(1)"/>
+            <column name="area_firstcarno" type="char(1)"/>
+        </createTable>
+        <addPrimaryKey tableName="licenseplate" columnNames="id" constraintName="pk_licenseplate"/>
+    </changeSet>
+    <changeSet author="zhangchuanlong" id="licenseplate_2">
+        <createIndex tableName="licenseplate" indexName="idx_carno">
+            <column name="carno"/>
+        </createIndex>
+        <createIndex tableName="licenseplate" indexName="idx_area_firstname">
+            <column name="area_firstname"/>
+        </createIndex>
+        <createIndex tableName="licenseplate" indexName="idx_area_firstcarno">
+            <column name="area_firstcarno"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="zoujianhong" id="licenseplate_3">
+        <createIndex tableName="licenseplate" indexName="idx_licenseplate_areaname">
+            <column name="area_name"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="jimuchen" id="licenseplate_4">
+        <modifyColumn tableName="licenseplate">
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="zhangjuntao" author="licenseplate_5_zhangjuntao">
+        <addColumn tableName="licenseplate">
+            <column name="area_no" type="bigint"/>
+        </addColumn>
+        <createIndex tableName="licenseplate" indexName="idx_licenseplate_area_no">
+            <column name="area_no"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

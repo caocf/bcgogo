@@ -1,0 +1,56 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="Zhangjuntao" id="push_message_receiver_trace_Zhangjuntao_1">
+        <createTable tableName="push_message_receiver_trace">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="message_id" type="bigint"/>
+            <column name="status" type="varchar(50)"/>
+            <column name="shop_kind" type="varchar(50)"/>
+        </createTable>
+        <addPrimaryKey tableName="push_message_receiver_trace" columnNames="id" constraintName="PK_PUSH_MESSAGE_RECEIVER_TRACE"/>
+        <createIndex tableName="push_message_receiver_trace" indexName="IDX_PUSH_MESSAGE_RECEIVER_TRACE_SHOP_ID_MESSAGE_ID">
+            <column name="message_id"/>
+            <column name="shop_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="push_message_receiver_trace_2_ZhangJuntao" author="ZhangJuntao">
+        <addColumn tableName="push_message_receiver_trace">
+            <column name="receiver_type" type="varchar(50)"/>
+            <column name="receiver_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="push_message_receiver_trace_3_xzhu" author="xzhu">
+        <addColumn tableName="push_message_receiver_trace">
+            <column name="sender_name" type="varchar(100)"/>
+            <column name="sender_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="push_message_receiver_trace_4_xzhu" author="xzhu">
+        <addColumn tableName="push_message_receiver_trace">
+            <column name="push_status" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="push_message_receiver_trace_5_xzhu" author="xzhu">
+        <addColumn tableName="push_message_receiver_trace">
+            <column name="local_receiver_name" type="varchar(100)"/>
+            <column name="local_receiver_Id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="push_message_receiver_trace_6_xzhu" author="xzhu">
+        <addColumn tableName="push_message_receiver_trace">
+            <column name="show_status" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

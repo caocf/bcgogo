@@ -1,0 +1,9 @@
+begin;
+delete from product.promotions where type <> 'PRICE_DISCOUNT';
+update product.promotions set name='满立减',promotions_limiter='OVER_AMOUNT',promotions_range='PARTLY',type='MLJ',status='USING',description='之前的促销转换成现在的满立减';
+update product.promotions_product set promotions_type='MLJ',limit_amount=-1;
+update product.promotions_rule pr set deleted='FALSE',promotions_rule_type='DISCOUNT_FOR_OVER_AMOUNT';
+update product.promotions_rule pr,product.promotions p set pr.shop_id=p.shop_id,pr.user_id=p.user_id where pr.promotions_id=p.id;
+commit;
+
+

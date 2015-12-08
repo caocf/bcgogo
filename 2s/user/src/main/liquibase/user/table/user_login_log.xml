@@ -1,0 +1,52 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="liuWei" id="user_login_log_1">
+    <createTable tableName="user_login_log">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="user_no" type="varchar(50)"/>
+      <column name="login_time" type="bigint"/>
+      <column name="login_ip" type="varchar(50)"/>
+      <column name="logout_time" type="bigint"/>
+      <column name="session_id" type="varchar(150)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="liuWei" id="user_login_log_2">
+    <addPrimaryKey tableName="user_login_log" columnNames="id" constraintName="pk_user_login_log"/>
+  </changeSet>
+
+  <changeSet author="liuWei" id="user_login_log_3">
+    <createIndex tableName="user_login_log" indexName="index_shop_id_user_no_session_id">
+      <column name="shop_id"/>
+      <column name="user_no"/>
+      <column name="session_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="user_login_log_4" author="qiuxinyu">
+      <dropIndex tableName="user_login_log" indexName="index_shop_id_user_no_session_id"/>
+      <createIndex tableName="user_login_log" indexName="index_user_login_log_session_id">
+          <column name="session_id"></column>
+      </createIndex>
+  </changeSet>
+
+  <changeSet id="user_login_log_5" author="ndong">
+         <addColumn tableName="user_login_log">
+             <column name="finger" type="varchar(50)"/>
+         </addColumn>
+     </changeSet>
+
+
+</databaseChangeLog>

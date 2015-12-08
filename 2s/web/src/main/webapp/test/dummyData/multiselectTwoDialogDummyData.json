@@ -1,0 +1,19 @@
+[
+    {"id":"100020003000","shopId":"","firstLetter":"A","brandName":"奥迪","modelName":"A4","brandId":"900010000001","modelId":"100020003000"},
+    {"id":"100020003001","shopId":"","firstLetter":"A","brandName":"奥迪","modelName":"A5","brandId":"900010000001","modelId":"100020003001"},
+    {"id":"100020003002","shopId":"","firstLetter":"A","brandName":"奥迪","modelName":"A6","brandId":"900010000001","modelId":"100020003002"},
+    {"id":"100020003003","shopId":"","firstLetter":"A","brandName":"奥迪","modelName":"A7","brandId":"900010000001","modelId":"100020003003"},
+    {"id":"100010003000","shopId":"","firstLetter":"D","brandName":"一汽大众","modelName":"捷达","brandId":"900010000002","modelId":"100010003000"},
+    {"id":"100010003001","shopId":"","firstLetter":"D","brandName":"一汽大众","modelName":"宝来","brandId":"900010000002","modelId":"100010003001"},
+    {"id":"100010003002","shopId":"","firstLetter":"D","brandName":"一汽大众","modelName":"速腾","brandId":"900010000002","modelId":"100010003002"},
+    {"id":"100010003003","shopId":"","firstLetter":"D","brandName":"一汽大众","modelName":"迈腾","brandId":"900010000002","modelId":"100010003003"},
+    {"id":"100010003004","shopId":"","firstLetter":"D","brandName":"一汽大众","modelName":"CC","brandId":"900010000002","modelId":"100010003004"},
+    {"id":"100010003005","shopId":"","firstLetter":"D","brandName":"一汽大众","modelName":"辉腾","brandId":"900010000002","modelId":"100010003005"},
+    {"id":"100030003000","shopId":"","firstLetter":"D","brandName":"上海大众","modelName":"桑塔纳","brandId":"900010000003","modelId":"100030003000"},
+    {"id":"100030003001","shopId":"","firstLetter":"D","brandName":"上海大众","modelName":"POLO","brandId":"900010000003","modelId":"100030003001"},
+    {"id":"100030003002","shopId":"","firstLetter":"D","brandName":"上海大众","modelName":"途安","brandId":"900010000003","modelId":"100030003002"},
+    {"id":"100030003003","shopId":"","firstLetter":"D","brandName":"上海大众","modelName":"帕萨特","brandId":"900010000003","modelId":"100030003003"},
+    {"id":"100030003004","shopId":"","firstLetter":"D","brandName":"上海大众","modelName":"途观","brandId":"900010000003","modelId":"100030003004"},
+    {"id":"100012003000","shopId":"","firstLetter":"M","brandName":"MASERATI","modelName":"CABRIO","brandId":"900010000004","modelId":"100012003000"},
+    {"id":"100013003000","shopId":"","firstLetter":"K","brandName":"克莱斯勒","modelName":"SRT","brandId":"900010000005","modelId":"100013003000"}
+]

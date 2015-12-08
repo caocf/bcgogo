@@ -1,0 +1,95 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+     1. 库bcuser添加表
+         CREATE TABLE `consuming_record` (
+         `id`  bigint(20) NOT NULL ,
+         `created`  bigint(20) NOT NULL ,
+         `last_update`  bigint(20) NOT NULL ,
+         `version`  bigint(20) NOT NULL ,
+         `app_user_no`  varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+         `receipt_no`  varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+         `coupon`  float(10,2) NULL DEFAULT NULL ,
+         `shop_id`  bigint(20) NULL DEFAULT NULL ,
+         `order_id`  bigint(20) NULL DEFAULT NULL ,
+         `order_types`  varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+         `order_status`  varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+         `consumer_time`  bigint(20) NULL DEFAULT NULL ,
+         `product_id`  bigint(20) NULL DEFAULT NULL ,
+         `product`  varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+         `product_num`  int(10) NULL DEFAULT NULL ,
+         `income_type`  varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+         `sum_money`  float(10,2) NULL DEFAULT NULL ,
+         `admin_status`  varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+         `customer_info`  varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+         `remark`  varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+         PRIMARY KEY (`id`)
+         )
+         ENGINE=InnoDB
+         DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+         ROW_FORMAT=COMPACT
+         ;
+
+        库bcuser添加表
+        CREATE TABLE `coupon` (
+        `id`  bigint(20) NOT NULL ,
+        `created`  bigint(20) NOT NULL ,
+        `last_update`  bigint(20) NOT NULL ,
+        `version`  bigint(20) NOT NULL ,
+        `app_user_no`  varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+        `created_time`  bigint(20) NULL DEFAULT NULL ,
+        `expire_time`  bigint(20) NULL DEFAULT NULL ,
+        `balance`  float(10,2) NULL DEFAULT NULL ,
+        `recommend_phone`  bigint(20) NULL DEFAULT NULL ,
+        `is_shared`  int(10) NULL DEFAULT NULL ,
+        `imei`  varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+        PRIMARY KEY (`id`)
+        )
+        ENGINE=InnoDB
+        DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+        ROW_FORMAT=COMPACT
+        ;
+
+     2.修改表
+       ALTER TABLE txn.receivable add COLUMN `coupon` double DEFAULT NULL;
+       ALTER TABLE txn.repair_order add COLUMN `consuming_record_id` bigint(20) DEFAULT NULL;
+       ALTER TABLE txn.draft_order add COLUMN `consuming_record_id` bigint(20) DEFAULT NULL;
+       ALTER TABLE txn.wash_beauty_order add COLUMN `consuming_record_id` bigint(20) DEFAULT NULL;
+       ALTER TABLE txn.reception_record add COLUMN `coupon` double DEFAULT NULL;
+       ALTER TABLE txn.running_stat add COLUMN `coupon_income` double DEFAULT NULL;
+       ALTER TABLE txn.running_stat add COLUMN `coupon_expenditure` double DEFAULT NULL;
+       ALTER TABLE txn.running_stat_change add COLUMN `coupon_income` double DEFAULT NULL;
+       ALTER TABLE txn.running_stat_change add COLUMN `coupon_expenditure` double DEFAULT NULL;
+
+     3.windows下将api\src\main\resources\product.xml文件放在c://product/product.xml
+       linux下将product.xml文件放在/home/product/product.xml
+
+     4.打印模板
+       后台打印模板上传新流水统计（日收入、月收入、年收入）模板
+       (1)日收入
+         模板类型：流水日收入统计打印
+         模板名称（唯一）：流水日收入统计-151208
+         显示名称：流水日收入统计-151208
+         选择文件：bcgogo-UI\打印模板\default_改\营业收入流水统计-日-代金券.html
+       (2)月收入
+         模板类型：流水月收入统计打印
+         模板名称（唯一）：流水月收入统计-151208
+         显示名称：流水月收入统计-151208
+         选择文件：bcgogo-UI\打印模板\default_改\营业收入流水统计-月-代金券.html
+       (3)年收入
+         模板类型：流水年收入统计打印
+         模板名称（唯一）：流水年收入统计-151208
+         显示名称：流水年收入统计-151208
+         选择文件：bcgogo-UI\打印模板\default_改\营业收入流水统计-年-代金券.html
+三.发布应用
+
+四.配置权限
+   1.权限 客户管理--OBD管理 分配到汽修店铺的角色：老板/财务
+
+五.初始化
+    1.登录后台admin,添加变量
+      COUPON_DEFAULT_AMOUNT                         1200                      发放代金券的面额
+
+
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。

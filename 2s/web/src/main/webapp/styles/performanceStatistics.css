@@ -1,0 +1,523 @@
+.i_main .searchCondition .searchTime{
+	background:#FFFFFF;
+}
+.i_main .searchCondition .searchTime input{
+	float:left;
+	width:80px;
+	border:none;
+	height: 22px;
+	line-height: 22px;
+	color:#999999;
+}
+.i_main .performanceName{
+	position:relative;
+	clear:both;
+	float:left;
+	margin:-10px 0px 0px 60px;
+	background:#999999;
+	width:250px;
+	color:#FFFFFF;
+	text-align:center;
+	font-weight:bold;
+	height:30px;
+	line-height:30px;
+}
+
+.i_main .statisticsTitle{
+	float:left;
+	background:#AA3541;
+	width:150px;
+	height:30px;
+	line-height:30px;
+	color:#FFFFFF;
+	padding-left:6px;
+	font-weight:bold;
+}
+.i_main .titleBg{
+	width:300px;
+}
+.i_main .titleBg .titleTop,.i_main .titleBg .titleBottom{
+	float:left;
+	width:100px;
+	background:#F58424;
+	height:15px;
+}
+.i_main .titleBg .titleBottom{
+	margin-top: -15px;
+	position: relative;
+	width: 500px;
+	z-index: -10;
+}
+.i_main .statisticsLeft{
+	position:relative;
+	float:left;
+	width:500px;
+  font-family: "宋体";
+}
+.i_main .statisticsRight{
+	position:relative;
+	float:right;
+	margin-left:-100px;
+	width:500px;
+  font-family: "宋体";
+}
+.i_main .statisticsTable{
+	float:left;
+	width:100%;
+}
+.i_main .statisticsTable tr td{
+	border-bottom:1px solid #CCCCCC;
+	color:#000000;
+	height:35px;
+	padding-left:6px;
+}
+.i_main .statisticsTable tr.tdTitle{
+	background:#999999;
+	height:30px;
+	line-height:30px;
+	border:none;
+}
+.i_main .statisticsTable tr.tdTitle td{
+	color:#FFFFFF;
+}
+.i_main .statisticsTable tr td a{
+	color:#6699CC;
+}
+
+.i_main .performanceTitleList .listHistory{
+	float:left;
+}
+.i_main .performanceTitleList .listHistory span{
+	float:left;
+}
+.i_main .performanceTitleList .listHistory .searchList{
+	float:left;
+	border:1px solid #CCCCCC;
+	border-top:1px solid #666666;
+	margin-right:8px;
+	width:50px;
+	margin-top:-3px;
+}
+.i_main .performanceTitleList .listHistory .searchList .listIcon input{
+	background:url(../images/optList.png) no-repeat center center;
+	float: right;
+	height: 20px;
+	width: 12px;
+	border:none;
+	cursor:pointer;
+}
+.i_main .performanceTitleList .listHistory .searchList .listTxt{
+	color: #999999;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	padding-left: 6px;
+	width: 32px;
+	border:none;
+}
+.i_main .performanceTitleList .listHistory .month{
+	width:40px;
+	padding:0px;
+	margin:0px;
+	margin:-3px 10px 0px 10px;
+}
+.i_main .performanceTitleList .listHistory .month .listTxt{
+	width:22px;
+}
+.i_main .performanceTitleList .listHistory .searchBtn{
+	float:left;
+	background:url(../images/rightTitHover.jpg) no-repeat;
+	width:69px;
+	height:25px;
+	line-height:25px;
+	text-align:center;
+	border:none;
+	color:#FFFFFF;
+	margin-top:-3px;
+	cursor:pointer;
+}
+
+.i_main .placard{
+	background:url(../images/placard.png) no-repeat;
+	width:191px;
+	height:77px;
+	float:right;
+	color:#000000;
+	margin-top:-40px;
+	padding:35px 10px 10px 12px;
+}
+
+.tdDetail td{
+	border-top:3px solid #6D8FB9;
+}
+.detail td{
+	color:#000000;
+	height: 25px;
+}
+
+.color1,
+.color2,
+.color3,
+.color4,
+.color5,
+.color6,
+.color7,
+.color8,
+.color9,
+.color10,
+.color11{
+	float:left;
+	width:8px;
+	height:8px;
+	margin:4px 2px 0 -5px;
+}
+/*
+.color1{
+	background:#0C8ECF;
+}
+.color2{
+	background:#FF0C00;
+}
+.color3{
+	background:#FF6417;
+}
+.color4{
+	background:#FFA12C;
+}
+.color5{
+	background:#FFD300;
+}
+.color6{
+	background:#B7DF03;
+}
+.color7{
+	background:#31BA3C;
+}
+.color8{
+	background:#FF5C5F;
+}
+.color9{
+	background:#FF15A3;
+}
+.color10{
+	background:#7D5DCC;
+}
+.color11{
+	background:#867970;
+}
+*/
+
+/*.statisticsTable tr.colors1 td{
+	color:#0C8ECF;
+}
+.statisticsTable tr.colors2 td{
+	color:#FF0C00;
+}
+.statisticsTable tr.colors3 td{
+	color:#FF6417;
+}
+.statisticsTable tr.colors4 td{
+	color:#FFA12C;
+}
+.statisticsTable tr.colors5 td{
+	color:#FFD300;
+}
+.statisticsTable tr.colors6 td{
+	color:#B7DF03;
+}
+.statisticsTable tr.colors7 td{
+	color:#31BA3C;
+}
+.statisticsTable tr.colors8 td{
+	color:#FF5C5F;
+}
+.statisticsTable tr.colors9 td{
+	color:#FF15A3;
+}
+.statisticsTable tr.colors10 td{
+	color:#7D5DCC;
+}
+.statisticsTable tr.colors11 td{
+	color:#867970;
+}*/
+
+.employerTitle{
+	width:100%;
+	border-bottom:2px solid #6D8FB9;
+	color:#000000;
+	float:left;
+	line-height:25px;
+}
+
+.btnEmployers{
+	float:right;
+	margin-top:-5px;
+}
+.btnEmployers input{
+	background:url(../images/registerBtn.png) no-repeat;
+	width:83px;
+	height:31px;
+	text-align:center;
+	line-height:31px;
+	border:none;
+	color:#FFFFFF;
+	cursor:pointer;
+}
+
+.employerTitle .addEmployer{
+	float:right;
+	background:url(../images/contacts.png) no-repeat;
+	width:83px;
+	height:25px;
+	line-height:25px;
+	text-align:center;
+	color:#FFFFFF;
+	border:none;
+	cursor:pointer;
+}
+.tabEmp{
+	color:#000000;
+}
+.tabEmp .btnStatus{
+	background:url(../images/rightSearch.png) no-repeat;
+	width:47px;
+	height:24px;
+	line-height:24px;
+	text-align:center;
+	color:#FFFFFF;
+	border:none;
+	cursor:pointer;
+}
+
+
+.title_statistics a.normalOne,.title_statistics a.normalTwo,.title_statistics a.normalThree,.title_statistics a.hoverThree,.title_statistics a.hoverTwo{
+	background:url(../images/titleNormal1.png) no-repeat;
+	width:91px;
+	height:28px;
+	line-height:28px;
+	text-align:center;
+	color:#515151;
+	display:block;
+	float:left;
+	margin-right:10px;
+	font-size:14px;
+	cursor:pointer;
+  font-family: "宋体";
+}
+.title_statistics a.normalTwo{
+	background:url(../images/titleNormal2.png) no-repeat;
+	width:128px;
+}
+.title_statistics a.hoverThree{
+	background:url(../images/button_bj.png) no-repeat;
+	color:#FFFFFF;
+}
+.title_statistics a.hoverTwo{
+	background:url(../images/button_bj2.png) no-repeat;
+	width:128px;
+	color:#FFFFFF;
+}
+.title_statistics a:hover {
+  text-decoration: underline;
+}
+.statisticsMain{
+	border:1px solid #DAD9D9;
+	border-radius:3px 5px 5px 5px;
+	height:100%;
+	float:left;
+	padding:0px 10px 0px 10px;
+  font-family: "宋体";
+}
+.statisticsMain .statistics_Title{
+	border:1px solid #DAD9D9;
+	border-radius:3px 3px 3px 3px;
+	background:url(../images/tabThird.png) repeat-x;
+	height:24px;
+	line-height:25px;
+	color:#0076CC;
+	text-align:center;
+	font-weight:bold;
+	font-size:14px;
+}
+.statisticsMain .returnAlmost{
+	clear:both;
+	float:left;
+	position:relative;
+	color:#000000;
+	font-weight:bold;
+	margin: -70px 0px 0px 440px;
+}
+.statisticsMain  .statisticsTab{
+	border:1px solid #DAD9D9;
+	border-radius:3px 3px 3px 3px;
+	background:url(../images/tabThird.png) repeat;
+	width:300px;
+	height:100%;
+	float:right;
+	color:#515151;
+	font-size:14px;
+	padding-top:10px;
+	margin-top:80px;
+}
+.statisticsMain  div.tabAll{
+	margin:20px 0px 0px 40px;
+	float:left;
+	line-height:21px;
+	color:#515151;
+	font-size:14px;
+}
+.statisticsMain div.select,.tab_Statistics div.select{
+	border:1px solid #adadad;
+	width:150px;
+	height:21px;
+	line-height:21px;
+	float:right;
+	position:relative;
+	padding-left:3px;
+	margin-left:10px;
+}
+.statisticsMain  div.select .selImg,.tab_Statistics div.select .selImg{
+	background:url(../images/dian.png) no-repeat;
+	width:20px;
+	height:21px;
+	float:right;
+}
+.statisticsMain  .btnStatis{
+	background:url(../images/btn_tong.png) no-repeat;
+	width:76px;
+	height:25px;
+	line-height:25px;
+	text-align:center;
+	color:#515151;
+	display:block;
+	cursor:pointer;
+}
+.statisticsMain .btnStatis:hover{
+	background:url(../images/btn_ti.png) no-repeat;
+	color:#FFFFFF;
+}
+.statisticsMain  .statisticsTab div.tabAll .btnStatis{
+	margin:0px 0px 20px 110px;
+}
+.statisticsMain .statisticsWord{
+	color:#000000;
+	float:left;
+	font-weight:bold;
+	font-size:14px;
+	line-height:30px;
+}
+.table_title{
+    background: url("../images/title_tbcenter.png") repeat-x scroll 0 0 transparent;
+    color: #FFFFFF;
+    height:26px;
+	text-align:left;
+}
+.table_title .tab_left{
+	background:url(../images/cont_left.png) no-repeat;
+	width:2px;
+	float:left;
+	height:26px;
+}
+.table_title .tab_right{
+	background:url(../images/cont_right.png) no-repeat;
+	width:1px;
+	float:left;
+	height:26px;
+}
+.table_title .titleBody{
+	background:url(../images/count_center.png) repeat-x;
+	height:26px;
+	line-height:26px;
+	color:#FFFFFF;
+	float:left;
+	height:26px;
+	width:98%;
+	padding-left:15px;
+	text-align:left;
+}
+.tab_Statistics{
+	float:left;
+	height:35px;
+	line-height:1;
+	width:100%;
+    border-width:1px;
+    border-style:solid;
+    border-color:#BBBBBB;
+    border-collapse:collapse;
+}
+.tab_Statistics td{
+	text-align:left;
+}
+.tab_Statistics td.qian_blue{
+	color:#0076CC;
+}
+.tab_Statistics .txt_left{
+	padding-left:15px;
+}
+.tab_Statistics div.select{
+	width:60px;
+	margin:0px;
+	float:left;
+}
+.div_year{
+	border:1px solid #adadad;
+	position:absolute;
+	z-index:99;
+	background:#FFFFFF;
+	margin-left:73px;
+	padding-right:3px;
+	line-height:25px;
+	display:none;
+}
+.div_year a{
+	width:100%;
+	color:#515151;
+	display:block;
+	padding-left:3px;
+}
+.div_year a:hover{
+	background:#0076CC;
+	color:#FFFFFF;
+	cursor:pointer;
+}
+#div_pan{
+	margin:0px;
+	margin-top:20px;
+}
+.tab_Statistics div.select .selImg{
+	background:url(../images/clicks.png) no-repeat;
+	width:15px;
+	height:16px;
+}
+.tab_Statistics div.select{
+	border:1px solid #ADADAD;
+	height:16px;
+	line-height:16px;
+}
+
+.statisticsMain  .statisticsTab div.tabAll ul{
+	float:right;
+	margin-left:10px;
+}
+.statisticsMain  .statisticsTab div.tabAll ul li{
+	line-height:25px;
+}
+.statisticsMain  .statisticsTab div.tabAll ul li input{
+	margin-right:5px;
+}
+.statisticsMain .btnPrint{
+	margin-left:460px;
+}
+.statisticsMain .goodSalesStat{
+	clear:both;
+	float:left;
+	position:relative;
+	color:#000000;
+	font-weight:bold;
+	margin: -80px 0px 0px 400px;
+}
+
+#LineChart_div{
+    width: 100%;
+    height: 300px;
+}

@@ -1,0 +1,66 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="zhangjuntao" id="business_stat_change_1">
+    <createTable tableName="business_stat_change">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="stat_year" type="bigint"/>
+      <column name="stat_month" type="bigint"/>
+      <column name="stat_day" type="bigint"/>
+      <column name="sales" type="numeric(18,1)"/>
+      <column name="wash" type="numeric(18,1)"/>
+      <column name="service" type="numeric(18,1)"/>
+      <column name="product_cost" type="numeric(18,1)"/>
+      <column name="stat_sum" type="numeric(18,1)"/>
+      <column name="stat_time" type="bigint"/>
+      <column name="member_income" type="double"/>
+      <column name="other_income" type="double"/>
+    </createTable>
+    <addPrimaryKey tableName="business_stat_change" columnNames="id" constraintName="pk_business_stat"/>
+
+    <createIndex tableName="business_stat_change" indexName="idx_business_stat_shopid_year_month_day_time">
+      <column name="shop_id"/>
+      <column name="stat_year"/>
+      <column name="stat_month"/>
+      <column name="stat_day"/>
+      <column name="stat_time"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="business_stat_change_2" author="liuWei">
+    <addColumn tableName="business_stat_change">
+      <column name="rent_expenditure" type="double"/>
+      <column name="salary_expenditure" type="double"/>
+      <column name="utilities_expenditure" type="double"/>
+      <column name="other_expenditure" type="double"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="liuWei" id="business_stat_change_3">
+    <modifyColumn tableName="business_stat_change">
+      <column name="sales" type="double"/>
+      <column name="wash" type="double"/>
+      <column name="service" type="double"/>
+      <column name="product_cost" type="double"/>
+      <column name="stat_sum" type="double"/>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="business_stat_change_4" author="liuWei">
+    <addColumn tableName="business_stat_change">
+      <column name="order_other_income_cost" type="double"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,60 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="lijie" id="repair_todo_1">
+        <createTable tableName="repair_todo">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="remind_type" type="varchar(20)"/>
+            <column name="estimate_time" type="varchar(20)"/>
+            <column name="licence_no" type="varchar(20)"/>
+            <column name="name" type="varchar(20)"/>
+            <column name="mobile" type="varchar(20)"/>
+            <column name="brand" type="varchar(20)"/>
+            <column name="model" type="varchar(20)"/>
+            <column name="bill_content" type="varchar(20)"/>
+            <column name="come_time" type="varchar(20)"/>
+            <column name="total_money" type="float"/>
+            <column name="remind_way" type="varchar(20)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="repair_order_2" author="lijie">
+        <addPrimaryKey tableName="repair_todo" columnNames="id" constraintName="pk_repair_todo"/>
+    </changeSet>
+
+    <changeSet id="repair_order_3" author="lijie">
+        <addColumn tableName="repair_todo">
+            <column name="shop_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="repair_todo_4" author="lijie">
+        <modifyColumn tableName="repair_todo">
+            <column name="bill_content" type="varchar(500)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet author="luyi" id="repair_todo_5">
+        <createIndex tableName="repair_todo" indexName="IDX_REPAIRTODO_SHOPID">
+            <column name="shop_id"/>
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="repair_todo_6">
+    <modifyColumn tableName="repair_todo">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+</databaseChangeLog>

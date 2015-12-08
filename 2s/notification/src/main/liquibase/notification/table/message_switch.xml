@@ -1,0 +1,31 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="chenfanglei" id="message_switch_1">
+    <createTable tableName="message_switch">
+      <column name="id" type="bigint"/>
+      <column name="version" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="scene" type="varchar(50)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="status" type="varchar(10)"/>
+    </createTable>
+    <addPrimaryKey tableName="message_switch" columnNames="id" constraintName="pk_message_switch"/>
+  </changeSet>
+
+  <changeSet id="message_switch_2" author="chenfanglei">
+    <createIndex tableName="message_switch" indexName="index_message_switch">
+      <column name="shop_id"></column>
+      <column name="scene"></column>
+    </createIndex>
+  </changeSet>
+</databaseChangeLog>

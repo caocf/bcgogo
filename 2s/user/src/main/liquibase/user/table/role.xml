@@ -1,0 +1,60 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhangjuntao" id="role_1">
+        <createTable tableName="role">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="name" type="varchar(20)"/>
+            <column name="status" type="varchar(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="role_2" author="zhangjuntao">
+        <addPrimaryKey tableName="role" columnNames="id" constraintName="pk_role"/>
+    </changeSet>
+  <changeSet id="role_3" author="zhangjuntao">
+    <modifyColumn tableName="role">
+      <column name="name" type="varchar(100)"/>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="role_4" author="zhangjuntao">
+    <addColumn tableName="role">
+      <column name="memo" type="varchar(200)"/>
+    </addColumn>
+  </changeSet>
+    <changeSet id="role_5" author="zhangjuntao">
+        <addColumn tableName="role">
+            <column name="value" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="role_6" author="zhangjuntao">
+        <addColumn tableName="role">
+            <column name="type" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="role_7" author="zhangjuntao">
+        <addColumn tableName="role">
+            <column name="module_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="role_8_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="role">
+            <column name="sort" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="role_9_qiuxinyu" author="qiuxinyu">
+        <createIndex tableName="role" indexName="idx_role_name">
+            <column name="name"></column>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,46 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lijie" id="in_box_1">
+    <createTable tableName="in_box">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+
+      <column name="receive_shop_id" type="bigint"/>
+      <column name="send_mobile" type="varchar(20)"/>
+      <column name="content" type="varchar(500)"/>
+      <column name="raw_data" type="text"/>
+      <column name="receive_time" type="datetime"/>
+       <column name="receive_channel" type="bigint"/>
+        <column name="status" type="bigint"/>
+    </createTable>
+
+      <addPrimaryKey tableName="in_box" columnNames="id" constraintName="pk_in_box"/>
+
+  </changeSet>
+
+    <changeSet author="zoujianhong" id="in_box_2">
+         <createIndex tableName="in_box" indexName="idx_in_box_receiveshopid">
+             <column name="receive_shop_id"/>
+         </createIndex>
+     </changeSet>
+
+  <changeSet author="jimuchen" id="in_box_3">
+    <modifyColumn tableName="in_box">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+
+</databaseChangeLog>

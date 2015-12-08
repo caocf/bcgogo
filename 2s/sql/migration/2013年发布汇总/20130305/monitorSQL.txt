@@ -1,0 +1,50 @@
+"bcuser"库：
+    insert into url_monitor_config values('100001','1329530754703','1329530754703','0','INCLUDE','/web/user.do?method=createmain');
+
+    insert into url_monitor_config values('100002','1329530754703','1329530754703','0','INCLUDE','/web/shopRegister.do?method=registerMain');
+
+    insert into url_monitor_config values('100003','1329530754703','1329530754703','0','INCLUDE','/web/RFbuy.do?method=create');
+
+    insert into url_monitor_config values('100004','1329530754703','1329530754703','0','INCLUDE','/web/customer.do?method=validatorPurchaseProduct');
+
+    insert into url_monitor_config values('100005','1329530754703','1329530754703','0','INCLUDE','/web/customer.do?method=getAllWholeSalerStock');
+
+    insert into url_monitor_config values('100006','1329530754703','1329530754703','0','INCLUDE','/web/apply.do?method=applySupplierRelation');
+
+    insert into url_monitor_config values('100007','1329530754703','1329530754703','0','INCLUDE','/web/sale.do?method=acceptSaleOrder');
+
+    insert into url_monitor_config values('100008','1329530754703','1329530754703','0','INCLUDE','/web/sale.do?method=refuseSaleOrder');
+
+    insert into url_monitor_config values('100009','1329530754703','1329530754703','0','INCLUDE','/web/sale.do?method=validateSupplierSalesOrder');
+
+    insert into url_monitor_config values('100010','1329530754703','1329530754703','0','INCLUDE','/web/sale.do?method=supplierSalesAccount');
+
+    insert into url_monitor_config values('100011','1329530754703','1329530754703','0','INCLUDE','/web/goodsInOffSales.do?method=goodsInOffSales');
+
+    insert into url_monitor_config values('100012','1329530754703','1329530754703','0','INCLUDE','/web/sale.do?method=goodsInSalesList');
+
+    insert into url_monitor_config values('100013','1329530754703','1329530754703','0','INCLUDE','/web/sale.do?method=goodsOffSalesList');
+
+    insert into url_monitor_config values('100014','1329530754703','1329530754703','0','INCLUDE','/web/sale.do?method=savePromotions');
+
+    insert into url_monitor_config values('100015','1329530754703','1329530754703','0','INCLUDE','/web/sale.do?method=addGoodsToPromotions');
+
+    insert into url_monitor_config values('100016','1329530754703','1329530754703','0','INCLUDE','/web/invitationCodeSms.do?method=sentInvitationCodeSms');
+
+    insert into url_monitor_config values('100017','1329530754703','1329530754703','0','INCLUDE','/web/invitationCodeSms.do?method=checkCustomerOrSupplierWithoutSendInvitationCodeSms');
+
+    insert into url_monitor_config values('100018','1329530754703','1329530754703','0','INCLUDE','/web/shop.do?method=validateShopRegBasicInfo');
+
+    insert into url_monitor_config values('100019','1329530754703','1329530754703','0','INCLUDE','/web/shopRegister.do?method=registerMain');
+
+    insert into url_monitor_config values('100020','1329530754703','1329530754703','0','INCLUDE','/web/apply.do?method=validateSupplierCancelCustomerShopRelation');
+
+    insert into url_monitor_config values('100021','1329530754703','1329530754703','0','INCLUDE','/web/apply.do?method=supplierCancelCustomerShopRelation');
+
+    insert into url_monitor_config values('100022','1329530754703','1329530754703','0','INCLUDE','/web/invitationCodeSms.do?method=sentInvitationCodePromotionalSms');
+
+    insert into url_monitor_config values('100023','1329530754703','1329530754703','0','INCLUDE','/web/shop.do?method=validateShopRegBasicInfo');
+
+    insert into url_monitor_config values('100024','1329530754703','1329530754703','0','INCLUDE','/web/apply.do?method=applyCustomerRelation');
+
+

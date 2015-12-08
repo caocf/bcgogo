@@ -1,0 +1,30 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="ndong" id="ndong_1">
+        <createTable tableName="promotion_msg_job">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="user_id" type="bigint"/>
+            <column name="promotions_id" type="varchar(50)"/>
+            <column name="exe_time" type="bigint"/>
+            <column name="expire_time" type="bigint"/>
+            <column name="message_json" type="mediumtext"/>
+            <column name="exe_status" type="varchar(50)"/>
+        </createTable>
+
+        <addPrimaryKey tableName="promotion_msg_job" columnNames="id" constraintName="pk_promotion_msg_job"/>
+
+    </changeSet>
+
+</databaseChangeLog>

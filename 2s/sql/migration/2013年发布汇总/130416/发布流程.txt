@@ -1,0 +1,16 @@
+1. 后台修改短信模板：
+短信供应商邀请码：
+我在使用一发管理软件,操作简单,有效提升管理水平,营业状态精确掌握，更能通过在线交易找到更多客户!了解视频:vs.bcgogo.com；注册:{regUrl}；{invitationCode}推荐人:
+
+短信客户邀请码：
+我在使用一发店面管理软件,操作简单,有效提升管理水平,店面状态精确掌握,更能通过在线交易找到更优惠配件!了解视频:vc.bcgogo.com;注册:{regUrl};{invitationCode}推荐人:
+
+2. 后台修改系统配置：
+增加：
+SystemCustomerRegister    http://rc.bcgogo.com      系统邀请普通版注册网址
+SystemSupplierRegister    http://rs.bcgogo.com      系统邀请批发商注册网址
+
+修改：
+CustomerRegister	  描述：客户邀请普通版注册网址
+SupplierRegister    描述：客户邀请批发商注册网址
+

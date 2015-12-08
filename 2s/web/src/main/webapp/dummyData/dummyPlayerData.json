@@ -1,0 +1,17 @@
+[
+    {
+        "uuid":"xxxx-xxxx-xxxx",
+        "id":"testVideo",
+        "title":"Wildlife.flv",
+        "name":"Wildlife.flv",
+        "width":640,
+        "height":360,
+        "mp4":"dummyData/assets/video/Wildlife.mp4",
+        "flv":"dummyData/assets/video/Wildlife.flv",
+        "swfPlayerStr":"assets/swf/player_flv_maxi.swf",
+        "xiSwfUrlStr":"assets/swf/playerProductInstall.swf",
+        "ts":"138243212312",
+        "contentWidth":640,
+        "contentHeight":360
+    }
+]

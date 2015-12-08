@@ -1,0 +1,159 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="dongnan" id="draft_order_1">
+    <createTable tableName="draft_order">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="user_id" type="bigint"/>
+      <column name="customer_Supplier_Id" type="bigint"/>
+      <column name="customer_Supplier_name" type="varchar(150)"/>
+      <column name="contact" type="varchar(150)"/>
+      <column name="mobile" type="varchar(150)"/>
+      <column name="landline" type="varchar(150)"/>
+      <column name="address" type="varchar(150)"/>
+      <column name="order_type_enum" type="varchar(20)"/>
+      <column name="status" type="varchar(20)"/>
+      <column name="txn_order_status" type="varchar(20)"/>
+
+      <column name="memo" type="varchar(500)"/>
+      <column name="edit_date" type="bigint"/>
+      <column name="save_time" type="bigint"/>
+      <column name="settled_amount" type="double"/>
+      <column name="total" type="double"/>
+      <column name="debt" type="double"/>
+      <column name="repayment_time" type="bigint"/>
+      <column name="bill_producer_id" type="bigint"/>
+      <column name="delivery_date" type="bigint"/>
+      <column name="purchaseOrder_id" type="bigint"/>
+      <column name="txnOrder_id" type="bigint"/>
+      <column name="vechicle_id" type="bigint"/>
+      <column name="vechicle" type="varchar(150)"/>
+      <column name="brand" type="varchar(150)"/>
+      <column name="model" type="varchar(150)"/>
+      <column name="start_mileage" type="double"/>
+      <column name="end_mileage" type="double"/>
+
+      <column name="fuel_number" type="varchar(150)"/>
+      <column name="start_date" type="bigint"/>
+      <column name="end_date" type="bigint"/>
+      <column name="productSales" type="varchar(150)"/>
+      <column name="material" type="varchar(500)"/>
+      <column name="service_content" type="varchar(500)"/>
+        <column name="maintain_time" type="bigint"/>
+        <column name="insure_time" type="bigint"/>
+        <column name="examine_time" type="bigint"/>
+        <column name="return_payable_type" type="varchar(50)"/>
+      <column name="bank" type="varchar(150)"/>
+      <column name="account" type="varchar(150)"/>
+        <column name="business_scope" type="varchar(500)"/>
+      <column name="account_name" type="varchar(150)"/>
+        <column name="category" type="bigint"/>
+      <column name="abbr" type="varchar(150)"/>
+        <column name="settlement_type" type="bigint"/>
+      <column name="fax" type="varchar(150)"/>
+      <column name="qq" type="varchar(150)"/>
+      <column name="email" type="varchar(150)"/>
+        <column name="invoice_category" type="bigint"/>
+        <column name="vest_date" type="bigint"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="draft_order_2" author="dongnan">
+    <addPrimaryKey tableName="draft_order" columnNames="id" constraintName="pk_draft_order"/>
+  </changeSet>
+
+    <changeSet author="xzhhu" id="draft_order_3">
+        <addColumn tableName="draft_order">
+            <column name="customer_or_supplier_shop_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet id="draft_order_4" author="ndong">
+    <addColumn tableName="draft_order">
+      <column name="original_order_id" type="bigint"></column>
+      <column name="original_order_type" type="varchar(50)"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="draft_order_5" author="ndong">
+    <addColumn tableName="draft_order">
+      <column name="original_receipt_no" type="varchar(50)"></column>
+      <column name="edit_status" type="varchar(50)"></column>
+    </addColumn>
+  </changeSet>
+    <changeSet id="draft_order_xzhu_4" author="xzhu">
+        <addColumn tableName="draft_order">
+            <column name="storehouse_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="repair_order_qiuxinyu_5" author="qiuxinyu">
+        <addColumn tableName="draft_order">
+            <column name="description" type="varchar(500)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="draft_order_6" author="jinyuan">
+         <addColumn tableName="draft_order">
+            <column name="receiptNo" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="draft_order_7" author="zhuj">
+        <addColumn tableName="draft_order">
+            <column name="contact_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+  
+  <changeSet id="draft_order_8" author="jimuchen">
+    <createIndex tableName="draft_order" indexName="IDX_SHOP_ID">
+      <column name="shop_id"></column>
+    </createIndex>
+  </changeSet>
+
+     <changeSet id="draft_order_8_xinYuQiu" author="xinYuQiu">
+        <addColumn tableName="draft_order">
+            <column name="appoint_order_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="draft_order_9_xinYuQiu" author="xinYuQiu">
+        <addColumn tableName="draft_order">
+            <column name="maintain_mileage" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="draft_order_10_wenjun" author="Wenjun Yang">
+        <addColumn tableName="draft_order">
+            <column name="chassis_no" type="varchar(30)"/>
+            <column name="engine_no" type="varchar(50)"/>
+            <column name="color" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="draft_order_11_wenjun" author="Wenjun Yang">
+        <addColumn tableName="draft_order">
+            <column name="vehiclec_contact" type="varchar(30)"/>
+            <column name="vehicle_mobile" type="varchar(30)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="draft_order_12_xzhu" author="xzhu">
+        <addColumn tableName="draft_order">
+            <column name="vehicle_handover" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="draft_order_13_xzhu" author="xzhu">
+        <addColumn tableName="draft_order">
+            <column name="vehicle_handover_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

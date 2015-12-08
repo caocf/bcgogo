@@ -1,0 +1,81 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <preConditions>
+        <!--<or>-->
+        <!--<dbms type="oracle" />-->
+        <dbms type="mysql"/>
+        <!--</or>-->
+    </preConditions>
+
+    <changeSet id="hibernate_unique_key_1" author="cli">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="hibernate_unique_key"/>
+            </not>
+        </preConditions>
+        <createTable tableName="hibernate_unique_key">
+            <column name="next_hi" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <insert tableName="hibernate_unique_key">
+            <column name="next_hi" value="1000000"/>
+        </insert>
+    </changeSet>
+    <!-- Schema -->
+    <include file="product/table/brand.xml"/>
+    <include file="product/table/category.xml"/>
+    <include file="product/table/feature.xml"/>
+    <include file="product/table/feature_filter.xml"/>
+    <include file="product/table/feature_mode.xml"/>
+    <include file="product/table/kind.xml"/>
+    <include file="product/table/model.xml"/>
+    <include file="product/table/product.xml"/>
+    <include file="product/table/product_attached.xml"/>
+    <include file="product/table/product_spec.xml"/>
+    <include file="product/table/product_vehicle.xml"/>
+    <include file="product/table/synonym.xml"/>
+    <include file="product/table/template.xml"/>
+    <include file="product/table/trim.xml"/>
+    <include file="product/table/year.xml"/>
+    <include file="product/table/mfr.xml"/>
+    <include file="product/table/engine.xml"/>
+    <include file="product/table/product_local_info.xml"/>
+    <include file="product/table/licenseplate.xml"/>
+    <include file="product/table/product_admin.xml"/>
+    <include file="product/table/chnfirstletter.xml"/>
+    <include file="product/table/product_barcode.xml"/>
+    <include file="product/table/product_supplier.xml"/>
+    <include file="product/table/product_modify_log.xml"/>
+    <include file="product/table/product_mapping.xml"/>
+    <include file="product/table/product_category.xml"/>
+    <include file="product/table/product_category_relation.xml"/>
+    <include file="product/table/promotions.xml"/>
+    <include file="product/table/promotions_rule.xml"/>
+    <include file="product/table/promotions_rule_mjs.xml"/>
+    <include file="product/table/promotions_product.xml"/>
+    <include file="product/table/promotions_area.xml"/>
+    <include file="product/table/promotion_order_record.xml"/>
+    <include file="product/table/normal_brand.xml"/>
+    <include file="product/table/normal_model.xml"/>
+    <include file="product/table/shop_register_product.xml"/>
+    <include file="product/table/product_dic.xml"/>
+    <include file="product/table/product_unit.xml"/>
+    <include file="product/table/normal_product.xml"/>
+    <include file="product/table/normal_product_modify_record.xml"/>
+    <include file="product/table/shop_vehicle_brand_model.xml"/>
+    <include file="product/table/standard_vehicle_brand.xml"/>
+    <include file="product/table/standard_vehicle_model.xml"/>
+    <include file="product/table/app/dictionary.xml"/>
+    <include file="product/table/app/dictionary_fault_info.xml"/>
+    <include file="product/table/app/vehicle_dictionary.xml"/>
+    <include file="product/table/bcgogo_product_property.xml"/>
+    <include file="product/table/bcgogo_product.xml"/>
+    <include file="product/table/normal_product_vehicle_brand_model.xml"/>
+    <include file="product/table/shop_ad_product.xml"/>
+
+</databaseChangeLog>

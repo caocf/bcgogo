@@ -1,0 +1,9 @@
+1. 执行SQL： bcuser
+update menu set href='supplier.do?method=selfShopComment' where menu_name = 'WEB.SYSTEM_SETTINGS.SHOP_BASIC_COMMENT';
+
+2. 增加权限：
+供应商列表 - 我的供应商 - 供应商点评
+web_supplier_selfShopComment      /web/supplier.do?method=selfShopComment     SHOP    跳转到本店评价页面     request
+
+
+3. 执行 Solr初始化： 所有客户供应商

@@ -1,0 +1,79 @@
+/*---------------------------登录-------------------------------------*/
+.b_login{
+    position:absolute;
+    background:url(../images/static_login.gif) no-repeat;
+    width:560px;
+    color:#fff;
+    height:323px;
+    margin:0 auto 0 auto;
+    z-index:2000;
+}
+
+.b_login .b_table{
+    width:410px;
+    padding-top:90px;
+    text-align:left;
+    margin:0 auto 0 auto;
+}
+.b_login .b_table .b_name{
+    float:left;
+    font-size:14px;
+    margin-bottom:11px;
+}
+.b_login .b_table .b_name span{
+    line-height:41px;
+    float:left;
+
+}
+.b_login .b_table .b_name input{
+    float:left;
+    background:url(../images/l_input.jpg) no-repeat 0px 1px;
+    width:234px;
+    height:43px;
+    padding-left:6px;
+    line-height:41px;
+    border:none;
+    margin-left:24px;
+    color:#FFFFFF;
+    font-size:14px;
+    margin-bottom:7px;
+}
+.b_login .b_table .b_password{
+    float:left;
+    padding:0 0px 20px 60px;
+    width:345px;
+    font-size:12px;
+}
+.b_login .b_table .b_password a{
+    color:#fff;}
+.b_login .b_table .b_password label{
+    float:left;
+    width:100px;
+    padding:0px 0px 0px 1px;
+    *padding:0px 0px 0px 2px;
+}
+.b_login .b_table .b_password a{
+    display:block;
+    text-align:right;
+}
+.b_login .b_table .b_btn input{
+    background: url("../images/static_login.gif") repeat scroll 0 50px rgba(0, 0, 0, 0);
+    border: medium none;
+    clear: both;
+    cursor: pointer;
+    height: 49px;
+    margin-left: 68px;
+    width: 240px;
+}
+
+.cancel_relative{
+    position:relative;}
+.login_cancel{
+    position:absolute;
+    width:16px;
+    height:16px;
+    background:url(../images/login_Cancel.png) no-repeat;
+    right:30px;
+    cursor:pointer;
+    top:10px;}
+.tex_wrong{ float:left; background:url(../images/selicons.png) no-repeat ; padding-left:20px;height:16px; display:inline-block;  vertical-align:middle; color:#d23525; margin:12px 0 0 5px; font-size:12px; line-height:18px;}

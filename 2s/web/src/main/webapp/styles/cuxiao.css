@@ -1,0 +1,154 @@
+@charset "utf-8";
+
+.cuxi {
+    height: 17px;
+    font-style: normal;
+}
+.cuxi label, .cuxi input {
+    display: block;
+    float: left;
+}
+.cuxi input {
+    margin: 0 5px;
+}
+
+.alert .ti_top, .alert .ti_body, .alert .ti_bottom {
+    float: none;
+    width: 180px;
+}
+
+.alert .ti_top {
+    height:8px;
+}
+
+.alert .ti_body {
+    height:auto;
+    padding:0 5px;
+}
+
+.alert .ti_bottom {
+    height:8px;
+}
+
+
+.alert .ti_top {
+    background: url(../images/alertTop.png) no-repeat;
+}
+
+.alert .ti_body {
+    background: url(../images/alertBody.png) repeat-y;
+    color: #444443;
+}
+
+.alert .ti_bottom {
+    background: url(../images/alertBottom.png) no-repeat;
+}
+
+.alert .alertBody {
+    line-height: 20px;
+}
+
+.alert .alertBody:hover {
+    text-decoration: none;
+}
+
+.alert .alertBody span {
+    font-weight: bold;
+}
+.alert .alertBody div {
+    height: auto;
+    line-height: normal;
+    text-align: left;
+}
+
+.alert .alertBody a {
+    color: #006ECA;
+    padding-right: 10px;
+}
+
+.alert .alertBody a:hover {
+    color: #FF5113;
+    text-decoration: underline;
+}
+.alert {
+    position: absolute;
+    margin-top:-4px;
+    z-index: 2;
+}
+.green_color, td.green_color {
+    color: #1F541E;
+}
+.red_color {
+    color: #CB0000;
+}
+.promotion{
+    text-align: left;
+}
+.oldPrice {
+    text-decoration : line-through;
+    color: #404040;
+}
+.newPrice {
+    color: #FF6700;
+}
+.limitSpan {
+    display: inline-block;
+    width: 50px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.expectPrice{
+    background: url("../images/expectPrice.png") no-repeat scroll 0 0 transparent;
+    padding-left: 32px;
+    text-align: left!important;
+    overflow: auto;
+    word-break:keep-all!important;
+}
+.quotedPreBuyPrice{
+    background: url("../images/quotedPreBuyPrice.png") no-repeat scroll 0 0 transparent;
+    padding-left: 32px;
+    text-align: left!important;
+    overflow: auto;
+    word-break:keep-all!important;
+}
+.promotionPrice{
+    background: url("../images/promotionPrice.png") no-repeat scroll 0 0 transparent;
+    padding-left: 32px;
+    text-align: left!important;
+    overflow: auto;
+    word-break:keep-all!important;
+}
+/*.expectPrice {*/
+    /*background: url("../images/expectPrice.png") no-repeat scroll 0 0 transparent;*/
+    /*cursor: pointer;*/
+    /*display: inline-block;*/
+    /*height: 30px;*/
+    /*width: 36px;*/
+/*}*/
+/*.promotionPrice {*/
+    /*background: url("../images/promotionPrice.png") no-repeat scroll 0 0 transparent;*/
+    /*cursor: pointer;*/
+    /*display: inline-block;*/
+    /*height: 30px;*/
+    /*width: 36px;*/
+/*}*/
+.after-image-span {
+    display: inline-block;
+    line-height: 2.3;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 1px;
+}
+
+.expectPrice .alert {
+    background: url(../images/alert.png) no-repeat;
+    width: 70px;
+    height: 26px;
+    line-height: 33px;
+    color: #4F4F4F;
+    text-align: center;
+    position: absolute;
+}

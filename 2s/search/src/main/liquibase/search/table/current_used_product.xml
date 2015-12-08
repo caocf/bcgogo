@@ -1,0 +1,39 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+  <changeSet id="current_used_product_1" author="zhangjuntao">
+    <createTable tableName="current_used_product">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="product_id" type="bigint"/>
+      <column name="time_order" type="varchar(200)"/>
+      <column name="brand" type="varchar(200)"/>
+      <column name="product_name" type="varchar(200)"/>
+    </createTable>
+    <addPrimaryKey tableName="current_used_product" columnNames="id" constraintName="pk_current_used_product"/>
+    <createIndex tableName="current_used_product" indexName="idx_current_used_product_shopid">
+      <column name="shop_id"/>
+    </createIndex>
+  </changeSet>
+  <changeSet id="current_used_product_2" author="zhangjuntao">
+    <addColumn tableName="current_used_product">
+      <column name="type" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+  <changeSet author="jimuchen" id="current_used_product_3">
+    <modifyColumn tableName="current_used_product">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,80 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+
+1.创建数据库etl
+
+2.数据库连接配置中添加对etl的访问
+    每台Tomcat的lib\jpa-persistence.properties在文件末增加：
+    etl.dataSource.url = ${JDBC_URL}etl${JDBC_URL_EXTRA}
+    etl.dataSource.username = ${USERNAME}
+    etl.dataSource.password = ${PASSWORD}
+    etl.dataSource.initialSize = 5
+    etl.dataSource.maxActive = 50
+    etl.dataSource.maxIdle = 15
+    etl.dataSource.minIdle = 5
+    etl.dataSource.maxWait = -1
+
+2. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+bcuser执行：
+
+update bcuser.app_user set user_type ='BLUE_TOOTH' where user_type is null;
+update bcuser.obd set obd_type = 'BLUE_TOOTH' where obd_type is null;
+update config.app_update_announced set app_user_type = 'BLUE_TOOTH' where app_user_type is null;
+update bcuser.menu set sort = 50 where label = '短信管理';
+update bcuser.menu set sort = 20 where label = '车辆管理';
+UPDATE txn.fault_info_to_shop f set f.fault_alert_type = 'FAULT_CODE' where f.fault_alert_type IS null;
+update menu m set m.label = '事故故障' where m.menu_name = 'WEB.SCHEDULE.SHOP_FAULT_INFO.BASE';
+
+notification执行
+update notification.message_template set content = '您好，您的车辆{licenceNo}于{time}出现{faultCode}，请尽快来店检查，详情咨询{mobile}。'
+where type = 'faultInfoCodeMsg';
+
+  1，备份 bcuser.app_user_customer
+  2,清空 app_user_customer
+
+solr:
+替换vehicle下的schema.xml
+
+2. 服务器环境准备：
+    请确保以下端口可被内网访问
+    1) API所在服务器的19005端口
+    2) socketReceiver所在服务器的19010端口
+    3) socketReceiver所在服务器的60000端口
+
+三.发布应用
+  1. 发布web, admin
+  2. 发布定时钟
+  3. 发布api
+  4. 发布socketReceiver.jar（具体配置详见socketReceiver中发布流程：http://192.168.1.46/svn/bcgogo-tools/socketReceiver/发布步骤.txt）
+
+四.添加权限
+
+  1. admin->配置
+    (1)config 配置
+            name                             value                                                 描述
+        GsmAppVersionAndroid                 1.0                                                 Gsm版APP安卓版本
+        GsmAppVersionIOS                     1.0                                                 Gsm版APP IOS版本
+
+        GsmAppAndroidAppUpgradeURL               手机端提供                                      APP安卓更新URL
+        GsmAppISOAppUpgradeURL                   手机端提供                                      APP IOS更新URL
+        BlueToothMatchShopVersion           10000010017531656,10000010017531653,10000010017531655,10000010017531654,10000010039823882    蓝牙版手机用户匹配店铺
+
+        TOMCAT_API_IP                       "API所在的IP地址"                                    用于注册API的java.rmi.server.hostname
+
+//===============================================    客户管理--客户列表--我的客户--新增修改(朱星星)===================================================
+web_customer_checkIsExistGsmObdImeiInVehicle          request     /web/customer.do?method=checkIsExistGsmObdImeiInVehicle ajax动态校验IMEI唯一
+
+======================================================登录后基本权限====================================================
+web_base_checkVehicleBrandModel          request     /web/product.do?method=checkVehicleBrandModel  ajax校验车辆品牌车型是否是标准的
+
+将name为“web_customer_getCustomerById” 的资源添加到“shop-代办事项模块-预约管理-预约单处理”
+将name为“web_txn_gotoSetUnitPage”，“web_txn_setSellUnitAndRate” 的资源添加到“shop-车辆施工-车辆施工-派单”
+将name为“web_txn_gotoSetUnitPage”，“web_txn_setSellUnitAndRate” 的资源添加到“shop-车辆施工-洗车美容-新增”
+
+五.初始化
+后台admin刷新资源
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+

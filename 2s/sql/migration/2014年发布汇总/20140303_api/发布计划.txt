@@ -1,0 +1,20 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+2.执行如下sql
+  bcuser库：
+  INSERT INTO `app_update_announced` (`id`, `version`, `created`, `last_update`, `app_platform`, `app_version`, `app_update_type`, `description`) VALUES (100001, 0, 1392270163754, 1392270163754, 'ANDROID', '1.8', 'FORCE', '1.8 更新内容：\r\n1、行车日志 \r\n2、车辆故障 \r\n3、车辆故障及行车语音提示 \r\n4、店面点评');
+  INSERT INTO `app_update_announced` (`id`, `version`, `created`, `last_update`, `app_platform`, `app_version`, `app_update_type`, `description`) VALUES (100002, 0, 1392270163754, 11392270163754, 'IOS', '1.8', 'FORCE', '1.8 更新内容：\r\n1、行车日志 \r\n2、车辆故障 \r\n3、车辆故障及行车语音提示 \r\n4、店面点评');
+
+三.发布应用
+  1. 发布web, admin
+  2. 发布定时钟
+  3. 发布api
+
+
+
+
+四.功能验证（测试组）， 如果不通过执行回滚步骤。
+

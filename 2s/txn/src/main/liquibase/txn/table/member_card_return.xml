@@ -1,0 +1,75 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="jimuchen" id="member_card_return_1">
+    <createTable tableName="member_card_return">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+
+      <column name="shop_id" type="bigint"></column>
+      <column name="no" type="varchar(50)"></column>
+      <column name="customer_id" type="bigint"></column>
+      <column name="executor_id" type="bigint"></column>
+      <column name="dept_id" type="bigint"></column>
+      <column name="total" type="double"></column>
+      <column name="editor_id" type="bigint"></column>
+      <column name="edit_date" type="bigint"></column>
+      <column name="reviewer_id" type="bigint"></column>
+      <column name="review_date" type="bigint"></column>
+      <column name="invalidator_id" type="bigint"></column>
+      <column name="invalidate_date" type="bigint"></column>
+      <column name="last_member_card_order_id" type="long"></column>
+      <column name="last_buy_total" type="double"></column>
+      <column name="last_buy_date" type="long"></column>
+      <column name="return_date" type="bigint"></column>
+      <column name="member_no" type="varchar(50)"></column>
+      <column name="member_card_name" type="varchar(50)"></column>
+      <column name="member_balance" type="double"></column>
+      <column name="memo" type="varchar(500)"></column>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="member_card_return_2" author="jimuchen">
+    <addPrimaryKey tableName="member_card_return" columnNames="id" constraintName="pk_member_card_return"></addPrimaryKey>
+  </changeSet>
+
+  <changeSet id="member_card_return_3" author="jimuchen">
+    <modifyColumn tableName="member_card_return">
+      <column name="last_member_card_order_id" type="bigint" />
+      <column name="last_buy_date" type="bigint" />
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="member_card_return_4" author="jimuchen">
+      <addColumn tableName="member_card_return">
+          <column name="customer" type="varchar(100)"/>
+          <column name="customer_company" type="varchar(20)"/>
+          <column name="customer_contact" type="varchar(200)"/>
+          <column name="customer_mobile" type="varchar(20)"/>
+          <column name="customer_landline" type="varchar(20)"/>
+          <column name="customer_address" type="varchar(50)"/>
+      </addColumn>
+  </changeSet>
+
+  <changeSet id = "member_card_return_5" author="jimuchen">
+		<modifyColumn tableName="member_card_return">
+      <column name="customer_mobile" type="varchar(100)"/>
+      <column name="customer_landline" type="varchar(100)"/>
+      <column name="customer_address" type="varchar(100)"/>
+		</modifyColumn>
+	</changeSet>
+  <changeSet id="member_card_return_6" author="liuWei">
+    <addColumn tableName="member_card_return">
+      <column name="statement_account_order_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+</databaseChangeLog>

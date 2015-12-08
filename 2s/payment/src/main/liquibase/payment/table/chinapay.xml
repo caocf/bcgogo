@@ -1,0 +1,87 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="sunyingzi" id="chinapay_1">
+        <createTable tableName="chinapay">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="transId" type="bigint"/>
+            <column name="merId" type="varchar(20)"/>
+            <column name="busiId" type="varchar(20)"/>
+            <column name="ordId" type="varchar(50)"/>
+            <column name="ordAmt" type="varchar(20)"/>
+            <column name="bgRetUrl" type="varchar(200)"/>
+            <column name="pageRetUrl" type="varchar(200)"/>
+            <column name="gateId" type="varchar(20)"/>
+            <column name="param1" type="varchar(200)"/>
+            <column name="param2" type="varchar(200)"/>
+            <column name="param3" type="varchar(200)"/>
+            <column name="param4" type="varchar(200)"/>
+            <column name="param5" type="varchar(200)"/>
+            <column name="param6" type="varchar(200)"/>
+            <column name="param7" type="varchar(200)"/>
+            <column name="param8" type="varchar(200)"/>
+            <column name="param9" type="varchar(200)"/>
+            <column name="param10" type="varchar(200)"/>
+            <column name="ordDesc" type="varchar(500)"/>
+            <column name="shareType" type="varchar(20)"/>
+            <column name="shareData" type="varchar(500)"/>
+            <column name="priv1" type="varchar(200)"/>
+            <column name="customIp" type="varchar(200)"/>
+            <column name="chkValue" type="varchar(500)"/>
+            <column name="payStat" type="varchar(20)"/>
+            <column name="payTime" type="varchar(20)"/>
+        </createTable>
+
+        <addPrimaryKey tableName="chinapay" columnNames="id" constraintName="pk_chinapay"/>
+
+    </changeSet>
+
+    <changeSet author="sunyingzi" id="chinapay_2">
+        <addColumn tableName="chinapay">
+            <column name="receiveType" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="sunyingzi" id="chinapay_3">
+        <dropColumn tableName="chinapay" columnName="transId"/>
+        <dropColumn tableName="chinapay" columnName="receiveType"/>
+        <addColumn tableName="chinapay">
+            <column name="trans_id" type="bigint"></column>
+            <column name="chinapay_type" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="sunyingzi" id="chinapay_4">
+        <addColumn tableName="chinapay">
+            <column name="refNum" type="varchar(20)"></column>
+            <column name="refAmt" type="varchar(20)"></column>
+            <column name="refTime" type="varchar(20)"></column>
+            <column name="responeseCode" type="varchar(20)"></column>
+            <column name="Message" type="varchar(500)"></column>
+        </addColumn>
+    </changeSet>
+<changeSet author="sunyingzi" id="chinapay_5">
+        <addColumn tableName="chinapay">
+            <column name="curyId" type="varchar(20)"></column>
+            <column name="interfaceVersion" type="varchar(20)"></column>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="chinapay_6">
+    <modifyColumn tableName="chinapay">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+</databaseChangeLog>

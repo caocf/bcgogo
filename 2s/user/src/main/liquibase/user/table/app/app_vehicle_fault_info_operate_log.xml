@@ -1,0 +1,26 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="QiuXinYu" id="app_vehicle_fault_info_operate_log_1">
+        <createTable tableName="app_vehicle_fault_info_operate_log">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="app_vehicle_fault_info_id" type="bigint"/>
+            <column name="operate_user_no" type="varchar(100)"/>
+            <column name="last_status" type="varchar(50)"/>
+            <column name="new_status" type="varchar(50)"/>
+            <column name="operate_time" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="app_vehicle_fault_info_operate_log" columnNames="id" constraintName="pk_app_vehicle_fault_info_operate_log"/>
+    </changeSet>
+
+</databaseChangeLog>

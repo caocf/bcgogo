@@ -1,0 +1,54 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xzhu" id="pre_buy_order_item_xzhu_1">
+        <createTable tableName="pre_buy_order_item">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pre_buy_order_id" type="bigint"/>
+            <column name="product_name" type="varchar(200)"/>
+            <column name="product_brand" type="varchar(200)" />
+            <column name="product_spec" type="varchar(200)" />
+            <column name="product_model" type="varchar(200)" />
+            <column name="product_vehicle_model" type="varchar(200)" />
+            <column name="product_vehicle_brand" type="varchar(200)" />
+            <column name="commodity_code" type="varchar(70)" />
+            <column name="amount" type="double"/>
+            <column name="quoted_count" type="int"/>
+            <column name="unit" type="varchar(20)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="pre_buy_order_item_xzhu_2" author="xzhu">
+        <addPrimaryKey tableName="pre_buy_order_item" columnNames="id" constraintName="pk_pre_buy_order_item"/>
+    </changeSet>
+    <changeSet author="xzhu" id="pre_buy_order_item_xzhu_3">
+        <addColumn tableName="pre_buy_order_item">
+            <column name="memo" type="varchar(500)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="pre_buy_order_item_xzhu_4" author="xzhu">
+        <addColumn tableName="pre_buy_order_item">
+            <column name="product_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="pre_buy_order_item_ndong_5" author="ndong">
+        <addColumn tableName="pre_buy_order_item">
+            <column name="shop_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ndong" id="pre_buy_order_item_ndong_6">
+        <addColumn tableName="pre_buy_order_item">
+            <column name="shop_kind" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

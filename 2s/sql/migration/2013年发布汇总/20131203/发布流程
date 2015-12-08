@@ -1,0 +1,44 @@
+一.备份现有生产上war包,停掉热备份
+
+二.发布前准备
+1. 数据库更新：
+ 根据Liquibase生成的DDL语句更新表结构.
+2.数据初始化
+    config库：
+    	update config.shop set charge_type = 'ONE_TIME';
+    txn库：
+    	update txn.bcgogo_receivable_order set charge_type = 'ONE_TIME';
+三.发布应用
+
+四.配置权限
+SHOP 登录后基本权限
+web_get_vehicle_info_by_vehicle_id  /web/customer.do?method=getVehicleInfoByVehicleId SHOP 根据车辆ID查询车辆信息 request
+
+1.后台 admin   config  配置
+SHOP_PROBATIONARY_PERIOD_YEARLY             365                     按年收费的试用天数
+2 短信模板配置
+模板名：会员消费短信      模板类型：memberConsumeSmsSwitch     场景：member_consume_sms_switch    不必要
+内容：尊敬的会员$!{cardOwnerName}，您于$!{consumeDate}消费#if(${consumeItems}!=$null && ${consumeItems.isEmpty()}==false)项目：#foreach(${item} in ${consumeItems.keySet()})$!{item}$!{consumeItems.get(${item})}次#if($velocityHasNext)，#end#end；#end#if(${consumeAmount}>0)使用卡上金额${consumeAmount}元；#end#if(${remainItems}!=$null && ${remainItems.isEmpty()}==false)剩余项目：#foreach(${item} in ${remainItems.keySet()})$!{item}$!{remainItems.get(${item})}次#if($velocityHasNext)，#end#end#if(${remainAmount}>0)；#else。#end#end#if(${remainAmount}>0)卡上余额${remainAmount}元。#end${shopMobile}。
+
+3.新增权限
+ name                                        value                                                            memo                   type             SystemType
+===============================================================================================================================================
+-----------------------------------------------------------邱鑫宇  -----------------------------------------------------------------------------
+资源:
+web_remind_Navi_titles     /web/remind.do?method=getRemindNaviTitlePromptNums       代办事项标签栏提醒数字          request           shop
+角色：
+shop-代办事项模块-代办事项下面四个角色："客户服务类"，"进销存类"，"欠款提醒类","维修美容类"
+shop-代办事项模块-自定义提醒
+shop-预约管理-预约查询
+添加上面资源
+
+
+------------------
+预约单相关权限修改
+1，预约管理模块拖到代办事项模块下面
+2,将以下资源添加到预约管理下面所有模块："schedule"，"scheduleBase"
+3,将name：“customer_ajaxGetCustomerInfo”,"web_txn_customer_checkCustomerStatus"，“web_customer_txn_clientInfo” 的资源加到“shop-代办事项模块-预约管理-预约单处理”
+
+五.jackchen 数据初始化
+
+六.solr 重做索引

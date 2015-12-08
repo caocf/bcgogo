@@ -1,0 +1,443 @@
+@charset "utf-8";
+/* CSS Document */
+
+.more_his {
+    font-weight: bold;
+    font-size: 14px;
+    /*margin-bottom:5px;
+    */;
+}
+
+#history,#storage_history,#member_history {
+    table-layout: fixed;
+    border-top: 4px solid #6d8fb9;
+    border-left:1px solid #BBBBBB;
+    border-right:1px solid #BBBBBB;
+    border-bottom:1px solid #BBBBBB;
+}
+
+#history tr td {
+    white-space: nowrap;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow :ellipsis;
+}
+
+#history tr td a {
+    text-decoration: none;
+}
+
+#history .title_his, #member_history .title_his {
+    height: 25px;
+    line-height: 25px;
+    color:#272727;
+}
+
+table tr .blue, .i_leftBtn .onlin_his {
+    color: #6699cc;
+    cursor: pointer;
+}
+
+#history tr .qian_red {
+    color: #a62d38;
+}
+
+/*分页*/
+
+.i_leftBtn div {
+    float: left;
+    background: url(../images/page.png) no-repeat;
+    /*  _background:none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/page.png", sizingMethod="crop");
+    */
+    width: 19px;
+    height: 21px;
+    line-height: 21px;
+    color: #000000;
+    font-size: 12px;
+    text-align: center;
+    margin: 3px 0px 0px 5px;
+    cursor: pointer;
+}
+
+.i_leftBtn .onlin_his {
+    background: url(../images/page_hover.png) no-repeat;
+    color: #FFFFFF;
+    width: 19px;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+}
+
+.his_bottom {
+    clear: both;
+    margin-top: 10px;
+}
+
+.i_leftBtn {
+    float: right;
+}
+
+.his_bottom .more_his {
+    color: #666;
+    font-size: 12px;
+    width: 120px;
+    margin-top: 5px;
+}
+
+/*分页结束*/
+.i_main .i_mainRight .total span {
+    color: #a62d38;
+    font-weight: bold;
+}
+
+.i_main .table_btn input.i_operate {
+    margin-left: 16px;
+    margin-right: 0px;
+    float: right;
+}
+
+/*---------------------------------------------------车辆---欠款记录------------------------------------------------------------------*/
+.chk, .ss {
+    background: url(../images/check_off.jpg) no-repeat;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.ss {
+    background: url(../images/check_on.jpg) no-repeat;
+}
+
+#all_chk {
+    float: left;
+    margin-left: 7px;
+}
+
+#owe_record {
+    width: 270px;
+    _width: 275px;
+    margin-right: 0px;
+}
+
+#owe_record .main_cont {
+    float: left;
+    width: 220px;
+    margin-top: 5px;
+}
+
+#owe_record .main_cont a {
+    display: block;
+    float: left;
+    width: 56px;
+    height: 28px;
+    line-height: 28px;
+    background: url(../images/sale.jpg) no-repeat;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+}
+
+#owe_record .main_cont .baoyang {
+    background: url(../images/xiche.png) no-repeat;
+    width: 90px;
+}
+
+/*--------------------客户管理------------------------*/
+#kucun .btn_cont{
+    display:block;
+    float:right;
+    background:url(../images/addAt.png) no-repeat;
+    width:60px;
+    height:20px;
+    text-align:center;
+    color:#fff;
+    line-height:20px;
+    padding-right:5px;
+}
+.yuyue  td label,.yuyue td input,.yuyue td img{
+    display:block;
+    float:left;
+}
+.yuyue td img{
+    height:20px;
+    float:right;
+}
+.yuyue  td label,.yuyue td input,.yuyue td img{
+    display:block;
+    float:left;
+}
+.yuyue td img{
+    height:20px;
+    float:right;
+}
+.yuyue td input{
+    width:80%;
+    margin:1px 5px 1px 0px;
+}
+
+.btn_cont {
+    display: block;
+    float: left;
+    background: url(../images/addAt.png) no-repeat;
+    width: 60px;
+    height: 20px;
+    text-align: center;
+    color: #fff;
+    line-height: 20px;
+    margin:0 5px 0 0;
+    font-weight: normal;
+}
+
+
+.zuofei{
+    background:url(../images/watermark/zuofei.png);
+    width:219px;
+    height:115px;
+    position:absolute;
+    left:700px;
+    top:250px;
+}
+.yuyue  td label, .yuyue td input, .yuyue td img {
+    display: block;
+    float: left;
+}
+
+.yuyue td img {
+    height: 20px;
+    float: right;
+}
+
+.yuyue td input {
+    width: 55%;
+    margin: 1px 5px;
+}
+
+.yuyue  td label, .yuyue td input, .yuyue td img {
+    display: block;
+    float: left;
+}
+
+.yuyue td img {
+    height: 20px;
+    float: right;
+}
+
+.yuyue td input {
+    width: 55%;
+    margin: 1px 5px;
+}
+
+/*----------------------supplierData.htm---------------------------------------------------------------------------------------------------------------*/
+.i_mainRight .select_mon{
+    background:#C4D4E4;
+    margin-bottom:10px;
+}
+.select_mon div{
+    padding:10px 10px;
+}
+.select_fir{
+    background:#A6BED6;
+    clear:both;
+    height:30px;
+    line-height:30px;
+    padding-left:5px;
+}
+.select_fir input{
+    width:130px;
+    height:25px;
+    line-height:25px;
+    margin-left:5px;
+    padding-left:5px;
+}
+.select_fir label,.select_fir input{
+    display:block;
+    float:left;
+}
+.select_fir .search_btn{
+    float:right;
+    border:none;
+    background:url(../images/washBtn1.png);
+    width:75px;
+    height:28px;
+    color:#6699cc;
+}
+.select_mon div label{
+    display:block;
+    float:left;
+}
+.select_mon div a{
+    display:block;
+    float:left;
+    width:100px;
+    text-align:center;
+    text-decoration:underline;
+    color:#6699cc;
+}
+.select_mon div a:hover{
+    color:#577AEB;
+    text-decoration:none;
+}
+.line_show{
+    border-bottom:1px dashed #000;
+    height:20px;
+    margin:0px 15px;
+}
+.i_main .i_mainRight .cus_current {
+    color:#000;
+}
+.i_main .i_mainRight .cus_current span{
+    color:#6D8FB9;
+}
+.i_main .cus_current a{
+    color:#6699cc;
+    font-weight:bold;
+}
+.i_main .cus_current a:hover{
+    cursor:pointer;
+}
+.select_fir .qiankuan{
+    border:1px solid #577AEB;
+    height:27px;
+    line-height:27px;
+    width:140px;
+    margin-left:5px;
+    padding-left:5px;
+    color:#577AEB;
+    background:#fff;
+}
+.select_fir .mon_second{
+    padding:0px;
+    position:relative;
+    width:150px;
+    float:left;
+    height:29px;
+}
+.select_fir img{
+    position:absolute;
+    right:7px;
+    top:6px;
+}
+
+
+table.table2 td{
+    /*text-overflow:ellipsis;
+    */
+    /*overflow-x:hidden;
+    */;
+    padding-left: 7px;
+}
+  .btnSearch {
+    background: url("../images/sure.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    height: 26px;
+    line-height: 26px;
+    margin-left: 10px;
+    text-align: center;
+    width: 62px;
+}
+.arrearDown{
+    background: url("../images/Descending.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    cursor: pointer;
+    height: 22px;
+    width: 22px;
+}
+.selectTime {
+    float: left;
+    height: 25px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    width: 150px;
+}
+ .arrearUp {
+    background: url("../images/Ascending.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    cursor: pointer;
+    height: 22px;
+    width: 22px;
+}
+
+
+.in_show input {
+    background: url("../images/expand.png") repeat scroll 0 0 transparent;
+    float:left;
+    height:29px;
+    margin-right:10px;
+    width:120px;
+    border:medium none;
+    color:#000000;
+    cursor:pointer;
+}
+
+
+.in_show a {
+    background: url("../images/rightArrows.PNG") no-repeat scroll right center transparent;
+    color: #000000;
+    display: block;
+    float: right;
+    padding-right: 15px;
+    padding-top: 2px;
+}
+
+
+.in_inter {
+    background: none repeat scroll 0 0 #F7F7F7;
+    border: 1px solid #BEBEBE;
+    padding: 5px 0 10px;
+}
+
+.shanchu .btn {
+    background: url("../images/btn_tong.png") repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #000000;
+    float: right;
+    height: 25px;
+    width: 76px;
+}
+
+
+.in_inter .flow {
+    overflow-y: scroll;
+}
+.in_inter ul {
+    height: 100px;
+}
+
+.in_inter ul li .templateBtn{
+    background: url("../images/temImage.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-size: 14px;
+    height: 30px;
+    line-height: 25px;
+    margin: 0 0 10px 45px;
+    text-align: center;
+    width: 145px;
+}
+
+
+.in_inter ul li span .info {
+    background: none repeat scroll 0 0 #E3EEFB;
+    border: medium none;
+    color: #6699CC;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    width: 100px;
+}
+
+
+.in_inter ul li span:hover,.in_inter ul li .template{
+    background-image:none;
+    background:#E3EEFB;
+    color:#6699cc;
+}
+
+
+

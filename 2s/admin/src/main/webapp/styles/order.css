@@ -1,0 +1,139 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.right{
+    border-right: 1px solid black;
+}
+.right .navWrap{
+    background: url('../images/rightBody.jpg') repeat-x scroll 0 0;
+    float: right;
+    margin-right: 0;
+    margin-top: 20px;
+    height: 40px;
+    padding: 9px 0 0 15px;
+    width: 845px;
+    border-top-left-radius: 8px;
+}
+.nav{
+    float:left;
+    background:url(../images/rightTitHover.jpg) no-repeat;
+    width:69px;
+    height:25px;
+    text-align:center;
+    line-height:25px;
+    color:#FFFFFF;
+    cursor:pointer;
+    margin-right:10px;
+}
+.searchConditionWrap{
+    position: relative;
+    background-color: #fff;
+    float: right;
+    margin-right: 0;
+    color: black;
+    width: 860px;
+    height: auto;
+    margin-top: -9px;
+}
+.searchConditionWrap input{
+    margin-top: 12px;
+    width: 100px;
+    padding: 3px 0;
+    margin-right: 5px;
+    padding-left: 5px;
+}
+.searchConditionWrap label{
+    display: inline-block;
+    width: 55px;
+    margin-top: 12px;
+    font-weight: bold;
+}
+.searchConditionWrap span{
+    display: inline-block;
+    width: 60px;
+    margin-top: 12px;
+    margin-left: 15px;
+    font-weight: bold;
+}
+.searchConditionWrap label.mar{
+    margin-left: 20px;
+}
+.searchConditionWrap .search{
+    position: absolute;
+    right: 25%;
+    top: 17px;
+    width: 50px;
+    height: 30px;
+    cursor: pointer;
+    background: #F1F1F1;
+    text-align: center;
+    line-height: 20px;
+}
+.searchResult{
+    float: right;
+    margin-right: 0;
+    color: #000000;
+    background-color: #fff;
+    width: 860px;
+    height: auto;
+    border-bottom-left-radius: 8px;
+}
+.searchResult .tableList{
+    border-collapse: collapse;
+    margin-left: 20px;
+    width: 95%;
+    margin-top: 20px;
+}
+.searchResult #tableList tr{
+    border: 1px solid #ccc;
+}
+.searchResult #tableList tr:first-child td{
+    font-weight: bold;
+    padding: 6px 0 6px 0;
+}
+.searchResult #tableList tr:nth-child(2n){
+    background-color: rgba(221,221,221,0.5);
+}
+.searchResult #tableList tr td{
+    text-align: center;
+
+    border-right: 1px solid #ccc;
+}
+.searchResult #tableList tr:hover{
+    background-color: rgba(255,165,0,0.3);
+}
+.searchResult #tableList tr td:hover{
+    background-color: rgba(255, 151, 218, 0.3);
+}
+.searchResult #tableList tr td:last-child{
+    border-right: none;
+    padding: 0 4px;
+}
+.confirm{
+    width: auto;
+    cursor: pointer;
+    color: rgba(93,183,184,1);
+}
+.confirm:hover{
+    text-decoration: underline;
+}
+#orderStatus{
+    width: 105px;
+}
+.statusChange{
+    /*-moz-transition: background 1s ease-in-out 0.5s;*/
+    animation: changeBg 0.8s ease-out;
+
+}
+@-moz-keyframes  changeBg{
+    from{
+        color: rgba(255, 255, 255, 0.3);
+        background-color: rgba(255, 151, 218, 0.3);
+    }
+    to{
+        color: rgba(0,0,0,0.3);
+        background-color: rgba(255,165,0,0.3);
+    }
+
+}

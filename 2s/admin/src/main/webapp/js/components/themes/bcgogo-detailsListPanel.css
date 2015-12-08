@@ -1,0 +1,31 @@
+/**
+ * @author 潘震 (Karel)
+ * */
+.bcgogo-ui-table-content-highlighted { background-color: #ECFFB3; }
+.bcgogo-ui-table-content-selected{ color: #ff0099; font-weight: 700; }
+.bcgogo-ui-detailsList-accordion-normal { width:700px;font-size: small; padding: 0px 0px 0px 0px; background-color: #FFFFFF; font-family: "宋体","Arial";margin:0; color:#000000; height: 296px; border-width: 2px;border-color:#999;border-style:solid;border-radius: 3px;}
+.bcgogo-ui-detailsList-accordion-small { width:570px;font-size: small; padding: 0px 0px 0px 0px; background-color: #FFFFFF; font-family: "宋体","Arial";margin:0; color:#000000; height: 296px; border-width: 2px;border-color:#999;border-style:solid;border-radius: 3px;}
+.bcgogo-ui-detailsList-accordion-large { width:770px;font-size: small; padding: 0px 0px 0px 0px; background-color: #FFFFFF; font-family: "宋体","Arial";margin:0; color:#000000; height: 296px; border-width: 2px;border-color:#999;border-style:solid;border-radius: 3px;}
+.bcgogo-ui-detailsList-accordion-giant { width:900px;font-size: small; padding: 0px 0px 0px 0px; background-color: #FFFFFF; font-family: "宋体","Arial";margin:0; color:#000000; height: 296px; border-width: 2px;border-color:#999;border-style:solid;border-radius: 3px;}
+.bcgogo-ui-detailsList-center{ text-align: center; white-space:nowrap;overflow: hidden;max-width: 100px;}
+.bcgogo-ui-detailsList-container{width:100%;border-width: 1px; border-color: #cccccc; border-bottom-style: solid; border-top-style: none;border-left-style: none;border-right-style: none;margin-top:0px;margin-bottom:0px;padding: 0;}
+.bcgogo-ui-detailsList-content {width:100%;}
+
+.J-bcgogo-ui-detailsList-finishButton-normal { width:698px; margin: auto; }
+.J-bcgogo-ui-detailsList-finishButton-small { width:568px; margin: auto; }
+.J-bcgogo-ui-detailsList-finishButton-large { width:768px; margin: auto; }
+.J-bcgogo-ui-detailsList-finishButton-giant { width:898px; margin: auto; }
+.J-bcgogo-ui-detailsList-pageButtonContainer-normal{ width: 698px; margin: auto; }
+.J-bcgogo-ui-detailsList-pageButtonContainer-small{ width: 568px; margin: auto; }
+.J-bcgogo-ui-detailsList-pageButtonContainer-large{ width: 768px; margin: auto; }
+.J-bcgogo-ui-detailsList-pageButtonContainer-giant{ width: 898px; margin: auto; }
+.J-bcgogo-ui-detailsList-prevButton-normal { width:347px; margin: auto; float:left; display:inline;}
+.J-bcgogo-ui-detailsList-prevButton-small { width:282px; margin: auto; float:left;display:inline;}
+.J-bcgogo-ui-detailsList-prevButton-large { width:382px; margin: auto; float:left;display:inline;}
+.J-bcgogo-ui-detailsList-prevButton-giant { width:447px; margin: auto; float:left;display:inline;}
+/*.bcgogo-ui-detailsList-prevButton img {-moz-transform:rotate(-180deg); -webkit-transform:rotate(-180deg);filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=6);}*/
+.J-bcgogo-ui-detailsList-moreButton-normal { width:347px; margin: auto; float:right;display:inline;}
+.J-bcgogo-ui-detailsList-moreButton-small { width:282px; margin: auto; float:right;display:inline;}
+.J-bcgogo-ui-detailsList-moreButton-large { width:382px; margin: auto; float:right;display:inline;}
+.J-bcgogo-ui-detailsList-moreButton-giant { width:447px; margin: auto; float:right;display:inline;}
+

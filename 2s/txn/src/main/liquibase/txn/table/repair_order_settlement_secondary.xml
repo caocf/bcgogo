@@ -1,0 +1,30 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="yangwj" id="repair_order_settlement_secondary_1">
+        <createTable tableName="repair_order_settlement_secondary">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="repair_order_secondary_id" type="bigint"/>
+            <column name="shop_id" type="bigint"/>
+            <column name="date" type="bigint"/>
+            <column name="name" type="varchar(255)"/>
+            <column name="balance" type="float"/>
+            <column name="income" type="float"/>
+            <column name="debt" type="float"/>
+            <column name="discount" type="float"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="repair_order_settlement_secondary_2" author="yangwj">
+        <addPrimaryKey tableName="repair_order_settlement_secondary" columnNames="id" constraintName="pk_repair_order_settlement_secondary"/>
+    </changeSet>
+</databaseChangeLog>

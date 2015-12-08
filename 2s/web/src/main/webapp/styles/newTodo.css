@@ -1,0 +1,301 @@
+@charset "utf-8";
+/* CSS Document */
+.i_main{
+    color:#000;
+}
+.new_title{
+    height:28px;
+    position:relative;
+    border-bottom:1px solid #fff;
+}
+.new_title a{
+    background:url(../images/newMore.png) no-repeat right;
+    position:absolute;
+    right:5px;
+    top:5px;
+    outline:none;
+    width:50px;
+    text-align:right;
+    color:#000;
+    font-size:12px;
+    padding-right:15px;
+    text-decoration:none;
+}
+
+/*维修美容类*/
+.new_title span{
+    display:block;
+    float:left;
+}
+.new_title .todo_left,.new_title .todo_center,.new_title .todo_right{
+    background:url(../images/newtodo.png) no-repeat left top;
+    width:4px;
+    height:28px;
+}
+.new_title .todo_center{
+    background:url(../images/newtodo.png) repeat-x left -42px;
+    width:986px;
+    float:left;
+    font-size:14px;
+    line-height:28px;
+    padding-left:6px;
+}
+.new_title .todo_center label{
+    font-size:12px;
+    margin-left:10px;
+}
+.new_title .todo_center label strong{
+    font-weight:normal;
+}
+.i_main .new_title .todo_center a{
+    text-decoration:none;
+    border:1px solid red;
+}
+.new_title .todo_right{
+    background:url(../images/newtodo.png) repeat-x left -75px;
+    width:4px;
+}
+.todo_tab{
+    margin:0px;
+    width:1000px;
+    margin-bottom:15px;
+    border-width:0 1px 1px;
+    border-color:#bbbbbb;
+    border-style:solid;
+    border-collapse: collapse;
+}
+.todo_tab td{
+    padding-left:10px;
+}
+.todo_tab .title{
+    background:#f2f2f2;
+    float:none;
+}
+
+/*欠款提醒类*/
+.qiankuan .todo_left{
+    background:url(../images/newtodo.png) no-repeat left -483px;
+}
+.qiankuan .todo_center{
+    background:url(../images/newtodo.png) repeat-x left -544px;
+}
+
+.qiankuan .todo_right{
+    background:url(../images/newtodo.png) no-repeat left -514px;
+}
+
+/*欠款提醒类结束*/																																													   /*进销存类*/
+.new_plan{
+    background:url(../images/sure.jpg) no-repeat;
+    width:65px;
+    display:block;
+    float:left;
+    height:27px;
+    text-align:center;
+    line-height:26px;
+}
+.purchase .todo_left{
+    background:url(../images/newtodo.png) no-repeat left -117px;
+}
+.purchase .todo_center{
+    background:url(../images/newtodo.png) repeat-x left -159px;
+}
+.purchase .todo_right{
+    background:url(../images/newtodo.png) no-repeat left -198px;
+}
+.new_sale{
+    background:none;
+    height:30px;
+    line-height:30px;
+    padding:0px 10px 0px 15px;
+    background:#d5e0e8;
+    margin-top:10px;
+}
+.distance{
+    margin-top:0px;
+}
+.new_sale label{
+    font-size:12px;
+    color:#666666;
+    display:block;
+    float:left;
+    font-weight:bold;
+}
+.new_sale a{
+    background:url(../images/newMore.png) no-repeat right;
+    color:#666;
+    padding-right:15px;
+    display:block;
+    float:right;
+    outline:none;
+    width:700px;
+    text-align:right;
+    _width:600px;
+}
+/*.new_plan{
+    background:url(../images/assUser.png) no-repeat;
+    width:82px;
+    display:block;
+    float:left;
+    height:26px;
+    color:#fff;
+    text-align:center;
+    line-height:26px;
+    margin-right:10px;
+    margin-top:3px;
+}*/
+.distance a{
+    background:url(../images/rightArrow.png) no-repeat;
+    background-position:right center;
+    color:#6699cc;
+    text-decoration:none;
+}
+.car_more a{
+    background:url(../images/rightArrow.png) no-repeat;
+    background-position:right center;
+    color:#6699cc;
+}
+/*2*/
+
+
+
+.shortcut .num_salet{
+    border-bottom:none;
+    border-top:2px solid #f1f5f6;
+}
+/*进销存类结束*/
+/*客户服务类*/
+.service_reminders .todo_left{
+    background:url(../images/newtodo.png) no-repeat left -237px;
+}
+.service_reminders .todo_center{
+    background:url(../images/newtodo.png) repeat-x left -285px;
+}
+.service_reminders .todo_right{
+    background:url(../images/newtodo.png) no-repeat left -328px;
+}
+/*客户服务类结束*/
+/*本店计划项目*/
+.shop_item .todo_left{
+    background:url(../images/newtodo.png) no-repeat left -371px;
+}
+.shop_item .todo_center{
+    background:url(../images/newtodo.png) repeat-x left -412px;
+}
+.shop_item .todo_right{
+    background:url(../images/newtodo.png) no-repeat left -452px;
+}
+/*本店计划项目结束*/
+.shop_tab{
+    margin-bottom:5px;
+}
+
+.text_justified{
+    padding-right:5px;
+}
+/*table tr td img{
+    padding-left:10px;
+}*/
+table tr td{
+    height:25px;
+}
+
+/*库存告警*/
+.new_sale .lack {
+    background-attachment: scroll;
+    background-clip: border;
+    background-color: transparent;
+    background-image: url("../images/addAgent.png");
+    background-origin: padding;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: left;
+    height: 23px;
+    line-height: 23px;
+    margin-bottom: 0;
+    margin-left: 5px;
+    margin-right: 0;
+    margin-top: 3px;
+    text-align: center;
+    width: 99px;
+}
+.new_sale .lackName {
+    padding-left: 10px;
+    float: left;
+}
+.add_info {
+    margin-top: 0;
+}
+.i_mainNewTo {
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    width: 1000px;
+    color: #000000;
+    font-family: "宋体";
+}
+
+.setCommission{
+    float:right;
+    background:url(../images/setAlert.png) no-repeat;
+    width:100px;
+    height:24px;
+    line-height:24px;
+    text-align:center;
+    border:none;
+    color:#FFFFFF;
+    margin:3px 0px 0px 10px;
+    font-size:12px;
+    cursor:pointer;
+}
+
+.notification-num {
+    background: url("../images/tabs_bg.png") no-repeat -174px -153px;
+    height:16px;
+    min-width:12px;
+    padding:0 3px;
+    color: #FFFFFF;
+    cursor: pointer;
+    /*float: left;*/
+    position:absolute;
+    line-height: 1.5;
+    border:1px solid #810C0E;
+    margin-top:-8px;
+    margin-left: 9px;
+    /*text-align: center;*/
+    font-size:10px;
+}
+
+/* 闪动颜色 */
+.blink,.blink span,.blink a{
+    color:#0094FF;
+}
+
+.blinking,.blinking span,.blinking a{
+    color:#FF0000;
+}
+
+.todo_tab .phone {
+    background: url("../images/phone.jpg") no-repeat scroll center center transparent;
+    cursor: pointer;
+    display: inline-block;
+    height: 23px;
+    margin: -2px 12px 0 0;
+    vertical-align: middle;
+    width: 20px;
+}
+
+.todo_tab .phone:hover{
+    background:url(../images/hover_phone.png) no-repeat scroll 0 0 transparent;
+}
+
+.closeImg1{
+    color: #0094FF;
+}
+
+.closeImg1:HOVER{
+    text-decoration: underline;
+}

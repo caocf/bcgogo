@@ -1,0 +1,25 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="liuWei" id="url_monitor_config_1">
+    <createTable tableName="url_monitor_config">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="url_monitor_type_enum" type="varchar(50)"/>
+      <column name="url" type="varchar(100)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="liuWei" id="url_monitor_config_2">
+    <addPrimaryKey tableName="url_monitor_config" columnNames="id" constraintName="pk_url_monitor_config"/>
+  </changeSet>
+</databaseChangeLog>

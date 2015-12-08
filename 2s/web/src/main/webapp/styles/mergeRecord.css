@@ -1,0 +1,275 @@
+
+.allocation {
+  float: left;
+  width: 100%;
+}
+
+.allocation .allocation_left, .allocation .allocation_center, .allocation .allocation_right {
+  background: url("../images/left_lag.png") no-repeat scroll 0 0 transparent;
+  float: left;
+  height: 112px;
+  width: 3px;
+}
+
+.allocation .allocation_center {
+  background: url("../images/center_lag.png") repeat-x scroll 0 0 transparent;
+  color: #272727;
+  padding: 10px;
+  width: 977px;
+}
+
+.wordTitle {
+  color: #272727;
+  float: left;
+  font-weight: bold;
+  line-height: 26px;
+  width: 100%;
+}
+
+.allocation .divTit {
+  line-height: 35px;
+}
+
+.txt, .selTit {
+  border: 1px solid #BBBBBB;
+  color: #515151;
+  height: 19px;
+  line-height: 20px;
+  padding-left: 6px;
+  width: 100px;
+}
+
+.allocation .allocation_center {
+  background: url("../images/center_lag.png") repeat-x scroll 0 0 transparent;
+  color: #272727;
+  padding: 10px;
+  width: 977px;
+}
+
+.allocation .search {
+  padding-left: 60px;
+  width: 100%;
+}
+
+.titBody .divTit {
+  color: #000000;
+  float: left;
+  line-height: 24px;
+  padding-right: 20px;
+}
+
+.allocation .search .btn_so, .btn_searchr {
+  background: url("../images/chkNormal.png") no-repeat scroll 0 0 transparent;
+  border: medium none;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 21px;
+  line-height: 21px;
+  padding: 0 0 2px;
+  text-align: center;
+  width: 64px;
+}
+
+.tabSlip {
+  border: 1px solid #BBBBBB;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+
+
+.jieCount {
+  background: url("../images/chkNormal2.png") no-repeat scroll 0 0 transparent;
+  border: medium none;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 25px;
+  line-height: 25px;
+  margin-left: 400px;
+  margin-top: 0;
+  text-align: center;
+  width: 90px;
+}
+
+.jieCount:hover {
+ background: url("../images/btnHover2.png") no-repeat scroll 0 0 transparent;
+ color:#663A02;
+}
+
+#searchMergeRecordBtn {
+  background: url("../images/chkNormal.png") no-repeat scroll 0 0 transparent;
+  border: medium none;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 21px;
+  line-height: 21px;
+  padding: 0 0 2px;
+  text-align: center;
+  width: 64px;
+}
+
+#searchMergeRecordBtn:hover {
+  background: url("../images/chkNormal.png") no-repeat scroll 0 -29px transparent;
+  color:#663A02;
+}
+
+.mergeRecordTable .tab_title {
+  background: url("../images/title_tbcenter.png") repeat-x scroll 0 0 transparent;
+  color: #FFFFFF;
+  height: 32px;
+  line-height: 32px;
+}
+
+.mergeRecordTable .dataTr{
+  color: #272727;
+
+}
+
+.mergeRecordTable td {
+  /*color: #272727;*/
+  height: 28px;
+  line-height: 28px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: keep-all;
+  padding-left: 10px;
+}
+
+.qian_red {
+  color: #A62D38;
+}
+
+.tabMerge td {
+  border: 1px solid #D5D5D5;
+  height: 28px;
+  padding-left: 10px;
+}
+
+.tabMerge {
+  border-collapse: collapse;
+  color: #515151;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.tabMerge td.tab_title {
+  padding: 0;
+  text-align: center;
+}
+
+.tabMerge td.tab_title {
+  padding: 0;
+  text-align: center;
+}
+.tabMerge .tab_title {
+  border-top: 1px solid #D5D5D5;
+}
+.tabMerge .tab_title {
+  background: url("../images/tab_bg.png") repeat-x scroll 0 0 transparent;
+  color: #0076CC;
+  height: 28px;
+  line-height: 28px;
+}
+
+.btnClick input {
+  background: url("../images/btn_tong.png") no-repeat scroll 0 0 transparent;
+  border: medium none;
+  color: #484848;
+  cursor: pointer;
+  height: 25px;
+  line-height: 25px;
+  margin-right: 10px;
+  text-align: center;
+  width: 76px;
+  margin-left: 400px;
+}
+.btnClick input:hover {
+  background: url("../images/btn_ti.png") no-repeat scroll 0 0 transparent;
+  color: #FFFFFF;
+}
+
+.timeInput{
+  width: 120px;
+}
+.searchMergeRecordDiv{
+  width: 40px;
+  padding-top: 25px;
+  height: 20px;
+  padding-left: 50px;
+}
+
+
+.mergeConfirm{
+  margin:0 auto;
+  width:178px;
+}
+
+.mergeConfirm input{
+  background:url(../images/btn_tong.png) no-repeat;
+  width:76px;
+  height:25px;
+  line-height:25px;
+  text-align:center;
+  color:#484848;
+  border:none;
+  margin-right:10px;
+  cursor:pointer;
+}
+
+.mergeConfirm input:hover{
+  background:url(../images/btn_ti.png) no-repeat;
+  color:#FFFFFF;
+}
+
+.abMerge td {
+  border: 1px solid #D5D5D5;
+  height: 28px;
+  padding-left: 10px;
+}
+
+.abMerge {
+  border-collapse: collapse;
+  color: #515151;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.abMerge td.tab_title {
+  padding: 0;
+  text-align: center;
+}
+
+.abMerge td.tab_title {
+  padding: 0;
+  text-align: center;
+}
+
+.abMerge .tab_title {
+  border-top: 1px solid #D5D5D5;
+}
+
+.abMerge .tab_title {
+  background: url("../images/tab_bg.png") repeat-x scroll 0 0 transparent;
+  color: #0076CC;
+  height: 28px;
+  line-height: 28px;
+}
+
+.abMerge .tab_title .radCheck, .abMerge .tab_title .radNormal, .abMerge .radCheck, .abMerge .radNormal {
+    background: url("../images/radCheck.png") no-repeat scroll center center transparent;
+    float: left;
+    height: 13px;
+    margin-left: -25px;
+    margin-top: 8px;
+    width: 14px;
+}
+
+.abMerge .tab_title .radNormal, .tabMerge .radNormal {
+    background: url("../images/rad.png") no-repeat scroll center center transparent;
+}
+.tabMerge_selected {
+    border: 3px solid #83B3D8;
+}
+

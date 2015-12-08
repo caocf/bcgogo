@@ -1,0 +1,26 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <!-- 店面延期记录 -->
+    <changeSet author="zhangjuntao" id="shop_extension_log_1">
+        <createTable tableName="shop_extension_log">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="extension_days" type="int"/>
+            <column name="operator_id" type="bigint"/>
+            <column name="operate_time" type="bigint"/>
+            <column name="trial_end_time" type="bigint"/>
+            <column name="reason" type="varchar(500)"/>
+        </createTable>
+        <addPrimaryKey tableName="shop_extension_log" columnNames="id" constraintName="pk_shop_extension_log"/>
+    </changeSet>
+</databaseChangeLog>

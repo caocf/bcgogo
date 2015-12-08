@@ -1,0 +1,266 @@
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="mazidong" id="sales_order_1">
+    <createTable tableName="sales_order">
+        <column name="id" type="bigint"/>
+        <column name="created" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="last_update" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="version" type="bigint">
+            <constraints nullable="true"/>
+        </column>
+        <column name="shop_id" type="bigint"/>
+        <column name="date" type="bigint"/>
+        <column name="no" type="varchar(20)"/>
+        <column name="ref_no" type="varchar(20)"/>
+        <column name="dept_id" type="bigint"/>
+        <column name="dept" type="varchar(20)"/>
+        <column name="customer_id" type="bigint"/>
+        <column name="customer" type="varchar(20)"/>
+        <column name="executor_id" type="bigint"/>
+        <column name="executor" type="varchar(20)"/>
+        <column name="total" type="float"/>
+        <column name="memo" type="varchar(500)"/>
+        <column name="editor_id" type="bigint"/>
+        <column name="editor" type="varchar(20)"/>
+        <column name="edit_date" type="bigint"/>
+        <column name="reviewer_id" type="bigint"/>
+        <column name="reviewer" type="varchar(20)"/>
+        <column name="review_date" type="bigint"/>
+        <column name="invalidator_id" type="bigint"/>
+        <column name="invalidator" type="varchar(20)"/>
+        <column name="invalidate_date" type="bigint"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet  id="sales_order_2" author="zhuyinjia">
+    <addPrimaryKey tableName="sales_order" columnNames="id" constraintName="pk_sales_order"/>
+  </changeSet>
+
+    <changeSet author="luyi" id="sales_order_3">
+        <createIndex tableName="sales_order" indexName="IDX_SALESORDER_NO">
+            <column name="no"/>
+        </createIndex>
+        <createIndex tableName="sales_order" indexName="IDX_SALESORDER_CUSTOMERID">
+            <column name="customer_id"/>
+        </createIndex>
+        <createIndex tableName="sales_order" indexName="IDX_SALESORDER_DATE">
+            <column name="date"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="zhoudongming" id="sales_order_4">
+        <addColumn tableName="sales_order">
+            <column name="goods_saler" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+   <changeSet author="caiwei" id="sales_order_5">
+        <dropIndex tableName="sales_order" indexName="IDX_SALESORDER_NO"/>
+        <dropIndex tableName="sales_order" indexName="IDX_SALESORDER_CUSTOMERID"/>
+        <dropIndex tableName="sales_order" indexName="IDX_SALESORDER_DATE"/>
+    </changeSet>
+
+    <changeSet author="chenfanglei" id="sales_order_6">
+        <addColumn tableName="sales_order">
+            <column name="total_cost_price" type="float"></column>
+        </addColumn>
+    </changeSet>
+
+    <!--<changeSet author="qiuxinyu" id="sales_order_7">-->
+        <!--<modifyColumn tableName="sales_order">-->
+            <!--<column name="customer" type="varchar(100)"/>-->
+        <!--</modifyColumn>-->
+    <!--</changeSet>-->
+
+     <!--modify by liuWei 3.0代码整理-->
+    <changeSet author="qiuxinyu" id="sales_order_7">
+        <modifyColumn tableName="sales_order">
+            <column name="customer" type="varchar(100)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet author="chenfanglei" id="sales_order_8">
+        <addColumn tableName="sales_order">
+            <column name="vest_date" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+
+  	<changeSet author="zhoudongming" id="sales_order_9">
+        <addColumn tableName="sales_order">
+            <column name="status" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet id="sales_order_10" author="chenfanglei">
+    <modifyColumn tableName="sales_order">
+      <column name="goods_saler" type="varchar(50)"></column>
+    </modifyColumn>
+  </changeSet>
+    <changeSet author="jimuchen" id="sales_order_11">
+        <addColumn tableName="sales_order">
+            <column name="status_enum" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="sales_order_12">
+    <modifyColumn tableName="sales_order">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+
+  <changeSet id="sales_order_13" author="liuWei">
+      <createIndex tableName="sales_order" indexName="idx_shopid_vestdate">
+        <column name="shop_id"></column>
+        <column name="vest_date"></column>
+      </createIndex>
+    </changeSet>
+
+  <changeSet id="sales_order_14" author="chenfanglei">
+    <addColumn tableName="sales_order">
+      <column name="goods_saler_id" type="bigint"></column>
+    </addColumn>
+  </changeSet>
+
+    <changeSet id="sales_order_15" author="chenfanglei">
+        <addColumn tableName="sales_order">
+            <column name="receipt_no" type="varchar(20)"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="sales_order_16" author="chenfanglei">
+        <createIndex tableName="sales_order" indexName="IDX_SALESORDER_RECEIPT_NO">
+            <column name="shop_id"></column>
+            <column name="receipt_no"></column>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="sales_order_17" author="chenfanglei">
+        <addColumn tableName="sales_order">
+            <column name="after_member_discount_total" type="double"></column>
+        </addColumn>
+    </changeSet>
+		<changeSet id="sales_order_18" author="qiuxinyu">
+			<addColumn tableName="sales_order">
+				<column name="purchase_order_id" type="bigint"/>
+			</addColumn>
+		</changeSet>
+    <changeSet id="sales_order_19" author="qiuxinyu">
+      <addColumn tableName="sales_order">
+        <column name="refuse_msg" type="varchar(200)"/>
+      </addColumn>
+    </changeSet>
+	<changeSet id = "sales_order_20" author="qiuxinyu">
+		<addColumn tableName="sales_order">
+			<column name="pre_dispatch_date" type="bigint"/>
+			<column name="sale_memo" type="varchar(200)"/>
+			<column name="express_id" type="bigint"/>
+		</addColumn>
+	</changeSet>
+	<changeSet id = "sales_order_21" author="qiuxinyu">
+		<addColumn tableName="sales_order">
+			<column name="repeal_Msg" type="varchar(200)"/>
+		</addColumn>
+	</changeSet>
+
+  <changeSet id = "sales_order_22" author="jimuchen">
+		<modifyColumn tableName="sales_order">
+      <column name="sale_memo" type="varchar(500)"/>
+      <column name="refuse_msg" type="varchar(500)"/>
+			<column name="repeal_Msg" type="varchar(500)"/>
+		</modifyColumn>
+	</changeSet>
+ 	<changeSet id = "sales_order_23" author="qiuxinyu">
+		<addColumn tableName="sales_order">
+			<column name="purchase_memo" type="varchar(500)"/>
+		</addColumn>
+	</changeSet>
+
+    <changeSet id = "sales_order_24" author="jimuchen">
+		<addColumn tableName="sales_order">
+			<column name="customer_company" type="varchar(20)"/>
+      <column name="customer_contact" type="varchar(200)"/>
+      <column name="customer_mobile" type="varchar(20)"/>
+      <column name="customer_landline" type="varchar(20)"/>
+      <column name="customer_address" type="varchar(50)"/>
+      <column name="member_no" type="varchar(50)"/>
+      <column name="member_type" type="varchar(50)"/>
+      <column name="member_status" type="varchar(50)"/>
+		</addColumn>
+	</changeSet>
+    <changeSet id="sales_order_xzhu_24" author="xzhu">
+        <addColumn tableName="sales_order">
+            <column name="storehouse_id" type="bigint"/>
+            <column name="storehouse_name" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet id="sales_order_25" author="jimuchen">
+    <createIndex tableName="sales_order" indexName="idx_salesorder_customer_id">
+      <column name="customer_id" />
+    </createIndex>
+  </changeSet>
+  <changeSet id="sales_order_26" author="liuWei">
+        <addColumn tableName="sales_order">
+            <column name="statement_account_order_id" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+
+  <changeSet id = "sales_order_27" author="jimuchen">
+		<modifyColumn tableName="sales_order">
+      <column name="customer_mobile" type="varchar(100)"/>
+      <column name="customer_landline" type="varchar(100)"/>
+      <column name="customer_address" type="varchar(100)"/>
+		</modifyColumn>
+	</changeSet>
+
+  <changeSet id="sales_order_28" author="jimuchen">
+    <modifyColumn tableName="sales_order">
+      <column name="total" type="double(20,2)"/>
+      <column name="total_cost_price" type="double(20,2)"/>
+		</modifyColumn>
+  </changeSet>
+
+    <changeSet id="sales_order_29" author="zhuj">
+        <addColumn tableName="sales_order">
+            <column name="customer_contact_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="sales_order_30" author="jinyuan">
+        <addColumn tableName="sales_order">
+            <column name="customer_shop_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="lw" id="sales_order_31">
+      <addColumn tableName="sales_order">
+          <column name="other_total_cost_price" type="double"></column>
+      </addColumn>
+  </changeSet>
+
+  <changeSet author="lw" id="sales_order_32">
+    <addColumn tableName="sales_order">
+      <column name="other_income_total" type="double"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="wj" id="sales_order_33">
+        <addColumn tableName="sales_order">
+            <column name="vehicle_id" type="bigint"></column>
+            <column name="vehicle_contact" type="varchar(50)"></column>
+            <column name="vehicle_mobile" type="varchar(20)"></column>
+            <column name="vehicle_licence_no" type="varchar(20)"></column>
+        </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

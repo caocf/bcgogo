@@ -1,0 +1,47 @@
+/*
+ * @author zhen.pan
+ */
+
+/* 引导面板 */
+.bcgogo_guideTipPanel { position: absolute; }
+.bcgogo_guideTipPanel_background { position: absolute; }
+.bcgogo_guideTipPanel_content { position: absolute; color: #fff; font-family: "宋体", "Arial";}
+
+/* cancel 按钮 */
+.bcgogo_guideTipCancelButton {background: url("res/guide/cancel_button_background.png") no-repeat;width: 80px;height:23px;position: absolute;}
+.bcgogo_guideTipCancelButton p {margin:0;padding:0;margin-left:22px;width:56px;height:23px;float: left;line-height: 23px;text-align: center;}
+
+/* ok 按钮 */
+.bcgogo_guideTipOkButton {background: url("res/guide/ok_button_background.png") repeat-x;position:absolute;}
+.bcgogo_guideTipOkButton p {width: 100%;text-align: center;}
+
+/* 引导起始面板 */
+.bcgogo_guideTipStartPanel {
+    background: url("res/guide/guideTip_startPanel_background.png") no-repeat center center;
+    width: 464px;height: 233px;position: absolute;
+}
+.bcgogo_guideTipStartPanel .content {
+    height: 165px; width: 420px;margin-left: 22px;float: left;margin-top: 20px;
+}
+.bcgogo_guideTipStartPanel .buttonGroup {
+    height: 33px;width: 420px;margin-left: 22px;float:left;
+}
+.bcgogo_guideTipStartPanel .button_associated {
+    background: url("res/guide/associated_button_background.png") no-repeat center center;cursor: pointer;
+    width: 99px;height: 33px;float:left;margin-left: 75px;line-height: 33px;text-align: center;font-size: 16px;color: #832800;font-family: "宋体","Arial";
+}
+.bcgogo_guideTipStartPanel .button_drop {
+    background: url("res/guide/drop_button_background.png") no-repeat center center;cursor: pointer;
+    width:88px;height: 33px;float:left;margin-left: 10px;line-height: 33px;text-align: center;font-size: 12px;color: #3f3f3f;font-family: "宋体","Arial";
+}
+.bcgogo_guideTipStartPanel .checkBox_notRemind {
+    cursor: pointer;
+    width:95px;height: 33px;float:left;margin-left: 10px;line-height: 33px;text-align: center;font-size: 12px;color: #fff;font-family: "宋体","Arial";
+}
+
+
+.bcgogo_guideTipStartPanel .checkBox_notRemind  input {
+    margin-top: -1px;
+    margin-right: 3px;
+    vertical-align: middle;
+}

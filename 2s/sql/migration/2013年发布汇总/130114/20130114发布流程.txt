@@ -1,0 +1,193 @@
+一.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，姬牧晨）
+
+2. 根据permission文件夹下的"权限自定义.txt"中的操作步骤完成权限相关初始化 （肖开波，张峻滔）
+
+3. Solr schema: 更新 product和order的 schema.xml （肖开波）
+
+三.发布应用 （纪友文）
+
+四.添加权限 (生产发布时跳过，权限自定义已包含）
+（一）角色
+//----------------------------------------------new role-----------------------------------------------------------------------------
+进销存--库存管理   新增    仓库调拨
+进销存--库存管理   新增    维修领料
+进销存--库存管理   新增    内部领料
+进销存--库存管理   新增    内部退料
+
+（二）建立关联
+用户组操作：
+
+老板和仓库角色：仓库调拨单
+老板角色：仓库管理
+
+Shop版本操作：
+
+新增 店铺版本   ADVANCED_SHOP("高级版")
+
+（三）资源
+          name                                           type           value                                                          备注
+//-----------------------------------------------------new resource------------------------------------------------------------------------
+//===============================================CRM--shop操作权限--shop数据初始化   (朱星星)   ====================================
+web_bcgogoSystem_init_initStoreHouse                 request      /web/init.do?method=initStoreHouse   初始化仓库
+
+//===============================================  	系统管理--自定义配置管理--仓库管理   (朱星星)   =================================================
+storeManage                                        render         WEB.SYSTEM_SETTINGS.STORE_MANAGE //已经加好了  不用加
+storeManage_storehouseManager                      request       /web/storehouse.do?method=storehouseManager  查看仓库列表
+storeManage_getStoreHouseList                      request       /web/storehouse.do?method=getStoreHouseList  获取仓库列表数据
+storeManage_getStoreHouseDTOById                   request       /web/storehouse.do?method=getStoreHouseDTOById  根据id得到仓库
+storeManage_deleteStoreHouseById                   request       /web/storehouse.do?method=deleteStoreHouseById  根据仓库id删除仓库
+storeManage_saveStoreHouse                         request       /web/storehouse.do?method=saveStoreHouse  保存仓库
+storeManage_getAllStoreHouseDTOs                   request       /web/storehouse.do?method=getAllStoreHouseDTOs  获取所有的有效仓库
+storeManage_validatorStoreHouseOrderRepeal         request       /web/txn.do?method=validatorStoreHouseOrderRepeal 作废单据前校验仓库是否被删除
+
+//===============================================  	进销存--库存管理--仓库调拨 (朱星星)   =================================================
+allocateRecordManage                                        render        WEB.TXN.INVENTORY_MANAGE.ALLOCATE_RECORD          仓库调拨记录管理
+allocateRecordManage_allocateRecordList                     request       /web/allocateRecord.do?method=allocateRecordList  查看仓库调拨记录列表
+allocateRecordManage_getAllocateRecordList                  request       /web/allocateRecord.do?method=getAllocateRecordList  获取仓库调拨记录列表数据
+allocateRecordManage_createAllocateRecord                   request       /web/allocateRecord.do?method=createAllocateRecord  新建仓库调拨记录
+allocateRecordManage_createAllocateRecordByRepairOrder      request       /web/allocateRecord.do?method=createAllocateRecordByRepairOrder  根据施工单新建仓库调拨记录
+allocateRecordManage_createAllocateRecordBySaleOrder        request       /web/allocateRecord.do?method=createAllocateRecordBySaleOrder  根据销售单新建仓库调拨记录
+allocateRecordManage_createAllocateRecordBySaleOrderId      request       /web/allocateRecord.do?method=createAllocateRecordBySaleOrderId  根据销售单Id新建仓库调拨记录
+allocateRecordManage_saveAllocateRecord                     request       /web/allocateRecord.do?method=saveAllocateRecord  保存仓库调拨记录
+allocateRecordManage_showAllocateRecordByAllocateRecordId   request       /web/allocateRecord.do?method=showAllocateRecordByAllocateRecordId  根据id查看仓库调拨记录
+allocateRecordManage_validateAllocateRecord                 request       /web/allocateRecord.do?method=validateAllocateRecord  保存仓库调拨记录前校验
+web_base_getSaleManSuggestion                               request       /web/searchInventoryIndex.do?method=getSaleManSuggestion  获取操作人下拉建议
+web_product_getProductStorehouseStorageBin                  request       /web/product.do?method=getProductStorehouseStorageBinByProductLocalInfoIds  根据仓库获取商品在仓库的货位
+allocateRecordManage_print                                  request       /web/allocateRecord.do?method=print  仓库调拨记录打印
+allocateRecordManage_createAllocateRecordByRepairPicking    request       /web/allocateRecord.do?method=createAllocateRecordByRepairPicking  根据维修领料单新建仓库调拨记录
+
+//===============================================  	进销存--库存管理--维修领料 (邱鑫宇)   =================================================
+repairPicking                                         render        WEB.TXN.INVENTORY_MANAGE.REPAIR_PICKING         维修领料管理
+repairPicking_repairPickingList                       request       /web/pick.do?method=showRepairPickingListPage  查看维修领料记录列表
+repairPicking_ajaxHandleRepairPicking                 request       /web/pick.do?method=ajaxHandleRepairPicking     维修领料查询界面出库，退料操作
+repairPicking_handleRepairPicking                     request       /web/pick.do?method=handleRepairPicking           维修领料详细界面出库，退料操作
+repairPicking_showRepairPicking                       request       /web/pick.do?method=showRepairPicking           查看维修领料详细界面
+repairPicking_printRepairPicking                      request       /web/pick.do?method=printRepairPicking           打印维修领料
+repairPicking_validatorRepairPicking                  request       /web/pick.do?method=validatorRepairPicking       维修领料出库，退料前校验
+validatorLackProductTodo                              request       /web/txn.do?method=validatorLackProductTodo      维修领料点击缺料是否需要调拨校验
+
+//===============================================  	进销存--库存管理--内部领料 (邱鑫宇)   =================================================
+innerPicking                                         render        WEB.TXN.INVENTORY_MANAGE.INNER_PICKING         内部领料管理
+innerPicking_createInnerPicking                      request       /web/pick.do?method=createInnerPicking       新建内部领料
+innerPicking_saveInnerPicking                        request       /web/pick.do?method=saveInnerPicking         保存内部领料
+innerPicking_InnerPickingList                        request       /web/pick.do?method=showInnerPickingListPage  查看内部领料记录列表
+innerPicking_showInnerPicking                        request       /web/pick.do?method=showInnerPicking           查看内部领料详细界面
+innerPicking_printInnerPicking                       request       /web/pick.do?method=printInnerPicking          打印内部领料
+repairPicking_validatorInnerPicking                  request       /web/pick.do?method=validatorInnerPicking     内部领料前校验
+
+//===============================================  	进销存--库存管理--内部退料 (邱鑫宇)   =================================================
+innerReturn                                         render        WEB.TXN.INVENTORY_MANAGE.INNER_RETURN         内部退料管理
+innerReturn_createInnerReturn                       request       /web/pick.do?method=createInnerReturn     新建内部退料
+innerReturn_saveInnerReturn                         request       /web/pick.do?method=saveInnerReturn       保存内部退料
+innerReturn_innerReturnList                         request       /web/pick.do?method=showInnerReturnListPage  查看内部退料记录列表
+innerReturn_showInnerReturn                         request       /web/pick.do?method=showInnerReturn           查看内部退料详细界面
+innerReturn_printInnerReturn                        request       /web/pick.do?method=printInnerReturn           打印内部退料
+innerReturn_validatorInnerReturn                  request       /web/pick.do?method=validatorInnerReturn     内部退料前校验
+//===============================================  车辆施工--保险理赔 (邱鑫宇)   =================================================
+insurance                                         render        WEB.VEHICLE_CONSTRUCTION.INSURANCE         保险理赔
+insurance_createInsuranceOrder                    request       /web/insurance.do?method=createInsuranceOrder     新建保险理赔
+insurance_saveInsuranceOrder                      request       /web/insurance.do?method=saveInsuranceOrder       保存保险理赔
+insurance_createRepairOrderByInsurance            request       /web/insurance.do?method=createRepairOrderByInsurance       生成维修施工单
+insurance_showInsuranceOrderList                  request       /web/insurance.do?method=showInsuranceOrderList  查看保险理赔记录列表
+insurance_showInsuranceOrder                      request       /web/insurance.do?method=showInsuranceOrder           查看保险理赔详细界面
+insurance_validateSaveInsurance                   request       /web/insurance.do?method=validateSaveInsurance           校验保险理赔
+insurance_printInsuranceOrder                     request       /web/insurance.do?method=printInsuranceOrder           打印保险理赔
+customer_ajaxGetCustomerInfo                     request       /web/customer.do?method=ajaxGetCustomerInfo          根据车牌号查客户信息
+
+//===============================================  	进销存--库存管理--库存查询--查看库存量   (朱星星)   =================================================
+ web_product_getProductStorehouseInventory    request       /web/product.do?method=getProductStorehouseInventoryByProductLocalInfoIds  根据仓库获取库存量
+
+//===============================================  	进销存-入库管理-采购单-复制   (姬牧晨)   =================================================
+web_txn_purchase_validateCopy                 request       /web/RFbuy.do?method=validateCopy                 采购单复制前验证
+
+//===============================================  	进销存-入库管理-入库单-复制   (姬牧晨)   =================================================
+web_txn_storage_validateCopy                  request       /web/storage.do?method=validateCopy               入库单复制前验证
+
+//===============================================  	进销存-入库管理-入库单-作废   (朱星星)   =================================================
+web_txn_storage_validateRepeal                request       /web/storage.do?method=validateRepealStorageOrder 入库单作废校验
+
+//===============================================  	进销存-销售管理-销售单-复制   (姬牧晨)   =================================================
+web_txn_sale_validateCopy                     request       /web/sale.do?method=validateCopy                  销售单复制前验证
+
+//===============================================  	进销存-销售管理-销售发货    ===========================================================
+web_txn_sale_validateDispatchSaleOrder        request       /web/sale.do?method=validateDispatchSaleOrder      销售单发货前验证
+
+//===============================================  	车辆施工-洗车美容单-复制   (姬牧晨)   =================================================
+web_txn_wash_validateCopy                     request       /web/washBeauty.do?method=validateCopy            洗车单复制前验证
+
+//===============================================  	进销存-入库管理-入库退货单-新増   (姬牧晨)   =================================================
+web_txn_return_validateCopy                   request       /web/goodsReturn.do?method=validateCopy           入库退货单复制前验证
+
+//===============================================  	车辆施工-车辆施工单-复制   (姬牧晨)   =================================================
+web_txn_invoicing_repairOrder_validateCopy    request       /web/txn.do?method=validateCopyRepairOrder           入库退货单复制前验证
+
+//======================进销存-- 库存盘点（朱星星）==============================
+web_inventory_check_validateInventoryCheck               request  /web/inventoryCheck.do?method=validateInventoryCheck           库存盘点校验仓库是否被删除
+
+//===============================================  	系统管理-系统提醒-系统公告 (董楠)====================================                                                        systemType
+web_sys_admin_reminder_getAnnouncements                request      /admin/sysReminder.do?method=getAnnouncements             获取系统公告列表        CRM
+web_sys_admin_reminder_saveOrUpdateAnnouncement        request      /admin/sysReminder.do?method=saveOrUpdateAnnouncement     保存系统公告            CRM
+web_sys_admin_reminder_deleteAnnouncement              request      /admin/sysReminder.do?method=deleteAnnouncement           删除系统公告            CRM
+web_sys_admin_reminder_getAnnouncementById             request      /admin/sysReminder.do?method=getAnnouncementById          获取公告(admin)         CRM
+web_sys_reminder_getAnnouncementTitleList              request      /web/sysReminder.do?method=getAnnouncementTitleList      获取公告标题的列表      SHOP
+web_sys_reminder_toSysAnnouncement                     request      /web/sysReminder.do?method=toSysAnnouncement            链接到系统公告页面        SHOP
+web_sys_reminder_updateUserReadRecord                  request      /web/sysReminder.do?method=updateUserReadRecord         更新用户读取公告的记录    SHOP
+web_sys_reminder_getAnnouncementById                   request      /web/sysReminder.do?method=getAnnouncementById          获取公告                  SHOP
+web_sys_reminder_announcement                          render       WEB.SYS.REMINDER_ANNOUNCEMENT                           系统公告                  SHOP
+
+//===============================================  SHOP -- 客户管理 -- 客户资料 -- 客户资料查询/查看   (韦凌枫)   ====================================
+web_customer_getSingleMemberConsume                 request      /web/member.do?method=getSingleMemberConsume   查询某个客户的会员卡消费记录
+
+
+五.初始化
+1. 在TXN中执行"历史单据冗余.sql"
+
+2. 在txn中执行：update inventory i set i.last_storage_time = (select edit_date from search.inventory_search_index isi where isi.id = i.id)
+
+3. 在bcuser 库中执行:
+INSERT INTO `user_limit` VALUES (10001, 0, 0, 0, -1, '维修领料', 'REPAIR_PICKING', 'NECESSARY', NULL);
+
+INSERT INTO `insurance_company` VALUES (1001, 1, 1, 0, '平安汽车保险', 1);
+INSERT INTO `insurance_company` VALUES (1002, 1, 1, 0, '中国人保汽车保险', 2);
+INSERT INTO `insurance_company` VALUES (1003, 1, 1, 0, '太平洋汽车保险', 3);
+INSERT INTO `insurance_company` VALUES (1004, 1, 1, 0, '中华联合汽车保险', 4);
+INSERT INTO `insurance_company` VALUES (1005, 1, 1, 0, '大地汽车保险', 5);
+INSERT INTO `insurance_company` VALUES (1006, 1, 1, 0, '天安汽车保险', 6);
+INSERT INTO `insurance_company` VALUES (1007, 1, 1, 0, '永安汽车保险', 7);
+INSERT INTO `insurance_company` VALUES (1008, 1, 1, 0, '阳光汽车保险', 8);
+INSERT INTO `insurance_company` VALUES (1009, 1, 1, 0, '安邦汽车保险', 9);
+INSERT INTO `insurance_company` VALUES (10010, 1, 1, 0, '太平汽车保险', 10);
+INSERT INTO `insurance_company` VALUES (10011, 1, 1, 0, '都邦汽车保险', 11);
+INSERT INTO `insurance_company` VALUES (10012, 1, 1, 0, '永诚汽车保险', 12);
+INSERT INTO `insurance_company` VALUES (10013, 1, 1, 0, '华泰汽车保险', 13);
+INSERT INTO `insurance_company` VALUES (10014, 1, 1, 0, '渤海汽车保险', 14);
+INSERT INTO `insurance_company` VALUES (10015, 1, 1, 0, '大众汽车保险', 15);
+INSERT INTO `insurance_company` VALUES (10016, 1, 1, 0, '天平汽车保险', 16);
+INSERT INTO `insurance_company` VALUES (10017, 1, 1, 0, '民安汽车保险', 17);
+INSERT INTO `insurance_company` VALUES (10018, 1, 1, 0, '华安汽车保险', 18);
+INSERT INTO `insurance_company` VALUES (10019, 1, 1, 0, '安诚汽车保险', 19);
+INSERT INTO `insurance_company` VALUES (10020, 1, 1, 0, '安联汽车保险', 20);
+
+
+4. 在config 库中执行:
+update shop set `status`='REGISTERED' where state=1;
+
+5. jackchen登录后执行：
+web/init.do?method=initStoreHouse
+web/init.do?method=initShopSaleMap
+
+6. solr 重做索引  product和order
+
+七.打印模板：上传新单据5张，老单据：入库单，销售单，施工单，两张退货单 （吴玉德）
+
+八.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

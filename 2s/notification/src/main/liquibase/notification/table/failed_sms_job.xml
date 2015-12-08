@@ -1,0 +1,109 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="caiwei" id="failed_sms_job_1">
+        <createTable tableName="failed_sms_job">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="shop_id" type="bigint"/>
+            <column name="type" type="int"/>
+            <column name="receive_mobile" type="varchar(20)"/>
+            <column name="content" type="varchar(500)"/>
+            <column name="user_id" type="bigint"/>
+            <column name="sender" type="varchar(20)"/>
+            <column name="name" type="varchar(20)"/>
+            <column name="sms_id" type="varchar(50)"/>
+            <column name="vehicle_license" type="varchar(20)"/>
+            <column name="priority" type="int"/>
+            <column name="send_times" type="int"/>
+            <column name="start_time" type="bigint"/>
+            <column name="expire_time" type="bigint"/>
+            <column name="last_send_time" type="bigint"/>
+            <column name="status" type="bigint"/>
+        </createTable>
+
+        <addPrimaryKey tableName="failed_sms_job" columnNames="id" constraintName="pk_failed_sms_job"/>
+
+
+    </changeSet>
+
+    <changeSet author="caiwei" id="failed_sms_job_2">
+        <createIndex tableName="failed_sms_job" indexName="idx_failed_sms_job_shopid_send_time">
+            <column name="shop_id"/>
+            <column name="start_time"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ZhangJuntao" id="failed_sms_job_3">
+        <modifyColumn tableName="failed_sms_job">
+            <column name="status" type="varchar(20)"/>
+        </modifyColumn>
+    </changeSet>
+    <changeSet author="ZhangJuntao" id="failed_sms_job_4">
+        <addColumn tableName="failed_sms_job">
+            <column name="reponse_reason" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ZhangJuntao" id="failed_sms_job_5">
+        <modifyColumn tableName="failed_sms_job">
+            <column name="receive_mobile" type="varchar(500)"/>
+        </modifyColumn>
+    </changeSet>
+    <changeSet author="ZhangJuntao" id="failed_sms_job_6">
+        <modifyColumn tableName="failed_sms_job">
+            <column name="reponse_reason" type="varchar(500)"/>
+        </modifyColumn>
+    </changeSet>
+    <changeSet author="jimuchen" id="failed_sms_job_7">
+        <modifyColumn tableName="failed_sms_job">
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="failed_sms_job_8" author="chenfanglei">
+        <modifyColumn tableName="failed_sms_job">
+            <column name="content" type="varchar(1000)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet author="ZhangJuntao" id="failed_sms_job_9">
+        <addColumn tableName="failed_sms_job">
+            <column name="sms_channel" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="failed_sms_job_10" author="ZhangJuntao">
+        <modifyColumn tableName="failed_sms_job">
+            <column name="content" type="varchar(2000)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="failed_sms_job_11" author="zhangjuntao">
+        <addColumn tableName="failed_sms_job">
+            <column name="sms_send_kind" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="failed_sms_job_12" author="jimuchen">
+        <addColumn tableName="failed_sms_job">
+            <column name="sms_send_scene" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="qiuxinyu" id="failed_sms_job_13">
+        <modifyColumn tableName="failed_sms_job">
+            <column name="receive_mobile" type="varchar(2000)"/>
+        </modifyColumn>
+    </changeSet>
+</databaseChangeLog>

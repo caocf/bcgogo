@@ -1,0 +1,34 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="ndong" id="ndong_1">
+    <createTable tableName="announcement">
+      <column name="id" type="bigint"/>
+      <column name="version" type="bigint" />
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="user_id" type="bigint"/>
+      <column name="title" type="varchar(100)"/>
+      <column name="content" type="mediumblob"/>
+      <column name="release_date" type="bigint"/>
+      <column name="release_man_id" type="bigint"/>
+      <column name="release_man" type="varchar(50)"/>
+      <column name="status" type="varchar(50)"/>
+      <column name="create_date" type="bigint"/>
+    </createTable>
+    <addPrimaryKey tableName="announcement" columnNames="id" constraintName="pk_announcement"/>
+  </changeSet>
+
+  <changeSet author="ndong" id="ndong_2">
+    <createIndex tableName="announcement" indexName="IDX_ANNOUNCEMENT_RELEASEDATE">
+      <column name="release_date"/>
+    </createIndex>
+  </changeSet>
+
+</databaseChangeLog>

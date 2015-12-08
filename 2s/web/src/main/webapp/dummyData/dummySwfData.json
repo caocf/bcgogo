@@ -1,0 +1,15 @@
+[
+    {
+        "uuid":"xxxx-xxxx-xxxx",
+        "id":"swf1",
+        "title":"swf1",
+        "name":"swf1",
+        "width":550,
+        "height":400,
+        "swfStr":"dummyData/assets/swf/test.swf",
+        "xiSwfUrlStr":"assets/swf/playerProductInstall.swf",
+        "ts":"138243212312",
+        "contentWidth":550,
+        "contentHeight":400
+    }
+]

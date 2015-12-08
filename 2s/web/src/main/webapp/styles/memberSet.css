@@ -1,0 +1,140 @@
+.basicMember .basicSet{
+	float:left;
+	color:#000000;
+	font-size:14px;
+	font-weight:bold;
+	border-bottom:2px solid #6E8FBA;
+	width:100%;
+	padding-bottom:5px;
+}
+.basicMember .washCard{
+	float:left;
+	width:100%;
+}
+.basicMember .washCard img{
+	float:left;
+	padding-left:20px;
+}
+.basicMember .cardWords{
+	float:left;
+	height:24px;
+	line-height:24px;
+	padding-left:20px;
+	color:#000000;
+}
+.basicMember .cardWords .txtPrice{
+	border:none;
+	border-bottom:1px solid #6E8FBA;
+	font-size:12px;
+	margin-left:3px;
+	padding-left:6px;
+	width:120px;
+	height:15px;
+	line-height:15px;
+}
+.basicMember .carBeauty{
+	float:left;
+    padding-left: 25px;
+    padding-right: 20px;
+    width: 450px;
+}
+.basicMember .carBeauty .tabBeauty{
+	table-layout:fixed;
+	color:#000000;
+}
+.basicMember .carBeauty .tabBeauty td{
+	height:25px;
+	line-height:25px;
+}
+.basicMember .carBeauty .tabBeauty .table_input{
+	width:90%;
+	font-size:12px;
+}
+.basicMember .cardWords .cardNote{
+	color:#F00000;
+	font-weight:bold;
+}
+.basicMember .cardRuler{
+	float:left;
+	color:#000000;
+	width:320px;
+}
+.basicMember .cardRuler .cardWords{
+	line-height:30px;
+}
+.basicMember .washCard .btnOpera1{
+	float:left;
+	background:url(../images/opera1.jpg) no-repeat;
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	border:none;
+	margin-top:5px;
+}
+.basicMember .btnOpera2{
+	float:left;
+	background:url(../images/opera2.jpg) no-repeat;
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	border:none;
+	margin-top:15px;
+}
+.basicMember .carBeauty .btnOpera2{
+	margin:0px;
+	float:none;
+	margin-left:10px;
+}
+.basicMember .btnAdd{
+	background:url(../images/button_bj.png) no-repeat;
+	width:91px;
+	height:24px;
+	text-align:center;
+	line-height:24px;
+	border:none;
+	cursor:pointer;
+	color:#FFFFFF;
+	margin-left:20px;
+}
+
+.basicMember .btnAdd:hover {
+    color:#663A02;
+    text-decoration: underline;
+}
+.basicMember .cardWords .btnSure{
+	float:right;
+	background:url(../images/sure.png) no-repeat;
+	width:62px;
+	height:26px;
+	line-height:26px;
+	text-align:center;
+	border:none;
+	color:#FFFFFF;
+	cursor:pointer;
+}
+ table tr td .table_input{
+	border:1px solid #7F9DB9;
+	height:17px;
+	width:90%;
+}
+ table tr td .table_input:hover{
+	border: 1px solid #88d9ff;
+}
+ table tr td .table_input:focus{
+	/*background:#E7DBC5;*/
+	background:#EBEBE4;
+}
+
+.basicMember .cardWords{
+	width:900px;
+	height:100%;
+	word-break:normal;
+    word-wrap: break-word;
+}
+.basicMember .cardWords .txtMoney{
+	width:60px;
+}
+
+
+
+

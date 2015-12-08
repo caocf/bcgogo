@@ -1,0 +1,104 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="mazidong" id="repair_order_item_1">
+    <createTable tableName="repair_order_item">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="repair_order_id" type="bigint"/>
+      <column name="product_id" type="bigint"/>
+      <column name="amount" type="float"/>
+      <column name="price" type="float"/>
+      <column name="total" type="float"/>
+      <column name="memo" type="varchar(500)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="repair_order_item_2" author="zhuyinjia">
+    <addPrimaryKey tableName="repair_order_item" columnNames="id" constraintName="pk_repair_order_item"/>
+  </changeSet>
+
+  <changeSet id="repair_order_item_3" author="zhouxiaochen">
+    <createIndex tableName="repair_order_item" indexName="idx_roi_1">
+      <column name="repair_order_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="repair_order_item_4" author="caiwei">
+    <addColumn tableName="repair_order_item">
+      <column name="reserved" type="float"/>
+    </addColumn>
+  </changeSet>
+     <changeSet author="qiuxinyu" id="repair_order_item_5">
+         <addColumn tableName="repair_order_item">
+             <column name="unit" type="varchar(20)"/>
+         </addColumn>
+     </changeSet>
+
+  <changeSet id="repair_order_item_5" author="liuWei">
+    <addColumn tableName="repair_order_item">
+      <column name="shop_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_item_6" author="chenfanglei">
+      <addColumn tableName="repair_order_item">
+          <column name="cost_price" type="float"/>
+          <column name="total_cost_price" type="float"/>
+      </addColumn>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="repair_order_item_7">
+    <modifyColumn tableName="repair_order_item">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+    
+  <changeSet id="repair_order_item_8" author="chenfanglei">
+      <addColumn tableName="repair_order_item">
+          <column name="percentage" type="double"></column>
+          <column name="percentage_amount" type="double"></column>
+      </addColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_item_9" author="chenfanglei">
+      <addColumn tableName="repair_order_item">
+          <column name="business_category_id" type="bigint"></column>
+          <column name="business_category_name" type="varchar(200)"></column>
+      </addColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_item_10" author="liuWei">
+    <createIndex tableName="repair_order_item" indexName="IDX_SHOPID_PRODUCTID_REPAIRORDERID">
+      <column name="shop_id"></column>
+      <column name="product_id"></column>
+      <column name="repair_order_id"></column>
+    </createIndex>
+  </changeSet>
+
+    <changeSet id="repair_order_item_11" author="jimuchen">
+      <addColumn tableName="repair_order_item">
+          <column name="product_history_id" type="bigint" />
+      </addColumn>
+    </changeSet>
+
+  <changeSet id="repair_order_item_12" author="jimuchen">
+    <modifyColumn tableName="repair_order_item">
+      <column name="total" type="double(20,2)"/>
+      <column name="price" type="double(20,2)"/>
+      <column name="cost_price" type="double(20,2)"/>
+      <column name="total_cost_price" type="double(20,2)"/>
+		</modifyColumn>
+  </changeSet>
+</databaseChangeLog>

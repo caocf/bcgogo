@@ -1,0 +1,110 @@
+@charset "utf-8";
+/* CSS Document */
+.i_history{ background:none;}
+.i_history .i_upCenter {width:515px; }
+.i_history .i_upCenter .i_note{width:465px;}
+.i_history .i_upBody{width:477px; clear:both;}
+.i_history .i_upBottom { background:#f7f7f7;/*_height:8px;_overflow:hidden;*/ }
+.i_history .i_upBottom .i_upBottomCenter{width:507px; }
+.i_mainRight .cus_titleLeft {
+	background:url(../images/cus_left.png) no-repeat;
+	height:23px;
+	width:4px;
+	float:left;
+}
+ .i_mainRight .cus_titleRight {
+	float:left;
+	background:url(../images/cus_right.png) no-repeat;
+	height:23px;
+	width:4px;
+}
+ .i_mainRight .cus_titleBody {
+	float:left;
+	background:url(../images/cus_bg.png) repeat-x;
+	height:23px;
+	width:490px;
+	color:#FFFFFF;
+	line-height:23px;
+}
+ .i_mainRight .cus_titleBody div{  float:left; font-size:12px; }
+.i_history  .i_mainRight{padding:10px 8px; width:501px;}
+.cus_table tr td{font-size:12px; height:30px; line-height:30px;white-space:nowrap;overflow: hidden;}
+.cus_current{color:#6d8fb9;font-size:14px;}
+.i_sure .out{
+	float:left;
+	margin-top:10px;
+	background:url(../images/i_leftsure.jpg) no-repeat;
+	width:50px;
+	height:20px;
+	text-align:center;
+	color:#157ECB;
+	font-weight:bold;
+	border:none;
+	cursor:pointer;
+}
+.i_leftBtn{
+	float:left;
+	width:450px;
+	padding-top:10px;
+}
+.i_leftBtn .i_leftCount{
+	float:left;
+	background:url(../images/count.jpg) no-repeat;
+	height:20px;
+	width:20px;
+	text-align:center;
+	line-height:18px;
+	color:#157ECB;
+	margin-left:5px;
+	cursor:pointer;
+}
+.i_leftBtn .i_leftCountHover{
+	float:left;
+	width:20px;
+	height:20px;
+	line-height:18px;
+	text-align:center;
+}
+/* .i_sure {
+    background:url(../images/check_on.jpg) no-repeat 0px 3px;
+	padding-left:20px;
+	cursor:pointer;
+}*/
+  .label_check {
+    background:url(../images/check_on.jpg) no-repeat 0px 3px;
+	padding-left:20px;
+	cursor:pointer;
+}
+ label.c_on {
+    background:url(../images/check_off.jpg) no-repeat 0px 3px;
+	cursor:pointer;
+}
+ .label_check input {
+    left: -9999px;
+    position: absolute;
+}
+.i_sure{padding-right:20px;}
+.i_sure input
+{
+	display:block;
+	float:right;
+	margin-left:10px;
+	font-size:12px;
+	color:#6d8fb9;
+	font-weight:bold;
+}
+.btn_show{width:517px; background:#f7f7f7;border-right:1px solid #d2d2d2;border-left:1px solid #d2d2d2;}
+.i_leftBtn{ float:right; width:100px;}
+.i_leftCountHover{color:#6d8fb9;}
+.checkAll{ background:url(../images/check_off.jpg) no-repeat; width:15px; height:16px; margin-top:12px; margin-left:35px;float:left;}
+.all_show{font-size:12px;font-weight:bold; color:#666666; display:block; float:left; margin-top:12px;margin-left:10px;}
+#chk_show label{ background:url(../images/check_off.jpg) no-repeat;width:15px; height:16px; display:block; margin-left:5px;}
+.i_history #chk_show {width:495px;}
+.cor{ background:#f2f2f2;}
+#chk_show tr td{color:#666;}
+.btn_show .chk_show,.btn_show .all_teo{ margin:0px 0px 0px 10px;}
+.btn_show .all_teo{ margin-left:5px;}
+
+.chk_show{
+    margin-left: 0px;
+}

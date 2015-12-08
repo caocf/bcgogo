@@ -1,0 +1,213 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="Caiwei" id="purchase_order_1">
+        <createTable tableName="purchase_order">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="date" type="bigint"/>
+            <column name="no" type="varchar(20)"/>
+            <column name="ref_no" type="varchar(20)"/>
+            <column name="dept_id" type="bigint"/>
+            <column name="dept" type="varchar(20)"/>
+            <column name="supplier_id" type="bigint"/>
+            <column name="suppllier" type="varchar(20)"/>
+            <column name="executor_id" type="bigint"/>
+            <column name="executor" type="varchar(20)"/>
+            <column name="total" type="float"/>
+            <column name="delivery_date" type="bigint"/>
+            <column name="status" type="bigint"/>
+            <column name="memo" type="varchar(500)"/>
+            <column name="editor_id" type="bigint"/>
+            <column name="editor" type="bigint"/>
+            <column name="edit_date" type="bigint"/>
+            <column name="reviewer_id" type="bigint"/>
+            <column name="reviewer" type="varchar(20)"/>
+            <column name="review_date" type="bigint"/>
+            <column name="invalidateor_id" type="bigint"/>
+            <column name="invalidator" type="varchar(20)"/>
+            <column name="invalidate_date" type="bigint"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="purchase_order_2" author="zhuyinjia">
+        <addPrimaryKey tableName="purchase_order" columnNames="id" constraintName="pk_purchase_order"/>
+    </changeSet>
+
+    <changeSet id="purchase_order_3" author="zhuyinjia">
+        <modifyColumn tableName="purchase_order">
+            <column name="editor" type="varchar(20)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet author="luyi" id="purchase_order_4">
+        <createIndex tableName="purchase_order" indexName="IDX_PURCHASEORDER_SHOPID_SUPPLIERID_EDITDATE">
+            <column name="shop_id"/>
+            <column name="supplier_id"/>
+            <column name="edit_date"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="zhoudongming" id="purchase_order_5">
+        <addColumn tableName="purchase_order">
+            <column name="bill_producer" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+   <changeSet author="caiwei" id="purchase_order_6">
+     <dropIndex indexName="IDX_PURCHASEORDER_SHOPID_SUPPLIERID_EDITDATE" tableName="purchase_order" />
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="purchase_order_7">
+        <createIndex tableName="purchase_order" indexName="IDX_PURCHASEORDER_SHOPID_SUPPLIERID">
+            <column name="shop_id"/>
+            <column name="supplier_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="purchase_order_8">
+        <dropIndex indexName="IDX_PURCHASEORDER_SHOPID_SUPPLIERID" tableName="purchase_order" />
+        <createIndex tableName="purchase_order" indexName="IDX_PURCHASEORDER_SHOPID">
+            <column name="shop_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="qiuxinyu" id="purchase_order_9">
+        <modifyColumn tableName="purchase_order">
+            <column name="suppllier" type="varchar(100)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet author="chenfanglei" id="purchase_order_10">
+        <addColumn tableName="purchase_order">
+            <column name="vest_date" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="purchase_order_11" author="chenfanglei">
+      <modifyColumn tableName="purchase_order">
+        <column name="bill_producer" type="varchar(100)"></column>
+      </modifyColumn>
+    </changeSet>
+
+    <changeSet author="jimuchen" id="purchase_order_12">
+        <addColumn tableName="purchase_order">
+            <column name="status_enum" type="varchar(50)"></column>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="purchase_order_13">
+    <modifyColumn tableName="purchase_order">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+    <changeSet id="purchase_order_14" author="chenfanglei">
+      <addColumn tableName="purchase_order">
+        <column name="bill_producer_id" type="bigint"></column>
+      </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="purchase_order_15">
+    <renameColumn tableName="purchase_order" oldColumnName="suppllier" newColumnName="supplier" columnDataType="varchar(100)"/>
+  </changeSet>
+
+    <changeSet id="purchase_order_16" author="chenfanglei">
+        <addColumn tableName="purchase_order">
+            <column name="receipt_no" type="varchar(20)"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="purchase_order_17" author="chenfanglei">
+        <createIndex tableName="purchase_order" indexName="IDX_PURCHASEORDER_RECEIPT_NO">
+            <column name="shop_id"></column>
+            <column name="receipt_no"></column>
+        </createIndex>
+    </changeSet>
+
+      <changeSet id="purchase_order_18" author="qiuxinyu">
+      <addColumn tableName="purchase_order">
+        <column name="refuse_msg" type="varchar(200)"/>
+      </addColumn>
+    </changeSet>
+		<changeSet id = "purchase_order_19" author="qiuxinyu">
+		<addColumn tableName="purchase_order">
+			<column name="express_id" type="bigint"/>
+		</addColumn>
+	</changeSet>
+	<changeSet id = "purchase_order_20" author="qiuxinyu">
+		<addColumn tableName="purchase_order">
+			<column name="pre_dispatch_date" type="bigint"/>
+		</addColumn>
+	</changeSet>
+
+  <changeSet id = "purchase_order_21" author="jimuchen">
+		<modifyColumn tableName="purchase_order">
+      <column name="refuse_msg" type="varchar(500)"/>
+		</modifyColumn>
+	</changeSet>
+
+    <changeSet id = "purchase_order_22" author="jimuchen">
+		<addColumn tableName="purchase_order">
+			<column name="supplier_contact" type="varchar(20)"/>
+            <column name="supplier_mobile" type="varchar(20)"/>
+            <column name="supplier_landline" type="varchar(20)"/>
+            <column name="supplier_address" type="varchar(50)"/>
+		</addColumn>
+	</changeSet>
+
+  <changeSet id = "purchase_order_23" author="jimuchen">
+		<modifyColumn tableName="purchase_order">
+      <column name="supplier_mobile" type="varchar(100)"/>
+      <column name="supplier_landline" type="varchar(100)"/>
+      <column name="supplier_address" type="varchar(100)"/>
+		</modifyColumn>
+	</changeSet>
+
+    <changeSet id="purchase_order_qiuxinyu_24" author="qiuxinyu">
+        <addColumn tableName="purchase_order">
+            <column name="supplier_shop_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet id="purchase_order_25" author="jimuchen">
+      <addColumn tableName="purchase_order">
+          <column name="inventory_vest_date" type="bigint"/>
+      </addColumn>
+  </changeSet>
+
+  <changeSet id="purchase_order_26" author="jimuchen">
+    <dropIndex tableName="purchase_order" indexName="IDX_PURCHASEORDER_SHOPID"/>
+  </changeSet>
+
+  <changeSet id="purchase_order_27" author="jimuchen">
+    <modifyColumn tableName="purchase_order">
+      <column name="total" type="double(20,2)"/>
+		</modifyColumn>
+  </changeSet>
+
+    <changeSet id="purchase_order_28" author="zhuj">
+        <addColumn tableName="purchase_order">
+            <column name="supplier_contact_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="purchase_order_ndong_29" author="ndong">
+        <addColumn tableName="purchase_order">
+            <column name="promotions_info_json" type="varchar(500)"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

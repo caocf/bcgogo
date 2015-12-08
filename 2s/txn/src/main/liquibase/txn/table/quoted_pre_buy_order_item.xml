@@ -1,0 +1,37 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xzhu" id="quoted_pre_buy_order_item_xzhu_1">
+        <createTable tableName="quoted_pre_buy_order_item">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="pre_buy_order_item_id" type="bigint"/>
+            <column name="pre_buy_order_id" type="bigint"/>
+            <column name="quoted_pre_buy_order_id" type="bigint"/>
+            <column name="shop_id" type="bigint"/>
+            <column name="product_id" type="bigint"/>
+            <column name="price" type="double"/>
+            <column name="arrival_time" type="int"/>
+            <column name="unit" type="varchar(20)"/>
+
+            <column name="including_tax" type="varchar(70)" />
+            <column name="shipping_method" type="varchar(70)" />
+            <column name="memo" type="varchar(500)" />
+            <column name="quoted_result" type="varchar(70)" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="quoted_pre_buy_order_item_xzhu_2" author="xzhu">
+        <addPrimaryKey tableName="quoted_pre_buy_order_item" columnNames="id" constraintName="pk_quoted_pre_buy_order_item"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,107 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="liuWei" id="supplier_comment_record_1">
+    <createTable tableName="supplier_comment_record">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="supplier_shop_id" type="bigint"/>
+      <column name="supplier_id" type="bigint"/>
+      <column name="supplier" type="varchar(100)"/>
+
+      <column name="customer_shop_id" type="bigint"/>
+      <column name="customer_id" type="bigint"/>
+      <column name="customer" type="varchar(100)"/>
+
+      <column name="purchase_order_id" type="bigint"/>
+      <column name="purchase_inventory_id" type="bigint"/>
+      <column name="sales_order_id" type="bigint"/>
+      <column name="comment_time" type="bigint"/>
+      <column name="comment_content" type="varchar(1000)"/>
+
+      <column name="quality_score" type="double"/>
+      <column name="performance_score" type="double"/>
+      <column name="speed_score" type="double"/>
+      <column name="attitude_score" type="double"/>
+
+      <column name="comment_status" type="varchar(50)"/>
+
+    </createTable>
+    <addPrimaryKey tableName="supplier_comment_record" columnNames="id" constraintName="pk_supplier_comment_record"/>
+    <createIndex tableName="supplier_comment_record" indexName="idx_purchaseorderid_customershopid">
+      <column name="purchase_order_id"/>
+      <column name="customer_shop_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="supplier_comment_record_2" author="liuWei">
+    <modifyColumn tableName="supplier_comment_record">
+      <column name="comment_content" type="varchar(1500)"/>
+    </modifyColumn>
+  </changeSet>
+
+
+  <changeSet id="supplier_comment_record_3" author="liuWei">
+    <renameTable oldTableName="supplier_comment_record" newTableName="comment_record"/>
+  </changeSet>
+
+  <changeSet id="comment_record_1" author="liuWei">
+    <renameColumn tableName="comment_record" oldColumnName="supplier_shop_id" newColumnName="comment_target_shop_id"
+                  columnDataType="bigint"/>
+    <renameColumn tableName="comment_record" oldColumnName="supplier_id" newColumnName="comment_target_id"
+                  columnDataType="bigint"/>
+    <renameColumn tableName="comment_record" oldColumnName="supplier" newColumnName="comment_target"
+                  columnDataType="varchar(100)"/>
+    <addColumn tableName="comment_record">
+      <column name="comment_target_type" type="varchar(50)"/>
+    </addColumn>
+
+    <renameColumn tableName="comment_record" oldColumnName="customer_shop_id" newColumnName="commentator_shop_id"
+                  columnDataType="bigint"/>
+    <renameColumn tableName="comment_record" oldColumnName="customer_id" newColumnName="commentator_id"
+                  columnDataType="bigint"/>
+    <renameColumn tableName="comment_record" oldColumnName="customer" newColumnName="commentator"
+                  columnDataType="varchar(150)"/>
+    <addColumn tableName="comment_record">
+      <column name="commentator_type" type="varchar(50)"/>
+    </addColumn>
+
+    <renameColumn tableName="comment_record" oldColumnName="purchase_order_id" newColumnName="order_id"
+                  columnDataType="bigint"/>
+    <addColumn tableName="comment_record">
+      <column name="order_type" type="varchar(50)"/>
+      <column name="comment_record_type" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="comment_record_2" author="liuWei">
+    <addColumn tableName="comment_record">
+      <column name="comment_score" type="double"/>
+    </addColumn>
+  </changeSet>
+
+    <changeSet id="comment_record_3" author="mayan">
+        <addColumn tableName="comment_record"><column name="customer_id" type="bigint"/></addColumn>
+    </changeSet>
+
+    <changeSet id="comment_record_4" author="mayan">
+        <addColumn tableName="comment_record"><column name="receipt_no" type="varchar(20)"/></addColumn>
+    </changeSet>
+
+    <changeSet id="comment_record_5" author="mayan">
+    <createIndex tableName="comment_record" indexName="idx_commentTargetShopId_commentScore">
+        <column name="comment_target_shop_id"/>
+        <column name="comment_score"/>
+    </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,58 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="cli" id="config_1">
+    <createTable tableName="config" >
+      <column name="id" type="bigint"/>
+      <column name="version" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="name" type="varchar(100)" >
+        <constraints nullable="false"/>
+      </column>
+      <column name="value" type="varchar(200)"/>
+    </createTable>
+  </changeSet>
+<!--<changeSet author="zhangchuanlong" id="config_4">-->
+            <!--<comment>insert sql</comment>-->
+            <!--<sqlFile path="D:/Project/bcgogo/sql/config_insert_sql.sql" />-->
+    <!--</changeSet>-->
+  <changeSet id="config_2" author="cli">
+    <addPrimaryKey tableName="config" columnNames="shop_id,name" constraintName="pk_config"/>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="config_3">
+      <createIndex tableName="config" indexName="idx_config_shopid_name">
+          <column name="shop_id" />
+          <column name="name" />
+      </createIndex>
+  </changeSet>
+
+   <changeSet author="dongnan" id="cofing_4">
+        <addColumn tableName="config">
+            <column name="description" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="config_5">
+    <modifyColumn tableName="config">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="config_6" author="sinYuQiu">
+      <modifyColumn tableName="config">
+          <column name="value" type="varchar(1000)"/>
+      </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

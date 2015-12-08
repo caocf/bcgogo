@@ -1,0 +1,32 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                    http://www.springframework.org/schema/security
+                    http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
+
+    <http auto-config='true'>
+        <intercept-url pattern="/app/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/login.jsp*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/styles/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/images/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/js/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/scripts/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/font/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/AUTHENTICATED/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/active.do/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <session-management invalid-session-url="/login.jsp"/>
+        <form-login login-page='/login.jsp' authentication-success-handler-ref="authenticationSuccessHandler"/>
+    </http>
+
+    <beans:bean id="authenticationSuccessHandler" class="com.bcgogo.admin.security.RoleBasedAuthenticationSuccessHandler"/>
+
+    <beans:bean id="daoAuthenticationProvider" class="com.bcgogo.admin.security.BCAuthenticationProvider"/>
+
+    <authentication-manager>
+        <authentication-provider ref='daoAuthenticationProvider'/>
+    </authentication-manager>
+
+</beans:beans>
+

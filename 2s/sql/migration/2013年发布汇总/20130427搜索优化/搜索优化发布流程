@@ -1,0 +1,19 @@
+一.资源
+//===========================================================  版本资源======================================================================================================
+WEB_VERSION_DISABLE_SEARCH_SUPPLIER_ONLINE                  logic               WEB.VERSION.DISABLE.SEARCH.SUPPLIER.ONLINE              //禁用推荐供应商搜索        REPAIR_SHOP("初级版")，WASH_SHOP("微型版")
+WEB_VERSION_DISABLE_SEARCH_ACCESSORY_ONLINE                 logic               WEB.VERSION.DISABLE.SEARCH.ACCESSORY.ONLINE             //禁用推荐配件报价搜索      REPAIR_SHOP("初级版")，WASH_SHOP("微型版")
+WEB_VERSION_DISABLE_SEARCH_CUSTOMER_INVENTORY_ONLINE        logic               WEB.VERSION.DISABLE.SEARCH.CUSTOMER.INVENTORY.ONLINE    //禁用推荐客户库存搜索      WASH_SHOP("微型版")， 汽修
+WEB_VERSION_DISABLE_SEARCH_CUSTOMER_ONLINE                  logic               WEB.VERSION.DISABLE.SEARCH.CUSTOMER.ONLINE              //禁用推荐推荐客户搜索      WASH_SHOP("微型版")， 汽修
+
+web_online_getCustomerSupplierOnlineSuggestion             request         /web/searchInventoryIndex.do?method=getCustomerSupplierOnlineSuggestion  //推荐在线供应商或者客户下拉建议   登录基本权限
+
+
+
+CRM--SHOP操作权限--SHOP数据初始化
+
+initShopNamePy                request          /web/init.do?method=initShopNamePy           初始化店铺名字拼音
+initCustomerStockData         request          /web/init.do?method=initCustomerStockData    初始化客户库存最近交易数据
+
+二.初始化
+1. /web/init.do?method=initShopNamePy，/web/init.do?method=initCustomerStockData
+2. 所有 solr 更新schema和重做索引

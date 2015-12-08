@@ -1,0 +1,155 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="mazidong" id="reception_record_1">
+    <createTable tableName="reception_record">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="receivable_id" type="bigint"/>
+      <column name="receivable_no" type="varchar(20)"/>
+      <column name="amount" type="float"/>
+      <column name="payee_id" type="bigint"/>
+      <column name="payee" type="varchar(20)"/>
+      <column name="receive_time" type="bigint"/>
+      <column name="memo" type="varchar(500)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="reception_record_2" author="zhuyinjia">
+    <addPrimaryKey tableName="reception_record" columnNames="id" constraintName="pk_reception_record"/>
+  </changeSet>
+
+  <changeSet author="luyi" id="reception_record_3">
+    <createIndex tableName="reception_record" indexName="IDX_RECEPTIONRECORD_RECEIVABLEID">
+      <column name="receivable_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="reception_record_4">
+    <modifyColumn tableName="reception_record">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="reception_record_5" author="chenfanglei">
+    <addColumn tableName="reception_record">
+      <column name="member_balance_pay" type="double"></column>
+      <column name="accumulate_points_pay" type="double"></column>
+      <column name="accumulate_points" type="bigint"></column>
+    </addColumn>
+  </changeSet>
+  <changeSet id="reception_record_6" author="chenfanglei">
+    <addColumn tableName="reception_record">
+      <column name="cheque_no" type="varchar(20)"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="reception_record_7" author="liuWei">
+    <addColumn tableName="reception_record">
+      <column name="cash" type="double"></column>
+      <column name="bank_card" type="double"></column>
+      <column name="cheque" type="double"></column>
+      <column name="member_id" type="bigint"></column>
+    </addColumn>
+  </changeSet>
+
+
+  <changeSet id="reception_record_8" author="liuWei">
+    <addColumn tableName="reception_record">
+      <column name="record_num" type="bigint"></column>
+      <column name="origin_debt" type="double"></column>
+      <column name="discount" type="double"></column>
+      <column name="remain_debt" type="double"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="reception_record_9" author="liuWei">
+    <addColumn tableName="reception_record">
+      <column name="shop_id" type="bigint"></column>
+      <column name="order_id" type="bigint"/>
+      <column name="reception_date" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="reception_record_10" author="liuWei">
+    <addColumn tableName="reception_record">
+      <column name="order_total" type="double"></column>
+      <column name="order_type_enum" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="reception_record_11" author="liuWei">
+    <addColumn tableName="reception_record">
+      <column name="order_status_enum" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+
+  <changeSet id="reception_record_12" author="liuWei">
+    <addColumn tableName="reception_record">
+      <column name="day_type" type="varchar(20)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="liuWei" id="reception_record_13">
+    <createIndex tableName="reception_record" indexName="IDX_SHOPID_RECEPTIONDATE">
+      <column name="shop_id"/>
+      <column name="reception_date"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="reception_record_14" author="chenfanglei">
+      <addColumn tableName="reception_record">
+          <column name="member_discount_ratio" type="double"></column>
+          <column name="after_member_discount_total" type="double"></column>
+      </addColumn>
+  </changeSet>
+
+  <changeSet id="reception_record_15" author="jimuchen">
+    <addColumn tableName="reception_record">
+      <column name="strike" type="double" />
+    </addColumn>
+  </changeSet>
+
+   <changeSet id="reception_record_16" author="liuWei">
+    <addColumn tableName="reception_record">
+      <column name="sale_return_id" type="bigint" />
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="reception_record_17" author="liuWei">
+    <addColumn tableName="reception_record">
+      <column name="statement_amount" type="double" />
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="reception_record_18" author="liuWei">
+    <addColumn tableName="reception_record">
+      <column name="receivable_history_id" type="bigint" />
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="reception_record_19" author="jinyuan">
+    <addColumn tableName="reception_record">
+      <column name="to_pay_time" type="bigint" />
+    </addColumn>
+  </changeSet>
+
+   <changeSet id="reception_record_20" author="zhuj">
+    <addColumn tableName="reception_record">
+      <column name="deposit" type="double" />
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

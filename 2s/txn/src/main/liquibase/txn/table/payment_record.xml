@@ -1,0 +1,44 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="mazidong" id="payment_record_1">
+    <createTable tableName="payment_record">
+        <column name="id" type="bigint"/>
+        <column name="created" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="last_update" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="version" type="bigint">
+            <constraints nullable="true"/>
+        </column>
+        <column name="payable_id" type="bigint"/>
+        <column name="payable_no" type="varchar(20)"/>
+        <column name="amount" type="float"/>
+        <column name="payer_id" type="bigint"/>
+        <column name="payer" type="varchar(20)"/>
+        <column name="pay_time" type="bigint"/>
+        <column name="memo" type="varchar(500)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet  id="payment_record_2" author="zhuyinjia">
+    <addPrimaryKey tableName="payment_record" columnNames="id" constraintName="pk_payment_record"/>
+  </changeSet>
+
+    <changeSet author="luyi" id="payment_record_3">
+        <createIndex tableName="payment_record" indexName="IDX_PAYMENTRECORD_PAYABLEID">
+            <column name="payable_id"/>
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="payment_record_4">
+    <modifyColumn tableName="payment_record">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,57 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="liuWei" id="user_client_info_1">
+        <createTable tableName="user_client_info">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="user_no" type="varchar(50)"/>
+            <column name="browser" type="varchar(100)"/>
+            <column name="os" type="varchar(100)"/>
+            <column name="cpu" type="varchar(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="liuWei" id="user_client_info_2">
+        <addPrimaryKey tableName="user_client_info" columnNames="id" constraintName="pk_user_client_info"/>
+    </changeSet>
+
+    <changeSet author="liuWei" id="user_client_info_3">
+        <createIndex tableName="user_client_info" indexName="index_shop_id_user_no">
+            <column name="shop_id"/>
+            <column name="user_no"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="user_client_info_4" author="liuWei">
+        <modifyColumn tableName="user_client_info">
+            <column name="browser" type="varchar(200)"/>
+            <column name="os" type="varchar(200)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="user_client_info_5" author="liuWei">
+        <modifyColumn tableName="user_client_info">
+            <column name="browser" type="varchar(500)"/>
+            <column name="os" type="varchar(500)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="user_client_info_6" author="ndong">
+        <addColumn tableName="user_client_info">
+            <column name="finger" type="varchar(50)"/>
+            <column name="frequency" type="int"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

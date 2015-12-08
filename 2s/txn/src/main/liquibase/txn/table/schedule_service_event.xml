@@ -1,0 +1,45 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="zhuyinjia" id="schedule_service_event_1">
+    <createTable tableName="schedule_service_event">
+        <column name="id" type="bigint"/>
+        <column name="created" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="last_update" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="version" type="bigint">
+            <constraints nullable="true"/>
+        </column>
+        <column name="shop_id" type="bigint"/>
+        <column name="vechicle_id" type="bigint"/>
+        <column name="customer_id" type="bigint"/>
+        <column name="service_type" type="varchar(20)"/>
+        <column name="service_date" type="bigint"/>
+        <column name="content" type="varchar(100)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet  id="schedule_service_event_2" author="zhuyinjia">
+    <addPrimaryKey tableName="schedule_service_event" columnNames="id" constraintName="pk_schedule_service_event"/>
+  </changeSet>
+
+    <changeSet author="luyi" id="schedule_service_event_3">
+        <createIndex tableName="schedule_service_event" indexName="IDX_SCHEDULESERVICEEVENT_SHOPID_CUSTOMERID_VEHICLEID">
+            <column name="shop_id"/>
+            <column name="customer_id"/>
+            <column name="vechicle_id"/>
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="schedule_service_event_4">
+    <modifyColumn tableName="schedule_service_event">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+</databaseChangeLog>

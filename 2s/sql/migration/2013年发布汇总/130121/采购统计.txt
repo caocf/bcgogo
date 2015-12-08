@@ -1,0 +1,22 @@
+//CRM->店铺业务统计->采购统计 刘伟
+1.在后台权限维护中 模块-角色-资源维护中
+增加 店铺业务统计 子模块,在该子模块增加 采购统计 子角色;
+
+2.  执行如下sql
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`) VALUES ('520200001','1','1','1','店铺业务统计','','','','店铺业务统计','10',null,null,'true');
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`) VALUES ('520200002','1','1','1','采购统计','Ext.controller.normalProductInventoryStat.NormalProductStatController','COMPONENT','','采购统计','1',520200001,520200101,'true');
+
+3.增加新资源
+             name                     value                          type          memo
+====================================role:CRM_NORMAL_PRODUCT_INVENTORY_STAT_SEARCH====================================
+CRM_normal_product_stat_search         Ext.controller.normalProductInventoryStat.NormalProductStatController             render        采购统计查询
+
+4.将第三步所添加的资源 增加到 第一步的子角色中（采购统计角色）。
+
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,520200101,540000118,1,1,1);
+
+             name                     value                          type          memo
+====================================role:CRM_NORMAL_PRODUCT_INVENTORY_STAT_SEARCH====================================
+CRM_normal_product_stat_search         Ext.controller.normalProductInventoryStat.NormalProductStatController             render        采购统计查询
+5.执行sql(bcuser)
+update tree_menu   set role_id = ( select id from role where value ='采购统计' and type='CRM' )  where id = 520200002;

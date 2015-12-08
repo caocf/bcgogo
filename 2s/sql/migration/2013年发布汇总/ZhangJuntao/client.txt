@@ -1,0 +1,12 @@
+后台系统配置
+PushMessageSwitch                               ON                            消息推送开关
+ClientCurrentVersion                            1.0                           客户端当前版本
+FirefoxCurrentVersion                           21.0                          火狐浏览器当前版本
+ClientNextRequestTimeInterval                    10                          下次请求时间间隔(分钟)
+CancelRecommendAssociatedCountLimit              10                          关联匹配最大次数
+FirefoxUpdateUrl            http://download.firefox.com.cn/releases/webins3.0/official/zh-CN/Firefox-latest.exe            firefox更新地址
+ClientUpdateUrl            http://download.firefox.com.cn/releases/webins3.0/official/zh-CN/Firefox-latest.exe            client更新地址
+PushMessageLifeCycle                               432000000                              推送消息有效时间5天  单位ms
+
+update customer set cancel_recommend_associated_count=0;
+update supplier set cancel_recommend_associated_count=0;

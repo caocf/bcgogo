@@ -1,0 +1,49 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet author="zhoudongming" id="category_1">
+        <createTable tableName="category">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="category_name" type="varchar(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="zhoudongming" id="category_2">
+        <addPrimaryKey tableName="category" columnNames="id" constraintName="pk_category"/>
+    </changeSet>
+    <changeSet author="zhoudongming" id="category_3">
+        <addColumn tableName="category">
+            <column name="category_type" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="zhoudongming" id="category_4">
+      <createIndex tableName="category" indexName="IDX_CATEGORY_ID_SHOPID_NAME">
+        <column name="id"/>
+        <column name="shop_id"/>
+        <column name="category_name"/>
+      </createIndex>
+    </changeSet>
+
+    <changeSet id="category_5" author="chenfanglei">
+        <addColumn tableName="category">
+            <column name="status" type="varchar(20)"></column>
+        </addColumn>
+    </changeSet>
+
+  <changeSet id="category_6" author="jimuchen">
+    <dropIndex tableName="category" indexName="IDX_CATEGORY_ID_SHOPID_NAME"/>
+    <createIndex tableName="category" indexName="IDX_CATEGORY_SHOPID_NAME">
+			<column name="shop_id"/>
+      <column name="category_name"/>
+		</createIndex>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,28 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="sinYuQiu" id="app_user_config_1">
+    <createTable tableName="app_user_config" >
+      <column name="id" type="bigint"/>
+      <column name="version" type="bigint">
+          <constraints nullable="false" />
+      </column>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="app_user_no" type="varchar(100)"/>
+      <column name="name" type="varchar(100)" >
+        <constraints nullable="false"/>
+      </column>
+      <column name="value" type="varchar(200)"/>
+      <column name="sync_time" type="bigint"/>
+      <column name="description" type="varchar(100)"/>
+    </createTable>
+      <addPrimaryKey tableName="app_user_config" columnNames="id" constraintName="pk_app_user_config"/>
+  </changeSet>
+</databaseChangeLog>

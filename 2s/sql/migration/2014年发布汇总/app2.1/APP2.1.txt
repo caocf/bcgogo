@@ -1,0 +1,86 @@
+一.备份现有生产上war包,停掉热备份
+  把api 发布一份到一台http的服务器上配置  HTTP_SERVER_URL
+
+二.发布前准备
+  1. 数据库更新： 根据Liquibase生成的DDL语句更新表结构.
+
+  2. Solr更新:
+
+  3.JVM环境配置
+  -Dis.production.environment=false (测试)
+  -Dis.production.environment=true (生产)
+
+三.发布应用
+
+四.配置
+  1. 权限
+    CRM --------SHOP操作权限------SHOP数据初始化,  新增资源
+    （新）initJuheViolateRegulationCitySearchCondition    /web/juhe.do?method=initJuheViolateRegulationCitySearchCondition     初始化聚合城市参数接口    request  shop
+    （新）initBinding    /web/shopInit.do?method=initBinding     初始化obd与shop绑定    request  shop
+
+     SHOP--------供求中心--------本店资料--------本店资料查询  新增资源
+     sendInActiveLocateStatus SHOP /web/shopData.do?method=sendInActiveLocateStatus  发送坐标不准确 request
+
+
+  2. 短信模板
+
+  3.config 配置
+            name                             value                                                 描述
+        JUHE_VIOLATE_REGULATION_KEY       60ad2a9b3c7bcda13b781dabe01fe843                     聚合云数据平台-全国车辆违章查询key
+        SEARCH_SHOP_LOCATION_DISTANCE          20                          app店铺查询距离范围
+        HTTP_SERVER_URL                    http服务器ip:http服务器端口     http server
+五.数据初始化
+  1. jackchen登录后执行：
+         shopInit.do?method=initBinding
+  2. SQL:
+    2.1 执行area.sql,juhe_violate_regulation_city_search_condition.sql
+
+    2.3 update shop set  locate_status='IN_ACTIVE';
+
+    2.4
+    历史故障码信息初始化=================================================start=================================================
+           1.先备份app_vehicle_fault_info 表数据
+
+           SELECT avf2.* FROM app_vehicle_fault_info avf2 INNER JOIN ( SELECT avf.app_user_no, avf.app_vehicle_id, MAX(avf.report_time) AS maxReportTime, avf.error_code FROM app_vehicle_fault_info avf GROUP BY avf.app_user_no, avf.app_vehicle_id, avf.error_code ) AS avf3 ON avf2.app_user_no = avf3.app_user_no AND avf2.app_vehicle_id = avf3.app_vehicle_id AND avf2.report_time = avf3.maxReportTime AND avf2.error_code = avf3.error_code;
+
+           2.导出sql 文件做数据订正:删除非故障码的数据，修改故障码里有两条故障的数据，保留前一个故障码
+           替换insert 信息：INSERT INTO 后的 ‘‘替换为`app_vehicle_fault_info`
+
+           3.删除表数据：delete  from app_vehicle_fault_info;
+           4.导入上面订正过的SQL数据
+           5.初始化故障码描述
+           UPDATE app_vehicle_fault_info av,
+           product.dictionary_fault_info df
+           SET av.content = df.description
+           WHERE
+                av.content IS NULL
+           AND df.dictionary_id = 100001
+           AND av.error_code = df.fault_code;
+
+           UPDATE app_vehicle_fault_info avf,
+           app_vehicle av,
+           product.vehicle_dictionary pvd,
+           product.dictionary_fault_info pdf
+           SET avf.content = pdf.description
+           WHERE
+                avf.content IS NULL
+           AND avf.app_vehicle_id = av.id
+           AND av.vehicle_brand_id = pvd.brand_id
+           AND pdf.dictionary_id = pvd.dictionary_id
+           AND pdf.fault_code = avf.error_code;
+           邱鑫宇
+    =================================================end=================================================
+  3. Solr索引
+        shop
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+ 1. 测试点
+
+
+回滚步骤：
+1.关闭服务
+2.恢复生产数据库
+3.使用旧war包重新发布
+4.验证功能
+
+
+

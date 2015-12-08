@@ -1,0 +1,68 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="liuWei" id="running_stat_change_1">
+    <createTable tableName="running_stat_change">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+
+      <column name="stat_year" type="bigint"/>
+      <column name="stat_month" type="bigint"/>
+      <column name="stat_day" type="bigint"/>
+
+      <column name="stat_date" type="bigint"/>
+
+      <column name="running_sum" type="double"/>
+
+      <column name="income_sum" type="double"/>
+      <column name="cash_income" type="double"/>
+      <column name="cheque_income" type="double"/>
+      <column name="union_pay_income" type="double"/>
+      <column name="member_pay_income" type="double"/>
+      <column name="debt_new_income" type="double"/>
+      <column name="debt_withdrawal_income" type="double"/>
+      <column name="deposit_pay_income" type="double"/>
+
+      <column name="expenditure_sum" type="double"/>
+      <column name="cash_expenditure" type="double"/>
+      <column name="cheque_expenditure" type="double"/>
+      <column name="union_pay_expenditure" type="double"/>
+
+      <column name="deposit_pay_expenditure" type="double"/>
+      <column name="debt_new_expenditure" type="double"/>
+      <column name="debt_withdrawal_expenditure" type="double"/>
+
+    </createTable>
+  </changeSet>
+
+  <changeSet author="liuWei" id="running_stat_change_2">
+    <addPrimaryKey tableName="running_stat_change" columnNames="id" constraintName="pk_running_stat_change"/>
+  </changeSet>
+
+  <changeSet id="running_stat_change_3" author="liuWei">
+    <createIndex tableName="running_stat_change" indexName="idx_running_stat_change_shopid_year_month_day">
+      <column name="shop_id"/>
+      <column name="stat_year"/>
+      <column name="stat_month"/>
+      <column name="stat_day"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="running_stat_change_4" author="lw">
+    <addColumn tableName="running_stat_change">
+        <column name="customer_deposit_pay_expenditure" type="double"></column>
+        <column name="customer_debt_discount" type="double"></column>
+    </addColumn>
+</changeSet>
+
+</databaseChangeLog>

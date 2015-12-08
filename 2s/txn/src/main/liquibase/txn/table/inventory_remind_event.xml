@@ -1,0 +1,87 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="zhuyinjia" id="inventory_remind_event_1">
+    <createTable tableName="inventory_remind_event">
+        <column name="id" type="bigint"/>
+        <column name="created" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="last_update" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="version" type="bigint">
+            <constraints nullable="true"/>
+        </column>
+        <column name="shop_id" type="bigint"/>
+        <column name="purchase_order_id" type="bigint"/>
+        <column name="content" type="varchar(500)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet  id="inventory_remind_event_2" author="zhuyinjia">
+    <addPrimaryKey tableName="inventory_remind_event" columnNames="id" constraintName="pk_inventory_remind_event"/>
+  </changeSet>
+
+  <changeSet author="caiwei" id="inventory_remind_event_3">
+    <addColumn tableName="inventory_remind_event">
+      <column name="product_name" type="varchar(100)"/>
+      <column name="product_brand" type="varchar(40)"/>
+      <column name="product_spec" type="varchar(40)"/>
+      <column name="product_model" type="varchar(40)"/>
+      <column name="supplier" type="varchar(40)"/>
+      <column name="amount" type="float"/>
+      <column name="price" type="float"/>
+    </addColumn>
+  </changeSet>
+
+   <changeSet author="caiwei" id="inventory_remind_event_4">
+    <addColumn tableName="inventory_remind_event">
+      <column name="deliver_time" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+    <changeSet author="luyi" id="inventory_remind_event_5">
+        <createIndex tableName="inventory_remind_event" indexName="IDX_INVENTORYREMINDEVENT_SHOPID">
+            <column name="shop_id"/>
+        </createIndex>
+        <createIndex tableName="inventory_remind_event" indexName="IDX_INVENTORYREMINDEVENT_SHOPID_PURCHASEORDERID">
+            <column name="shop_id"/>
+            <column name="purchase_order_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="inventory_remind_event_6">
+        <dropIndex indexName="IDX_INVENTORYREMINDEVENT_SHOPID" tableName="inventory_remind_event" />
+    </changeSet>
+
+    <changeSet  author="qiuxinyu" id="inventory_remind_event_7">
+        <addColumn tableName="inventory_remind_event">
+            <column name="unit" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="inventory_remind_event_8">
+    <modifyColumn tableName="inventory_remind_event">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="inventory_remind_event_9" author="jimuchen">
+    <modifyColumn tableName="inventory_remind_event">
+      <column name="product_name" type="varchar(200)" />
+      <column name="product_brand" type="varchar(200)" />
+      <column name="product_spec" type="varchar(2000)" />
+      <column name="product_model" type="varchar(50)" />
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="inventory_remind_event_10" author="jimuchen">
+    <modifyColumn tableName="inventory_remind_event">
+      <column name="product_model" type="varchar(200)" />
+    </modifyColumn>
+  </changeSet>
+</databaseChangeLog>

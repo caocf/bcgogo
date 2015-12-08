@@ -1,0 +1,35 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="ndong" id="evaluate_record_1">
+        <createTable tableName="evaluate_record">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="open_id" type="varchar(100)"/>
+            <column name="vehicle_no" type="varchar(20)"/>
+            <column name="eval_date" type="bigint"/>
+            <column name="eval_price" type="double(20,2)"/>
+            <column name="low_price" type="double(20,2)"/>
+            <column name="good_price" type="double(20,2)"/>
+            <column name="high_price" type="double(20,2)"/>
+            <column name="source" type="varchar(20)"/>
+            <column name="model_id" type="varchar(50)"/>
+            <column name="model" type="varchar(50)"/>
+            <column name="reg_date" type="bigint"/>
+            <column name="mile" type="varchar(50)"/>
+            <column name="area_id" type="varchar(50)"/>
+            <column name="area" type="varchar(20)"/>
+            <column name="deleted" type="varchar(20)"/>
+        </createTable>
+        <addPrimaryKey tableName="evaluate_record" columnNames="id" constraintName="pk_evaluate_record"/>
+    </changeSet>
+</databaseChangeLog>

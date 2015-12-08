@@ -1,0 +1,36 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="xinYuQiu" id="appoint_order_material_1">
+    <createTable tableName="appoint_order_material">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="appoint_order_id" type="bigint"/>
+      <column name="product_id" type="bigint"/>
+      <column name="price" type="double(20,2)"/>
+      <column name="amount" type="double(20,2)"/>
+      <column name="total" type="double(20,2)"/>
+      <column name="commodity_code" type="varchar(70)"/>
+      <column name="product_name" type="varchar(200)"/>
+      <column name="brand" type="varchar(200)"/>
+      <column name="model" type="varchar(200)"/>
+      <column name="spec" type="varchar(200)"/>
+      <column name="unit" type="varchar(20)"/>
+      <column name="vehicle_brand" type="varchar(50)"/>
+      <column name="vehicle_model" type="varchar(50)"/>
+      <column name="status" type="varchar(50)"/>
+    </createTable>
+    <addPrimaryKey tableName="appoint_order_material" columnNames="id" constraintName="pk_appoint_order_material"/>
+  </changeSet>
+</databaseChangeLog>
+

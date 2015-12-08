@@ -1,0 +1,11 @@
+.storage_bin_col{
+	display: table-column;
+}
+.storage_bin_td{
+	display: table-cell;
+	text-align:center;
+	word-break:break-all;
+}
+.storage_bin_li{
+	display: inline;
+}

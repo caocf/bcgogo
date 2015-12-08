@@ -1,0 +1,84 @@
+----------------------------邓结财-------------------------
+1.生产环境发布机器更改如下(测试）：
+发布web.war应用机器
+后端（tomcat): 192.168.124.2   192.168.124.3  192.168.124.11 
+
+同时发布web.war,admin.war应用机器
+定时钟（tomcat): 192.168.124.7
+
+发布api.war应用机器
+后端（tomcat）：192.168.124.6
+
+
+2.生产环境的配置（运维操作）
+2.1 修改apache前端配置文件(IP:192.168.124.1)
+cd /usr/local/apache/conf
+vi workers.properties 
+添加如下配置
+#直接这行添加controller1,controller2
+worker.list = controller,status,controller1,controller2
+
+#增加一个worker.s4
+worker.s4.type=ajp13
+worker.s4.port=8009
+worker.s4.host=192.168.124.6
+worker.s4.lbfactor=10
+worker.s4.recovery_options=3
+worker.s4.socket_keepalive=1
+worker.s4.socket_timeout=0
+worker.s4.retries=3
+worker.s4.connection_pool_minsize=1
+worker.s4.connection_pool_size=1
+worker.s4.connection_pool_timeout=600
+worker.s4.method=R
+
+#增加一个worker.s5
+worker.s5.type=ajp13
+worker.s5.port=8009
+worker.s5.host=192.168.124.7
+worker.s5.lbfactor=10
+worker.s5.recovery_options=3
+worker.s5.socket_keepalive=1
+worker.s5.socket_timeout=0
+worker.s5.retries=3
+worker.s5.connection_pool_minsize=1
+worker.s5.connection_pool_size=1
+worker.s5.connection_pool_timeout=600
+worker.s5.method=R
+#增加一个worker.controller1
+worker.controller1.type=lb
+worker.controller1.balance_workers=s4
+worker.controller1.sticky_session=1
+worker.controller1.recovery_options=3
+worker.controller1.worker.maintain=60
+#增加一个worker.controller2
+worker.controller2.type=lb
+worker.controller2.balance_workers=s5
+worker.controller2.sticky_session=1
+worker.controller2.recovery_options=3
+worker.controller2.worker.maintain=60
+
+编辑httpd-ssl.conf文件
+vi /usr/local/apache/conf/extra/httpd-ssl.conf 
+倒数第2行增加
+JkMount /admin/*  controller2
+JkMount /api/*    controller1
+
+2.3重启apache
+service httpd restart
+-------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------  

@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+.i_supplierInfo .i_two{width:919px;}
+.more_supplier{width:923px; height: 500px}
+ .i_supplierInfo .i_upCenter .more_title{width:827px;}
+ .more_supplier .i_upBottom .i_upBottomCenter{width:881px;}
+.more_supplier .i_upBody{width:901px;}
+.search_his{ margin-left:10px;}
+.table2{width:800px;}
+.i_main{width:880px;_width:871px;}
+.his_search ul{ clear:both;}
+.goods_chk{ float:left;width:480px;}
+.goods_chk label{ margin-right:31px;}
+.his_search ul li { margin-right:10px;width:225px; height:25px; margin-bottom:10px;}
+.his_search ul li label{
+	width:65px;
+	float:left; 
+	display:block;
+	margin:0px;_width:58px;
+}
+
+.his_search ul li input{  display:block; float:left;}
+
+
+
+.his_search ul .search_user {width:470px;margin-top:10px;}
+.his_search ul .search_user label{width:100px; }
+.his_search ul .search_user input{width:349px;}
+.his_search ul li { _width:220px; }
+.i_main .i_leftBtn{ float:right;}
+.i_main .qian_blue{color:#6699cc;}
+.today_list .his_now {
+	top:10px;
+}
+.i_upBody .i_main{ margin:0px;}
+.his_first{ margin-left:42px;}
+
+.today_list {
+
+	margin-right:14px;
+}
+/*商品历史记录查询*/
+.goods_chk{ height:25px;}
+.search_his{ margin:10px 0px 0px 150px;}
+.his_time{ height:120px; }
+.goods_main{margin-top:23px;width:400px;_width:379px; }
+.i_searchTime {
+	margin:0px 16px 0px 5px;
+	margin:0px 13px 0px 5px;
+}
+.good_his{ margin-left:25px;_margin-left:10px;}
+.i_leftBtn{ margin-right:23px;}

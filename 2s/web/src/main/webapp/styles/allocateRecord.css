@@ -1,0 +1,107 @@
+@charset "utf-8";
+/* CSS Document */
+table tr td input {
+    border: 1px solid #ADADAD;
+}
+
+.selectTime {
+    border: 1px solid #ADADAD;
+    height: 25px;
+    width: 110px;
+    float: left;
+    margin-bottom: 5px;
+    background: #fff;
+}
+
+.selectTime input {
+    border: none;
+    width: 80px;
+    height: 23px;
+    line-height: 23px;
+    float: left;
+    padding-left: 6px;
+}
+
+.titBody .table_product {
+    /*border-collapse: collapse;*/
+    /*width: 1003px;*/
+    /*border: 1px solid #C9C6C6;*/
+}
+
+/*.table_product tr {*/
+    /*padding: 0px 5px;*/
+/*}*/
+
+/*.table_product tr td {*/
+    /*height: 31px;*/
+/*}*/
+
+.titBody .table_product tr td .dele_a {
+    color: #c00000;
+    text-decoration: underline;
+}
+
+.table_product .title_tb {
+    background: url(../images/title_tbcenter.png) repeat-x;
+    color: #fff;
+}
+
+/*.titBody .table_product .heji_tb td {*/
+    /*font-weight: bold;*/
+    /*color: #7f7f7f;*/
+    /*border-style:solid;*/
+    /*border-width:1px 0;*/
+    /*border-color:#BBBBBB;*/
+/*}*/
+
+.ti_btn input {
+    display: block;
+    float: left;
+    background: url(../images/btn_tong.png) no-repeat;
+    width: 76px;
+    height: 25px;
+    border: none;
+    margin-right: 10px;
+}
+
+.ti_btn input:hover {
+    background: url(../images/btn_ti.png) no-repeat;
+    color: #fff;
+}
+
+/*.table_product .opera1 {*/
+    /*background: url(../images/opera1.jpg) no-repeat;*/
+    /*width: 16px;*/
+    /*height: 16px;*/
+    /*border: none;*/
+    /*cursor: pointer;*/
+/*}*/
+
+/*.table_product .opera2 {*/
+    /*background: url(../images/opera2.jpg) no-repeat;*/
+    /*width: 16px;*/
+    /*height: 16px;*/
+    /*border: none;*/
+    /*cursor: pointer;*/
+/*}*/
+
+.table_product .txt {
+    border: 1px solid #BBBBBB;
+    width: 80%;
+    height: 19px;
+    line-height: 20px;
+    padding-left:0;
+    font-size:12px;
+}
+
+.table_product .textbox{
+    width: 80%;
+}
+
+.btn_div_Img .confirm {
+    background: url(../images/sureInventoryInput.jpg) no-repeat;
+    width: 47px;
+    height: 46px;
+    border: none;
+    cursor: pointer;
+}

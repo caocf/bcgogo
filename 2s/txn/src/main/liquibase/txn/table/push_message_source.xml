@@ -1,0 +1,42 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xzhu" id="push_message_source_xzhu_1">
+        <createTable tableName="push_message_source">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="message_id" type="bigint"/>
+            <column name="source_id" type="bigint"/>
+            <column name="create_time" type="bigint"/>
+            <column name="type" type="varchar(50)"/>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="push_message_source_xzhu_2" author="xzhu">
+        <addPrimaryKey tableName="push_message_source" columnNames="id" constraintName="pk_push_message_source"/>
+    </changeSet>
+
+    <changeSet author="ZhangJuntao" id="push_message_source_3_ZhangJuntao">
+        <createIndex tableName="push_message_source" indexName="IDX_SOURCE_ID">
+            <column name="source_id"/>
+        </createIndex>
+        <createIndex tableName="push_message_source" indexName="IDX_MESSAGE_ID">
+            <column name="message_id"/>
+        </createIndex>
+        <createIndex tableName="push_message_source" indexName="IDX_SHOP_ID">
+            <column name="shop_id"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

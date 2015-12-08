@@ -1,0 +1,44 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lijinlong" id="inventory_check_item_1">
+    <createTable tableName="inventory_check_item">
+        <column name="id" type="bigint"/>
+        <column name="created" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="last_update" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="version" type="bigint">
+            <constraints nullable="true"/>
+        </column>
+
+        <column name="inventoryCheck_id" type="bigint"/>
+        <column name="product_id" type="bigint"/>
+        <column name="inventory_amount" type="double"/>
+
+        <column name="actual_inventory_amount" type="double"/>
+        <column name="inventory_average_price" type="double"/>
+        <column name="actual_inventory_average_price" type="double"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet  id="inventory_check_item_2" author="lijinlong">
+    <addPrimaryKey tableName="inventory_check_item" columnNames="id" constraintName="pk_inventory_check_item"/>
+  </changeSet>
+
+  <changeSet id="inventory_check_item_3" author="jimuchen">
+    <addColumn tableName="inventory_check_item">
+        <column name="product_history_id" type="bigint" />
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="inventory_check_item_5" author="liuWei">
+    <addColumn tableName="inventory_check_item">
+      <column name="unit" type="varchar(20)"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,38 @@
+/*
+ * Timepicker 基于  Datepicker
+ */
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+
+.ui-combobox {
+    position: relative;display: inline-block;
+}
+.ui-combobox-toggle {
+    position: absolute; top: 0; bottom: 0; margin-left: -1px; padding: 0;
+    /* adjust styles for IE 6/7 */
+    *height: 1.7em; *top: 0.1em;
+}
+.ui-combobox-input {
+    margin: 0; padding: 0.3em;
+}
+.ui-autocomplete {
+    max-height: 200px; overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+}
+/* IE 6 doesn't support max-height
+ * we use height instead, but this forces the menu to always be this tall
+ */
+* html .ui-autocomplete {
+    height: 200px;
+}
+.ui-datepicker {
+    font-size:100%;
+}

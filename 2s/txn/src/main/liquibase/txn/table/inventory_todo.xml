@@ -1,0 +1,56 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lijie" id="inventory_todo_1">
+    <createTable tableName="inventory_todo">
+        <column name="id" type="bigint"/>
+        <column name="created" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="last_update" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="version" type="bigint">
+            <constraints nullable="true"/>
+        </column>
+        <column name="shop_id" type="bigint"/>
+        <column name="remind_type" type="varchar(20)"/>
+        <column name="estimate_time" type="varchar(20)"/>
+        <column name="product_no" type="varchar(20)"/>
+        <column name="supplier" type="varchar(20)"/>
+        <column name="product_category" type="varchar(20)"/>
+        <column name="product_brand" type="varchar(20)"/>
+        <column name="specification" type="varchar(20)"/>
+        <column name="model" type="varchar(20)"/>
+        <column name="vehicle_brand" type="varchar(20)"/>
+        <column name="vehicle_model" type="varchar(20)"/>
+        <column name="year" type="bigint"/>
+        <column name="engine" type="varchar(20)"/>
+        <column name="price" type="bigint"/>
+        <column name="product_number" type="bigint"/>
+        <column name="total_money" type="bigint"/>
+        <column name="inventory_number" type="bigint"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet  id="inventory_todo_2" author="lijie">
+    <addPrimaryKey tableName="inventory_todo" columnNames="id" constraintName="pk_inventory_todo"/>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="inventory_todo_3">
+    <modifyColumn tableName="inventory_todo">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+    <changeSet id="inventory_todo_4" author="yangwj">
+        <modifyColumn tableName="inventory_todo">
+            <column name="vehicle_brand" type="varchar(200)"/>
+            <column name="vehicle_model" type="varchar(200)"/>
+        </modifyColumn>
+    </changeSet>
+
+</databaseChangeLog>

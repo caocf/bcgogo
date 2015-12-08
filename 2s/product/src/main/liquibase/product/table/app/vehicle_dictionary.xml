@@ -1,0 +1,29 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="lw" id="vehicle_dictionary_1">
+        <createTable tableName="vehicle_dictionary">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dictionary_id" type="bigint"/>
+            <column name="brand_id" type="bigint"/>
+            <column name="model_id" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="vehicle_dictionary" columnNames="id" constraintName="pk_vehicle_dictionary"/>
+    </changeSet>
+
+    <changeSet id="vehicle_dictionary_2_qiuxinyu" author="qiuxinyu">
+        <createIndex tableName="vehicle_dictionary" indexName="IDX_VEHICLE_DICTIONARY_DICTIONARY_ID">
+          <column name="dictionary_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,76 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+  <!--收款历史表 receivable_history-->
+
+  <changeSet author="liuWei" id="receivable_history_1">
+    <createTable tableName="receivable_history">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <!-- 店面ID-->
+      <column name="shop_id" type="bigint"/>
+      <!-- 总和-->
+      <column name="total" type="double"/>
+      <!-- 扣款-->
+      <column name="discount" type="double"/>
+      <!-- 欠款挂账-->
+      <column name="debt" type="double"/>
+      <!-- 现金-->
+      <column name="cash" type="double"/>
+      <!-- 银行卡-->
+      <column name="bank_card_amount" type="double"/>
+      <!-- 支票-->
+      <column name="check_amount" type="double"/>
+      <!-- 支票号码-->
+      <column name="check_no" type="varchar(100)"/>
+      <!-- 会员储值-->
+      <column name="member_balance_pay" type="double"/>
+      <!-- 会员id-->
+      <column name="member_id" type="double"/>
+      <!-- 会员no-->
+      <column name="member_no" type="varchar(100)"/>
+      <!--冲账-->
+      <column name="strike_amount" type="double"/>
+      <!-- 实收-->
+      <column name="settled_amount" type="double"/>
+      <!-- 客户id-->
+      <column name="customer_id" type="bigint"/>
+      <!-- 收款时间-->
+      <column name="receivable_date" type="bigint"/>
+      <!-- 结算人-->
+      <column name="receiver" type="varchar(50)"/>
+      <!-- 结算人id-->
+      <column name="receiver_id" type="bigint"/>
+    </createTable>
+    <addPrimaryKey tableName="receivable_history" columnNames="id" constraintName="pk_receivable_history"/>
+  </changeSet>
+
+  <changeSet author="liuWei" id="receivable_history_2">
+    <createIndex tableName="receivable_history" indexName="IDX_RECEIVABLEHISTORY_SHOID_CUSTOMERID">
+      <column name="shop_id"/>
+      <column name="customer_id"/>
+    </createIndex>
+  </changeSet>
+  <changeSet author="liuWei" id="receivable_history_3">
+    <modifyColumn tableName="receivable_history">
+      <column name="member_id" type="bigint">
+      </column>
+    </modifyColumn>
+  </changeSet>
+  <changeSet author="zhuj" id="receivable_history_4">
+    <addColumn tableName="receivable_history">
+      <column name="deposit" type="double">
+      </column>
+    </addColumn>
+  </changeSet>
+
+
+</databaseChangeLog>

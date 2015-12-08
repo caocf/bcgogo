@@ -1,0 +1,38 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <preConditions>
+    <!--<or>-->
+    <!--<dbms type="oracle" />-->
+    <dbms type="mysql"/>
+    <!--</or>-->
+  </preConditions>
+
+  <changeSet id="hibernate_unique_key_1" author="cli">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="hibernate_unique_key"/>
+      </not>
+    </preConditions>
+    <createTable tableName="hibernate_unique_key">
+      <column name="next_hi" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+    <insert tableName="hibernate_unique_key">
+      <column name="next_hi" value="1000000"/>
+    </insert>
+  </changeSet>
+  <!-- Schema -->
+
+  <include file="search/table/item_index.xml"/>
+  <include file="search/table/stock_search_index.xml"/>
+  <include file="search/table/inventory_search_index.xml"/>
+  <include file="search/table/current_used_product.xml"/>
+  <include file="search/table/current_used_vehicle.xml"/>
+
+    <include file="search/table/order_index.xml"/>
+    <include file="search/table/solr_match_stop_word.xml"/>
+</databaseChangeLog>

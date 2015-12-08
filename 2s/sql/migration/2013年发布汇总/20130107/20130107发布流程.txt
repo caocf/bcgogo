@@ -1,0 +1,14 @@
+
+//CRM->店铺业务统计->采购统计 刘伟
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`) VALUES ('520200001','1','1','1','店铺业务统计','','','','店铺业务统计','10',null,null,'true');
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`) VALUES ('520200002','1','1','1','采购统计','Ext.controller.normalProductInventoryStat.NormalProductStatController','COMPONENT','','采购统计','1',520200001,520200101,'true');
+
+INSERT INTO `module` (`id`, `created`, `last_update`, `version`, `value`, `name`, `parent_id`) VALUES (500000018, 1, 1, 1, '采购统计', 'CRM_NORMAL_PRODUCT_INVENTORY_STAT', NULL);
+
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('520200101','1','1','1','CRM_NORMAL_PRODUCT_INVENTORY_STAT_SEARCH','active','采购统计查询','采购统计查询','CRM','500000018');
+
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,520200101,540000118,1,1,1);
+
+             name                     value                          type          memo
+====================================role:CRM_NORMAL_PRODUCT_INVENTORY_STAT_SEARCH====================================
+CRM_normal_product_stat_search         Ext.controller.normalProductInventoryStat.NormalProductStatController             render        采购统计查询

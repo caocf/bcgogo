@@ -1,0 +1,19 @@
+create procedure initMenu()
+    begin
+        declare _id bigint;
+        declare _created bigint;
+        declare _last_update bigint;
+        declare _resource_id bigint;
+        declare _count int;
+        select max(id)+1 into _id from menu;
+        set _created:=unix_timestamp(now())*1000;
+        set _last_update:=unix_timestamp(now())*1000;
+        select id into _resource_id from resource where value='web.repair.order.secondary.inquiry';
+        select count(*) into _count from menu where label = '结算附表';
+        if _count < 1 then
+            insert into menu(id, created, last_update, version, grade, label, resource_id, parent_id, href, sort, menu_name) values
+                (_id, _created, _last_update, 0 , 2, '结算附表', _resource_id, 1000020045064322, 'repairOrderSecondary.do?method=inquiryRepairOrderSecondary', 50, 'web_repair_order_secondary_inquiry');
+        end if;
+    end;
+    call initMenu();
+    drop procedure initMenu;

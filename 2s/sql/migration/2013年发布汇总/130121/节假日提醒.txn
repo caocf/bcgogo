@@ -1,0 +1,8 @@
+
+
+//===============================================  	系统管理-系统提醒-节假日提醒 (董楠)====================================             systemType
+web_sys_admin_reminder_getFestivals                request      /admin/sysReminder.do?method=getFestivals             获取节日列表        CRM
+web_sys_admin_reminder_saveOrUpdateFestival        request      /admin/sysReminder.do?method=saveOrUpdateFestival     保存节日            CRM
+web_sys_admin_reminder_deleteFestival              request      /admin/sysReminder.do?method=deleteFestival           删除节日            CRM
+web_sys_admin_reminder_getFestivalById             request      /admin/sysReminder.do?method=getFestivalById          获取节日            CRM
+web_sys_reminder_festival                          render       WEB.SYS.REMINDER_FESTIVAL                             节日提醒            SHOP

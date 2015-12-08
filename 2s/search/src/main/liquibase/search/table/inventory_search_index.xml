@@ -1,0 +1,210 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="wujiaolong" id="inventory_search_index_1">
+        <createTable tableName="inventory_search_index">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="uuid" type="char(36)"/>
+            <column name="shop_id" type="bigint"/>
+            <column name="product_id" type="bigint"/>
+            <column name="edit_date" type="bigint"/>
+            <column name="product_name" type="char(30)"/>
+            <column name="product_brand" type="char(30)"/>
+            <column name="product_spec" type="char(30)"/>
+            <column name="product_model" type="char(30)"/>
+            <column name="brand" type="char(30)"/>
+            <column name="model" type="char(30)"/>
+            <column name="year" type="char(30)"/>
+            <column name="engine" type="char(30)"/>
+            <column name="amount" type="double"/>
+        </createTable>
+        <addPrimaryKey tableName="inventory_search_index" columnNames="id" constraintName="pk_inventory_search_index"/>
+        <createIndex tableName="inventory_search_index" indexName="idx_inventory_search_index_productname">
+            <column name="product_name"/>
+            <column name="shop_id"/>
+            <column name="edit_date"/>
+        </createIndex>
+
+        <createIndex tableName="inventory_search_index" indexName="idx_inventory_search_index_productbrand">
+            <column name="product_brand"/>
+            <column name="shop_id"/>
+            <column name="edit_date"/>
+        </createIndex>
+
+        <createIndex tableName="inventory_search_index" indexName="idx_inventory_search_index_productspec">
+            <column name="product_spec"/>
+            <column name="shop_id"/>
+            <column name="edit_date"/>
+        </createIndex>
+
+        <createIndex tableName="inventory_search_index" indexName="idx_inventory_search_index_productmodel">
+            <column name="product_model"/>
+            <column name="shop_id"/>
+            <column name="edit_date"/>
+        </createIndex>
+
+        <createIndex tableName="inventory_search_index" indexName="idx_inventory_search_index_brand">
+            <column name="brand"/>
+            <column name="shop_id"/>
+            <column name="edit_date"/>
+        </createIndex>
+
+        <createIndex tableName="inventory_search_index" indexName="idx_inventory_search_index_model">
+            <column name="model"/>
+            <column name="shop_id"/>
+            <column name="edit_date"/>
+        </createIndex>
+
+    </changeSet>
+
+    <changeSet id="inventory_search_index_2" author="wujiaolong">
+        <addColumn tableName="inventory_search_index">
+            <column name="product_vehicle_status" type="integer"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="inventory_search_index_3" author="Caiwei">
+        <addColumn tableName="inventory_search_index">
+            <column name="parent_product_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+
+    <changeSet id="inventory_search_index_4" author="luyi">
+        <addColumn tableName="inventory_search_index">
+            <column name="price" type="float"/>
+            <column name="purchase_price" type="float"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="inventory_search_index_5" author="luyi">
+        <addColumn tableName="inventory_search_index">
+            <column name="recommended_price" type="float"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="inventory_search_index_6" author="qiuxinyu" >
+        <addColumn tableName="inventory_search_index">
+            <column name="barcode" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="qiuxinyu" id="inventory_search_index_7" >
+        <addColumn tableName="inventory_search_index">
+            <column name="unit" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+        <changeSet author="qiuxinyu" id="inventory_search_index_8">
+        <addColumn tableName="inventory_search_index">
+            <column name="lower_limit" type="double"/>
+            <column name="upper_limit" type="double"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="inventory_search_index_9" author="chenfanglei">
+        <modifyColumn tableName="inventory_search_index">
+            <column name="product_name" type="char(200)"></column>
+        </modifyColumn>
+    </changeSet>
+
+  <changeSet id="inventory_search_index_10" author="chenfanglei">
+    <modifyColumn tableName="inventory_search_index">
+      <column name="product_brand" type="varchar(200)"></column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="inventory_search_index_11">
+    <modifyColumn tableName="inventory_search_index">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="inventory_search_index_12" author="jimuchen">
+    <modifyColumn tableName="inventory_search_index">
+      <column name="brand" type="varchar(50)" />
+      <column name="model" type="varchar(50)" />
+      <column name="year" type="varchar(50)" />
+      <column name="engine" type="varchar(50)" />
+    </modifyColumn>
+  </changeSet>
+
+	<changeSet author="qiuxinyu" id="inventory_search_index_12">
+		<addColumn tableName="inventory_search_index">
+			<column name="commodity_code" type="varchar(70)"/>
+		</addColumn>
+	</changeSet>
+    <changeSet author="qiuxinyu" id="product_13">
+		<createIndex tableName="inventory_search_index" indexName="idx_inventory_search_index_commodity_code">
+			<column name="commodity_code"/>
+			<column name="shop_id"/>
+		</createIndex>
+	</changeSet>
+    <changeSet id="inventory_search_index_14" author="xzhu">
+        <modifyColumn tableName="inventory_search_index">
+            <column name="product_model" type="varchar(200)"/>
+            <column name="product_spec" type="varchar(2000)"/>
+            <column name="brand" type="varchar(200)"/>
+            <column name="model" type="varchar(200)"/>
+        </modifyColumn>
+    </changeSet>
+
+	<changeSet author="qiuxinyu" id="inventory_search_index_15">
+		<addColumn tableName="inventory_search_index">
+			<column name="status" type="varchar(50)"/>
+		</addColumn>
+	</changeSet>
+
+  <changeSet author="lijinlong" id="inventory_search_index_15">
+		<addColumn tableName="inventory_search_index">
+			<column name="inventory_average_price" type="double"/>
+		</addColumn>
+	</changeSet>
+
+	<changeSet author="weilingfeng" id="inventory_search_index_16">
+		<addColumn tableName="inventory_search_index">
+			<column name="kind_name" type="varchar(50)"/>
+		</addColumn>
+	</changeSet>
+
+  <changeSet author="jimuchen" id="inventory_search_index_17">
+    <dropIndex tableName="inventory_search_index" indexName="idx_inventory_search_index_productname" />
+    <dropIndex tableName="inventory_search_index" indexName="idx_inventory_search_index_productbrand" />
+    <dropIndex tableName="inventory_search_index" indexName="idx_inventory_search_index_productspec" />
+    <dropIndex tableName="inventory_search_index" indexName="idx_inventory_search_index_productmodel" />
+    <dropIndex tableName="inventory_search_index" indexName="idx_inventory_search_index_brand" />
+    <dropIndex tableName="inventory_search_index" indexName="idx_inventory_search_index_model" />
+  </changeSet>
+
+  <changeSet author="jimuchen" id="inventory_search_index_18">
+    <dropIndex tableName="inventory_search_index" indexName="idx_inventory_search_index_commodity_code" />
+    <createIndex tableName="inventory_search_index" indexName="idx_inventory_search_index_shopId_commodityCode">
+			<column name="shop_id"/>
+      <column name="commodity_code"/>
+		</createIndex>
+  </changeSet>
+
+  <changeSet id="inventory_search_index_19" author="jimuchen">
+    <modifyColumn tableName="inventory_search_index">
+      <column name="purchase_price" type="double(20,2)"/>
+      <column name="recommended_price" type="double(20,2)"/>
+      <column name="price" type="double(20,2)"/>
+		</modifyColumn>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="inventory_search_index_20">
+    <createIndex tableName="inventory_search_index" indexName="idx_inventory_search_index_productId">
+			<column name="product_id"/>
+		</createIndex>
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,40 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet  id="wx_qr_code_1" author="ndong">
+        <createTable tableName="wx_qr_code">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="ticket" type="varchar(100)"/>
+            <column name="url" type="varchar(100)"/>
+            <column name="scene_id" type="varchar(50)"/>
+            <column name="type" type="varchar(20)"/>
+            <column name="expire_seconds" type="varchar(20)"/>
+            <column name="deleted" type="varchar(20)"/>
+        </createTable>
+        <addPrimaryKey tableName="wx_qr_code" columnNames="id" constraintName="pk_wx_qr_code"/>
+    </changeSet>
+
+    <changeSet  id="wx_qr_code_2" author="ndong">
+        <modifyColumn tableName="wx_qr_code">
+            <column name="scene_id" type="bigint"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="wx_qr_code_3" author="ndong">
+        <addColumn tableName="wx_qr_code">
+            <column name="public_no" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>
+

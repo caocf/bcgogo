@@ -1,0 +1,42 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lw" id="service_achievement_history_1">
+    <createTable tableName="service_achievement_history">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+
+      <column name="shop_id" type="bigint"></column>
+      <column name="service_id" type="bigint"></column>
+      <column name="service_name" type="varchar(200)"></column>
+      <column name="achievement_type" type="varchar(50)"></column>
+      <column name="achievement_amount" type="double"></column>
+      <column name="category_id" type="bigint"></column>
+      <column name="category_name" type="varchar(100)"></column>
+      <column name="standard_hours" type="double"></column>
+      <column name="standard_unit_price" type="double"></column>
+      <column name="change_time" type="bigint"></column>
+      <column name="change_user_id" type="bigint"></column>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="service_achievement_history_2" author="lw">
+    <addPrimaryKey tableName="service_achievement_history" columnNames="id" constraintName="pk_service_achievement_history"></addPrimaryKey>
+  </changeSet>
+
+  <changeSet id="service_achievement_history_3" author="lw">
+    <createIndex tableName="service_achievement_history" indexName="idx_shopid_serviceid">
+      <column name="shop_id"></column>
+      <column name="service_id"></column>
+    </createIndex>
+  </changeSet>
+</databaseChangeLog>

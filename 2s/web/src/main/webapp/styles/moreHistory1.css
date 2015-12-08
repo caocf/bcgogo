@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* CSS Document */
+
+.more_his {
+	font-weight:bold;
+	font-size:14px;
+	margin-bottom:5px;
+}
+#history {
+	border-top:4px solid #6d8fb9;
+}
+#history, #history tr {
+}
+#history tr td {
+	line-height:20px;
+	
+}
+#history tr td a {
+	text-decoration:none;
+}
+#history .title_his {
+	height:25px;
+	line-height:25px;
+	color:#666666;
+}
+table tr .blue, .i_leftBtn .onlin_his {
+	color:#6699cc;
+}
+#history tr .qian_red {
+	color:#a62d38;
+}
+/*分页*/
+
+.i_leftBtn div {
+	float:left;
+	background:url(../images/page_his.png) no-repeat;
+	_background:none;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/page_his.png", sizingMethod="crop");
+	width:17px;
+	height:17px;
+	color:#6699cc;
+	font-size:12px;
+	text-align:center;
+	margin-left:5px;
+}
+.i_leftBtn .onlin_his {
+	background:url(../images/page_hovers.png) no-repeat;
+	color:#FFFFFF;
+	width:15px;
+	height:15px;
+	text-align:center;
+}
+.his_bottom {
+	clear:both;
+	margin-top:20px;
+}
+.i_leftBtn {
+	float:right;
+}
+.his_bottom .more_his {
+	color:#666;
+	font-size:12px;
+	width:250px;
+	margin-top:5px;
+}
+/*分页结束*/
+.i_main .i_mainRight .total span {
+	color:#a62d38;
+	font-weight:bold;
+}
+.i_main .table_btn input.i_operate {
+	margin-left:16px;
+	margin-right:0px;
+	float:right;
+}
+/*---------------------------------------------------车辆---欠款记录------------------------------------------------------------------*/
+.chk,.ss{
+	background: url(../images/check_off.jpg) no-repeat;
+	width: 20px;
+	height: 20px;
+	margin-left:10px;
+}
+.ss{background:url(../images/check_on.jpg) no-repeat;}
+#all_chk{width:35px; float:left;}
+#owe_record{width:270px;_width:275px; margin-right:0px;}
+#owe_record .main_cont{float:left;width:220px; margin-top:5px;}
+#owe_record .main_cont a{ display:block; float:left; width:56px; height:28px; line-height:28px; background:url(../images/sale.jpg) no-repeat; text-align:center; color:#666; font-size:12px;}
+#owe_record .main_cont .baoyang{background:url(../images/xiche.png) no-repeat; width:90px;}

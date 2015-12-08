@@ -1,0 +1,78 @@
+一.添加权限
+后台添加：
+（一）角色
+                    name                                        备注
+//----------------------------------------------new role-----------------------------------------------------------------------------
+        web_delete_supplier                                   删除供应商              (经理/店长，老板/财务，BCGOGO管理员)   分配到除微型版外其他版本
+
+（二）建立关联
+用户组操作：
+Shop版本操作：
+
+（三）资源
+           name                                           type           value                                                          备注
+//--------------------------------------------------------------------------new resource---------------------------------------------------------------------
+
+//=================================================== web_txn_base (陈方雷) ================================================
+web_txn_base_updateOtherIncomeKind                       request           /web/txn.do?method=updateOtherIncomeKind    更新其他费用
+web_txn_base_deleteOtherIncomeKind                       request           /web/txn.do?method=deleteOtherIncomeKind    删除其他费用
+web_txn_base_getOtherIncomeKind                      request               /web/txn.do?method=getOtherIncomeKind           获取其他费用列表
+
+//=================================================== web_delete_supplier (董楠) ================================================
+web_delete_supplier_validateDeleteSupplier                      request             /web/txn.do?method=validateDeleteSupplier  验证删除供应商
+web_delete_supplier_deleteSupplier                              request             /web/supplier.do?method=deleteSupplier     删除供应商
+
+//=================================================== web_remind_remind (韦凌枫) ================================================
+web_remind_remind_dropMemberServiceRemind                      request             /web/member.do?method=dropMemberServiceRemind 	删除客户服务提醒中的会员服务到期提醒
+
+
+二.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+三.数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，姬牧晨）
+
+四.发布应用 （纪友文）
+
+五.初始化
+1. 在TXN中执行"receivable_payable.sql" 
+2.执行
+update txn.sales_order set txn.sales_order.status_enum = 'SALE_DONE',txn.sales_order.status=1 where txn.sales_order.status_enum = 'SALE_DEBT_DONE';
+update txn.reception_record set txn.reception_record.order_status_enum = 'SALE_DONE' where txn.reception_record.order_status_enum = 'SALE_DEBT_DONE';
+update search.order_index set search.order_index.order_status_enum = 'SALE_DONE',search.order_index.order_status=1 where search.order_index.order_status_enum='SALE_DEBT_DONE';
+update search.item_index set search.item_index.order_status_enum = 'SALE_DONE',search.item_index.order_status=1 where search.item_index.order_status_enum='SALE_DEBT_DONE';
+
+欠款提醒：
+在TXN库中执行：
+update debt set remind_status = "activity"
+
+会员服务到期提醒：
+在USER库执行：
+update member_service set remind_status = "activity"
+
+客户服务提醒：
+在USER库执行
+update customer_service_job set appoint_name = "保险" where remind_type = 0;
+update customer_service_job set appoint_name = "验车" where remind_type = 1;
+update customer_service_job set appoint_name = "生日" where remind_type = 2;
+update customer_service_job set appoint_name = "保养" where remind_type = 4;
+update customer_service_job set remind_type=5 where remind_type is null;
+
+后台添加短信模板
+模板名：会员服务到期提醒
+类型：memberService
+场景：CUSTOMER_REMIND_MEMBER_SERVICE
+必要性：NECESSARY
+内容：尊敬的{licenceNo}车主您好！感谢您对本店的一贯照顾，您的会员卡中{services}将于今年{mouth}月{day}日到期，本店欢迎您前来办理续卡业务，详情致电{shopMobile},{shopName}店敬启。
+
+
+六.reindex 单据
+
+七.导入新的销售单施工单模板
+
+八.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

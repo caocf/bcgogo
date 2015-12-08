@@ -1,0 +1,902 @@
+.hover_btn, .normal_btn, .titBodys a:hover {
+  background: url(../images/hover_btn.png) no-repeat;
+  width: 108px;
+  height: 28px;
+  line-height: 30px;
+  text-align: center;
+  color: #006eca;
+  display: block;
+  float: left;
+  margin-right: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.normal_btn {
+  background: url(../images/normal_btn.png) no-repeat;
+  color: #787777;
+}
+
+.titBody {
+  clear: both;
+  height: 100%;
+  float: left;
+  width: 100%;
+  font-family: "宋体";
+}
+
+.titBody .divTit {
+  float: left;
+  padding-right: 20px;
+  color: #000000;
+  line-height: 24px;
+}
+
+.txt, .selTit {
+  border: 1px solid #BBBBBB;
+  width: 100px;
+  height: 19px;
+  line-height: 20px;
+  padding-left: 6px;
+  color: #515151;
+}
+
+.selTit {
+  float: right;
+  margin-top: 1px;
+}
+
+.selTit .clickImg {
+  background: url(../images/selicon.png) no-repeat;
+  display: block;
+  float: right;
+  width: 18px;
+  height: 19px;
+  cursor: pointer;
+}
+
+.btn_search {
+  background: url(../images/chkNormal.png) no-repeat;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 21px;
+  line-height: 21px;
+  padding: 0 0 2px;
+  text-align: center;
+  width: 64px;
+  border: none;
+  margin-top: 1px;
+}
+
+.btn_search:hover {
+  background: url(../images/chkHover.png) no-repeat;
+}
+
+.tabSlip {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  border: 1px solid #BBBBBB;
+}
+
+.tabSlip td {
+  height: 28px;
+  line-height: 28px;
+  color: #272727;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.divSlip, .divSlip td {
+  background: url(../images/title_tbcenter.png) repeat-x;
+  height: 32px;
+  line-height: 32px;
+  color: #FFFFFF;
+}
+
+.divSlip div {
+  float: left;
+}
+
+.tabSlip .titleBg {
+  background: url(../images/tab_bg.png) repeat-x;
+  height: 28px;
+  line-height: 28px;
+  color: #006eca;
+  padding-left: 10px;
+}
+
+.tabSlip .titleBg .titLbl {
+  padding: 0px 10px 0px 10px;
+  float: left;
+  font-weight: bold;
+}
+
+.tabSlip .titleBg a {
+  color: #006eca;
+}
+
+.yellow_color, td.yellow_color {
+  color: #FF5E04;
+}
+
+.red_color, td.red_color {
+  color: #CB0000;
+}
+
+.green_color, td.green_color {
+  color: #1f541e;
+}
+
+.tabSlip .titleBg .btns {
+  background: url(../images/btnAccept.png) no-repeat;
+  width: 52px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  color: #FFFFFF;
+  float: right;
+  margin: 5px;
+  cursor: pointer;
+}
+
+a.up, a.down {
+  background: url(../images/rightArrow.png) no-repeat 32px 9px;
+  float: right;
+  padding-right: 20px;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+a.up:hover {
+  background: url(../images/hoverDown.png) no-repeat 32px 9px;
+  color: #FF5E04;
+}
+
+a.down {
+  background: url(../images/rightTop.png) no-repeat 32px 9px;
+}
+
+a.down:hover {
+  background: url(../images/hoverTop.png) no-repeat 32px 9px;
+  color: #FF5E04;
+}
+
+.slipInfo {
+  color: #272727;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+.num {
+  background: url(../images/numBg.png) no-repeat 0px 5px;
+  width: 16px;
+  line-height: 22px;
+  text-align: center;
+  color: #FFFFFF;
+  cursor: pointer;
+  float: left;
+  margin: -10px 0 0 -18px;
+}
+
+.titBody .info_div .center_title {
+  width: 947px;
+  padding: 10px 15px 0px;
+}
+
+.i_mainRight #tuihuo_show {
+  width: 100%;
+}
+
+#top_tab tr td.more_cu {
+  line-height: 28px;
+}
+
+#top_tab tr .more_cu a:hover {
+  color: #FF5E04;
+}
+
+.tabPick .txt {
+  width: 85%;
+}
+
+.divImg .sureWords, .invalidImg .sureWords {
+  color: #000000;
+  text-align: center;
+}
+
+.invalidImg .sureWords {
+  width: 45px;
+}
+
+.allocation {
+  float: left;
+  width: 100%;
+}
+
+.allocation .allocation_left, .allocation .allocation_center, .allocation .allocation_right {
+  background: url(../images/left_lag.png) no-repeat;
+  width: 3px;
+  height: 112px;
+  float: left;
+}
+
+.allocation .allocation_right {
+  background: url(../images/right_lag.png) no-repeat;
+}
+
+.allocation .allocation_center {
+  background: url(../images/center_lag.png) repeat-x;
+  width: 977px;
+  padding: 10px;
+  color: #272727;
+}
+
+.allocation .divTit {
+  line-height: 35px;
+}
+
+.allocation .selTit {
+  margin-top: 6px;
+  background: #FFFFFF;
+}
+
+.allocation .search {
+  width: 100%;
+  padding-left: 60px;
+}
+
+.allocation .search .btn_so, .btn_searchr {
+  background: url(../images/chkNormal.png) no-repeat;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 21px;
+  line-height: 21px;
+  padding: 0 0 2px;
+  text-align: center;
+  width: 64px;
+  border: none;
+}
+
+.allocation .search .btn_so:hover, .btn_searchr:hover {
+  background: url(../images/chkHover.png) no-repeat;
+  color: #663A02;
+}
+
+.wordTitle {
+  float: left;
+  line-height: 26px;
+  color: #272727;
+  width: 100%;
+  font-weight: bold;
+}
+
+.wordTitle .addNew {
+  background: url(../images/chkNormal2.png) no-repeat;
+  width: 90px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  color: #FFFFFF;
+  border: none;
+  float: right;
+  cursor: pointer;
+}
+
+.wordTitle .addNew:hover {
+  background: url(../images/btnHover2.png) no-repeat;
+  color: #663A02;
+}
+
+.titBodys {
+  border-bottom: 1px solid #CCCCCC;
+  float: left;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.titService .divTit {
+  padding-right: 5px;
+}
+
+.tabSlip .titleService .titLbl {
+  padding: 0px 6px;
+}
+
+.titBodys .close {
+  background: url(../images/x2.png) no-repeat;
+  width: 14px;
+  height: 14px;
+  display: block;
+  float: left;
+  margin-left: -24px;
+  cursor: pointer;
+}
+
+.titBodys .close:hover {
+  background: url(../images/X1.png) no-repeat;
+}
+
+.tabDan {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  table-layout: fixed;
+}
+
+.tabDan td {
+  color: #272727;
+  border: 1px solid #CCCCCC;
+}
+
+.tabDan .tabBg {
+  background: url(../images/tab_bg.png) repeat-x;
+  height: 28px;
+  line-height: 28px;
+}
+
+.wordTitle .lookRecord {
+  color: #006ECA;
+  text-decoration: underline;
+  float: right;
+  cursor: pointer;
+}
+
+.wordTitle .lookRecord:hover {
+  color: #FF5E04;
+}
+
+input.chks {
+  vertical-align: text-bottom;
+  margin: 0px 5px 1px 0px;
+}
+
+/*-----------------------------新增保险理赔单----------------------------------*/
+.tabClaims {
+  width: 100%;
+  color: #272727;
+  margin: 0px 10px;
+}
+
+.tuihuo_first table.tabClaims td {
+  text-align: left;
+}
+
+.tuihuo_first table.tabClaims td label {
+  float: left;
+  padding-right: 10px;
+}
+
+.tuihuo_first table.tabClaims td label input {
+  margin: 6px 5px 0px 0px;
+}
+
+.add_claims .divSlip, .add_claims .tabSlip {
+  margin: 0px 10px;
+  width: 98%;
+}
+
+.add_claims .tabSlip td {
+  text-align: left;
+  height: 28px;
+  line-height: 28px;
+}
+
+.add_claims .wordTitle {
+  margin-left: 10px;
+}
+
+.tabPrev td {
+  border: 1px solid #BBBBBB;
+  padding-left: 3px;
+}
+
+.tabPrev tr.tr_bg td {
+  background: url(../images/title_top.png) repeat-x;
+  color: #006ECA;
+}
+
+.tabPick .btnPlus, .tabPick .btnMinus {
+  float: inherit;
+  display: inline-block;
+}
+
+.divTit .btn {
+  background: url(../images/chkNormall.png) no-repeat;
+  width: 64px;
+  height: 21px;
+  line-height: 21px;
+  text-align: center;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.divTit .btn:hover {
+  background: url(../images/chkHoverr.png) no-repeat;
+  color: #663A02;
+}
+
+.shelvesed {
+  color: #444443;
+  border: 1px solid #CCCCCC;
+  width: 490px;
+  float: left;
+}
+
+.shelvesed .topTitle {
+  background: url(../images/titleBg.png) repeat-x;
+  height: 31px;
+  line-height: 32px;
+  width: 100%;
+  border-bottom: 1px solid #CCCCCC;
+  color: #ff5113;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.shelvesed .topTitle span {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.tabShelvesed {
+  padding: 10px;
+  table-layout: fixed;
+}
+
+.tabShelvesed  td {
+  height: 25px;
+  line-height: 20px;
+  padding-top: 8px;
+  border-bottom: 1px solid #CCCCCC;
+  padding-bottom: 10px;
+}
+
+.tabShelvesed .bg td {
+  background: #e5e5e5;
+  height: 23px;
+  padding: 0px;
+  border-bottom: none;
+  padding-top: 2px;
+}
+
+.tabShelvesed  td .txt {
+  width: 60px;
+  height: 16px;
+  line-height: 16px;
+  text-align: right;
+  color: #444443;
+}
+
+.tabShelvesed  td  .cuxiao {
+  background: url(../images/quanCu.png) no-repeat;
+  height: 18px;
+  text-align: center;
+  width: 57px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tabShelvesed  td .check {
+  margin-top: -20px;
+}
+
+.tabShelvesed  td .caozuo {
+  color: #006ECA;
+  cursor: pointer;
+}
+
+.tabShelvesed  td .caozuo:hover {
+  color: #ff5113;
+  text-decoration: underline;
+}
+
+.btnCao {
+  padding-left: 50px;
+}
+
+.btnCao input.addNew {
+  float: left;
+  margin-right: 10px;
+}
+
+.tabShelvesed  td .gexing {
+  background: url(../images/geCu.png) no-repeat;
+}
+
+.tabShelvesed  td .wei {
+  background: url(../images/weiCu.png) no-repeat;
+}
+
+.shelvesed .cuEdit {
+  color: #006ECA;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: normal;
+  padding: 2px 0px 0px 68px;
+  position: absolute;
+}
+
+.shelvesed .cuEdit:hover {
+  color: #FF5113;
+  text-decoration: underline;
+}
+
+.shelves {
+  margin-left: 19px;
+}
+
+.shelves .topTitle {
+  color: #006ECA;
+}
+
+.btnJia {
+  padding-left: 150px;
+}
+
+.alert {
+  position: absolute;
+  margin-top: 2px;
+}
+
+.alert .ti_top, .alert .ti_body, .alert .ti_bottom {
+  float: none;
+  width: 180px;
+}
+
+.alert .ti_top {
+  background: url(../images/alertTop.png) no-repeat;
+}
+
+.alert .ti_body {
+  background: url(../images/alertBody.png) repeat-y;
+  color: #444443;
+}
+
+.alert .ti_bottom {
+  background: url(../images/alertBottom.png) no-repeat;
+}
+
+.alert .alertBody {
+  line-height: 20px;
+}
+
+.alert .alertBody:hover {
+  text-decoration: none;
+}
+
+.alert .alertBody span {
+  font-weight: bold;
+}
+
+.alert .alertBody a {
+  color: #006ECA;
+  padding-right: 10px;
+}
+
+.alert .alertBody a:hover {
+  color: #FF5113;
+  text-decoration: underline;
+}
+
+.divSearch {
+  margin-top: 15px;
+}
+
+.divSearch input {
+  margin-right: 5px;
+  color: #CCC;
+  margin-left: 5px;
+}
+
+.divTime {
+  margin-left: 75px;
+}
+
+.divTime label, .divTime input {
+  display: block;
+  float: left;
+  margin-right: 5px;
+}
+
+.divTime input {
+  margin-top: 10px;
+}
+
+.divTime  .txt, .divTime .btn_searchr {
+  margin-top: 5px;
+}
+
+.divTime .btn_searchr {
+  margin-left: 20px;
+}
+
+.shangYu {
+  display: block;
+  float: right;
+  margin-right: 10px;
+}
+
+.dui_time a {
+  float: right;
+  font-size: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: "宋体", Arial;
+}
+
+.dui_time a:hover {
+  color: #FF5113;
+  text-decoration: underline;
+}
+
+.selectTime {
+  border: 1px solid #ADADAD;
+  height: 25px;
+  width: 100px;
+  float: left;
+  margin-bottom: 5px;
+  background: #fff;
+}
+
+.selectTime input {
+  border: none;
+  width: 75px;
+  height: 23px;
+  line-height: 19px;
+  float: left;
+  padding-left: 6px;
+}
+
+.dui_time label, .dui_time .selectTime {
+  color: #000;
+  display: block;
+  float: left;
+}
+
+.dui_time label {
+  height: 25px;
+  line-height: 25px;
+  margin-right: 5px;
+}
+
+.heji, .duizhang_he {
+  text-align: right;
+  padding-right: 30px;
+  color: #000;
+}
+
+.duizhang_he {
+  padding: 0px;
+  padding-top: 10px;
+}
+
+.duizhang_he label {
+  margin-right: 10px;
+}
+
+.jieCount {
+  background: url(../images/chkNormal2.png) no-repeat;
+  width: 90px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  color: #FFFFFF;
+  border: none;
+  margin-left: 400px;
+  margin-top: 0px;
+  cursor: pointer;
+}
+
+.jieCount:hover {
+  background: url(../images/btnHover2.png) no-repeat;
+  color: #663A02;
+}
+
+.duizhang_td tr td {
+  height: 15px;
+}
+
+.duizhang_td  .bg td {
+  line-height: 15px;
+  padding-top: 2px;
+  height: 23px;
+}
+
+.titDate {
+  width: 100%;
+}
+
+.titDate label input {
+  margin-right: 4px;
+  vertical-align: text-top;
+  margin-top: -1px;
+}
+
+/*-------------------------------客户资料——我的客户 非关联客户-----------------------------------------*/
+.cus_btnSearch {
+  background: url(../images/search2.png) no-repeat;
+  width: 50px;
+  height: 23px;
+  text-align: center;
+  line-height: 23px;
+  color: #e9e9e9;
+  border: none;
+  cursor: pointer;
+  margin: 3px -2px 0px 0px;
+  position: relative;
+}
+
+.wordTitle .cusMsg .cusLetter {
+  margin: 6px 0px 0px 3px;
+}
+
+.wordTitle .cusMsg {
+  line-height: 26px;
+  height: 26px;
+}
+
+.look {
+  float: right;
+  line-height: 28px;
+  cursor: pointer;
+}
+
+.look:hover {
+  color: #FF4800;
+  text-decoration: underline;
+}
+
+.cusMsg .ti_body {
+  color: #FF5E04;
+}
+
+.gray_color {
+  color: #CCCCCC;
+}
+
+table tr td.photo a {
+  background: url(../images/duan.png) no-repeat right center;
+  width: 22px;
+  height: 14px;
+  display: inline-block;
+  margin: 0px;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+img.icon {
+  margin: -4px 3px 0px 0px;
+  vertical-align: middle;
+}
+
+/*-------------------------------订单中心-----------------------------------------*/
+.shelvesed .orderTitle {
+  color: #000000;
+  text-align: left;
+}
+
+.shelvesed .orderTitle .cuEdit {
+  float: right;
+  padding: 0px;
+  position: relative;
+  padding-right: 6px;
+}
+
+.order {
+  padding: 10px;
+}
+
+.order .divOrder {
+  line-height: 22px;
+}
+
+.order .divOrder label {
+  font-size: 14px;
+}
+
+.order .divOrder .blue_color {
+  color: #006ECA;
+  cursor: pointer;
+}
+
+.order .divOrder .blue_color:hover {
+  color: #FF5113;
+  text-decoration: underline;
+}
+
+.order hr {
+  color: #eeeeee;
+  margin: 5px -10px 5px -10px;
+}
+
+/*-------------------------------库存盘点-----------------------------------------*/
+
+.bodys .divTit {
+  line-height: 35px;
+}
+
+.bodys .divTit .txt {
+  float: none;
+  margin: 0px;
+}
+
+.bodys .divTit .lbl {
+  padding-left: 10px;
+}
+
+.bodys .divTit .lbl input {
+  vertical-align: middle;
+  margin: -3px 3px 0px 0px;
+}
+
+.bodys .divTit .btn_search {
+  margin-top: 6px;
+}
+
+.tabTitle {
+  color: #272727;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.btnPan {
+  background: url(../images/btn.png) no-repeat;
+  width: 65px;
+  height: 18px;
+  display: inline-block;
+  float: right;
+  text-align: center;
+  line-height: 19px;
+  margin: 8px 22px 0px 0px;
+  cursor: pointer;
+}
+
+.btnPan:hover {
+  background: url(../images/btn.png) no-repeat 0px -18px;
+}
+
+.tab {
+  border: 1px solid #CCCCCC;
+  border-top: none;
+  padding: 10px;
+  float: left;
+  font-family: "宋体";
+}
+
+.tab .titleBg {
+  background: url(../images/titBg.png) no-repeat;
+  height: 26px;
+  line-height: 26px;
+  color: #FFFFFF;
+  border: none;
+}
+
+.tab .titleBg td {
+  color: #FFFFFF;
+  border: none;
+}
+
+.tab .tabSlip {
+  border-width: 0px;
+}
+
+.analyseCondition .J-productSuggestion{
+    float: left;
+}
+
+.table-row-highlight td{
+    border-width:1px 0 0;
+}
+
+
+
+
+
+

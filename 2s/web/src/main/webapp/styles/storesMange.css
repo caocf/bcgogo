@@ -1,0 +1,138 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*店面基本信息*/
+.rightTime .timeBody .pen {
+	background:url(../images/pen.png) no-repeat;
+	float:right;
+	margin:7px 5px 0px 0px;
+	_background:none;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/pen.png", sizingMethod="crop");
+	width:18px;
+	height:17px;
+}
+#agent_tb {
+	background:#f2f2f2;
+	margin-bottom:15px;
+}
+#agent_tb tr {
+	line-height:40px;
+	height:40px;
+}
+#agent_tb .stroes_first {
+	padding-left:20px
+}
+#agent_tb tr td {
+	text-align:left;
+	color:#333;
+}
+/*历史记录*/
+.salesman {
+	height:32px;
+}
+.rightTime .timeBody label {
+	display:block;
+	float:left;
+	margin-right:200px;
+}
+.rightTime .timeBody div {
+	float:left;
+}
+.i_searchTime {
+	margin:3px 10px 0px 0px;
+*margin-top:2px;
+}
+.other {
+	margin:3px 0px 0px 0px;
+*margin-top:2px;
+}
+.i_searchTime .textLeft, .i_searchTime .textRight, .other .textLeft, .other .textRight {
+	background:url(../images/stores_left.png) no-repeat;
+	_background:none;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/stores_left.png", sizingMethod="crop");
+	width:5px;
+	height:24px;
+}
+.i_searchTime .textBody {
+	position:relative;
+}
+.i_searchTime .textBody img {
+	width:20px;
+	height:20px;
+	position:absolute;
+	right:2px;
+	top:2px;
+}
+.i_searchTime .textBody input, .other .textBody input {
+	background:url(../images/stroes_center.png) repeat-x;
+	width:130px;
+	line-height:24px;
+	height:24px;
+	border:none;
+	display:block;
+	float:left;
+}
+.i_searchTime .textRight, .other .textRight {
+	background:url(../images/stores_right.png) no-repeat;
+	_background:none;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/stores_right.png", sizingMethod="crop");
+}
+.other .textBody input {
+	color:#cccccc;
+}
+.recharges .textBody input {
+	width:50px;
+}
+.main .body .bodyRight .search_or {
+	background:url(../images/search_or.png) no-repeat;
+	_background:none;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/search_or.png", sizingMethod="crop");
+	width:45px;
+	height:23px;
+	margin:4px 0px 0px 5px;
+*margin:-2px 0px 0px 5px;
+	_margin-top:2px;
+	color:#6699cc;
+}
+.bodyRight .rightText .textBody input {
+	width:150px;
+}
+#txt_address {
+	width:200px;
+}
+.select {
+	width:60px;
+	height:24px;
+	line-height:24px;
+	position:relative;
+	text-align:center;
+	cursor:pointer;
+	color:#fff;
+}
+.option {
+	line-height:24px;
+	width:57px;
+	position:absolute;
+	top:24px;
+	left:0px;
+	display:none;
+	background:#fff;
+	border:1px solid #cccccc;
+	color:#000;
+	font-weight:normal;
+	font-size:12px;
+}
+ul {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+ul li {
+	height:24px;
+	background:#666px;
+	text-align:center;
+}
+ul li:hover {
+	background:#f2f2f2
+}
+.shuaxin{ float:right;padding-right:5px; width:114px; height:28px;background:url(../images/shuaxin.png)  no-repeat;color:#fff; text-align:center;font-size:14px; line-height:30px; letter-spacing:2px;}

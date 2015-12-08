@@ -1,0 +1,60 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="xiaojian" id="biz_stat_1">
+    <createTable tableName="biz_stat">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="stat_type" type="varchar(20)"/>
+      <column name="stat_year" type="bigint"/>
+      <column name="stat_month" type="bigint"/>
+      <column name="stat_day" type="bigint"/>
+      <column name="stat_week" type="bigint"/>
+      <column name="stat_sum" type="numeric(18,2)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="xiaojian" id="biz_stat_2">
+    <addPrimaryKey tableName="biz_stat" columnNames="id" constraintName="pk_biz_stat"/>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="biz_stat_3">
+    <createIndex tableName="biz_stat" indexName="idx_biz_stat_shopid_statyear">
+      <column name="shop_id"/>
+      <column name="stat_year"/>
+    </createIndex>
+  </changeSet>
+  <changeSet author="liuWei" id="biz_stat_4">
+    <addColumn tableName="biz_stat">
+      <column name="assistant" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+  <changeSet author="liuWei" id="biz_stat_5">
+    <dropColumn tableName="biz_stat" columnName="assistant"/>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="biz_stat_6">
+    <modifyColumn tableName="biz_stat">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="biz_stat_7" author="liuWei">
+    <modifyColumn tableName="biz_stat">
+      <column name="stat_sum" type="double"/>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

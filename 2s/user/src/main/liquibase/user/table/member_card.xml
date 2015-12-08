@@ -1,0 +1,52 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="chenfanglei" id="member_card_1">
+        <createTable tableName="member_card">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="shop_id" type="bigint"></column>
+            <column name="type" type="varchar(50)"></column>
+            <column name="status" type="varchar(50)"></column>
+            <column name="name" type="varchar(100)"></column>
+            <column name="price" type="double"></column>
+            <column name="worth" type="double"></column>
+            <column name="accumulate_points" type="bigint"></column>
+            <column name="service_discount" type="double"></column>
+            <column name="material_discount" type="double"></column>
+            <column name="term" type="int"></column>
+            <column name="percentage" type="double"></column>
+            <column name="percentage_amount" type="double"></column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="member_card_2" author="chenfanglei">
+        <addPrimaryKey tableName="member_card" columnNames="id" constraintName="pk_member_card"></addPrimaryKey>
+    </changeSet>
+
+    <changeSet id="member_card_3" author="chenfanglei">
+        <createIndex tableName="member_card" indexName="idx_member_card_1">
+            <column name="shop_id"></column>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="member_card_4" author="chenfanglei">
+      <dropColumn tableName="member_card" columnName="term"></dropColumn>
+    </changeSet>
+
+    <changeSet id="member_card_5" author="chenfanglei">
+      <addColumn tableName="member_card">
+        <column name="worth_term" type="int"></column>
+      </addColumn>
+    </changeSet>
+</databaseChangeLog>

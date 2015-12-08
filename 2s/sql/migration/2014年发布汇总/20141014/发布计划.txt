@@ -1,0 +1,50 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+
+
+三.发布应用
+  1. 发布web,admin
+
+四.添加权限
+
+SHOP-基本权限
+
+name : web_toSendRecord
+value: /web/weChat.do?method=toWxSent
+systemType:SHOP
+memo:跳转到发送记录界面
+type:request
+
+
+name : web_inintWxRecord
+value: /web/weChat.do?method=inintSendRecord
+systemType:SHOP
+memo:微信发送记录列表
+type:request
+
+
+name : web_findWxSend
+value: /web/weChat.do?method=toFindWxSend
+systemType:SHOP
+memo:查看发送的微信
+type:request
+
+
+name : web_deleteWXMsg
+value: /web/weChat.do?method=deleteWXMsg
+systemType:SHOP
+memo:删除发送记录中的微信信息
+type:request
+
+
+
+
+
+
+五.初始化
+
+
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+

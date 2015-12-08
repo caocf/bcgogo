@@ -1,0 +1,41 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="ndong" id="promotion_order_record_1">
+        <createTable tableName="promotion_order_record">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="supplier_shop_id" type="bigint"/>
+            <column name="order_id" type="bigint"/>
+            <column name="item_id" type="bigint"/>
+            <column name="product_id" type="bigint"/>
+            <column name="promotions_id" type="bigint"/>
+            <column name="promotions_rule" type="varchar(100)"/>
+            <column name="order_type" type="varchar(50)"/>
+            <column name="order_status" type="varchar(50)"/>
+            <column name="amount" type="double"/>
+            <column name="promotions_type" type="varchar(50)"/>
+            <column name="deleted" type="varchar(50)"/>
+        </createTable>
+        <addPrimaryKey tableName="promotion_order_record" columnNames="id" constraintName="pk_promotion_order_record"/>
+    </changeSet>
+
+    <changeSet id="jimuchen" author="promotion_order_record_2">
+        <renameColumn tableName="promotion_order_record" oldColumnName="shop_id" newColumnName="customer_shop_id" columnDataType="bigint"/>
+    </changeSet>
+
+    <changeSet id="promotion_order_record_3" author="ndong">
+        <renameColumn tableName="promotion_order_record" oldColumnName="promotions_rule" newColumnName="promotions_json" columnDataType="mediumtext"/>
+    </changeSet>
+
+</databaseChangeLog>

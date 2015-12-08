@@ -1,0 +1,48 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhangjuntao" id="shop_sms_record_zhangjuntao_1">
+        <createTable tableName="shop_sms_record">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+
+            <column name="sms_category" type="varchar(50)"/>
+            <column name="balance" type="double"/>
+            <column name="number" type="bigint"/>
+            <column name="operate_time" type="bigint"/>
+            <column name="operator_id" type="bigint"/>
+            <column name="refund_time" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="shop_sms_record" columnNames="id"
+                       constraintName="pk_shop_sms_record"/>
+        <createIndex tableName="shop_sms_record" indexName="idx_shop_sms_record_shopid">
+            <column name="shop_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="shop_sms_record_jinyuan_1" author="jinyuan">
+        <addColumn tableName="shop_sms_record">
+            <column name="flag" type="boolean"></column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="shop_sms_record_jinyuan_2" author="jinyuan">
+        <addColumn tableName="shop_sms_record">
+            <column name="sms_id" type="bigint"></column>
+            <column name="sms_send_scene" type="varchar(50)"></column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="shop_sms_record_jinyuan_3" author="jinyuan">
+        <addColumn tableName="shop_sms_record">
+            <column name="stat_type" type="varchar(50)"></column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

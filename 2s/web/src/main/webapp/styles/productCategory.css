@@ -1,0 +1,172 @@
+@charset "utf-8";
+/* CSS Document */
+/*body {*/
+/*font-family: "微软雅黑", Arial;*/
+/*font-size: 12px;*/
+/*}*/
+
+.productCategory_i_searchBrand {
+    float: left;
+}
+
+.productCategory_i_searchBrand .i_upLeft {
+    float: left;
+    background: url(../images/i_brandLeft.jpg) no-repeat;
+    width: 2px;
+    height: 30px;
+}
+
+.productCategory_i_searchBrand .i_upCenter {
+    float: left;
+    background: url(../images/i_brandbg.jpg) repeat-x;
+    width: 218px;
+    height: 30px;
+    color: white;
+}
+
+.productCategory_i_searchBrand .i_upCenter .i_note {
+    float: left;
+    background: url(../images/note.jpg) no-repeat 5px 7px;
+    width: 170px;
+    padding-left: 25px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.productCategory_i_searchBrand .i_upCenter .i_close {
+    float: left;
+    background: url(../images/close.jpg) no-repeat 0px 6px;
+    width: 17px;
+    height: 28px;
+    cursor: pointer;
+}
+
+.productCategory_i_searchBrand .i_upRight {
+    float: left;
+    background: url(../images/i_brandRight.jpg) no-repeat;
+    width: 2px;
+    height: 30px;
+}
+
+.clear {
+    clear: both;
+}
+
+.productCategory_i_searchBrand .i_upBody {
+    float: left;
+    border: 1px solid #DADADA;
+    background: white;
+    border-bottom: none;
+    border-top: none;
+    width: 200px;
+    padding: 10px 0px 0px 10px;
+    color: #000000;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.productCategory_i_searchBrand .i_upBody ul {
+    margin: 0px 0px 5px 0px;
+    float: left;
+    padding: 0px;
+}
+
+.productCategory_i_searchBrand .i_upBody ul li {
+    width: 240px;
+    height: 25px;
+    float: left;
+    margin: 0px 10px 0px 0px;
+    list-style: none;
+}
+
+.productCategory_i_searchBrand .i_upBody .edit_goods li label {
+    width: 60px;
+}
+
+.productCategory_i_searchBrand .i_upBody ul li input,
+.productCategory_i_searchBrand .i_upBody ul li label,
+.productCategory_i_searchBrand .i_upBody ul li span {
+    display: block;
+    /*float: left;*/
+    margin-left: 5px;
+    float: left;
+}
+
+.productCategory_i_searchBrand .i_upBody ul li .txt_edit {
+    width: 130px;
+}
+
+.productCategory_i_searchBrand .next_info {
+    margin: 0 0 0 200px;
+}
+
+.productCategory_i_searchBrand .more_his {
+    margin-right: 10px;
+    float: right;
+}
+
+.productCategory_i_searchBrand .add_upBottom {
+    /*width: 530px;*/
+}
+
+.productCategory_i_searchBrand .i_upBottom {
+    float: left;
+    background: white;
+}
+
+.productCategory_i_searchBrand .i_upBottomLeft {
+    float: left;
+    background: url(../images/leftBottom.jpg) no-repeat;
+    width: 6px;
+    height: 7px;
+}
+
+.productCategory_i_searchBrand .i_upBottom .i_upBottomCenter {
+    float: left;
+    background: url(../images/centerBottom.jpg) repeat-x;
+    width: 830px;
+    height: 1px;
+    margin-top: 6px;
+}
+
+.productCategory_i_searchBrand .i_upBody, .productCategory_i_searchBrand .i_upBottom .i_upBottomCenter {
+    width: 200px;
+    color: black;
+    padding-right: 10px;
+}
+
+.productCategory_i_searchBrand .i_upBottom .i_upBottomRight {
+    float: left;
+    background: url(../images/rightBottom.jpg) no-repeat;
+    width: 6px;
+    height: 7px;
+}
+
+.productCategory_i_searchBrand input.btn {
+    background: url(../images/editCancel.jpg) no-repeat;
+    border: none;
+    width: 58px;
+    height: 31px;
+    color: #69C;
+    cursor: pointer;
+}
+
+.productCategory_i_searchBrand .next_info input {
+    background: url(../images/sure.png) no-repeat;
+    width: 62px;
+    height: 26px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.productCategory_i_searchBrand .i_upBody ul li .btnPlus {
+    background: url(../images/opera1.jpg) no-repeat;
+    border: none;
+    margin-left: 10px;
+    width: 18px;
+    height: 18px;
+}
+
+.productCategory_i_searchBrand .i_upBody ul li label {
+    width: 140px;
+}

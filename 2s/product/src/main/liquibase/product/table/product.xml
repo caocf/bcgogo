@@ -1,0 +1,166 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="wujiaolong" id="product_1">
+        <createTable tableName="product">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="uuid" type="char(36)"/>
+            <column name="name" type="varchar(200)"/>
+            <column name="name_en" type="varchar(200)"/>
+            <column name="state" type="bigint"/>
+            <column name="memo" type="varchar(2000)"/>
+            <column name="kind_id" type="bigint"/>
+            <column name="brand" type="varchar(200)"/>
+            <column name="model" type="varchar(200)"/>
+            <column name="spec" type="varchar(2000)"/>
+            <column name="mfr" type="varchar(200)"/>
+            <column name="mfr_en" type="varchar(200)"/>
+            <column name="origin_no" type="integer"/>
+            <column name="product_vehicle_status" type="integer"/>
+            <column name="origin" type="varchar(200)"/>
+            <column name="unit" type="varchar(200)"/>
+            <column name="price" type="decimal(18,4)"/>
+            <column name="shop_id" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="product" columnNames="id" constraintName="pk_product"/>
+    </changeSet>
+
+    <changeSet author="wujiaolong" id="product_2">
+        <addColumn tableName="product">
+            <column name="first_letter" type="varchar(10)"/>
+            <column name="first_letter_combination" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="wujiaolong" id="product_3">
+        <addColumn tableName="product">
+            <column name="product_vehicle_brand" type="varchar(50)"/>
+            <column name="product_vehicle_model" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="wujiaolong" id="product_4">
+        <addColumn tableName="product">
+            <column name="parent_id" type="bigint"/>
+            <column name="check_status" type="integer"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="wujiaolong" id="product_5">
+        <dropColumn tableName="product" columnName="price"/>
+    </changeSet>
+
+    <changeSet author="wujiaolong" id="product_6">
+        <addColumn tableName="product">
+            <column name="product_vehicle_year" type="varchar(10)"/>
+            <column name="product_vehicle_engine" type="varchar(10)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="product_7">
+      <createIndex tableName="product" indexName="idx_product_shopid">
+          <column name="shop_id" />
+      </createIndex>
+  </changeSet>
+    <changeSet author="qiuxinyu" id="product_8">
+        <addColumn tableName="product">
+            <column name="barcode" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="zoujianhong" id="product_9">
+        <modifyColumn tableName="product">
+            <column name="first_letter_combination" type="varchar(200)"/>
+        </modifyColumn>
+    </changeSet>
+
+  <changeSet id="product_10" author="chenfanglei">
+    <modifyColumn tableName="product">
+      <column name="first_letter" type="varchar(100)"></column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="product_11">
+    <modifyColumn tableName="product">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+	    <changeSet author="qiuxinyu" id="product_12">
+        <addColumn tableName="product">
+            <column name="commodity_code" type="varchar(70)"/>
+        </addColumn>
+    </changeSet>
+	<changeSet author="qiuxinyu" id="product_13">
+		<createIndex tableName="product" indexName="idx_product_commodityCode">
+			<column name="commodity_code"/>
+			<column name="shop_id"/>
+		</createIndex>
+	</changeSet>
+	<changeSet author="qiuxinyu" id="product_14">
+		<addColumn tableName="product">
+			<column name="status" type="varchar(50)"/>
+		</addColumn>
+	</changeSet>
+    <changeSet id="product_15" author="chenfanglei">
+        <addColumn tableName="product">
+            <column name="normal_product_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="jimuchen" id="product_16">
+        <dropIndex tableName="product" indexName="idx_product_shopid"/>
+        <dropIndex tableName="product" indexName="idx_product_commodityCode"/>
+        <createIndex tableName="product" indexName="idx_product_shopId_commodityCode">
+            <column name="shop_id"/>
+            <column name="commodity_code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="qiuxinyu" id="product_17_qiuxinyu">
+        <dropIndex tableName="product" indexName="idx_product_shopId_commodityCode"/>
+        <createIndex tableName="product" indexName="idx_product_shopId">
+            <column name="shop_id"/>
+        </createIndex>
+        <createIndex tableName="product" indexName="idx_product_commodityCode">
+            <column name="commodity_code"/>
+        </createIndex>
+        <createIndex tableName="product" indexName="idx_product_name">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="zhangjuntao" id="product_17">
+        <createIndex tableName="product" indexName="idx_product_normal_product_id">
+            <column name="normal_product_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="product_xzhu_18" author="xzhu">
+        <addColumn tableName="product">
+            <column name="description" type="text"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="product_19" author="yangwj">
+        <modifyColumn tableName="product">
+            <column name="product_vehicle_brand" type="varchar(200)"/>
+            <column name="product_vehicle_model" type="varchar(200)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="product_ndong_19" author="ndong">
+        <addColumn tableName="product">
+            <column name="relevance_status" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

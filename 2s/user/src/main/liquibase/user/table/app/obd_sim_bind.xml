@@ -1,0 +1,27 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xinYuQiu" id="obd_sim_bind_1">
+        <createTable tableName="obd_sim_bind">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="obd_id" type="bigint"/>
+            <column name="sim_id" type="bigint"/>
+            <column name="obd_history_id" type="bigint"/>
+            <column name="sim_history_id" type="bigint"/>
+            <column name="status" type="varchar(20)"/>
+            <column name="bind_time" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="obd_sim_bind" columnNames="id" constraintName="pk_obd_sim_bind"/>
+    </changeSet>
+
+</databaseChangeLog>

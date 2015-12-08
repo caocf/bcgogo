@@ -1,0 +1,4 @@
+//author zhangjuntao
+//txn.sms_balance数据迁移到config.balance
+url:
+  http://localhost:8080/web/init.do?method=smsBalanceMigrate

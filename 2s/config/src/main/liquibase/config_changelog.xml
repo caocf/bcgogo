@@ -1,0 +1,85 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <preConditions>
+    <or>
+      <dbms type="oracle" />
+      <dbms type="mysql" />
+    </or>
+  </preConditions>
+
+  <changeSet id="hibernate_unique_key_1" author="cli">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="hibernate_unique_key"/>
+      </not>
+    </preConditions>
+    <createTable tableName="hibernate_unique_key">
+      <column name="next_hi" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+    <insert tableName="hibernate_unique_key">
+      <column name="next_hi" value="1000000" />
+    </insert>
+  </changeSet>
+
+  <changeSet id="config_1" author="cli" dbms="mysql" runAlways="true">
+    <sql>SET storage_engine = InnoDB;</sql>
+  </changeSet>
+
+  <include file="config/config.xml"/>
+  <include file="config/shop.xml"/>
+  <include file="config/attachment.xml"/>
+  <include file="config/area.xml"/>
+  <include file="config/business.xml"/>
+  <include file="config/shop_business.xml"/>
+  <include file="config/import_record.xml"/>
+  <include file="config/shop_balance.xml"/>
+  <include file="config/shop_unit.xml"/>
+  <include file="config/shop_config.xml"/>
+  <include file="config/crm_operation_log.xml"/>
+  <include file="config/operation_log.xml"/>
+  <include file="config/wholesaler_shop_relation.xml"/>
+  <include file="config/shop_customer_relation.xml"/>
+  <include file="config/merge_change_log.xml" />
+  <include file="config/merge_record.xml" />
+  <include file="config/sale_man_shop_map.xml" />
+  <include file="config/maintain_shop_log.xml" />
+  <include file="config/shop_relation_invite.xml" />
+  <include file="config/shop_operate_history.xml" />
+  <include file="config/register_info.xml" />
+  <include file="config/shop_operation_task.xml" />
+  <include file="config/sms_donation_log.xml" />
+  <include file="config/shop_audit_log.xml" />
+  <include file="config/shop_bargain_record.xml" />
+  <include file="config/shop_extension_log.xml" />
+  <include file="config/page_customizer_config.xml" />
+  <include file="config/shop_contact.xml" />
+  <include file="config/shop_business_scope.xml" />
+  <include file="config/image_version_config.xml" />
+  <include file="config/image_info.xml" />
+  <include file="config/data_image_relation.xml" />
+  <include file="config/image_error_log.xml" />
+
+  <include file="config/export_record.xml" />
+  <include file="config/export_file.xml" />
+  <include file="config/solr_reindex_job.xml" />
+  <include file="config/service_category.xml" />
+  <include file="config/shop_service_category.xml" />
+  <include file="config/agent_product.xml" />
+  <include file="config/shop_agent_product.xml" />
+  <include file="config/recently_used_data.xml"/>
+  <include file="config/juhe_violate_regulation_city_search_condition.xml"/>
+  <include file="config/juhe_city_oil_price.xml"/>
+  <include file="config/app_update_announced.xml"/>
+
+  <include file="config/vehicle_violate_regulation_query_record.xml"/>
+  <include file="config/vehicle_violate_regulation_record.xml"/>
+  <include file="config/shop_ad_area.xml"/>
+  <include file="config/recommend_tree.xml"/>
+  <include file="config/recommend_shop.xml"/>
+  <include file="config/wx_image_lib.xml"/>
+</databaseChangeLog>

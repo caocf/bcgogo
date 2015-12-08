@@ -1,0 +1,234 @@
+﻿后台系统config配置 添加
+            key                              value                                备注
+
+PreBuyOrderPopLifeCycle                      30000                         求购资讯右下角弹出框持续时间 单位 ms
+PreBuyOrderPopIntervalTime                   600000                        求购资讯右下角弹出框间隔时间 单位 ms
+PreBuyOrderMessageLifeCycle                  259200000                     求购资讯推送消息的有效时间   单位  ms
+CUSTOMIZER_CONFIG                            ON                            自定义开关
+
+
+//资源角色配置
+
+////////////////////////////////////求购资讯////////////////////////////////////////////////////////////////
+
+(old)进销存--入库管理---采购单---新增
+(new)web_txn_purchase_createPurchaseOrderOnlineByQuotedPreBuyOrder                 request             /web/RFbuy.do?method=createPurchaseOrderOnlineByQuotedPreBuyOrder     根据报价生成在线采购单
+求购单
+汽配在线-----发布求购(新增模块)----新增求购(新增角色)          分配给   汽修版本   的老板、经理/店长、仓管
+(new)web_txn_createPreBuyOrder                       request       /web/preBuyOrder.do?method=createPreBuyOrder         发布求购页面
+(new)web_txn_createPreBuyOrderByProductIdInfos       request       /web/preBuyOrder.do?method=createPreBuyOrderByProductIdInfos  根据本店商品生成求购
+(new)web_txn_savePreBuyOrder                         request       /web/preBuyOrder.do?method=savePreBuyOrder          保存求购
+(new)ReleasePreBuyOrder                              menu        WEB.AUTOACCESSORYONLINE.RELEASE_PREBUYORDER           //发布求购
+
+(old)AutoAccessoryOnline                             menu          WEB.AUTOACCESSORYONLINE.BASE
+(old)web_autoAccessoryOnline                       request             /web/navigator.do?method=autoAccessoryOnline                    汽配在线
+
+
+汽配在线-----我的求购(新增模块)----求购列表(新增角色)          分配给   汽修版本   的老板、经理/店长、仓管
+(new)web_txn_preBuyOrderManage       request       /web/preBuyOrder.do?method=preBuyOrderManage     我的求购列表
+(new)web_txn_getPreBuyOrderList      request      /web/preBuyOrder.do?method=getPreBuyOrderList    我的求购数据
+(new)MyPreBuyOrder                   menu        WEB.AUTOACCESSORYONLINE.MY_PREBUYORDER           //我的求购
+(old)AutoAccessoryOnline                             menu          WEB.AUTOACCESSORYONLINE.BASE
+(old)web_autoAccessoryOnline                     request             /web/navigator.do?method=autoAccessoryOnline                    汽配在线
+
+汽配在线-----我的求购----查看求购(新增角色)                  分配给     汽修版本   的老板、经理/店长、仓管
+(new)web_txn_showPreBuyOrderById     request       /web/preBuyOrder.do?method=showPreBuyOrderById     查看求购信息
+
+汽配在线-----我的求购----查看报价详细(新增角色)               分配给    汽修版本   的老板、经理/店长、仓管
+(new)web_txn_showSupplierQuotedItemDetailByItemId     request      /web/preBuyOrder.do?method=showSupplierQuotedItemDetailByItemId     查看报价详细信息
+(new)web_txn_showSupplierQuotedDetailByPreBuyOrderIdAndSupplierShopId     request      /web/preBuyOrder.do?method=showSupplierQuotedDetailByPreBuyOrderIdAndSupplierShopId     查看多个报价详细信息
+
+汽配在线-----求购资讯(新增模块)----资讯列表(新增角色)         分配给   汽修版本   的老板、经理/店长、仓管      汽配版本 所有角色
+(new)web_txn_preBuyInformation                           request       /web/preBuyOrder.do?method=preBuyInformation     资讯列表页面
+(new)web_txn_getPreBuyInformationList                    request       /web/preBuyOrder.do?method=getPreBuyInformationList     资讯列表数据
+(new)web_txn_showBuyInformationDetailByPreBuyOrderId     request       /web/preBuyOrder.do?method=showBuyInformationDetailByPreBuyOrderId     查看求购资讯详细
+(new)PreBuyInformation                                   menu          WEB.AUTOACCESSORYONLINE.BUYING_INFORMATION           //求购资讯
+(old)AutoAccessoryOnline                             menu          WEB.AUTOACCESSORYONLINE.BASE
+(old)web_autoAccessoryOnline                       request             /web/navigator.do?method=autoAccessoryOnline                    汽配在线
+
+汽配在线-----求购资讯(新增模块)----资讯推送(新增角色)         分配给    汽配版本 所有角色
+(new)web_txn_getPushPreBuyOrderMessage                           request       /web/preBuyOrder.do?method=getPushPreBuyOrderMessage     获取资讯消息
+(new)PreBuyOrderMessage                                          render          WEB.AUTOACCESSORYONLINE.PRE_BUY_ORDER_MESSAGE           //资讯消息
+
+汽配在线-----我的报价(新增模块)----报价列表(新增角色)       分配给    汽配版本 所有角色
+(new)web_txn_quotedPreBuyOrderManage      request       /web/preBuyOrder.do?method=quotedPreBuyOrderManage     报价列表页面
+(new)web_txn_getQuotedPreBuyOrderList     request       /web/preBuyOrder.do?method=getQuotedPreBuyOrderList     报价列表数据
+
+(new)MyQuotedPreBuyOrder                   menu        WEB.AUTOACCESSORYONLINE.MY_QUOTEDPREBUYORDER           //我的报价
+(old)AutoAccessoryOnline                   menu          WEB.AUTOACCESSORYONLINE.BASE
+(old)web_autoAccessoryOnline               request             /web/navigator.do?method=autoAccessoryOnline                    汽配在线
+
+汽配在线-----我的报价----新增报价(新增角色)               分配给       汽配版本 所有角色
+(new)web_txn_quotedSelectProduct                   request       /web/preBuyOrder.do?method=quotedSelectProduct     报价流程选择商品
+(new)web_txn_saveQuotedPreBuyOrder                 request       /web/preBuyOrder.do?method=saveQuotedPreBuyOrder     报价流程保存
+
+
+(new)AddQuotedPreBuyOrder                    render        WEB.AUTOACCESSORYONLINE.ADD_QUOTEDPREBUYORDER           //新增报价
+
+
+汽配在线-----我的报价----查看报价(新增角色)              分配给       汽配版本 所有角色
+(new)web_txn_showBuyInformationDetailByQuotedPreBuyOrderItemId     request       /web/preBuyOrder.do?method=showBuyInformationDetailByQuotedPreBuyOrderItemId     查看报价详细
+
+
+///////////////////////////////////////////////入库销售退货作废\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+进销存-入库退货单-作废   新增:
+purchaseReturnRepeal        /web/goodsReturn.do?method=repeal    入库退货单作废(非在线)   request     SHOP
+purchaseReturnRepealValidate        /web/goodsReturn.do?method=validateRepeal    非在线入库退货单作废前检验   request         SHOP
+
+进销存-销售管理-销售退货单
+新增角色：作废. 配置：所有已具备销售退货单权限的版本、用户组
+salesReturnRepeal     WEB.TXN.SALE_MANAGE.RETURN.REPEAL     销售退货单作废显示     render      SHOP
+salesReturnRepealRequest    /web/salesReturn.do?method=repeal     销售退货单作废     request       SHOP
+validateSalesReturnRepeal     /web/salesReturn.do?method=validateRepeal     销售退货单作废验证     request     SHOP
+
+ shop-进销存--销售管理--销售单--查询
+ web_sale_toSalesOrder /web/sale.do?method=toSalesOrder 查看销售单  request   shop
+
+////////////////////////////////////////////////员工业绩统计//////////////////////////////////////////////////////////////////////
+在所有汽配版本 分配角色 SHOP-财务统计- 员工业绩统计 并分配给老板财务用户组
+
+
+删除角色： SHOP - 车辆施工 - 设定施工项目 - 设定员工提成
+
+在 SHOP-车辆施工- 设定施工项目  设定施工项目角色中添加这些资源：
+set_the_business_construction  WEB.SET_THE_BUSINESS_CONSTRUCTION        render 设定施工项目
+web_member_toSetCategoryPage  /web/category.do?method=toSetCategoryPage    shop  设定施工项目页面跳转  request
+（新 ）web_category_batchUpdateServiceCategory            request   /web/category.do?method=batchUpdateServiceCategory 批量更新服务的营业分类
+
+在 SHOP-财务统计- 员工业绩统计 角色中添加这些资源：
+web_assistantStat_searchServiceConfig               request   /web/assistantStat.do?method=searchServiceConfig              获取需要配置的项目
+web_assistantStat_searchSalesManConfig             request   /web/assistantStat.do?method=searchSalesManConfig              获取需要配置的员工
+web_assistantStat_redirectSalesManConfig             request   /web/assistantStat.do?method=redirectSalesManConfig              获取需要配置的员工
+web_assistantStat_redirectProductConfig             request   /web/assistantStat.do?method=redirectProductConfig              获取需要配置的商
+web_assistantStat_setProductAchievement             request   /web/assistantStat.do?method=setProductAchievement              批量设置商品提成
+web_assistantStat_updateProductAchievement            request   /web/assistantStat.do?method=updateProductAchievement              批量更新商品提成
+web_assistantStat_getProductAchievementByPager            request   /web/assistantStat.do?method=getProductAchievementByPager 分页获取未设置提成商品
+web_assistantStat_updateSalesManInfoDepartment            request   /web/assistantStat.do?method=updateSalesManInfoDepartment 更新员工部门
+web_assistantStat_getAssistantAchievementByPager            request   /web/assistantStat.do?method=getAssistantAchievementByPager 分页获取未设置部门的员工
+web_assistantStat_getServiceAchievementByPager            request   /web/assistantStat.do?method=getServiceAchievementByPager 分页获取未设置提成的服务
+web_assistantStat_redirectAssistantStat            request   /web/assistantStat.do?method=redirectAssistantStat 进入员工业绩统计页面
+web_assistantStat_getAssistantStatByPage            request   /web/assistantStat.do?method=getAssistantStatByPage 分页获取员工统计页面
+web_assistantStat_redirectServiceRecord            request   /web/assistantStat.do?method=redirectServiceRecord 跳转到员工服务记录页面
+web_assistantStat_getAssistantServiceByPage            request   /web/assistantStat.do?method=getAssistantServiceByPage 分页获取员工服务记录
+web_assistantStat_getAssistantProductByPage            request   /web/assistantStat.do?method=getAssistantProductByPage 分页获取员工商品销售记录
+web_assistantStat_redirectProductRecord            request   /web/assistantStat.do?method=redirectProductRecord 跳转到员工商品记录页面
+web_assistantStat_getAssistantMemberByPage            request   /web/assistantStat.do?method=getAssistantMemberByPage 分页获取员工会员销售记录
+web_assistantStat_redirectMemberRecord            request   /web/assistantStat.do?method=redirectMemberRecord 跳转到员工会员记录页面
+web_assistantStat_updateMemberAchievement            request   /web/assistantStat.do?method=updateMemberAchievement 更新员工会员卡提成配置
+web_assistantStat_assistantStatByShopId            request   /web/assistantStat.do?method=assistantStatByShopId 统计本店面员工业绩
+
+web_assistantStat_redirectWashRecord            request   /web/assistantStat.do?method=redirectWashRecord 跳转到员工洗车记录页面
+（新）web_assistantStat_updateServiceAchievement            request   /web/assistantStat.do?method=updateServiceAchievement 更新员工施工提成
+
+web_print_printAssistantStat          /web/assistantStat.do?method=printAssistantStat   打印员工业绩统计  request   shop
+ web_print_printAssistantMember        /web/assistantStat.do?method=printAssistantMember  打印会员卡业绩统计  request   shop
+ web_print_printAssistantService       /web/assistantStat.do?method=printAssistantService  打印车辆施工业绩统计  request   shop
+ web_print_printAssistantProduct       /web/assistantStat.do?method=printAssistantProduct  打印商品销售业绩统计  request   shop
+
+web_assistantStat_getSalesManConfigNum            request   /web/assistantStat.do?method=getSalesManConfigNum 获得未配置部门的员工个数
+web_assistantStat_getProductConfigNum            request   /web/assistantStat.do?method=getProductConfigNum 获得未配置商品提成的个数
+set_the_business_construction_menu  WEB.SET_THE_BUSINESS_CONSTRUCTION_MENU        menu 提成配置
+web_agentStat_agentAchievements  WEB.STAT.AGENT_ACHIEVEMENTS.STAT_MENU        menu 提成统计
+
+
+
+
+/////////////////////////////////////////////////施工单优化///////////////////////////////////////////////
+shop-车辆施工-车辆施工-派单：增加新资源：
+web_invoicing_dispatchRepairOrder    /web/repair.do?method=dispatchRepairOrder  shop 派单改单  request
+shop-车辆施工-车辆施工-完工：增加新资源：
+web_invoicing_finishRepairOrder    /web/repair.do?method=finishRepairOrder  shop 施工单完工  request
+shop-车辆施工-车辆施工-交车结算：增加新资源：
+web_invoicing_accountRepairOrder    /web/repair.do?method=accountRepairOrder  shop 施工单交车结算  request
+
+登录后基本权限
+web_basic_remind_titles     /web/remind.do?method=getTitlePromptNums       shop      导航栏数字提醒     request
+
+//////////////////////////////////////////////自定义配置和明星供应商推荐///////////////////////////////////////////////////
+更正 resource
+  receivable_payable_stat_payable_print 供应商交易打印(不能删，待修改其value)
+  修改成：  supplier_transactions_print   WEB.STAT.BUSINESS_ANALYSIS.SUPPLIER_TRANSACTIONS.PRINT    SHOP 供应商交易打印 render
+
+  在系统管理-自定义配置管理  增角色 《页面配置》其中增加
+    增资源{page_custom_config_menu      WEB.SYSTEM_SETTINGS.CUSTOM_CONFIG.PAGE.CONFIG   SHOP   页面配置菜单   menu}
+    增资源{page_customizer_config_show                           /web/pageCustomizerConfig.do?method=show   SHOP   显示配置页面   request}
+    增资源{page_customizer_config_updateProductPageConfig        /web/pageCustomizerConfig.do?method=updateProductPageConfig   SHOP   更新商品页面配置   request}
+    增资源{page_customizer_config_updateOrderPageConfig          /web/pageCustomizerConfig.do?method=updateOrderPageConfig   SHOP   更新单据页面配置   request}
+    增资源{page_customizer_config_restorePageConfig              /web/pageCustomizerConfig.do?method=restorePageConfig   SHOP   页面配置还原   request}
+
+  在车辆施工、采购、入库的 新增单据角色
+    增资源{page_obtainActiveRecommendSupplierByProductId         /web/activeRecommendSupplier.do?method=obtainActiveRecommendSupplierByProductId   SHOP   供应商主动推荐   request}
+
+  库存管理下加入
+  web/inventoryCheck.do?method=getInventoryCheckByProductId
+
+  SHOP-基本  增加
+    增资源{page_customizer_config_getProductPageConfig           /web/pageCustomizerConfig.do?method=getProductPageConfig   SHOP   获得商品页面配置   request}
+    增资源{page_customizer_config_getOrderPageConfig             /web/pageCustomizerConfig.do?method=getOrderPageConfig   SHOP   获得单据页面配置   request}
+
+  SHOP 初级版基本权限 高级版基本权限 综合基本权限 中加入
+   增资源 {WEB_VERSION_ACTIVE_RECOMMEND_SUPPLIER         WEB.VERSION.ACTIVE_RECOMMEND_SUPPLIER   SHOP  供应商主动推荐    logic}
+
+
+ CRM--shop操作权限--shop数据初始化
+ （新）createDefaultPageConfig	/web/init.do?method=createDefaultPageConfig	 SHOP   初始化默认页面配置    request
+
+
+//执行以下sql
+bcuser 库
+update menu set href = 'category.do?method=toSetCategoryPage' where href = 'category.do?method=getCategoryItemSearch';
+txn 库
+update service set standard_hours = 1,standard_unit_price = price where price >0;
+
+
+//菜单
+INSERT INTO `menu` (`id`, `created`, `last_update`, `version`, `grade`, `label`, `resource_id`, `parent_id`, `href`, `sort`, `menu_name`)
+VALUES (1000020044134321, 1366168907970, 1366168907970, 0, 3, '求购资讯', -1, 1000020045134313, 'preBuyOrder.do?method=preBuyInformation', 70, 'WEB_AUTOACCESSORYONLINE_BUYING_INFORMATION');
+INSERT INTO `menu` (`id`, `created`, `last_update`, `version`, `grade`, `label`, `resource_id`, `parent_id`, `href`, `sort`, `menu_name`)
+VALUES (1000020044134322, 1366168907970, 1366168907970, 0, 3, '发布求购', -1, 1000020045134313, 'preBuyOrder.do?method=createPreBuyOrder', 80, 'WEB_AUTOACCESSORYONLINE_RELEASE_PREBUYORDER');
+INSERT INTO `menu` (`id`, `created`, `last_update`, `version`, `grade`, `label`, `resource_id`, `parent_id`, `href`, `sort`, `menu_name`)
+VALUES (1000020044134323, 1366168907970, 1366168907970, 0, 3, '我的求购', -1, 1000020045134313, 'preBuyOrder.do?method=preBuyOrderManage', 90, 'WEB_AUTOACCESSORYONLINE_MY_PREBUYORDER');
+INSERT INTO `menu` (`id`, `created`, `last_update`, `version`, `grade`, `label`, `resource_id`, `parent_id`, `href`, `sort`, `menu_name`)
+VALUES (1000020044134324, 1366168907970, 1366168907970, 0, 3, '我的报价', -1, 1000020045134313, 'preBuyOrder.do?method=quotedPreBuyOrderManage', 90, 'WEB_AUTOACCESSORYONLINE_MY_QUOTEDPREBUYORDER');
+
+
+update menu set resource_id=(select id from resource where `value`='WEB.AUTOACCESSORYONLINE.BUYING_INFORMATION') where id=1000020044134321;
+update menu set resource_id=(select id from resource where `value`='WEB.AUTOACCESSORYONLINE.RELEASE_PREBUYORDER') where id=1000020044134322;
+update menu set resource_id=(select id from resource where `value`='WEB.AUTOACCESSORYONLINE.MY_PREBUYORDER') where id=1000020044134323;
+update menu set resource_id=(select id from resource where `value`='WEB.AUTOACCESSORYONLINE.MY_QUOTEDPREBUYORDER') where id=1000020044134324;
+
+INSERT INTO `menu` (`id`, `created`, `last_update`, `version`, `grade`, `label`, `resource_id`, `parent_id`, `href`, `sort`, `menu_name`)
+VALUES (1000021045134322, 1366183657914, 1366183657914, 0, 3, '页面配置', -1, 1000000000010004, 'pageCustomizerConfig.do?method=show', 30, 'WEB_SYSTEM_SETTINGS_CUSTOM_CONFIG_PAGE_CONFIG');
+
+update menu set resource_id=(select id from resource where `value`='WEB.SYSTEM_SETTINGS.CUSTOM_CONFIG.PAGE.CONFIG') where id=1000021045134322;
+
+
+
+INSERT INTO `menu` (`id`, `created`, `last_update`, `version`, `grade`, `label`, `resource_id`, `parent_id`, `href`, `sort`, `menu_name`)
+VALUES (10000134321, 1366168907970, 1366168907970, 0, 3, '提成配置', -1, 1000020045084327, 'bizstat.do?method=agentAchievements&month=thisMonth', 10, 'WEB.STAT.AGENT_ACHIEVEMENTS.CONFIG');
+
+INSERT INTO `menu` (`id`, `created`, `last_update`, `version`, `grade`, `label`, `resource_id`, `parent_id`, `href`, `sort`, `menu_name`)
+VALUES (10000134322, 1366168907970, 1366168907970, 0, 3, '提成统计', -1, 1000020045084327, 'assistantStat.do?method=redirectAssistantStat', 20, 'WEB.STAT.AGENT_ACHIEVEMENTS.STAT');
+
+update menu set resource_id=(select id from resource where `value`='WEB.SET_THE_BUSINESS_CONSTRUCTION_MENU') where id=10000134321;
+update menu set resource_id=(select id from resource where `value`='WEB.STAT.AGENT_ACHIEVEMENTS.STAT_MENU') where id=10000134322;
+
+update menu set parent_id= 1000020045084327 where id=10000134321;
+update menu set parent_id= 1000020045084327 where id=10000134322;
+update bcuser.menu set sort = 100 where label='营业外记账';
+
+//初始化程序
+
+删除resouce：
+/web/category.do?method=getServiceNoCategory
+
+/web/init.do?method=createDefaultPageConfig
+
+进入后台admin ，导入打印模板
+ 模板路径：sql/打印模板/default_超级管理统计打印/员工业绩统计
+ 更新 流水统计 打印模板（去除冲账）： sql/打印模板/default_超级管理统计打印/ 营业支出流水统计-年、月、日； 营业收入流水统计-年、月、日 共6个模板。
+
+
+//solr  更新
+
+product   order  order_item   customerOrSupplier   更新配置文件和重做索引

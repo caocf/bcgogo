@@ -1,0 +1,115 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="liuWei" id="order_index_1">
+        <createTable tableName="order_index">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="uuid" type="char(36)"/>
+            <column name="shop_id" type="bigint"/>
+            <column name="order_id" type="bigint"/>
+            <column name="order_type" type="char(20)"/>
+            <column name="order_status" type="char(20)"/>
+            <column name="order_content" type="char(200)"/>
+            <column name="order_total_amount" type="double"/>
+            <column name="customer_or_supplier_id" type="bigint"/>
+            <column name="customer_or_supplier_name" type="varchar(100)"/>
+            <column name="vehicle" type="char(20)"/>
+            <column name="contact_num" type="char(20)"/>
+            <column name="arrears" type="double"/>
+            <column name="payment_time" type="bigint"/>
+            <column name="service_worker" type="varchar(50)"/>
+        </createTable>
+        <addPrimaryKey tableName="order_index" columnNames="id" constraintName="pk_order_index"/>
+        <createIndex tableName="order_index" indexName="idx_order_index_assistant">
+            <column name="shop_id"/>
+            <column name="order_type"/>
+            <column name="order_content"/>
+            <column name="order_total_amount"/>
+            <column name="service_worker"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="order_index_2" author="liuWei">
+        <modifyColumn tableName="order_index">
+            <column name="order_content" type="varchar(500)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet author="liuwei" id="order_index_3">
+        <modifyColumn tableName="order_index">
+            <column name="contact_num" type="varchar(100)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="order_index_4" author="jimuchen">
+        <addColumn tableName="order_index">
+            <column name="order_type_enum" type="varchar(50)"/>
+            <column name="order_status_enum" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="jimuchen" id="order_index_5">
+        <modifyColumn tableName="order_index">
+            <column name="version" type="bigint" >
+                <constraints nullable="false" />
+            </column>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="order_index_6" author="chenfanglei">
+        <addColumn tableName="order_index">
+            <column name="worth" type="Double"></column>
+            <column name="member_balance" type="Double"></column>
+        </addColumn>
+    </changeSet>
+
+  <changeSet id="order_index_7" author="zhangjuntao">
+    <addColumn tableName="order_index">
+      <column name="vest_date" type="bigint">
+      </column>
+    </addColumn>
+  </changeSet>
+
+    <changeSet id="order_index_8" author="chenfanglei">
+        <addColumn tableName="order_index">
+            <column name="receipt_no" type="varchar(20)"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="order_index_9" author="chenfanglei">
+        <createIndex tableName="order_index" indexName="IDX_ORDERINDEX_RECEIPT_NO">
+            <column name="shop_id"></column>
+            <column name="receipt_no"></column>
+        </createIndex>
+    </changeSet>
+    <changeSet id="order_index_10" author="liuWei">
+        <createIndex tableName="order_index" indexName="IDX_ORDERINDEX_ORDER_ID">
+            <column name="shop_id"></column>
+            <column name="order_id"></column>
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="order_index_11">
+      <modifyColumn tableName="order_index">
+          <column name="service_worker" type="varchar(300)" />
+      </modifyColumn>
+  </changeSet>
+
+  <changeSet id="order_index_12" author="jimuchen">
+      <createIndex tableName="order_index" indexName="IDX_ORDERINDEX_CREATED">
+        <column name="order_type_enum" />
+        <column name="created" />
+        <column name="shop_id" />
+      </createIndex>
+  </changeSet>
+</databaseChangeLog>

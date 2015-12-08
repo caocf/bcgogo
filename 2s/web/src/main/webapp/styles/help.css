@@ -1,0 +1,119 @@
+body {
+    color: #FFFFFF;
+    font-family: "宋体",Arial;
+    font-size: 12px;
+}
+
+.left {
+    color: #1B5EA1;
+    float: left;
+    height: 100%;
+    width: 170px;
+}
+.clear {
+    clear: both;
+}
+
+.left .titles {
+    background: none repeat scroll 0 0 #F5F5F5;
+    border-image: none;
+    border-right: 1px solid #C4C4C4;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    margin-bottom: 10px;
+}
+
+.left .titles .leftTit {
+    background: url("../images/tit_bg.png") repeat-x scroll 0 0 transparent;
+    font-weight: bold;
+    height: 27px;
+    line-height: 27px;
+    padding-left: 10px;
+}
+.left .titles div {
+    border-top: 1px solid #C4C4C4;
+    cursor: pointer;
+    height: 27px;
+    line-height: 28px;
+    padding-left: 16px;
+}
+
+.right .request .body {
+    background: url("../images/line-body.png") repeat-y scroll 0 0 transparent;
+    float: left;
+    height: auto;
+    width: 806px;
+}
+.description {
+    padding: 10px 15px;
+}
+
+.left .titles .hover {
+    background: none repeat scroll 0 0 #1F5992;
+    border-color: #C4C4C4;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+
+.right {
+    float: left;
+    margin-left: 17px;
+    width: 816px;
+}
+
+.btnDis {
+    background: url("../images/btnDis.png") no-repeat scroll 0 0 transparent;
+    color: #1B5EA1;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    width: 144px;
+}
+
+.description {
+    padding: 10px 15px;
+}
+
+.description div, .description h3 {
+    line-height: 25px;
+}
+
+.description div {
+    /*cursor: pointer;*/
+}
+.description div, .description h3 {
+    line-height: 25px;
+}
+.description .titDes a.hover {
+    background: url("../images/btnPay.png") no-repeat scroll 0 0 transparent;
+    color: #FF5E04;
+}
+.description .titDes a {
+    color: #474747;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    width: 114px;
+}
+
+.description .intro {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: 100%;
+    margin-left: 1px;
+    padding: 10px 15px;
+    width: 755px;
+}
+
+.help-btn-step {color:#FF4800;cursor: pointer;}
+.help-btn-step:hover {text-decoration: underline;}

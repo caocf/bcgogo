@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<button>
+    <button name="微查询">
+        <sub_button>
+            <button type="click" key="_M_KEY_BILL_HISTORY" name="历史账单"/>
+            <button type="click" key="_M_KEY_MEMBER_CARD" name="会员卡"/>
+            <button type="click" key="_M_KEY_VEHICLE_VIOLATE" name="违章查询"/>
+        </sub_button>
+    </button>
+    <button name="微服务">
+        <sub_button>
+            <button type="view" name="车险计算器">
+               <![CDATA[
+                  https://open.weixin.qq.com/connect/oauth2/authorize?appid={APP_ID}&redirect_uri={EVN_DOMAIN}/web/oAuth/2Insurance&response_type=code&scope=snsapi_base&state={PUBLIC_NO}
+               ]]>
+            </button>
+            <button type="view" name="车价估估">
+                <![CDATA[
+                    https://open.weixin.qq.com/connect/oauth2/authorize?appid={APP_ID}&redirect_uri={EVN_DOMAIN}/web/oAuth/2Evaluate&response_type=code&scope=snsapi_base&state={PUBLIC_NO}
+                ]]>
+            </button>
+            <button type="view" name="在线预约">
+                <![CDATA[
+                    https://open.weixin.qq.com/connect/oauth2/authorize?appid={APP_ID}&redirect_uri={EVN_DOMAIN}/web/oAuth/2Appoint&response_type=code&scope=snsapi_base&state={PUBLIC_NO}
+                ]]>
+            </button>
+        </sub_button>
+    </button>
+    <button name="关于我">
+        <sub_button>
+            <button type="click" key="_M_KEY_VEHICLE_LIST" name="我的车辆"/>
+            <button type="view" name="车辆绑定">
+                <![CDATA[
+					https://open.weixin.qq.com/connect/oauth2/authorize?appid={APP_ID}&redirect_uri={EVN_DOMAIN}/web/oAuth/2Bind&response_type=code&scope=snsapi_base&state={PUBLIC_NO}
+				]]>
+            </button>
+        </sub_button>
+    </button>
+</button>

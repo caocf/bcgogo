@@ -1,0 +1,58 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="sunyingzi" id="transaction_1">
+        <createTable tableName="transaction">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="transaction_type" type="bigint"/>
+            <column name="base_id" type="bigint"/>
+            <column name="parent_id" type="bigint"/>
+            <column name="reference_type" type="bigint"/>
+            <column name="reference_id" type="bigint"/>
+            <column name="amount" type="bigint"/>
+            <column name="currency" type="bigint"/>
+            <column name="pay_method" type="bigint"/>
+            <column name="payer_id" type="bigint"/>
+            <column name="psp_transaction_id" type="varchar(50)"/>
+            <column name="status" type="varchar(20)"/>
+        </createTable>
+        <addPrimaryKey tableName="transaction" columnNames="id" constraintName="pk_transaction"/>
+    </changeSet>
+
+    <changeSet author="sunyingzi" id="transaction_2">
+       <addUniqueConstraint tableName="transaction" columnNames="base_id,status" constraintName="pk_base_id_status"/>
+    </changeSet>
+
+    <changeSet author="xiaojian" id="transaction_2">
+        <addUniqueConstraint tableName="transaction"
+                             columnNames="base_id,status"
+                             constraintName="unique_base_id_status"/>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="transaction_3">
+      <createIndex tableName="transaction" indexName="idx_transaction_baseid">
+          <column name="base_id" />
+      </createIndex>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="transaction_4">
+    <modifyColumn tableName="transaction">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+
+</databaseChangeLog>

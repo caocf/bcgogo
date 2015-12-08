@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+
+	
+.i_upBody h1{font-size:14px;font-weight:normal;}
+.btnClick label,.btnClick input{ display:block; float:left;}
+.btnClick label{width:220px; height:25px; line-height:25px;}
+.btnClick{width:100%; margin-bottom:10px; clear:both}
+.btnClick input{background:url(../images/chkNormal2.png) no-repeat; width:90px; }
+.btnClick input:hover{background:url(../images/btnHover2.png) no-repeat; color:#663A02;}
+
+.tab_repay .i_upBody{width:320px;}
+
+.tab_repay .i_upCenter .i_note{width:282px;}
+.tab_repay .i_upCenter{width:337px;}
+.tab_repay{width:342px;}
+
+.tab_repay .i_upBottom {width:342px;}
+.tab_repay .i_upBottom .i_upBottomCenter{width:330px;}

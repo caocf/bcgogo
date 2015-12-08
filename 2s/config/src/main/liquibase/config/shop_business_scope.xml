@@ -1,0 +1,28 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet id="shop_business_scope_01" author="lw">
+    <createTable tableName="shop_business_scope">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+
+      <column name="shop_id" type="bigint"></column>
+      <column name="product_category_id" type="bigint"></column>
+    </createTable>
+
+    <addPrimaryKey tableName="shop_business_scope" columnNames="id" constraintName="pk_shop_business_scope"/>
+    <createIndex tableName="shop_business_scope" indexName="idx_shopid_categoryid">
+      <column name="shop_id"></column>
+      <column name="product_category_id"></column>
+    </createIndex>
+  </changeSet>
+</databaseChangeLog>

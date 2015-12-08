@@ -1,0 +1,125 @@
+.clearfix:after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+.clearfix{
+	*+height:1%;
+}
+.yinye_title #fencount, .yinye_title .danju strong {
+	color: #B70000;
+}
+.i_main .yinye_title li {
+	color: #787777;
+	background: url(../images/yinyen.png) no-repeat;
+	width: 91px;
+	float: left;
+	height: 29px;
+	margin-right: 10px;
+	line-height: 29px;
+	text-align: center;
+}
+.i_main .yinye_title .danju {
+	background: none;
+	width: 150px;
+	margin-right: 0px;
+	float: left;
+}
+.yinye_title .danju strong {
+	font-size: 12px;
+}
+.yinye_title #fencount, .yinye_title .danju strong {
+	color: #B70000;
+}
+.tuihuo_tb {
+	border: 1px solid #BEBEBE;
+	margin-bottom: 10px;
+}
+.tuihuo_tb table {
+	/*margin: 5px 10px 5px 10px;*/
+}
+.i_mainRight table tr td {
+	height: 25px;
+}
+#tb_tui {
+	margin: 0px 10px;
+	width: 983px;
+}
+#tb_tui, #yinfu_tb {
+	border-collapse: collapse;
+}
+#tb_tui .tab_title td, #tb_tui tr .td_title {
+	background: url("../images/title_top.png") repeat-x;
+	border: 1px solid #BEBEBE;
+	color: #366A9A;
+}
+#tb_tui tr td {
+	border: 1px solid #BEBEBE;
+}
+#tb_tui td, #yinfu_tb td {
+	text-align: center;
+	line-height: 31px;
+	color: #4D4D4D;
+}
+
+.info-info{
+	border:1px solid #BEBEBE;
+	margin: 5px 10px;
+}
+.info-info table{
+	margin:0;
+	padding:10px 0;
+}
+.info-info table td{
+	vertical-align:top;
+}
+.info-info .info-outline{
+	padding-left:50px;
+}
+.info-info .info-title{
+	text-align:right;
+	font-weight:bold;
+	width:100px;
+	padding-right:2px;
+}
+.info-info .info-sub-title{
+	text-align:right;
+	width:80px;
+	padding-right:2px;
+}
+.info-info .info-summary{
+	width:300px;
+	background:#F9F9F9;
+	padding:0 0 0 50px;
+}
+.info-info .info-summary .money{
+	text-align:right;
+}
+.info-info .info-summary .money-unit{
+	padding-left:5px;
+}
+.sale-memo{
+    text-align:left;
+    display:inline-block;
+    width:870px;
+    word-break:break-all;
+    word-wrap: break-word;
+    line-height:1.5;
+}
+
+.alertScore {
+    float: right;
+    position: relative;
+    width: 200px;
+}
+.alertScore .alertInfo{ float:left; width:180px;}
+.alertScore .arrowLeft{ background:url(../images/ti_topLeft.png) no-repeat; width:7px; height:6px; display:inline-block; float:left; margin:20px -2px 0px 0px; position:relative; z-index:2;}
+.alertScore .big_Star{ background:url(../images/stars.png) no-repeat 0px -32px; width:75px; height:14px; display:block; cursor:pointer; margin-top:3px;}
+.alertScore .yellow_Star{ background:url(../images/common/rate/light_yellow_star.png) no-repeat 0px -77px; width:91px; height:17px; display:block; cursor:pointer; margin-top:3px;}
+.alertScore .alertTop{ background:url(../images/alertTop_top.png) no-repeat; width:180px; height:8px; float:left;}
+.alertScore .alertBody{ background:url(../images/alertBody.png) repeat-y; width:170px; height:100%; float:left; padding:5px; line-height:18px;}
+.alertScore .alertBottom{ background:url(../images/alertBottom.png) no-repeat; width:180px; height:4px; float:left;}
+.alertScore .hand{ background:url(../images/hand.png) no-repeat; width:22px; height:29px; display:block; margin-left:43px;}
+

@@ -1,0 +1,8 @@
+修改短信模板：输入customerRemindDebt    点击查找   点击修改   将‘{licenceNo}车主’修改为 ‘{name}’
+
+新增资源
+processSupplierReceivable         /web/init.do?method=processSupplierReceivable     SHOP     初始化供应商欠费提醒   request
+添加到
+CRM --------SHOP操作权限------SHOP数据初始化
+
+用jackchen登陆  执行 init.do?method=processSupplierReceivable

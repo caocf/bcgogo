@@ -1,0 +1,311 @@
+一.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，姬牧晨）
+
+2.config库执行如下sql
+  INSERT INTO `service_category` VALUES ('10000010002000009', '1332249387687', '1332249387687', '0', '-1', '贴膜', '10000010002000000', 'SECOND_CATEGORY', 'FALSE', null);
+
+ 3.JVM环境配置
+  -Dis.production.environment=true
+
+三.发布应用 （纪友文）
+
+四.添加权限
+
+后台系统配置
+
+新增
+BcgogoPhone                      0512-85187955-832                    bcgogo手机号或者电话
+BcgogoQQ                         2795493576                           bcgogoQQ
+
+BcgogoSoftAnnualPrice            1000                           软件年费
+
+//-----张俊涛：——————————
+JUHE_VIOLATE_REGULATION_KEY       60ad2a9b3c7bcda13b781dabe01fe843                     聚合云数据平台-全国车辆违章查询key
+SEARCH_SHOP_LOCATION_DISTANCE          20                          app店铺查询距离范围
+HTTP_SERVER_URL                   mapproxy.bcgogo.com     http server
+
+（三）资源
+  //----------------------------------店铺坐标 绑定相关资源--------------------------------------------------------------------------------------------------------
+     SHOP--------供求中心--------本店资料--------本店资料查询  新增资源
+     sendInActiveLocateStatus SHOP /web/shopData.do?method=sendInActiveLocateStatus  发送坐标不准确 request
+
+          name                                           type           value                                                          备注
+//-----------------------------------------------------new resource------------------------------------------------------------------------
+
+Shop-----供求中心-----一发供求专区 中，添加以下权限
+（新）web_autoAccessoryOnline_bcgogoReceivableOrderList              /web/bcgogoReceivable.do?method=bcgogoReceivableOrderList      SHOP     跳转到一发供求专区页面         request
+（新）web_autoAccessoryOnline_searchBcgogoReceivableOrderList        /web/bcgogoReceivable.do?method=searchBcgogoReceivableOrderList      SHOP     获取一发供求专区订单数据         request
+（新）web_autoAccessoryOnline_cancelBcgogoReceivableOrder            /web/bcgogoReceivable.do?method=cancelBcgogoReceivableOrder      SHOP    用户取消订单         request
+（新）web_autoAccessoryOnline_bcgogoProductDetail                    /web/bcgogoProduct.do?method=bcgogoProductDetail      SHOP    bcgogo商品信息         request
+（新）web_autoAccessoryOnline_confirmBcgogoReceivableOrder           /web/bcgogoReceivable.do?method=confirmBcgogoReceivableOrder      SHOP    确认bcgogo订单信息         request
+（新）web_autoAccessoryOnline_bcgogoReceivableOrderDetail            /web/bcgogoReceivable.do?method=bcgogoReceivableOrderDetail      SHOP    查看bcgogo订单信息         request
+（新）web_autoAccessoryOnline_saveBcgogoReceivableOrder              /web/bcgogoReceivable.do?method=saveBcgogoReceivableOrder      SHOP    保存bcgogo订单信息         request
+（新）web_autoAccessoryOnline_combinedPayOnlineComplete              /web/bcgogoReceivable.do?method=combinedPayOnlineComplete      SHOP    合并付款银联前台         request
+（新）web_autoAccessoryOnline_combinedPaymentsOnlineReceivable       /web/bcgogoReceivable.do?method=combinedPaymentsOnlineReceivable      SHOP    合并付款         request
+（新）web_autoAccessoryOnline_bcgogoReceivableOrder_print            /web/bcgogoReceivable.do?method=print      SHOP    打印         request
+
+角色 -- 基本
+web_chinapay_bcgogoCombinedPayReceive     /web/chinapay.do?method=bcgogoCombinedPayReceive  SHOP 合并付款银联后台    request
+
+----------------------------------------------------------- SHOP数据初始化（朱星星） -----------------------------------------------------------------------------
+
+CRM--SHOP数据操作权限--SHOP数据初始化
+web_initBcgogoReceivableOrder              /web/init.do?method=initBcgogoReceivableOrder          初始化BCGOGO收款单    shop request
+
+//——————————————张俊涛------------
+initJuheViolateRegulationCitySearchCondition    /web/juhe.do?method=initJuheViolateRegulationCitySearchCondition     初始化聚合城市参数接口    request  shop
+initBinding                                     /web/shopInit.do?method=initBinding     初始化obd与shop绑定    request  shop
+
+--------------------------------------------------------------洗车单---------------------------------------------------------------------------------------------------------
+车辆施工 - 洗车美容 - 新增, 添加以下资源:
+web_wash_beauty_ajaxGetWashBeautyOrderByParameter     /web/washBeauty.do?method=ajaxGetWashBeautyOrderByParameter   SHOP   根据客户、车牌号或者会员卡生成洗车美容单   request
+web_wash_beauty_searchService                        /web/washBeauty.do?method=searchService                        SHOP   获取洗车美容单服务下拉列表                 request
+web_member_getEnabledMemberLikeMemberNo              /web/member.do?method=getEnabledMemberLikeMemberNo             SHOP   获取会员下拉列表                           request
+web_getMemberByCustomerId                            /web/member.do?method=getMemberByCustomerId                     SHOP   获取会员信息                           request
+
+-------------------------------------------------金远----------------------------------------------------
+SHOP-------车辆施工--------车辆施工-----------查询
+getRepairAndDraftOrders        /web/txn.do?method=getRepairAndDraftOrders   SHOP 查询多张施工单和草稿单    request
+
+CRM->增加子模块（销售管理）
+  销售管理->增加角色(硬件销售管理菜单)
+  从role下获得【获得（硬件销售管理菜单id）:xxxxxxxxxxxxxx
+
+  新增资源 sales_hardware_order_list CRM.SALES_MANAGER.HARDWARE.ORDER_LIST CRM 销售管理-硬件销售订单-查询 render   把资源添加到(查询硬件销售管理)角色下
+
+
+
+  insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`)
+  VALUES ('800000001','1','1','1','销售管理','','','','销售管理','3',null,null,'true');
+
+  # 硬件销售管理菜单id 替换 下面sql中的  xxxxxxxxxxxxxx
+   insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`)
+  VALUES ('800010001','1','1','1','硬件销售管理','Ext.controller.sales.BcgogoReceivableHardwareOrderController','COMPONENT','','硬件销售管理','2',800000001,xxxxxxxxxxxxxx,'true');
+
+
+
+   销售管理->增加角色(软件销售管理菜单)
+  从role下获得【获得（软件销售管理菜单id）:xxxxxxxxxxxxxx
+
+  新增资源 sales_software_order_list CRM.SALES_MANAGER.SOFTWARE.ORDER_LIST CRM 销售管理-软件销售订单-查询 render   把资源添加到(查询软件销售管理)角色下
+
+
+  # 软件销售管理菜单id 替换 下面sql中的  xxxxxxxxxxxxxx
+   insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`)
+  VALUES ('800020001','1','1','1','软件销售管理','Ext.controller.sales.BcgogoReceivableSoftwareOrderController','COMPONENT','','软件销售管理','2',800000001,xxxxxxxxxxxxxx,'true');
+
+
+ （新）查询客户支付记录
+ （新）payment_list	 CRM.FINANCE_MANAGER.PAYMENT.LIST	     CRM   财务管理-支付-查询            render
+
+  销售管理->增加角色(硬件发货)
+ （新）hardware_shipped	 	 CRM.SALES_MANAGER.HARDWARE.SHIPPED	     CRM   销售管理-硬件销售-硬件发货            render
+  销售管理->增加角色(硬件取消交易)
+ （新）hardware_canceled	 CRM.SALES_MANAGER.HARDWARE.CANCELED	     CRM   销售管理-硬件销售-取消交易            render
+  销售管理->增加角色(硬件改价)
+ （新）hardware_changePrice	 CRM.SALES_MANAGER.HARDWARE.CHANGE_PRICE	     CRM   销售管理-硬件销售-改价            render
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+//修改菜单
+在 供求中心 新增 一发供求专区  角色
+
+把 系统管理--在线支付--在线支付   下的 所有资源复制到  供求中心--一发供求专区
+
+把  资源 value 为  WEB.SYSTEM_SETTINGS.BASE 从  供求中心--一发供求专区 删除
+
+把  资源 value 为 WEB.AUTOACCESSORYONLINE.BASE  添加到 供求中心--一发供求专区
+把  资源 value 为 /web/navigator.do?method=autoAccessoryOnline  添加到 供求中心--一发供求专区
+
+供求中心--一发供求专区 分配给 所有 汽配 汽修  的所有角色
+
+
+删除  系统管理--在线支付--在线支付 角色  和 系统管理--在线支付  模块
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+打印模板：上传新模板：
+模板类型：BCGOGO硬件销售单
+模板名称（唯一）：bcgogoHardwareReceivableOrder-131210
+显示名称：bcgogoHardwareReceivableOrder-131210
+选择文件： bcgogo-UI\打印模板\default_改---->BCGOGO硬件销售单.html
+
+
+
+六.初始化
+1. 数据库sql更新
+//====================================================================================
+user库：
+
+update tree_menu set sort=1 where text='系统维护';
+update tree_menu set sort=2 where text='客户管理';
+update tree_menu set sort=3 where text='产品管理';
+update tree_menu set sort=4 where text='销售管理';
+update tree_menu set sort=5 where text='财务管理';
+update tree_menu set sort=6 where text='店铺业务统计';
+
+//更新菜单
+
+update `menu` set parent_id='1000020045134313' where id = '1000000000010006' ;
+update `menu` set sort='100' where id  = '1000000000010006' ;
+update `menu` set label='一发供求专区' where id  = '1000000000010006' ;
+update `menu` set href='bcgogoReceivable.do?method=bcgogoReceivableOrderList' where id  = '1000000000010006' ;
+
+txn库
+update bcgogo_receivable_order bro set bro.created_time=bro.created;
+update bcgogo_receivable_order bro set bro.payment_type=(select DISTINCT brorr.payment_type from bcgogo_receivable_order_record_relation brorr where brorr.bcgogo_receivable_order_id = bro.id);
+update txn.service set use_times = 0;
+
+update bcgogo_receivable_record set payee_name = (select name from bcuser.user u where u.id=payee_id);
+
+config库
+update shop set `owner` = store_manager where `owner` is null;
+update shop set `buy_channels` = 'ONLINE_ORDERS' where `buy_channels` is null;
+
+
+product库
+
+insert into bcgogo_product (`id`,`created`,`last_update`,`version`,`name`,`text`,`description`,`unit`,`payment_type`,`show_to_shop_versions`,`image_path`,`product_scene`)
+  VALUES ('200000001','1','1','1','一发软件','一发软件','','套','SOFTWARE','','','NORMAL');
+
+
+insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('10000010017431643','1','1','1','200000001','BCGOGO店','',99999,'');
+
+insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('10000010017531653','1','1','1','200000001','汽配版','',1900,'');
+
+insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('10000010017531654','1','1','1','200000001','汽修综合版','',1980,'');
+
+insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('10000010017531655','1','1','1','200000001','汽修初级版','',980,'');
+
+insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('10000010017531656','1','1','1','200000001','微型版','',980,'');
+
+insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('10000010017531657','1','1','1','200000001','汽配专业版','',5900,'');
+
+insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('10000010037193619','1','1','1','200000001','汽配豪华版','',9900,'');
+
+insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('10000010037193620','1','1','1','200000001','汽配标准版','',900,'');
+
+insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('10000010039823882','1','1','1','200000001','汽修高级版','',2980,'');
+
+
+insert into bcgogo_product (`id`,`created`,`last_update`,`version`,`name`,`text`,`description`,`unit`,`payment_type`,`show_to_shop_versions`,`image_path`,`product_scene`)
+  VALUES ('100000001','1','1','1','读卡器','读卡器','','台','HARDWARE','10000010017531653,10000010017531654,10000010017531655,10000010017531656,10000010017531657,10000010037193619,10000010037193620,10000010039823882','','NORMAL');
+
+insert into bcgogo_product (`id`,`created`,`last_update`,`version`,`name`,`text`,`description`,`unit`,`payment_type`,`show_to_shop_versions`,`image_path`,`product_scene`)
+  VALUES ('100000002','1','1','1','扫描枪','扫描枪','','台','HARDWARE','10000010017531653,10000010017531654,10000010017531655,10000010017531656,10000010017531657,10000010037193619,10000010037193620,10000010039823882','','NORMAL');
+
+insert into bcgogo_product (`id`,`created`,`last_update`,`version`,`name`,`text`,`description`,`unit`,`payment_type`,`show_to_shop_versions`,`image_path`,`product_scene`)
+  VALUES ('100000003','1','1','1','会员卡','会员卡','','千张','HARDWARE','10000010017531653,10000010017531654,10000010017531655,10000010017531656,10000010017531657,10000010037193619,10000010037193620,10000010039823882','','ATTACH_BUY');
+
+insert into bcgogo_product (`id`,`created`,`last_update`,`version`,`name`,`text`,`description`,`unit`,`payment_type`,`show_to_shop_versions`,`image_path`,`product_scene`)
+  VALUES ('100000004','1','1','1','行车一键通','行车一键通','','个','HARDWARE','10000010017531654,10000010017531655,10000010017531656,10000010039823882','','MULTI_BUY');
+
+
+insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('100000001','1','1','1','100000001','磁条读卡器','无密码键盘',100,'/common/bcgogo-product/bcgogo_dkq_wmmjp.jpg');
+
+ insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('100000002','1','1','1','100000001','磁条读卡器','带密码键盘',200,'/common/bcgogo-product/bcgogo_dkq_ymmjp.jpg');
+
+  insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('100000003','1','1','1','100000001','磁条读卡器','带罩,带密码键盘','250','/common/bcgogo-product/bcgogo_dkq_ymmjpdz.jpg');
+
+    insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('100000004','1','1','1','100000002','USB口扫描枪','白色','200','/common/bcgogo-product/bcgogo_smq_bs.jpg');
+
+     insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('100000005','1','1','1','100000003','磁条卡','普通亮面卡','400','/common/bcgogo-product/bcgogo_hyk_ptlmk.jpg');
+
+       insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('100000006','1','1','1','100000003','磁条卡','新料覆膜卡','600','/common/bcgogo-product/bcgogo_hyk_fmk.jpg');
+
+       insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('100000007','1','1','1','100000003','磁条卡','新料磨砂卡','600','/common/bcgogo-product/bcgogo_hyk_msk.jpg');
+
+       insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('100000008','1','1','1','100000004','OBD(蓝牙连接)','支持苹果版本','380','/common/bcgogo-product/bcgogo_obd_iphone.jpg');
+
+         insert into bcgogo_product_property (`id`,`created`,`last_update`,`version`,`product_id`,`kind`,`type`,`price`,`image_path`)
+  VALUES ('100000009','1','1','1','100000004','OBD(蓝牙连接)','支持安卓版本','380','/common/bcgogo-product/bcgogo_obd_android.jpg');
+
+
+update bcgogo_product set description='<div><p style="text-align:left;"><span style="font-weight: bold; text-decoration: none; font-style: normal; font-size: 13px; color: rgb(51, 51, 51); font-family: 宋体;">性能特点：</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">主要用于本系统中磁条会员卡使用，也可用于其它会员管理系统、财务管理系统等</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">主要功能:</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">1.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">刷卡机可双向读取卡片</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">电源来自电脑主机，不需外接电源</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">3</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">发光管指示和蜂呜器叫老识别读卡成功和失败</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">4</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">磁条阅读器机符合ANS/ISO标准</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">5</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">USB接口，免驱动即插即用。直接插上电脑的U口就可以正常使用。质量稳定，读卡灵敏度高。寿命高达100多万次。</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">技术指标：</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">1.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">磁卡标准：ISO-7811-7815</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">译码方式：F2F（FM）</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">3</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">刷卡速度：10~120cm/s</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">4</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">磁头寿命：≥600，000次</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">5</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">电源电压：DC5V±5%</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">6</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">电源电流：≤35mA(条码查询机≤60mA）</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">7</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">工作环境：室内温度：0℃~45℃       湿度：10~90%RH</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">产品质保：</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">产品三个月包换（产品不能人为损坏，要保证产品一定的清洁度），一年包修</span></p></div>' where id='100000001';
+update bcgogo_product set description='<div><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">使用方法：</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">USB接口，只要接上就可以使用，如果需要用于扫描产品条形码需要在系统设置&mdash;功能设置中打开扫描枪功能即可使用</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">；</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">产品特点：</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">1.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">适用范围广</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;&nbsp; </span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">适用于商城、超市、奶茶、服装、化妆品、书店、药店、移动联通手机专卖店，快递公司、仓库等等并可配合任何软件或者收款机使用</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">；</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">防震抗摔</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;&nbsp; </span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">经过专业防摔测试，从1.5米处垂直下落至水泥地面仍可正常工作</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">；</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;&nbsp; </span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">配有1.8米原装线</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">；</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;&nbsp; </span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">按键寿命高达5000万次</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">；</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">3</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">舒适的手感</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;&nbsp; </span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">人性化设计，独有的防滑材料</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">；</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">4</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">高性能感应头</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;&nbsp; </span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">采用高性能芯片,灵敏高、扫描速度非常快直接暴露在阳光下仍然可以扫描</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">；</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">5</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">连接数据线</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;&nbsp; </span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">设计有简单的数据线开口,用别针或者小工具插入把柄处的小圆孔便可以轻松拆线</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">；</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">6</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">.</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">USB接口</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;&nbsp; </span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">采用最易与电脑连接的USB接口即插即用简单方便</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">；</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">售后保证：</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">购物放心承诺：正品保证，七天无理由退换，一年保修！</span></p></div>' where id='100000002';
+update bcgogo_product set description='<div><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">设计步骤：</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">1.进入昵图网选择喜欢的模版  </span><a class="blue_color" style="font-size:13px;font-weight:normal;font-style:normal;" href="http://soso.nipic.com/search.aspx?g=1&amp;t=tk&amp;q=%BB%E1%D4%B1%BF%A8&amp;x=0&amp;pn=0">点击进入模板网站</a></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2.将选择好后的模板样式及需要添加在卡片正反面的文字内容，发给客服交由工厂确认稿件（由于是拼版印刷，一经下单，不好再做任何修改）；</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">3.在网站上直接下单，确认会员卡数量及类型；</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">&nbsp;</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">注：</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">1.不单独设计图样，都是按模版设计修改套用文字。不设计LOGO或烦琐的图片； </span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">&nbsp; &nbsp; </span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">&nbsp;</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">2.请买家务必确认好下单文件，由于买家校稿失误造成的损失本店概不负责；</span></p></div><div><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">关于工期：</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">1.普通亮面磁条卡正常工期是5-7天（下单当天不算，第2天开始算工期；</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2.其它磁条卡正常工期为10天左右（下单当天不算，第2天开始算工期）；</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">3.如果需要加急只能制作普通亮面磁条卡，一般时间可以控制在5-6天左右完工；</span></p></div><div><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">常见问题描述：</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FF6600;">问</span><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FF6600;">：</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">不知道你们印刷质量怎么样？出现问题该怎么解决？</span></p><p style="text-align:left;"><span style="font-family: 宋体; font-weight: bold; font-style: normal; text-decoration: none; color: rgb(0, 128, 0); font-size: 13px;">答</span><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#008000;">：</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">（1）有质量问题客户扫描或拍照给我们确认后，可免费按原来内容重新印刷；</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;&nbsp;&nbsp;&nbsp;（2）凡电脑设计出来的我们基本都能印出来；</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;&nbsp;&nbsp;&nbsp;（3）一般普通亮面磁条卡会存在部分刮花的情况，因为外面没有覆膜制作和运输过程中都会存在刮花的可能性；</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FF6600;">问：</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">我要做1000张会员卡，有5个版本各做200张，可不可以按1000张价格来算？</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#008000;">答：</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">不可以。以上报价是指同款同版（即：文字内容款式完全一样）</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FF6600;">问：</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">我们的卡色彩要求和我已有的样品一样，能印吗？</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#008000;">答：</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">此价格是按拼版印刷的价格，拼版印刷颜色没有专版印刷那样准，主要是一些难印的颜色产生偏差，色偏在10%左右属于正常情况，深色的卡色差在15%左右属于正常。</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FF6600;">问：</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">我文件下单后，第2天才想起有个地方错了，卖家又没有印刷好，我还能改文件吗？</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#008000;">答：</span><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">不能改，因为PVC卡是拼版印刷（一个版上有几十个人的卡拼在一起印刷，印好再分切出各个人的卡）所以虽然工期是6-7天左右，但我们下单的当天晚上就开始出菲林，菲林出好就改不了了，要改的话不但影响其他几十个人的货期还有整套版的相关费用；费用也远远大于重新下单；所以到截稿后就不能改文件了。</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提示：紫色/咖啡色容易产生偏差（色差在20%左右属于正常），要求高的朋友请慎思再拍！黑色等深色卡在制作后工和运输当中容易起刮痕，要求高的朋友可以选择做磨砂卡，这样可以避免。</span></p></div>' where id='100000003';
+update bcgogo_product set description='<div><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">简介:</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;&nbsp;&nbsp;OBD是一款标准OBDⅡ汽车电脑检测仪器，支持安卓（3.0以上）、苹果（4S以上）等操作平台。结合车辆检测和辅助软件【行车一键通】，能够连接汽车上的各种传感器，实时检测车辆状态，为车辆故障提供实时而有效的参考数据。</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">使用方法:</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">1.将iOBD2蓝牙主机插入车辆的诊断接口上，点火开关打到开(ON)位置，车辆诊断接口是标准的OBDⅡ诊断接口，主要在仪表台下方，车型不同，诊断接口位置有所不同。</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2.打开【行车一键通】软件，点击手机上的menu键-&gt;设置-&gt;车辆管理-&gt;新增/修改车辆，添加设备-&gt;搜索，未打开蓝牙时，提示打开手机蓝牙，搜索蓝牙设备，找到OBD2后进行配对，配对密码是：1234，配对成功后显示:已配对，已断开。</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">功能:</span></p><p style="text-align:left;"><span style="font-family:宋体;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">读取车辆故障信息（故障码、故障描述、接收时间），瞬时油耗、百公里油耗、剩余油量、水箱温度等。</span></p></div>' where id='100000004';
+
+
+=====手机端:=============================
+
+ 2.1 执行area.sql,juhe_violate_regulation_city_search_condition.sql
+
+    2.3 update shop set  locate_status='IN_ACTIVE';
+
+    2.4
+    历史故障码信息初始化=================================================start=================================================
+           1.先备份app_vehicle_fault_info 表数据
+
+           SELECT avf2.* FROM app_vehicle_fault_info avf2 INNER JOIN ( SELECT avf.app_user_no, avf.app_vehicle_id, MAX(avf.report_time) AS maxReportTime, avf.error_code FROM app_vehicle_fault_info avf GROUP BY avf.app_user_no, avf.app_vehicle_id, avf.error_code ) AS avf3 ON avf2.app_user_no = avf3.app_user_no AND avf2.app_vehicle_id = avf3.app_vehicle_id AND avf2.report_time = avf3.maxReportTime AND avf2.error_code = avf3.error_code;
+
+           2.导出sql 文件做数据订正:删除非故障码的数据，修改故障码里有两条故障的数据，保留前一个故障码
+           替换insert 信息：INSERT INTO 后的 ‘‘替换为`app_vehicle_fault_info`
+
+           3.删除表数据：delete  from app_vehicle_fault_info;
+           4.导入上面订正过的SQL数据
+           5.初始化故障码描述
+           UPDATE app_vehicle_fault_info av,
+           product.dictionary_fault_info df
+           SET av.content = df.description
+           WHERE
+                av.content IS NULL
+           AND df.dictionary_id = 100001
+           AND av.error_code = df.fault_code;
+
+           UPDATE app_vehicle_fault_info avf,
+           app_vehicle av,
+           product.vehicle_dictionary pvd,
+           product.dictionary_fault_info pdf
+           SET avf.content = pdf.description
+           WHERE
+                avf.content IS NULL
+           AND avf.app_vehicle_id = av.id
+           AND av.vehicle_brand_id = pvd.brand_id
+           AND pdf.dictionary_id = pvd.dictionary_id
+           AND pdf.fault_code = avf.error_code;
+           邱鑫宇
+    =================================================end=================================================
+
+
+2. jackchen登录后执行：
+按顺序执行以下：
+init.do?method=initBcgogoReceivableOrder
+
+---张俊涛：——————
+ shopInit.do?method=initBinding
+
+3. Solr更新:
+ suggestion  schema更新，更新相应目录下的 conf\schema.xml,并重建所有项目施工项目索引
+
+ 4. Solr索引
+      shop
+八.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）
+
+

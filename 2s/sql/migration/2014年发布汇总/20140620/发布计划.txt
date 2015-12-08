@@ -1,0 +1,34 @@
+一.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+  二.发布前准备
+  1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波、邱新宇）
+
+  三.发布应用 （纪友文）
+
+  四.添加权限
+
+  刘伟：
+  //===============================================Shop--客户管理--客户列表 我的客户 新增/修改 添加以下资源：   =============================================
+    web_customerManage_addNewCustomer                                      menu              WEB.CUSTOMER_MANAGER.CUSTOMER_MANAGE.ADD_NEW_CUSTOMER       新增客户
+    web_customerManage_customerSearch                                      menu              WEB.CUSTOMER_MANAGER.CUSTOMER_MANAGE.CUSTOMER_SEARCH       客户查询
+
+    	INSERT INTO `menu` VALUES (1000000000020, unix_timestamp(now())*1000, unix_timestamp(now())*1000,
+    	0, 3, '客户查询',(select id from resource where value='WEB.CUSTOMER_MANAGER.CUSTOMER_MANAGE.CUSTOMER_SEARCH'), 1000020045084313, 'customer.do?method=customerdata', 10, 'WEB.CUSTOMER_MANAGER.CUSTOMER_MANAGE.CUSTOMER_SEARCH');
+
+  	INSERT INTO `menu` VALUES (1000000000021, unix_timestamp(now())*1000, unix_timestamp(now())*1000,
+  	0, 3, '新增客户',(select id from resource where value='WEB.CUSTOMER_MANAGER.CUSTOMER_MANAGE.ADD_NEW_CUSTOMER'), 1000020045084313, 'customer.do?method=addClient', 20, 'WEB.CUSTOMER_MANAGER.CUSTOMER_MANAGE.ADD_NEW_CUSTOMER');
+
+  五.初始化
+
+  六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+  回滚步骤：
+  1.关闭服务（肖开波）
+  2.恢复生产数据库（肖开波）
+  3.使用旧war包重新发布（纪友文、肖开波）
+  4.验证功能（纪友文、肖开波）
+
+
+
+
+

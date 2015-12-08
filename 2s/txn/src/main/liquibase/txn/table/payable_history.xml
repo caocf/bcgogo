@@ -1,0 +1,66 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <!--付款历史表 payable_history-->
+
+    <changeSet author="zhangchuanlong" id="payable_history_1">
+        <createTable tableName="payable_history">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <!-- 店面ID-->
+            <column name="shop_id" type="bigint"/>
+            <!-- 扣款-->
+            <column name="deduction" type="float"/>
+            <!-- 欠款挂账-->
+            <column name="credit_amount" type="float"/>
+            <!-- 现金-->
+            <column name="cash" type="float"/>
+            <!-- 银行卡-->
+            <column name="bank_card_amount" type="float"/>
+            <!-- 支票-->
+            <column name="check_amount" type="float"/>
+            <!-- 支票号码-->
+            <column name="check_no" type="varchar(50)"/>
+            <!-- 定金-->
+            <column name="deposit_amount" type="float"/>
+            <!-- 实付-->
+            <column name="actually_paid" type="float"/>
+            <!-- 供应商ID-->
+            <column name="supplier_id" type="bigint"/>
+
+        </createTable>
+        <addPrimaryKey tableName="payable_history" columnNames="id" constraintName="pk_payable_history"/>
+        <modifyColumn tableName="payable_history">
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="payable_history_2" author="chenfanglei">
+        <addColumn tableName="payable_history">
+            <column name="strike_amount" type="double"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="payable_history_3" author="jimuchen">
+      <addColumn tableName="payable_history">
+          <column name="payer" type="varchar(20)" />
+          <column name="payer_id" type="bigint" />
+      </addColumn>
+    </changeSet>
+
+     <changeSet id="payable_history_4" author="liuWei">
+      <addColumn tableName="payable_history">
+          <column name="pay_time" type="bigint" />
+      </addColumn>
+    </changeSet>
+</databaseChangeLog>

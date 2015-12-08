@@ -1,0 +1,41 @@
+#printBtn, .statisticsRight, .m_topMain, .s_topMain, .title, .mainTitles, .title_statistics a.normalOne, .title_statistics a.normalTwo, .title_statistics a.normalThree, .title_statistics a.hoverThree, .title_statistics a.hoverTwo {display:none; }
+.i_main {margin: 0;width:650px !important;}
+.statisticsMain{width:650px;}
+.titleBody{width:632px  !important;}
+.bodyMain{width:650px !important;}
+
+#noTitle {
+  width: 30px !important;
+}
+
+#codeTitle {
+  width: 80px !important;
+}
+
+#nameTitle {
+  width: 80px !important;
+}
+
+#brandTitle {
+  width: 80px !important;
+}
+
+#modelTile {
+  width: 80px !important;
+}
+
+#vehicleTitle {
+  width: 80px !important;
+}
+
+#averagePrice {
+  width: 80px !important;
+}
+
+#salesAmount {
+  width: 50px !important;
+}
+
+#salesTotal {
+  width: 70px !important;
+}

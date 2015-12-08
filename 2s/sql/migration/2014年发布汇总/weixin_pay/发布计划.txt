@@ -1,0 +1,43 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+
+
+三.发布应用
+  1. 发布web,admin
+
+四.添加权限
+
+SHOP-基本权限
+
+name : web_WXFans
+value: /web/weChat.do?method=toWXSent
+systemType:SHOP
+memo:微信粉丝列表
+type:request
+
+
+name : web_initWXFan
+value: /web/weChat.do?method=initFanLists
+systemType:SHOP
+memo:初始化微信粉丝列表
+type:request
+
+
+name : web_toWXSendMessage
+value: /web/weChat.do?method=toWxSendMessage
+systemType:SHOP
+memo:跳转到发送微信界面
+type:request
+
+
+
+
+五.初始化
+  1.执行sql
+    insert into bcuser.wx_kw_template values(100000100500406,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,'gh_8517c1b80e05','会员消费通知','dm6bThqYaU5HLd3KyqY_yjRwvsLWheTNM_HJ31Js4lw','{DATE}，您的会员卡消费了一笔金额，具体信息如下','','#000080','#000080','#173177','#173177','#173177','#FF0000','FALSE');
+    insert into bcuser.wx_kw_template values(100000100500407,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,'gh_e1f30832359c','会员消费通知','tFOjJ0WNt5_ux80AHWwV69W4WVuxBgCOxpZCr0yiFww','{DATE}，您的会员卡消费了一笔金额，具体信息如下','','#000080','#000080','#173177','#173177','#173177','#FF0000','FALSE');
+
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+

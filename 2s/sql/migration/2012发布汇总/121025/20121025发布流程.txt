@@ -1,0 +1,104 @@
+一.添加权限
+	重新配置商品前台商品修改，删除的权限
+	delete from role_resource where resource_id in(select id from resource where name = 'web_goodsindex_ajaxToDeleteProduct');
+  delete from role_resource where resource_id in(select id from resource where name = 'web_goodsindex_ajaxtoupdateproduct');
+  delete from resource where name = 'web_goodsindex_ajaxtoupdateproduct';
+  （测试服务器需要执行以下语句生产不需要：delete from resource where name = 'web_goodsindex_ajaxToDeleteProduct';）
+（一）角色
+  增加web_inventory_check角色（用于库存盘点）
+  增加角色：web_txn_product_modify(进销存-商品删除,修改） ——仓管,经理/店长,老板/财务,BCGOGO管理员  有此权限
+
+  微型型店 增加角色 ：web_txn_base
+（二）资源
+          name                                          type             value                                        备注
+//=============================================== web_member_special 退卡权限   (姬牧晨)===================================================
+web_member_returnCard                               request         /web/member.do?method=returnCard            会员卡退卡页面
+web_member_saveReturnCard                           request         /web/member.do?method=saveReturnCard        会员卡退卡保存
+web_member_printMemberReturn                        request         /web/member.do?method=printMemberReturn     会员卡退卡打印
+
+//=============================================== web_customer_modify 车牌号删除 (朱星星)=======================================================
+废弃  web_customer_getCarStatusByVehicleIdAndShopId 	     request     /web/txn.do?method=getCarStatusByVehicleIdAndShopId    根据车辆ID查询施工状态
+新增  web_customer_checkUndoneOrder 	     request     /web/txn.do?method=checkUndoneOrder    检查对应车辆是否存在未结算单据
+
+
+//===============================================角色  	web_txn_product_modify 进销存-商品删除,修改 (邱鑫宇)===================================================
+web_goodsindex_ajaxToDeleteProduct        request      /web/stockSearch.do?method=ajaxToDeleteProductByProductLocalInfoId  根据producLocalInfoId删除商品
+web_goodsindex_ajaxtoupdateproduct        request      /web/stockSearch.do?method=ajaxtoupdateproduct                      商品修改
+web_render_product_modify                  render      /web/txn/productModify                                              商品修改的页面显示权限
+
+
+//=============================================== web_txn_base  	进销存-基础 (邱鑫宇)===================================================
+web_txn_validatorDeletedProductOrderRepeal   request   /web/txn.do?method=validatorDeletedProductOrderRepeal  进销存单据作废检查删除商品
+web_txn_ajaxValidatorPurchaseOrderDTOSave    request    /web/RFbuy.do?method=ajaxValidatorPurchaseOrderDTOSave       采购单结算时校验删除商品
+web_txn_ajaxValidatorPurchaseInventoryDTOSave  request   /web/storage.do?method=ajaxValidatorPurchaseInventoryDTOSave      入库单结算时校验删除商品
+
+//=============================================== web_bcgogoSystem  可计次服务初始化(陈方雷)===================================================
+web_bcgogoSystem_init_initServiceTimeType           request               /web/init.do?method=initServiceTimeType     可计次服务初始化
+
+//=============================================== web_txn_storage   结算修改（陈方雷）=======================================================
+web_storage_storage_payDetail                         request           /web/storage.do?method=payDetail               进入入库结算界面
+
+//===============================================web_txn_return  退货结算修改(陈方雷)========================================================
+ 	web_txn_return_returnAccountDetail             request                /web/goodsReturn.do?method=returnAccountDetail  进入退货结算界面
+ 	web_txn_return_getTotalPayable                 request                /web/goodsReturn.do?method=getTotalPayable      ajax获取应付款
+//===============================================  web_shopSystem_admin (韦凌枫)=====================================================
+web_shopSystem_admin_changeUserSwitch                request     /web/admin.do?method=changeUserSwitch                  暂定：手机号部分隐藏功能
+
+//======================角色web_inventory_check 库存盘点（李金龙）==============================
+    资源名                                 请求类型               URL                                        备注
+web_inventory_check_save               request  /web/inventoryCheck.do?method=saveInventoryCheck           库存盘点保存
+web_inventory_check_createByProductIds request  /web/inventoryCheck.do?method=createInventoryCheckByProductIds 根据商品进行库存盘点
+web_render_inventory_check             render   /web/txn/inventoryCheck                                库存盘点页面权限
+
+//======================角色web_sms_send 库存盘点（邱鑫宇）==============================
+web_sms_validateSensitiveWord    /web/sms.do?method=validateSensitiveWord     短信敏感校验
+
+//======================角色web_sms_send 库存盘点（邱鑫宇）==============================
+web_sms_validateSensitiveWord    /web/sms.do?method=validateSensitiveWord     短信敏感校验
+
+
+ //===============================================应付应收 找到角色web_supplier_list (董楠)===================================================
+  web_supplier_toPayableSettlement                  request      /web/arrears.do?method=toPayableSettlement                    跳转到应付结算界面
+  web_supplier_toPayableStat                        request      /web/arrears.do?method=toPayableStat                          跳转到应付统计
+  web_supplier_getPayableStatData                   request      /web/arrears.do?method=getPayableStatData                     获取应付统计数据
+  web_supplier_getPayablesBySupplierId              request      /web/arrears.do?method=getPayablesBySupplierId                查询应收
+  //===============================================应付应收 找到角色web_customer_debt ====================================================
+  web_txn_toReceivableSettle                        request      /web/arrears.do?method=toReceivableSettle                     跳转到应收结算页面
+  web_txn_getReceivablesByCustomerId                request      /web/arrears.do?method=getReceivablesByCustomerId             查询应收
+  web_txn_toReceivableStat                          request      /web/arrears.do?method=toReceivableStat                       跳转到应收统计
+  web_txn_getReceivableStatData                     request      /web/arrears.do?method=getReceivableStatData                  获取应收统计数据
+
+
+
+二.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+
+三.数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，邹建宏）
+//===============================================  超级管理-系统设置-手机号部分隐藏开关 (韦凌枫)=====================================================
+INSERT INTO `user_limit` VALUES ('10000010001000001', '1', '1318928485391', '1318928485391', '-1', '手机号部分隐藏', 'MOBILE_HIDDEN', 'NECESSARY', null);
+
+四.solr schema 更新 customer_supplier更新，vehicle更新，order更新  product更新
+
+五.发布应用 （纪友文）
+
+六.初始化
+(1) 营业统计
+update txn.running_stat set strike_amount_expenditure = 0;
+/web/init.do?method=initServiceTimeType
+(2) 应收应付统计
+   1.找到角色web_bcgogoSystem  添加资源
+      web_bcgogoSystem_init_initArrears       reuqest          /web/init.do?method=initArrears         应收应付初始化权限
+   2.登录系统后执行url   /web/init.do?method=initArrears
+
+七.上传会员退卡单打印模板 (姬牧晨）
+
+八.solr reindex  客户供应商，单据，车辆   ??
+
+九.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

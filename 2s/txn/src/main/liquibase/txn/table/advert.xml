@@ -1,0 +1,57 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lw" id="advert_lw_1">
+    <createTable tableName="advert">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="edit_date" type="bigint"/>
+
+      <column name="publish_date" type="bigint"/>
+      <column name="repeal_date" type="bigint"/>
+
+      <column name="title" type="varchar(500)"/>
+
+      <column name="begin_date" type="bigint"/>
+      <column name="end_date" type="bigint"/>
+
+      <column name="user" type="varchar(200)"/>
+      <column name="user_id" type="bigint"/>
+
+      <column name="description" type="text"/>
+
+      <column name="status" type="varchar(20)"/>
+
+
+
+    </createTable>
+  </changeSet>
+
+  <changeSet id="advert_lw_2" author="lw">
+    <addPrimaryKey tableName="advert" columnNames="id" constraintName="pk_advert"/>
+  </changeSet>
+
+  <changeSet author="lw" id="advert_lw_3">
+    <createIndex tableName="advert" indexName="idx_advert_shopid">
+      <column name="shop_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="lw" id="advert_lw_4">
+      <addColumn tableName="advert">
+          <column name="contain_image" type="varchar(20)"></column>
+      </addColumn>
+  </changeSet>
+
+
+</databaseChangeLog>

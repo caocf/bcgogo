@@ -1,0 +1,170 @@
+
+.i_main .rightTime .timeLeft {
+	float:left;
+	background:url(../images/timeLeft.jpg) no-repeat;
+	width:5px;
+	height:30px;
+}
+.i_main .rightTime .timeBody {
+	float:left;
+	background:url(../images/timeBody.jpg) repeat-x;
+	width:987px;
+	height:30px;
+	line-height:30px;
+	padding-left:6px;
+	font-weight:bold;
+}
+.i_main .rightTime .timeBody span {
+	color:#E3EB24;
+}
+.i_main .rightTime .timeRight {
+	float:left;
+	background:url(../images/timeRight.jpg) no-repeat;
+	width:4px;
+	height:30px;
+}
+.i_main  .titleWords{
+	color:#000000;
+	font-size:35px;
+	font-weight:bold;
+	line-height:70px;
+	text-align:center;
+}
+.agent_tb tr .agent_color{color:#000;}
+.agent_tb tr td{ text-align:left; line-height:30px; height:30px;color:#666;}
+.agent_tb{ margin:10px 0px 20px 35px;}
+.goal{ margin:10px 0px 22px 45px;height:23px;}
+.goal div{float:left;color:#666; margin-right:130px;}
+.goal  .moth_goal{ margin-right:0px;}
+.goal div input{ margin:0px 5px;border:1px solid #bebebe; background:#f5f5f5;width:70px; height:20px; line-height:20px}
+/*代理商基本信息结束*/
+
+/*业务员信息*/
+.salesman{ height:30px;}
+
+/*目标完成情况*/
+.registerButton{ float:right; margin:10px 0px 0px 0px;}
+.registerButton input { *letter-spacing:1em;}
+.gogal_tb tr td{ font-weight:bold;}
+
+.i_main table thead tr th,.tbl_sales thead tr th {
+	background:#F2F2F2 url(../images/agent_line.png) no-repeat bottom right;
+	height:22px;
+	line-height:22px;
+	font-weight:bold;
+	font-size:14px;
+}
+.i_main table thead tr th,.tbl_sales thead tr th {
+	border-bottom:1px solid #E8E8E8;
+}
+.i_main table tbody tr td,.tbl_sales tbody tr td {
+	text-align:center;
+	color:#333;
+	height:25px;
+	line-height:25px;
+}
+.i_main table tbody tr .font, .i_main table tbody tr td a {
+	color:#6699cc;
+}
+.i_main table tbody tr td a:hover{
+	text-decoration:underline;
+}
+.i_main table tbody tr .edit_back {
+	color:#E0E0E0;
+}
+.agent_bg {
+	background:#F2F2F2;
+}
+.i_main table{
+	color:#000000;
+	font-family:"宋体";
+}
+.i_main table input{
+	width:90%;
+}
+.i_main table input.inputClick{
+	color:#6699cc;
+	cursor:pointer;
+}
+.i_main table .target{
+	float:left; 
+	width:105px;
+	padding-top:3px;
+}
+.i_leftBtn div {
+	float:left;
+	background:url(../images/page.png) no-repeat;
+	width:19px;
+	height:21px;
+	line-height:21px;
+	color:#000000;
+	font-size:12px;
+	text-align:center;
+	margin:3px 0px 0px 5px;
+	cursor:pointer;
+}
+.i_main .rightTime .timeBody .leftIcon,.i_main .rightTime .timeBody .rightIcon,.i_main .rightTime .timeBody span{
+	float:left;
+}
+.i_main .rightTime .timeBody span{
+	padding-right:5px;
+	color:#FFFFFF;
+}
+.i_main .rightTime .timeBody .leftIcon input{
+	background:url(../images/leftBtn.png) no-repeat 2px 6px;
+	width:25px;
+	height:20px;
+	border:none;
+	margin-top:3px;
+	cursor:pointer;
+}
+.i_main .rightTime .timeBody .rightIcon input{
+	background:url(../images/rightBtn.png) no-repeat 2px 6px;
+	width:25px;
+	height:20px;
+	border:none;
+	margin-top:3px;
+	cursor:pointer;
+}
+.i_main .registerButton input {
+	background:url(../images/registerBtn.png) no-repeat;
+	width:83px;
+	height:31px;
+	text-align:center;
+	line-height:31px;
+	border:none;
+	color:#FFFFFF;
+	font-weight:bold;
+	cursor:pointer;
+}
+.i_main .addAgent {
+	background:url(../images/addAgent.png) no-repeat;
+	width:99px;
+	height:23px;
+	border:none;
+	color:#FFFFFF;
+	font-weight:bold;
+	margin-left:20px;
+	cursor:pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

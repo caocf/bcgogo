@@ -1,0 +1,11 @@
+.bcgogo-customerSmsInput {}
+.bcgogo-customerSmsInput-inputtingContainer {display: block;background-color: #FFFFFF;width: 100%;font-family: "微软雅黑", "宋体", "Arial";font-size: 12px;margin: 0;padding: 3px;overflow-y: auto;}
+.bcgogo-customerSmsInput-inputtingContainer p {color:#FF6417;display:inline}
+.bcgogo-customerSmsInput-optionContainer {display: block;background-color: #FFFFFF;width: 100%;font-family: "微软雅黑", "宋体", "Arial";font-size: 12px;border-color: #aaaaaa;border-style: solid;border-width: 1px;border-radius: 3px;margin: 0;padding: 3px;overflow-y: auto;}
+.bcgogo-customerSmsInput-saveContainer {margin-top: 3px;float: right;font-size: 12px;}
+.bcgogo-customerSmsInput-option {display: inline-block;list-style: none;background-color: #4297d7;color: #FFFFFF;font-weight: 700;border-width: 1px;border-color: #0063DC;border-radius: 3px;margin: 2px 2px 2px 2px;padding-left: 3px;padding-right: 3px;padding-top: 3px;padding-bottom: 3px;}
+.bcgogo-customerSmsInput-option p {display: inline;margin: 0;padding: 0;color: #FFFFFF;}
+.bcgogo-customerSmsInput-option span {margin-left: 3px;margin-right: 3px;width: 16px;margin-top: auto;margin-bottom: auto;padding-left: 3px;padding-right: 3px;border-radius: 3px;cursor: pointer;}
+.bcgogo-customerSmsInput-option span:hover {color: #0063DC;background-color: #ffffff;}
+.bcgogo-customerSmsInput-inputtingContainer input[type="text"] {height:26px;line-height: 26px;border:1px solid #ADADAD;margin-top: auto;margin-bottom: auto; }
+.ui-dialog{font-size: 12px;}

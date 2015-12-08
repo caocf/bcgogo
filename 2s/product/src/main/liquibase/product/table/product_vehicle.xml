@@ -1,0 +1,53 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="wujiaolong" id="product_vehicle_1">
+        <createTable tableName="product_vehicle">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="uuid" type="char(36)"/>
+            <column name="product_id" type="bigint"/>
+            <column name="feature_id" type="bigint"/>
+            <column name="brand_id" type="bigint"/>
+            <column name="mfr_id" type="bigint"/>
+            <column name="model_id" type="bigint"/>
+            <column name="year_id" type="bigint"/>
+            <column name="trim_id" type="bigint"/>
+            <column name="shop_id" type="bigint"/>
+            <column name="engine_id" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="product_vehicle" columnNames="id" constraintName="pk_product_vehicle"/>
+    </changeSet>
+   <changeSet author="Caiwei" id="product_vehicle_2">
+        <createIndex tableName="product_vehicle" indexName="IDX_PV_PRODUCTID">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="product_vehicle_3">
+        <createIndex tableName="product_vehicle" indexName="IDX_PV_brand_model_year_engine">
+            <column name="brand_id"/>
+            <column name="model_id"/>
+            <column name="year_id"/>
+            <column name="engine_id"/>
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="product_vehicle_4">
+    <modifyColumn tableName="product_vehicle">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

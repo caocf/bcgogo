@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                                 http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="payment" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.bcgogo.payment.model.Transaction</class>
+        <class>com.bcgogo.payment.model.Chinapay</class>
+        <class>com.bcgogo.payment.model.SequenceNo</class>
+        <class>com.bcgogo.payment.model.PaymentServiceJob</class>
+        <class>com.bcgogo.payment.model.ChinaPayParamLog</class>
+
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+    </persistence-unit>
+
+
+</persistence>

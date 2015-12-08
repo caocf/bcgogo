@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+.permission{clear:both;height:174px;margin-bottom:0;margin-top:0;width: 1000px}
+.permission li{ float:left; text-align:center; padding-bottom:45px;height:129px;}
+.permission .img_pwd{ background:url(../images/permission_pwd.png) no-repeat;width:112px; margin-right:50px; cursor:pointer;}
+.permission .img_user{background:url(../images/permission_user.png) no-repeat;width:123px; margin-right:50px; cursor:pointer;}
+.permission .img_list{background:url(../images/permission_list.png) no-repeat;width:118px; margin-right:50px; cursor:pointer;}
+.permission .img_message{background:url(../images/sysWarning.png) no-repeat;width:128px; margin-right:50px; cursor:pointer;}
+.permission .img_import {background: url(../images/importdata.png) no-repeat;width: 128px;cursor: pointer;margin-right: 50px; }
+.permission .loan{background:url(../images/loan.png) no-repeat;width:128px; cursor:pointer;}
+.permission li a{color:#6f6f6f; font-size:18px; margin-top:149px; display:block; font-weight:bold; }
+.permission .img_pwd a{ text-align:left;}
+.mainTitles{ margin-bottom:130px;}

@@ -1,0 +1,42 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="lw" id="dictionary_fault_info_1">
+        <createTable tableName="dictionary_fault_info">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fault_code" type="varchar(200)"/>
+            <column name="description" type="varchar(1500)"/>
+            <column name="dictionary_id" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="dictionary_fault_info" columnNames="id" constraintName="pk_dictionary_fault_info"/>
+    </changeSet>
+
+    <changeSet id="dictionary_fault_info_2_qiuxinyu" author="qiuxinyu">
+        <modifyColumn tableName="dictionary_fault_info">
+            <column name="fault_code" type="varchar(50)"></column>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="dictionary_fault_info_3_qiuxinyu" author="qiuxinyu">
+        <createIndex tableName="dictionary_fault_info" indexName="IDX_DICTIONARY_FAULT_INFO_FAULT_CODE">
+          <column name="fault_code"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="dictionary_fault_info_4_qiuxinyu" author="qiuxinyu">
+        <addColumn tableName="dictionary_fault_info">
+            <column name="category" type="varchar(100)"/>
+            <column name="background_info" type="varchar(1500)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

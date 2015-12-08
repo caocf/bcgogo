@@ -1,0 +1,39 @@
+0、开发提醒修改代码
+    修改 SYNC_INTERVAL 为   600000L
+    UserGuideCacheManager.unitTest();去掉
+    UserGuideService unitTest
+
+
+一.备份现有生产上war包,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+2. 新手指引流程SQL:
+
+//增加开关
+在后台增加一条config数据 key : userGuideConfig value : ON  描述:   新手指引开关
+执行 user_guide_step.sql、user_guide_flow.sql
+
+三.发布应用 （纪友文）
+
+四.配置权限    CRM--shop操作权限--shop数据初始化
+        （新）initUserGuideStep	/web/init.do?method=initUserGuideStep	 SHOP   新手指引    request
+    shop-LOGIN_BASE
+        （新）nextUserGuideStep	/web/guide.do?method=nextUserGuideStep	 SHOP   新手指引-下一步指引    request
+        （新）skipUserGuideFlow	/web/guide.do?method=skipUserGuideFlow	 SHOP   新手指引-以后不提示    request
+
+五.初始化
+jackchen登录后执行：
+    init.do?method=initUserGuideStep
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）
+

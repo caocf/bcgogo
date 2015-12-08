@@ -1,0 +1,23 @@
+.btnSo{background:url(../images/btnNormals.png) no-repeat; color: #FFFFFF; cursor: pointer; height: 21px; line-height: 21px; padding: 0 0 2px; text-align: center; width: 64px; border:none;}
+.btnSo:hover{background:url(../images/btnHoverss.png) no-repeat; color:#663A02;}
+
+.divSlip{padding-left:-1px;}
+.arrowImg{background:url(../images/jianTou.png) no-repeat; width:13px; height:25px; float:left; padding-right:20px;}
+.lblarrow{float:left; line-height:25px; padding-right:20px; font-size:14px; color:#FF4800;}
+.titBody{color:#000000;}
+
+.titBody .tabPermiss{float:left;}
+.titBody .tabPermiss td{height:30px; line-height:30px; }
+.configura{float:left; height:100%; border-left: 1px solid #CCCCCC; padding-left:20px;}
+.chks{float:left; width:230px; line-height:25px;}
+.chks input{ vertical-align:bottom; margin-bottom:7px; margin-right:5px;}
+.downs,.ups{background:url(../images/search_xia.png) no-repeat 0px 3px; margin:0px 5px 0px 0px; cursor:pointer; padding-left:12px; color:#000000;}
+.ups{background:url(../images/search_you.PNG) no-repeat 0px 3px;}
+.chks .chks_2{padding-left:15px;}
+.chks .chks_2 label{padding-left:15px;}
+.titBody .addNew{margin-left:10px;}
+.line .lineBody{padding:0px 10px 0px 20px;}
+
+.titBody .h3_title{border-bottom:1px solid #CCCCCC; line-height:25px;}
+.titBody .accountMain{width:auto;}
+.titBody .accountMain .tab_remind{width:500px;}

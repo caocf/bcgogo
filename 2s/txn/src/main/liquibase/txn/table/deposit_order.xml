@@ -1,0 +1,53 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <!-- 预约金使用订单 -->
+    <changeSet author="zhuj" id="deposit_order">
+        <createTable tableName="deposit_order">
+            <column name="id" type="bigint"/>
+            <column name="shop_id" type="bigint"/>
+            <column name="cash" type="float"/>
+            <column name="bank_card_amount" type="float"/>
+            <column name="check_amount" type="float"/>
+            <column name="check_no" type="varchar(50)"/>
+            <column name="actually_paid" type="float" />
+            <column name="customer_id" type="bigint"/>
+            <column name="supplier_id" type="bigint" />
+            <column name="deposit_type" type="varchar(50)"/>
+            <column name="in_out" type="bigint"/> <!-- 预约金充值还是取用 0表示充值 1表示取用 -->
+            <column name="related_order_no" type="varchar(20)"/> <!-- 预付金订单 关联的单据号 -->
+            <column name="related_order_id" type="bigint" /><!-- 预收金关联订单Id -->
+            <column name="operator" type="varchar(20)" /> <!-- 操作人 -->
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="deposit_order" columnNames="id" constraintName="pk_deposit_order"/>
+    </changeSet>
+    <changeSet author="qiuxinyu" id="deposit_order_2">
+        <createIndex tableName="deposit_order" indexName="IDX_DEPOSIT_ORDER_SHOP_ID">
+            <column name="shop_id"/>
+        </createIndex>
+        <createIndex tableName="deposit_order" indexName="IDX_DEPOSIT_ORDER_CUSTOMER_ID">
+            <column name="customer_id"/>
+        </createIndex>
+        <createIndex tableName="deposit_order" indexName="IDX_DEPOSIT_ORDER_SUPPLIER_ID">
+            <column name="supplier_id"/>
+        </createIndex>
+        <createIndex tableName="deposit_order" indexName="IDX_DEPOSIT_ORDER_RELATED_ORDER_ID">
+            <column name="related_order_id"/>
+        </createIndex>
+
+    </changeSet>
+    <changeSet id="deposit_order_3" author="jinyuan">
+        <addColumn tableName="deposit_order">
+            <column name="memo" type="varchar(500)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

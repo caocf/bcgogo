@@ -1,0 +1,138 @@
+.clearfix:after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+.clearfix{
+	*+height:1%;
+}
+.yinye_title #fencount, .yinye_title .danju strong {
+	color: #B70000;
+}
+.i_main .yinye_title li {
+	color: #787777;
+	background: url(../images/yinyen.png) no-repeat;
+	width: 91px;
+	float: left;
+	height: 29px;
+	margin-right: 10px;
+	line-height: 29px;
+	text-align: center;
+}
+.i_main .yinye_title .danju {
+	background: none;
+	width: 180px;
+	margin-right: 0px;
+	float: left;
+}
+.yinye_title .danju strong {
+	font-size: 12px;
+}
+.yinye_title #fencount, .yinye_title .danju strong {
+	color: #B70000;
+}
+.tuihuo_tb {
+	border: 1px solid #BEBEBE;
+	margin-bottom: 10px;
+}
+
+.i_mainRight table tr td {
+	height: 25px;
+}
+#tb_tui {
+	margin: 0px 10px;
+	width: 983px;
+}
+#tb_tui, #yinfu_tb {
+	border-collapse: collapse;
+}
+#tb_tui .tab_title td, #tb_tui tr .td_title {
+	background: url("../images/title_top.png") repeat-x;
+	border: 1px solid #BEBEBE;
+	color: #366A9A;
+}
+#tb_tui tr td {
+	border: 1px solid #BEBEBE;
+}
+#tb_tui td, #yinfu_tb td {
+	text-align: center;
+	line-height: 1.5;
+	color: #4D4D4D;
+	word-break: break-all;
+    word-wrap: break-word;
+}
+.i_main .i_operaPic{
+	width: 100%;
+}
+.i_main .i_operaPic .right_li {
+	float: right;
+}
+.i_main .i_operaPic .i_reinput input {
+	background: url("../images/reInput.png") no-repeat;
+	border: medium none;
+	cursor: pointer;
+	height: 48px;
+	width: 48px;
+}
+.i_main .i_operaPic .i_invalid input {
+	background: url("../images/invalid.png") no-repeat;
+	border: medium none;
+	cursor: pointer;
+	height: 48px;
+	width: 48px;
+}
+.stamp{
+	width: 141px;
+	height: 59px;
+	position: absolute;
+	left: 890px;
+	top: 130px;
+	display: block;
+}
+.startMileInput{
+	display:none;
+}
+
+.startMileInput input{
+	border: 1px solid #BEBEBE;
+	width:60px;
+}
+
+.info-info{
+	border:1px solid #BEBEBE;
+	margin: 5px 10px;
+}
+.info-info table{
+	margin:0;
+	padding:10px 0;
+}
+.info-info table td{
+	vertical-align:top;
+}
+.info-info .info-outline{
+	padding-left:50px;
+}
+.info-info .info-title{
+	text-align:right;
+	font-weight:bold;
+	width:100px;
+	padding-right:2px;
+}
+.info-info .info-sub-title{
+	text-align:right;
+	width:80px;
+	padding-right:2px;
+}
+.info-info .info-summary{
+	width:300px;
+	background:#F9F9F9;
+	padding:0 0 0 50px;
+}
+.info-info .info-summary .money{
+	text-align:right;
+}
+.info-info .info-summary .money-unit{
+	padding-left:5px;
+}

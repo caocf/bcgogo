@@ -1,0 +1,5 @@
+txn库：
+update inventory_check_item set actual_inventory_amount=0 where actual_inventory_amount is null
+
+etl库
+update gsm_vehicle_info set gsm_vehicle_status = 'HANDLED';

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+</head>
+<body>
+<div id="map_container" style=" width: 400px;height: 190px;"></div>
+</body>
+<script type="text/javascript">
+    function getUrlParameter(name) {
+        "use strict";
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || "";
+    }
+    function initLocationMap() {
+        var coordinateLat = getUrlParameter("coordinateLat") ,
+                coordinateLon = getUrlParameter("coordinateLon");
+        if (!coordinateLon || !coordinateLat)return;
+        var map = new BMap.Map("map_container");
+        map.enableScrollWheelZoom();
+        var point = new BMap.Point(coordinateLon, coordinateLat);
+        var marker = new BMap.Marker(point);
+        map.addOverlay(marker);
+        map.centerAndZoom(point, 16);
+    }
+    initLocationMap();
+</script>
+</html>

@@ -1,0 +1,9 @@
+
+------------------------新增商品------------------------------
+
+shop-----进销存----库存管理
+新增角色：新增商品
+
+添加资源：
+(new)web_txn_validateSaveNewProduct     request   SHOP     /web/product.do?method=validateSaveNewProduct     新增商品校验
+(new)web_txn_saveNewProduct             request   SHOP     /web/product.do?method=saveNewProduct     新增商品

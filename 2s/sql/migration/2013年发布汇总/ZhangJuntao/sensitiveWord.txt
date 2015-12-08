@@ -1,0 +1,14 @@
+增资源{validateSensitiveWord       /web/sensitiveWord.do?method=validateSensitiveWord    SHOP   验证关键字   request}
+
+admin config 配置  （url 可以已经改变）
+YI_MEI_INDUSTRY_SEND_SMS_URL      http://sdk4report.eucp.b2m.cn:8080/sdkproxy/sendsms.action   亿美发送短信URL
+YI_MEI_INDUSTRY_REGIST_URL      http://sdk4report.eucp.b2m.cn:8080/sdkproxy/regist.action   亿美注册URL
+YI_MEI_INDUSTRY_QUERY_BALANCE_URL      http://sdk4report.eucp.b2m.cn:8080/sdkproxy/querybalance.action   亿美查询URL
+YI_MEI_INDUSTRY_LOGOUT_URL      http://sdk4report.eucp.b2m.cn:8080/sdkproxy/logout.action   亿美注销URL
+
+YI_MEI_MARKETING_SEND_SMS_URL      http://sdk4report.eucp.b2m.cn:8080/sdkproxy/sendsms.action   亿美发送短信URL
+YI_MEI_MARKETING_REGIST_URL      http://sdk4report.eucp.b2m.cn:8080/sdkproxy/regist.action   亿美注册URL
+YI_MEI_MARKETING_QUERY_BALANCE_URL      http://sdk4report.eucp.b2m.cn:8080/sdkproxy/querybalance.action   亿美查询URL
+YI_MEI_ MARKETING_LOGOUT_URL      http://sdk4report.eucp.b2m.cn:8080/sdkproxy/logout.action   亿美注销URL
+
+

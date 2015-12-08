@@ -1,0 +1,7 @@
+
+   角色: shop-LOGIN_BASE
+（新）updateCurrentUserGuideStepFinished	/web/guide.do?method=updateCurrentUserGuideFlowFinished	 SHOP   新手指引-更新流程状态为已完成    request
+
+
+更新软件销售价
+UPDATE shop_version SET soft_price = 900 where `name`='WHOLESALER_SHOP';

@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+/*代理商基本信息*/
+#agent_tb tr .agent_color{color:#000;}
+#agent_tb tr td{ text-align:left; line-height:30px; height:30px;color:#666;}
+#agent_tb{ margin:15px 0px 0px 45px;}
+.goal{ margin:10px 0px 22px 45px;height:23px;}
+.goal div{float:left;color:#666; margin-right:130px;}
+.goal  .moth_goal{ margin-right:0px;}
+.goal div input{ margin:0px 5px;border:1px solid #bebebe; background:#f5f5f5;width:70px; height:20px; line-height:20px}
+/*代理商基本信息结束*/
+
+/*业务员信息*/
+.salesman{ height:30px;}
+
+/*目标完成情况*/
+.registerButton{ margin:50px 0px 0px 0px;}
+.registerButton input { *letter-spacing:1em;}
+#gogal_tb tr td{ font-weight:bold;}

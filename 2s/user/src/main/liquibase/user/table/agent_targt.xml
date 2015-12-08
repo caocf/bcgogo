@@ -1,0 +1,54 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="shaolei" id="agent_targt_1">
+        <createTable tableName="agent_targt">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="agent_id" type="bigint"/>
+            <column name="month" type="int"/>
+            <column name="year" type="varchar(4)"/>
+            <column name="month_target" type="int"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="agent_targt_2" author="shaolei">
+        <addPrimaryKey tableName="agent_targt" columnNames="id" constraintName="pk_agent_targt"/>
+    </changeSet>
+
+    <changeSet author="luyi" id="agent_targt_3">
+        <createIndex tableName="agent_targt" indexName="IDX_AGENTTARGET_AGENTID">
+            <column name="agent_id"/>
+        </createIndex>
+    </changeSet>
+  <changeSet author="shaolei" id="agent_targt_4">
+    <addColumn tableName="agent_targt">
+      <column name="season_target" type="int"/>
+      <column name="year_target" type="int"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="agent_targt_5">
+        <createIndex tableName="agent_targt" indexName="IDX_AGENTTARGET_YEAR_MONTH">
+            <column name="year"/>
+            <column name="month"/>
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="agent_targt_6">
+    <modifyColumn tableName="agent_targt">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+</databaseChangeLog>

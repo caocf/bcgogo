@@ -1,0 +1,147 @@
+{
+    "numFound": 3,
+    "inventoryCount": 3,
+    "inventoryAmount": 29009,
+    "totalPurchasePrice": 1018900,
+    "relatedCustomerShopId": 0,
+    "products": [
+        {
+            "kindName": "坦克",
+            "brand": "adobe神域",
+            "model": "盒装碟片",
+            "spec": "cs7",
+            "name": "flashBuilder",
+            "productVehicleStatus": 3,
+            "productVehicleBrand": "adobe车王",
+            "productVehicleModel": "adobe神话",
+            "productVehicleEngine": "",
+            "relevanceStatus": "未关联",
+            "id": 10000010022782178,
+            "shopId": 10000010010880988,
+            "inventoryNum": 19000,
+            "purchasePrice": 1,
+            "productLocalInfoId": 10000010022792180,
+            "recommendedPrice": 599,
+            "storageUnit": "个",
+            "sellUnit": "个",
+            "idStr": "10000010022782178",
+            "productLocalInfoIdStr": "10000010022792179",
+            "lowerLimit": 0,
+            "upperLimit": 0,
+            "tradePrice": 199,
+            "storageBin": "X-012-023",
+            "commodityCode": "6920492700063",
+            "inventoryAveragePrice": 1,
+            "productSupplierDTOs": [
+                {
+                    "productId": 10000010022792180,
+                    "supplierId": 10000010042094108,
+                    "lastUsedTime": 1357782343986,
+                    "name": "7yue"
+                }
+            ],
+            "storeHouseInventoryDTOMap": {
+                "10000010155145413": {
+                    "storehouseId": 10000010155145412,
+                    "productLocalInfoId": 10000010022792180,
+                    "amount": 19000
+                }
+            },
+            "salesAmount": 0,
+            "salesTotal": 0,
+            "returnTimes": 0,
+            "queryResult": 0
+        },
+        {
+            "brand": "开源社区",
+            "model": "XX",
+            "spec": "4.0",
+            "name": "flashDevelop",
+            "productVehicleStatus": 3,
+            "productVehicleBrand": "造物主",
+            "productVehicleModel": "",
+            "productVehicleEngine": "",
+            "relevanceStatus": "未关联",
+            "id": 10000010022972196,
+            "shopId": 10000010010880988,
+            "inventoryNum": 9999,
+            "purchasePrice": 100,
+            "productLocalInfoId": 10000010022982198,
+            "recommendedPrice": 0,
+            "storageUnit": "件",
+            "sellUnit": "件",
+            "idStr": "10000010022972197",
+            "productLocalInfoIdStr": "10000010022982198",
+            "lowerLimit": 0,
+            "upperLimit": 0,
+            "tradePrice": 0,
+            "storageBin": "SAI",
+            "commodityCode": "9771672325128",
+            "inventoryAveragePrice": 0.03,
+            "productSupplierDTOs": [
+                {
+                    "productId": 10000010022982198,
+                    "supplierId": 10000010042434144,
+                    "lastUsedTime": 1357782193706,
+                    "name": "7yue"
+                }
+            ],
+            "storeHouseInventoryDTOMap": {
+                "10000010155145413": {
+                    "storehouseId": 10000010155145412,
+                    "productLocalInfoId": 10000010022982198,
+                    "amount": 9999
+                }
+            },
+            "salesAmount": 0,
+            "salesTotal": 0,
+            "returnTimes": 0,
+            "queryResult": 0
+        },
+        {
+            "brand": "陕西东泰制药有限公司",
+            "model": "无敌",
+            "spec": "盒装",
+            "name": "感冒灵胶囊",
+            "productVehicleStatus": 1,
+            "productVehicleBrand": "",
+            "productVehicleModel": "",
+            "productVehicleEngine": "",
+            "relevanceStatus": "未关联",
+            "id": 10000010022832184,
+            "shopId": 10000010010880988,
+            "inventoryNum": 10,
+            "purchasePrice": 0,
+            "productLocalInfoId": 10000010022842184,
+            "recommendedPrice": 0,
+            "storageUnit": "包",
+            "sellUnit": "包",
+            "idStr": "10000010022832183",
+            "productLocalInfoIdStr": "10000010022842184",
+            "lowerLimit": 0,
+            "upperLimit": 0,
+            "tradePrice": 0,
+            "commodityCode": "6936838913271",
+            "inventoryAveragePrice": 0,
+            "productSupplierDTOs": [
+                {
+                    "productId": 10000010022842184,
+                    "supplierId": 10000010042094108,
+                    "lastUsedTime": 1357887809158,
+                    "name": "7yue"
+                }
+            ],
+            "storeHouseInventoryDTOMap": {
+                "10000010155145413": {
+                    "storehouseId": 10000010155145412,
+                    "productLocalInfoId": 10000010022842184,
+                    "amount": 10
+                }
+            },
+            "salesAmount": 0,
+            "salesTotal": 0,
+            "returnTimes": 0,
+            "queryResult": 0
+        }
+    ]
+}

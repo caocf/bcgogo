@@ -1,0 +1,41 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<changeSet author="chenfanglei" id="receivable_service_times_1">
+		<createTable tableName="receivable_service_times">
+			<column name="id" type="bigint"/>
+			<column name="created" type="bigint">
+				<constraints nullable="false"/>
+			</column>
+			<column name="last_update" type="bigint">
+				<constraints nullable="false"/>
+			</column>
+			<column name="version" type="bigint">
+				<constraints nullable="true"/>
+			</column>
+
+			<column name="receivable_id" type="bigint"></column>
+			<column name="service_id" type="bigint"></column>
+			<column name="times" type="int"></column>
+			<column name="origin_amount" type="double"></column>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="receivable_service_times_2" author="chenfanglei">
+		<addPrimaryKey tableName="receivable_service_times" columnNames="id"
+		               constraintName="pk_receivable_service_times"></addPrimaryKey>
+	</changeSet>
+
+	<changeSet id="receivable_service_times_3" author="chenfanglei">
+		<createIndex tableName="receivable_service_times" indexName="idx_receivable_service_times_1">
+			<column name="receivable_id"></column>
+		</createIndex>
+	</changeSet>
+
+	<changeSet id="receivable_service_times_4" author="liuWei">
+		<addColumn tableName="receivable_service_times">
+			<column name="shop_id" type="bigint"/>
+		</addColumn>
+	</changeSet>
+</databaseChangeLog>

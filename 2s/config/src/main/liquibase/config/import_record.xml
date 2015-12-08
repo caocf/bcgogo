@@ -1,0 +1,63 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="zoujianhong" id="import_record_1">
+    <createTable tableName="import_record" >
+      <column name="id" type="bigint"/>
+      <column name="version" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="status" type="varchar(100)"/>
+      <column name="file_name" type="varchar(4000)"/>
+      <column name="file_content" type="blob"/>
+    </createTable>
+
+      <addPrimaryKey tableName="import_record" columnNames="id" constraintName="pk_import_record"/>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="import_record_2">
+      <addColumn tableName="import_record">
+            <column name="type" type="varchar(20)"/>
+        </addColumn>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="import_record_3">
+      <modifyColumn tableName="import_record">
+            <column name="status" type="varchar(20)"/>
+        </modifyColumn>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="import_record_4">
+      <modifyColumn tableName="import_record">
+            <column name="file_name" type="varchar(500)"/>
+        </modifyColumn>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="import_record_5">
+      <modifyColumn tableName="import_record">
+            <column name="file_content" type="mediumblob"/>
+        </modifyColumn>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="import_record_6">
+      <createIndex tableName="import_record" indexName="idx_importrecord_shopid">
+          <column name="shop_id" />
+      </createIndex>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="import_record_7">
+    <modifyColumn tableName="import_record">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

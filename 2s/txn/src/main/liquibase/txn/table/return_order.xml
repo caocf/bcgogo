@@ -1,0 +1,35 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="ndong" id="return_order_1">
+        <createTable tableName="return_order">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="borrow_order_id" type="bigint"/>
+            <column name="shop_id" type="bigint"/>
+            <column name="receipt_no" type="varchar(20)"/>
+            <column name="vest_date" type="bigint"/>
+            <column name="status" type="varchar(50)"/>
+            <column name="storehouse_id" type="bigint"/>
+            <column name="storehouse_name" type="varchar(100)"/>
+            <column name="returner" type="varchar(50)"/>
+            <column name="returner_id" type="bigint"/>
+            <column name="returner_type" type="varchar(50)"/>
+            <column name="operator" type="varchar(50)"/>
+            <column name="operator_id" type="bigint"/>
+            <column name="transfer_type" type="varchar(50)"/>
+        </createTable>
+        <addPrimaryKey tableName="return_order" columnNames="id" constraintName="pk_return_order"/>
+    </changeSet>
+
+</databaseChangeLog>
+

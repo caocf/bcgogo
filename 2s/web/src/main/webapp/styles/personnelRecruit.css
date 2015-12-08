@@ -1,0 +1,315 @@
+.i_main .searchCondition{
+	float:left;
+	width:993px;
+	border:1px solid #D5C39B;
+	background:#FAF5D8;
+	padding:10px 0px 10px 10px;
+}
+.i_main .searchCondition .searchInput input,.i_main .searchCondition .searchTime{
+	float:left;
+	border:1px solid #CCCCCC;
+	border-top:1px solid #666666;
+	padding-left:6px;
+	width:110px;
+	height:22px;
+	line-height:22px;
+	color:#999999;
+	margin-right:8px;
+}
+.i_main .searchCondition .searchList{
+	float:left;
+	border:1px solid #CCCCCC;
+	border-top:1px solid #666666;
+	margin-right:8px;
+	background:#FFFFFF;
+	width:75px;
+}
+.i_main .searchCondition .add{
+	width:120px;
+}
+.i_main .searchCondition .searchList .listIcon input,.i_main .tabPost .postList .postIcon input{
+	float:right;
+	background:url(../images/optList.png) no-repeat center center;
+	width:12px;
+	height:22px;
+	border:none;
+	cursor:pointer;
+}
+.i_main .searchCondition .searchList .listTxt{
+	float:left;
+	width:74%;
+	height:22px;
+	line-height:22px;
+	border:none;
+	color:#999999;
+	padding-left:6px;
+}
+.i_main .searchCondition .expectSale{
+	float:left;
+	color:#000000;
+	padding:4px 5px 0px 0px;
+	font-weight:bold;
+}
+.i_main .searchCondition .releaseTime{
+	float:left;
+	color:#6699CC;
+	padding:4px 5px 0px 0px;
+	font-weight:bold;
+}
+.i_main .searchCondition .searchBtn{
+	background:url(../images/rightTitHover.jpg) no-repeat;
+	width:69px;
+	height:25px;
+	text-align:center;
+	line-height:25px;
+	color:#FFFFFF;
+	border:none;
+	cursor:pointer;
+}
+.i_main .personalTitle{
+    color: #000000;
+    float: left;
+    font-size: 25px;
+    font-weight: bold;
+}
+.i_main .performanceTitleList{
+	clear:both;
+	float:left;
+	color:#6699CC;
+	height:34px;
+  font-family: "宋体";
+}
+.i_main .performanceTitleList .listWords{
+	float:left;
+	border-right:1px solid #CCCCCC;
+	width:80px;
+	margin:0px 10px 0px 0px;
+	height:15px;
+}
+.i_main .performanceTitleList .listWords a{
+	margin-top:-5px;
+	display:block;
+	width:70px;
+	height:26px;
+	line-height:26px;
+	color:#6699CC;
+	text-align:center;
+	font-weight:bold;
+}
+.i_main .performanceTitleList .addList{
+	border:none;
+}
+.i_main .performanceTitleList .hovers a{
+	background:url(../images/titleHover.jpg) no-repeat;
+	width:80px;
+	height:34px;
+	text-align:center;
+	line-height:30px;
+	color:#FFFFFF;
+}
+.i_main table.tabRecruit{
+	width:100%;
+	height:100%;
+	color:#000000;
+}
+.i_main table.tabRecruit thead tr th {
+	border-bottom: 1px solid #E8E8E8
+}
+.i_main table.tabRecruit thead tr th {
+	text-align:left;
+	padding-left:6px;
+	background:#F2F2F2 url(../images/agent_line.png) no-repeat right bottom;
+    font-size: 14px;
+    font-weight: bold;
+    height: 22px;
+    line-height: 22px;
+}
+.i_main table.tabRecruit tbody tr td{
+	background: url(../images/agent_line.png) no-repeat bottom right;
+	height:22px;
+}
+.i_main table.tabRecruit tbody tr td {
+	text-align:left;
+	padding-left:6px;
+	color:#333;
+	height:25px;
+	line-height:25px;
+	border-bottom:1px solid #E8E8E8;
+}
+.i_main table.tabRecruit tbody tr td a{
+	color:#6699CC;
+}
+.i_main table.tabRecruit tbody tr.tabHover{
+	background:#F2F2F2;
+}
+.i_main .postInfo{
+	border-bottom:1px solid #CCCCCC;
+	width:100%;
+	color:#000000;
+	font-size:14px;
+	font-weight:bold;
+	line-height:30px;
+}
+.i_main .tabPost{
+	padding:20px 0px 0px 80px;
+	width:100%;
+	color:#000000;
+}
+.i_main .tabPost td{
+	height:45px;
+	vertical-align:top;
+}
+.i_main .tabPost .txtPost , .i_main .tabPost .postList{
+	border:1px solid #CCCCCC;
+	height:25px;
+	line-height:25px;
+	padding-left:6px;
+	color:#999999;
+	width:160px;
+}
+.i_main .tabPost .postList .txtList{
+	float:left;
+	border:none;
+	width:90%;
+	height:25px;
+	line-height:25px;
+	color:#999999;
+}
+.i_main .tabPost .txtArea{
+	width:580px;
+	height:100px;
+	margin-bottom:20px;
+	border:1px solid #CCCCCC;
+}
+.i_main .tabPost .releasePost{
+	background:url(../images/search_his.png) no-repeat;
+	width:114px;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	color:#FFFFFF;
+	border:none;
+	font-size:16px;
+	font-weight:bold;
+	cursor:pointer;
+}
+.i_main .tabPost .numColor{
+	color:#000000;
+}
+
+.personnelInfo{
+	float:left;
+	width:800px;
+}
+.personnelInfo .personnelTitle .personnelLeft{
+	float:left;
+	background:url(../images/titleLeft.png) no-repeat;
+	width:3px;
+	height:33px;
+}
+.personnelInfo .personnelTitle .personnelMiddle{
+	float:left;
+	background:url(../images/titleMiddle.png) repeat-x;
+	width:774px;
+	height:33px;
+	line-height:33px;
+	color:#000000;
+	padding-left:20px;
+}
+.personnelInfo .personnelTitle .personnelMiddle a{
+	float:right;
+	padding-right:20px;
+	color:#000000;
+}
+.personnelInfo .personnelTitle .personnelRight{
+	float:left;
+	background:url(../images/titleRight.png) no-repeat;
+	width:3px;
+	height:33px;
+}
+.personnelInfo .personnelBody{
+	float:left;
+	padding:20px 10px 20px 10px;
+	color:#000000;
+	width:778px;
+	border:1px solid #CCCCCC;
+	border-top:none;
+	background:#FFFFFF;
+}
+.personnelInfo .personnelBody .personnelWords{
+	float:left;
+	border-bottom:1px solid #CCCCCC;
+	line-height:30px;
+	width:772px;
+	padding-left:6px;
+}
+.personnelInfo .personnelBody .personnelWords .personnelName{
+	float:left;
+	font-size:25px;
+	font-weight:bold;
+	width:590px;
+}
+.personnelInfo .personnelBody .personnelWords .releaseTime{
+	float:left;
+	padding-top:6px;
+}
+.personnelInfo .personnelBody .personnelWords .companyName{
+	float:left;
+	width:100%;
+}
+.personnelInfo .personnelBody .personnelWords .companyInfo{
+	float:left;
+	padding-right:20px;
+}
+.personnelInfo .personnelBody .personnelWords .postInfo{
+	float:left;
+	width:100%;
+	font-weight:bold;
+	font-size:14px;
+}
+.personnelInfo .personnelBody .personnelWords .postInfoList{
+	float:left;
+	width:100%;
+	line-height:25px;
+}
+.selectDegree , .selectSth{
+	position:absolute;
+	z-index:10;
+	background:#FFFFFF;
+	float:left;
+	border: 1px solid #CCCCCC;
+	border-top:none;
+	line-height:20px;
+
+
+}
+.selectDegree a , .selectSth a{
+	display:block;
+	color:#000000;
+	text-align:left;
+	cursor:pointer;
+	padding-left:6px;
+}
+
+/*设置 员工业绩统计 - 下拉菜单的样式*/
+.selectDegree a:hover{
+    background-color:#397DF3;
+    color:#FFFFFF;
+}
+.selectSth{
+	width:120px;
+}
+.selectSth a{
+	width:114px;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+1.增加权限: SHOP->业务统计 增加子模块 营业分析;
+2.在营业分析中 添加角色 : 客户交易统计查询/打印、供应商交易统计查询/打印、分项销售统计查询/打印、销售退货统计查询/打印 和入库退货统计查询/打印 角色
+
+  复制 营业统计->分项统计->客户交易统计查询打印 到 客户交易统计查询/打印中;
+  复制 营业统计->分项统计->供应商交易统计查询/打印 到 供应商交易统计查询/打印;
+  复制 营业统计->分项统计->商品分类销售额统计查询/打印 到 分项销售统计查询/打印;
+
+  删除 客户交易统计查询/打印 、 供应商交易统计查询/打印、分项销售统计查询/打印 中 所有type为render的资源 和value 为 /web/navigator.do?method=businessStat的资源
+
+3.增加资源：
+//===============================================SHOP--业务统计--营业分析--销售退货统计 =======================================
+name                                          systemType       type                     value                                         memo
+web_salesReturnStat_redirectSalesReturnStat   shop             request     /web/businessAnalysis.do?method=redirectSalesReturnStat    跳转到销售退货统计页面
+web_salesReturnStat_getSalesReturnList        shop             request     /web/businessAnalysis.do?method=getSalesReturnList         销售退货统计查询
+businessAnalysisSalesReturnStat               shop             render      WEB.STAT.BUSINESS_ANALYSIS.SALES_RETURN_STAT               销售退货统计
+
+//===============================================SHOP--业务统计--营业分析--入库退货统计 =======================================
+name                                                  systemType       type             value                                                        memo
+web_inventoryReturnStat_redirectInventoryReturnStat  shop             request          /web/businessAnalysis.do?method=redirectInventoryReturnStat   跳转到入库退货统计页面
+web_inventoryReturnStat_getInventoryReturnList       shop             request          /web/businessAnalysis.do?method=getInventoryReturnList            入库退货统计查询
+businessAnalysisInventoryReturnStat                  shop             render           WEB.STAT.BUSINESS_ANALYSIS.INVENTORY_RETURN_STAT        入库退货统计
+
+
+//===============================================SHOP--业务统计--营业分析--客户交易统计 =======================================
+name                                                  systemType       type             value                                    memo
+businessAnalysisCustomerStat                  shop             render           WEB.STAT.BUSINESS_ANALYSIS.CUSTOMER_STAT        客户交易统计
+
+
+//===============================================SHOP--业务统计--营业分析--供应商交易统计 =======================================
+name                                                  systemType       type             value                                    memo
+businessAnalysisSupplierStat                  shop             render           WEB.STAT.BUSINESS_ANALYSIS.SUPPLIER_STAT        供应商交易统计
+
+
+//===============================================SHOP--业务统计--营业分析--分项销售统计 =======================================
+name                                                  systemType       type             value                                    memo
+businessAnalysisCategoryStat                  shop             render           WEB.STAT.BUSINESS_ANALYSIS.CATEGORY_STAT        分项销售统计
+
+
+
+4.查找value为WEB_STAT_BASE的资源 增加到 五个角色中
+
+5.增加资源：
+name                                  value                                                   systemType       type           memo
+businessAnalysisBase                  WEB.STAT.BUSINESS_ANALYSIS.BASE                         shop             render         营业分析 (增加到五个角色中)
+
+
+6.删除 营业统计->分项统计模块
+
+
+
+
+

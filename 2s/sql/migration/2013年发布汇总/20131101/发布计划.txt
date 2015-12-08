@@ -1,0 +1,43 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+2.执行如下sql
+
+txn库
+update txn.repair_order_other_income_item set calculate_cost_price = 'FALSE',cost_price = 0;
+update txn.repair_order_template_other_income_item set calculate_cost_price = 'FALSE', cost_price = 0;
+insert into  `other_income_kind` VALUES (1000010110000000, 1, 1, 1, '-1', '快递费', 'ENABLE',0);
+insert into  `other_income_kind` VALUES (1000010110000001, 1, 1, 1, '-1', '开票手续费', 'ENABLE',0);
+insert into  `other_income_kind` VALUES (1000010110000002, 1, 1, 1, '-1', '材料管理费', 'ENABLE',0);
+insert into  `other_income_kind` VALUES (1000010110000003, 1, 1, 1, '-1', '拖车费', 'ENABLE',0);
+insert into  `other_income_kind` VALUES (1000010110000004, 1, 1, 1, '-1', '运杂费', 'ENABLE',0);
+update txn.other_income_kind set use_times = 0;
+update txn.repair_order set other_total_cost_price = 0,other_income_total = 0;
+update txn.sales_order set other_total_cost_price = 0,other_income_total = 0;
+
+update txn.draft_order_other_income_item  set calculate_cost_price = 'FALSE', cost_price = 0;
+update txn.sales_order_other_income_item  set calculate_cost_price = 'FALSE', cost_price = 0;
+update txn.business_stat set order_other_income_cost = 0;
+update txn.business_stat_change set order_other_income_cost = 0;
+
+3.上传打印模板
+
+后台打印模板上传新模板，模板在sql/打印模板/default_超级管理统计打印/营业统计-商品销售.html、营业统计-车辆施工.html、营收统计_2012-10-11.html 不要选择店铺。
+sql/打印模板/default_改/采购单.html
+sql/打印模板/default_改/入库单.html
+
+
+三.发布应用 （纪友文）
+
+四.添加权限
+	1. SHOP--车辆施--车辆施工--查询
+		WEB_GET_INVOICE_LIST /web/customer.do?method=getCarConstructionInvoiceList SHOP 获取车辆施工单
+
+五.初始化
+重建所有店面 施工单和销售单索引
+	/web/init.do?method=initShopCustomerSupplierSync     （邱鑫宇）
+	/web/init.do?method=createDefaultPageConfig          （姬牧晨）
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。

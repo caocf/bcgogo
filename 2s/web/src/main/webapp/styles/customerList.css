@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+.mainTitles{
+	margin-bottom:30px;
+}
+
+.i_main h1{
+	border-bottom:1px solid #e7e7e7;
+	color:#666666;
+	font-size:18px;
+	padding-bottom:20px;
+	margin-top:30px;
+}
+
+.cust_list{
+	width:600px;
+	margin:30px 0px 0px 40px;
+	border:1px solid #e7e7e7;
+}
+.list_title{
+	color:#666666;
+	font-size:12px;
+	height:30px;
+	line-height:30px;
+	background:url("../images/list_pg.png");
+	padding-left:15px;
+	border-bottom:1px solid #fff;
+}
+.list_title span{
+	margin-left:25px;
+}
+.cust_list table tr td{
+	font-size:12px;
+	padding:5px 10px;
+	border-right:1px solid #e7e7e7;
+}
+.cust_list table  .table_title td{
+	color:#333333;
+	background:#f2f2f2;
+}
+

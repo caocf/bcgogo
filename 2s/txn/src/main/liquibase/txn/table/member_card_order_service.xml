@@ -1,0 +1,74 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+  <changeSet author="chenfanglei" id="member_card_order_service_1">
+    <createTable tableName="member_card_order_service">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+
+      <column name="shop_id" type="bigint"></column>
+      <column name="member_card_order_id" type="bigint"></column>
+      <column name="service_id" type="bigint"></column>
+      <column name="times" type="int"></column>
+      <column name="term" type="int"></column>
+      <column name="vehicles" type="varchar(50)"></column>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="member_card_order_service_2" author="chenfanglei">
+    <addPrimaryKey tableName="member_card_order_service" columnNames="id" constraintName="pk_member_card_order_service"></addPrimaryKey>
+  </changeSet>
+
+  <changeSet id="member_card_order_service_3" author="chenfanglei">
+    <createIndex tableName="member_card_order_service" indexName="idx_member_card_order_service_1">
+      <column name="shop_id"></column>
+      <column name="member_card_order_id"></column>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="member_card_order_service_4" author="chenfanglei">
+    <dropColumn tableName="member_card_order_service" columnName="term"></dropColumn>
+  </changeSet>
+
+  <changeSet id="member_card_order_service_5" author="chenfanglei">
+    <addColumn tableName="member_card_order_service">
+      <column name="deadline" type="bigint"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="member_card_order_service_6" author="chenfanglei">
+    <addColumn tableName="member_card_order_service">
+      <column name="card_times" type="int"></column>
+      <column name="old_times" type="int"></column>
+      <column name="balance_times" type="int"></column>
+      <column name="increased_times_limit_type" type="varchar(20)"></column>
+      <column name="card_times_limit_type" type="varchar(20)"></column>
+      <column name="old_times_limit_type" type="varchar(20)"></column>
+      <column name="balance_times_limit_type" type="varchar(20)"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="member_card_order_service_7" author="chenfanglei">
+    <dropColumn tableName="member_card_order_service" columnName="times"></dropColumn>
+  </changeSet>
+
+  <changeSet id="member_card_order_service" author="chenfanglei">
+    <addColumn tableName="member_card_order_service">
+      <column name="increased_times" type="int"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="member_card_order_service_9" author="jimuchen">
+    <addColumn tableName="member_card_order_service">
+      <column name="service_history_id" type="bigint" />
+    </addColumn>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,34 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhangjuntao" id="instalment_plan_zhangjuntao_1">
+        <createTable tableName="instalment_plan">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="memo" type="varchar(500)"/>
+            <column name="total_amount" type="double"/>
+            <column name="payable_amount" type="double"/>
+            <column name="paid_amount" type="double"/>
+            <column name="start_time" type="bigint"/>
+            <column name="current_item_end_time" type="bigint"/>
+            <column name="end_time" type="bigint"/>
+            <column name="current_item_id" type="bigint"/>
+            <column name="periods" type="int"/>
+            <column name="status" type="varchar(50)"/>
+        </createTable>
+        <addPrimaryKey tableName="instalment_plan" columnNames="id" constraintName="pk_instalment_plan"/>
+        <createIndex tableName="instalment_plan" indexName="idx_instalment_plan_shopid">
+            <column name="shop_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

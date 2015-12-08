@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+.i_searchBrand .i_upBody ul {margin:0px 0px 5px 0px;}
+.i_searchBrand .i_upBody ul li{ clear:both;width:300px; height:25px;}
+.i_upBody ul li input,.i_upBody ul li label,.i_upBody ul li span{ display:block; float:left; margin-left:5px;}
+.i_upBody ul li label{width:140px;}
+.i_upBody ul li .btnPlus{ background:url(../images/opera1.jpg) no-repeat; border:none; margin-left:10px;width:18px; height:18px;}
+.i_upBottom .i_upBottomCenter,.i_searchBrand .i_upBody {width:200px;}
+.i_searchBrand .i_upCenter .i_note {width:170px;}
+.i_searchBrand .i_upCenter{width:218px;}
+
+
+/*editGoodsinfo*/
+.i_upBody ul li .txt_edit{width:130px;}
+.i_upBody  .edit_goods li label{width:60px;}

@@ -1,0 +1,166 @@
+
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+
+   1. 数据库更新：添加4个表
+
+SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for `camera`
+-- ----------------------------
+DROP TABLE IF EXISTS `camera`;
+CREATE TABLE `camera` (
+  `id` bigint(20) NOT NULL,
+  `serial_no` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `last_heart_date` bigint(20) DEFAULT NULL,
+  `lan_ip` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `lan_port` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `username` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `password` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `domain_username` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `domain_password` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `status` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `remark` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `external_address` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `created` bigint(20) NOT NULL,
+  `last_update` bigint(20) NOT NULL,
+  `version` bigint(20) NOT NULL,
+  `domain_name` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+
+
+-- ----------------------------
+-- Table structure for `camera_config`
+-- ----------------------------
+DROP TABLE IF EXISTS `camera_config`;
+CREATE TABLE `camera_config` (
+  `id` bigint(20) NOT NULL,
+  `white_vehicle_nos` varchar(2000) COLLATE utf8_bin DEFAULT NULL,
+  `camera_id` bigint(20) DEFAULT NULL,
+  `shop_id` bigint(20) DEFAULT NULL,
+  `created` bigint(20) NOT NULL,
+  `last_update` bigint(20) NOT NULL,
+  `version` bigint(20) NOT NULL,
+  `order_type` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `member_card` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `interval_time_warn` bigint(20) DEFAULT NULL,
+  `construction_project_text` varchar(2000) COLLATE utf8_bin DEFAULT NULL,
+  `construction_project_value` varchar(2000) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+
+
+-- ----------------------------
+-- Table structure for `camera_record`
+-- ----------------------------
+DROP TABLE IF EXISTS `camera_record`;
+CREATE TABLE `camera_record` (
+  `id` bigint(20) NOT NULL,
+  `camera_id` bigint(20) NOT NULL,
+  `vehicle_no` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `arrive_date` bigint(20) DEFAULT NULL,
+  `ref_order_type` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `order_id` bigint(20) DEFAULT NULL,
+  `created` bigint(20) NOT NULL,
+  `last_update` bigint(20) NOT NULL,
+  `version` bigint(20) NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `shop_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+
+-- ----------------------------
+-- Table structure for `camera_shop`
+-- ----------------------------
+DROP TABLE IF EXISTS `camera_shop`;
+CREATE TABLE `camera_shop` (
+  `id` bigint(20) NOT NULL,
+  `camera_id` bigint(20) NOT NULL,
+  `install_date` bigint(20) DEFAULT NULL,
+  `status` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `created` bigint(20) NOT NULL,
+  `last_update` bigint(20) NOT NULL,
+  `version` bigint(20) NOT NULL,
+  `deleted` varchar(50) COLLATE utf8_bin NOT NULL,
+  `shop_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+
+     
+
+三.发布应用
+
+四.初始化
+
+   1.Config表中添加一条记录，可通过admin登录，在"后台管理"中的系统配置中添加，新增操作
+     key:   HEART_DATA_INTERVAL_TIME
+     value: 300000
+     描述： 心跳数据更新时间
+
+   2.客户管理模块添加menu
+
+    insert into menu values(1000000000022,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,2,'车辆识别仪管理',(select r.id from bcuser.resource r where r.value="WEB.CAMERA_MANAGER.BASE"),1000020045084312,'cameraRecord.do?method=toCameraRecordPage',90,'WEB.CUSTOMER_MANAGER.CAMERA_MANAGER');
+    
+
+    name:CameraManagerMenu    
+    value:WEB.CAMERA_MANAGER.BASE
+    system:SHOP
+    memo:车辆识别仪管理
+    type:menu
+
+   3.权限添加（基本权限）
+
+    name:web_cameraRecord    
+    value:/web/cameraRecord.do?method=initCameraRecordList
+    system:SHOP
+    memo:初始化摄像头记录
+    type:request
+
+    name:web_toCameraRecordContent    
+    value:/web/cameraRecord.do?method=toCameraRecordContent
+    system:SHOP
+    memo:跳转到摄像头记录界面
+    type:request
+
+    name:web_initCameraConfigList    
+    value:/web/cameraRecord.do?method=initCameraConfigList
+    system:SHOP
+    memo:初始化摄像头配置
+    type:request
+
+    name:web_updateCameraConfig    
+    value:/web/cameraRecord.do?method=updateCameraConfigs
+    system:SHOP
+    memo:更新摄像头配置
+    type:request
+
+    name:web_toCameraConfigPage    
+    value:/web/cameraRecord.do?method=toCameraConfigPage
+    system:SHOP
+    memo:跳转到配置界面
+    type:request
+
+    name:toCameraConfigList    
+    value:/web/cameraRecord.do?method=cameraConfigList
+    system:SHOP
+    memo:跳转到配置列表界面
+    type:request
+
+
+   
+
+
+
+
+
+

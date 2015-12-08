@@ -1,0 +1,46 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+  <!--@Deprecated by zhangjuntao-->
+  <changeSet author="mzdong" id="sms_balance_1">
+    <createTable tableName="sms_balance">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+
+      <column name="shop_id" type="bigint"/>
+      <column name="sms_balance" type="float"/>
+    </createTable>
+
+    <addPrimaryKey tableName="sms_balance" columnNames="id" constraintName="pk_sms_balance"/>
+
+  </changeSet>
+
+  <changeSet author="xiaojian" id="sms_balance_2">
+    <addColumn tableName="sms_balance">
+      <column name="recharge_total" type="float"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="luyi" id="sms_balance_3">
+    <createIndex tableName="sms_balance" indexName="IDX_SMSBALANCE_SHOPID">
+      <column name="shop_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="sms_balance_4">
+    <modifyColumn tableName="sms_balance">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

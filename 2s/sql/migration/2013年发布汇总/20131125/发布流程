@@ -1,0 +1,55 @@
+一.备份现有生产上war包,停掉热备份
+
+二.发布前准备
+1. 数据库更新：
+ 根据Liquibase生成的DDL语句更新表结构.
+2.数据初始化
+    UPDATE txn.pre_buy_order_item pi,txn.pre_buy_order p SET pi.shop_id = p.shop_id WHERE p.id = pi.pre_buy_order_id;
+    DELETE from config.recently_used_data;
+    update txn.pre_buy_order set business_chance_type='Normal';
+    update txn.product_recommend set product_recommend_type='FromOther';
+    update bcuser.menu m set label='上架管理', href='goodsInOffSales.do?method=toUnInSalingGoodsList' where m.label='上架管理';
+    UPDATE txn.pre_buy_order_item pi,config.shop s SET pi.shop_kind = s.shop_kind WHERE pi.shop_id = s.id;
+    UPDATE product.promotions p,config.shop s SET p.shop_kind = s.shop_kind WHERE p.shop_id = s.id;
+
+三.发布应用
+
+四.配置权限
+1.后台 admin   config  配置
+AccessoryRecommendByPreBuyOrderCount             40                     求购匹配的配件数量
+2.后台CRM
+ name                                        value                                                            memo                   type             SystemType
+===============================================================================================================================================
+
+-----------------------------------------------------------  -----------------------------------------------------------------------------
+shop--供求中心--求购咨询--咨询列表
+web_getInSalingProductForSupplyDemand     /web/supplyDemand.do?method=getInSalingProductForSupplyDemand       获取最新上架配件          request           shop
+web_saveViewedBusinessChance              /web/autoAccessoryOnline.do?method=saveViewedBusinessChance         保存浏览的商机            request           shop
+web_getViewedBusinessChance               /web/autoAccessoryOnline.do?method=getViewedBusinessChance          获取浏览的上架            request           shop
+
+shop--供求中心--我要买配件--我的求购--求购列表
+web_getPreBuyOrderItem                    /web/preBuyOrder.do?method=getPreBuyOrderItem                       获取求购商品              request           shop
+web_showSupplierOtherQuotedItems          /web/preBuyOrder.do?method=showSupplierOtherQuotedItems             跳转到供应商的其他报价    request           shop
+web_getSupplierOtherQuotedItems           /web/preBuyOrder.do?method=getSupplierOtherQuotedItems              获取供应商的其他报价      request           shop
+
+shop--供求中心--我要买配件--我的求购--查看求购
+web_getQuotedPreBuyOrders                 /web/preBuyOrder.do?method=getQuotedPreBuyOrders                    该求购商品的报价   request           shop
+web_getRecommendProductsFromNormal        /web/supplyDemand.do?method=getRecommendProductsFromNormal           查询根据求购为我推荐      request           shop
+
+shop--供求中心--求购咨询--咨询列表
+web_getOtherShopPreBuyOrders    /web/preBuyOrder.do?method=getOtherShopPreBuyOrders     其他买家的商机  request           shop
+CRM--SHOP数据操作权限--SHOP数据初始化
+web_initPreBuyOrder                       /web/init.do?method=initPreBuyOrder                                 把求购单拆成一个order对应一个item    shop request
+SHOP--登录后基本权限
+web_search_customer_by_vehicleId /web/customer.do?method=searchCustomerByVehicleId SHOP 根据车辆ID查询客户
+SHOP--登录后基本权限
+web_search_customer_by_licence_no /web/customer.do?method=searchCustomerByLicenceNo SHOP 根据车牌号查询客户
+SHOP--登录后基本权限
+web_get_vehicle_list_by_customer_id /web/customer.do?method=getVehicleDTOListByCustomerId SHOP 根据客户ID查询车辆信息
+
+五.jackchen 数据初始化
+1.jackchen登录系统在浏览器输入地址 : init.do?method=initPreBuyOrder
+2.init.do?method=processRecommendJobs&processType=SellWellBusinessChanceBuild                 生成畅销商机 (定时钟每周日凌晨1点执行一次)
+
+六.solr 重做索引
+1.更换order,order_item的schema.xml,重建单据索引,只做求购单和报价单(注意要做完初始化)

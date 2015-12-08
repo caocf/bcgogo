@@ -1,0 +1,5 @@
+.software_receivable_form_table{ border:1px solid #999999; width:100%; table-layout:fixed; border-collapse: collapse; text-align:center;}
+.software_receivable_form_table table {width:100%; table-layout:fixed; border-collapse: collapse;}
+.software_receivable_form_table table tr td{border:1px solid #999999; border-width:0px 1px 1px 0px; text-align:center;}
+.software_receivable_form_table table.tr td, .table .td{ background:#eeeeee;}
+.software_receivable_form_table .td{ text-align:center; border-right:1px solid #999999;}

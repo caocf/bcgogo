@@ -1,0 +1,53 @@
+.bottom {
+    background-color: #78dd78;
+    /*border-top: 1px solid #9b710d;*/
+    bottom: 0;
+    height: 40px;
+    left: 0;
+    position: fixed;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.bottomzuo {
+    float: left;
+    height: 42px;
+    margin-top: 7px;
+    text-align: center;
+    width: 48%;
+}
+.bottomzuoup {
+    height: 25px;
+    width: 100%;
+    color:#fff;
+}
+.bottomzuoup .doc{
+    margin-bottom: 2px;
+    color:#fff;
+}
+.bottomzuoxia {
+    color: #fff;
+    font-family: "Microsoft Yahei";
+    font-size: 14px;
+    height: 18px;
+    line-height: 18px;
+    margin-top: 3px;
+    width: 100%;
+}
+.bottomzuo .b-doc{
+    margin-left:34px;
+    margin-top:-23px;
+}
+.bottomzuo .b-img{
+    margin-left:-74px;
+}
+.fenxian {
+    float: left;
+    border:1px solid #FFFFFF;
+    height: 100%;
+    width:0px;
+}
+#appointTime{
+    text-align: center;
+}

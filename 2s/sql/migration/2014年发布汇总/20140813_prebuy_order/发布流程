@@ -1,0 +1,32 @@
+
+一.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+二.发布前准备
+后台admin添加
+  lack_auto_pre_buy_num   15    缺料自动生成求购单数目上限
+  lack_auto_pre_buy_day   30    缺料自动生成求购单时间上限
+
+三.发布应用 （纪友文）
+
+四.添加权限
+SHOP--基本
+web_init_processLackAutoPreBuy  /web/init.do?method=processLackAutoPreBuy  执行缺料生成求购单   shop request
+
+ SHOP-登录后基本权限
+web_getShopSuggestion /web/searchInventoryIndex.do?method=getShopSuggestion SHOP 搜索店铺
+
+
+五.初始化
+1. 生产发布完成后再执行一次,在浏览器中输入：shop.bcgogo.com/web/init.do?method=processLackAutoPreBuy
+   看到：processLackAutoPreBuy success!表示已经执行成功
+2.order_item替换schema.xml,重做单据的索引
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、肖开波）
+4.验证功能（纪友文、肖开波）
+
+

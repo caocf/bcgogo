@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <preConditions>
+        <dbms type="mysql"/>
+    </preConditions>
+
+    <changeSet id="hibernate_unique_key_1" author="caiwei">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="hibernate_unique_key"/>
+            </not>
+        </preConditions>
+        <createTable tableName="hibernate_unique_key">
+            <column name="next_hi" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <insert tableName="hibernate_unique_key">
+            <column name="next_hi" value="1000000"/>
+        </insert>
+    </changeSet>
+
+    <!-- Schema -->
+    <include file="txn/table/inventory.xml"/>
+    <include file="txn/table/inventory_todo.xml"/>
+    <include file="txn/table/inventory_adjustment.xml"/>
+    <include file="txn/table/inventory_adjustment_item.xml"/>
+    <include file="txn/table/payable.xml"/>
+    <include file="txn/table/payment_record.xml"/>
+    <include file="txn/table/price_adjustment.xml"/>
+    <include file="txn/table/product_price.xml"/>
+    <include file="txn/table/purchase_inventory.xml"/>
+    <include file="txn/table/purchase_inventory_item.xml"/>
+    <include file="txn/table/purchase_order.xml"/>
+    <include file="txn/table/purchase_order_item.xml"/>
+    <include file="txn/table/purchase_order_status.xml"/>
+    <include file="txn/table/purchase_price.xml"/>
+    <include file="txn/table/purchase_return.xml"/>
+    <include file="txn/table/purchase_return_item.xml"/>
+    <include file="txn/table/receivable.xml"/>
+    <include file="txn/table/reception_record.xml"/>
+    <include file="txn/table/repair_order.xml"/>
+    <include file="txn/table/repair_order_item.xml"/>
+    <include file="txn/table/repair_order_service.xml"/>
+    <include file="txn/table/sales_inventory.xml"/>
+    <include file="txn/table/sales_inventory_item.xml"/>
+    <include file="txn/table/sales_order.xml"/>
+    <include file="txn/table/sales_order_item.xml"/>
+    <include file="txn/table/sales_return.xml"/>
+    <include file="txn/table/sales_return_item.xml"/>
+    <include file="txn/table/service.xml"/>
+    <include file="txn/table/vehicle_service_history.xml"/>
+    <include file="txn/table/vehicle_service_history_item.xml"/>
+    <include file="txn/table/schedule_service_event.xml"/>
+    <include file="txn/table/repair_remind_event.xml"/>
+    <include file="txn/table/sales_remind_event.xml"/>
+    <include file="txn/table/inventory_remind_event.xml"/>
+    <include file="txn/table/product_remind_event.xml"/>
+    <include file="txn/table/inventory_alarm.xml"/>
+    <include file="txn/table/user_remind_event.xml"/>
+    <include file="txn/table/repair_todo.xml"/>
+    <include file="txn/table/user_todo.xml"/>
+    <include file="txn/table/wash_order.xml"/>
+    <include file="txn/table/debt.xml"/>
+    <include file="txn/table/sms_recharge.xml"/>
+    <include file="txn/table/loan_transfers.xml"/>
+    <include file="txn/table/sms_balance.xml"/><!--@Deprecated by zhangjuntao-->
+    <include file="txn/table/tem_blance.xml"/><!--@Deprecated by zhangjuntao-->
+    <include file="txn/table/business_stat.xml"/>
+    <include file="txn/table/business_stat_change.xml"/>
+    <include file="txn/table/expend_detail.xml"/>
+    <include file="txn/table/repeal_order.xml"/>
+
+    <include file="txn/table/print_template.xml"/>
+    <include file="txn/table/shop_print_template.xml"/>
+
+    <include file="txn/table/reception_service_times.xml"/>
+    <include file="txn/table/member_card_order_item.xml"/>
+    <include file="txn/table/member_card_order.xml"/>
+    <include file="txn/table/receivable_service_times.xml"/>
+    <include file="txn/table/member_card_order_service.xml"/>
+    <include file="txn/table/wash_beauty_order.xml"/>
+    <include file="txn/table/wash_beauty_order_item.xml"/>
+    <include file="txn/table/category.xml"/>
+    <include file="txn/table/category_item_relation.xml"/>
+    <include file="txn/table/draft_order.xml"/>
+    <include file="txn/table/imported_order_temp.xml"/>
+    <include file="txn/table/imported_order_item.xml"/>
+    <include file="txn/table/imported_order.xml"/>
+    <include file="txn/table/deposit.xml"/>
+    <include file="txn/table/draft_order_item.xml"/>
+    <include file="txn/table/payable_history.xml"/>
+    <include file="txn/table/payable_history_record.xml"/>
+    <include file="txn/table/supplier_return_payable.xml"/>
+    <include file="txn/table/supplier_record.xml"/>
+    <include file="txn/table/running_stat.xml"/>
+    <include file="txn/table/running_stat_change.xml"/>
+    <include file="txn/table/receipt_no.xml" />
+
+    <include file="txn/table/repair_order_template.xml" />
+    <include file="txn/table/repair_order_template_item.xml" />
+    <include file="txn/table/repair_order_template_service.xml" />
+
+    <include file="txn/table/member_card_return.xml"/>
+    <include file="txn/table/member_card_return_item.xml"/>
+    <include file="txn/table/member_card_return_service.xml"/>
+    <include file="txn/table/inventory_check.xml" />
+    <include file="txn/table/inventory_check_item.xml" />
+
+    <include file="txn/table/purchase_inventory_stat.xml"/>
+    <include file="txn/table/purchase_inventory_stat_change.xml"/>
+    <include file="txn/table/purchase_inventory_month_stat.xml"/>
+    <include file="txn/table/supplier_tran_stat.xml"/>
+    <include file="txn/table/supplier_tran_stat_change.xml" />
+    <include file="txn/table/supplier_tran_month_stat.xml"/>
+    <include file="txn/table/sales_stat.xml" />
+    <include file="txn/table/sales_stat_change.xml" />
+    <include file="txn/table/purchase_return_stat.xml"/>
+    <include file="txn/table/purchase_return_stat_change.xml"/>
+    <include file="txn/table/purchase_return_month_stat.xml"/>
+
+    <include file="txn/table/product_modify_log.xml"/>
+
+    <include file="txn/table/sales_month_stat.xml" />
+    <include file="txn/table/price_fluctuation_stat.xml" />
+    <include file="txn/table/vehicle_serve_month_stat.xml" />
+    <include file="txn/table/order_status_change_log.xml"/>
+    <include file="txn/table/express.xml"/>
+    <include file="txn/table/message.xml"/>
+    <include file="txn/table/message_receiver.xml"/>
+    <include file="txn/table/message_user_receiver.xml"/>
+    <include file="txn/table/notice.xml"/>
+    <include file="txn/table/notice_receiver.xml"/>
+    <include file="txn/table/sales_order_other_income_item.xml"/>
+    <include file="txn/table/other_income_kind.xml" />
+    <include file="txn/table/draft_order_other_income_item.xml"/>
+    <include file="txn/table/repair_order_other_income_item.xml"/>
+    <include file="txn/table/repair_order_template_other_income_item.xml"/>
+    <include file="txn/table/repair_picking.xml"/>
+    <include file="txn/table/repair_picking_item.xml"/>
+    <include file="txn/table/product_history.xml"/>
+    <include file="txn/table/service_history.xml"/>
+    <include file="txn/table/storehouse.xml"/>
+    <include file="txn/table/storehouse_inventory.xml"/>
+    <include file="txn/table/allocate_record.xml"/>
+    <include file="txn/table/allocate_record_item.xml"/>
+    <include file="txn/table/inner_picking.xml"/>
+    <include file="txn/table/inner_picking_item.xml"/>
+    <include file="txn/table/inner_return.xml"/>
+    <include file="txn/table/inner_return_item.xml"/>
+    <include file="txn/table/insurance_order.xml"/>
+    <include file="txn/table/insurance_order_item.xml"/>
+    <include file="txn/table/insurance_order_service.xml"/>
+    <include file="txn/table/normal_product_inventory_stat.xml" />
+    <include file="txn/table/qualified_credentials.xml"/>
+    <include file="txn/table/statement_account_order.xml"/>
+    <include file="txn/table/receivable_history.xml"/>
+    <include file="txn/table/supplier_comment_stat.xml"/>
+    <include file="txn/table/supplier_comment_record.xml"/>
+
+    <include file="txn/table/remind_event.xml"/>
+
+    <include file="txn/table/shopping_cart_item.xml"/>
+    <include file="txn/table/borrow_order.xml"/>
+    <include file="txn/table/borrow_order_item.xml"/>
+    <include file="txn/table/return_order.xml"/>
+    <include file="txn/table/return_order_item.xml"/>
+
+    <include file="txn/table/bcgogo_receivable_order_record_relation.xml"/>
+    <include file="txn/table/bcgogo_receivable_order.xml"/>
+    <include file="txn/table/bcgogo_receivable_order_item.xml"/>
+    <include file="txn/table/instalment_plan_item.xml"/>
+    <include file="txn/table/instalment_plan_algorithm.xml"/>
+    <include file="txn/table/instalment_plan.xml"/>
+    <include file="txn/table/bcgogo_receivable_record.xml"/>
+    <include file="txn/table/hardware_software_account.xml"/>
+    <include file="txn/table/shop_sms_account.xml"/>
+    <include file="txn/table/shop_sms_record.xml"/>
+    <include file="txn/table/bcgogo_sms_record.xml"/>
+    <include file="txn/table/supplier_inventory.xml"/>
+    <include file="txn/table/out_storage_relation.xml"/>
+    <include file="txn/table/in_storage_record.xml"/>
+    <include file="txn/table/customer_deposit.xml"/>
+    <include file="txn/table/deposit_order.xml"/>
+    <!--add end-->
+    <include file="txn/table/pre_buy_order.xml"/>
+    <include file="txn/table/pre_buy_order_item.xml"/>
+    <include file="txn/table/quoted_pre_buy_order.xml"/>
+    <include file="txn/table/quoted_pre_buy_order_item.xml"/>
+    <include file="txn/table/pre_buy_order_message.xml"/>
+    <include file="txn/table/service_achievement_history.xml"/>
+    <include file="txn/table/product_achievement_history.xml"/>
+    <include file="txn/table/member_achievement_history.xml"/>
+    <include file="txn/table/assistant_achievement_history.xml"/>
+    <include file="txn/table/shop_achievement_config.xml"/>
+    <include file="txn/table/assistant_service_record.xml"/>
+    <include file="txn/table/assistant_product_record.xml"/>
+    <include file="txn/table/assistant_member_record.xml"/>
+    <include file="txn/table/assistant_achievement_stat.xml"/>
+    <include file="txn/table/push_message.xml"/>
+    <include file="txn/table/push_message_trace.xml"/>
+    <include file="txn/table/push_message_receiver.xml"/>
+    <include file="txn/table/push_message_receiver_record.xml"/>
+    <include file="txn/table/push_message_receiver_record_trace.xml"/>
+    <include file="txn/table/push_message_receiver_match_record.xml"/>
+    <include file="txn/table/push_message_source.xml"/>
+    <include file="txn/table/push_message_feedback_record.xml"/>
+    <include file="txn/table/push_message_feedback_record_trace.xml"/>
+    <include file="txn/table/push_message_receiver_trace.xml"/>
+    <include file="txn/table/push_message_build_task.xml"/>
+    <include file="txn/table/product_recommend.xml"/>
+    <include file="txn/table/product_recommend_trace.xml"/>
+    <include file="txn/table/shop_recommend.xml"/>
+    <include file="txn/table/shop_recommend_trace.xml"/>
+    <include file="txn/table/pre_buy_order_item_recommend.xml"/>
+    <include file="txn/table/pre_buy_order_item_recommend_trace.xml"/>
+    <include file="txn/table/shop_product_match_record.xml"/>
+    <include file="txn/table/shop_product_match_result.xml"/>
+    <include file="txn/table/sales_inventory_week_stat.xml"/>
+    <include file="txn/table/order_item_promotion.xml"/>
+
+    <include file="txn/table/appoint_order.xml"/>
+    <include file="txn/table/appoint_order_service_item.xml"/>
+    <include file="txn/table/assistant_business_account_record.xml"/>
+    <include file="txn/table/enquiry.xml"/>
+    <include file="txn/table/enquiry_target_shop.xml"/>
+    <include file="txn/table/enquiry_shop_response.xml"/>
+    <include file="txn/table/app_user_bill.xml"/>
+    <include file="txn/table/preferential_policy.xml"/>
+    <include file="txn/table/appoint_order_fault_code_item.xml"/>
+    <include file="txn/table/fault_info_to_shop.xml"/>
+
+
+    <include file="txn/table/repair_order_secondary.xml"/>
+    <include file="txn/table/repair_order_item_secondary.xml"/>
+    <include file="txn/table/repair_order_service_secondary.xml"/>
+    <include file="txn/table/repair_order_other_income_item_secondary.xml"/>
+    <include file="txn/table/repair_order_settlement_secondary.xml"/>
+    <include file="txn/table/appoint_order_service_detail.xml"/>
+    <include file="txn/table/appoint_order_material.xml"/>
+    <include file="txn/table/advert.xml"/>
+
+</databaseChangeLog>

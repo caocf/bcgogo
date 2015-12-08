@@ -1,0 +1,85 @@
+ 一.备份现有生产上war包（纪友文）,停掉热备份
+
+ 二.发布前准备
+    1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+    发布生产ddl
+        alter table sms_job modify column receive_mobile varchar(2000) ;
+        alter table out_box modify column send_mobile varchar(2000) ;
+        alter table failed_sms_job modify column receive_mobile varchar(2000) ;
+
+        CREATE TABLE `wx_msg` (
+          `id` bigint(20) NOT NULL DEFAULT '0',
+          `created` bigint(20) NOT NULL,
+          `last_update` bigint(20) NOT NULL,
+          `version` bigint(20) NOT NULL,
+          `msg_id` varchar(50) DEFAULT NULL,
+          `content` varchar(1500) DEFAULT NULL,
+          `send_time` bigint(20) DEFAULT NULL,
+          `status` varchar(20) DEFAULT NULL,
+          `category` varchar(50) DEFAULT NULL,
+          `remark` varchar(100) DEFAULT NULL,
+          `title` varchar(100) DEFAULT NULL,
+          `description` varchar(1500) DEFAULT NULL,
+          `url` varchar(500) DEFAULT NULL,
+          `pic_url` varchar(500) DEFAULT NULL,
+          `from_shop_id` bigint(20) DEFAULT NULL,
+          `submit_review_time` bigint(20) DEFAULT NULL,
+          `wx_article_template_id` varchar(100) DEFAULT NULL,
+          `user_id` bigint(20) DEFAULT NULL,
+          `user_name` varchar(50) DEFAULT NULL,
+          `media_id` varchar(100) DEFAULT NULL,
+          `deleted` varchar(20) DEFAULT NULL,
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+
+        CREATE TABLE `wx_msg_receiver` (
+          `id` bigint(20) NOT NULL DEFAULT '0',
+          `created` bigint(20) NOT NULL,
+          `last_update` bigint(20) NOT NULL,
+          `version` bigint(20) NOT NULL,
+          `msg_id` bigint(20) DEFAULT NULL,
+          `open_id` varchar(100) DEFAULT NULL,
+          `deleted` varchar(20) DEFAULT NULL,
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+
+        CREATE TABLE `wx_shop_bill` (
+          `id` bigint(20) NOT NULL DEFAULT '0',
+          `created` bigint(20) NOT NULL,
+          `last_update` bigint(20) NOT NULL,
+          `version` bigint(20) NOT NULL,
+          `shop_id` bigint(20) DEFAULT NULL,
+          `msg_id` bigint(20) DEFAULT NULL,
+          `vest_date` bigint(20) DEFAULT NULL,
+          `scene` varchar(50) DEFAULT NULL,
+          `amount` int(11) DEFAULT NULL,
+          `total` double DEFAULT NULL,
+          `operator` varchar(50) DEFAULT NULL,
+          `deleted` varchar(20) DEFAULT NULL,
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+三.发布应用
+
+四.配置权限
+    CRM ------SHOP操作权限------SHOP数据初始化   新增资源
+       init_updateWXUser          /web/init.do?method=synWXUser            同步微信用户       request  shop
+       init_initWXShopAccount     /web/init.do?method=initWXShopAccount    初始化账户信息     request  shop
+    SHOP--客户管理--微信管理--微信管理
+       web_toWXShopBill             /web/weChat.do?method=toWXShopBill       跳转到微信账单     request  shop
+       web_getWXShopBill            /web/weChat.do?method=getWXShopBill      查询微信账单     request  shop
+       web_getWXShopAccount         /web/weChat.do?method=getWXShopAccount      查询微信账单     request  shop
+
+五.初始化
+    在浏览器中输入 domain/web/init.do?method=initWXShopAccount,看到页面显示 initWXShopAccount success, all finished! 表执行成功
+
+
+
+
+    wx_msg
+    wx_msg_receiver
+    wx_send_status_report
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。

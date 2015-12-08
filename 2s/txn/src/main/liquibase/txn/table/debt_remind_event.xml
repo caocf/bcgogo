@@ -1,0 +1,76 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="zhuyinjia" id="debt_remind_event_1">
+    <createTable tableName="debt_remind_event">
+        <column name="id" type="bigint"/>
+        <column name="created" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="last_update" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="version" type="bigint">
+            <constraints nullable="true"/>
+        </column>
+        <column name="shop_id" type="bigint"/>
+        <column name="order_type" type="bigint"/>
+        <column name="order_id" type="bigint"/>
+        <column name="customer_id" type="bigint"/>
+        <column name="total" type="float"/>
+        <column name="remind_time" type="bigint"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet  id="debt_remind_event_2" author="zhuyinjia">
+    <addPrimaryKey tableName="debt_remind_event" columnNames="id" constraintName="pk_debt_remind_event"/>
+  </changeSet>
+
+  <changeSet id="debt_remind_event_3" author="lijie">
+        <addColumn tableName="debt_remind_event">
+            <column name="state" type="bigint"/>
+        </addColumn>
+  </changeSet>
+
+    <changeSet author="luyi" id="debt_remind_event_4">
+        <createIndex tableName="debt_remind_event" indexName="IDX_DEBTREMINDEVENT_SHOPID">
+            <column name="shop_id"/>
+        </createIndex>
+        <createIndex tableName="debt_remind_event" indexName="IDX_DEBTREMINDEVENT_SHOPID_ORDERID">
+            <column name="shop_id"/>
+            <column name="order_id"/>
+        </createIndex>
+        <createIndex tableName="debt_remind_event" indexName="IDX_DEBTREMINDEVENT_SHOPID_ORDERID_ORDERTYPE">
+            <column name="shop_id"/>
+            <column name="order_id"/>
+            <column name="order_type"/>
+        </createIndex>
+        <createIndex tableName="debt_remind_event" indexName="IDX_DEBTREMINDEVENT_SHOPID_TOTAL">
+            <column name="shop_id"/>
+            <column name="total"/>
+        </createIndex>
+        <createIndex tableName="debt_remind_event" indexName="IDX_DEBTREMINDEVENT_SHOPID_TOTAL_STATE_REMINDTIME">
+            <column name="total"/>
+            <column name="state"/>
+            <column name="remind_time"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="debt_remind_event_5">
+        <dropIndex indexName="IDX_DEBTREMINDEVENT_SHOPID_ORDERID_ORDERTYPE" tableName="debt_remind_event" />
+        <dropIndex indexName="IDX_DEBTREMINDEVENT_SHOPID_ORDERID" tableName="debt_remind_event" />
+        <dropIndex indexName="IDX_DEBTREMINDEVENT_SHOPID_TOTAL" tableName="debt_remind_event" />
+        <dropIndex indexName="IDX_DEBTREMINDEVENT_SHOPID_TOTAL_STATE_REMINDTIME" tableName="debt_remind_event" />
+    </changeSet>
+
+  <changeSet author="jimuchen" id="debt_remind_event_6">
+    <modifyColumn tableName="debt_remind_event">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+
+</databaseChangeLog>

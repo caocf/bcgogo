@@ -1,0 +1,12 @@
+#applySupplierData .star {
+  background: url("../images/bigStar.png") no-repeat scroll 0 0 transparent;
+  display: inline-block;
+  height: 14px;
+  width: 15px;
+  margin: 0 3px 4px 0;
+  vertical-align: middle;
+}
+#applySupplierData .color_yellow {
+  color: #FF5E04;
+  cursor: pointer;
+}

@@ -1,0 +1,50 @@
+ 一.备份现有生产上war包（纪友文）,停掉热备份
+
+ 二.发布前准备
+
+    ALTER TABLE config.camera_config  ADD printer_serial_no varchar(50)
+
+ 三.发布应用
+
+ 四.配置权限
+    SHOP-基本，添加下面资源
+      web_getPrinterSerialNo             /web/cameraRecord.do?method=getPrinterSerialNo         SHOP    查询打印客户端序列号       request
+      web_printWashBeautyOrder           /web/print.do?method=printWashBeautyOrder              SHOP    打印洗车单                 request
+
+ 五.初始化
+    1.登录后台admin,添加变量
+      MQ_BROKER_URL            failover://tcp://192.168.1.245:61616                MQ服务器地址
+      MQ_USER_NAME             user                                                  MQ登录名
+      MQ_PASS_WORD             pass1                                               MQ登录密码
+     注意：MQ_BROKER_URL的生产地址为 61.147.80.131:61616
+    2.登录后台admin-摄像头管理，配置客户端序列号。
+
+ 六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+/*****************************************************   打印客户端部署流程   ***************************************************************/
+  项目地址：http://192.168.1.46/svn/bcgogo-tools/printer
+  部署环境:需要打印的客户端
+  硬件环境：window+普通小票机
+  部署流程:
+  1.打开客户端安装文件 print-setup.exe
+  2.安装完毕后，打开路径打开路径文件 C:\Program Files\yunPrint\
+  3.打开路径文件 camera.properties ,配置客户端 摄像头的序列号和打印服务名
+  4.安装完毕后启动服务，并在任务管理器中看java进程是否启动成功。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,76 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xzhu" id="push_message_receiver_xzhu_1">
+        <createTable tableName="push_message_receiver">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="message_id" type="bigint"/>
+            <column name="status" type="varchar(50)"/>
+            <column name="shop_kind" type="varchar(50)"/>
+        </createTable>
+        <addPrimaryKey tableName="push_message_receiver" columnNames="id" constraintName="pk_push_message_receiver"/>
+        <createIndex tableName="push_message_receiver" indexName="IDX_PUSH_MESSAGE_RECEIVER_SHOP_ID_MESSAGE_ID">
+            <column name="message_id"/>
+            <column name="shop_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="push_message_receiver_2_ZhangJuntao" author="ZhangJuntao">
+        <addColumn tableName="push_message_receiver">
+            <column name="receiver_type" type="varchar(50)"/>
+            <column name="receiver_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="push_message_receiver_3_xzhu" author="xzhu">
+        <addColumn tableName="push_message_receiver">
+            <column name="sender_name" type="varchar(100)"/>
+            <column name="sender_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="push_message_receiver_4_xzhu" author="xzhu">
+        <addColumn tableName="push_message_receiver">
+            <column name="push_status" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="push_message_receiver_5_xzhu" author="xzhu">
+        <addColumn tableName="push_message_receiver">
+            <column name="local_receiver_name" type="varchar(100)"/>
+            <column name="local_receiver_Id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="push_message_receiver_6_xzhu" author="xzhu">
+        <dropIndex tableName="push_message_receiver" indexName="IDX_PUSH_MESSAGE_RECEIVER_SHOP_ID_MESSAGE_ID"/>
+        <createIndex tableName="push_message_receiver" indexName="IDX_PUSH_MESSAGE_RECEIVER_SHOP_ID_MESSAGE_ID_RECEIVER_ID">
+            <column name="shop_id"/>
+            <column name="message_id"/>
+            <column name="receiver_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="push_message_receiver_7_xzhu" author="xzhu">
+        <addColumn tableName="push_message_receiver">
+            <column name="show_status" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="push_message_receiver_8_xzhu" author="xzhu">
+        <dropIndex tableName="push_message_receiver" indexName="IDX_PUSH_MESSAGE_RECEIVER_SHOP_ID_MESSAGE_ID_RECEIVER_ID"/>
+        <createIndex tableName="push_message_receiver" indexName="IDX_PUSH_MESSAGE_RECEIVER_SHOP_ID">
+            <column name="shop_id"/>
+        </createIndex>
+        <createIndex tableName="push_message_receiver" indexName="IDX_PUSH_MESSAGE_RECEIVER_MESSAGE_ID">
+            <column name="message_id"/>
+        </createIndex>
+        <createIndex tableName="push_message_receiver" indexName="IDX_PUSH_MESSAGE_RECEIVER_RECEIVER_ID">
+            <column name="receiver_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

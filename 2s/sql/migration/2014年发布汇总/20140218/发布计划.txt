@@ -1,0 +1,158 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+2.执行如下sql
+
+
+bcuser执行：
+
+1.更新客户会员卡累计消费次数和会员卡累计消费金额
+update bcuser.customer_record a,( select count(*)  as member_consume_times, sum(member_balance_pay)  as member_consume_total, customer_id
+ from txn.receivable b where  b.status_enum = 'FINISH'  and member_id is not null  group by customer_id )c
+set a.member_consume_times = c.member_consume_times, a.member_consume_total = round(c.member_consume_total,2)  where a.customer_id = c.customer_id and a.customer_id is not null;
+
+2.更新客户累计消费次数
+update bcuser.customer_record a  set consume_times = ( select count(*)  as consume_times from txn.receivable b where b.customer_id = a.customer_id and  b.status_enum = 'FINISH'
+and ( order_type_enum = 'SALE' or order_type_enum = 'WASH' or  order_type_enum = 'REPAIR'  or order_type_enum = 'WASH_BEAUTY'  )  ) where a.customer_id is not null;
+
+3.更新车辆累计消费次数和累计消费金额
+update bcuser.customer_vehicle a,
+(
+  select sum( con ) as consume , vehicle_id, count(*) as num  from
+  (
+   select b.settled_amount +  b.debt as con , c.vehicle_id  as vehicle_id from txn.receivable b,
+    (
+      select id,vechicle_id as vehicle_id  from txn.wash_beauty_order where status ='WASH_SETTLED'
+      union all
+      select id,vehicle_id as vehicle_id from txn.sales_order where vehicle_id is not null and status_enum = 'SALE_DONE'
+      union all
+      select id,vechicle_id as vehicle_id from txn.repair_order where status_enum = 'REPAIR_SETTLED'
+    )c
+    where b.order_id = c.id and  b.status_enum = 'FINISH'
+  ) d group by vehicle_id
+) e
+set a.total_consume = round(e.consume,2) , a.consume_times = e.num where a.vehicle_id = e.vehicle_id;
+
+txn 执行
+ update txn.sales_order set other_income_total = 0 where other_income_total is null;
+ update txn.sales_order set other_total_cost_price = 0 where other_total_cost_price is null;
+
+
+
+三.发布应用
+  1. 发布web, admin
+  2. 发布定时钟
+  3. 发布api
+
+四.添加权限
+  ---------------------------------------------------------------------杨文军----------------------------------------------------
+  添加角色
+  SHOP-车辆施工-车辆施工-结算附表
+
+    SHOP-车辆施工-车辆施工-结算附表
+    web_create_repair_order_secondary /web/repairOrderSecondary.do?method=createRepairOrderSecondary SHOP 创建施工单附表 request
+    web_update_repair_order_secondary /web/repairOrderSecondary.do?method=updateRepairOrderSecondary SHOP 修改施工单附表 request
+    web_submit_repair_order_secondary /web/repairOrderSecondary.do?method=submitRepairOrderSecondary SHOP 提交施工单附表 request
+    web_repair_order_secondary_settle_accounts /web/repairOrderSecondary.do?method=settleAccounts SHOP 施工单附表结算页面 request
+    web_repair_order_secondary_finish /web/repairOrderSecondary.do?method=showRepairOrderSecondary SHOP 施工单附表单据 request
+    web_repair_order_secondary_invalid /web/repairOrderSecondary.do?method=invalidRepairOrderSecondary SHOP 施工单附表作废 request
+    web_repair_order_secondary_debt /web/repairOrderSecondary.do?method=debtRepairOrderSecondary SHOP 施工单附表欠款结算 request
+    web_repair_order_secondary_inquiry /web/repairOrderSecondary.do?method=inquiryRepairOrderSecondary SHOP 结算附表查询 request
+    web_repair_order_secondary_query /web/repairOrderSecondary.do?method=queryRepairOrderSecondary SHOP 结算附表查询 request
+    web_repair_order_secondary_print /web/repairOrderSecondary.do?method=printRepairOrderSecondary SHOP 打印结算附表 request
+    web_repair_order_secondary_print_debt /web/repairOrderSecondary.do?method=printDebtRepairOrderSecondary SHOP 打印结算附表欠款结算单 request
+    web_repair_order_secondary_inquiry_menu	  web.repair.order.secondary.inquiry SHOP  结算附表	menu
+
+    在bcuser库执行如下代码：
+    create procedure initMenu()
+    begin
+        declare _id bigint;
+        declare _created bigint;
+        declare _last_update bigint;
+        declare _resource_id bigint;
+        declare _count int;
+        select max(id)+1 into _id from menu;
+        set _created:=unix_timestamp(now())*1000;
+        set _last_update:=unix_timestamp(now())*1000;
+        select id into _resource_id from resource where value='web.repair.order.secondary.inquiry';
+        select count(*) into _count from menu where label = '结算附表';
+        if _count < 1 then
+            insert into menu(id, created, last_update, version, grade, label, resource_id, parent_id, href, sort, menu_name) values
+                (_id, _created, _last_update, 0 , 2, '结算附表', _resource_id, 1000020045064322, 'repairOrderSecondary.do?method=inquiryRepairOrderSecondary', 50, 'web_repair_order_secondary_inquiry');
+        end if;
+    end;
+    call initMenu();
+    drop procedure initMenu;
+
+
+    添加“结算附表”角色的版本：汽修初级版、汽修综合版、汽修高级版
+    添加“结算附表”角色的用户组：
+        汽修初级版: 老板/财务;
+        汽修综合版：前台、仓管、经理/店长、老板/财务;
+        汽修高级版：经理/店长、老板/财务。
+
+  ---------------------------------------------------------------------------------------------------------------------------
+
+
+  ---------------------------------------------------------------------刘伟----------------------------------------------------
+  SHOP-客户管理-客户列表-我的客户-新增修改 角色中 添加以下资源：
+  web_customer_ajaxAddOrUpdateVehicleAppoint          request     /web/customer.do?method=ajaxAddOrUpdateVehicleAppoint ajax动态新增或更新客户车辆预约信息
+  ---------------------------------------------------------------------------------------------------------------------------
+
+ ---------------------------------------------------------------------金远------------------------------------------------------------------
+ 添加角色：
+ SHOP----待办事项模块---待办事项----欠费提醒类：
+ web_deleteDebtRemind               /web/remind.do?method=deleteDebtRemind           删除欠费提醒       request   SHOP
+ SHOP----待办事项模块---待办事项----进销存类：
+ web_deleteTxnRemind               /web/remind.do?method=deleteTxnRemind             删除进销存提醒     request    SHOP
+
+update txn.shop_sms_account ssa,config.shop_balance sb set ssa.current_balance=round(sb.sms_balance,1),ssa.current_number=round(sb.sms_balance*10) where ssa.shop_id = sb.shop_id;
+update txn.shop_sms_account set consumption_balance=round(recharge_balance+handsel_balance-current_balance,1),consumption_number=recharge_number+handsel_number-current_number;
+update notification.out_box set stat_status='SUCCESS';
+
+//===============================================Shop--客户管理--车辆管理(新增)--车辆列表(新增)  (朱星星)   =============================================
+（旧）customerManager                                        menu              WEB.CUSTOMER_MANAGER.BASE                                    客户管理
+（新）VehicleManageList                                      menu              WEB.CUSTOMER_MANAGER.VEHICLEMANAGE                           车辆管理
+（新）web_customerManager_vehicleManage                      request             /web/customer.do?method=vehicleManageList                  车辆管理页面
+（新）web_customerManager_vehicleManage_list                 request             /web/customer.do?method=getVehicleList                     车辆管理列表数据
+（新）web_customerManager_vehicleManage_send_msgs            request             /web/customer.do?method=sendMsgByVehicleSearchConditionDTO 车辆管理列表批量发短信
+（新）web_customerManager_vehicleManage_send_msg             request             /web/customer.do?method=sendVehicleMsg  					发送车辆短信
+
+SHOP-客户管理-短信管理-短信发送
+（新）web_sms_getMobileMsgContent             request             /web/sms.do?method=getMobileMsgContent 获取短信模板内容
+
+ //=============================================== SHOP---代办事项---预约管理---预约单处理 (邱鑫宇)   =============================================
+  （新）web_txn_appoint_createAppointOrderByCustomerInfo                 shop    request 			/web/appoint.do?method=createAppointOrderByCustomerInfo   		        客户车辆界面新增预约
+
+
+数据库更新
+user库
+	insert into menu (id,created,last_update,version,grade,label,resource_id,parent_id,href,sort,menu_name) values
+	(1000030045084318,unix_timestamp(now())*1000,unix_timestamp(now())*1000,0,2,'车辆管理',
+	(select id from resource where value='WEB.CUSTOMER_MANAGER.VEHICLEMANAGE'),1000020045084312,
+	'customer.do?method=vehicleManageList',50,'WEB_CUSTOMER_MANAGER_VEHICLE_MANAGE');
+
+update vehicle v,obd_user_vehicle ouv,app_vehicle av set v.obd_id=ouv.obd_id where ouv.app_vehicle_id=av.id and av.`status`='active' and ouv.`status`='BUNDLING' and v.licence_no=av.vehicle_no;
+
+admin
+更新短信模板  type：maintainMileage
+
+尊敬的{licenceNo}车主您好！您的爱车已接近保养里程/时间，请尽快来店保养，详情咨询{shopMobile}。
+ -------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+五.初始化
+    jackchen 账号登陆 执行初始化：
+    init.do?method=initShopSmsRecord
+
+    solr vehicle 替换shcema.xml  重做 车型首字母和所有车辆  索引
+
+    1.上传打印模板
+    施工附表：bcgogo-UI\打印模板\default_改\施工单结算附表.html
+
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+

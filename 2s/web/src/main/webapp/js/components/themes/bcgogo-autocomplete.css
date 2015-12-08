@@ -1,0 +1,7 @@
+.ui-bcgogo-autocomplete {display: inline-block; background-color: #FFFFFF;width: 200px;border-color: #0063DC;border-style: solid;border-width: 2px;font-family: "微软雅黑","宋体","Arial"; font-size: 12px;border-radius: 3px;margin: 0;padding: 0; overflow-y:auto;}
+.ui-bcgogo-autocomplete-category {padding: 2px 4px 2px 4px;overflow: hidden;color: #ff0084;font-weight: 700;background-color: #e6e6e6;}
+.ui-bcgogo-autocomplete-option {padding: 2px 4px 2px 4px;overflow: hidden;white-space:nowrap;cursor: pointer;}
+.ui-bcgogo-autocomplete-highlighted {background-color: #0063DC; color: #fff;}
+
+.bcgogo-autocomplete-font-blue {color:#0063DC;}
+.bcgogo-autocomplete-font-normal {color:#000000;}

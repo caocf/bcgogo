@@ -1,0 +1,59 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+2.替换vehicle schema.xml 并重建所有车辆索引
+
+三.发布应用
+  1. 发布web, admin
+  2. 发布定时钟
+  3. 发布api
+
+四.添加权限
+
+ CRM-----SHOP操作权限------SHOP数据初始化： 刘伟
+ web_initJuheViolateRegulationRecord               /web/init.do?method=initJuheViolateRegulationRecord         SHOP   初始化操作车辆违章记录  request
+
+//===============================================Shop--客户管理--车辆管理-车辆列表 刘伟=============================================
+web_search_searchEngineNoClassNo                /web/searchInventoryIndex.do?method=getVehicleEngineNoClassNoSuggestion       获取车辆发动机号或车架号下拉
+
+//===============================================Shop--客户管理--宣传管理(新增)--宣传列表(新增)  (刘伟)   =============================================
+（旧）customerManager                                        menu              WEB.CUSTOMER_MANAGER.BASE                                    客户管理
+（新）advertManagerList                                      menu              WEB.CUSTOMER_MANAGER.ADVERTMANAGER                           宣传管理
+（新）web_customerManager_redirect_advertList                request           /web/advert.do?method=toAdvertList                         宣传管理页面
+（新）web_customerManager_get_advertList                     request           /web/advert.do?method=searchShopAdvert                     宣传管理页面
+（新）web_customerManager_saveOrUpdateAdvert                 request        /web/advert.do?method=saveOrUpdateAdvert                保存或者更新宣传
+（新）web_customerManager_getAdvertDetail                    request        /web/advert.do?method=getAdvertDetail                获取宣传详情
+
+（新）web_customerManager_publishAdvert                    request        /web/advert.do?method=publishAdvert                店铺发布宣传
+（新）web_customerManager_repealAdvert                    request        /web/advert.do?method=repealAdvert                店铺作废宣传
+
+
+为4S店专业版增加该角色  并给老板财务、前台分配该角色
+
+数据库更新
+user库
+	INSERT INTO `menu` VALUES (1000045084318, unix_timestamp(now())*1000, unix_timestamp(now())*1000,
+	0, 2, '宣传管理',(select id from resource where value='WEB.CUSTOMER_MANAGER.ADVERTMANAGER'), 1000020045084312, 'advert.do?method=toAdvertList', 40, 'WEB_CUSTOMER_MANAGER_ADVERT_MANAGE');
+
+ update menu set sort = 50 where menu_name = 'WEB.CUSTOMER_MANAGER.VEHICLE_STAT';
+ update menu set sort = 60 where menu_name = 'WEB.CUSTOMER_MANAGER.SMS_MANAGER';
+
+UPDATE drive_log set drive_stat_status = 'UN_STATISTIC';
+
+五.初始化
+
+  jackchen 账号登陆 执行初始化：
+    init.do?method=initJuheViolateRegulationRecord (先添加权限)
+
+ 1. admin->配置
+    (1)config 配置
+            name                             value                                                 描述
+        gsmUMAppKey                 533b7b6a56240b29f80bc58f                                   安卓友盟推送GSM版AppKey
+        gsmUMAppMasterSecret        2yaa3scwibfvfaikfe7ypwrzlspkpg2f                           安卓友盟推送GSM版AppMasterSecret
+
+
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+

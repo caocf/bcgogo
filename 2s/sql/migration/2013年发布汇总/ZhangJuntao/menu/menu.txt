@@ -1,0 +1,385 @@
+DELETE from module where type is null;
+
+DELETE from role where module_id not in (
+	SELECT id from module
+);
+
+delete from user_group_shop where shop_id is null and shop_version_id is null;
+
+
+role 登录后基本权限
+(增) shopMenu   /web/menu.do?method=getMenu  SHOP 菜单 request
+
+《》表示 模块
+<>  表示 角色
+{}  表示 资源
+(删) 表示 只删除关系
+(*删*)表示 删除关系 及其本身
+(增) 表示 只增关系
+(*增*)表示 只增关系 及其本身
+
+非批发商版 的各个 用户组 去掉 《客户库存》
+
+《消息中心》，《系统公告》 移到shop下  删除 《消息中心》下所有role中资源 WEB.SCHEDULE.BASE
+
+《单据草稿箱》 移到《进销存》 删资源：WEB.SCHEDULE.BASE  增资源 WEB.TXN.BASE  修资源 WEB.SCHEDULE.DRAFT_ORDER_BOX.BASE（memo:单据草稿箱）
+
+非批发商 所有角色 去掉《商品上架》
+
+《洗车美容单》 下 role《打印小票》 修改为《打印》 删除资源（包括资源本身）《WEB.VEHICLE_CONSTRUCTION.WASH_BEAUTY.COPY》 把《复制》中的资源 复制到 《新增》角色中 删除《复制》
+《车辆施工单》  删除资源（包括资源本身） 《WEB.VEHICLE_CONSTRUCTION.CONSTRUCT.COPY》  把《复制》中的资源 复制到 《派单》《完工提醒》《交车结算》角色中 删除《复制》
+《车辆施工单》 下 role《合格证生产及打印》 修改为《生成合格证》
+《车辆施工》 下增加子模块《设定施工项目》 增加 角色
+     《设定施工项目》 复制角色《设定施工项目》到此角色，删除《车辆施工单》下的《设定施工项目》
+     《设定营业分类》（增资源）set_the_business_classification SHOP WEB.SET_THE_BUSINESS_CLASSIFICATION   设定营业分类 render
+     《设定员工提成》（增资源）set_employee_commissions SHOP WEB.SET_EMPLOYEE_COMMISSIONS 设定员工提成 render
+
+《车辆施工》 下增加子模块《保险理赔》 增加 角色
+     《新增》 新增《vehicle_construction_insurance_save WEB.VEHICLE_CONSTRUCTION_INSURANCE_SAVE 新增车辆施工单 SHOP render》   加入《/web/customer.do?method=ajaxGetCustomerInfo》《/web/insurance.do?method=showInsuranceOrder》《/web/insurance.do?method=saveInsuranceOrder》 《/web/insurance.do?method=createInsuranceOrder》资源
+     《查询》   加入 《/web/insurance.do?method=showInsuranceOrderList》资源
+     《生成施工单》 新增《insurance_generating_construction WEB.VEHICLE_CONSTRUCTION_INSURANCE_GENERATING_CONSTRUCTION 生成施工单 SHOP render》  加入 《/web/insurance.do?method=createRepairOrderByInsurance》资源
+     《打印》  加入 《/web/insurance.do?method=printInsuranceOrder》资源  新增《vehicle_construction_insurance_print WEB.VEHICLE_CONSTRUCTION_INSURANCE.PRINT 保险理赔打印 SHOP render》
+  全部加入 《WEB.VEHICLE_CONSTRUCTION.INSURANCE》 《/web/insurance.do?method=validateSaveInsurance》《WEB.VEHICLE_CONSTRUCTION.BASE》《/web/navigator.do?method=vehicleConstruction》资源
+  删除原来的《车辆施工单》角色
+
+<库存查询>下<缺货商品删除> 修改为《删除缺货商品》
+<库存管理>下<库存盘点调价> 修改为《库存盘点》 增加 角色
+    《打印》  加入 《/web/inventoryCheck.do?method=print》资源  新增《inventory_price_adjustment_print WEB.INVENTORY_PRICE_ADJUSTMENT.PRINT 库存盘点打印 SHOP render》
+<库存盘点>  <库存盘点调价>  修改为《新增》  《库存盘点》   修改为《查询》
+    《查询》加入《WEB.TXN.INVENTORY_MANAGE.INVENTORY_PRICE_ADJUSTMENT.BASE》《WEB.TXN.INVENTORY_MANAGE》《WEB.TXN.BASE》《/web/navigator.do?method=txnNavigator》资源
+
+<库存管理>下增加<维修领料>模块 原来的<维修领料>角色拖进来 改名为 《出库》 删《/web/pick.do?method=printRepairPicking》  新增《repair_picking_out_storage WEB.REPAIR_PICKING_OUT_STORAGE  维修领料出库 SHOP render》
+   增加《打印》 加入《/web/pick.do?method=printRepairPicking》 新增《repair_picking_print WEB.REPAIR_PICKING.PRINT  维修领料打印 SHOP render》
+   增加《查询》 加入《/web/navigator.do?method=txnNavigator》《/web/navigator.do?method=stockSearch》《WEB.TXN.BASE》《WEB.TXN.INVENTORY_MANAGE》
+                     《WEB.TXN.INVENTORY_MANAGE.REPAIR_PICKING》
+
+<库存管理>下增加<内部领料>模块 原来的<内部领料>角色拖进来 改名为 《新增》 删《/web/pick.do?method=printInnerPicking》  新增《inner_picking_add WEB.INNER_PICKING.ADD  维修领料新增 SHOP render》
+   增加《打印》 加入《/web/pick.do?method=printInnerPicking》 新增《inner_picking_print WEB.INNER_PICKING.PRINT  内部领料打印 SHOP render》
+   增加《查询》 加入《/web/navigator.do?method=txnNavigator》《/web/navigator.do?method=stockSearch》《WEB.TXN.BASE》《WEB.TXN.INVENTORY_MANAGE》</web/pick.do?method=showInnerPicking>
+                     《WEB.TXN.INVENTORY_MANAGE.INNER_PICKING》</web/member.do?method=getSaleMans></web/pick.do?method=showInnerPickingListPage>
+
+
+<库存管理>下增加<内部退料>模块 原来的<内部退料>角色拖进来 改名为 《新增》 删《/web/pick.do?method=printInnerReturn》  新增《inner_return_add WEB.INNER_RETURN.ADD  内部退料新增 SHOP render》
+   增加《打印》 加入《/web/pick.do?method=printInnerReturn》 新增《inner_return_print WEB.INNER_RETURN.PRINT  内部退料打印 SHOP render》
+   增加《查询》 加入《/web/navigator.do?method=txnNavigator》《/web/navigator.do?method=stockSearch》《WEB.TXN.BASE》《WEB.TXN.INVENTORY_MANAGE》</web/pick.do?method=showInnerReturnListPage>
+                     《WEB.TXN.INVENTORY_MANAGE.INNER_RETURN》</web/pick.do?method=showInnerReturn>
+
+
+<库存管理>下增加<仓库调拨>模块 原来的<仓库调拨>角色拖进来 改名为 《新增》 删《/web/allocateRecord.do?method=print》《/web/goodsReturn.do?method=printReturnStorageOrder》
+                                                                          新增《allocate_record_add WEB.ALLOCATE_RECORD.ADD  仓库调拨新增 SHOP render》
+   增加《打印》 加入《/web/allocateRecord.do?method=print》《/web/goodsReturn.do?method=printReturnStorageOrder》 新增《allocate_record_print WEB.ALLOCATE_RECORD.PRINT  仓库调拨打印 SHOP render》
+   增加《查询》 加入《/web/navigator.do?method=txnNavigator》《/web/navigator.do?method=stockSearch》《WEB.TXN.BASE》《WEB.TXN.INVENTORY_MANAGE》</web/allocateRecord.do?method=allocateRecordList>
+                     《WEB.TXN.INVENTORY_MANAGE.ALLOCATE_RECORD》</web/allocateRecord.do?method=getAllocateRecordList> </web/member.do?method=getSaleMans></web/allocateRecord.do?method=showAllocateRecordByAllocateRecordId>
+
+
+<库存管理>下增加<外部借调>模块 原来的<外部借调单>角色拖进来 改名为 《新增》 删《/web/borrow.do?method=printBorrowOrder》 新增《borrow_order_add WEB.BORROW_ORDER.ADD  外部借调新增 SHOP render》
+   增加《打印》 加入《/web/borrow.do?method=printBorrowOrder》 新增《allocate_record_print WEB.BORROW_ORDER.PRINT  外部借调打印 SHOP render》
+   增加《查询》 加入《/web/navigator.do?method=txnNavigator》《/web/navigator.do?method=stockSearch》《WEB.TXN.BASE》《WEB.TXN.INVENTORY_MANAGE》</web/borrow.do?method=toBorrowOrderList>
+                     《WEB.TXN.INVENTORY_MANAGE.ALLOCATE_RECORD》<borrow.do?method=toBorrowOrderDetail> </web/member.do?method=getSaleMans>
+                     </web/borrow.do?method=toBorrowOrderDetail></web/borrow.do?method=getBorrowOrders></web/borrow.do?method=getBorrowerList></web/borrow.do?method=getReturnRunningRecord>
+
+ 把《采购单》《复制》中的资源 复制到 《新增》角色中 删除《复制》
+ 把《入库单》《复制》中的资源 复制到 《新增》角色中 删除《复制》
+ 把《销售单》《复制》中的资源 复制到 《新增》角色中 删除《复制》
+
+  把《客户资料》中《客户资料查询/查看》重新命名《查询》
+  把《客户资料》中《客户详细资料编辑修改》重新命名《新增/修改》
+  把《客户资料》中《合并客户》重新命名《合并》
+  把《客户资料》中《删除客户》重新命名《删除》
+  把《客户资料》中《升级客户》重新命名《升级》
+  把《客户资料》中《客户应收款结算》重新命名《对账结算》
+  把《客户资料》中《客户对账单》重新命名《对账查询》
+  把《客户资料》中《一发推荐客户》重新命名《申请建立关联》
+  把《客户资料》中《推荐客户使用一发软件》重新命名《批量推荐》
+  把《客户资料》中《取消客户关联》重新命名《取消关联》
+
+  在《客户资料》 增加子模块《本店客户》《推荐客户》
+    除了《申请建立关联》拖入《推荐客户》其他拖入 《本店客户》
+    在《推荐客户》 增加角色《查询》 复制《申请建立关联》资源到其中 删除《/web/apply.do?method=applyCustomerRelation》
+    《申请建立关联》增加资源《customer_apply_action WEB.CUSTOMER_MANAGER.CUSTOMER_APPLY_ACTION 申请建立关联 SHOP RENDER 》
+
+
+《短信管理》
+ <基本> 中加入 </web/sms.do?method=checkSmsBalance> <WEB.CUSTOMER_MANAGER.CHECK_SMS_BALANCE> 删除《短信余额查看》
+把 <短信查看> 复制到《短信发送》 删除 短信查看
+
+
+<车型统计>中《数据查看/打印》 修改为  《数据查看》
+  增加《打印》  增加资源《vehicle_stat_print WEB.CUSTOMER_MANAGER.VEHICLE_STAT_PRINT  车型统计打印 SHOP RENDER 》
+
+<供应商管理> 增加模块《供应商列表》 把供应商资料拖入 重新命名《本店供应商》 增加模块《推荐供应商》
+  《本店供应商》 中《供应商对账单》重新命名《对账查询》
+  《本店供应商》 中《供应商应付款结算》重新命名《对账结算》
+  《本店供应商》 中《推荐供应商使用一发软件》重新命名《批量推荐》
+  《本店供应商》 中 《预付金充值》重新命名(供应商付定金)
+  《本店供应商》 中 《一发推荐供应商》重新命名(申请建立关联) 拖入 《推荐供应商》
+
+  <推荐供应商>增加《查询》
+       复制《申请建立关联》资源到<查询> 删除《/web/apply.do?method=applySupplierRelation》
+      《申请建立关联》增加资源《supplier_apply_action WEB.SUPPLIER_MANAGER.APPLY_ACTION 供应商申请建立关联 SHOP RENDER 》
+
+  <供应商管理> 增加模块《推荐供应商》
+
+  <汽配在线> 增加模块《商品上架》 把原来 《商品上架》重新命名(查询) 拖入 《商品上架》
+             增加角色《修改》 增加资源《goods_in_off_sales_manage_update WEB.AUTO_ACCESSORY_ONLINE.GOODS_IN_OFF_SALES_MANAGE.UPDATE 商品上架修改 SHOP RENDER 》
+                 增加角色 《促销设置》 增加资源《goods_in_off_sales_manage_sales_promotion WEB.AUTO_ACCESSORY_ONLINE.GOODS_IN_OFF_SALES_PROMOTION  促销设置 SHOP RENDER 》
+
+《营业分析》
+  《客户交易》(新)
+    <查询>(原<客户交易查询/打印>)
+    <打印>(新) , {business_analysis_customer_stat_print WEB.STAT.BUSINESS_ANALYSIS.CUSTOMER_STAT_PRINT SHOP 客户交易打印 render }(*增*)
+  《供应商交易》(新)
+    <查询>(原<供应商交易查询/打印>)
+    <打印>(新) {business_analysis_supplier_stat_print WEB.STAT.BUSINESS_ANALYSIS.SUPPLIER_STAT_PRINT SHOP 供应商交易打印 render }(*增*)
+  《分项销售》(新)
+    <查询>(原<分项销售查询/打印>)
+    <打印>(新)  {business_analysis_category_stat_print WEB.STAT.BUSINESS_ANALYSIS.CATEGORY_STAT_PRINT SHOP 分项销售打印 render }(*增*)
+  《销售退货》(新)
+    <查询>(原<销售退货查询/打印>)
+    <打印>(新) {business_analysis_sales_return_print WEB.STAT.BUSINESS_ANALYSIS.SALES_RETURN_STAT_PRINT SHOP 销售退货打印 render }(*增*)
+  《入库退货》(新)
+    <查询> (原<入库退货查询/打印>)
+    <打印> (新) {business_analysis_inventory_return_print WEB.STAT.BUSINESS_ANALYSIS.INVENTORY_RETURN_STAT_PRINT SHOP 入库退货打印 render }(*增*)
+
+《应收应付统计》
+  《应收款》(新)
+    <查询> (原<应收款统计查询/打印>)
+    <打印> (新) {receivable_payable_stat_receivable_print WEB.STAT.RECEIVABLE_PAYABLE_STAT.RECEIVABLE_PRINT SHOP 应收款打印 render }(*增*)
+  《应收款》(新)
+    <查询> (原<应付款统计查询/打印>)
+    <打印> (新) {receivable_payable_stat_payable_print WEB.STAT.RECEIVABLE_PAYABLE_STAT.PAYABLE_PRINT SHOP 应收款打印 render }(*增*)
+
+《采购分析》
+  《退货统计》(新)
+    <查询> (原<退货统计查询/打印>)
+    <打印> (新) {purchase_analyst_return_print WEB.STAT.PURCHASE_ANALYST.RETURN_PRINT SHOP 退货统计打印 render }(*增*)
+  《供应商交易》(新)
+    <查询> (原<供应商交易统计查询/打印>)
+    <打印> (新) {receivable_payable_stat_payable_print WEB.STAT.RECEIVABLE_PAYABLE_STAT.PAYABLE_PRINT SHOP 供应商交易打印 render }(*增*)
+  《价格波动》(新)
+    <查询> (原<价格波动统计查询/打印>)
+    <打印> (新) {purchase_analyst_price_print WEB.STAT.PURCHASE_ANALYST.PRICE_PRINT SHOP 价格波动打印 render }(*增*)
+  《成本统计》(新)
+    <查询> (原<成本统计查询/打印>)
+    <打印> (新) {purchase_analyst_cost_print WEB.STAT.PURCHASE_ANALYST.COST_PRINT SHOP 成本统计打印 render }(*增*)
+
+《畅销/滞销品统计》
+  《畅销商品》(新)
+      <查询> (原<畅销商品统计查询/打印>)
+      <打印>  (新) {good_bad_stat_good_print WEB.STAT.GOOD_BAD_STAT.GOOD_PRINT SHOP 畅销商品打印 render }(*增*)
+  《滞销商品》(新)
+      <查询> (原<滞销商品统计查询/打印>)
+      <打印> (新) {good_bad_stat_bad_print WEB.STAT.GOOD_BAD_STAT.BAD_PRINT SHOP 滞销商品打印 render }(*增*)
+
+
+《营业外记账》
+    <查询> (原<查询/打印>)
+    <打印> (新) {nonoperating_account_base_print WEB.STAT.NONOPERATING_ACCOUNT.BASE_PRINT SHOP 营业外记账打印 render }(*增*)
+
+
+《员工列表》（原《员工管理》） 下面 的角色 去掉“员工”  两个字
+   把<修改资料> 复制到<新增> 删<修改资料> 重新命名为<新增修改>
+   <禁用/启用账户> (新) {enable_disable_staff WEB.SYSTEM_SETTINGS.ENABLE_DISABLE_STAFF SHOP  员工列表禁用/启用账户 render }(*增*)
+   <重置密码> (新) {reset_staff_password WEB.SYSTEM_SETTINGS.RESET_STAFF_PASSWORD  SHOP 员工列表重置密码  render }(*增*)
+
+《职位权限列表》（原《权限管理》） 下面 的角色 去掉“职位” 两个字
+  <查看> (新), 把<复制职位权限> 复制到<查看>  {WEB.SYSTEM_SETTINGS.PERMISSION_ADD} 删 {/web/permissionManager.do?method=saveOrUpdatePermissionConfig}删 {/web/permissionManager.do?method=checkUserGroupName}删
+  把<复制职位权限> 复制到<新增> <修改> 删除 <复制职位权限>
+
+ 《系统管理》
+    《员工管理》（新） 把《员工列表》《职位权限列表》 拖进来
+ 《系统管理》
+    《数据导入》（新） 把<数据导入>拖进来 重新命名<模板导入>  {import_template WEB.SYSTEM_SETTINGS.IMPORT_TEMPLATE SHOP 模板导入 menu }(*新*)
+         <自定义导入>(新) 把<模板导入> 资源复制进去 { custom_import WEB.SYSTEM_SETTINGS.CUSTOM_IMPORT SHOP 自定义导入 menu }(*新*)
+  《消息中心》
+        <删除站内消息>（新）{ station_message_delete WEB.SCHEDULE.MESSAGE_CENTER.STATION_MESSAGE.DELETE SHOP 删除站内消息 menu }(*新*)
+
+
+
+******给各个版本 用户组配置 具体权限配置需求给出*********
+
+
+
+执行 menu.sql
+
+检查是否有81条（不是说明 与生产不同步）
+select * from resource where id in(
+10000010018381739,
+10000010018381741,
+10000010018381742,
+10000010018381743,
+10000010018381744,
+10000010018401740,
+10000010018401741,
+10000010018401742,
+10000010018401745,
+10000010018421750,
+10000010018421753,
+10000010018421754,
+10000010018441744,
+10000010018441745,
+10000010018441746,
+10000010018441747,
+10000010018441748,
+10000010018441749,
+10000010018441750,
+10000010018441751,
+10000010018441753,
+10000010018461746,
+10000010018461747,
+10000010018461748,
+10000010018461749,
+10000010018461750,
+10000010018461751,
+10000010018461752,
+10000010018461753,
+10000010018461754,
+10000010018461755,
+10000010018461756,
+10000010018461757,
+10000010018461758,
+10000010018481754,
+10000010018481755,
+10000010018501753,
+10000010018501755,
+10000010018501756,
+10000010018501757,
+10000010018501758,
+10000010018501760,
+10000010018501761,
+10000010018501763,
+10000010018501764,
+10000010018501765,
+10000010018501766,
+10000010018501768,
+10000010018501770,
+10000010018501771,
+10000010018501772,
+10000010018501778,
+10000010018501779,
+10000010018501780,
+10000010018501781,
+10000010018671770,
+10000010036683569,
+10000010036683570,
+10000010036683571,
+10000010036683572,
+10000010036693572,
+10000010036693573,
+10000010038123723,
+10000010038123753,
+10000010038123757,
+10000010039773877,
+10000010039773881,
+10000010040323932,
+10000010040323935,
+10000010040323938,
+10000010043144214,
+10000010045274440,
+10000010045284432,
+10000010045284435,
+10000010047734676,
+10000010047734678,
+10000010047774684,
+10000010047774690,
+10000010047774691,
+10000010047774694,
+10000010047774703);
+
+
+UPDATE resource set type='menu' where id in (
+ select resource_id from menu GROUP BY resource_id
+);
+
+update menu set resource_id=(select id from resource where `value`='WEB.SYSTEM_SETTINGS.IMPORT_TEMPLATE') where id=1000000000000004;
+update menu set resource_id=(select id from resource where `value`='WEB.SYSTEM_SETTINGS.CUSTOM_IMPORT') where id=1000000000000005;
+
+
+权限：
+  CRM--shop操作权限--shop数据初始化
+ （新）initSupplierInventory	/web/init.do?method=initSupplierInventory	 SHOP   商品出入库打通数据初始化    request
+
+添加权限
+----董楠----
+汽配豪华版基本权限角色中 添加新资源
+web_txn_getSupplierInventory               request   /web/txn.do?method=getSupplierInventory              获取供应商库存
+web_txn_getSupplierInventoryByStorehouse   request   /web/txn.do?method=getSupplierInventoryByStorehouse  根据仓库获取供应商库存
+
+
+---刘伟-----
+供应商管理-供应商列表-我的供应商查询供应商角色中添加资源  客户管理-客户列表-我的客户-查询角色中添加资源 进销存-库存管理-库存查询-库存查询中添加资源
+WEB_VERSION_PRODUCT_THROUGH_DETAIL         render               WEB.VERSION.PRODUCT.THROUGH_DETAIL      //跳转到出入库详情页面
+web_txn_getProductThroughRecord	          request   /web/productThrough.do?method=getProductThroughRecord	 SHOP   获得商品出入库记录    request
+web__txn_redirectProductThroughDetail	     request  /web/productThrough.do?method=redirectProductThroughDetail	 SHOP   跳转到商品出入库查询页面    request
+
+
+
+
+
+---邱鑫宇----
+
+ shop-进销存-库存盘点-新增：增加资源：
+web_txn_getSupplierInventoryByStorehouseAndProductId   request /web/stockSearch.do?method=getSupplierInventoryByStorehouseAndProductId 根据商品,仓库获取供应商库存
+角色
+shop--进销存--库存管理--库存查询：新建角色：修改仓位        //分配给所有版本
+资源：
+（新）web_txn_storageBin_updateSingleStorageBin    /web/txn.do?method=updateSingleStorageBin   shop  更新单个商品的仓位
+
+在进销存-库存管理-库存盘点调价-库存盘点调价 下新增资源
+web_stockSearch_ajaxToUpdateAveragePrice   /web/stockSearch.do?method=ajaxToUpdateAveragePrice    shop request 库存调价
+
+在进销存-库存管理-库存查询 下新增角色： 查看供应商库存     //分配给所有版本
+为该角色新增资源：
+web_stockSearch_supplierInventory   /web/stockSearch.do?method=getSupplierInventory    shop request  查看更多供应商产品信息
+进销存-库存管理-库存盘点调价-库存盘点调价 添加新资源：
+web_inventory_check_saveProductThroughSingleInventoryCheck  /web/inventoryCheck.do?method=saveProductThroughSingleInventoryCheck   SHOP 保存单个商品出入库打通盘点  request
+
+
+
+
+
+逻辑：
+WEB_VERSION_PRODUCT_THROUGH_SELECT_SUPPLIER         logic               WEB.VERSION.PRODUCT.THROUGH_SELECT_SUPPLIER      //出入库打通选择供应商逻辑           汽配豪华版
+
+----金远---
+客户管理--客户列表--我的客户--新增修改   添加新资源
+web_supplier_getSupplierById                             /web/supplier.do?method=getSupplierById      shop  获取供应商信息  request
+供应商管理--供应商列表--我的供应商--新增供应商   添加新资源
+web_customer_getCustomerById                             /web/customer.do?method=getCustomerById      shop  获取客户信息  request
+
+
+  以上是当天测试执行 导出一下几个表，发生产的时候 执行导出的sql即可
+  【
+      user_group_role
+      shop_role
+      resource
+      role
+      role_resource
+      module
+      menu
+  】
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

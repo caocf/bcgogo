@@ -1,0 +1,4 @@
+
+
+//===========================================================  版本资源======================================================================================================
+WEB_VERSION_DISABLE_UNRELATED_SUPPLIER_COMMODITYQUOTATIONS      logic            WEB.VERSION.DISABLE.UNRELATED.SUPPLIER.COMMODITYQUOTATIONS              //禁止查看非关联供应商的商品报价    添加到所有汽配版

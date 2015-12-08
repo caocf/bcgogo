@@ -1,0 +1,35 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lw" id="standard_vehicle_model_1">
+    <createTable tableName="standard_vehicle_model">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="standard_vehicle_brand_id" type="bigint"/>
+      <column name="name" type="varchar(200)"/>
+    </createTable>
+    <addPrimaryKey tableName="standard_vehicle_model" columnNames="id" constraintName="pk_standard_vehicle_model"/>
+  </changeSet>
+
+  <changeSet author="lw" id="standard_vehicle_model_2">
+    <createIndex tableName="standard_vehicle_model" indexName="idx_standard_vehicle_model">
+      <column name="name"/>
+    </createIndex>
+  </changeSet>
+
+    <changeSet author="zhangjuntao" id="standard_vehicle_model_3">
+        <addColumn tableName="standard_vehicle_model">
+            <column name="frequency" type="int"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

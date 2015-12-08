@@ -1,0 +1,79 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                    http://www.springframework.org/schema/security
+                    http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
+    <http auto-config='true' entry-point-ref="loginUrlEntryPoint">
+        <intercept-url pattern="/console.jsp*" access="ROLE_SUPERADMIN"/>
+        <intercept-url pattern="/login.jsp*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/styles/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/images/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/js/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/font/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <!--<intercept-url pattern="/shop.do/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/> -->
+        <intercept-url pattern="/beshop.do/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/config/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/AUTHENTICATED/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/active.do/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+
+
+        <intercept-url pattern="/smsrecharge.do/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/sms/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+
+        <intercept-url pattern="/chinapay.do/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/userreset.do/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/test/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+
+        <!--<intercept-url pattern="/**"
+                       access="ROLE_SUPERADMIN,ROLE_MANAGER,ROLE_CS1,ROLE_CS2,ROLE_CS3,ROLE_CS4,ROLE_CS5,ROLE_SALES,ROLE_SHOPADMIN,ROLE_OPERATOR"/>-->
+     <!--<logout logout-success-url="/login.jsp" invalidate-session="true" />-->
+        <!--<logout invalidate-session="true" logout-url="/login.jsp" ></logout>-->
+        <!--<session-management invalid-session-url="/login.jsp" />-->
+        <!--<intercept-url pattern="/user.do/**" filters="none"/>-->
+        <!--<intercept-url pattern="/txn.do/**" filters="none"/>-->
+        <!--<intercept-url pattern="/product.do/**" filters="none"/>-->
+        <!--<intercept-url pattern="/product/**" filters="none"/>-->
+        <!--<intercept-url pattern="/customer.do/**" filters="none"/>-->
+        <!--<intercept-url pattern="/customer/**" filters="none"/>-->
+       <!-- <session-management invalid-session-url="/login.jsp"/>    -->
+        <!--<form-login login-page='/login.jsp' def<logout logout-success-url="/loggedout.jsp" invalidate-session="true" delete-cookies="JSESSIONID" /><logout logout-success-url="/loggedout.jsp" invalidate-session="true" delete-cookies="JSESSIONID" />ault-target-url='/user.do?method=createmain'/> -->
+
+        <!--若去掉always-use-default-target 和 default-target-url 两个属性，可能会出现空指针异常，然后出现异常页面
+        <form-login login-page='/login.jsp' always-use-default-target="true"
+                    default-target-url='/user.do?method=createmain'/> -->
+
+        <!--<form-login login-page='/login.jsp'-->
+            <!--authentication-success-handler-ref="authenticationSuccessHandler"/>-->
+        <form-login login-page='/login.jsp'
+                    authentication-success-handler-ref="authenticationSuccessHandler"
+                    authentication-failure-handler-ref="authenticationFailureHandler" />
+
+        <logout
+            invalidate-session="false"
+            logout-url="/j_spring_security_logout"
+            success-handler-ref="logoutSuccessHandler"
+            />
+
+    </http>
+
+    <beans:bean id="authenticationSuccessHandler" class="com.bcgogo.security.RoleBasedAuthenticationSuccessHandler"/>
+
+    <beans:bean id="loginUrlEntryPoint" class="com.bcgogo.security.BCAuthenticationEntryPoint">
+        <beans:property name="loginFormUrl" value="/login.jsp"/>
+    </beans:bean>
+
+    <beans:bean id="daoAuthenticationProvider" class="com.bcgogo.security.BCAuthenticationProvider"/>
+
+    <authentication-manager>
+        <authentication-provider ref='daoAuthenticationProvider'/>
+    </authentication-manager>
+
+    <beans:bean id="logoutSuccessHandler" class="com.bcgogo.security.BCWebLogoutSuccessHandler"/>
+    <beans:bean id="authenticationFailureHandler" class="com.bcgogo.security.RoleBasedAuthenticationFailureHandler" >
+        <beans:property name="defaultFailureUrl" value="/login.jsp"/>
+    </beans:bean>
+
+</beans:beans>
+

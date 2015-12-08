@@ -1,0 +1,167 @@
+@charset "utf-8";
+/* CSS Document */
+/*body {*/
+/*font-family: "微软雅黑", Arial;*/
+/*font-size: 12px;*/
+/*}*/
+
+.editGoodsInfo_i_searchBrand {
+    float: left;
+    z-index: 4;
+}
+
+.editGoodsInfo_i_searchBrand .i_upLeft {
+    float: left;
+    background: url(../images/i_brandLeft.jpg) no-repeat;
+    width: 2px;
+    height: 30px;
+}
+
+.editGoodsInfo_i_searchBrand .i_upCenter {
+    float: left;
+    background: url(../images/i_brandbg.jpg) repeat-x;
+    width: 518px;
+    height: 30px;
+    color: white;
+}
+
+.editGoodsInfo_i_searchBrand .i_upCenter .i_note {
+    float: left;
+    background: url(../images/note.jpg) no-repeat 5px 7px;
+    width: 470px;
+    padding-left: 25px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.editGoodsInfo_i_searchBrand .i_upCenter .i_close {
+    float: left;
+    background: url(../images/close.jpg) no-repeat 0px 6px;
+    width: 17px;
+    height: 28px;
+    cursor: pointer;
+}
+
+.editGoodsInfo_i_searchBrand .i_upRight {
+    float: left;
+    background: url(../images/i_brandRight.jpg) no-repeat;
+    width: 2px;
+    height: 30px;
+}
+
+.clear {
+    clear: both;
+}
+
+.editGoodsInfo_i_searchBrand .i_upBody {
+    float: left;
+    border: 1px solid #DADADA;
+    background: white;
+    border-bottom: none;
+    border-top: none;
+    width: 500px;
+    padding: 10px 0px 0px 10px;
+    color: #000000;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.editGoodsInfo_i_searchBrand .i_upBody ul {
+    margin: 0px 0px 5px 0px;
+    float: left;
+    padding: 0px;
+}
+
+.editGoodsInfo_i_searchBrand .i_upBody ul li {
+    width: 240px;
+    height: 25px;
+    float: left;
+    margin: 0px 10px 0px 0px;
+    list-style: none;
+}
+
+.editGoodsInfo_i_searchBrand .i_upBody .edit_goods li label {
+    width: 60px;
+}
+
+.editGoodsInfo_i_searchBrand .i_upBody ul li input,
+.editGoodsInfo_i_searchBrand .i_upBody ul li label,
+.editGoodsInfo_i_searchBrand .i_upBody ul li span {
+    display: block;
+    /*float: left;*/
+    margin-left: 5px;
+    float: left;
+}
+
+.editGoodsInfo_i_searchBrand .i_upBody ul li .txt_edit {
+    width: 130px;
+}
+
+.editGoodsInfo_i_searchBrand .next_info {
+    margin: 0 0 0 200px;
+}
+
+.editGoodsInfo_i_searchBrand .more_his {
+    margin-right: 10px;
+    float: right;
+}
+
+.editGoodsInfo_i_searchBrand .add_upBottom {
+    /*width: 530px;*/
+}
+
+.editGoodsInfo_i_searchBrand .i_upBottom {
+    float: left;
+    background: white;
+}
+
+.editGoodsInfo_i_searchBrand .i_upBottomLeft {
+    float: left;
+    background: url(../images/leftBottom.jpg) no-repeat;
+    width: 6px;
+    height: 7px;
+}
+
+.editGoodsInfo_i_searchBrand .i_upBody,
+.editGoodsInfo_i_searchBrand .i_upBottom .i_upBottomCenter {
+    /*width: 820px;*/
+    color: black;
+    padding-right: 10px;
+}
+
+.editGoodsInfo_i_searchBrand .i_upBottom .i_upBottomCenter,
+.editGoodsInfo_i_searchBrand .editGoodsInfo_i_searchBrand .i_upBody {
+    width: 500px;
+}
+
+.editGoodsInfo_i_searchBrand .i_upBottom .i_upBottomCenter {
+    float: left;
+    background: url(../images/centerBottom.jpg) repeat-x;
+    /*width: 830px;*/
+    height: 1px;
+    margin-top: 6px;
+}
+
+.editGoodsInfo_i_searchBrand .i_upBottom .i_upBottomRight {
+    float: left;
+    background: url(../images/rightBottom.jpg) no-repeat;
+    width: 6px;
+    height: 7px;
+}
+
+.editGoodsInfo_i_searchBrand input.btn {
+    background: url(../images/editCancel.jpg) no-repeat;
+    border: none;
+    width: 58px;
+    height: 31px;
+    color: #69C;
+    cursor: pointer;
+}
+
+.editGoodsInfo_i_searchBrand .next_info input {
+    background: url(../images/sure.png) no-repeat;
+    width: 62px;
+    height: 26px;
+    color: white;
+    margin-bottom: 5px;
+}

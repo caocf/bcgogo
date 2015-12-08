@@ -1,0 +1,22 @@
+1. 将已退卡会员的status置为 DISABLED. (bcuser库)
+
+update member set status = 'DISABLED'
+where id in
+(
+	select invalid.id from
+		(select m.id from member m inner join (select member_id from member_service group by member_id having max(times)=0 and min(times)=0) as ms
+		 on m.id = ms.member_id
+		 where m.balance = 0    -- 会员所有服务次数为0且余额为0
+		UNION
+		 select m.id from member m left join member_service ms on m.id = ms.member_id where ms.id is null and balance = 0   -- 会员没有服务且余额为0
+		) as invalid
+	inner join
+		(select m.id from txn.member_card_return mcr left join member m on mcr.customer_id = m.customer_id) as returned     -- 退过卡的会员
+	on invalid.id = returned.id
+)
+
+2. 后台重新索引 所有客户
+
+3.添加资源，首页的车辆施工链接
+vehicleConstruction WEB.VEHICLE_CONSTRUCTION.LINK render 车辆施工链接 shop
+配到shop下那几个基本权限，哪个版本需要就配到哪个版本。要到生产上看下。

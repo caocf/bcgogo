@@ -1,0 +1,223 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="mazidong" id="supplier_1">
+    <createTable tableName="supplier">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="code" type="varchar(20)"/>
+      <column name="supplier_shop_id" type="bigint"/>
+      <column name="name" type="varchar(20)"/>
+      <column name="abbr" type="varchar(10)"/>
+      <column name="category" type="bigint"/>
+      <column name="area_id" type="bigint"/>
+      <column name="contact" type="varchar(20)"/>
+      <column name="mobile" type="varchar(20)"/>
+      <column name="landline" type="varchar(20)"/>
+      <column name="fax" type="varchar(20)"/>
+      <column name="email" type="varchar(50)"/>
+      <column name="zip" type="varchar(10)"/>
+      <column name="address" type="varchar(50)"/>
+      <column name="qq" type="varchar(20)"/>
+      <column name="legal_rep" type="varchar(20)"/>
+      <column name="bank" type="varchar(20)"/>
+      <column name="account" type="varchar(20)"/>
+      <column name="tax_no" type="varchar(50)"/>
+      <column name="billing_address" type="varchar(50)"/>
+      <column name="invoice_category_id" type="bigint"/>
+      <column name="settlement_type_id" type="bigint"/>
+      <column name="invoice_title" type="varchar(50)"/>
+      <column name="memo" type="varchar(500)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="mzdong" id="supplier_2">
+    <addColumn tableName="supplier">
+      <column name="account_name" type="varchar(20)"/>
+      <column name="business_scope" type="varchar(500)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="xiaojian" id="supplier_3">
+    <addPrimaryKey tableName="supplier" columnNames="id" constraintName="pk_supplier"/>
+  </changeSet>
+
+  <changeSet author="zhangchuanlong" id="supplier_4">
+    <addColumn tableName="supplier">
+      <column name="first_letters" type="varchar(30)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="supplier_5">
+    <addColumn tableName="supplier">
+      <column name="total_inventory_amount" type="double"/>
+    </addColumn>
+  </changeSet>
+  <changeSet author="zoujianhong" id="supplier_6">
+    <addColumn tableName="supplier">
+      <column name="last_order_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+  <changeSet author="zoujianhong" id="supplier_7">
+    <addColumn tableName="supplier">
+      <column name="last_order_products" type="varchar(100)"/>
+    </addColumn>
+  </changeSet>
+  <changeSet author="zoujianhong" id="supplier_8">
+    <addColumn tableName="supplier">
+      <column name="last_order_time" type="bigint"/>
+    </addColumn>
+  </changeSet>
+  <changeSet author="zoujianhong" id="supplier_9">
+    <addColumn tableName="supplier">
+      <column name="last_order_type" type="char(20)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="supplier_10">
+    <createIndex tableName="supplier" indexName="IDX_SUPPLIER_SHOPID">
+      <column name="shop_id" />
+    </createIndex>
+    <createIndex tableName="supplier" indexName="IDX_SUPPLIER_NAME">
+      <column name="name" />
+    </createIndex>
+    <createIndex tableName="supplier" indexName="IDX_SUPPLIER_MOBILE">
+      <column name="mobile" />
+    </createIndex>
+    <createIndex tableName="supplier" indexName="IDX_SUPPLIER_LANDLINE">
+      <column name="landline" />
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="supplier_11">
+    <modifyColumn tableName="supplier">
+      <column name="name" type="varchar(100)"/>
+      <column name="abbr" type="varchar(100)"/>
+    </modifyColumn>
+  </changeSet>
+  <changeSet author="zoujianhong" id="supplier_12">
+    <modifyColumn tableName="supplier">
+      <column name="mobile" type="varchar(100)"/>
+      <column name="landline" type="varchar(100)"/>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="supplier_13" author="chenfanglei">
+    <modifyColumn tableName="supplier">
+      <column name="first_letters" type="varchar(100)"></column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="supplier_14" author="chenfanglei">
+    <modifyColumn tableName="supplier">
+      <column name="address" type="varchar(100)"></column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="supplier_15">
+    <addColumn tableName="supplier">
+      <column name="last_order_type_enum" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="supplier_16">
+    <modifyColumn tableName="supplier">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet author="zhangjuntao" id="supplier_17">
+    <addColumn tableName="supplier">
+      <column name="last_inventory_time" type="bigint"/>
+    </addColumn>
+
+  </changeSet>
+
+  <changeSet author="zhangjuntao" id="supplier_18">
+    <addColumn tableName="supplier">
+      <column name="score" type="varchar(20)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="ndong" id="supplier_19">
+    <addColumn tableName="supplier">
+      <column name="status" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="ndong" id="supplier_20">
+    <addColumn tableName="supplier">
+      <column name="parent_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+    <changeSet id="supplier_qiuxinyu_21" author="qiuxinyu">
+        <addColumn tableName="supplier">
+            <column name="relation_type" type="varchar(20)"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="zhangjuntao" id="supplier_21_zhangjuntao">
+        <addColumn tableName="supplier">
+            <column name="invitation_code_send_date" type="bigint"/>
+            <column name="invitation_code_send_times" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="jinyuan" id="supplier_22_jinyuan">
+        <addColumn tableName="supplier">
+            <column name="province" type="bigint"/>
+            <column name="city" type="bigint"/>
+            <column name="region" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="jinyuan" id="supplier_23_jinyuan">
+        <addColumn tableName="supplier">
+            <column name="identity" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="jinyuan" id="supplier_24_jinyuan">
+        <addColumn tableName="supplier">
+            <column name="customer_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet id="supplier_25" author="jimuchen">
+      <addColumn tableName="supplier">
+          <column name="permanent_dual_role" type="boolean"/>
+      </addColumn>
+  </changeSet>
+
+    <changeSet id="supplier_26_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="supplier">
+            <column name="cancel_recommend_associated_count" type="tinyint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="supplier_27_xzhu" author="xzhu">
+        <addColumn tableName="supplier">
+            <column name="select_brand_model" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="supplier_28_mayan" author="mayan">
+        <addColumn tableName="supplier">
+            <column name="landline_second" type="varchar(20)"/>
+            <column name="landline_third" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+
+</databaseChangeLog>

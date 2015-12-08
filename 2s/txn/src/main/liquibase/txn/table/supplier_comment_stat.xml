@@ -1,0 +1,75 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="liuWei" id="supplier_comment_stat_1">
+    <createTable tableName="supplier_comment_stat">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="order_amount" type="bigint"/>
+      <column name="record_amount" type="bigint"/>
+      <column name="total_score" type="double"/>
+      <column name="stat_time" type="bigint"/>
+
+      <column name="quality_total_score" type="double"/>
+      <column name="quality_five_amount" type="bigint"/>
+      <column name="quality_four_amount" type="bigint"/>
+      <column name="quality_three_amount" type="bigint"/>
+      <column name="quality_two_amount" type="bigint"/>
+      <column name="quality_one_amount" type="bigint"/>
+
+      <column name="performance_total_score" type="double"/>
+      <column name="performance_five_amount" type="bigint"/>
+      <column name="performance_four_amount" type="bigint"/>
+      <column name="performance_three_amount" type="bigint"/>
+      <column name="performance_two_amount" type="bigint"/>
+      <column name="performance_one_amount" type="bigint"/>
+
+      <column name="speed_total_score" type="double"/>
+      <column name="speed_five_amount" type="bigint"/>
+      <column name="speed_four_amount" type="bigint"/>
+      <column name="speed_three_amount" type="bigint"/>
+      <column name="speed_two_amount" type="bigint"/>
+      <column name="speed_one_amount" type="bigint"/>
+
+      <column name="attitude_total_score" type="double"/>
+      <column name="attitude_five_amount" type="bigint"/>
+      <column name="attitude_four_amount" type="bigint"/>
+      <column name="attitude_three_amount" type="bigint"/>
+      <column name="attitude_two_amount" type="bigint"/>
+      <column name="attitude_one_amount" type="bigint"/>
+
+    </createTable>
+    <addPrimaryKey tableName="supplier_comment_stat" columnNames="id" constraintName="pk_supplier_comment_stat"/>
+    <createIndex tableName="supplier_comment_stat" indexName="idx_shopid">
+      <column name="shop_id" />
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="supplier_comment_stat_2" author="liuWei">
+    <renameTable oldTableName="supplier_comment_stat" newTableName="comment_stat"/>
+  </changeSet>
+
+  <changeSet id="comment_stat_1" author="liuWei">
+    <addColumn tableName="comment_stat">
+      <column name="comment_total_score" type="double"/>
+      <column name="comment_five_amount" type="bigint"/>
+      <column name="comment_four_amount" type="bigint"/>
+      <column name="comment_three_amount" type="bigint"/>
+      <column name="comment_two_amount" type="bigint"/>
+      <column name="comment_one_amount" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+
+
+</databaseChangeLog>

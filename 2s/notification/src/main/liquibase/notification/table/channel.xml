@@ -1,0 +1,35 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lijie" id="channel_1">
+    <createTable tableName="channel">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+
+      <column name="name" type="varchar(20)"/>
+        <column name="status" type="bigint"/>
+        <column name="memo" type="varchar(500)"/>
+    </createTable>
+
+      <addPrimaryKey tableName="channel" columnNames="id" constraintName="pk_channel"/>
+
+  </changeSet>
+
+  <changeSet author="jimuchen" id="channel_2">
+    <modifyColumn tableName="channel">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

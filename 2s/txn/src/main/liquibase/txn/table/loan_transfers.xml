@@ -1,0 +1,53 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet id="loan_transfers_1" author="zhangjuntao">
+        <createTable tableName="loan_transfers">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="transfers_time" type="bigint"/>
+            <column name="transfers_number" type="varchar(50)"/>
+            <column name="amount" type="float"/>
+            <column name="type" type="varchar(50)"/>
+            <!--货款分类-->
+            <column name="shop_type" type="varchar(50)"/>
+            <!--店面版本-->
+            <column name="hardware_product" type="varchar(500)"/>
+            <!--硬件产品-->
+            <column name="status" type="varchar(50)"/>
+            <!--转账转态-->
+            <column name="memo" type="varchar(500)"/>
+        </createTable>
+        <addPrimaryKey tableName="loan_transfers" columnNames="id" constraintName="pk_loan_transfers"/>
+    </changeSet>
+    <changeSet author="zhangjuntao" id="loan_transfers_2">
+        <createIndex tableName="loan_transfers" indexName="IDX_LOAN_TRANSFERS_SHOP_ID">
+            <column name="shop_id"/>
+        </createIndex>
+        <createIndex tableName="loan_transfers" indexName="IDX_LOAN_TRANSFERS_TRANSFERS_NUMBER">
+            <column name="transfers_number"/>
+        </createIndex>
+        <addColumn tableName="loan_transfers">
+            <column name="pay_time" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="zhangjuntao" id="loan_transfers_3">
+        <modifyColumn tableName="loan_transfers">
+            <column name="amount" type="decimal(12,2)"/>
+        </modifyColumn>
+    </changeSet>
+    <changeSet author="xzhu" id="loan_transfers_4">
+        <addColumn tableName="loan_transfers">
+            <column name="shop_version_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

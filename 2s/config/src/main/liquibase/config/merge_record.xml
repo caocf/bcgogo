@@ -1,0 +1,30 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+  <changeSet author="ndong" id="merge_record_1">
+    <createTable tableName="merge_record">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="child_id" type="bigint"/>
+      <column name="child" type="varchar(50)"/>
+      <column name="parent_id" type="bigint"/>
+      <column name="parent" type="varchar(50)"/>
+      <column name="merge_type" type="varchar(50)"/>
+      <column name="merge_time" type="bigint"/>
+      <column name="operator_id" type="bigint"/>
+      <column name="operator" type="varchar(50)"/>
+       <column name="merge_snap" type="mediumtext"/>
+    </createTable>
+    <addPrimaryKey tableName="merge_record" columnNames="id" constraintName="pk_merge_record"/>
+
+  </changeSet>
+</databaseChangeLog>

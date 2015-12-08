@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 利宜行公众号菜单 -->
+<button>
+    <button name="微查询">
+        <sub_button>
+            <button type="view" name="行车轨迹">
+                <![CDATA[
+                          https://open.weixin.qq.com/connect/oauth2/authorize?appid={APP_ID}&redirect_uri={EVN_DOMAIN}/wx/mirror/dri&response_type=code&scope=snsapi_base&state={PUBLIC_NO}
+                       ]]>
+            </button>
+            <button type="view" name="车辆定位">
+                <![CDATA[
+                            https://open.weixin.qq.com/connect/oauth2/authorize?appid={APP_ID}&redirect_uri={EVN_DOMAIN}/wx/mirror/vlo&response_type=code&scope=snsapi_base&state={PUBLIC_NO}
+                        ]]>
+            </button>
+            <button type="view" name="违章查询">
+                <![CDATA[
+                            https://open.weixin.qq.com/connect/oauth2/authorize?appid={APP_ID}&redirect_uri={EVN_DOMAIN}/wx/mirror/vio&response_type=code&scope=snsapi_base&state={PUBLIC_NO}
+                        ]]>
+            </button>
+            <button type="view" name="故障查询">
+                <![CDATA[
+                            https://open.weixin.qq.com/connect/oauth2/authorize?appid={APP_ID}&redirect_uri={EVN_DOMAIN}/wx/mirror/fac&response_type=code&scope=snsapi_base&state={PUBLIC_NO}
+                    ]]>
+            </button>
+            <button type="view" name="车况检查">
+                <![CDATA[
+                        https://open.weixin.qq.com/connect/oauth2/authorize?appid={APP_ID}&redirect_uri={EVN_DOMAIN}/wx/mirror/gvd&response_type=code&scope=snsapi_base&state={PUBLIC_NO}
+                     ]]>
+            </button>
+        </sub_button>
+    </button>
+    <button name="微服务">
+        <sub_button>
+            <button type="view" name="在线预约">
+                <![CDATA[
+                  https://open.weixin.qq.com/connect/oauth2/authorize?appid={APP_ID}&redirect_uri={EVN_DOMAIN}/wx/mirror/apt&response_type=code&scope=snsapi_base&state={PUBLIC_NO}
+               ]]>
+            </button>
+            <button type="view" name="碰撞视频">
+                <![CDATA[
+                    https://open.weixin.qq.com/connect/oauth2/authorize?appid={APP_ID}&redirect_uri={EVN_DOMAIN}/wx/mirror/vdo&response_type=code&scope=snsapi_base&state={PUBLIC_NO}
+                ]]>
+            </button>
+            <button type="view" name="救援电话">
+                <![CDATA[
+                    https://open.weixin.qq.com/connect/oauth2/authorize?appid={APP_ID}&redirect_uri={EVN_DOMAIN}/wx/mirror/mle&response_type=code&scope=snsapi_base&state={PUBLIC_NO}
+                ]]>
+            </button>
+        </sub_button>
+    </button>
+    <button name="关于我">
+        <sub_button>
+            <button type="view" name="我的车辆">
+                <![CDATA[
+                    https://open.weixin.qq.com/connect/oauth2/authorize?appid={APP_ID}&redirect_uri={EVN_DOMAIN}/wx/mirror/vel&response_type=code&scope=snsapi_base&state={PUBLIC_NO}
+                ]]>
+            </button>
+            <button type="view" name="我的消息">
+                <![CDATA[
+					https://open.weixin.qq.com/connect/oauth2/authorize?appid={APP_ID}&redirect_uri={EVN_DOMAIN}/wx/mirror/meg&response_type=code&scope=snsapi_base&state={PUBLIC_NO}
+				]]>
+            </button>
+        </sub_button>
+    </button>
+</button>

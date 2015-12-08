@@ -1,0 +1,48 @@
+一.添加权限
+后台添加：
+（一）角色
+                    name                                        备注
+//----------------------------------------------new role-----------------------------------------------------------------------------
+web_shopSystem_stat_vehicleStat                           车型统计
+
+（二）建立关联
+用户组操作：増加“车型统计”到“老板/财务"和“BCGOGO管理员”用户组 下
+Shop版本操作：増加“车型统计”角色到 所有shop版本 下
+
+（三）资源
+          name                                      type                       value                                        备注
+//===============================================  web_bcgogoSystem  	初始化权限 角色 (姬牧晨)===================================================
+web_bcgogoSystem_init_initVehicleServeMonthStat   request               /web/init.do?method=initVehicleServeMonthStat      车型统计初始化
+
+//=====================================  web_shopSystem_stat_vehicleStat  成本统计 角色 (姬牧晨)===================================================
+web_shopSystem_stat_vehicleStat_carStatistics     request               /web/vehicleStat.do?method=carStatistics           车型统计
+web_shopSystem_stat_vehicleStat                   render                /web/stat/vehicleStat                              车型统计显示
+
+//===================================== web_txn_product_modify  商品修改(陈方雷) ========================================================
+web_goodsindex_ajaxtoupdateinventoryAmountAndAveragePrice  request      /web/stockSearch.do?method=ajaxtoupdateinventoryAmountAndAveragePrice 修改库存盘点
+
+二.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+三.数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，邹建宏）
+
+五.发布应用 （纪友文）
+
+六.初始化
+1. 车型统计相关初始化
+   jackchen登录后执行：
+      init.do?method=initVehicleServeMonthStat
+      init.do?method=initPurchaseInventoryMonthAndSupplierTranMonthStat&initPurchaseInventoryMonthStatOnly=true
+
+七.solr
+更新order schema, 重新索引所有单据
+
+
+
+功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

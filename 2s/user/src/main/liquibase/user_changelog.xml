@@ -1,0 +1,135 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <preConditions>
+        <dbms type="mysql"/>
+    </preConditions>
+
+    <changeSet id="hibernate_unique_key_1" author="caiwei">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="hibernate_unique_key"/>
+            </not>
+        </preConditions>
+        <createTable tableName="hibernate_unique_key">
+            <column name="next_hi" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <insert tableName="hibernate_unique_key">
+            <column name="next_hi" value="1000000"/>
+        </insert>
+    </changeSet>
+    <!-- Schema -->
+    <include file="user/table/user.xml"/>
+    <include file="user/table/user_group.xml"/>
+    <include file="user/table/user_group_user.xml"/>
+    <include file="user/table/user_group_role.xml"/>
+    <include file="user/table/user_group_shop.xml"/>
+    <include file="user/table/vehicle.xml"/>
+    <include file="user/table/customer.xml"/>
+    <include file="user/table/supplier.xml"/>
+    <include file="user/table/customer_vehicle.xml"/>
+    <include file="user/table/customer_record.xml"/>
+    <include file="user/table/customer_card.xml"/>
+    <include file="user/table/customer_service_job.xml"/>
+    <include file="user/table/customer_vehicle_stat.xml"/>
+
+    <include file="user/table/user_vercode.xml"/>
+    <include file="user/table/agents.xml"/>
+    <include file="user/table/agent_targt.xml"/>
+    <include file="user/table/sales_man.xml"/>
+    <include file="user/table/sales_man_target.xml"/>
+    <include file="user/table/shop_plan.xml"/>
+
+    <include file="user/table/role.xml"/>
+    <include file="user/table/role_resource.xml"/>
+    <include file="user/table/resource.xml"/>
+    <include file="user/table/menu.xml" />
+    <include file="user/table/shop_version.xml"/>
+    <include file="user/table/module.xml"/>
+    <include file="user/table/shop_role.xml"/>
+
+    <include file="user/table/member.xml"/>
+    <include file="user/table/member_service.xml"/>
+    <include file="user/table/accumulate_points_give_record.xml"/>
+    <include file="user/table/member_recharge_order.xml"/>
+    <include file="user/table/member_change_history.xml"/>
+    <include file="user/table/member_card.xml"/>
+    <include file="user/table/member_card_service.xml"/>
+    <include file="user/table/accumulate_points_rule.xml"/>
+
+    <include file="user/table/user_limit.xml"/>
+    <include file="user/table/user_switch.xml"/>
+    <include file="user/table/merge_task.xml"/>
+
+    <include file="user/table/vehicle_modify_log.xml" />
+    <include file="user/table/department.xml"/>
+    <include file="user/table/occupation.xml"/>
+    <include file="user/table/tree_menu.xml"/>
+    <include file="user/table/appoint_service.xml" />
+    <include file="user/table/insurance_company.xml" />
+
+    <include file="user/table/request_performance_monitor.xml" />
+    <include file="user/table/user_client_info.xml" />
+    <include file="user/table/user_login_log.xml" />
+    <include file="user/table/url_monitor_config.xml" />
+    <include file="user/table/url_monitor_stat.xml" />
+
+    <include file="user/table/user_guide_flow.xml"/>
+    <include file="user/table/user_guide_history.xml" />
+    <include file="user/table/user_guide_step.xml" />
+    <include file="user/table/contact.xml"/>
+    <include file="user/table/contact_group.xml"/>
+    <include file="user/table/client_binding_log.xml"/>
+    <include file="user/table/business_scope.xml"/>
+    <include file="user/table/relation_shop_update_task.xml"/>
+    <include file="user/table/relation_shop_update_log.xml"/>
+    <include file="user/table/cus_sup_order_index_schedule.xml"/>
+    <include file="user/table/service_category_relation.xml"/>
+    <include file="user/table/vehicle_brand_model_relation.xml"/>
+
+    <include file="user/table/client_user_login_info.xml"/>
+
+    <include file="user/table/app/app_user.xml"/>
+    <include file="user/table/app/app_user_customer.xml"/>
+    <include file="user/table/app/app_user_feed_back.xml"/>
+    <include file="user/table/app/app_user_login_info.xml"/>
+    <include file="user/table/app/app_vehicle.xml"/>
+    <include file="user/table/app/app_vehicle_fault_info.xml"/>
+    <include file="user/table/app/app_version_history.xml"/>
+    <include file="user/table/app/obd.xml"/>
+    <include file="user/table/app/obd_user_vehicle.xml"/>
+    <include file="user/table/app/vehicle_basic_info.xml"/>
+    <include file="user/table/app/app_user_customer_update_task.xml"/>
+    <include file="user/table/app/app_vehicle_fault_info_operate_log.xml"/>
+    <include file="user/table/app/app_user_shop_vehicle.xml"/>
+    <include file="user/table/app/drive_log.xml"/>
+    <include file="user/table/app/drive_log_place_note.xml"/>
+    <include file="user/table/app/app_user_config.xml"/>
+    <include file="user/table/app/drive_stat.xml"/>
+
+    <include file="user/table/app/obd_history.xml"/>
+    <include file="user/table/app/obd_sim.xml"/>
+    <include file="user/table/app/obd_sim_bind.xml"/>
+    <include file="user/table/app/obd_sim_history.xml"/>
+    <include file="user/table/app/obd_sim_operation_log.xml"/>
+    <include file="user/table/agent_shop.xml"/>
+
+    <include file="user/table/wx_account.xml"/>
+    <include file="user/table/wx_shop_account.xml"/>
+    <include file="user/table/wx_user.xml"/>
+    <include file="user/table/wx_article_template.xml"/>
+    <include file="user/table/wx_user_vehicle.xml"/>
+    <include file="user/table/shop_wx_user.xml"/>
+    <include file="user/table/wx_qr_code.xml"/>
+    <include file="user/table/wx_user_group.xml"/>
+    <include file="user/table/wx_group.xml"/>
+    <include file="user/table/wx_kw_template.xml"/>
+    <include file="user/table/wx_subscribe_record.xml"/>
+    <include file="user/table/evaluate_record.xml"/>
+    <include file="user/table/shop_internal_vehicle.xml"/>
+
+</databaseChangeLog>

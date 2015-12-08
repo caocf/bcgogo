@@ -1,0 +1,84 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhangjuntao" id="bcgogo_receivable_order_zhangjuntao_1">
+        <createTable tableName="bcgogo_receivable_order">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="total_amount" type="double"/>
+            <column name="receivable_amount" type="double"/>
+            <column name="received_amount" type="double"/>
+            <column name="status" type="varchar(50)"/>
+            <column name="start_time" type="bigint"/>
+            <column name="end_time" type="bigint"/>
+            <column name="current_instalment_plan_end_time" type="bigint"/>
+            <column name="instalment_plan_Id" type="bigint"/>
+            <column name="receivable_content" type="varchar(500)"/>
+            <column name="memo" type="varchar(500)"/>
+        </createTable>
+        <addPrimaryKey tableName="bcgogo_receivable_order" columnNames="id"
+                       constraintName="pk_bcgogo_receivable_order"/>
+        <createIndex tableName="bcgogo_receivable_order" indexName="idx_bcgogo_receivable_order_shopid">
+            <column name="shop_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="bcgogo_receivable_order_xzhu_2" author="xzhu">
+        <addColumn tableName="bcgogo_receivable_order">
+            <column name="created_time" type="bigint"/>
+            <column name="receipt_no" type="varchar(100)"/>
+            <column name="payment_type" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="bcgogo_receivable_order_xzhu_3" author="xzhu">
+        <addColumn tableName="bcgogo_receivable_order">
+            <column name="buy_channels" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="bcgogo_receivable_order_xzhu_4" author="xzhu">
+        <addColumn tableName="bcgogo_receivable_order">
+            <column name="cancel_reason" type="varchar(500)"/>
+            <column name="address" type="varchar(200)"/>
+            <column name="contact" type="varchar(50)"/>
+            <column name="mobile" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="bcgogo_receivable_order_xzhu_5" author="xzhu">
+        <addColumn tableName="bcgogo_receivable_order">
+            <column name="province" type="bigint"/>
+            <column name="city" type="bigint"/>
+            <column name="region" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="bcgogo_receivable_order_xzhu_6" author="xzhu">
+        <addColumn tableName="bcgogo_receivable_order">
+            <column name="user_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="bcgogo_receivable_order_xzhu_7" author="xzhu">
+        <addColumn tableName="bcgogo_receivable_order">
+            <column name="cancel_user_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="bcgogo_receivable_order_jy_2" author="jinyuan">
+        <addColumn tableName="bcgogo_receivable_order">
+            <column name="charge_type" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="bcgogo_receivable_order_xzhu_8" author="xzhu">
+        <addColumn tableName="bcgogo_receivable_order">
+            <column name="cancel_time" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

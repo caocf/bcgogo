@@ -1,0 +1,62 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhangjuntao" id="message_template_1">
+        <createTable tableName="message_template">
+            <column name="id" type="bigint"/>
+            <column name="version" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="type" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="content" type="varchar(500)"/>
+        </createTable>
+        <addPrimaryKey tableName="message_template" columnNames="shop_id,type" constraintName="pk_message_template"/>
+    </changeSet>
+
+    <changeSet author="zhangjuntao" id="message_template_2">
+        <modifyColumn tableName="message_template">
+            <column name="type" type="varchar(50)"/>
+        </modifyColumn>
+    </changeSet>
+    <changeSet author="jimuchen" id="message_template_3">
+        <modifyColumn tableName="message_template">
+            <column name="version" type="bigint" >
+                <constraints nullable="false" />
+            </column>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="message_template_4" author="chenfanglei">
+        <addColumn tableName="message_template">
+            <column name="name" type="varchar(50)"></column>
+            <column name="scene" type="varchar(50)"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="message_template_5" author="chenfanglei">
+        <addColumn tableName="message_template">
+            <column name="necessary" type="varchar(20)"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="jimuchen" id="message_template_6">
+        <modifyColumn tableName="message_template">
+            <column name="content" type="varchar(1000)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet author="ndong" id="message_template_7">
+        <dropPrimaryKey constraintName="shop_id,type" tableName="message_template"/>
+        <addPrimaryKey tableName="message_template" columnNames="id" constraintName="pk_message_template"/>
+    </changeSet>
+
+</databaseChangeLog>

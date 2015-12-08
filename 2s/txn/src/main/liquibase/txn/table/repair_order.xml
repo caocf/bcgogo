@@ -1,0 +1,335 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="mazidong" id="repair_order_1">
+    <createTable tableName="repair_order">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="date" type="bigint"/>
+      <column name="no" type="varchar(20)"/>
+      <column name="dept_id" type="bigint"/>
+      <column name="dept" type="varchar(20)"/>
+      <column name="vechicle_id" type="bigint"/>
+      <column name="vechicle" type="varchar(20)"/>
+      <column name="customer_id" type="bigint"/>
+      <column name="customer" type="varchar(20)"/>
+      <column name="start_mileage" type="float"/>
+      <column name="end_mileage" type="float"/>
+      <column name="fuel_number" type="float"/>
+      <column name="start_date" type="float"/>
+      <column name="end_date" type="float"/>
+      <column name="executor_id" type="bigint"/>
+      <column name="executor" type="varchar(20)"/>
+      <column name="total" type="float"/>
+      <column name="memo" type="varchar(500)"/>
+      <column name="editor_id" type="bigint"/>
+      <column name="editor" type="varchar(20)"/>
+      <column name="edit_date" type="bigint"/>
+      <column name="reviewer_id" type="bigint"/>
+      <column name="reviewer" type="varchar(20)"/>
+      <column name="review_date" type="bigint"/>
+      <column name="invalidator_id" type="bigint"/>
+      <column name="invalidator" type="varchar(20)"/>
+      <column name="invalidate_date" type="bigint"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="repair_order_2" author="zhuyinjia">
+    <addPrimaryKey tableName="repair_order" columnNames="id" constraintName="pk_repair_order"/>
+  </changeSet>
+
+  <changeSet id="repair_order_3" author="zhuyinjia">
+    <addColumn tableName="repair_order">
+      <column name="status" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_4" author="zhuyinjia">
+    <addColumn tableName="repair_order">
+      <column name="service_type" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_5" author="zhuyinjia">
+    <modifyColumn tableName="repair_order">
+      <column name="fuel_number" type="varchar(50)"/>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_6" author="zhuyinjia">
+    <modifyColumn tableName="repair_order">
+      <column name="start_date" type="bigint"/>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_7" author="zhuyinjia">
+    <modifyColumn tableName="repair_order">
+      <column name="end_date" type="bigint"/>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet author="luyi" id="repair_order_8">
+    <createIndex tableName="repair_order" indexName="IDX_REPAIRORDER_VEHICLE_SHOPID_ID">
+      <column name="vechicle"/>
+      <column name="shop_id"/>
+      <column name="id"/>
+    </createIndex>
+    <createIndex tableName="repair_order" indexName="IDX_REPAIRORDER_SHOPID_STATUS_ENDDATE">
+      <column name="shop_id"/>
+      <column name="status"/>
+      <column name="end_date"/>
+    </createIndex>
+    <createIndex tableName="repair_order" indexName="IDX_REPAIRORDER_VEHICLE_SHOPID_STATUS_CREATED">
+      <column name="vechicle"/>
+      <column name="shop_id"/>
+      <column name="status"/>
+      <column name="created"/>
+    </createIndex>
+    <createIndex tableName="repair_order" indexName="IDX_REPAIRORDER_CUSTOMERID">
+      <column name="customer_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="repair_order_9" author="luyi">
+    <addColumn tableName="repair_order">
+      <column name="service_worker" type="varchar(50)"/>
+    </addColumn>
+    <addColumn tableName="repair_order">
+      <column name="product_saler" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="luyi" id="repair_order_10">
+    <dropIndex tableName="repair_order" indexName="IDX_REPAIRORDER_VEHICLE_SHOPID_ID"/>
+        <dropIndex tableName="repair_order" indexName="IDX_REPAIRORDER_SHOPID_STATUS_ENDDATE"/>
+    <dropIndex tableName="repair_order" indexName="IDX_REPAIRORDER_CUSTOMERID"/>
+  </changeSet>
+
+    <changeSet author="zoujianhong" id="repair_order_11">
+        <createIndex tableName="repair_order" indexName="IDX_RECEIVABLE_SHOPID_VEHICLE_CREATED">
+            <column name="shop_id" />
+            <column name="vechicle" />
+            <column name="created" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="repair_order_12">
+        <dropIndex tableName="repair_order" indexName="IDX_REPAIRORDER_VEHICLE_SHOPID_STATUS_CREATED"/>
+    </changeSet>
+
+    <changeSet author="chenfanglei" id="repair_order_13">
+        <addColumn tableName="repair_order">
+            <column name="total_cost_price" type="double"></column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="qiuxinyu" id="repair_order_14">
+        <modifyColumn tableName="repair_order">
+            <column name="customer" type="varchar(100)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet author="chenfanglei" id="repair_order_15">
+        <addColumn tableName="repair_order">
+            <column name="vest_date" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="jimuchen" id="repair_order_16">
+        <addColumn tableName="repair_order">
+            <column name="status_enum" type="varchar(50)"/>
+            <column name="service_type_enum" type="varchar(50)" />
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="repair_order_17">
+    <modifyColumn tableName="repair_order">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+    <changeSet id="repair_order_18" author="liuWei">
+      <createIndex tableName="repair_order" indexName="idx_shopid_vestdate">
+        <column name="shop_id"></column>
+        <column name="vest_date"></column>
+      </createIndex>
+    </changeSet>
+
+  <changeSet author="zhangjuntao" id="repair_order_19">
+    <addColumn tableName="repair_order">
+      <column name="settle_date" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+
+    <changeSet id="repair_order_20" author="chenfanglei">
+        <addColumn tableName="repair_order">
+            <column name="receipt_no" type="varchar(20)"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="repair_order_21" author="chenfanglei">
+        <createIndex tableName="repair_order" indexName="IDX_REPAIRORDER_NO">
+            <column name="shop_id"></column>
+            <column name="receipt_no"></column>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="repair_order_22" author="chenfanglei">
+        <addColumn tableName="repair_order">
+            <column name="after_member_discount_total" type="double"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="repair_order_23" author="jimuchen">
+        <addColumn tableName="repair_order">
+            <column name="customer_company" type="varchar(20)"/>
+            <column name="customer_contact" type="varchar(200)"/>
+            <column name="customer_mobile" type="varchar(20)"/>
+            <column name="customer_landline" type="varchar(20)"/>
+            <column name="customer_address" type="varchar(50)"/>
+            <column name="member_no" type="varchar(50)"/>
+            <column name="member_type" type="varchar(50)"/>
+            <column name="member_status" type="varchar(50)"/>
+
+            <column name="vehicle_engine" type="varchar(20)"/>
+            <column name="vehicle_engine_no" type="varchar(50)"/>
+            <column name="vehicle_brand" type="varchar(50)"/>
+            <column name="vehicle_model" type="varchar(50)"/>
+            <column name="vehicle_color" type="varchar(20)"/>
+            <column name="vehicle_buy_date" type="bigint"/>
+            <column name="vehicle_chassis_no" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="repair_order_xzhu_23" author="xzhu">
+        <addColumn tableName="repair_order">
+            <column name="storehouse_id" type="bigint"/>
+            <column name="storehouse_name" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="repair_order_xzhu_24" author="qiuxinyu">
+        <addColumn tableName="repair_order">
+            <column name="description" type="varchar(500)"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="repair_order_24">
+      <modifyColumn tableName="repair_order">
+          <column name="product_saler" type="varchar(300)"/>
+      </modifyColumn>
+  </changeSet>
+    <changeSet id="repair_order_24" author="liuWei">
+        <addColumn tableName="repair_order">
+            <column name="statement_account_order_id" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+
+  <changeSet id = "repair_order_25" author="jimuchen">
+		<modifyColumn tableName="repair_order">
+      <column name="customer_mobile" type="varchar(100)"/>
+      <column name="customer_landline" type="varchar(100)"/>
+      <column name="customer_address" type="varchar(100)"/>
+		</modifyColumn>
+	</changeSet>
+
+  <changeSet id = "repair_order_26" author="jinyuan">
+		<addColumn tableName="repair_order">
+      <column name="vehicle_mobile" type="varchar(11)"/>
+      <column name="vehicle_contact" type="varchar(20)"/>
+		</addColumn>
+	</changeSet>
+
+  <changeSet id="repair_order_27" author="jimuchen">
+    <modifyColumn tableName="repair_order">
+      <column name="total" type="double(20,2)"/>
+      <column name="total_cost_price" type="double(20,2)"/>
+		</modifyColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_28" author="lw">
+    <addColumn tableName="repair_order">
+      <column name="product_saler_ids" type="varchar(500)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_29" author="jimuchen">
+    <addColumn tableName="repair_order">
+      <column name="customer_contact_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_30" author="lw">
+    <addColumn tableName="repair_order">
+      <column name="app_user_no" type="varchar(100)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_31" author="liuWei">
+    <createIndex tableName="repair_order" indexName="idx_app_user_no">
+      <column name="app_user_no"></column>
+    </createIndex>
+  </changeSet>
+
+    <changeSet id="repair_order_32_xinYuQiu" author="xinYuQiu">
+        <addColumn tableName="repair_order">
+            <column name="appoint_order_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="lw" id="repair_order_33">
+      <addColumn tableName="repair_order">
+          <column name="other_total_cost_price" type="double"></column>
+      </addColumn>
+  </changeSet>
+
+  <changeSet author="lw" id="repair_order_34">
+      <addColumn tableName="repair_order">
+          <column name="other_income_total" type="double"></column>
+      </addColumn>
+  </changeSet>
+  <changeSet author="xzhu" id="repair_order_xzhu_35">
+      <addColumn tableName="repair_order">
+          <column name="vehicle_handover" type="varchar(50)"></column>
+      </addColumn>
+  </changeSet>
+    <changeSet author="xzhu" id="repair_order_xzhu_36">
+      <addColumn tableName="repair_order">
+          <column name="vehicle_handover_id" type="bigint"></column>
+      </addColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_34_qiuxinyu" author="qiuxinyu">
+      <dropIndex tableName="repair_order" indexName="idx_app_user_no"/>
+  </changeSet>
+    <changeSet id="repair_order_35_qiuxinyu" author="liuWei">
+      <createIndex tableName="repair_order" indexName="idx_app_user_no">
+        <column name="app_user_no"/>
+      </createIndex>
+    </changeSet>
+
+    <changeSet author="mayan" id="repair_order_mayan_37">
+        <addColumn tableName="repair_order">
+            <column name="is_sms_send" type="varchar(20)"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="repair_order_mayan_38" author="yangwj">
+        <modifyColumn tableName="repair_order">
+            <column name="vehicle_brand" type="varchar(200)"/>
+            <column name="vehicle_model" type="varchar(200)"/>
+        </modifyColumn>
+    </changeSet>
+
+</databaseChangeLog>

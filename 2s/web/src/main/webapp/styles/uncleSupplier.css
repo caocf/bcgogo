@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+
+#idShow .his_supper a{ padding:0px 1px; margin:0px 1px; width:26px;}
+
+#idShow .his_supper .pinpai{width:52px;}
+#cont_user{width:250px;}
+#owe_record{width:320px;}
+table tr  .photo a{ margin-top:0px;}
+table tr  .photo a{ background:url(../images/duan.png) no-repeat right center;  margin:0px 0px 0px 5px;width:22px; height:14px;}
+.his_bottom .more_his{width:250px;}
+.supplier_bot{ margin-bottom:20px;}
+.tab_3 tr td input.btnPay {
+    background: url("../images/mayPay.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: left;
+    height: 23px;
+    line-height: 23px;
+    text-align: center;
+    width: 110px;
+}
+.tab_3 tr td input.btnPay {
+    background: url("../images/mayPay.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: left;
+    height: 23px;
+    line-height: 23px;
+    text-align: center;
+    width: 110px;
+}
+.tab_3 tr td input.btnPayed {
+    float: right;
+}
+
+
+
+.table1 .star {
+  background: url("../images/bigStar.png") no-repeat scroll 0 0 transparent;
+  display: inline-block;
+  height: 14px;
+  width: 15px;
+  margin: 0 3px 4px 0;
+  vertical-align: middle;
+}
+
+.table1 .color_yellow {
+  color: #FF5E04;
+  cursor: pointer;
+}

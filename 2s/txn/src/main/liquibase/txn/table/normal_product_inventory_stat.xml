@@ -1,0 +1,45 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="liuWei" id="normal_product_inventory_stat_1">
+    <createTable tableName="normal_product_inventory_stat">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="normal_product_id" type="bigint"/>
+      <column name="stat_type" type="varchar(100)"/>
+      <column name="amount" type="double"/>
+      <column name="total" type="double"/>
+      <column name="top_price" type="double"/>
+      <column name="bottom_price" type="double"/>
+      <column name="times" type="double"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="liuWei" id="normal_product_inventory_stat_2">
+    <addPrimaryKey tableName="normal_product_inventory_stat" columnNames="id" constraintName="pk_normal_product_inventory_stat"/>
+  </changeSet>
+
+  <changeSet author="liuWei" id="normal_product_inventory_stat_3">
+      <createIndex tableName="normal_product_inventory_stat" indexName="IDX_NORMAL_PRODUCT_INVENTORY_STAT_SHOPID_NORMALPRODUCTID">
+      <column name="shop_id"/>
+      <column name="normal_product_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="normal_product_inventory_stat_4" author="liuWei">
+    <addColumn tableName="normal_product_inventory_stat">
+      <column name="product_local_info_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

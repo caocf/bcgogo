@@ -1,0 +1,81 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lw" id="obd_1">
+    <createTable tableName="obd">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="sn" type="varchar(50)"/>
+      <column name="sell_shop_id" type="bigint"/>
+      <column name="sell_price" type="double"/>
+      <column name="sell_time" type="bigint"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="obd_2" author="lw">
+    <addPrimaryKey tableName="obd" columnNames="id" constraintName="pk_obd"/>
+  </changeSet>
+
+  <changeSet author="lw" id="obd_3">
+    <createIndex tableName="obd" indexName="IDX_OBD_SN">
+      <column name="sn"/>
+    </createIndex>
+  </changeSet>
+
+
+  <changeSet author="lw" id="obd_4">
+    <addColumn tableName="obd">
+      <column name="imei" type="varchar(50)"/>
+      <column name="obd_type" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+    <changeSet id="obd_5" author="xinYuQiu">
+        <addColumn tableName="obd">
+            <column name="obd_version" type="varchar(50)"/>
+            <column name="spec" type="varchar(50)"/>
+            <column name="color" type="varchar(50)"/>
+            <column name="open_crash" type="varchar(20)"/>
+            <column name="open_shake" type="varchar(20)"/>
+            <column name="obd_status" type="varchar(20)"/>
+            <column name="storage_id" type="bigint"/>
+            <column name="seller_id" type="bigint"/>
+            <column name="agent_id" type="bigint"/>
+            <column name="owner_id" type="bigint"/>
+            <column name="owner_name" type="varchar(50)"/>
+            <column name="owner_type" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="ndong" id="obd_6">
+        <addColumn tableName="obd">
+            <column name="storage_time" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="SinYuQiu" id="obd_7_SinYuQiu">
+        <addColumn tableName="obd">
+            <column name="obd_sim_type" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="SinYuQiu" id="obd_8_SinYuQiu">
+        <addColumn tableName="obd">
+            <column name="pack" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+   <changeSet author="ndong" id="obd_9">
+    <createIndex tableName="obd" indexName="IDX_OBD_IMEI">
+      <column name="imei"/>
+    </createIndex>
+  </changeSet>
+
+</databaseChangeLog>

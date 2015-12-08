@@ -1,0 +1,673 @@
+
+delete from product.product_category where id  != -1;
+
+/*所有一级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000001, 0, 0, 0, 0, '发动机系统', -1, 'FIRST_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000002, 0, 0, 0, 0, '传动系统', -1, 'FIRST_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000003, 0, 0, 0, 0, '制动系统', -1, 'FIRST_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000004, 0, 0, 0, 0, '转向系统', -1, 'FIRST_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000005, 0, 0, 0, 0, '车身及附件', -1, 'FIRST_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000006, 0, 0, 0, 0, '电子电器', -1, 'FIRST_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000007, 0, 0, 0, 0, '安全系统', -1, 'FIRST_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000008, 0, 0, 0, 0, '车用品', -1, 'FIRST_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000009, 0, 0, 0, 0, '通用件', -1, 'FIRST_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000010, 0, 0, 0, 0, '汽修、汽保工具', -1, 'FIRST_CATEGORY', 'USED');
+
+/*第一个一级下所有二级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000012, 0, 0, 0, 0, '发动机总成',10001000000001, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000013, 0, 0, 0, 0, '发动机悬置',10001000000001, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000014, 0, 0, 0, 0, '液压泵',10001000000001, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000015, 0, 0, 0, 0, '发动机基本零部件',10001000000001, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000016, 0, 0, 0, 0, '配气机构',10001000000001, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000017, 0, 0, 0, 0, '燃油供给系',10001000000001, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000018, 0, 0, 0, 0, '进排气系统',10001000000001, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000019, 0, 0, 0, 0, '冷却系统',10001000000001, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000020, 0, 0, 0, 0, '润滑系统',10001000000001, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000021, 0, 0, 0, 0, '点火系统',10001000000001, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000000022, 0, 0, 0, 0, '滤清器',10001000000001, 'SECOND_CATEGORY', 'USED');
+
+/*第一个一级下所有三级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001101, 0, 0, 0, 0, '发动机总成',10001000000012, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001102, 0, 0, 0, 0, '发动机悬置',10001000000013, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001103, 0, 0, 0, 0, '液压泵',10001000000014, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001100, 0, 0, 0, 0, '飞轮',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001104, 0, 0, 0, 0, '气缸盖罩',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001105, 0, 0, 0, 0, '气缸盖',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001106, 0, 0, 0, 0, '气缸体',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001107, 0, 0, 0, 0, '气缸套',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001108, 0, 0, 0, 0, '活塞',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001109, 0, 0, 0, 0, '活塞环',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001110, 0, 0, 0, 0, '气门',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001111, 0, 0, 0, 0, '气门导管',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001112, 0, 0, 0, 0, '气门弹簧',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001113, 0, 0, 0, 0, '气门挺柱',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001114, 0, 0, 0, 0, '气门推杆',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001115, 0, 0, 0, 0, '连杆',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001116, 0, 0, 0, 0, '曲轴',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001117, 0, 0, 0, 0, '凸轮轴',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001118, 0, 0, 0, 0, '油底壳',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001119, 0, 0, 0, 0, '滑动轴承/轴瓦',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001120, 0, 0, 0, 0, '张紧器/张紧轮',10001000000015, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001121, 0, 0, 0, 0, '气缸垫',10001000000015, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001122, 0, 0, 0, 0, '进气门',10001000000016, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001123, 0, 0, 0, 0, '排气门',10001000000016, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001124, 0, 0, 0, 0, '凸轮轴',10001000000016, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001125, 0, 0, 0, 0, '摇臂及摇臂轴',10001000000016, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001126, 0, 0, 0, 0, '挺柱',10001000000016, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001127, 0, 0, 0, 0, '气门座',10001000000016, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001128, 0, 0, 0, 0, '气门弹簧',10001000000016, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001129, 0, 0, 0, 0, '气门导管',10001000000016, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001130, 0, 0, 0, 0, '气门油封',10001000000016, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001131, 0, 0, 0, 0, '喷油泵',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001132, 0, 0, 0, 0, '空气流量计',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001133, 0, 0, 0, 0, '柱塞偶件',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001134, 0, 0, 0, 0, '喷嘴',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000009134, 0, 0, 0, 0, '化油器',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001136, 0, 0, 0, 0, '燃油泵',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001137, 0, 0, 0, 0, '燃油压力调节器',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001138, 0, 0, 0, 0, '喷油器',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001139, 0, 0, 0, 0, '燃油箱',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001140, 0, 0, 0, 0, '燃油输送阀',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001141, 0, 0, 0, 0, '油箱',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001142, 0, 0, 0, 0, '油门分离器',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001143, 0, 0, 0, 0, '油门线',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001144, 0, 0, 0, 0, '燃油喷射装置',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001145, 0, 0, 0, 0, '节油器',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001146, 0, 0, 0, 0, '油嘴',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001147, 0, 0, 0, 0, '泵头',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001148, 0, 0, 0, 0, 'VE泵喷油泵',10001000000017, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001149, 0, 0, 0, 0, '燃油输油泵',10001000000017, 'THIRD_CATEGORY', 'USED');
+
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001150, 0, 0, 0, 0, '催化转换器',10001000000018, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001151, 0, 0, 0, 0, '进气谐振器',10001000000018, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001152, 0, 0, 0, 0, '进排歧管',10001000000018, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001153, 0, 0, 0, 0, '排气歧管',10001000000018, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001154, 0, 0, 0, 0, '进气总管',10001000000018, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001155, 0, 0, 0, 0, '排气管',10001000000018, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001156, 0, 0, 0, 0, '三元催化器',10001000000018, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001157, 0, 0, 0, 0, '增压器',10001000000018, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001158, 0, 0, 0, 0, '中冷器',10001000000018, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001159, 0, 0, 0, 0, '涡轮增压器',10001000000018, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001160, 0, 0, 0, 0, '节气门体',10001000000018, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001161, 0, 0, 0, 0, '消声器',10001000000018, 'THIRD_CATEGORY', 'USED');
+
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001162, 0, 0, 0, 0, '冷却风扇',10001000000019, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001163, 0, 0, 0, 0, '风扇离合器',10001000000019, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001164, 0, 0, 0, 0, '散热器',10001000000019, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001165, 0, 0, 0, 0, '节温器',10001000000019, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001166, 0, 0, 0, 0, '水泵',10001000000019, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001167, 0, 0, 0, 0, '膨胀水箱',10001000000019, 'THIRD_CATEGORY', 'USED');
+
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001168, 0, 0, 0, 0, '机油冷却器',10001000000020, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001169, 0, 0, 0, 0, '机油泵',10001000000020, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001170, 0, 0, 0, 0, '机油封',10001000000020, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001171, 0, 0, 0, 0, '机油标尺',10001000000020, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001172, 0, 0, 0, 0, '高压点火线',10001000000021, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001173, 0, 0, 0, 0, '插接器',10001000000021, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001174, 0, 0, 0, 0, '火花塞胶套',10001000000021, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001175, 0, 0, 0, 0, '电容',10001000000021, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001176, 0, 0, 0, 0, '预热塞',10001000000021, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001177, 0, 0, 0, 0, '电阻',10001000000021, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001178, 0, 0, 0, 0, '分火线',10001000000021, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001179, 0, 0, 0, 0, '点火锁芯',10001000000021, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001180, 0, 0, 0, 0, '分火头',10001000000021, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001181, 0, 0, 0, 0, '点火线圈',10001000000021, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001182, 0, 0, 0, 0, '点火模块',10001000000021, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001183, 0, 0, 0, 0, '点火开关',10001000000021, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001184, 0, 0, 0, 0, '火花塞',10001000000021, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001185, 0, 0, 0, 0, '分电器',10001000000021, 'THIRD_CATEGORY', 'USED');
+
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001186, 0, 0, 0, 0, '燃油滤清器',10001000000022, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001187, 0, 0, 0, 0, '空气滤清器',10001000000022, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001188, 0, 0, 0, 0, '机油滤清器',10001000000022, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001189, 0, 0, 0, 0, '滤芯/滤纸',10001000000022, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001190, 0, 0, 0, 0, '油水分离器',10001000000022, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001191, 0, 0, 0, 0, '空调滤清器',10001000000022, 'THIRD_CATEGORY', 'USED');
+
+/*第二个一级下所有二级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001200, 0, 0, 0, 0, '离合器',10001000000002, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001201, 0, 0, 0, 0, '变速器',10001000000002, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001202, 0, 0, 0, 0, '行驶系统',10001000000002, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001203, 0, 0, 0, 0, '悬架',10001000000002, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001204, 0, 0, 0, 0, '车轮及附件',10001000000002, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001205, 0, 0, 0, 0, '轮胎',10001000000002, 'SECOND_CATEGORY', 'USED');
+
+/*第二个一级下所有三级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001206, 0, 0, 0, 0, '离合器总成',10001000001200, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001207, 0, 0, 0, 0, '离合器压盘离合器盖',10001000001200, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001208, 0, 0, 0, 0, '离合器从动盘离合器面片',10001000001200, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001209, 0, 0, 0, 0, '离合器分离轴承',10001000001200, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001210, 0, 0, 0, 0, '离合器助力器',10001000001200, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001211, 0, 0, 0, 0, '离合器主缸和从缸',10001000001200, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001212, 0, 0, 0, 0, '离合器伺服器',10001000001200, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001213, 0, 0, 0, 0, '变速器总成',10001000001201, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001214, 0, 0, 0, 0, '变速器壳体',10001000001201, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001215, 0, 0, 0, 0, '同步器',10001000001201, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001216, 0, 0, 0, 0, '变速齿轮',10001000001201, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001217, 0, 0, 0, 0, '变速器轴',10001000001201, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001218, 0, 0, 0, 0, '变速杆总成',10001000001201, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001219, 0, 0, 0, 0, '拨叉',10001000001201, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001220, 0, 0, 0, 0, '换挡杆手柄',10001000001201, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001221, 0, 0, 0, 0, '差速器',10001000001201, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001222, 0, 0, 0, 0, '车桥和半轴',10001000001202, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001223, 0, 0, 0, 0, '万向节',10001000001202, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001224, 0, 0, 0, 0, '等速万向节',10001000001202, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001225, 0, 0, 0, 0, '传动轴',10001000001202, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001226, 0, 0, 0, 0, '控制臂',10001000001202, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001227, 0, 0, 0, 0, '平衡杆',10001000001202, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001228, 0, 0, 0, 0, '钢板弹簧',10001000001203, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001229, 0, 0, 0, 0, '空气弹簧',10001000001203, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001230, 0, 0, 0, 0, '减震器',10001000001203, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001231, 0, 0, 0, 0, '减震块',10001000001203, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001232, 0, 0, 0, 0, '铝合金车轮',10001000001204, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001233, 0, 0, 0, 0, '钢车轮',10001000001204, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001234, 0, 0, 0, 0, '轮毂',10001000001204, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001235, 0, 0, 0, 0, '轮毂轴承',10001000001204, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001236, 0, 0, 0, 0, '平衡块',10001000001204, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001237, 0, 0, 0, 0, '轮胎',10001000001205, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001238, 0, 0, 0, 0, '内胎',10001000001205, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001239, 0, 0, 0, 0, '气门嘴',10001000001205, 'THIRD_CATEGORY', 'USED');
+
+/*第三个一级下所有二级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001240, 0, 0, 0, 0, '制动系列',10001000000003, 'SECOND_CATEGORY', 'USED');
+
+/*第三个一级下所有三级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001241, 0, 0, 0, 0, '制动蹄',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001242, 0, 0, 0, 0, '制动鼓',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001243, 0, 0, 0, 0, '制动片钢背',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001244, 0, 0, 0, 0, '制动调整臂',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001245, 0, 0, 0, 0, '制动片',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001246, 0, 0, 0, 0, '制动盘',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001247, 0, 0, 0, 0, '制动钳',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001248, 0, 0, 0, 0, '制动总泵',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001249, 0, 0, 0, 0, '制动分泵',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001250, 0, 0, 0, 0, '制动踏板总成',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001251, 0, 0, 0, 0, 'ABS泵',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001252, 0, 0, 0, 0, '制动主缸',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001253, 0, 0, 0, 0, '制动轮缸',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001254, 0, 0, 0, 0, '刹车管路',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001255, 0, 0, 0, 0, '真空助力器',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001256, 0, 0, 0, 0, '制动气室',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001257, 0, 0, 0, 0, '制动阀',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001258, 0, 0, 0, 0, '手刹',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001259, 0, 0, 0, 0, '制动软管',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001260, 0, 0, 0, 0, '空气压缩机',10001000001240, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001261, 0, 0, 0, 0, '空气干燥器',10001000001240, 'THIRD_CATEGORY', 'USED');
+
+/*第四个一级下所有二级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001192, 0, 0, 0, 0, '转向系列',10001000000004, 'SECOND_CATEGORY', 'USED');
+
+/*第四个一级下所有三级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001262, 0, 0, 0, 0, '方向盘',10001000001192, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001263, 0, 0, 0, 0, '转向轴及转向管柱',10001000001192, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001264, 0, 0, 0, 0, '转向器',10001000001192, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001265, 0, 0, 0, 0, '转向齿轮(条)',10001000001192, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001266, 0, 0, 0, 0, '转向横拉杆',10001000001192, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001267, 0, 0, 0, 0, '中继杆',10001000001192, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001268, 0, 0, 0, 0, '球头',10001000001192, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001269, 0, 0, 0, 0, '拉杆接头',10001000001192, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001270, 0, 0, 0, 0, '转向节',10001000001192, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001271, 0, 0, 0, 0, '转向摇臂',10001000001192, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001272, 0, 0, 0, 0, '动力转向泵',10001000001192, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001273, 0, 0, 0, 0, '转向万向节',10001000001192, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001274, 0, 0, 0, 0, '转向直拉杆',10001000001192, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001275, 0, 0, 0, 0, '转向机',10001000001192, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001276, 0, 0, 0, 0, '齿条接头',10001000001192, 'THIRD_CATEGORY', 'USED');
+
+/*第五个一级下所有二级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001278, 0, 0, 0, 0, '车身钣金',10001000000005, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001279, 0, 0, 0, 0, '车门和车窗',10001000000005, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001280, 0, 0, 0, 0, '附件',10001000000005, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001281, 0, 0, 0, 0, '雨刮器及洗涤器',10001000000005, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001282, 0, 0, 0, 0, '车镜',10001000000005, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001283, 0, 0, 0, 0, '座椅及附件',10001000000005, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001284, 0, 0, 0, 0, '随车工具',10001000000005, 'SECOND_CATEGORY', 'USED');
+
+/*第五个一级下所有三级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001285, 0, 0, 0, 0, '车身钣金',10001000001278, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001286, 0, 0, 0, 0, '车门装饰板',10001000001279, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001287, 0, 0, 0, 0, '门锁机构',10001000001279, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001288, 0, 0, 0, 0, '车门限位器',10001000001279, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001289, 0, 0, 0, 0, '玻璃升降器和马达',10001000001279, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001290, 0, 0, 0, 0, '玻璃外压条',10001000001279, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001291, 0, 0, 0, 0, '铰链',10001000001279, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001292, 0, 0, 0, 0, '前保险杠',10001000001280, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001293, 0, 0, 0, 0, '后保险杠',10001000001280, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001294, 0, 0, 0, 0, '车标',10001000001280, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001295, 0, 0, 0, 0, '格栅',10001000001280, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001296, 0, 0, 0, 0, '扶手箱',10001000001280, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001297, 0, 0, 0, 0, '仪表板',10001000001280, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001298, 0, 0, 0, 0, '杂物箱',10001000001280, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001299, 0, 0, 0, 0, '装饰条',10001000001280, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001300, 0, 0, 0, 0, '把手拉手',10001000001280, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001301, 0, 0, 0, 0, '挡泥板',10001000001280, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001302, 0, 0, 0, 0, '备胎架',10001000001280, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001303, 0, 0, 0, 0, '空调控制面板',10001000001280, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001304, 0, 0, 0, 0, '引擎盖和撑杆',10001000001280, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001305, 0, 0, 0, 0, '天窗',10001000001280, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001306, 0, 0, 0, 0, '行李架',10001000001280, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001307, 0, 0, 0, 0, '踏板机构',10001000001280, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001308, 0, 0, 0, 0, '雨刮片',10001000001281, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001309, 0, 0, 0, 0, '雨刮臂',10001000001281, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001310, 0, 0, 0, 0, '雨刮马达',10001000001281, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001311, 0, 0, 0, 0, '雨刮连杆',10001000001281, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001312, 0, 0, 0, 0, '洗涤泵',10001000001281, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001313, 0, 0, 0, 0, '清洗喷嘴',10001000001281, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001314, 0, 0, 0, 0, '后视镜',10001000001282, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001315, 0, 0, 0, 0, '车内后视镜',10001000001282, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001316, 0, 0, 0, 0, '遮阳板',10001000001282, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001317, 0, 0, 0, 0, '椅架',10001000001283, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001318, 0, 0, 0, 0, '座椅调节器',10001000001283, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001319, 0, 0, 0, 0, '头枕',10001000001283, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001320, 0, 0, 0, 0, '座椅',10001000001283, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001321, 0, 0, 0, 0, '座椅滑轨',10001000001283, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001322, 0, 0, 0, 0, '安全带安全带扣',10001000001283, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001323, 0, 0, 0, 0, '千斤顶',10001000001284, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001324, 0, 0, 0, 0, '工具套件',10001000001284, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001325, 0, 0, 0, 0, '三角警示牌',10001000001284, 'THIRD_CATEGORY', 'USED');
+
+/*第六个一级下所有二级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001326, 0, 0, 0, 0, '仪表',10001000000006, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001327, 0, 0, 0, 0, '电子零件',10001000000006, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001328, 0, 0, 0, 0, '汽车音响',10001000000006, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001329, 0, 0, 0, 0, '照明系统',10001000000006, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001330, 0, 0, 0, 0, '发电机、起动机',10001000000006, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001331, 0, 0, 0, 0, '蓄电池',10001000000006, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001332, 0, 0, 0, 0, '线束、接头',10001000000006, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001333, 0, 0, 0, 0, '暖风空调系统',10001000000006, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001334, 0, 0, 0, 0, '传感器',10001000000006, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001335, 0, 0, 0, 0, '电子控制单元',10001000000006, 'SECOND_CATEGORY', 'USED');
+
+/*第六个一级下所有三级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001336, 0, 0, 0, 0, '机油压力表',10001000001326, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001337, 0, 0, 0, 0, '水温表',10001000001326, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001338, 0, 0, 0, 0, '燃油表',10001000001326, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001339, 0, 0, 0, 0, '车速里程表',10001000001326, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001340, 0, 0, 0, 0, '转速表',10001000001326, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001341, 0, 0, 0, 0, '点烟器',10001000001327, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001342, 0, 0, 0, 0, '开关',10001000001327, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001343, 0, 0, 0, 0, '中央配电盒',10001000001327, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001344, 0, 0, 0, 0, '继电器',10001000001327, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001345, 0, 0, 0, 0, '保险丝盒',10001000001327, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001346, 0, 0, 0, 0, '汽车喇叭',10001000001327, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001347, 0, 0, 0, 0, '保险丝',10001000001327, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001348, 0, 0, 0, 0, 'PCB',10001000001327, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001349, 0, 0, 0, 0, '扬声器',10001000001328, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001350, 0, 0, 0, 0, '收音机CDDVD',10001000001328, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001351, 0, 0, 0, 0, '天线',10001000001328, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001352, 0, 0, 0, 0, '音响喇叭',10001000001328, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001353, 0, 0, 0, 0, '大灯',10001000001329, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001354, 0, 0, 0, 0, '尾灯',10001000001329, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001355, 0, 0, 0, 0, '转向灯',10001000001329, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001356, 0, 0, 0, 0, '雾灯',10001000001329, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001357, 0, 0, 0, 0, '车灯',10001000001329, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001358, 0, 0, 0, 0, '灯泡',10001000001329, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001359, 0, 0, 0, 0, '大灯增亮器',10001000001329, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001360, 0, 0, 0, 0, '大灯调节器',10001000001329, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001361, 0, 0, 0, 0, '发电机',10001000001330, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001362, 0, 0, 0, 0, '马达',10001000001330, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001363, 0, 0, 0, 0, '转子和定子',10001000001330, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001364, 0, 0, 0, 0, '碳刷',10001000001330, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001365, 0, 0, 0, 0, '电压调节器',10001000001330, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001366, 0, 0, 0, 0, '起动机',10001000001330, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001367, 0, 0, 0, 0, '电磁开关',10001000001330, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001368, 0, 0, 0, 0, '电枢',10001000001330, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001369, 0, 0, 0, 0, '单向离合器',10001000001330, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001370, 0, 0, 0, 0, '换向器',10001000001330, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001371, 0, 0, 0, 0, '真空泵',10001000001330, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001372, 0, 0, 0, 0, '蓄电池',10001000001331, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001373, 0, 0, 0, 0, '线束',10001000001332, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001374, 0, 0, 0, 0, '电线',10001000001332, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001375, 0, 0, 0, 0, '接头',10001000001332, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001376, 0, 0, 0, 0, '端子Terminal',10001000001332, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001377, 0, 0, 0, 0, '蓄电池端子',10001000001332, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001378, 0, 0, 0, 0, '冷凝器',10001000001333, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001379, 0, 0, 0, 0, '压缩机A/C',10001000001333, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001380, 0, 0, 0, 0, '蒸发器',10001000001333, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001381, 0, 0, 0, 0, '膨胀阀',10001000001333, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001382, 0, 0, 0, 0, '空调',10001000001333, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001383, 0, 0, 0, 0, '加热器',10001000001333, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001384, 0, 0, 0, 0, '鼓风机',10001000001333, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001385, 0, 0, 0, 0, '温度传感器',10001000001334, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001386, 0, 0, 0, 0, '压力传感器',10001000001334, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001387, 0, 0, 0, 0, 'ABS传感器',10001000001334, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001388, 0, 0, 0, 0, '氧传感器',10001000001334, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001389, 0, 0, 0, 0, '位置传感器',10001000001334, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001390, 0, 0, 0, 0, '刹车传感器',10001000001334, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001391, 0, 0, 0, 0, '里程碑传感器',10001000001334, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001392, 0, 0, 0, 0, '爆震传感器等',10001000001334, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001393, 0, 0, 0, 0, '进气温度传感器',10001000001334, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001394, 0, 0, 0, 0, '进气歧管压力传感器',10001000001334, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001395, 0, 0, 0, 0, '油压开关',10001000001334, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001396, 0, 0, 0, 0, 'ECU',10001000001335, 'THIRD_CATEGORY', 'USED');
+
+/*第七个一级下所有二级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001397, 0, 0, 0, 0, '安全系列',10001000000007, 'SECOND_CATEGORY', 'USED');
+
+/*第七个一级下所有三级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001398, 0, 0, 0, 0, '安全气囊及控制单元',10001000001397, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001399, 0, 0, 0, 0, '安全带及控制单元',10001000001397, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001400, 0, 0, 0, 0, '防盗及警报',10001000001397, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001401, 0, 0, 0, 0, '倒车辅助系统',10001000001397, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001402, 0, 0, 0, 0, '胎压监测系统TPMS',10001000001397, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001403, 0, 0, 0, 0, '中控门锁',10001000001397, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001404, 0, 0, 0, 0, '方向盘锁',10001000001397, 'THIRD_CATEGORY', 'USED');
+
+/*第八个一级下所有二级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001405, 0, 0, 0, 0, '视听影音及通讯导航',10001000000008, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001406, 0, 0, 0, 0, '车用电器',10001000000008, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001407, 0, 0, 0, 0, '内饰用品',10001000000008, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001408, 0, 0, 0, 0, '外饰用品',10001000000008, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001409, 0, 0, 0, 0, '养护用品',10001000000008, 'SECOND_CATEGORY', 'USED');
+
+/*第八个一级下所有三级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001410, 0, 0, 0, 0, '车载DVD/CD',10001000001405, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001411, 0, 0, 0, 0, '车载MP3/MP4',10001000001405, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001412, 0, 0, 0, 0, '车载电脑',10001000001405, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001413, 0, 0, 0, 0, '车载显示器',10001000001405, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001414, 0, 0, 0, 0, '低音炮',10001000001405, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001415, 0, 0, 0, 0, '功放',10001000001405, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001416, 0, 0, 0, 0, '车载蓝牙免提',10001000001405, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001417, 0, 0, 0, 0, '车载GPS导航',10001000001405, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001418, 0, 0, 0, 0, '车载冰箱',10001000001406, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001419, 0, 0, 0, 0, '车载电源/逆变电源',10001000001406, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001420, 0, 0, 0, 0, '胎压充气机',10001000001406, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001421, 0, 0, 0, 0, '空气净化器',10001000001406, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001422, 0, 0, 0, 0, '车载应急电源',10001000001406, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001423, 0, 0, 0, 0, '车载相机',10001000001406, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001424, 0, 0, 0, 0, '汽车香水',10001000001407, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001425, 0, 0, 0, 0, '儿童安全座椅',10001000001407, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001426, 0, 0, 0, 0, '方向盘套',10001000001407, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001427, 0, 0, 0, 0, '颈枕',10001000001407, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001428, 0, 0, 0, 0, '靠垫',10001000001407, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001429, 0, 0, 0, 0, '地胶',10001000001407, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001430, 0, 0, 0, 0, '脚垫',10001000001407, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001431, 0, 0, 0, 0, '地毯',10001000001407, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001432, 0, 0, 0, 0, '摆饰/挂饰',10001000001407, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001433, 0, 0, 0, 0, '窗帘',10001000001407, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001434, 0, 0, 0, 0, '座垫/座套',10001000001407, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001435, 0, 0, 0, 0, '置物盒杂物袋',10001000001407, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001436, 0, 0, 0, 0, '遮阳挡',10001000001407, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001437, 0, 0, 0, 0, '车贴',10001000001408, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001438, 0, 0, 0, 0, '牌照框',10001000001408, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001439, 0, 0, 0, 0, '车罩',10001000001408, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001440, 0, 0, 0, 0, '车轮装饰盖',10001000001408, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001441, 0, 0, 0, 0, '备胎罩',10001000001408, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001442, 0, 0, 0, 0, '尾翼',10001000001408, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001443, 0, 0, 0, 0, '防滑踏板',10001000001408, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001444, 0, 0, 0, 0, '机油',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001445, 0, 0, 0, 0, '方向助力油',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001446, 0, 0, 0, 0, '制动液',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001447, 0, 0, 0, 0, '冷却液',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001448, 0, 0, 0, 0, '变速箱油',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001449, 0, 0, 0, 0, '齿轮油',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001450, 0, 0, 0, 0, '冷媒',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001451, 0, 0, 0, 0, '风窗洗涤剂',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001452, 0, 0, 0, 0, '发动机积碳清洗剂',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001453, 0, 0, 0, 0, '发动机保护剂',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001454, 0, 0, 0, 0, '车蜡',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001455, 0, 0, 0, 0, '修补漆',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001456, 0, 0, 0, 0, '过滤材料',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001457, 0, 0, 0, 0, '轮胎上光剂',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001458, 0, 0, 0, 0, '抛光蜡',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001459, 0, 0, 0, 0, '水箱宝',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001460, 0, 0, 0, 0, '全能水',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001461, 0, 0, 0, 0, '防冻液',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001462, 0, 0, 0, 0, '玻璃水',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001463, 0, 0, 0, 0, '防凝剂',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001464, 0, 0, 0, 0, '燃油精',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001465, 0, 0, 0, 0, '止漏剂',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001466, 0, 0, 0, 0, '抗磨剂',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001467, 0, 0, 0, 0, '防锈剂',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001468, 0, 0, 0, 0, '保护剂',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001469, 0, 0, 0, 0, '油路通',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001470, 0, 0, 0, 0, '平衡剂',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001471, 0, 0, 0, 0, '护理剂',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001472, 0, 0, 0, 0, '密封剂',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001473, 0, 0, 0, 0, '雪种',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001474, 0, 0, 0, 0, '胶',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001475, 0, 0, 0, 0, '检测液',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001476, 0, 0, 0, 0, '化工试剂',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001477, 0, 0, 0, 0, '粘结剂',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001478, 0, 0, 0, 0, '汽车漆',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001479, 0, 0, 0, 0, '添加剂',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001480, 0, 0, 0, 0, '荧光检漏用品',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001481, 0, 0, 0, 0, '补胎材料',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001482, 0, 0, 0, 0, '修复剂',10001000001409, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001483, 0, 0, 0, 0, '燃油系统清洗剂',10001000001409, 'THIRD_CATEGORY', 'USED');
+
+/*第九个一级下所有二级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001484, 0, 0, 0, 0, '通用系列',10001000000009, 'SECOND_CATEGORY', 'USED');
+
+/*第九个一级下所有三级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001485, 0, 0, 0, 0, '轴承',10001000001484, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001486, 0, 0, 0, 0, '阀门',10001000001484, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001487, 0, 0, 0, 0, '紧固件螺栓/螺丝',10001000001484, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001488, 0, 0, 0, 0, '螺帽',10001000001484, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001489, 0, 0, 0, 0, '卡箍/夹子',10001000001484, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001490, 0, 0, 0, 0, '玻璃',10001000001484, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001491, 0, 0, 0, 0, '密封件',10001000001484, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001492, 0, 0, 0, 0, '衬套/悬置',10001000001484, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001493, 0, 0, 0, 0, '管路金属管路',10001000001484, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001494, 0, 0, 0, 0, '塑胶管路',10001000001484, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001495, 0, 0, 0, 0, '皮带',10001000001484, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001496, 0, 0, 0, 0, '皮带轮',10001000001484, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001497, 0, 0, 0, 0, '齿轮',10001000001484, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001498, 0, 0, 0, 0, '链条/链轮',10001000001484, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001499, 0, 0, 0, 0, '拉索',10001000001484, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001500, 0, 0, 0, 0, '标准件',10001000001484, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001501, 0, 0, 0, 0, '弹簧',10001000001484, 'THIRD_CATEGORY', 'USED');
+
+/*第十个一级下所有二级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001502, 0, 0, 0, 0, '检测仪器',10001000000010, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001503, 0, 0, 0, 0, '检测设备',10001000000010, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001504, 0, 0, 0, 0, '电动工具',10001000000010, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001505, 0, 0, 0, 0, '液压工具',10001000000010, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001506, 0, 0, 0, 0, '气动工具',10001000000010, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001507, 0, 0, 0, 0, '手动工具',10001000000010, 'SECOND_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001508, 0, 0, 0, 0, '其他设备',10001000000010, 'SECOND_CATEGORY', 'USED');
+
+/*第十个一级下所有三级*/
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001509, 0, 0, 0, 0, '测电笔',10001000001502, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001510, 0, 0, 0, 0, '烟度计',10001000001502, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001512, 0, 0, 0, 0, '故障码检测仪',10001000001502, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001513, 0, 0, 0, 0, '示波器',10001000001502, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001514, 0, 0, 0, 0, '传感器',10001000001502, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001515, 0, 0, 0, 0, '万用表',10001000001502, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001516, 0, 0, 0, 0, '真空表',10001000001502, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001517, 0, 0, 0, 0, '加氟表',10001000001502, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001518, 0, 0, 0, 0, '正时灯',10001000001502, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001519, 0, 0, 0, 0, '探伤仪',10001000001502, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001520, 0, 0, 0, 0, '测温仪',10001000001502, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001521, 0, 0, 0, 0, '折射仪',10001000001502, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001522, 0, 0, 0, 0, '压力测试表',10001000001502, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001523, 0, 0, 0, 0, '空燃比表',10001000001502, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001524, 0, 0, 0, 0, '电瓶表',10001000001502, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001525, 0, 0, 0, 0, '检测仪',10001000001503, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001526, 0, 0, 0, 0, '试验台',10001000001503, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001527, 0, 0, 0, 0, '制动台',10001000001503, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001528, 0, 0, 0, 0, '定位仪',10001000001503, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001529, 0, 0, 0, 0, '检测台',10001000001503, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001530, 0, 0, 0, 0, '诊断仪',10001000001503, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001531, 0, 0, 0, 0, '内窥镜',10001000001503, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001532, 0, 0, 0, 0, '电锤',10001000001504, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001533, 0, 0, 0, 0, '磨光机',10001000001504, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001534, 0, 0, 0, 0, '电磨',10001000001504, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001535, 0, 0, 0, 0, '电钻',10001000001504, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001536, 0, 0, 0, 0, '电动千斤顶',10001000001504, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001537, 0, 0, 0, 0, '修边机',10001000001504, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001538, 0, 0, 0, 0, '电圆锯',10001000001504, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001539, 0, 0, 0, 0, '热风枪',10001000001504, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001540, 0, 0, 0, 0, '电刨',10001000001504, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001541, 0, 0, 0, 0, '电子加油枪',10001000001504, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001542, 0, 0, 0, 0, '抛光机',10001000001504, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001543, 0, 0, 0, 0, '砂光机',10001000001504, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001544, 0, 0, 0, 0, '电动扳手',10001000001504, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001545, 0, 0, 0, 0, '电冲剪',10001000001504, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001546, 0, 0, 0, 0, '液压机',10001000001504, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001547, 0, 0, 0, 0, '电动起子',10001000001504, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001548, 0, 0, 0, 0, '千斤顶',10001000001505, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001549, 0, 0, 0, 0, '冷铆机',10001000001505, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001550, 0, 0, 0, 0, '黄油枪',10001000001505, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001551, 0, 0, 0, 0, '空压机',10001000001505, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001552, 0, 0, 0, 0, '投铆机',10001000001505, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001553, 0, 0, 0, 0, '铆接机',10001000001505, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001554, 0, 0, 0, 0, '销拉器',10001000001505, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001555, 0, 0, 0, 0, '切割机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001556, 0, 0, 0, 0, '扳手',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001557, 0, 0, 0, 0, '起子',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001558, 0, 0, 0, 0, '风钻',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001559, 0, 0, 0, 0, '气钻',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001560, 0, 0, 0, 0, '气锯',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001561, 0, 0, 0, 0, '气锤',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001562, 0, 0, 0, 0, '气刷',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001563, 0, 0, 0, 0, '刻磨机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001564, 0, 0, 0, 0, '磨砂机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001565, 0, 0, 0, 0, '风批',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001566, 0, 0, 0, 0, '气铣',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001567, 0, 0, 0, 0, '螺丝批',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001568, 0, 0, 0, 0, '套筒',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001569, 0, 0, 0, 0, '风扳机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001570, 0, 0, 0, 0, '油泵',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001571, 0, 0, 0, 0, '砂轮机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001572, 0, 0, 0, 0, '拉铆钉枪',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001573, 0, 0, 0, 0, '风铲',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001574, 0, 0, 0, 0, '喷枪',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001575, 0, 0, 0, 0, '风炮',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001576, 0, 0, 0, 0, '气泵',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001577, 0, 0, 0, 0, '黄油机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001578, 0, 0, 0, 0, '注油机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001579, 0, 0, 0, 0, '拉帽枪',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001580, 0, 0, 0, 0, '砂带机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001581, 0, 0, 0, 0, '吸尘枪',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001582, 0, 0, 0, 0, '除锈机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001583, 0, 0, 0, 0, '气铲',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001584, 0, 0, 0, 0, '气镐',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001585, 0, 0, 0, 0, '封箱机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001586, 0, 0, 0, 0, '冲剪机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001587, 0, 0, 0, 0, '冲孔机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001588, 0, 0, 0, 0, '胶轮机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001589, 0, 0, 0, 0, '点钻机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001590, 0, 0, 0, 0, '散打机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001591, 0, 0, 0, 0, '锉刀机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001592, 0, 0, 0, 0, '研磨机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001593, 0, 0, 0, 0, '气剪/压着钳',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001594, 0, 0, 0, 0, '冲铆机',10001000001506, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001595, 0, 0, 0, 0, '打胶枪',10001000001506, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001596, 0, 0, 0, 0, '钳子',10001000001507, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001597, 0, 0, 0, 0, '工具架',10001000001507, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001598, 0, 0, 0, 0, '夹具',10001000001507, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001599, 0, 0, 0, 0, '工具箱',10001000001507, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001600, 0, 0, 0, 0, '工具车',10001000001507, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001601, 0, 0, 0, 0, '套装工具',10001000001507, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001602, 0, 0, 0, 0, '仓储笼',10001000001507, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001603, 0, 0, 0, 0, '扳子',10001000001507, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001604, 0, 0, 0, 0, '刀具',10001000001507, 'THIRD_CATEGORY', 'USED');
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001605, 0, 0, 0, 0, '洗车房',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001606, 0, 0, 0, 0, '黄油加注机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001607, 0, 0, 0, 0, '喷雾器',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001608, 0, 0, 0, 0, '泡沫机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001609, 0, 0, 0, 0, '充气机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001610, 0, 0, 0, 0, '启动机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001611, 0, 0, 0, 0, '保护器',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001612, 0, 0, 0, 0, '冲氮机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001613, 0, 0, 0, 0, '套件',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001614, 0, 0, 0, 0, '清洗设备',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001615, 0, 0, 0, 0, '清洗机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001616, 0, 0, 0, 0, '吸水机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001617, 0, 0, 0, 0, '空调加注机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001618, 0, 0, 0, 0, '缓冲器',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001619, 0, 0, 0, 0, '吸尘机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001620, 0, 0, 0, 0, '打蜡机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001621, 0, 0, 0, 0, '凹陷修复设备',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001622, 0, 0, 0, 0, '润滑油加注机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001623, 0, 0, 0, 0, '磨灰机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001624, 0, 0, 0, 0, '抽废油机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001625, 0, 0, 0, 0, '冷媒机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001626, 0, 0, 0, 0, '充电机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001627, 0, 0, 0, 0, '封釉机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001628, 0, 0, 0, 0, '举升机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001629, 0, 0, 0, 0, '修复机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001630, 0, 0, 0, 0, '扩胎机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001631, 0, 0, 0, 0, '压缩机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001632, 0, 0, 0, 0, '燃烧机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001633, 0, 0, 0, 0, '教学设备',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001634, 0, 0, 0, 0, '调漆设备',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001635, 0, 0, 0, 0, '钣金设备',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001636, 0, 0, 0, 0, '换顶机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001637, 0, 0, 0, 0, '拆胎机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001638, 0, 0, 0, 0, '焊接设备',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001639, 0, 0, 0, 0, '伸缩灯',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001640, 0, 0, 0, 0, '烤灯',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001641, 0, 0, 0, 0, '整形机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001642, 0, 0, 0, 0, '烤漆机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001643, 0, 0, 0, 0, '补胎机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001644, 0, 0, 0, 0, '烤漆房',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001645, 0, 0, 0, 0, '硫化机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001646, 0, 0, 0, 0, '扒胎机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001647, 0, 0, 0, 0, '工作灯',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001648, 0, 0, 0, 0, '拆装器',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001649, 0, 0, 0, 0, '取出器',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001650, 0, 0, 0, 0, '压机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001651, 0, 0, 0, 0, '顶高机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001652, 0, 0, 0, 0, '光皮机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001653, 0, 0, 0, 0, '拉压机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001654, 0, 0, 0, 0, '镗鼓机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001655, 0, 0, 0, 0, '吊机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001656, 0, 0, 0, 0, '压力机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001657, 0, 0, 0, 0, '校正仪',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001658, 0, 0, 0, 0, '回收机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001659, 0, 0, 0, 0, '灌注机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001660, 0, 0, 0, 0, '加液机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001661, 0, 0, 0, 0, '冲注机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001662, 0, 0, 0, 0, '磨合机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001663, 0, 0, 0, 0, '运送器',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001664, 0, 0, 0, 0, '剥离器',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001665, 0, 0, 0, 0, '磨/镗机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001666, 0, 0, 0, 0, '净化系统',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001667, 0, 0, 0, 0, '平衡机',10001000001508, 'THIRD_CATEGORY', 'USED');
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (10001000001668, 0, 0, 0, 0, '充填机',10001000001508, 'THIRD_CATEGORY', 'USED');
+
+
+
+

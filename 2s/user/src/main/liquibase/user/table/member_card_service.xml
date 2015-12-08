@@ -1,0 +1,51 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="chenfanglei" id="member_card_service_1">
+        <createTable tableName="member_card_service">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="member_card_id" type="bigint"></column>
+            <column name="service_id" type="bigint"></column>
+            <column name="consume_type" type="varchar(50)"></column>
+            <column name="count" type="bigint"></column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="member_card_service_2" author="chenfanglei">
+        <addPrimaryKey tableName="member_card_service" columnNames="id" constraintName="pk_member_card_service"></addPrimaryKey>
+    </changeSet>
+
+    <changeSet id="member_card_service_3" author="chenfanglei">
+        <createIndex tableName="member_card_service" indexName="idx_member_card_service_1">
+            <column name="member_card_id"></column>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="member_card_service_4" author="chenfanglei">
+      <dropColumn tableName="member_card_service" columnName="count"></dropColumn>
+    </changeSet>
+
+    <changeSet id="member_card_service_5" author="chenfanglei">
+      <addColumn tableName="member_card_service">
+        <column name="times" type="bigint"></column>
+        <column name="term" type="int"></column>
+      </addColumn>
+    </changeSet>
+
+    <changeSet id="member_card_service_6" author="chenfanglei">
+      <addColumn tableName="member_card_service">
+        <column name="status" type="varchar(20)"></column>
+      </addColumn>
+    </changeSet>
+</databaseChangeLog>

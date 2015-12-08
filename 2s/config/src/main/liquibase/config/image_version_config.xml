@@ -1,0 +1,59 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xzhu" id="image_version_config_1">
+        <createTable tableName="image_version_config">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="name" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="thumbnails_type" type="varchar(200)"/>
+            <column name="size_fix_width" type="int"/>
+            <column name="size_fix_height" type="int"/>
+            <column name="lessen_value" type="int"/>
+            <column name="watermark_opacity" type="int"/>
+            <column name="watermark_margin_x" type="int"/>
+            <column name="watermark_margin_y" type="int"/>
+            <column name="quality" type="int"/>
+
+
+            <column name="gif2jpg_thumb" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="need_sharpen" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="need_watermark" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="watermark_position" type="varchar(100)"/>
+
+            <column name="watermark_name" type="varchar(200)"/>
+            <column name="format" type="varchar(200)"/>
+            <column name="description" type="varchar(500)"/>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet author="xzhu" id="image_version_config_2">
+        <addPrimaryKey tableName="image_version_config" columnNames="id" constraintName="pk_image_version_config"/>
+    </changeSet>
+</databaseChangeLog>

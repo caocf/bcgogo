@@ -1,0 +1,34 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="liuWei" id="user_guide_history_1">
+    <createTable tableName="user_guide_history">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="flow_name" type="varchar(100)"/>
+      <column name="user_id" type="bigint"/>
+      <column name="status" type="varchar(50)"/>
+      <column name="current_step" type="varchar(50)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="liuWei" id="user_guide_history_2">
+    <addPrimaryKey tableName="user_guide_history" columnNames="id" constraintName="pk_user_guide_history"/>
+  </changeSet>
+
+  <changeSet id="user_guide_history_3" author="liuWei">
+    <modifyColumn tableName="user_guide_history">
+      <column name="current_step" type="varchar(150)"/>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

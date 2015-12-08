@@ -1,0 +1,60 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="yangwj" id="repair_order_secondary_1">
+        <createTable tableName="repair_order_secondary">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="repair_order_id" type="bigint"/>
+            <column name="shop_id" type="bigint"/>
+            <column name="receipt" type="varchar(50)"/>
+            <column name="date" type="bigint"/>
+            <column name="customer_id" type="bigint"/>
+            <column name="customer_name" type="varchar(100)"/>
+            <column name="customer_contact" type="varchar(100)"/>
+            <column name="customer_mobile" type="varchar(30)"/>
+            <column name="customer_landline" type="varchar(30)"/>
+            <column name="vehicle_id" type="bigint"/>
+            <column name="vehicle_license" type="varchar(50)"/>
+            <column name="vehicle_brand" type="varchar(50)"/>
+            <column name="vehicle_model" type="varchar(50)"/>
+            <column name="vehicle_contact" type="varchar(50)"/>
+            <column name="vehicle_mobile" type="varchar(30)"/>
+            <column name="vehicle_handover" type="varchar(100)"/>
+            <column name="start_mileage" type="float"/>
+            <column name="fuel_number" type="varchar(50)"/>
+            <column name="description" type="varchar(500)"/>
+            <column name="memo" type="varchar(500)"/>
+            <column name="start_date" type="bigint"/>
+            <column name="end_date" type="bigint"/>
+            <column name="status" type="varchar(50)"/>
+            <column name="product_saler" type="varchar(500)"/>
+            <column name="service_total" type="float"/>
+            <column name="sales_total" type="float"/>
+            <column name="other_income_total" type="float"/>
+            <column name="total" type="float"/>
+            <column name="settled_amount" type="float"/>
+            <column name="account_debt_amount" type="float"/>
+            <column name="account_discount" type="float"/>
+
+            <column name="vehicle_buy_date" type="bigint"/>
+            <column name="customer_address" type="varchar(500)"/>
+            <column name="vehicle_engine_no" type="varchar(255)"/>
+            <column name="vehicle_chassis_no" type="varchar(255)"/>
+            <column name="vehicle_color" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="repair_order_secondary_2" author="yangwj">
+        <addPrimaryKey tableName="repair_order_secondary" columnNames="id" constraintName="pk_repair_order_secondary"/>
+    </changeSet>
+</databaseChangeLog>

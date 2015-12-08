@@ -1,0 +1,112 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="dongnan" id="draft_order_item_1">
+        <createTable tableName="draft_order_item">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="item_id" type="bigint"/>
+            <column name="draft_order_id" type="bigint"/>
+            <column name="amount" type="double"/>
+            <column name="price" type="double"/>
+            <column name="total" type="double"/>
+            <column name="memo" type="varchar(500)"/>
+            <column name="contact" type="varchar(150)"/>
+            <column name="unit" type="varchar(150)"/>
+            <column name="reserved" type="double"/>
+            <column name="cost_price" type="double"/>
+            <column name="total_cost_price" type="double"/>
+            <column name="percentage" type="double"/>
+            <column name="percentage_amount" type="double"/>
+            <column name="vehicle" type="varchar(150)"/>
+            <column name="vehicle_model" type="varchar(150)"/>
+            <column name="vehicle_year" type="varchar(150)"/>
+            <column name="vehicle_engine" type="varchar(150)"/>
+
+            <column name="service_id" type="bigint"/>
+            <column name="service" type="varchar(150)"/>
+            <column name="worker_ids" type="varchar(150)"/>
+            <column name="workers" type="varchar(150)"/>
+            <column name="consume_type" type="varchar(150)"/>
+            <column name="brand" type="varchar(150)"/>
+            <column name="product_name" type="varchar(150)"/>
+            <column name="storage_unit" type="varchar(150)"/>
+            <column name="sell_unit" type="varchar(150)"/>
+            <column name="rate" type="double"/>
+            <column name="product_local_id" type="bigint"/>
+            <column name="item_type" type="varchar(150)"/>
+            <column name="recommended_price" type="double"/>
+            <column name="lower_limit" type="double"/>
+            <column name="upper_limit" type="double"/>
+            <column name="model" type="varchar(150)"/>
+            <column name="spec" type="varchar(150)"/>
+            <column name="product_type" type="varchar(150)"/>
+            <column name="storage_bin" type="varchar(150)"/>
+            <column name="trade_price" type="double"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="draft_order_item_2" author="dongnan">
+        <addPrimaryKey tableName="draft_order_item" columnNames="id" constraintName="pk_draft_order_item"/>
+    </changeSet>
+    <changeSet author="qiuxinyu" id="draft_order_item_3">
+        <addColumn tableName="draft_order_item">
+            <column name="commodity_code" type="varchar(70)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="draft_order_item_4" author="chenfanglei">
+        <addColumn tableName="draft_order_item">
+            <column name="business_category_id" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="draft_order_item_5" author="chenfanglei">
+        <addColumn tableName="draft_order_item">
+            <column name="product_kind_id" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="draft_order_item_6" author="ndong">
+        <addColumn tableName="draft_order_item">
+            <column name="return_amount" type="double"></column>
+            <column name="return_price" type="double"></column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="draft_order_item_xzhu_7" author="xzhu">
+        <addColumn tableName="draft_order_item">
+            <column name="supplier_product_local_info_id" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="draft_order_item_8" author="ndong">
+        <addColumn tableName="draft_order_item">
+            <column name="use_amount_json" type="varchar(500)"></column>
+        </addColumn>
+    </changeSet>
+
+
+    <changeSet id="draft_order_item_9" author="lw">
+        <addColumn tableName="draft_order_item">
+            <column name="standard_hours" type="double"></column>
+            <column name="standard_unit_price" type="double"></column>
+            <column name="actual_hours" type="double"></column>
+        </addColumn>
+    </changeSet>
+
+  <changeSet id="draft_order_item_10" author="jimuchen">
+    <createIndex tableName="draft_order_item" indexName="IDX_DRAFT_ORDER_ID">
+      <column name="draft_order_id"></column>
+    </createIndex>
+  </changeSet>
+
+</databaseChangeLog>

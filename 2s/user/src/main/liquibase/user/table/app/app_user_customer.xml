@@ -1,0 +1,50 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="lw" id="app_user_customer_1">
+        <createTable tableName="app_user_customer">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="app_user_no" type="varchar(100)"/>
+            <column name="customer_id" type="bigint"/>
+            <column name="shop_id" type="bigint"/>
+            <column name="contact_id" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="app_user_customer" columnNames="id" constraintName="pk_app_user_customer"/>
+        <createIndex tableName="app_user_customer" indexName="IDX_APPUSERNO_CUSTOMERID">
+            <column name="app_user_no"/>
+            <column name="customer_id"/>
+        </createIndex>
+    </changeSet>
+
+  <changeSet id="app_user_customer_2" author="lw">
+    <addColumn tableName="app_user_customer">
+      <column name="match_time" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="app_user_customer_3" author="lw">
+      <addColumn tableName="app_user_customer">
+        <column name="task_id" type="bigint"/>
+      </addColumn>
+    </changeSet>
+
+    <changeSet id="app_user_customer_4" author="sinYuQiu">
+        <addColumn tableName="app_user_customer">
+            <column name="shop_vehicle_id" type="bigint"/>
+            <column name="app_vehicle_id" type="bigint"/>
+            <column name="match_type" type="varchar(20)"/>
+            <column name="is_mobile_match" type="varchar(20)"/>
+            <column name="is_vehicle_no_match" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

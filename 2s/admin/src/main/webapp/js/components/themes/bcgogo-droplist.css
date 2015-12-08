@@ -1,0 +1,51 @@
+/**
+ * @author zhen.pan
+ */
+.ui-border-raduis-1 {border-radius: 1px;}
+.ui-border-raduis-2 {border-radius: 2px;}
+.ui-border-raduis-3 {border-radius: 3px;}
+.ui-border-raduis-4 {border-radius: 4px;}
+.ui-border-raduis-5 {border-radius: 5px;}
+.ui-border-raduis-6 {border-radius: 6px;}
+.ui-border-raduis-7 {border-radius: 7px;}
+.ui-border-raduis-8 {border-radius: 8px;}
+.ui-border-raduis-9 {border-radius: 9px;}
+.ui-border-raduis-10 {border-radius: 10px;}
+.ui-bcgogo-droplist {display: inline-block; background-color: #FFFFFF;width: 200px;border-color: #0063DC;border-style: solid;border-width: 1px;font-family: "微软雅黑","宋体","Arial"; font-size: 12px;margin: 0;padding: 0; overflow-y:auto;overflow-x:hidden;}
+.ui-bcgogo-droplist-category {padding: 2px 4px 2px 4px;overflow: hidden;color: #ff0084;font-weight: 700;background-color: #e6e6e6;width:100%}
+.ui-bcgogo-droplist-option {padding: 2px 4px 2px 4px;overflow: hidden;color: #0063DC;white-space:nowrap;cursor: pointer;display: inline-block;width:100%;}
+/*.ui-bcgogo-droplist-highlighted {background-color: #0063DC; color: #ffffff;}*/
+.ui-bcgogo-droplist-highlighted {background-color: #eeeeff; color: #000000; }
+.ui-bcgogo-droplist-option-text {height:20px; float:left;display:inline-block;border-style: solid; border-color: #999999;border-width: 1px; line-height: 20px; }
+.ui-bcgogo-droplist-option-staticText {height:20px;float:left;font-family:"微软雅黑","黑体","Arial";display:inline-block;overflow-x: hidden; line-height: 20px;}
+
+.ui-bcgogo-droplist-buttonBar {display:inline-block; float:right; padding-right:4px;}
+.ui-bcgogo-droplist-button {float:right;width:20px; height:20px;display: inline-block;}
+
+.ui-bcgogo-droplist-editButton-normal{background: url("./res/droplistEditable.png") no-repeat;background-position: 0px 0px; cursor: pointer;}
+.ui-bcgogo-droplist-editButton-normal:hover{background-position:-1px -22px;}
+.ui-bcgogo-droplist-editButton-press{background: url("./res/droplistEditable.png") no-repeat;background-position:1px -20px;cursor: pointer;}
+.ui-bcgogo-droplist-editButton-disable{background: url("./res/droplistEditable.png") no-repeat;background-position:0px -41px;cursor: default;}
+
+.ui-bcgogo-droplist-saveButton-normal{background: url("./res/droplistEditable.png") no-repeat;background-position: -21px 0px;cursor: pointer;}
+.ui-bcgogo-droplist-saveButton-normal:hover{background-position:-22px -22px;}
+.ui-bcgogo-droplist-saveButton-press{background: url("./res/droplistEditable.png") no-repeat;background-position:-20px -20px;cursor: pointer;}
+.ui-bcgogo-droplist-saveButton-disable{background: url("./res/droplistEditable.png") no-repeat;background-position: -21px -40px;cursor: default;}
+
+.ui-bcgogo-droplist-deleteButton-normal{background:url("./res/droplistEditable_deleteButton.png") no-repeat;background-position: 0 2px;cursor: pointer;}
+.ui-bcgogo-droplist-deleteButton-normal:hover{background-position:0 -20px;cursor: pointer;}
+.ui-bcgogo-droplist-deleteButton-press{background:url("./res/droplistEditable_deleteButton.png") no-repeat;background-position:0 -42px;cursor: pointer;}
+.ui-bcgogo-droplist-deleteButton-disable{background:url("./res/droplistEditable_deleteButton.png") no-repeat;background-position:0 -64px;cursor: pointer;}
+
+.ui-bcgogo-droplist-resumeButton-normal{background: url("./res/droplistEditable.png") no-repeat;background-position: -40px 0px;cursor: pointer;}
+.ui-bcgogo-droplist-resumeButton-normal:hover{background-position:-41px -22px;}
+.ui-bcgogo-droplist-resumeButton-press{background: url("./res/droplistEditable.png") no-repeat;background-position:-39px -20px;cursor: pointer;}
+.ui-bcgogo-droplist-resumeButton-disable{background: url("./res/droplistEditable.png") no-repeat;background-position: -40px -41px;cursor: default;}
+
+.ui-bcgogo-droplist-container {display:block; position:absolute;float:left;margin: 0; }
+.ui-bcgogo-droplist-container .ui-bcgogo-droplist {height: 296px;border-color:#999;width: 170px; }
+.ui-bcgogo-droplist-container .ui-bcgogo-droplist-option {color: #000000;}
+
+.ui-dialog{font-size: 12px;}
+
+.ui-bcgogo-droplist-delete-confirmBar {float:left; background: #eeeeff; text-align: center;}

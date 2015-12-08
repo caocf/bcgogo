@@ -1,0 +1,43 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="qiuxinyu" id="shop_relation_invite_1">
+        <createTable tableName="shop_relation_invite">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="origin_shop_id" type="bigint"/>
+            <column name="origin_user_id" type="bigint"/>
+            <column name="invite_time" type="bigint"/>
+            <column name="invited_shop_id" type="bigint"/>
+            <column name="invite_type" type="varchar(20)"/>
+            <column name="status" type="varchar(20)"/>
+            <column name="operation_man" type="varchar(50)"/>
+            <column name="operation_man_id" type="bigint"/>
+            <column name="operation_time" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="shop_relation_invite" columnNames="id" constraintName="pk_shop_relation_invite"/>
+    </changeSet>
+    <changeSet id="shop_relation_invite_2" author="qiuxinyu">
+        <addColumn tableName="shop_relation_invite">
+            <column name="refuse_msg" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="shop_relation_invite_3_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="shop_relation_invite">
+            <column name="customer_id" type="bigint"/>
+            <column name="supplier_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

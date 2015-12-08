@@ -1,0 +1,209 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="mazidong" id="receivable_1">
+    <createTable tableName="receivable">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="date" type="bigint"/>
+      <column name="no" type="varchar(20)"/>
+      <column name="order_type" type="bigint"/>
+      <column name="order_id" type="bigint"/>
+      <column name="order_no" type="varchar(20)"/>
+      <column name="last_payee_id" type="bigint"/>
+      <column name="last_payee" type="varchar(20)"/>
+      <column name="last_receive_date" type="bigint"/>
+      <column name="status" type="bigint"/>
+      <column name="memo" type="varchar(500)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="receivable_2" author="zhuyinjia">
+    <addPrimaryKey tableName="receivable" columnNames="id" constraintName="pk_receivable"/>
+  </changeSet>
+
+  <changeSet id="receivable_3" author="zhuyinjia">
+    <addColumn tableName="receivable">
+      <column name="settled_amount" type="float"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="receivable_4" author="zhuyinjia">
+    <addColumn tableName="receivable">
+      <column name="debt" type="float"/>
+    </addColumn>
+  </changeSet>
+  <changeSet author="zhouxiaochen" id="receivable_5">
+    <createIndex tableName="receivable" indexName="idx_receivable_shopid_orderid_ordertype">
+      <column name="shop_id"/>
+      <column name="order_type"/>
+      <column name="order_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="luyi" id="receivable_6">
+    <createIndex tableName="receivable" indexName="IDX_RECEIVABLE_SHOPID_ORDERID_DATE">
+      <column name="shop_id"/>
+      <column name="order_id"/>
+      <column name="date"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="caiwei" id="receivable_7">
+    <addColumn tableName="receivable">
+      <column name="discount" type="float"/>
+      <column name="total" type="float"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="caiwei" id="receivable_8">
+    <dropColumn tableName="receivable" columnName="memo"/>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="receivable_9">
+    <dropIndex indexName="IDX_RECEIVABLE_SHOPID_ORDERID_DATE" tableName="receivable"/>
+    <dropIndex indexName="idx_receivable_shopid_orderid_ordertype" tableName="receivable"/>
+    <createIndex tableName="receivable" indexName="IDX_RECEIVABLE_SHOPID_ORDERID">
+      <column name="shop_id"/>
+      <column name="order_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="receivable_10">
+    <addColumn tableName="receivable">
+      <column name="order_type_enum" type="varchar(50)"/>
+      <column name="status_enum" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="receivable_11">
+    <modifyColumn tableName="receivable">
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="receivable_12" author="chenfanglei">
+    <addColumn tableName="receivable">
+      <column name="member_balance_pay" type="double"></column>
+      <column name="accumulate_points_pay" type="double"></column>
+      <column name="accumulate_points" type="bigint"></column>
+    </addColumn>
+  </changeSet>
+
+
+  <changeSet id="receivable_13" author="chenfanglei">
+    <addColumn tableName="receivable">
+      <column name="cash" type="double"></column>
+      <column name="bank_card" type="double"></column>
+      <column name="cheque" type="double"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="receivable_14" author="liuWei">
+    <addColumn tableName="receivable">
+      <column name="member_id" type="bigint"></column>
+    </addColumn>
+  </changeSet>
+  <changeSet id="receivable_15" author="liuWei">
+    <addColumn tableName="receivable">
+      <column name="member_no" type="varchar(100)"/>
+    </addColumn>
+  </changeSet>
+  <changeSet id="receivable_16" author="jimuchen">
+    <addColumn tableName="receivable">
+      <column name="strike" type="double"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="receivable_16" author="chenfanglei">
+      <addColumn tableName="receivable">
+          <column name="member_discount_ratio" type="double"></column>
+          <column name="after_member_discount_total" type="double"></column>
+      </addColumn>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="receivable_17">
+      <createIndex tableName="receivable" indexName="IDX_RECEIVABLE_ORDERID">
+          <column name="order_id"/>
+      </createIndex>
+  </changeSet>
+
+  <changeSet id="receivable_17_liuWei" author="liuWei">
+    <addColumn tableName="receivable">
+      <column name="customer_id" type="bigint"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="receivable_18" author="liuWei">
+    <addColumn tableName="receivable">
+      <column name="receipt_no" type="varchar(20)"></column>
+      <column name="vest_date" type="bigint"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="receivable_19" author="liuWei">
+    <addColumn tableName="receivable">
+      <column name="statement_amount" type="double"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="liuWei" id="receivable_20">
+    <addColumn tableName="receivable">
+      <column name="debt_type" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="liuWei" id="receivable_21">
+    <addColumn tableName="receivable">
+      <column name="statement_account_order_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="liuWei" id="receivable_22">
+    <dropIndex indexName="IDX_RECEIVABLE_ORDERID" tableName="receivable"/>
+    <createIndex tableName="receivable" indexName="IDX_RECEIVABLE_CUSTOMERID">
+      <column name="customer_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="liuWei" id="receivable_23">
+    <addColumn tableName="receivable">
+      <column name="remind_time" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="zhuj" id="receivable_24">
+    <addColumn tableName="receivable">
+      <column name="deposit" type="double"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="receivable_25">
+    <dropIndex indexName="IDX_RECEIVABLE_SHOPID_ORDERID" tableName="receivable"/>
+    <createIndex tableName="receivable" indexName="IDX_RECEIVABLE_ORDERID">
+        <column name="order_id"/>
+    </createIndex>
+    <createIndex tableName="receivable" indexName="IDX_RECEIVABLE_SHOPID">
+        <column name="shop_id"/>
+    </createIndex>
+  </changeSet>
+
+    <changeSet author="jimuchen" id="receivable_26">
+        <createIndex tableName="receivable" indexName="IDX_RECEIVABLE_MEMBERID">
+            <column name="member_id"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

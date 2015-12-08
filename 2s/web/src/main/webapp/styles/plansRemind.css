@@ -1,0 +1,145 @@
+@charset "utf-8";
+/* CSS Document */
+table tr td input{
+	border:1px solid #ADADAD;
+}
+.tuihuo_first span{
+	display:block;
+	clear:both;
+	background:url(../images/right_tui.png) no-repeat;
+	width:1003px;
+	height:3px;
+}
+.tuihuo_first table{
+	border-collapse:collapse;
+	background:url(../images/center_tui.png) repeat-y;
+	width:100%;
+}
+.tuihuo_first table tr td{
+	line-height:3;
+}
+
+.tuihuo_first table .title{
+	text-align:right;
+}
+.i_main .caogao{
+	display:block;
+	float:right;
+	background:url(../images/caogao.png) no-repeat;
+	width:119px;
+	height:21px;
+	color:#fff;
+	margin-right:10px;
+}
+.tuihuo_first table tr td input{
+	line-height:1;
+	display:block;
+	float:left;
+}
+.tuihuo_first table tr .xiangxi_td  a{
+	color:#007cda;
+	text-decoration:underline;
+}
+.tuihuo_first table tr .xiangxi_td input{
+	margin-top:10px;
+}
+.tuihuo_first table tr td .xiangxi{
+	background:url(../images/btn_la.png) no-repeat;
+	border:none;
+	width:13px;
+	height:13px;
+	margin-top:15px;
+	margin-right:5px;
+}
+.tuihuo_first table tr .xiangxi_td input,.tuihuo_first table tr .xiangxi_td a{
+	display:block;
+	float:left;
+}
+.tuihuo_first .right_tuihuo{
+	background:url(../images/left_tui.png) no-repeat;
+	width:1003px;
+	height:3px;
+	display:block;
+	float:left;
+}
+
+.i_mainRight #tuihuo_show{
+	border-collapse:collapse;
+	margin:10px 0px;
+	width:1003px;
+	border:1px solid #C9C6C6;
+}
+.i_main .caogao{
+	line-height:21px;
+	text-align:center;
+	float:right;
+}
+
+#tuihuo_show tr{
+	padding:0px 5px;
+}
+#tuihuo_show tr td{
+	height:31px;
+}
+#tuihuo_show tr td input{
+	height:21px;
+}
+.i_mainRight #tuihuo_show tr td .dele_a{
+	color:#c00000;
+	text-decoration:underline;
+}
+#tuihuo_show .title_tb{
+	background:url(../images/title_tbcenter.png) repeat-x;
+	color:#fff;
+	text-align:center;
+}
+.i_mainRight #tuihuo_show .heji_tb td{
+	font-weight:bold;
+	color:#7f7f7f;
+}
+
+.ti_btn input{
+	display:block;
+	float:left;
+	background:url(../images/btn_tong.png) no-repeat;
+	width:76px;
+	height:25px;
+	border:none;
+	margin-right:10px;
+}
+.ti_btn .sure_tui{
+	margin-left:400px;
+}
+.ti_btn input:hover{
+	background:url(../images/btn_ti.png) no-repeat;
+	color:#fff;
+}
+
+.tixing_tb table tr td{
+	font-size:12px;
+}
+.tuihuo_first .tixing_tt  tr td{
+	color:#7F7F7F;
+	font-size:14px;
+}
+
+.sendMsg,.edit,.delete{
+	cursor:pointer;
+	color:#0067C2;
+}
+
+.shopPlans td{
+	overflow: hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
+/*清理css污染*/
+.tuihuo_first table label, .tuihuo_first table input, .tuihuo_first table .selectTime{
+	display:inline;
+	float:none;
+}
+.tuihuo_first .jihua_tb tr td input, .tuihuo_first .jihua_tb tr td img{
+	display:inline;
+	float:none;
+}

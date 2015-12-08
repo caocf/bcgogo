@@ -1,0 +1,81 @@
+.i_searchBrand {
+    float: left;
+    width: 560px;
+}
+.i_searchBrand .i_upBody{
+	width: 522px;
+	color:#000000;
+	font-family:"宋体";
+	font-weight:normal;
+	padding-right:10px;
+}
+.i_searchBrand .i_upCenter{
+	width:540px;
+}
+.i_searchBrand .i_upCenter .i_note{
+	width:480px;
+}
+.i_upBottom .i_upBottomCenter{
+	width:532px;
+}
+
+.btnOpera1{
+	float:left;
+	background:url(../images/opera1.jpg) no-repeat;
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	border:none;
+}
+.btnOpera2{
+	float:left;
+	background:url(../images/opera2.jpg) no-repeat;
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	border:none;
+}
+.btnOpera2{
+	margin-left:5px;
+}
+
+
+.tabEmp{
+	width:100%;
+}
+.tabEmp td{
+	height:35px;
+	line-height:35px;
+}
+.tabEmp td label{
+	padding-right:14px;
+}
+
+.tabEmp .txtDate input{
+	float:left;
+}
+.tabEmp .txtDate img{
+    display: block;
+    float: right;
+}
+.tabEmp textarea{
+	width:85%;
+}
+.tabEmp .remark{
+	float:left;
+}
+
+.btnInput{
+	float:right;
+}
+.btnInput input{
+	background:url(../images/editCancel.jpg) no-repeat;
+	width:58px;
+	height:31px;
+	line-height:31px;
+	text-align:center;
+	color:#6699CC;
+	border:none;
+	cursor:pointer;
+}
+

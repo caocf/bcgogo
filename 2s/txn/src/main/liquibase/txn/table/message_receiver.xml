@@ -1,0 +1,38 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xzhu" id="message_receiver_1">
+        <createTable tableName="message_receiver">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="message_id" type="bigint"/>
+            <column name="receiver_id" type="bigint"/>
+            <column name="receiver_name" type="varchar(100)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="xzhu" id="message_receiver_2">
+        <addPrimaryKey tableName="message_receiver" columnNames="id" constraintName="pk_message_receiver"/>
+    </changeSet>
+    <changeSet id="message_receiver_3" author="xzhu">
+        <addColumn tableName="message_receiver">
+            <column name="receiver_shop_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="message_receiver_4" author="qiuxinyu">
+        <addColumn tableName="message_receiver">
+            <column name="sender_name" type="varchar(100)"/>
+            <column name="sender_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

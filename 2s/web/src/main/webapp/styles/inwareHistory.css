@@ -1,0 +1,77 @@
+@charset "utf-8";
+/* CSS Document */
+.i_history{width:770px;}
+#history{border-top:none;}
+.table2 .qian_blue{color:#6699cc;}
+.chk,.ss{
+	background: url(../images/check_off.jpg) no-repeat;
+	margin-left:10px;
+}
+#all_chk{
+	float:left; margin-left:6px;}
+	.ss strong{ padding-top:15px;display:block;}
+.his_bottom {
+	clear:both;
+	margin-top:10px;
+}
+#div_arrear .table_btn{padding:10px 0px 0px 0px;}
+#div_arrear .table_btn .btn{ float:right;}
+#div_arrear .table_btn .sure_btn,#div_arrear .table_btn .sure_btna{ background:url(../images/admin_title.png) no-repeat; width:128px; height:31px;}
+#div_arrear .table_btn .sure_btna{width:63px; background:url(../images/admin_titler.png) no-repeat; margin-left:10px;}
+.i_main{width:880px;}
+.search_his{ margin-top:70px;}
+.his_search ul .search_user label{width:63px;}
+.his_search ul .search_user input{width:385px;  }
+
+.table2 td .opera2{
+	float:left;
+	background:url(../images/anniu_2.png) no-repeat;
+	width:18px;
+	height:15px;
+	margin-top:5px;
+}
+.table2 td .opera1{
+	float:left;
+	background:url(../images/anniu_1.png) no-repeat;
+	width:14px;
+	height:15px;
+	margin:5px 0px 0px 7px;
+}
+.table2 td .num{
+	float:left;
+	width:25px;
+}
+.table2 td .num input{
+	margin-top:2px;
+	width:25px;
+	font-size:12px;
+	text-align:right;
+}
+.more_supplier {
+    width: 910px;
+}
+.i_supplierInfo .i_two {
+    width: 906px;
+}
+.i_supplierInfo .i_upCenter .more_title {
+    width: 850px;
+}
+.more_supplier .i_upBody {
+    width: 888px;
+	*margin-right:10px;
+}
+.table2 {
+    width: 100%;
+}
+.more_supplier .i_upBottom .i_upBottomCenter {
+    width: 898px;
+}
+#clickInfo{
+	cursor:pointer;
+}
+.click_detail{
+    cursor:pointer;
+}
+#div_arrear td{
+  text-overflow:ellipsis; overflow:hidden;
+}

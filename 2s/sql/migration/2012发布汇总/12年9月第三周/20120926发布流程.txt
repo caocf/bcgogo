@@ -1,0 +1,94 @@
+发布步骤：
+一.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+二.数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，姬牧晨）
+
+三.更新product solr schema
+四.发布应用（纪友文）
+五.添加权限:
+insert into   bcuser.`shop_role` (`shop_type`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES ('TXN_SHOP','21000058','31000058',1337862019901,1337862019901,0);
+insert into   bcuser.`shop_role` (`shop_type`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES ('TXN_SHOP','21000059','31000059',1337862019901,1337862019901,0);
+
+ （一）角色
+  1.添加角色：
+                 name                               备注
+            web_txn_draft                            进销存（草稿箱）
+            web_txn_tradePrice                       进销存（批发价）
+            web_shopSystem_stat_running              统计（流水）
+
+  2.角色添加到用户组和shop版本
+              角色name                                       shop版本                                          用户组
+          web_txn_draft（草稿箱）                     汽配版，综合店，初级版，微型版         前台，仓管，经理/店长，老板/财务，BCGOGO管理员
+          web_txn_tradePrice（批发价）                汽配版，综合店，初级版，微型版         前台，经理/店长，老板/财务，BCGOGO管理员
+          web_shopSystem_stat_running（流水）       汽配版，综合店，初级版，微型版           老板/财务，BCGOGO管理员
+ （二）资源
+          name                                           type           value                                                          备注
+ //-------------------------------------------------------------------------------------------------new role----------------------------------------------------------------------------------------------------
+ //=============================================== 草稿 web_txn_draft (董楠)===================================================
+ web_txn_draft_getDraftOrders                           request      /web/draft.do?method=getDraftOrders                          查询所有草稿
+ web_txn_draft_toDraftOrderBox                          request      /web/draft.do?method=toDraftOrderBox                          草稿箱链接跳转的controller
+ web_txn_draft_getOrderByDraftOrderId                   request      /web/draft.do?method=getOrderByDraftOrderId                   编辑草稿
+ web_txn_draft_deleteDraftOrder                         request      /web/draft.do?method=deleteDraftOrder                         删除草稿
+ web_txn_draft_saveReturnStorageOrderDraft              request      /web/draft.do?method=saveReturnStorageOrderDraft              保存退货单草稿
+ web_txn_draft_saveSalesOrderDraft                      request      /web/draft.do?method=saveSalesOrderDraft                      保存销售单草稿
+ web_txn_draft_saveRepairOrderDraft                     request      /web/draft.do?method=saveRepairOrderDraft                     保存施工单草稿
+ web_txn_draft_savePurchaseInventoryDraft               request      /web/draft.do?method=savePurchaseInventoryDraft               保存采购单草稿
+ web_txn_draft_savePurchaseOrderDraft                   request      /web/draft.do?method=savePurchaseOrderDraft                   保存采购单草稿
+ //===============================================批发价 web_txn_tradePrice (邱鑫宇)===================================================
+ web_txn_tradePrice_setTradePrice		                    request		   /web/txn.do?method=setTradePrice                                打开设定批发价的弹出框
+ web_txn_tradePrice_updateSingleTradePrice		            request		   /web/txn.do?method=updateSingleTradePrice                     更新单个商品的批发价
+ web_txn_tradePrice_updateMultipleTradePrice		          request		   /web/txn.do?method=updateMultipleTradePrice                   更新多个商品的批发价
+ //===============================================流水 web_shopSystem_stat_running （刘伟）===================================================
+ web_shopSystem_stat_running_getRunningStat	      	        request		/web/runningStat.do?method=getRunningStat      流水统计页面跳转
+ web_shopSystem_stat_running_getRunningStatByType		        request		/web/runningStat.do?method=getRunningStatByType   流水统计获得柱状图
+ web_shopSystem_stat_running_getRunningStatDate		          request		/web/runningStat.do?method=getRunningStatDate   流水统计获得左侧流数据
+ web_shopSystem_stat_running_getIncomeDetailByDay		        request		/web/runningStat.do?method=getIncomeDetailByDay   流水统计 获得 每日收入列表
+ web_shopSystem_stat_running_getIncomeDetailByMonth		      request		/web/runningStat.do?method=getIncomeDetailByMonth  流水统计 获得 每日流水收入列表
+ web_shopSystem_stat_running_getIncomeDetailByYear		        request		/web/runningStat.do?method=getIncomeDetailByYear 流水统计 获得 每月流水收入列表
+ web_shopSystem_stat_running_getExpenditureDetailByDay		    request		/web/runningStat.do?method=getExpenditureDetailByDay  流水统计 获得 每日支出列表
+ web_shopSystem_stat_running_getExpenditureDetailByMonth	    request		/web/runningStat.do?method=getExpenditureDetailByMonth  流水统计 获得 每日流水支出列表
+ web_shopSystem_stat_running_getExpenditureDetailByYear	    request		/web/runningStat.do?method=getExpenditureDetailByYear     流水统计 获得 每月流水支出列表
+ //-------------------------------------------------------------------------------------------------old role----------------------------------------------------------------------------------------------------
+ //=============================================== BCGOGO初始化权限 web_bcgogoSystem （刘伟）===================================================
+ web_bcgogoSystem_init_initReceivable                    request    /web/statInit.do?method=initReceivable 数据初始化:初始化receivable
+ web_bcgogoSystem_init_initStat                          request    /web/statInit.do?method=initStat      流水统计数据初始化
+ //=============================================== 施工单重录 web_invoicing_repairOrder （朱星星）===================================================
+ web_txn_invoicing_repairOrder_reinput                request      /web/txn.do?method=repairOrderReInput     施工单重录
+ //=============================================== 退货 web_txn_return （李金龙）===================================================
+ web_txn_return_createReturnStorage	                    request	     /web/goodsReturn.do?method=createReturnStorage                直接登录退货单界面退货
+ web_txn_return_saveReturnStorage	                      request	     /web/goodsReturn.do?method=saveReturnStorage                  保存退货单
+ web_txn_return_printReturnStorageOrder	                request	     /web/goodsReturn.do?method=printReturnStorageOrder            打印退货单
+ web_txn_return_getSupplierDetailInfo	                  request	     /web/goodsReturn.do?method=getSupplierDetailInfo              获取供应商详细信息
+ web_txn_return_createReturnStorageByProductId	          request	     /web/goodsReturn.do?method=createReturnStorageByProductId   通过供应商进行退货处理
+ web_txn_return_createReturnStorageBySupplierId	        request	     /web/goodsReturn.do?method=createReturnStorageBySupplierId    通过商品选择进行退货处理
+ web_txn_return_getReturnStorageByPurchaseReturnNo	      request	     /web/goodsReturn.do?method=getReturnStorageByPurchaseReturnNo   根据退货单号查找退货单
+ web_txn_return_validateReturnOrder	                    request	     /web/goodsReturn.do?method=validateReturnOrder                    验证退货单
+ //===============================================商品销售权限 web_txn_sale （刘伟）===================================================
+ web_txn_sale_validateSalesOrder                            request		/web/sale.do?method=validateSalesOrder                    销售单结算时验证会员密码和余额，还有库存量
+ //===============================================欠款结算 web_customer_debt （刘伟）===================================================
+ web_customer_debt_checkMemberBalance                       request		/web/member.do?method=checkMemberBalance                   欠款结算时验证会员密码和余额
+ //===============================================草稿打印 web_txn_print （陈方雷）===================================================
+ web_txn_print_getDraftOrderToPrint                       request		/web/draft.do?method=getDraftOrderToPrint       根据传入的草稿id和单据类型进行草稿打印
+ //===============================================进销存销售	web_txn_sale （张峻滔）===================================================
+  	web_txn_sale_accountDetail                       request		/web/sale.do?method=accountDetail             销售单结算
+
+六.权限配置结束需要手动刷新资源！ （纪友文）
+
+登录admin，在"数据维护"->"系统配置" 中新增两条配置
+key           value         描述
+STORAGE_BIN    ON       仓位默认开关
+TRADE_PRICE    OFF       批发价默认开关
+
+七.后台重新索引“所有店面商品和库存"
+
+八.流水统计数据初始化 （纪友文，刘伟）
+
+九.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

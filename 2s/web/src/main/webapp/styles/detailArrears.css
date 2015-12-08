@@ -1,0 +1,34 @@
+.postTitle {
+  float: left;
+  width: 100%;
+  border-bottom: 2px solid #6E8FBA;
+  color: #000000;
+  line-height: 30px;
+}
+
+/*.tabTotal {*/
+  /*width: 100%;*/
+  /*table-layout: fixed;*/
+  /*font-weight: normal;*/
+  /*border-top: 3px solid #EACB92;*/
+  /*background: #FBECB9;*/
+  /*padding: 0px 0px 0px 10px;*/
+/*}*/
+
+/*.tabTotal tr td {*/
+  /*height: 30px;*/
+  /*line-height: 30px;*/
+/*}*/
+
+
+/*.tabTotal .divNum{*/
+	/*margin:-10px 0px 0px 25px;*/
+/*}*/
+
+/*.tabTotal tr td{ padding-left:10px;}*/
+/*.tabTotal .title td{ background:#fff; border-bottom:2px solid #EACB92; padding:0px;}*/
+
+/*.tab_input{*/
+	/*border:1px solid #7F9DB9;*/
+	/*height:17px;*/
+/*}*/

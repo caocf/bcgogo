@@ -1,0 +1,43 @@
+{
+    "data": [
+        {
+            "id": "10000010200429945",
+            "startTime": "1367472393403",
+            "endTime": "",
+            "status": "FULL_PAYMENT",
+            "shopId": "10000010001170017",
+            "followId": "6",
+            "memo": "",
+            "shopName": "福州丰达汽车修理厂1",
+            "followName": "王潇阳",
+            "totalAmount": 3980,
+            "receiptNo": "SR201305020001",
+            "shopMobile": "15646203695",
+            "paymentType": "HARDWARE",
+            "instalmentPlanId": "",
+            "currentInstalmentPlanEndTime": "",
+            "receivedAmount": 3980,
+            "receivableAmount": 0,
+            "receivableContent": "会员卡3980000张【总额￥3980.0】",
+            "createdTime": "1367472393409",
+            "buyChannels": "BACKGROUND_ENTRY",
+            "bcgogoReceivableOrderItemDTOList": [
+                {
+                    "id": "10000010223852293",
+                    "total": 3980,
+                    "productId": "100000003",
+                    "memo": "",
+                    "productName": "会员卡",
+                    "price": 0,
+                    "amount": 3980000,
+                    "productKind": "",
+                    "productType": "",
+                    "orderId": "10000010200429945",
+                    "productPropertyId": "",
+                    "productText": "会员卡"
+                }
+            ]
+        }
+
+    ]
+}

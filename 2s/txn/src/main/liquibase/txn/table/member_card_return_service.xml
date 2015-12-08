@@ -1,0 +1,37 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+  <changeSet author="jimuchen" id="member_card_return_service_1">
+    <createTable tableName="member_card_return_service">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+
+      <column name="shop_id" type="bigint"></column>
+      <column name="member_card_return_id" type="bigint"></column>
+      <column name="service_id" type="bigint"></column>
+      <column name="last_buy_times" type="int"></column>
+      <column name="used_times" type="int"></column>
+      <column name="remain_times" type="int"></column>
+      <column name="last_buy_times_limit_type" type="varchar(50)"></column>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="member_card_return_service_2" author="jimuchen">
+    <addPrimaryKey tableName="member_card_return_service" columnNames="id" constraintName="pk_member_card_return_service"></addPrimaryKey>
+  </changeSet>
+
+  <changeSet id="member_card_return_service_3" author="jimuchen">
+    <addColumn tableName="member_card_return_service">
+      <column name="service_history_id" type="bigint" />
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

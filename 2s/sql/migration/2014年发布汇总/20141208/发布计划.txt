@@ -1,0 +1,33 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+
+
+三.发布应用
+  1. 发布web,admin
+
+四.添加权限
+
+
+
+五.初始化
+
+修改数据库参数
+
+config表中添加：
+
+     name                       value     description
+SmsIndustrySenderStrategy       YiMei     行业信息使用 亿美通道
+SmsMarketingSenderStrategy      LianYu    营销信息使用 联逾通道
+
+去掉
+SmsSenderStrategy               YiMei
+
+
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+
+  
+                 

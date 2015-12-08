@@ -1,0 +1,120 @@
+@charset "utf-8";
+/* CSS Document */
+.text_justified,.i_upBody .table2 .table_title .text_justified{ text-align:right;padding-right:6px;}
+.i_upBody .table2{margin-top:10px; margin-bottom:5px;width:100%;}
+.i_upBody .i_leftBtn{ float:left;width:150px;}
+ .i_searchBrand .i_upCenter .i_note{width:670px;}
+ .i_searchBrand .i_upCenter{
+	 /*width:838px*/
+	 width:938px;
+ }
+ .i_searchBrand .i_upBody,.i_upBottom .i_upBottomCenter{
+	 /*width:820px;*/
+	 width:920px;
+	 color:#000000;
+	 padding-right:10px; }
+.i_upBody .table2 .qian_blue{color:#6699cc;}
+.i_upBody .addNew{
+	float:right;
+	padding:12px 0px 0px 0px;
+}
+.i_upBody .btnAdd{
+	background:url(../images/btn_add.png) no-repeat;
+	width:150px;
+	height:22px;
+	line-height:22px;
+	color:#FFFFFF;
+	border:none;
+	cursor:pointer;
+}
+
+.ascending{
+	background:url(../images/Ascending.png) no-repeat 5px 2px;
+	width:22px;
+	height:22px;
+	border:none;
+	cursor:pointer;
+}
+.descending{
+	background:url(../images/Descending.png) no-repeat 5px 2px;
+	width:22px;
+	height:22px;
+	border:none;
+	cursor:pointer;
+}
+
+.stock_txtName {
+	float:left;
+	padding-left:5px;
+	padding-top:7px;
+	line-height:20px;
+	color:#FFFFFF;
+	font-size:14px;
+}
+.stock_txtName input{
+	/*background:url(../images/txtName.jpg) no-repeat;*/
+	width:88px;
+	height:20px;
+	line-height:20px;
+	border:none;
+	color:#999999;
+	padding-left:6px;
+}
+.stock_txtName .stock_txtClick {
+	float:left;
+}
+.stock_txtName .stock_txtClick input {
+	float:left;
+	background:url(../images/clickBtn.jpg) no-repeat;
+	width:23px;
+	height:20px;
+	border:none;
+	cursor:pointer;
+}
+.stock_txtName .stock_txtLeft {
+	float:left;
+	background:url(../images/txtLeft.jpg) no-repeat;
+	width:4px;
+	height:20px;
+}
+.stock_txtName .stock_txtBody {
+	float:left;
+	background:url(../images/txtBody.jpg) repeat-x;
+	width:100px;
+	height:20px;
+	color:#999999;
+	padding-left:6px;
+}
+.stock_txtName input.stock_search {
+	background:url(../images/search_sell.png) no-repeat;
+	width:22px;
+	height:20px;
+	border:none;
+	cursor:pointer;
+}
+.stock_txtName .stock_content {
+	clear:both;
+	position:absolute;
+	z-index:99;
+	border: 1px solid #999999;
+	border-top:none;
+	background:#FFFFFF;
+	margin-top:20px;
+	float:left;
+}
+.stock_txtName .stock_content a {
+	display:block;
+	width:125px;
+	padding-left:5px;
+	color:#666666;
+}
+.stock_txtName .stock_content a:hover {
+	display:block;
+	background:#316AC5;
+	color:#FFFFFF;
+	width:125px;
+}
+table.table2 td{
+  text-overflow: ellipsis;
+  overflow:hidden;
+}

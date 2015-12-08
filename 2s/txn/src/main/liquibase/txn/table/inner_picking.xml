@@ -1,0 +1,31 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="qiuxinyu" id="inner_picking_1">
+        <createTable tableName="inner_picking">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="receipt_no" type="varchar(20)"/>
+            <column name="vest_date" type="bigint"/>
+            <column name="status" type="varchar(50)"/>
+            <column name="storehouse_id" type="bigint"/>
+            <column name="storehouse_name" type="varchar(100)"/>
+            <column name="picking_man" type="varchar(50)"/>
+            <column name="picking_man_id" type="bigint"/>
+            <column name="operation_man" type="varchar(50)"/>
+            <column name="operation_man_id" type="bigint"/>
+            <column name="total" type="double"/>
+        </createTable>
+        <addPrimaryKey tableName="inner_picking" columnNames="id" constraintName="pk_inner_picking"/>
+    </changeSet>
+</databaseChangeLog>

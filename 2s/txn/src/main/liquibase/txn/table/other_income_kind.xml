@@ -1,0 +1,45 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet author="chenfanglei" id="other_income_kind_1">
+        <createTable tableName="other_income_kind">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="kind_name" type="varchar(200)"/>
+            <column name="status" type="varchar(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="chenfanglei" id="other_income_kind_2">
+        <addPrimaryKey tableName="other_income_kind" columnNames="id" constraintName="pk_other_income_kind"/>
+    </changeSet>
+
+    <changeSet author="chenfanglei" id="other_income_kind_3">
+        <createIndex tableName="other_income_kind" indexName="IDX_OTHER_INCOME_KIND_SHOP_ID_ID">
+            <column name="id"/>
+            <column name="shop_id"/>
+        </createIndex>
+
+        <createIndex tableName="other_income_kind" indexName="IDX_OTHER_INCOME_KIND_SHOP_ID_KIND_NAME">
+            <column name="shop_id"/>
+            <column name="kind_name"/>
+        </createIndex>
+    </changeSet>
+
+
+    <changeSet id="other_income_kind_4" author="lw">
+      <addColumn tableName="other_income_kind">
+        <column name="use_times" type="bigint"/>
+      </addColumn>
+    </changeSet>
+
+
+</databaseChangeLog>

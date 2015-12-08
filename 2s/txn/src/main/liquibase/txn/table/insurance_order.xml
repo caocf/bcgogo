@@ -1,0 +1,92 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="qiuxinyu" id="insurance_order_1">
+        <createTable tableName="insurance_order">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="editor_id" type="bigint"/>
+            <column name="editor" type="varchar(20)"/>
+            <column name="repair_order_id" type="bigint"/>
+            <column name="repair_order_receipt_no" type="varchar(20)"/>
+            <column name="policy_no" type="varchar(50)"/>
+            <column name="report_no" type="varchar(50)"/>
+            <column name="insurance_company_id" type="bigint"/>
+            <column name="insurance_company" type="varchar(50)"/>
+            <column name="insure_start_date" type="bigint"/>
+            <column name="insure_end_date" type="bigint"/>
+            <column name="customer_id" type="bigint"/>
+            <column name="customer" type="varchar(50)"/>
+            <column name="vehicle_id" type="bigint"/>
+            <column name="licence_no" type="varchar(20)"/>
+            <column name="driver" type="varchar(50)"/>
+            <column name="driving_no" type="varchar(50)"/>
+            <column name="mobile" type="varchar(50)"/>
+            <column name="brand" type="varchar(50)"/>
+            <column name="model" type="varchar(50)"/>
+            <column name="chassis_number" type="varchar(50)"/>
+            <column name="engine_number" type="varchar(50)"/>
+            <column name="reporter" type="varchar(50)"/>
+            <column name="reporter_contact" type="varchar(50)"/>
+            <column name="report_date" type="bigint"/>
+            <column name="accident_date" type="bigint"/>
+            <column name="accident_address" type="varchar(100)"/>
+            <column name="survey_date" type="bigint"/>
+            <column name="survey_address" type="varchar(100)"/>
+            <column name="accident_handling" type="varchar(20)"/>
+            <column name="accident_liability" type="varchar(20)"/>
+            <column name="first_survey_address" type="varchar(20)"/>
+            <column name="accident_type" type="varchar(20)"/>
+            <column name="survey_opinion" type="varchar(500)"/>
+            <column name="accident_cause" type="varchar(20)"/>
+            <column name="relate_insuranceItems" type="varchar(200)"/>
+            <column name="estimate_date" type="bigint"/>
+            <column name="estimate_address" type="varchar(100)"/>
+            <column name="insurance_cost" type="double"/>
+            <column name="scrap_value" type="double"/>
+            <column name="scrap_approach" type="varchar(20)"/>
+            <column name="claims" type="double"/>
+            <column name="claims_percentage" type="double"/>
+
+        </createTable>
+        <addPrimaryKey tableName="insurance_order" columnNames="id" constraintName="pk_insurance_order"/>
+    </changeSet>
+
+    <changeSet id="insurance_order_2" author="jinyuan">
+        <addColumn tableName="insurance_order">
+            <column name="repair_draft_order_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+  
+  <changeSet id="insurance_order_3" author="jimuchen">
+    <createIndex tableName="insurance_order" indexName="IDX_SHOP_ID_REPAIR_ORDER_ID">
+      <column name="shop_id" />
+      <column name="repair_order_id" />
+    </createIndex>
+  </changeSet>
+
+
+    <changeSet id="insurance_order_4" author="mayan">
+        <addColumn tableName="insurance_order">
+            <column name="status" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="insurance_order_5" author="mayan">
+        <addColumn tableName="insurance_order">
+            <column name="person_claims" type="double"/>
+            <column name="person_claims_percentage" type="double"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

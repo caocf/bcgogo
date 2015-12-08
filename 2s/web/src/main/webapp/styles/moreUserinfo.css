@@ -1,0 +1,307 @@
+@charset "utf-8";
+/* CSS Document */
+.more_supplier {
+	width:830px;
+	font-size:12px;
+}
+.i_supplierInfo .i_two {
+	width:826px;
+}
+.i_supplierInfo .i_upCenter .more_title {
+	width:770px;
+}
+.more_supplier .i_upBody {
+	width:808px;
+}
+
+.more_supplier .i_upBottom .i_upBottomCenter {
+	width:818px;
+}
+.more_user {
+	background:#fcfad0;
+	clear:both;
+	margin-top:-10px;
+	font-size:12px;
+}
+.more_user h3 {
+	height:30px;
+	line-height:30px;
+	font-size:12px;
+	color:#000000;
+	border-bottom:1px solid #fff;
+	padding:0 8px;
+}
+.more_user .settle, .txt_paw {
+	border:1px solid #CCCCCC;
+	border-top:1px solid #666666;
+	width:130px;
+	height:18px;
+	line-height:18px;
+	color:#4D4C4D;
+	padding-left:6px;
+	float:left;
+	position:relative;
+	margin-left:5px;
+	margin-right:5px;
+ *margin-left:4px;
+	_margin-left:0px;
+	background:#fff;
+}
+.txt_paw {
+	width:170px;
+}
+.more_info .settleList {
+	width:136px;
+	position:absolute;
+	left:-1px;
+	top:19px;
+	display:none;
+}
+.more_info .txt_info {
+	float:left;
+	margin-bottom:15px;
+	padding:0 8px;
+	color:#000;
+}
+.more_info .txt_info label {
+	float:left;
+}
+.more_info {
+	border-bottom:1px solid #fff;
+}
+.more_user .settle .btnArrow {
+}
+.moreInfo{
+	float:right;
+	background:url(../images/rightArrow.png) no-repeat right center;
+	padding-right:15px;
+	color:#6699CC;
+	text-decoration:none;
+}
+.car_info {
+	margin-top:-12px;
+*margin-top:-19px;
+}
+.his_bottom {
+	margin-top:0px;
+}
+.more_his {
+	float:right;
+}
+input.btn {
+	background:url(../images/chkTong.png) no-repeat;
+	border:none;
+	width:76px;
+	height:25px;
+	color:#ffffff;
+	cursor:pointer;
+}
+input.btn:hover {
+    background:url(../images/chkTi.png) no-repeat;
+    color:#663A02;
+}
+.table_input{width:90%;}
+
+
+.btnCard{
+	background:url(../images/chkNormal2.png) no-repeat;
+	width:90px;
+	height:25px;
+	line-height:25px;
+	text-align:center;
+	color:#FFFFFF;
+	border:none;
+	cursor:pointer;
+	margin-left:25px;
+}
+
+.btnCard:hover {
+    background:url(../images/btnHover2.png) no-repeat;
+    color:#663A02;
+}
+
+.i_buyCards{
+	width:770px;
+}
+.i_buyCards .supplierTable td{
+	line-height:35px;
+}
+.i_buyCards .i_two{
+	width:758px;
+}
+.i_buyCards .i_upCenter .more_title {
+    width: 700px;
+}
+.i_buyCards .i_upBody {
+  height: 600px;
+    width: 740px;
+	overflow:hidden;
+	overflow-y:scroll;
+}
+.i_buyCards .i_upBottom .i_upBottomCenter {
+    width: 750px;
+}
+.i_buyCards .table2 td.txt_right .tab_input{
+	text-align:right;
+}
+.i_buyCards .table2 .tab_input{
+	width:90%;
+}
+.i_buyCards .table2 .opera1,.i_buyCards .table2 .opera2{
+	background:url(../images/opera1.jpg) no-repeat;
+	width:16px;
+	height:16px;
+	border:none;
+	cursor:pointer;
+}
+.i_buyCards .table2 .opera2{
+	background:url(../images/opera2.jpg) no-repeat;
+	margin-left:10px;
+}
+.i_buyCards .postTitle{
+	float:left;
+	width:100%;
+	border-bottom:2px solid #6E8FBA;
+	color:#000000;
+	line-height:30px;
+}
+.i_buyCards .cardType{
+	float:right;
+	/*background:url(../images/smalljinCard.png) no-repeat;*/
+	width:70px;
+	height:35px;
+	padding-right:10px;
+}
+.remark{
+	color:#000000;
+}
+.remark input{
+	width:90%;
+	margin-left:3px;
+}
+.i_buyCards .words{
+	font-size:18px;
+	font-weight:bold;
+}
+.tab_input{
+	border:1px solid #7F9DB9;
+	height:17px;
+}
+.tab_input:hover{
+	border: 1px solid #88d9ff;
+}
+.tab_input:focus{
+	/*background:#E7DBC5;*/
+	background:#EBEBE4;
+}
+/*.i_buyCards .table2 .opera2:hover,.i_buyCards .table2 .opera1:hover{
+/*    filter: progid:DXImageTransform.Microsoft.Shadow(color='#969696', Direction=145, Strength=2);
+    -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);	*/
+
+/*    box-shadow: 0 0 5px #B7BFC2, 0 0 5px #B7BFC2, 0 2px 4px rgba(255, 255, 255, 0.8) inset;
+}*/
+
+.i_buyCards .supplierTable .divNum{
+	margin:-15px 0px 0px 25px;
+}
+
+.i_buyCards .supplierTable .tr_bgColor{
+	background:#FBECB9;
+
+}
+.i_buyCards .supplierTable .tr_bg{ background:#D5FCA1;}
+.i_buyCards .supplierTable .tr_bgColor td{
+	/*padding-left:10px;*/
+}
+.i_buyCards .supplierTable .tr_border{
+	border-top:3px solid #EACB92;
+}
+.i_buyCards .noticeWords{
+	color:#F00000;
+}
+
+.i_buyCards .txtSelect {
+	border:1px solid #7F9DB9;
+	height:18px;
+}
+.i_buyCards .txtSelect .select_icon input{
+	background:url(../images/selectIcon.png) no-repeat;
+	width:15px;
+	height:15px;
+	border:none;
+	cursor:pointer;
+	margin-top:1px;
+	padding-left:3px;
+	font-size:12px;
+}
+.i_buyCards .txtSelect .select_text{
+	border:none;
+    float: left;
+    margin-top: -16px;
+    width: 70px;
+}
+.selectList{
+	position:absolute;
+	z-index:10;
+	float:left;
+	background:#FFFFFF;
+	border: 1px solid #7F9DB9;
+	border-top:none;
+	width:87px;
+	line-height:25px;
+}
+.selectList label{
+	display:block;
+	color:#000000;
+	cursor:pointer;
+}
+
+.i_buyCards .btnSearch{
+	background:url(../images/magnifier.png) no-repeat;
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	border:none;
+}
+
+.i_buyCards .divSettle{
+	float:left;
+	color:#000000;
+	font-family:"宋体";
+	font-weight:normal;
+	line-height:25px;
+	padding:10px;
+	background:#E5E5E5;
+	border-top:3px solid #CECECE;
+	width:700px;
+}
+.i_buyCards .divSettle label{
+	padding-right:15px;
+}
+.i_buyCards .divSettle .settleNote{
+	float:right;
+	text-align:right;
+}
+.i_buyCards .more_his .btnOperaer{
+	float:left;
+	padding-right:40px;
+	height:31px;
+	line-height:31px;
+}
+.i_buyCards .tabMoney{
+	background:#F8F8F8;
+}
+.i_buyCards .tabMoney .trTitle{
+	border-top:3px solid #CECECE;
+}
+
+/*---------buyCard.html--------*/
+/*.buy_tab .xia_la{ position:absolute;  width:125px; border:none;}*/
+/*.buy_tab .xia_la input{  }*/
+/*.buy_tab .xia_la ul{ border:1px solid #6699cc;width:97%; border-top:0px; margin-left:1px; font-size:14px; position:relative; background:#fff; overflow:scroll; overflow-x:hidden;}*/
+/*.buy_tab .xia_la ul li:hover{ background:url(../images/timeBody.jpg) repeat-x;}*/
+/*.postTitle label{ margin-right:5px;}*/
+/*.postTitle input{ margin-top:5px; margin-right:5px;}*/
+/*.postTitle label,.postTitle input{ display:block; float:right;}*/

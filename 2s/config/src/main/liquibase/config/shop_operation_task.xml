@@ -1,0 +1,26 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="qiuxinyu" id="shop_operation_task_1">
+        <createTable tableName="shop_operation_task">
+            <column name="id" type="bigint"/>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="scene" type="varchar(50)"/>
+            <column name="create_time" type="varchar(50)"/>
+            <column name="exe_status" type="varchar(50)"/>
+            <column name="execute_time" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="shop_operation_task" columnNames="id" constraintName="pk_shop_operation_task"/>
+    </changeSet>
+</databaseChangeLog>

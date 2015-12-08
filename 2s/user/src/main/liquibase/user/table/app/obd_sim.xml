@@ -1,0 +1,37 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xinYuQiu" id="obd_sim_1">
+        <createTable tableName="obd_sim">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sim_no" type="varchar(50)"/>
+            <column name="mobile" type="varchar(20)"/>
+            <column name="use_date" type="bigint"/>
+            <column name="use_period" type="int"/>
+            <column name="status" type="varchar(20)"/>
+            <column name="storage_id" type="bigint"/>
+            <column name="seller_id" type="bigint"/>
+            <column name="agent_id" type="bigint"/>
+            <column name="owner_id" type="bigint"/>
+            <column name="owner_name" type="varchar(50)"/>
+            <column name="owner_type" type="varchar(20)"/>
+        </createTable>
+        <addPrimaryKey tableName="obd_sim" columnNames="id" constraintName="pk_obd_sim"/>
+    </changeSet>
+
+    <changeSet author="SinYuQiu" id="obd_sim_2_sinYuQiu">
+        <addColumn tableName="obd_sim">
+            <column name="obd_sim_type" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

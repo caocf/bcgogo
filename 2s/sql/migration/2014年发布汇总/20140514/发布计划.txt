@@ -1,0 +1,90 @@
+一.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波、邱新宇）
+2.将api/webapp 下 starting.png ending.png driveLog.html vehiclePosition.html添加到生产http服务器对应位置（肖开波 刘伟）
+3.替换vehicle schema.xml 并重建所有车辆索引
+
+
+三.发布应用 （纪友文）
+
+四.添加权限
+
+刘伟：
+//===============================================Shop--客户管理--车辆管理 新增车辆详情角色 并添加以下资源：   =============================================
+  web_vehicleManage_vehicleDetail                            menu               WEB.CUSTOMER_MANAGER.VEHICLE_MANAGE.VEHICLE_DETAIL    车辆详情
+  （旧）web_customerManager_vehicleManage_list                 request             /web/customer.do?method=getVehicleList                     车辆管理列表数据
+  web_vehicleManage_toVehicleDetail                            request               /web/vehicleManage.do?method=toVehicleDetail    跳转到车辆详情页面
+  web_vehicleManage_updateVehicleInfo                            request               /web/vehicleManage.do?method=updateVehicleInfo    更新车辆信息
+  web_vehicleManage_vehicleMaintainRegister                            request               /web/vehicleManage.do?method=vehicleMaintainRegister    车辆保养登记
+  为4S店专业版增加该角色  并给老板财务、前台分配该角色
+
+
+//===============================================Shop--客户管理--车辆管理 新增车辆定位角色 并添加以下资源：   =============================================
+  vehiclePosition                                      menu              WEB.CUSTOMER_MANAGER.VEHICLE_MANAGE.VEHICLE_POSITION       车辆定位
+    （旧）web_customerManager_vehicleManage_list                 request             /web/customer.do?method=getVehicleList                     车辆管理列表数据
+  web_vehicleManage_toVehiclePosition                            request               /web/vehicleManage.do?method=toVehiclePosition    跳转到车辆定位页面
+  web_vehicleManage_queryVehiclePosition                            request               /web/vehicleManage.do?method=queryVehiclePosition    车辆定位查询
+为4S店专业版增加该角色  并给老板财务、前台分配该角色
+
+
+
+//===============================================Shop--客户管理--车辆管理 新增行车日志角色 并添加以下资源：   =============================================
+  vehicleDriveLog                                      menu              WEB.CUSTOMER_MANAGER.VEHICLE_MANAGE.VEHICLE_DRIVE_LOG       行车日志
+    （旧）web_customerManager_vehicleManage_list                 request             /web/customer.do?method=getVehicleList                     车辆管理列表数据
+  web_vehicleManage_toVehicleDriveLog                            request               /web/vehicleManage.do?method=toVehicleDriveLog    跳转到行车日志页面
+  web_vehicleManage_queryVehicleDriveLog                            request               /web/vehicleManage.do?method=queryVehicleDriveLog    车辆行车日志查询
+为4S店专业版增加该角色  并给老板财务、前台分配该角色
+
+
+
+//===============================================Shop--客户管理--客户列表 我的客户 新增/修改 添加以下资源：   =============================================
+（旧） web_vehicleManage_updateVehicleInfo                            request               /web/vehicleManage.do?method=updateVehicleInfo    更新车辆信息
+（旧）web_vehicleManage_vehicleMaintainRegister                            request               /web/vehicleManage.do?method=vehicleMaintainRegister    车辆保养登记
+
+//===============================================Shop--客户管理--车辆管理 车辆列表  添加以下资源：   =============================================
+vehicleList                                                     menu                  WEB.CUSTOMER_MANAGER.VEHICLE_MANAGE.VEHICLE_LIST     车辆列表
+ （旧）web_vehicleManage_updateVehicleInfo                            request               /web/vehicleManage.do?method=updateVehicleInfo    更新车辆信息
+ （旧）web_vehicleManage_vehicleMaintainRegister                      request               /web/vehicleManage.do?method=vehicleMaintainRegister    车辆保养登记
+
+
+//===============================================Shop--代办事项模块--代办事项-客户服务类  添加以下资源：   =============================================
+ web_remind_customerRemind_export          SHOP                  request               /web/export.do?method=exportCustomerRemind    客户服务提醒导出
+（旧）downloadExportFile
+
+//===============================================Shop--代办事项模块--代办事项-故障提醒  添加以下资源：   =============================================
+ web_shopFaultInfo_export          SHOP                  request               /web/export.do?method=exportShopFaultInfo    事故故障提醒导出
+（旧）downloadExportFile
+//===============================================Shop--客户管理--车辆管理-车辆列表  添加以下资源：   =============================================
+ web_vehicleList_export          SHOP                  request               /web/export.do?method=exportVehicleList    客户车辆导出
+（旧）downloadExportFile
+//
+
+
+
+数据库更新
+user库
+
+	INSERT INTO `menu` VALUES (1000000000017, unix_timestamp(now())*1000, unix_timestamp(now())*1000,
+	0, 3, '车辆列表',(select id from resource where value='WEB.CUSTOMER_MANAGER.VEHICLE_MANAGE.VEHICLE_LIST'), 1000030045084318, 'customer.do?method=vehicleManageList', 10, 'WEB.CUSTOMER_MANAGER.VEHICLE_MANAGE.VEHICLE_LIST');
+
+		INSERT INTO `menu` VALUES (1000000000018, unix_timestamp(now())*1000, unix_timestamp(now())*1000,
+  	0, 3, '智能定位',(select id from resource where value='WEB.CUSTOMER_MANAGER.VEHICLE_MANAGE.VEHICLE_POSITION'), 1000030045084318, 'vehicleManage.do?method=toVehiclePosition', 20, 'WEB.CUSTOMER_MANAGER.VEHICLE_MANAGE.VEHICLE_POSITION');
+
+		INSERT INTO `menu` VALUES (1000000000019, unix_timestamp(now())*1000, unix_timestamp(now())*1000,
+  	0, 3, '行车日志',(select id from resource where value='WEB.CUSTOMER_MANAGER.VEHICLE_MANAGE.VEHICLE_DRIVE_LOG'), 1000030045084318, 'vehicleManage.do?method=toVehicleDriveLog', 30, 'WEB.CUSTOMER_MANAGER.VEHICLE_MANAGE.VEHICLE_DRIVE_LOG');
+
+
+五.初始化
+
+执行所有店铺的车辆索引
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、肖开波）
+4.验证功能（纪友文、肖开波）
+
+

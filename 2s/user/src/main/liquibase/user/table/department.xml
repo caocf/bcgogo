@@ -1,0 +1,38 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet author="zhangjuntao" id="department_1">
+        <createTable tableName="department">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(50)"/>
+            <column name="description" type="varchar(100)"/>
+            <column name="parent_id" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="department" columnNames="id" constraintName="pk_department"/>
+    </changeSet>
+    <changeSet author="zhangjuntao" id="department_2_zhangjuntao">
+        <addColumn tableName="department">
+            <column name="shop_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="zhangjuntao" id="department_3">
+        <addColumn tableName="department">
+            <column name="status" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="zhangjuntao" id="department_4">
+        <addColumn tableName="department">
+            <column name="sort" type="bigint"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

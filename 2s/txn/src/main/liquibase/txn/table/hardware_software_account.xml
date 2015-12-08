@@ -1,0 +1,37 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhangjuntao" id="hardware_software_account_zhangjuntao_1">
+        <createTable tableName="hardware_software_account">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+
+            <column name="hardware_received_amount" type="double"/>
+            <column name="hardware_receivable_amount" type="double"/>
+            <column name="hardware_total_amount" type="double"/>
+
+            <column name="software_received_amount" type="double"/>
+            <column name="software_receivable_amount" type="double"/>
+            <column name="software_total_amount" type="double"/>
+
+            <column name="total_received_amount" type="double"/>
+            <column name="total_receivable_amount" type="double"/>
+            <column name="total_amount" type="double"/>
+        </createTable>
+        <addPrimaryKey tableName="hardware_software_account" columnNames="id"
+                       constraintName="pk_hardware_software_account"/>
+        <createIndex tableName="hardware_software_account" indexName="idx_hardware_software_account_shopid">
+            <column name="shop_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

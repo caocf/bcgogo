@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+.tuihuo_tb .tui_title{ height:31px; line-height:31px;}
+.tuihuo_first{ margin-bottom:10px; color:#7f7f7f;font-size:14px;}
+.tuihuo_first table label,.tuihuo_first table input,.tuihuo_first table .selectTime{ display:block; float:left;}
+.tuihuo_first table label{margin-left:5px; }
+.tuihuo_first table .selectTime{ margin:10px 10px 0px 10px;}
+.tuihuo_first table .danju_td input{ margin:10px 0px 0px 10px; border:none;}
+.tuihuo_first table .danju_td label{ margin-right:10px;}
+.tuihuo_first table .search_btn{ background:url(../images/rightTit.jpg); width:70px; height:26px; border:none; letter-spacing:2px;}
+
+.tuihuo_tb .tui_title a{color:#0067c2;}
+.tuihuo_tb .tui_title td{ letter-spacing:2px;color:#474747;}
+
+.tuihuo_first .jihua_tb tr td input,.tuihuo_first .jihua_tb tr td img{ display:block; float:left; margin-top:10x;}
+
+.tableInfo4 .btn_tt{ background:url(../images/btn_tong.png); color:#000; border:none; width:76px; height:25px;}
+.tableInfo4 .btn_tt:hover{background:url(../images/btn_ti.png); color:#fff;}

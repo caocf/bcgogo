@@ -1,0 +1,13 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+ 1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+三.发布应用 （纪友文）
+
+四.添加权限
+
+五.初始化
+  1. 清空product库 的 dictionary_fault_info 重新导入 dictionary_fault_info.sql
+  2. product 库：update dictionary set dictionary_version = 1.2
+  3. config 库：导入juhe_city_oil_price.sql
+

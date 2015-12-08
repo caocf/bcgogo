@@ -1,0 +1,151 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+  <!--应付款表  payable-->
+
+  <changeSet author="mazidong" id="payable_1">
+    <createTable tableName="payable">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <!-- 店面ID-->
+      <column name="shop_id" type="bigint"/>
+      <column name="date" type="bigint"/>
+      <column name="no" type="varchar(20)"/>
+      <column name="order_type" type="bigint"/>
+      <column name="order_id" type="bigint"/>
+      <column name="order_no" type="varchar(20)"/>
+      <column name="settled_amount" type="float"/>
+      <column name="last_payer_id" type="bigint"/>
+      <column name="last_payer" type="varchar(20)"/>
+      <column name="last_pay_time" type="bigint"/>
+      <column name="status" type="bigint"/>
+      <column name="memo" type="varchar(500)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="payable_2" author="zhuyinjia">
+    <addPrimaryKey tableName="payable" columnNames="id" constraintName="pk_payable"/>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="payable_3">
+    <modifyColumn tableName="payable">
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="payable_3" author="zhangchuanlong">
+    <dropColumn tableName="payable" columnName="date"></dropColumn>
+    <dropColumn tableName="payable" columnName="no"></dropColumn>
+    <dropColumn tableName="payable" columnName="order_type"></dropColumn>
+    <dropColumn tableName="payable" columnName="order_id"></dropColumn>
+    <dropColumn tableName="payable" columnName="order_no"></dropColumn>
+    <dropColumn tableName="payable" columnName="settled_amount"></dropColumn>
+    <dropColumn tableName="payable" columnName="last_payer_id"></dropColumn>
+    <dropColumn tableName="payable" columnName="last_payer"></dropColumn>
+    <dropColumn tableName="payable" columnName="last_pay_time"></dropColumn>
+    <dropColumn tableName="payable" columnName="status"></dropColumn>
+    <dropColumn tableName="payable" columnName="memo"></dropColumn>
+    <addColumn tableName="payable">
+      <!-- 付款时间-->
+      <column name="pay_time" type="bigint"/>
+      <!-- 材料品名-->
+      <column name="material_name" type="varchar(5000)"/>
+      <!-- 总金额-->
+      <column name="amount" type="float"/>
+      <!--已付金额-->
+      <column name="paid_amount" type="float"/>
+      <!-- 挂账金额-->
+      <column name="credit_amount" type="float"/>
+      <!-- 供应商ID-->
+      <column name="supplier_id" type="bigint"/>
+      <!-- 入库单ID-->
+      <column name="purchase_inventory_id" type="bigint"/>
+
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="payable_4" author="zhangchuanlong">
+    <addColumn tableName="payable">
+      <column name="status" type="varchar(20)"/>
+    </addColumn>
+  </changeSet>
+  <changeSet id="payable_5" author="zhangchuanlong">
+    <addColumn tableName="payable">
+      <column name="deduction" type="float"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="payable_6" author="liuWei">
+    <addColumn tableName="payable">
+      <column name="cash" type="double"></column>
+      <column name="bank_card" type="double"></column>
+      <column name="cheque" type="double"></column>
+      <column name="deposit" type="double"></column>
+    </addColumn>
+  </changeSet>
+
+    <changeSet id="debt_7" author="dongnan">
+    <addColumn tableName="payable">
+      <column name="receipt_no" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="payable_8" author="chenfanglei">
+      <addColumn tableName="payable">
+          <column name="strike_amount" type="double"></column>
+      </addColumn>
+  </changeSet>
+
+  <changeSet author="liuWei" id="payable_9">
+    <createIndex tableName="payable" indexName="IDX_SHOPID_INVENTORYID_SUPPLIERID">
+      <column name="shop_id"/>
+      <column name="purchase_inventory_id"/>
+      <column name="supplier_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="payable_10" author="jimuchen">
+      <addColumn tableName="payable">
+          <column name="last_payer" type="varchar(20)" />
+          <column name="last_payer_id" type="bigint" />
+      </addColumn>
+  </changeSet>
+
+
+  <changeSet id="payable_11" author="liuWei">
+      <addColumn tableName="payable">
+          <column name="debt_type" type="varchar(50)" />
+          <column name="order_type" type="varchar(50)" />
+      </addColumn>
+  </changeSet>
+
+  <changeSet id="payable_12" author="liuWei">
+      <addColumn tableName="payable">
+          <column name="statement_amount" type="double" />
+      </addColumn>
+  </changeSet>
+
+  <changeSet id="payable_13" author="liuWei">
+      <addColumn tableName="payable">
+          <column name="statement_account_order_id" type="bigint" />
+      </addColumn>
+  </changeSet>
+
+  <changeSet id="payable_14" author="jimuchen">
+      <createIndex tableName="payable" indexName="IDX_SHOPID_STATUS_SUPPLIERID">
+        <column name="shop_id"/>
+        <column name="status"/>
+        <column name="supplier_id"/>
+      </createIndex>
+  </changeSet>
+</databaseChangeLog>

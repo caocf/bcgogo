@@ -1,0 +1,68 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lijinlong" id="business_account_1">
+    <createTable tableName="business_account">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+
+
+      <column name="account_editor" type="varchar(20)"/>
+      <column name="edit_date" type="bigint"/>
+      <column name="account_category" type="varchar(30)"/>
+      <column name="doc_no" type="varchar(30)"/>
+      <column name="dept" type="varchar(30)"/>
+      <column name="person" type="varchar(20)"/>
+      <column name="content" type="varchar(500)"/>
+      <column name="status" type="varchar(20)"/>
+      <column name="check_amount" type="double"/>
+      <column name="unionpay" type="double"/>
+
+      <column name="cash" type="double"/>
+      <column name="total" type="double"/>
+      <column name="business_category" type="varchar(50)"/>
+      <column name="money_category" type="varchar(20)"/>
+
+
+    </createTable>
+  </changeSet>
+
+
+  <changeSet author="lijinlong" id="business_account_2">
+    <addPrimaryKey tableName="business_account" columnNames="id" constraintName="pk_business_account"/>
+  </changeSet>
+
+  <changeSet author="lw" id="business_account_3">
+    <modifyColumn tableName="business_account">
+      <column name="account_category" type="varchar(500)"/>
+    </modifyColumn>
+
+    <addColumn tableName="business_account">
+      <column name="account_category_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="lw" id="business_account_4">
+    <addColumn tableName="business_account">
+      <column name="business_category_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="lw" id="business_account_5">
+    <addColumn tableName="business_account">
+      <column name="sales_man_id" type="bigint"/>
+      <column name="department_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

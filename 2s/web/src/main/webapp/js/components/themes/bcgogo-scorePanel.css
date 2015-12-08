@@ -1,0 +1,22 @@
+.bcgogo-scorePanel {overflow: hidden;position: relative;}
+.bcgogo-scorePanel .arrow {width: 7px;height: 6px;background: url("res/scorePanel/hook_arrow.png") no-repeat center center;
+    margin-left: 5px;position: absolute;float:left;
+}
+.bcgogo-scorePanel .content {font-family: "宋体", "Arial";font-size:12px;letter-spacing: 1px;
+    border:solid 1px #ff8310;padding: 5px;border-radius: 5px;margin-top: 5px;position: static;
+    background: #fffbed;height: auto;}
+.bcgogo-scorePanel .red {color:red;}
+.bcgogo-scorePanel .avg {height: 16px;}
+.bcgogo-scorePanel .avg > div {float:left;text-align: right;height: 16px;line-height: 16px;}
+.bcgogo-scorePanel .avg .name {color: #272727;font-weight: normal}
+.bcgogo-scorePanel .avg .rate {}
+.bcgogo-scorePanel .avg .score {margin-left: 5px;color: #272727;font-weight: normal}
+.bcgogo-scorePanel .avg .amount {margin-left: 5px;color: #272727;font-weight: normal}
+.bcgogo-scorePanel .avg .note {color: #272727;font-weight: normal}
+.bcgogo-scorePanel .hr {height: 1px; width: 100%;background: #e2e2e2;margin: 4px 0 4px 0}
+.bcgogo-scorePanel .sub {list-style: none;padding: 0;margin:0}
+.bcgogo-scorePanel .sub li{list-style: none;padding: 0;margin-top:2px;}
+.bcgogo-scorePanel .sub li > div {float:left;text-align: right;height: 16px;line-height: 16px;}
+.bcgogo-scorePanel .sub .name {color: #272727;font-weight: normal}
+.bcgogo-scorePanel .sub .rate {}
+.bcgogo-scorePanel .sub .score {margin-left: 5px;;color: #272727;font-weight: normal}

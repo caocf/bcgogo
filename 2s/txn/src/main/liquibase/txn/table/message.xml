@@ -1,0 +1,51 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xzhu" id="message_1">
+        <createTable tableName="message">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="content" type="text"/>
+            <column name="type" type="varchar(50)"/>
+            <column name="valid_time_period" type="varchar(50)"/>
+            <column name="sender" type="varchar(50)"/>
+            <column name="valid_date_from" type="bigint"/>
+            <column name="valid_date_to" type="bigint"/>
+            <column name="editor_id" type="bigint"/>
+            <column name="editor" type="varchar(50)"/>
+            <column name="edit_date" type="bigint"/>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet author="xzhu" id="message_2">
+        <addPrimaryKey tableName="message" columnNames="id" constraintName="pk_message"/>
+    </changeSet>
+    <changeSet id="message_3" author="xzhu">
+        <addColumn tableName="message">
+            <column name="product_ids" type="text"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="message_4_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="message">
+            <column name="status" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+    <!--<changeSet id="message_5_zhangjuntao" author="zhangjuntao">-->
+        <!--<modifyColumn tableName="message">-->
+            <!--<column name="product_ids" type="varchar(2000)"/>-->
+        <!--</modifyColumn>-->
+    <!--</changeSet>-->
+
+</databaseChangeLog>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                                 http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+  <persistence-unit name="user" transaction-type="RESOURCE_LOCAL">
+
+    <class>com.bcgogo.user.model.Customer</class>
+    <class>com.bcgogo.user.model.Supplier</class>
+    <class>com.bcgogo.user.model.permission.User</class>
+    <class>com.bcgogo.user.model.permission.UserGroup</class>
+    <class>com.bcgogo.user.model.permission.UserGroupRole</class>
+    <class>com.bcgogo.user.model.permission.UserGroupUser</class>
+    <class>com.bcgogo.user.model.permission.UserGroupShop</class>
+    <class>com.bcgogo.user.model.permission.Role</class>
+    <class>com.bcgogo.user.model.permission.RoleResource</class>
+    <class>com.bcgogo.user.model.permission.Resource</class>
+    <class>com.bcgogo.user.model.permission.ShopVersion</class>
+    <class>com.bcgogo.user.model.permission.Module</class>
+    <class>com.bcgogo.user.model.permission.ShopRole</class>
+    <class>com.bcgogo.user.model.permission.Menu</class>
+    <class>com.bcgogo.user.model.Vehicle</class>
+    <class>com.bcgogo.user.model.CustomerVehicle</class>
+    <class>com.bcgogo.user.model.CustomerRecord</class>
+    <class>com.bcgogo.user.model.CustomerCard</class>
+    <class>com.bcgogo.user.model.CustomerServiceJob</class>
+    <class>com.bcgogo.user.model.CustomerVehicleStat</class>
+
+    <class>com.bcgogo.user.model.UserVercode</class>
+    <class>com.bcgogo.user.model.Agents</class>
+    <class>com.bcgogo.user.model.AgentTargt</class>
+    <class>com.bcgogo.user.model.SalesMan</class>
+    <class>com.bcgogo.user.model.SalesManTarget</class>
+    <class>com.bcgogo.user.model.ShopPlan</class>
+
+    <class>com.bcgogo.user.model.Member</class>
+    <class>com.bcgogo.user.model.MemberService</class>
+    <class>com.bcgogo.user.model.AccumulatePointsGiveRecord</class>
+    <class>com.bcgogo.user.model.MemberRechargeOrder</class>
+    <class>com.bcgogo.user.model.MemberChangeHistory</class>
+    <class>com.bcgogo.user.model.MemberCard</class>
+    <class>com.bcgogo.user.model.MemberCardService</class>
+    <class>com.bcgogo.user.model.AccumulatePointsRule</class>
+
+    <class>com.bcgogo.user.model.UserLimit</class>
+    <class>com.bcgogo.user.model.UserSwitch</class>
+     <class>com.bcgogo.user.model.task.MergeTask</class>
+
+    <class>com.bcgogo.user.model.VehicleModifyLog</class>
+    <class>com.bcgogo.user.model.AppointService</class>
+    <class>com.bcgogo.user.model.ServiceCategoryRelation</class>
+    <class>com.bcgogo.user.model.VehicleBrandModelRelation</class>
+
+    <class>com.bcgogo.user.model.TreeMenu</class>
+    <class>com.bcgogo.user.model.permission.Department</class>
+    <class>com.bcgogo.user.model.permission.Occupation</class>
+    <class>com.bcgogo.user.model.InsuranceCompany</class>
+    <class>com.bcgogo.user.model.userGuide.UserGuideHistory</class>
+    <class>com.bcgogo.user.model.userGuide.UserGuideFlow</class>
+    <class>com.bcgogo.user.model.userGuide.UserGuideStep</class>
+
+    <class>com.bcgogo.user.model.SystemMonitor.RequestPerformanceMonitor</class>
+    <class>com.bcgogo.user.model.SystemMonitor.ClientUserLoginInfo</class>
+    <class>com.bcgogo.user.model.SystemMonitor.UserClientInfo</class>
+    <class>com.bcgogo.user.model.SystemMonitor.UserLoginLog</class>
+    <class>com.bcgogo.user.model.SystemMonitor.UrlMonitorConfig</class>
+    <class>com.bcgogo.user.model.SystemMonitor.UrlMonitorStat</class>
+	<class>com.bcgogo.user.model.Contact</class>
+	<class>com.bcgogo.user.model.ContactGroup</class>
+	<class>com.bcgogo.user.model.SystemMonitor.ClientBindingLog</class>
+    <class>com.bcgogo.user.model.BusinessScope</class>
+    <class>com.bcgogo.user.model.task.RelatedShopUpdateLog</class>
+    <class>com.bcgogo.user.model.task.RelatedShopUpdateTask</class>
+    <class>com.bcgogo.user.model.task.CusOrSupOrderIndexSchedule</class>
+
+    <!--app-->
+    <class>com.bcgogo.user.model.app.AppUser</class>
+    <class>com.bcgogo.user.model.app.AppUserCustomer</class>
+    <class>com.bcgogo.user.model.app.AppUserFeedBack</class>
+    <class>com.bcgogo.user.model.app.AppUserLoginInfo</class>
+    <class>com.bcgogo.user.model.app.AppVehicle</class>
+    <class>com.bcgogo.user.model.app.AppVehicleFaultInfo</class>
+    <class>com.bcgogo.user.model.app.AppVersionHistory</class>
+    <class>com.bcgogo.user.model.app.ObdUserVehicle</class>
+    <class>com.bcgogo.user.model.app.OBD</class>
+    <class>com.bcgogo.user.model.app.VehicleBasicInfo</class>
+    <class>com.bcgogo.user.model.app.AppUserCustomerUpdateTask</class>
+    <class>com.bcgogo.user.model.app.AppVehicleFaultInfoOperateLog</class>
+    <class>com.bcgogo.user.model.app.AppUserShopVehicle</class>
+    <class>com.bcgogo.user.model.app.DriveLog</class>
+    <class>com.bcgogo.user.model.app.DriveLogPlaceNote</class>
+    <class>com.bcgogo.user.model.app.AppUserConfig</class>
+    <class>com.bcgogo.user.model.app.DriveStat</class>
+
+    <class>com.bcgogo.user.model.app.ObdHistory</class>
+    <class>com.bcgogo.user.model.app.ObdSim</class>
+    <class>com.bcgogo.user.model.app.ObdSimBind</class>
+    <class>com.bcgogo.user.model.app.ObdSimHistory</class>
+    <class>com.bcgogo.user.model.app.OBDSimOperationLog</class>
+    <class>com.bcgogo.user.model.AgentShop</class>
+
+    <class>com.bcgogo.user.model.EvaluateRecord</class>
+    <class>com.bcgogo.user.model.wx.WXAccount</class>
+    <class>com.bcgogo.user.model.wx.WXShopAccount</class>
+    <class>com.bcgogo.user.model.wx.WXArticleTemplate</class>
+    <class>com.bcgogo.user.model.wx.WXUser</class>
+    <class>com.bcgogo.user.model.wx.WXUserVehicle</class>
+    <class>com.bcgogo.user.model.wx.ShopWXUser</class>
+    <class>com.bcgogo.user.model.wx.WXGroup</class>
+    <class>com.bcgogo.user.model.wx.WXUserGroup</class>
+    <class>com.bcgogo.user.model.wx.WXQRCode</class>
+    <class>com.bcgogo.user.model.wx.WXKWTemplate</class>
+    <class>com.bcgogo.user.model.wx.WXSubscribeRecord</class>
+    <class>com.bcgogo.user.model.wx.AppUserWXQRCode</class>
+    <class>com.bcgogo.user.model.wx.AppWXUser</class>
+    <class>com.bcgogo.user.model.ShopInternalVehicle</class>
+
+    <class>com.bcgogo.user.model.Impact</class>
+    <class>com.bcgogo.user.model.ImpactVideo</class>
+    <class>com.bcgogo.user.model.AccidentSpecialist</class>
+    <class>com.bcgogo.user.model.Rescue</class>
+    <class>com.bcgogo.user.model.ConsumingRecord</class>
+    <class>com.bcgogo.user.model.Coupon</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+  </persistence-unit>
+
+
+</persistence>

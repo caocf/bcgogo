@@ -1,0 +1,49 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="mazidong" id="purchase_price_1">
+    <createTable tableName="purchase_price">
+        <column name="id" type="bigint"/>
+        <column name="created" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="last_update" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="version" type="bigint">
+            <constraints nullable="true"/>
+        </column>
+        <column name="shop_id" type="bigint"/>
+        <column name="product_id" type="bigint"/>
+        <column name="price" type="float"/>
+        <column name="date" type="bigint"/>
+        <column name="memo" type="varchar(500)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet  id="purchase_price_2" author="zhuyinjia">
+    <addPrimaryKey tableName="purchase_price" columnNames="id" constraintName="pk_purchase_price"/>
+  </changeSet>
+
+    <changeSet author="luyi" id="purchase_price_3">
+        <createIndex tableName="purchase_price" indexName="IDX_PURCHASEPRICE_SHOPID_PRODUCTID_ID">
+            <column name="shop_id"/>
+            <column name="product_id"/>
+            <column name="id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="qiuxinyu" id="purchase_price_4">
+        <addColumn tableName="purchase_price">
+            <column name="unit" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="purchase_price_5">
+    <modifyColumn tableName="purchase_price">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+</databaseChangeLog>

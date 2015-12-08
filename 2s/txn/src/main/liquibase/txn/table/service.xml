@@ -1,0 +1,112 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="mazidong" id="service_1">
+    <createTable tableName="service">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="name" type="varchar(20)"/>
+      <column name="price" type="float"/>
+      <column name="memo" type="varchar(500)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="service_2" author="zhuyinjia">
+    <addPrimaryKey tableName="service" columnNames="id" constraintName="pk_service"/>
+  </changeSet>
+
+    <changeSet id="service_3" author="zhuyinjia">
+        <insert tableName="service">
+            <column name="id" value="1"/>
+            <column name="created" value="1325814891843"/>
+            <column name="last_update" value="1325814891843"/>
+            <column name="shop_id" value="1"/>
+            <column name="price" value="0"/>
+            <column name="name" value="现金洗车"/>
+        </insert>
+        <insert tableName="service">
+            <column name="id" value="2"/>
+            <column name="created" value="1325814891843"/>
+            <column name="last_update" value="1325814891843"/>
+            <column name="shop_id" value="1"/>
+            <column name="price" value="0"/>
+            <column name="name" value="划卡洗车"/>
+        </insert>
+    </changeSet>
+
+  <changeSet author="luyi" id="service_4">
+    <createIndex tableName="service" indexName="IDX_SERVICE_SHOPID">
+      <column name="shop_id"/>
+    </createIndex>
+    <createIndex tableName="service" indexName="IDX_SERVICE_SHOPID_NAME">
+      <column name="shop_id"/>
+      <column name="name"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="service_5">
+    <dropIndex indexName="IDX_SERVICE_SHOPID" tableName="service"/>
+  </changeSet>
+
+  <changeSet id="service_6" author="zhangjuntao">
+    <modifyColumn tableName="service">
+      <column name="name" type="varchar(200)"/>
+    </modifyColumn>
+  </changeSet>
+
+
+  <changeSet author="jimuchen" id="service_7">
+    <modifyColumn tableName="service">
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="service_8" author="chenfanglei">
+    <addColumn tableName="service">
+      <column name="percentage" type="double"/>
+      <column name="percentage_amount" type="double"/>
+      <column name="points_exchangeable" type="varchar(20)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="service_9" author="chenfanglei">
+    <addColumn tableName="service">
+      <column name="status" type="varchar(20)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="service_10" author="chenfanglei">
+    <addColumn tableName="service">
+      <column name="time_type" type="varchar(20)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="service_11" author="lw">
+    <addColumn tableName="service">
+      <column name="standard_hours" type="double"></column>
+      <column name="standard_unit_price" type="double"></column>
+      <column name="achievement_type" type="varchar(50)"></column>
+      <column name="achievement_amount" type="double"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="service_12" author="lw">
+    <addColumn tableName="service">
+      <column name="use_times" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+
+</databaseChangeLog>

@@ -1,0 +1,40 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="jimuchen" id="service_history_1">
+        <createTable tableName="service_history">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="service_id" type="bigint"/>
+            <column name="history_version" type="bigint" />
+            <column name="shop_id" type="bigint"/>
+            <column name="name" type="varchar(200)"/>
+            <column name="price" type="float"/>
+            <column name="memo" type="varchar(500)"/>
+            <column name="percentage" type="double"/>
+            <column name="percentage_amount" type="double"/>
+            <column name="points_exchangeable" type="varchar(20)"/>
+            <column name="status" type="varchar(20)"/>
+            <column name="time_type" type="varchar(20)"/>
+        </createTable>
+        <addPrimaryKey tableName="service_history" columnNames="id" constraintName="pk_service_history"/>
+    </changeSet>
+
+    <changeSet author="jimuchen" id="service_history_2">
+      <createIndex tableName="service_history" indexName="idx_service_history_service_id">
+          <column name="service_id" />
+      </createIndex>
+      <createIndex tableName="service_history" indexName="idx_service_history_shop_id">
+          <column name="shop_id" />
+      </createIndex>
+    </changeSet>
+</databaseChangeLog>

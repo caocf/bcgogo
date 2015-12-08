@@ -1,0 +1,119 @@
+一.备份现有生产上war包,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，姬牧晨）
+
+2. 短信模板修改：
+    memberBuyCardMsg：
+    您好，$!{cardOwnerName}，会员卡办理成功，共花费$!{consumePrice}元。会员卡号：$!{memberNo}，密码：$!{password}。储值金额：$!{remainAmount}元。如有任何问题请与我们的工作人员联系！
+
+    memberRenewCardMsg
+    您好，$!{cardOwnerName}，续卡成功，共花费$!{consumePrice}元。#if(${passwordChanged})会员卡号：$!{memberNo}，密码：$!{password}；#end当前储值金额：$!{remainAmount}元。如有问题请联系工作人员！
+
+三.发布应用
+
+四.添加权限
+
+后台系统配置
+
+新增
+PushMessageKeepDay                         20                           消息保留时间 单位天
+
+
+（三）资源
+          name                                           type           value                                                          备注
+//-----------------------------------------------------new resource------------------------------------------------------------------------
+
+消息中心---朱星星
+    1、SHOP--代办事项--消息中心---->修改角色（新增站内消息）为（发出的消息）
+    （发出的消息）增加以下资源：
+        （旧）WEB.SCHEDULE.MESSAGE_CENTER.STATION_MESSAGE.BASE
+        （旧）web_txn_savePromotionMsgJob
+        （新）web_send_base   WEB.SCHEDULE.MESSAGE_CENTER.SEND.BASE  SHOP   发出的消息     render
+        （新）searchSenderStationMessages	/web/stationMessage.do?method=searchSenderStationMessages	 SHOP   发出的消息数据     request
+        复制 角色（站内消息发送箱） 下的资源到 （发出的消息）
+        删除角色（站内消息发送箱）
+        删除角色（删除站内消息）
+
+    2、SHOP--代办事项--消息中心---->修改角色（站内消息收件箱）为（收到的消息）
+    （收到的消息）增加以下资源：
+        （新）readPushMessageByPushMessageCategory	    /web/pushMessage.do?method=readPushMessageByPushMessageCategory	 SHOP   根据消息分类标记消息已读     request
+        （新）readPushMessageByPushMessageReceiverId 	/web/pushMessage.do?method=readPushMessageByPushMessageReceiverId	 SHOP   标记消息已读     request
+        （新）getPushMessageCategoryStatNumber 	        /web/pushMessage.do?method=getPushMessageCategoryStatNumber	 SHOP   更新统计数据     request
+        （新）searchReceiverPushMessage 	                /web/pushMessage.do?method=searchReceiverPushMessage	 SHOP   收到的消息数据     request
+        （新）receiverPushMessageList 	                /web/pushMessage.do?method=receiverPushMessageList	 SHOP   跳转到收到的消息页面     request
+
+        （旧）WEB.SCHEDULE.MESSAGE_CENTER.STATION_MESSAGE.BASE
+        （旧）WEB.SCHEDULE.MESSAGE_CENTER.NOTICE.ASSOCIATION_NOTICE
+        （新）web_receiver_base    WEB.SCHEDULE.MESSAGE_CENTER.RECEIVER.BASE    SHOP   收到的消息     render
+
+        复制 角色（客户关联请求） 下的资源到 （收到的消息）
+        复制 角色（供应商关联请求） 下的资源到 （收到的消息）
+        删除角色（客户关联请求）
+        删除角色（供应商关联请求）
+
+    3、SHOP--代办事项--消息中心---->新增角色（删除收到的消息）
+        （新）web_delete_receiver_base    WEB.SCHEDULE.MESSAGE_CENTER.RECEIVER.DELETE    SHOP   删除的消息     render
+        （新）deletePushMessageByPushMessageReceiverId 	/web/pushMessage.do?method=deletePushMessageByPushMessageReceiverId	 SHOP   删除收到的消息    request
+
+    4、SHOP--代办事项--消息中心---->删除角色（通知）
+
+    5、在（基本）中添加权限：
+        （修改）getNumberOfMessageCenter 的 value 为	/web/pushMessage.do?method=getNumberOfMessageCenter	 SHOP   消息数量     request
+		
+	6.SHOP--客户管理--短信管理--短信发送
+		WEB_CUMSOMER_SEND_OBD_MSG 						/web/customer.do?method=sendOBDMsg 		SHOP 	给OBD用户发送短信 	request
+
+	7.SHOP--供应商管理--我的供应商列表--查询供应商
+	    web_supplier_checkSupplierStatus               /web/supplier.do?method=checkSupplierStatus   shop  校验供应商状态    request
+
+
+
+汽配 有以下角色 发出的消息   都只给  老板 仓管
+汽配 有以下角色 收到的消息  删除收到的消息  所有
+
+汽修 有以下角色 收到的消息  删除收到的消息       所有
+
+
+----------------------------------------------------------- SHOP数据初始化（朱星星） -----------------------------------------------------------------------------
+CRM--SHOP数据操作权限--SHOP数据初始化
+web_initMoveMessage              /web/init.do?method=initMoveMessage          初始化消息    shop request
+
+---------------------------------------------------------金远---------------------------------------------------------------
+CRM---客户管理----注册客户
+getCommonShopVersion      /admin/shopVersion.do?method=getCommonShopVersion  获取注册版本信息   shop   request
+
+六.初始化
+1. 数据库sql更新
+//====================================================================================
+txn库：
+update push_message set deleted='TRUE';
+update push_message_receiver set status='READ' where status='PUSHED';
+update push_message_receiver set status='UNREAD' where status='UN_PUSH' or status='PUSHING';
+update push_message_receiver set status='DISABLED' where status not in ('READ','UNREAD');
+update push_message_receiver set show_status='ACTIVE';
+
+update push_message_receiver set status='READ' where push_status='PUSHED';
+update push_message_receiver set push_status='UN_PUSH' where push_status='PUSHED';
+product库：
+    update shop_vehicle_brand_model set deleted = 'FALSE' where deleted is null;
+
+
+
+2. jackchen登录后执行：
+按顺序执行以下：
+init.do?method=processRecommendJobs&processType=MoveData
+init.do?method=initMoveMessage&type=ALL
+
+3. Solr更新:
+	替换customer_supplier/conf/schema.xml并重做索引
+
+八.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+回滚步骤：
+1.关闭服务
+2.恢复生产数据库
+3.使用旧war包重新发布
+4.验证功能
+
+

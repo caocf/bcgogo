@@ -1,0 +1,36 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="ndong" id="product_category_relation_1">
+        <createTable tableName="product_category_relation">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="product_category_id" type="bigint"/>
+            <column name="product_local_info_id" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="product_category_relation" columnNames="id" constraintName="pk_product_category_relation"/>
+    </changeSet>
+
+    <changeSet author="ndong" id="product_category_relation_2">
+        <createIndex tableName="product_category_relation" indexName="idx_product_category_relation_shopid">
+            <column name="shop_id"/>
+        </createIndex>
+        <createIndex tableName="product_category_relation" indexName="idx_product_category_relation_product_local_info_id">
+            <column name="product_local_info_id"/>
+        </createIndex>
+        <createIndex tableName="product_category_relation" indexName="idx_product_category_relation_product_category_id">
+            <column name="product_category_id"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,28 @@
+.bcgogo-ratting {
+    position:relative;
+}
+
+/*.bcgogo-ratting .starlist {*/
+    /*background: url("res/ratting/ratting_css_frame.png") no-repeat;*/
+    /*padding: 0;margin: 0;*/
+/*}*/
+
+.bcgogo-ratting .starlist {
+    background: url("res/ratting/light_yellow_star.png") no-repeat;
+    padding: 0;margin: 0;
+}
+
+.bcgogo-ratting .comment {
+    width:150px;height:100px;margin-top: 16px;position:absolute;border:solid 1px #ff8310;
+    background: #fffec3;border-radius: 5px;z-index: 20;
+    float:left;
+}
+.bcgogo-ratting .arrow {
+    background: url(res/ratting/hook_arrow.png);width:7px;height: 6px;top: -6px;left: 3px;
+    position: absolute;
+    float:left;
+}
+.bcgogo-ratting .content {
+    padding: 8px;
+}
+

@@ -1,0 +1,36 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="xzhu" id="vehicle_brand_model_relation_1">
+    <createTable tableName="vehicle_brand_model_relation">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="data_id" type="bigint"/>
+      <column name="data_type" type="varchar(50)"/>
+      <column name="first_letter" type="varchar(50)"/>
+      <column name="brand_name" type="varchar(200)"/>
+      <column name="model_name" type="varchar(200)"/>
+      <column name="brand_id" type="varchar(200)"/>
+      <column name="model_id" type="varchar(200)"/>
+    </createTable>
+    <addPrimaryKey tableName="vehicle_brand_model_relation" columnNames="id" constraintName="pk_vehicle_brand_model_relation"/>
+  </changeSet>
+
+  <changeSet author="lw" id="vehicle_brand_model_relation_2">
+    <createIndex tableName="vehicle_brand_model_relation" indexName="idx_shopid_dataid">
+      <column name="shop_id"/>
+      <column name="data_id"/>
+    </createIndex>
+  </changeSet>
+
+</databaseChangeLog>

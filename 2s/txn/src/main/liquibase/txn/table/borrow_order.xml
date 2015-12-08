@@ -1,0 +1,43 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="ndong" id="borrow_order_1">
+        <createTable tableName="borrow_order">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="receipt_no" type="varchar(20)"/>
+            <column name="vest_date" type="bigint"/>
+            <column name="return_date" type="bigint"/>
+            <column name="status" type="varchar(50)"/>
+            <column name="storehouse_id" type="bigint"/>
+            <column name="storehouse_name" type="varchar(100)"/>
+            <column name="borrower" type="varchar(50)"/>
+            <column name="borrower_id" type="bigint"/>
+            <column name="borrower_type" type="varchar(50)"/>
+            <column name="operator" type="varchar(50)"/>
+            <column name="operator_id" type="bigint"/>
+            <column name="transfer_type" type="varchar(50)"/>
+            <column name="return_status" type="varchar(50)"/>
+            <column name="memo" type="varchar(500)"/>
+        </createTable>
+        <addPrimaryKey tableName="borrow_order" columnNames="id" constraintName="pk_borrow_order"/>
+    </changeSet>
+
+    <changeSet author="ndong" id="borrow_order_2">
+        <addColumn tableName="borrow_order">
+            <column name="total" type="double"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>
+

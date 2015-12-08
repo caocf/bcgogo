@@ -1,0 +1,70 @@
+Ext.define('Ext.view.sys.userGroup.Form', {
+    extend:'Ext.form.Panel',
+    bodyPadding:5,
+    width:350,
+    alias:'widget.formUserGroup',
+    store:'Ext.store.sys.UserGroups',
+    requires:["Ext.view.sys.Status"],
+    layout:'anchor',
+    defaults:{
+        anchor:'100%'
+    },
+    items:[
+        {
+            xtype:"hiddenfield",
+            name:'id'
+        },
+        {
+            xtype:"hiddenfield",
+            name:'type'
+        },
+        {
+            xtype:"hiddenfield",
+            name:'value'
+        },
+        {
+            fieldLabel:'角色名称',
+            xtype:"textfield",
+            maxLength:10,
+            enforceMaxLength:true,
+            name:'name',
+            allowBlank:false
+        },
+        {
+            fieldLabel:'角色描述',
+            name:'memo',
+            xtype:"textareafield",
+            maxLength:50,
+            enforceMaxLength:true,
+            allowBlank:false
+        },
+        {
+            fieldLabel:'角色状态',
+            name:'status',
+            xtype:"sysstatus",
+            allowBlank:false
+        }
+    ],
+
+    // Reset and Submit buttons
+    buttons:[
+        {
+            id:"formRoleReset",
+            text:'重置',
+            tooltip:"重置",
+            handler:function () {
+                this.up("form").form.reset();
+            }
+        },
+        {
+            text:'保存',
+            formBind:true, //only enabled once the form is valid
+            disabled:true,
+            action:'save'
+        }
+    ],
+    initComponent:function () {
+        this.addEvents('create');
+        this.callParent();
+    }
+});

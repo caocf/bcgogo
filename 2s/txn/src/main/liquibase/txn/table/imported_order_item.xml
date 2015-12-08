@@ -1,0 +1,58 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="dongnan" id="imported_order_item_1">
+        <createTable tableName="imported_order_item">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="order_id" type="bigint"/>
+            <column name="product_code" type="varchar(150)"/>
+            <column name="product_name" type="varchar(150)"/>
+            <column name="brand" type="varchar(150)"/>
+            <column name="spec" type="varchar(150)"/>
+            <column name="model" type="varchar(150)"/>
+            <column name="vehicle_model" type="varchar(100)"/>
+            <column name="vehicle_brand" type="varchar(100)"/>
+            <column name="unit" type="varchar(20)"/>
+            <column name="price" type="double"/>
+            <column name="amount" type="double"/>
+            <column name="service_total" type="double"/>
+            <column name="service_worker" type="varchar(50)"/>
+            <column name="service_content" type="varchar(500)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="imported_order_item_2" author="dongnan">
+        <addPrimaryKey tableName="imported_order_item" columnNames="id" constraintName="pk_imported_order_item"/>
+    </changeSet>
+
+    <changeSet author="dongnan" id="imported_order_item_3">
+        <addColumn tableName="imported_order_item">
+            <column name="item_type" type="varchar(70)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="ndong" id="imported_order_item_4">
+        <createIndex tableName="imported_order_item" indexName="IDX_IMPORTED_ORDER_ID">
+            <column name="order_id"/>
+        </createIndex>
+
+    </changeSet>
+
+    <changeSet id="imported_order_item_5" author="yangwj">
+        <modifyColumn tableName="imported_order_item">
+            <column name="vehicle_brand" type="varchar(200)"/>
+            <column name="vehicle_model" type="varchar(200)"/>
+        </modifyColumn>
+    </changeSet>
+</databaseChangeLog>

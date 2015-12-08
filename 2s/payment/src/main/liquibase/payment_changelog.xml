@@ -1,0 +1,34 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <preConditions>
+        <dbms type="mysql"/>
+    </preConditions>
+
+    <changeSet id="hibernate_unique_key_1" author="lijie">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="hibernate_unique_key"/>
+            </not>
+        </preConditions>
+        <createTable tableName="hibernate_unique_key">
+            <column name="next_hi" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <insert tableName="hibernate_unique_key">
+            <column name="next_hi" value="1000000"/>
+        </insert>
+    </changeSet>
+    <!-- Schema -->
+
+    <include file="payment/table/transaction.xml"/>
+    <include file="payment/table/chinapay.xml"/>
+    <include file="payment/table/sequence_no.xml"/>
+    <include file="payment/table/payment_service_job.xml"/>
+    <include file="payment/table/china_pay_param_log.xml"/>
+
+
+</databaseChangeLog>

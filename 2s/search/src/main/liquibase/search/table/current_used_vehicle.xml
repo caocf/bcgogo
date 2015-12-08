@@ -1,0 +1,33 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+  <changeSet id="current_used_vehicle_1" author="zhangjuntao">
+    <createTable tableName="current_used_vehicle">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="time_order" type="varchar(200)"/>
+      <column name="brand" type="varchar(200)"/>
+    </createTable>
+    <addPrimaryKey tableName="current_used_vehicle" columnNames="id" constraintName="pk_current_used_vehicle"/>
+    <createIndex tableName="current_used_vehicle" indexName="idx_current_used_vehicle_shopid">
+      <column name="shop_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="current_used_vehicle_2">
+    <modifyColumn tableName="current_used_vehicle">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+</databaseChangeLog>

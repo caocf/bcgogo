@@ -1,0 +1,86 @@
+
+@charset "utf-8";
+.tuihuo_first table,
+.tuihuo_first span,
+.tuihuo_first .right_tuihuo {
+    width:750px;
+}
+.tableInfo4 .btn{
+    background:url(../images/chkTong.png);
+    color:#ffffff;
+    border:none;
+    width:76px;
+    height:25px;
+    cursor:pointer;
+}
+.tableInfo4 .btn:hover{
+    background:url(../images/chkTi.png);
+    color:#663A02;
+}
+.tuihuo_first{
+    margin-top:10px;
+}
+.tuihuo_first table .zongji td{
+    border-bottom:1px solid #DCDBDB;
+    border-right:1px solid #DCDBDB;
+    text-align:left;
+    padding-left:20px;
+    font-weight:bold;
+    color:#515151;
+}
+.tuihuo_first table .inp_txt{
+    height:20px;
+    line-height:20px;
+    width:100px;
+}
+
+.jihua_tb tr td .xiala{
+    position:relative;
+}
+.jihua_tb tr td .xiala ul{
+    position:absolute;
+    top:20px;
+    top:21px\9;
+    width:10px;
+    border:1px solid #ADADAD;
+    background:#fff;
+}
+.jihua_tb tr td .xiala ul li{
+    height:20px;
+    line-height:20px;
+}
+.jihua_tb tr td .xiala ul li:hover{
+    background:#ADADAD;
+}
+.xiala img,.xiala .inDates{
+    display:block;
+    float:left;
+}
+.jihua_tb tr td .xiala ul {
+    width:109px;
+    width:111px\9;
+    border-top:none;
+}
+.jihua_tb tr td .xiala input,.jihua_tb tr td .xiala img{
+}
+.jihua_tb tr td .xiala img{
+    margin-right:20px;
+}
+#div_arrear .tableInfo4{
+    width:400px;
+}
+.i_scroll {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    height: 220px;
+    position: absolute;
+    width: 152px;
+    z-index: 99;
+}
+
+.Scroller-Container a.hover {
+    background: url(../images/a_03.png) repeat-x;
+    width: 130px;
+    color: #FFFFFF;
+    cursor: pointer;
+}

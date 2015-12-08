@@ -1,0 +1,47 @@
+.clear{ clear:both;}
+.height{ height:10px;}
+
+.alertMain{ border:1px solid #85b5d9; width:600px; height:100%; float:left; padding:0px 10px 10px 10px; font-size:12px; font-family:"宋体";background: none repeat scroll 0 0 #FFFFFF;}
+.alertMain .alert_title{ margin:3px -7px 0px -7px; float:left; font-size:14px; color:#FFFFFF; line-height:28px; }
+.alertMain .alert_title .left{ background:url(../images/upTitle.png) no-repeat; width:6px; height:28px; float:left;}
+.alertMain .alert_title .right{ background:url(../images/upTitle.png) no-repeat -8px 0px; width:6px; height:28px; float:left;}
+.alertMain .alert_title .body{ background:url(../images/upTitleBg.png) repeat-x; height:28px; float:left; width:596px;padding-left:6px;}
+.alertMain .titBody{float:left;}
+.alertMain .titBody .titLine, .alertMain .tabRecord .tabTitle{ background:url(../images/upTitBg.png) repeat-x; height:28px; float:left; border:1px solid #d6d6d6; color:#007eff; font-size:14px; line-height:28px; width:705px; padding-left:10px; font-weight:bold;}
+.alertMain .titBody .titBodys{ background:url(../images/titBody.png) repeat; width:715px; height:100%; float:left; border:1px solid #d6d6d6; border-width:0px 1px 1px 1px; padding-bottom:10px;}
+.alertMain .titBody .titBodys .alertDivTit{ float:left; margin-left:10px;}
+.alertMain .titBody .titBodys .alertDivTit .alertTxt{ border:1px solid #CCCCCC; margin:10px 0px; width:60px; color: #AEAEAE;height: 19px;}
+.alertMain .titBody .titBodys .alertDivTit .btnCheck{ background:url(../images/chkBtn.png) no-repeat; width:52px; height:21px; display:inline-block; line-height:21px; text-align:center; color:#FFFFFF; cursor:pointer; font-size:12px;}
+.alertMain .titBody .titBodys .alertDivTit .btnCheck:hover{ background:url(../images/chkBtn.png) no-repeat -54px 0px; color:#663A02;}
+.alertMain .record{color: #272727; line-height:25px; float:left;}
+.alertMain .tabRecord{	border-collapse: collapse; table-layout: fixed; width:100%;}
+.alertMain .tabRecord tr{ border:1px solid #D6D6D6;}
+.alertMain .tabRecord .tabTitle{ font-size:12px; font-weight:normal; float:none;}
+.alertMain .tabRecord td {height: 25px;line-height: 22px;padding-left: 10px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;word-break: keep-all;}
+.alertMain .tabRecord td .chk{margin-right:5px; padding-top:5px; }
+.alertMain .button,.s-alert .button{ float:left; text-align:center; width:100%;}
+.alertMain .button a.btnSure,.s-alert .button a.btnSure{ background:url(../images/btnNormals.png) no-repeat; width:64px; height:21px; line-height:22px; text-align:center; color:#FFFFFF; display:inline-block; cursor:pointer; font-size:14px; margin-right:10px;}
+.alertMain .button a.btnSure:hover,.s-alert .button a.btnSure:hover{ background:url(../images/btnHoverss.png) no-repeat; color:#663A02;}
+
+.alertMain .txtAll {line-height: 30px; text-align: right; }
+.alertMain .button_tip a.btnSure{ background:url(../images/btnBuy.png) no-repeat; width:77px; height:21px; line-height:23px; font-size:12px;}
+.alertMain .button_tip a.btnSure:hover{ background:url(../images/btnBuyHover.png) no-repeat;}
+
+
+/*-----------------------------------分页--------------------------------------*/
+.i_pageBtn{ float:left;}
+.i_pageBtn a.first, .i_pageBtn a.lastPage, .i_pageBtn a.nextPage, .i_pageBtn a.last{margin:0px; margin-right:5px; display:block; float:left; padding:0px; padding-top:1px; background:url(../images/page_one.png) no-repeat; width:53px; height:22px; line-height:22px; color:#ACA899; text-align:center;}
+.i_pageBtn .num, .i_pageBtn .num, .i_pageBtn .first, .i_pageBtn .last, .i_pageBtn .lastPage, .i_pageBtn .nextPage{  color: #ACA899;cursor: no-drop; float: left;}
+.i_pageBtn .pageSure{margin:0px; margin-right:2px; display:block; float:right; padding:0px; background:url(../images/page_one.png) no-repeat; width:53px; height:22px; line-height:22px; color:#007eff; text-align:center; cursor:pointer; border:none; font-size:12px; margin-left:6px;}
+.i_pageBtn a.wordButton {margin:0px; margin-right:5px; display:block; float:left; padding:0px; padding-top:1px; background:url(../images/page_one.png) no-repeat; width:53px; height:22px; line-height:22px; color:#007eff; cursor:pointer;
+}
+.i_pageBtn .numButton{background:url(../images/page_two.png) no-repeat; width:26px; height:22px; line-height:22px; text-align:center; display:block; float:left; margin:0px; margin-right:5px; cursor:pointer; color: #007eff;}
+.i_pageBtn .selectPage {border:1px solid #CCCCCC; width:24px; padding-left:6px; height:20px; line-height:20px; margin:0px 5px;
+}
+.i_pageBtn .wordButton:hover, .i_pageBtn .wordButton_selected, .i_pageBtn .pageSure:hover{background:url(../images/hover_page_one.png) no-repeat; color:#ff6600;}
+.i_pageBtn .numButton:hover, .i_pageBtn .numButton_selected{background:url(../images/hover_page_two.png) no-repeat; color:#ff6600;}
+.i_pageBtn .pageNum{ float:left; color: #272727; line-height:22px;}
+.i_pageBtn .recordCount, .pageCount{color:#ff5e04; padding:0px 5px 0px 5px;}
+.ellipsis{ float:left; margin: 8px 0px 0px 0px;}
+
+

@@ -1,0 +1,113 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="mazidong" id="repair_order_service_1">
+          <createTable tableName="repair_order_service">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="repair_order_id" type="bigint"/>
+            <column name="service_id" type="bigint"/>
+            <column name="service" type="varchar(20)"/>
+            <column name="total" type="float"/>
+            <column name="workers" type="varchar(50)"/>
+            <column name="memo" type="varchar(500)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="repair_order_service_2" author="zhuyinjia">
+        <addPrimaryKey tableName="repair_order_service" columnNames="id" constraintName="pk_sales_inventory"/>
+    </changeSet>
+
+    <changeSet id="repair_order_service_3" author="zhouxiaochen">
+        <createIndex tableName="repair_order_service" indexName="idx_ros_1">
+            <column name="repair_order_id"/>
+        </createIndex>
+    </changeSet>
+
+  <changeSet id="repair_order_service_4" author="liuWei">
+    <addColumn tableName="repair_order_service">
+      <column name="shop_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+    <changeSet id="repair_order_service_5" author="chenfanglei">
+        <addColumn tableName="repair_order_service">
+            <column name="cost_price" type="float"/>
+        </addColumn>
+    </changeSet>
+  <changeSet id="repair_order_service_6" author="zhangjuntao">
+    <modifyColumn tableName="repair_order_service">
+      <column name="service" type="varchar(200)"></column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="repair_order_service_7">
+    <modifyColumn tableName="repair_order_service">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+	<changeSet id="repair_order_service_8" author="liuWei">
+    <addColumn tableName="repair_order_service">
+      <column name="consume_type" type="varchar(20)"/>
+    </addColumn>
+  </changeSet>
+
+	<changeSet id="repair_order_service_9" author="liuWei">
+    <addColumn tableName="repair_order_service">
+      <column name="worker_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_service_10" author="jimuchen">
+    <renameColumn tableName="repair_order_service" oldColumnName="worker_id" newColumnName="worker_ids" columnDataType="varchar(150)"/>
+    <modifyColumn tableName="repair_order_service">
+      <column name="workers" type="varchar(100)" />
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_service_11" author="chenfanglei">
+      <addColumn tableName="repair_order_service">
+          <column name="business_category_id" type="bigint"></column>
+          <column name="business_category_name" type="varchar(200)"></column>
+      </addColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_service_12" author="jimuchen">
+      <addColumn tableName="repair_order_service">
+          <column name="service_history_id" type="bigint" />
+      </addColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_service_13" author="jimuchen">
+    <modifyColumn tableName="repair_order_service">
+      <column name="workers" type="varchar(300)" />
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_service_14" author="jimuchen">
+    <modifyColumn tableName="repair_order_service">
+      <column name="total" type="double(20,2)"/>
+      <column name="cost_price" type="double(20,2)"/>
+		</modifyColumn>
+  </changeSet>
+
+  <changeSet id="repair_order_service_15" author="lw">
+    <addColumn tableName="repair_order_service">
+      <column name="standard_hours" type="double(20,2)"></column>
+      <column name="standard_unit_price" type="double(20,2)"></column>
+      <column name="actual_hours" type="double(20,2)"></column>
+    </addColumn>
+  </changeSet>
+</databaseChangeLog>

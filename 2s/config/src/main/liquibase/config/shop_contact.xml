@@ -1,0 +1,45 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhuj" id="shop_contact">
+
+        <createTable tableName="shop_contact">
+
+            <column name="id" type="bigint"/>
+
+            <column name="name" type="varchar(20)"/>
+            <column name="mobile" type="varchar(100)"/>
+            <column name="email" type="varchar(50)"/>
+            <column name="qq" type="varchar(20)"/>
+            <column name="shop_id" type="bigint"/>
+            <column name="level" type="int"/>
+            <column name="disabled" type="int"/>
+            <column name="is_main_contact" type="int"/>
+            <column name="is_shop_owner" type="int"/>
+
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+        </createTable>
+
+        <addPrimaryKey tableName="shop_contact" columnNames="id" constraintName="PK_SHOP_CONTACT"/>
+
+        <createIndex tableName="shop_contact" indexName="IDX_CONTACT_SHOPID">
+            <column name="shop_id"/>
+        </createIndex>
+        <createIndex tableName="shop_contact" indexName="IDX_CONTACT_NAME">
+            <column name="name"/>
+        </createIndex>
+
+    </changeSet>
+
+
+</databaseChangeLog>

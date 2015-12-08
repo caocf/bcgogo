@@ -1,0 +1,39 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="sinYuQiu" id="drive_log_place_note_1">
+        <createTable tableName="drive_log_place_note">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="app_user_no" type="varchar(100)"/>
+            <column name="drive_log_id" type="bigint"/>
+            <column name="place_notes" type="mediumtext"/>
+        </createTable>
+        <addPrimaryKey tableName="drive_log_place_note" columnNames="id" constraintName="pk_drive_log_place_note"/>
+
+    </changeSet>
+    <changeSet id="drive_log_place_note_2" author="sinYuQiu">
+        <addColumn tableName="drive_log_place_note">
+            <column name="app_platform" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="sinYuQiu" id="drive_log_place_note_3">
+        <createIndex tableName="drive_log_place_note" indexName="IDX_drive_log_place_note_app_user_no">
+            <column name="app_user_no"/>
+        </createIndex>
+        <createIndex tableName="drive_log_place_note" indexName="IDX_drive_log_place_note_drive_log_id">
+            <column name="drive_log_id"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

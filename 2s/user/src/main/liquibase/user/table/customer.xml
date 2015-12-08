@@ -1,0 +1,222 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="mazidong" id="customer_1">
+    <createTable tableName="customer">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="code" type="varchar(20)"/>
+      <column name="customer_shop_id" type="bigint"/>
+      <column name="name" type="varchar(20)"/>
+      <column name="company" type="varchar(20)"/>
+      <column name="identifier_no" type="varchar(20)"/>
+      <column name="gender" type="int"/>
+      <column name="birthday" type="bigint"/>
+      <column name="mobile" type="varchar(20)"/>
+      <column name="landline" type="varchar(20)"/>
+      <column name="fax" type="varchar(20)"/>
+      <column name="email" type="varchar(50)"/>
+      <column name="zip" type="varchar(10)"/>
+      <column name="address" type="varchar(50)"/>
+      <column name="qq" type="varchar(20)"/>
+      <column name="bank" type="varchar(20)"/>
+      <column name="account" type="varchar(20)"/>
+      <column name="tax_no" type="varchar(50)"/>
+      <column name="billing_address" type="bigint"/>
+      <column name="invoice_category" type="bigint"/>
+      <column name="settlement_type" type="bigint"/>
+      <column name="invoice_title" type="varchar(20)"/>
+      <column name="dept" type="bigint"/>
+      <column name="agent" type="bigint"/>
+      <column name="memo" type="varchar(500)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="mzdong" id="customer_2">
+    <dropColumn tableName="customer" columnName="birthday"/>
+    <addColumn tableName="customer">
+      <column name="birth_year" type="bigint"/>
+      <column name="birth_month" type="bigint"/>
+      <column name="birth_day" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="mzdong" id="customer_3">
+    <dropColumn tableName="customer" columnName="birth_year"/>
+    <dropColumn tableName="customer" columnName="birth_month"/>
+    <dropColumn tableName="customer" columnName="birth_day"/>
+    <addColumn tableName="customer">
+      <column name="birthday" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="zhouxiaochen" id="customer_4">
+    <addColumn tableName="customer">
+      <column name="contact" type="varchar(200)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="xiaojian" id="customer_5">
+    <addPrimaryKey tableName="customer" columnNames="id" constraintName="pk_customer"/>
+  </changeSet>
+
+  <changeSet author="zhouxiaochen" id="customer_6">
+    <addColumn tableName="customer">
+      <column name="short_name" type="varchar(20)"/>
+      <column name="bank_account_name" type="varchar(20)"/>
+      <column name="area" type="varchar(20)"/>
+      <column name="customer_kind" type="varchar(20)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="zhangchuanlong" id="customer_7">
+    <addColumn tableName="customer">
+      <column name="first_letters" type="varchar(30)"/>
+    </addColumn>
+  </changeSet>
+
+
+  <changeSet author="zoujianhong" id="customer_8">
+    <createIndex tableName="customer" indexName="IDX_CUSTOMER_SHOPID">
+      <column name="shop_id"/>
+    </createIndex>
+    <createIndex tableName="customer" indexName="IDX_CUSTOMER_NAME">
+      <column name="name"/>
+    </createIndex>
+    <createIndex tableName="customer" indexName="IDX_CUSTOMER_MOBILE">
+      <column name="mobile"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="customer_9">
+    <createIndex tableName="customer" indexName="IDX_CUSTOMER_LANDLINE">
+      <column name="landline"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="customer_10">
+    <modifyColumn tableName="customer">
+      <column name="name" type="varchar(100)"/>
+      <column name="short_name" type="varchar(100)"/>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="customer_11">
+    <modifyColumn tableName="customer">
+      <column name="mobile" type="varchar(100)"/>
+      <column name="landline" type="varchar(100)"/>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet author="zhangjuntao" id="customer_12">
+    <addColumn tableName="customer">
+      <column name="member_number" type="varchar(20)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="chenfanglei" id="customer_13">
+      <modifyColumn tableName="customer">
+          <column name="first_letters" type="varchar(100)"></column>
+      </modifyColumn>
+  </changeSet>
+
+  <changeSet id="customer_14" author="chenfanglei">
+    <modifyColumn tableName="customer">
+      <column name="address" type="varchar(100)"></column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="customer_15">
+    <modifyColumn tableName="customer">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+   <changeSet id="customer_16" author="chenfanglei">
+       <addColumn tableName="customer">
+           <column name="status" type="varchar(20)"></column>
+       </addColumn>
+   </changeSet>
+
+  <changeSet id="customer_17" author="dongnan">
+    <addColumn tableName="customer">
+      <column name="parent_id" type="bigint"></column>
+    </addColumn>
+  </changeSet>
+    <changeSet id="customer_qiuxinyu_18" author="qiuxinyu">
+        <addColumn tableName="customer">
+            <column name="relation_type" type="varchar(20)"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="customer_18_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="customer">
+            <column name="invitation_code_send_date" type="bigint"/>
+            <column name="invitation_code_send_times" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="customer_19_jinyuan" author="jinyuan">
+        <addColumn tableName="customer">
+            <column name="province" type="bigint"/>
+            <column name="city" type="bigint"/>
+            <column name="region" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="customer_20_jinyuan" author="jinyuan">
+        <addColumn tableName="customer">
+            <column name="identity" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="customer_21_jinyuan" author="jinyuan">
+        <addColumn tableName="customer">
+            <column name="supplier_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet id="customer_22" author="jimuchen">
+      <addColumn tableName="customer">
+          <column name="permanent_dual_role" type="boolean"/>
+      </addColumn>
+  </changeSet>
+
+    <changeSet id="customer_23_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="customer">
+            <column name="cancel_recommend_associated_count" type="tinyint"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet id="customer_24" author="lw">
+    <addColumn tableName="customer">
+      <column name="business_scope" type="varchar(500)"/>
+    </addColumn>
+  </changeSet>
+
+    <changeSet id="customer_25" author="xzhu">
+    <addColumn tableName="customer">
+      <column name="select_brand_model" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+    <changeSet id="customer_26" author="mayan">
+        <addColumn tableName="customer">
+            <column name="landline_second" type="varchar(20)"/>
+            <column name="landline_third" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

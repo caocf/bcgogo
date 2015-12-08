@@ -1,0 +1,648 @@
+* {
+	margin:0;
+	padding:0;
+}
+@font-face {
+font-family:微软雅黑;
+src: url('../font/msyh.eot'); /* IE9 Compat Modes */
+src: url('../font/msyh.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */  url('../font/msyh.ttf') format('truetype');/* Safari, Android, iOS */
+}
+ul {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+ul li {
+	list-style:none;
+	margin:0px;
+	padding:0px;
+}
+div {
+	margin:0px;
+	padding:0px;
+}
+a {
+	text-decoration:none;
+}
+.hover {
+	color:#6d8fb9;
+}
+body {
+	font-family: "微软雅黑", Arial;
+	color:#FFFFFF;
+	font-size:12px;
+	margin:0px;
+	padding:0px;
+}
+.height {
+	clear:both;
+	height:18px;
+}
+.i_height {
+	height:10px;
+}
+.clear {
+	clear:both;
+}
+.main {
+	position:relative;
+	margin:0 auto 0 auto;
+	width:1003px;
+}
+.main .top {
+	background:url(../images/topBg.png) repeat-x;
+	height:37px;
+	line-height:37px;
+	padding:0px 15px 0px 15px;
+}
+.main .top .top_left {
+	float:left;
+}
+.main .top .top_left .top_name {
+	float:left;
+	padding-right:5px;
+}
+.main .top .top_left .top_image {
+	float:left;
+	background:url(../images/topImage.png) no-repeat;
+	width:24px;
+	height:22px;
+	padding-right:5px;
+	margin-top:7px;
+	cursor:pointer;
+ *background:none;
+ *filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/topImage.png', sizingMethod='image');
+}
+.main .top .top_left span {
+	padding-right:5px;
+}
+.main .top .top_left a {
+	padding-left:5px;
+	color:#FFFFFF;
+}
+.main .top .top_right {
+	float:right;
+}
+.main .body {
+	float:left;
+	background:url(../images/background.png) repeat;
+	width:100%;
+	height:100%;
+}
+.main .body .bodyLeft {
+	float:left;
+	width:135px;
+ *padding-top:50px;
+}
+.main .body .bodyLeft .leftTitle li {
+	margin-top:10px;
+	height:39px;
+	padding-left:15px;
+	line-height:30px;
+	font-size:13px;
+	font-weight:normal;
+}
+.main .body .bodyLeft .leftTitle .left_register {
+	background:url(../images/register.png) no-repeat;
+	margin-top:6px;
+	padding-left:33px;
+ *background:none;
+ *filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/register.png', sizingMethod='crop');
+}
+.main .body .bodyLeft .leftTitle li a {
+	float:left;
+	color:#FFFFFF;
+	padding-right:5px;
+}
+.main .body .bodyLeft .leftTitle li .btnNum {
+	background:url(../images/btnNum.png) no-repeat;
+	text-align:center;
+	width:19px;
+	border:none;
+	color:#FFFFFF;
+	margin-top:12px;
+ *background:none;
+ *filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/btnNum.png', sizingMethod='crop');
+	font-size:11px;
+	height:18px;
+	padding:0px 3px 4px 0px;
+ *padding:0px 3px 0px 0px;
+}
+.main .body .bodyLeft .leftTitle .left_shopping {
+	background:url(../images/shopping.png) no-repeat;
+	margin-top:6px;
+	padding-left:33px;
+ *background:none;
+ *filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/shopping.png', sizingMethod='crop');
+}
+.main .body .bodyLeft .leftTitle .left_vehicle {
+	background:url(../images/vehicle.png) no-repeat;
+	margin-top:13px;
+	padding-left:33px;
+	line-height:15px;
+ *background:none;
+ *filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/vehicle.png', sizingMethod='crop');
+}
+.main .body .bodyLeft .leftTitle .left_recruit {
+	background:url(../images/recruit.png) no-repeat;
+	margin-top:6px;
+	padding-left:33px;
+	line-height:28px;
+ *background:none;
+ *filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/recruit.png', sizingMethod='crop');
+}
+.main .body .bodyLeft .leftTitle .left_recharge {
+	background:url(../images/recharge.png) no-repeat;
+	margin-top:6px;
+	padding-left:33px;
+	line-height:28px;
+	_background:none;
+ _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/recharge.png", sizingMethod="crop");
+}
+.main .body .bodyLeft .leftTitle .left_agaent {
+	background:url(../images/left_argent.png) no-repeat;
+	margin-top:9px;
+	padding-left:33px;
+	line-height:21px;
+ *background:none;
+ *filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/left_argent.png', sizingMethod='crop');
+}
+.main .body .bodyLeft .leftTitle .left_manage {
+	background:url(../images/manage.png) no-repeat;
+	margin-top:9px;
+	padding-left:33px;
+	line-height:21px;
+ *background:none;
+ *filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/manage.png', sizingMethod='crop');
+}
+.main .body .bodyLeft .leftTitle .left_datamaintain {
+	background:url(../images/dataMaintain.png) no-repeat 5px 0px;
+	margin-top:9px;
+	padding-left:33px;
+	line-height:23px;
+}
+.main .body .bodyLeft .leftTitle .left_hover {
+	background:url(../images/left_hover.jpg) repeat-x;
+	height:39px;
+}
+.main .body .bodyRight {
+	float:left;
+	width:867px;
+	padding-top:10px;
+}
+.main .body .bodyRight .rightText {
+	float:left;
+	margin-right:10px;
+}
+.main .body .bodyRight .rightText .textLeft {
+	float:left;
+	background:url(../images/textLeft.jpg) no-repeat;
+	width:3px;
+	height:24px;
+}
+.main .body .bodyRight .rightText .textBody {
+	float:left;
+	background:url(../images/textBody.jpg) repeat-x;
+	width:150px;
+	height:24px;
+}
+.main .body .bodyRight .rightText input {
+	border:1px solid #FFFFFF;
+	height:19px;
+	line-height:19px;
+	margin-top:2px;
+ *margin-top:0px;
+}
+.main .body .bodyRight .rightText .textRight {
+	float:left;
+	background:url(../images/textRight.jpg) no-repeat;
+	width:3px;
+	height:24px;
+}
+.main .body .bodyRight .rightText .textAddressbody {
+	float:left;
+	background:url(../images/textBody.jpg) repeat-x;
+	width:200px;
+	height:24px;
+	padding-left:6px;
+}
+.main .body .bodyRight .rightSearch {
+	background:url(../images/rightSearch.jpg) no-repeat;
+	width:45px;
+	height:22px;
+	text-align:center;
+	line-height:22px;
+	color:#FFFFFF;
+	border:none;
+    margin-left:85px
+}
+.rightMain {
+	float:left;
+	width:847px;
+	padding:0px 10px 0px 10px;
+	background:#FFFFFF;
+	height:100%;
+	margin-top:10px;
+}
+.rightMain .rightTitle {
+	margin-left:-11px;
+	margin-right:-10px;
+}
+.rightMain .rightTitle .rightLeft {
+	float:left;
+	background:url(../images/rightLeft.jpg) no-repeat;
+	width:4px;
+	height:40px;
+}
+.rightMain .rightTitle .rightRight {
+	float:right;
+	background:url(../images/backWelcome.png) no-repeat;
+	width:43px;
+	height:43px;
+}
+.rightMain .rightTitle .rightBody {
+	float:left;
+	background:url(../images/rightBody.jpg) repeat-x;
+	width:848px;
+	height:40px;
+	padding:9px 0px 0px 15px;
+}
+.rightMain .rightTitle .rightBody .titleHover {
+	float:left;
+	background:url(../images/rightTitHover.jpg) no-repeat;
+	width:69px;
+	height:25px;
+	text-align:center;
+	line-height:25px;
+	color:#FFFFFF;
+	cursor:pointer;
+	margin-right:10px;
+}
+.rightMain .rightTitle .rightBody .title {
+	float:left;
+	background:url(../images/rightTit.jpg) no-repeat;
+	width:70px;
+	height:26px;
+	text-align:center;
+	line-height:26px;
+	color:#6f6f6f;
+	cursor:pointer;
+	margin-right:10px;
+}
+.rightMain .rightTime .timeLeft {
+	float:left;
+	background:url(../images/timeLeft.jpg) no-repeat;
+	width:5px;
+	height:30px;
+}
+.rightMain .rightTime .timeBody {
+	float:left;
+	background:url(../images/timeBody.jpg) repeat-x;
+	width:832px;
+	height:30px;
+	line-height:30px;
+	padding-left:6px;
+	font-weight:bold;
+}
+.rightMain .rightTime .timeBody span {
+	color:#E3EB24;
+}
+.rightMain .rightTime .timeRight {
+	float:left;
+	background:url(../images/timeRight.jpg) no-repeat;
+	width:4px;
+	height:30px;
+}
+.rightMain .registerInfo {
+	float:left;
+	padding-top:15px;
+}
+.rightMain .registerInfo .leftBorder {
+	float:left;
+	background:#6F99D5;
+	width:10px;
+	height:200px;
+}
+.rightMain .registerInfo .tableRegister {
+	float:left;
+	color:#666666;
+	margin:10px 0px 10px 30px;
+	width:800px;
+	_margin-left:23px;
+}
+.rightMain .registerInfo .tableRegister td {
+	vertical-align:top;
+}
+.rightMain .registerInfo .tableRegister .imageBtn input {
+	float:left;
+	display:block;
+	width:53px;
+	height:25px;
+	text-align:center;
+	line-height:25px;
+	background:#DDDDDD;
+	margin:2px 2px 0px 0px;
+	color:#666666;
+}
+.rightMain .registerInfo .registerMsg {
+	float:left;
+	color:#666666;
+	padding-left:30px;
+}
+.rightMain .registerInfo .registerMsg .msg_time {
+	float:left;
+	padding-right:10px;
+}
+.rightMain .registerInfo .registerMsg .msg_time input {
+	border:none;
+	border-bottom:1px solid #CCCCCC;
+	margin-left:4px;
+	padding-left:4px;
+	width:80px;
+}
+.rightMain .registerInfo .registerMsg .area {
+	float: left;
+	margin-left: -25px;
+}
+.rightMain .registerInfo .registerMsg .msg_time .make_starttime, .rightMain .registerInfo .registerMsg .msg_time .make_endtime {
+	float:left;
+	border-bottom:1px solid #CCCCCC;
+	margin-left:4px;
+}
+.rightMain .registerInfo .registerMsg .msg_time .make_starttime input, .rightMain .registerInfo .registerMsg .msg_time .make_endtime input {
+	border:none;
+}
+.rightMain .registerInfo .registerMsg .msg_time span, .rightMain .car_repair .car_decorateInfo span {
+	float:left;
+	color:#6D6D6D;
+}
+.rightMain .registerInfo .leftBorder2 {
+	float:left;
+	background:#A8C0E2;
+	width:10px;
+	height:310px;
+ *height:370px;
+	_height:340px;
+}
+.rightMain .registerInfo .registerName {
+	float:left;
+	color:#666666;
+	font-size:14px;
+	padding:10px 0px 0px 10px;
+	width:800px;
+}
+.rightMain .registerInfo .car_repair {
+	float:left;
+	padding:10px 0px 0px 20px;
+	width:800px;
+	line-height:28px;
+}
+.rightMain .registerInfo .car_repair .car_repairName {
+	float:left;
+	width:70px;
+	height:25px;
+	text-align:center;
+	line-height:25px;
+	background:#FFA58A;
+	font-weight:bold;
+}
+.rightMain .registerInfo .car_repair label {
+	float:left;
+	color:#6D6D6D;
+	padding-left:10px;
+	line-height:28px;
+	white-space: nowrap;
+}
+.rightMain .registerInfo .car_repair label input {
+	margin-right:4px;
+}
+.rightMain .registerInfo .car_repair .car_decorateName {
+	float:left;
+	width:70px;
+	height:25px;
+	text-align:center;
+	line-height:25px;
+	background:#A9BBC7;
+	font-weight:bold;
+}
+.rightMain .registerInfo .car_repair .car_decorateInfo {
+	float:left;
+	width:700px;
+}
+.rightMain .registerInfo .car_repair .car_decorateInfo .carOther {
+	float:left;
+	border:none;
+	border-bottom:1px solid #CCCCCC;
+	margin:6px 0px 0px 4px;
+	padding-left:4px;
+}
+.rightMain .registerInfo .car_repair .car_wholesaleName {
+	float:left;
+	width:70px;
+	height:25px;
+	text-align:center;
+	line-height:25px;
+	background:#A3A5A4;
+	font-weight:bold;
+}
+.rightMain .registerInfo .car_repair .car_Name {
+	float:left;
+	width:70px;
+	height:25px;
+	text-align:center;
+	color:#666666;
+	line-height:25px;
+	font-size:14px;
+}
+.rightMain .registerInfo .car_repair .car_decorateInfo .carModels {
+	float:left;
+	border:none;
+	border-bottom:1px solid #CCCCCC;
+	width:100px;
+	margin:6px 5px 0px 5px;
+	padding-left:4px;
+	_margin-top:3px;
+}
+.rightMain .registerInfo .car_repair .car_decorateInfo .writeother {
+	float:left;
+	border:none;
+	border-bottom:1px solid #CCCCCC;
+	width:300px;
+	margin:6px 5px 0px 5px;
+	padding-left:4px;
+}
+.rightMain .registerInfo .leftBorder3 {
+	float:left;
+	background:#C5D6E8;
+	width:10px;
+	height:40px;
+}
+.rightMain .registerInfo .car_repair .car_shopInfo {
+	color:#000000;
+	float:left;
+	width:700px;
+	line-height:25px;
+	padding-left:10px;
+}
+.rightMain .registerInfo .car_repair .car_shopInfo span {
+	padding:0px 20px 0px 10px;
+}
+.rightMain .registerButton {
+	float:right;
+}
+.rightMain .registerButton input {
+	background:url(../images/registerBtn.png) no-repeat;
+	width:83px;
+	height:31px;
+	text-align:center;
+	line-height:31px;
+	border:none;
+	color:#FFFFFF;
+	font-weight:bold;
+	cursor:pointer;
+}
+.right_search{
+	color:#000000;
+}
+.right_search div input{
+	margin-left:5px;
+}
+
+.rightMain .backContent{
+	position:relative;
+	width:630px;
+	margin:0 auto 0 auto;
+	padding:100px 0px 0px 0px;
+	height:500px;
+
+}
+.rightMain .backContent .backImg{
+	float:left;
+	background:url(../images/backImg.png) no-repeat;
+	width:162px;
+	height:184px;
+}
+.rightMain .backContent .backWords{
+	float:left;
+	background:url(../images/backWords.png) no-repeat;
+	width:417px;
+	height:116px;
+	margin:50px 0px 0px 30px;
+}
+.rightMain .fileInfo{
+	clear:both;
+	padding:20px;
+	color:#000000;
+	font-size:14px;
+}
+.rightMain .fileInfo input{
+	margin-left:5px;
+}
+.rightMain .fileInfo .smsControl{
+	float:left;
+	font-weight:bold;
+}
+.smsSend{
+	float:left;
+	width:100%;
+	padding-left:40px;
+}
+.smsSend .smsSendName{
+	float:left;
+	padding-right:20px;
+}
+.smsSend .i_moverBtn{
+	width:60px;
+	float:left;
+}
+.smsSend .i_noBtn{
+	float:left;
+	background:url(../images/documentLeft.jpg) no-repeat;
+	width:18px;
+	height:19px;
+}
+.smsSend .i_noClick{
+	float:left;
+	background:url(../images/documentRight.png) no-repeat;
+	width:18px;
+	height:19px;
+	margin-left:-18px;
+	cursor:pointer;
+/*border:none;	*/
+/*	*background:none;
+	*filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/documentRight.png', sizingMethod='scale');
+*/
+}
+.smsSend .i_noBtn2{
+	float:left;
+	background:url(../images/eft.jpg) no-repeat 0px -2px;
+	width:18px;
+	height:19px;
+}
+.fileInfo .tableSystem{
+    border-collapse: collapse;
+    table-layout: fixed;	
+	margin-left:40px;
+	width:400px;
+}
+.fileInfo .tableSystem tr td{
+	border:1px solid #CCCCCC;
+}
+.btn_executive input, .suer_xiu input {
+    background: url("../images/uncle.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    height: 25px;
+    letter-spacing: 2px;
+    line-height: 26px;
+    width: 61px;
+    float: left;
+    margin-top: 6px;
+}
+ .suer_xiu {
+    float: left;
+}
+.suer_xiu .suer_a {
+    background: url("../images/contacts.png") no-repeat scroll 0 0 transparent;
+    width: 83px;
+}
+.d_photo{
+    width: 100px;
+    height: 100px;
+}
+.rightMain .rightTitle .rightBody .title a{
+    color:#6F6F6F;
+}
+.main .body .bodyLeft .leftTitle .left_print {
+	background:url(../images/print.png) no-repeat 5px 0px;
+	margin-top:9px;
+	padding-left:33px;
+	line-height:23px;
+}
+
+.main .body .bodyLeft .leftTitle .left_shopConfig {
+	background:url(../images/home_grey.png) no-repeat 5px 0px;
+	margin-top:9px;
+	padding-left:33px;
+	line-height:23px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

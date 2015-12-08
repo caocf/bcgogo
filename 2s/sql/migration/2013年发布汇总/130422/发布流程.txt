@@ -1,0 +1,62 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+2. 短信模板更新：
+短信模板内容修改：  将类型为appointService,memberService,customerRemindGuarantee,customerRemindKeepInGoodRepair,customerRemindValidateCar
+其中的‘今年’改为‘{year}年’
+
+新增一个短信模板内容：模板名：会员购卡短信  模板类型：memberBuyCardMsg  必要性：必要  场景：MEMBER_BUY
+内容：您好，$!{cardOwnerName}，您的会员卡已办理成功。会员卡号：$!{memberNo}，密码：$!{password}。如有任何问题请与我们的工作人员联系！
+
+3. 更新数据库DML:
+初始化：insert into user_limit values('10000010001000002','1','1318928485391','1318928485391','-1','刷卡机功能','SCANNING_CARD','NECESSARY','null')
+        insert into user_limit values('10000010001000003','1','1318928485391','1318928485391','-1','扫描枪功能','SCANNING_BARCODE','NECESSARY','null')
+
+4. 打印模板上传：
+默认- 销售单打印
+默认- 对帐单打印
+
+三.发布应用 （纪友文）
+
+四.添加权限
+//===============================================SHOP--登陆后基本权限   =============================================
+web_login_base_getScanningGroupStatus                   request       /web/admin.do?method=getScanningGroupStatus       得到刷卡机和扫描枪的开关（ON OR OFF）
+//===============================================CRM--SHOP操作权限--shop数据初始化   =============================================
+initShopScanningGroupStatus                             request      /web/init.do?method=initShopScanningGroupStatus    初始化刷卡机扫描枪开关
+
+
+//===========================================================  版本资源======================================================================================================
+WEB_VERSION_DISABLE_SEARCH_SUPPLIER_ONLINE                  logic               WEB.VERSION.DISABLE.SEARCH.SUPPLIER.ONLINE              //禁用推荐供应商搜索        REPAIR_SHOP("初级版")，WASH_SHOP("微型版")
+WEB_VERSION_DISABLE_SEARCH_ACCESSORY_ONLINE                 logic               WEB.VERSION.DISABLE.SEARCH.ACCESSORY.ONLINE             //禁用推荐配件报价搜索      REPAIR_SHOP("初级版")，WASH_SHOP("微型版")
+WEB_VERSION_DISABLE_SEARCH_CUSTOMER_INVENTORY_ONLINE        logic               WEB.VERSION.DISABLE.SEARCH.CUSTOMER.INVENTORY.ONLINE    //禁用推荐客户库存搜索      WASH_SHOP("微型版")， 汽修
+WEB_VERSION_DISABLE_SEARCH_CUSTOMER_ONLINE                  logic               WEB.VERSION.DISABLE.SEARCH.CUSTOMER.ONLINE              //禁用推荐推荐客户搜索      WASH_SHOP("微型版")， 汽修
+
+web_online_getCustomerSupplierOnlineSuggestion             request         /web/searchInventoryIndex.do?method=getCustomerSupplierOnlineSuggestion  //推荐在线供应商或者客户下拉建议   登录基本权限
+
+
+CRM--SHOP操作权限--SHOP数据初始化
+initShopNamePy                request          /web/init.do?method=initShopNamePy           初始化店铺名字拼音
+initCustomerStockData         request          /web/init.do?method=initCustomerStockData    初始化客户库存最近交易数据
+
+
+五.初始化:
+  1. 数据初始化：
+  web: 用jackchen账号登陆 执行
+  /web/init.do?method=initShopScanningGroupStatus
+  /web/init.do?method=initShopNamePy
+  /web/init.do?method=initCustomerStockData
+
+  登录admin后台，执行:
+  promotionalSms.do?method=sentInvitationCodeSms&sendTime=2013-04-23 09:00
+
+  2. 所有 solr 更新schema和重做索引
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

@@ -1,0 +1,127 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="jimuchen" id="product_history_1">
+        <createTable tableName="product_history">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="bigint" />
+            <column name="uuid" type="char(36)"/>
+            <column name="name" type="varchar(200)"/>
+            <column name="name_en" type="varchar(200)"/>
+            <column name="state" type="bigint"/>
+            <column name="memo" type="varchar(2000)"/>
+            <column name="kind_id" type="bigint"/>
+            <column name="kind_name" type="varchar(200)"/>
+            <column name="brand" type="varchar(200)"/>
+            <column name="model" type="varchar(200)"/>
+            <column name="spec" type="varchar(2000)"/>
+            <column name="mfr" type="varchar(200)"/>
+            <column name="mfr_en" type="varchar(200)"/>
+            <column name="origin_no" type="integer"/>
+            <column name="product_vehicle_status" type="integer"/>
+            <column name="origin" type="varchar(200)"/>
+            <column name="unit" type="varchar(200)"/>
+            <column name="shop_id" type="bigint"/>
+            <column name="first_letter" type="varchar(100)"/>
+            <column name="first_letter_combination" type="varchar(200)"/>
+            <column name="product_vehicle_brand" type="varchar(50)"/>
+            <column name="product_vehicle_model" type="varchar(50)"/>
+            <column name="product_vehicle_year" type="varchar(10)"/>
+            <column name="product_vehicle_engine" type="varchar(10)"/>
+            <column name="parent_id" type="bigint"/>
+            <column name="check_status" type="integer"/>
+            <column name="barcode" type="varchar(20)"/>
+            <column name="commodity_code" type="varchar(70)"/>
+            <column name="status" type="varchar(50)"/>
+            <column name="product_version" type="bigint"/>
+
+            <column name="product_local_info_id" type="bigint"/>
+			<column name="storage_unit" type="varchar(20)"/>
+            <column name="sell_unit" type="varchar(20)"/>
+            <column name="rate" type="double"/>
+			<column name="percentage" type="double"/>
+            <column name="percentage_amount" type="double"/>
+            <column name="points_exchangeable" type="varchar(20)"/>
+			<column name="storage_bin" type="varchar(50)"/>
+			<column name="trade_price" type="double"/>
+			<column name="business_category_id" type="bigint" />
+			<column name="business_category_name" type="varchar(200)" />
+            <column name="product_local_info_version" type="bigint"/>
+
+            <column name="inventory_amount" type="float"/>
+            <column name="lower_limit" type="double"/>
+            <column name="upper_limit" type="double"/>
+            <column name="no_order_inventory" type="double"/>
+            <column name="sales_price" type="double"/>
+            <column name="latest_inventory_price" type="double"/>
+            <column name="inventory_average_price" type="double"/>
+            <column name="inventory_version" type="bigint" />
+
+        </createTable>
+        <addPrimaryKey tableName="product_history" columnNames="id" constraintName="pk_product_history"/>
+    </changeSet>
+
+    <changeSet author="jimuchen" id="product_history_2">
+      <createIndex tableName="product_history" indexName="idx_product_shopid">
+          <column name="shop_id" />
+      </createIndex>
+    </changeSet>
+
+    <changeSet author="jimuchen" id="product_history_3">
+      <createIndex tableName="product_history" indexName="idx_product_history_localinfo_id">
+          <column name="product_local_info_id" />
+      </createIndex>
+      <createIndex tableName="product_history" indexName="idx_product_history_product_id">
+          <column name="product_id" />
+      </createIndex>
+    </changeSet>
+
+    <changeSet author="jimuchen" id="product_history_4">
+        <addColumn tableName="product_history">
+           <column name="purchase_price" type="double" />
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="product_history_5" author="zhuj">
+        <addColumn tableName="product_history">
+            <column name="description" type="text"/>
+        </addColumn>
+    </changeSet>
+
+
+    <changeSet id="product_history_6" author="zhuj">
+        <addColumn tableName="product_history">
+            <column name="in_sales_price" type="double"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="product_history_7" author="jimuchen">
+        <addColumn tableName="product_history">
+            <column name="guarantee_period" type="varchar(100)" />
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="product_history_8" author="jimuchen">
+        <addColumn tableName="product_history">
+            <column name="product_category_id" type="bigint" />
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="product_history_9" author="yangwj">
+        <modifyColumn tableName="product_history">
+            <column name="product_vehicle_brand" type="varchar(200)"/>
+            <column name="product_vehicle_model" type="varchar(200)"/>
+        </modifyColumn>
+    </changeSet>
+
+</databaseChangeLog>

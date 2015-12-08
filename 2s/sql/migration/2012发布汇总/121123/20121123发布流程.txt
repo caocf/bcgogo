@@ -1,0 +1,35 @@
+一.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+二.数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，邹建宏）
+
+三.发布应用 （纪友文）
+
+四.添加权限
+
+（一）角色
+       新建角色 web_merge_customer  客户合并
+       将新角色添加到 经理/店长，老板/财务，BCGOGO管理员
+（二）资源
+
+          name                                           type           value                                                          备注
+//--------------------------------------------------------------------------new resource----------------------------------------------------------------------------------------------------
+//=============================================== BCGOGO初始化权限 web_merge_customer (董楠)===================================================
+web_customer_merge_customer_handler               request    /web/customer.do?method=mergeCustomerHandler                    处理客户合并
+web_customer_getMergedCustomers_render                   render    /web/customer/getMergedCustomers                                 合并按钮显示render
+web_customer_getMergedCustomers_request                   request    /web/customer.do?method=getMergedCustomers                      获取要合并客户的信息
+
+//===============================================  	web_businessCategory   (陈方雷)   =======================================
+ 	web_businessCategory_deleteCategory             request    /web/category.do?method=deleteCategory                     删除营业分类
+
+//===============================================    web_sms_send      (陈方雷)  ========================================
+web_sms_send_getMobiles                             reuqest  /web/sms.do?method=getMobiles                     获取手机号
+五.权限配置结束需要手动刷新资源！ （纪友文）
+
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

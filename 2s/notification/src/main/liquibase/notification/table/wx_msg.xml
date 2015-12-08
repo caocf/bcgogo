@@ -1,0 +1,37 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet id="wx_msg_1" author="ndong">
+        <createTable tableName="wx_msg">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="msg_id" type="varchar(50)"/>
+            <column name="content" type="varchar(1500)"/>
+            <column name="send_time" type="bigint"/>
+            <column name="status" type="varchar(20)"/>
+            <column name="category" type="varchar(50)"/>
+            <column name="remark" type="varchar(100)"/>
+            <column name="title" type="varchar(100)"/>
+            <column name="description" type="varchar(1500)"/>
+            <column name="url" type="varchar(500)"/>
+            <column name="pic_url" type="varchar(500)"/>
+            <column name="from_shop_id" type="bigint"/>
+            <column name="submit_review_time" type="bigint"/>
+            <column name="wx_article_template_id" type="varchar(100)"/>
+            <column name="user_id" type="bigint"/>
+            <column name="user_name" type="varchar(50)"/>
+            <column name="media_id" type="varchar(100)"/>
+            <column name="deleted" type="varchar(20)"/>
+        </createTable>
+        <addPrimaryKey tableName="wx_msg" columnNames="id" constraintName="pk_wx_msg"/>
+    </changeSet>
+</databaseChangeLog>

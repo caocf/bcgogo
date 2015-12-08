@@ -1,0 +1,75 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <!--退货给供应商  payable-->
+
+    <changeSet author="zhangchuanlong" id="supplier_return_payable_1">
+        <createTable tableName="supplier_return_payable">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <!-- 店面ID-->
+            <column name="shop_id" type="bigint"/>
+            <!-- 现金-->
+            <column name="cash" type="float"/>
+            <!-- 定金-->
+            <column name="deposit" type="float"/>
+            <!-- 总额-->
+            <column name="total" type="float"/>
+            <!-- 退货单ID-->
+            <column name="purchase_return_id" type="bigint"/>
+            <!-- 供应商ID-->
+            <column name="supplier_id" type="bigint"/>
+            <!-- 材料品名-->
+            <column name="material_name" type="varchar(5000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="supplier_return_payable_2" author="zhangchuanlong">
+        <addPrimaryKey tableName="supplier_return_payable" columnNames="id"
+                       constraintName="pk_supplier_return_payable"/>
+    </changeSet>
+    
+    <changeSet id="supplier_return_payable_3" author="chenfanglei">
+        <addColumn tableName="supplier_return_payable">
+            <column name="strike_amount" type="float"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="liuWei" id="supplier_return_payable_4">
+      <createIndex tableName="supplier_return_payable" indexName="IDX_SHOPID_PURCHASERETURNID">
+        <column name="shop_id"/>
+        <column name="purchase_return_id"/>
+      </createIndex>
+    </changeSet>
+
+    <changeSet id="supplier_return_payable_5" author="jimuchen">
+        <addColumn tableName="supplier_return_payable">
+            <column name="payee" type="varchar(20)" />
+            <column name="payee_id" type="bigint" />
+        </addColumn>
+    </changeSet>
+    
+    <changeSet id="supplier_return_payable_6" author="chenfanglei">
+        <addColumn tableName="supplier_return_payable">
+            <!-- 优惠-->
+            <column name="account_discount" type="double"/>
+            <!-- 欠款挂账-->
+            <column name="account_debt_amount" type="double"/>
+            <!-- 实收-->
+            <column name="settled_amount" type="double"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="supplier_return_payable_7" author="chenfanglei">
+        <addColumn tableName="supplier_return_payable">
+            <column name="move_status" type="varchar(20)"></column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

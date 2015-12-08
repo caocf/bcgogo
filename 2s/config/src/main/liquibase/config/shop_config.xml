@@ -1,0 +1,48 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet id="shop_config_01" author="chenfanglei">
+        <createTable tableName="shop_config">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="shop_id" type="bigint"></column>
+            <column name="scene" type="varchar(20)"></column>
+            <column name="status" type="varchar(10)"></column>
+
+        </createTable>
+
+        <addPrimaryKey tableName="shop_config" columnNames="id" constraintName="pk_shop_config"/>
+        <createIndex tableName="shop_config" indexName="IDX_SHOP_CONFIG">
+            <column name="shop_id"></column>
+            <column name="scene"></column>
+        </createIndex>
+    </changeSet>
+    <changeSet id="shop_config_02_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="shop_config">
+            <column name="menu_id" type="bigint"/>
+        </addColumn>
+        <dropIndex tableName="shop_config" indexName="IDX_SHOP_CONFIG"/>
+        <createIndex tableName="shop_config" indexName="IDX_SHOP_CONFIG_SHOPID_SCENE_MENUID">
+            <column name="shop_id"/>
+            <column name="scene"/>
+            <column name="menu_id"/>
+        </createIndex>
+    </changeSet>
+
+     <changeSet id="shop_config_03" author="ndong">
+        <addColumn tableName="shop_config">
+            <column name="value" type="varchar(500)"/>
+            <column name="description" type="varchar(500)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

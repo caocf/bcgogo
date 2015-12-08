@@ -1,0 +1,84 @@
+.bcgogo-messagePopup-group {
+    padding: 0;position: absolute;
+}
+
+.bcgogo-messagePopup-group a,b {
+    white-space:nowrap;
+}
+.bcgogo-messagePopup-hook-hover {
+    background: url("res/up_03.png") no-repeat scroll 95% 11px #FFFFFF !important;
+    color: #FF6417 !important;
+    height: 38px !important;
+}
+.bcgogo-messagePopup-panel {
+    background: url("res/shadow_1.png") no-repeat scroll right bottom rgba(0, 0, 0, 0);
+    color: #6E6E6E;
+    left: 0px;
+    line-height: 20px;
+    padding: 0 19px 9px 10px;
+    position: relative;
+    top: 0px;
+    width: 130px;
+}
+
+.bcgogo-messagePopup-panel p {
+    height:20px;display: block;margin: 0;padding: 0; font-family: "宋体","Arial";font-weight: bold;
+   /* padding-left: 5px; padding-right:5px;*/line-height: 20px;font-size: 12px;overflow: hidden;
+    color:#FF6417;}
+
+.bcgogo-messagePopup-panel .bcgogo-messagePopup-content a {color:#888;text-decoration: none;}
+.bcgogo-messagePopup-panel .bcgogo-messagePopup-content a:visited {color:#888;}
+.bcgogo-messagePopup-panel .bcgogo-messagePopup-content a:hover {text-decoration: underline;}
+
+.bcgogo-messagePopup-panel .bcgogo-messagePopup-nil a {color:#888;text-decoration: none;}
+.bcgogo-messagePopup-panel .bcgogo-messagePopup-nil a:visited {color:#888;}
+.bcgogo-messagePopup-panel .bcgogo-messagePopup-nil a:hover {text-decoration: underline;}
+
+.bcgogo-messagePopup-panel .bcgogo-messagePopup-title a {color:#FF6417 !important;text-decoration: none;}
+.bcgogo-messagePopup-panel .bcgogo-messagePopup-title a:visited {color:#FF6417 !important;}
+.bcgogo-messagePopup-panel .bcgogo-messagePopup-title a:hover {color:#FF6417 !important;text-decoration: underline;}
+
+.bcgogo-messagePopup-request {padding: 0;position: relative;/*width:220px; height:50px;*/}
+.bcgogo-messagePopup-notification {padding: 0;position: relative;margin-top: 7px;/*width:220px; height:50px;*/}
+.bcgogo-messagePopup-news {padding: 0;position: relative;margin-top: 7px;/*width:220px; height:50px;*/}
+
+.bcgogo-messagePopup-content {
+    /* TODO set width automatically ##########*/
+    padding: 3px 0px;
+    /*width:220px; height:30px;*//*color:#FF6417;*/font-family: "宋体", "Arial";font-size: 12px;
+    /*padding-left: 5px; padding-right: 5px; margin-top: 3px;*/}
+.bcgogo-messagePopup-content span {color:#ff6417;}
+.bcgogo-messagePopup-nil {
+    /* TODO set width automatically ##########*/
+
+    padding: 3px 0px;/*padding-left: 5px; padding-right: 5px; margin-top: 3px;*/
+    /*width:220px; height:30px;*/color:#888;font-family: "宋体", "Arial";font-size: 12px;
+    }
+.bcgogo-messagePopup-locked {
+    /* TODO set width automatically ##########*/
+    padding: 3px 0px;/*padding-left: 5px; padding-right: 5px; margin-top: 3px;*/
+    /*width:220px; height:30px;*/color:#888;font-family: "宋体", "Arial";font-size: 12px;
+    }
+
+.bcgogo-messagePopup-closeButton {
+    width:12px;height:12px;position:absolute;top:3px;/*left:207px;*/border:none;background-color: #fff;
+    color:#ff0099;border-radius: 3px;line-height:10px;font-size: 12px; text-align: center;cursor: pointer;
+    /*border: solid #aaa 1px;*/ border-right:none;font-family:"Consolas", "Arial";}
+.bcgogo-messagePopup-closeButton:hover {color:#fff;background-color: #ff0099;}
+
+.bcgogo-bubble {
+    width:24px;height:17px;/*background: url('res/paopao.png') 0px 0px;*/margin: 0;padding: 0;
+    position: absolute;}
+
+.bcgogo-bubble span {
+    display:block;color:#ffb43b;height:100%;width:100%;line-height: 100%;text-align: center;
+    line-height: 17px;}
+
+.bcgogo-messagePopup-arrow {
+    background:url('res/tip-hook-arrow.png') 0 0;width:7px;height:6px;}
+
+.bcgogo-messageImg {
+    background: url(res/message/message.png) no-repeat 0 0;width: 14px;height:11px;
+    position:absolute;}
+
+.bcgogo-messageImg-hover {background-position: 0px -11px;}

@@ -1,0 +1,79 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lw" id="assistant_member_record_1">
+    <createTable tableName="assistant_member_record">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+
+      <column name="shop_id" type="bigint"></column>
+
+      <column name="order_id" type="bigint"></column>
+      <column name="order_type" type="varchar(50)"></column>
+      <column name="vest_date" type="bigint"></column>
+
+      <column name="assistant_id" type="bigint"></column>
+      <column name="assistant_name" type="varchar(100)"></column>
+
+      <column name="department_id" type="bigint"></column>
+      <column name="department_name" type="varchar(100)"></column>
+
+      <column name="member_no" type="varchar(100)"></column>
+
+      <column name="customer_id" type="bigint"></column>
+      <column name="customer" type="varchar(100)"></column>
+
+      <column name="member_card_id" type="bigint"></column>
+      <column name="member_card_name" type="varchar(100)"></column>
+      <column name="member_card_type" type="varchar(100)"></column>
+      <column name="member_card_total" type="double"></column>
+      <column name="achievement" type="double"></column>
+      <column name="total" type="double"></column>
+
+      <column name="member_achievement_history_id" type="bigint"></column>
+
+    </createTable>
+  </changeSet>
+
+  <changeSet id="assistant_member_record_2" author="lw">
+    <addPrimaryKey tableName="assistant_member_record" columnNames="id"
+                   constraintName="pk_assistant_member_record"></addPrimaryKey>
+  </changeSet>
+
+  <changeSet id="assistant_member_record_3" author="lw">
+    <createIndex tableName="assistant_member_record" indexName="idx_shopid_assistantid">
+      <column name="shop_id"></column>
+      <column name="assistant_id"></column>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="assistant_member_record_4" author="lw">
+    <addColumn tableName="assistant_member_record">
+      <column name="member_order_type" type="varchar(100)"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="assistant_member_record_5" author="lw">
+    <addColumn tableName="assistant_member_record">
+      <column name="achievement_by_assistant" type="double"></column>
+      <column name="achievement_calculate_way" type="varchar(500)"></column>
+      <column name="achievement_by_assistant_calculate_way" type="varchar(500)"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="assistant_member_record_6" author="lw">
+    <addColumn tableName="assistant_member_record">
+      <column name="stat_time" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

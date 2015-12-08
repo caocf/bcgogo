@@ -1,0 +1,69 @@
+一.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+二.数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，邹建宏）
+
+三.solr schema 更新
+
+四.发布应用 （纪友文）
+
+五.添加权限
+
+（一）角色
+
+（二）资源
+
+          name                                           type           value                                                          备注
+//-------------------------------------------------------------------------------------------------new resource----------------------------------------------------------------------------------------------------
+//=============================================== BCGOGO初始化权限 web_bcgogoSystem (陈方雷)===================================================
+web_bcgogoSystem_init_initShopPlan                    request    /web/init.do?method=initShopPlan 数据初始化:初始化shop_plan
+web_bcgogoSystem_init_initReceiptNo                   request   /web/init.do?method=initReceiptNo 数据初始化:初始化单据编号
+
+//=============================================== 本店计划权限 web_remind_plan (陈方雷)===================================================
+web_remind_toPlansRemind                             request    /web/remind.do?method=toPlansRemind  进入代办事项
+web_remind_updatePlan                                request    /web/remind.do?method=updatePlan  更新计划
+web_remind_selectMan                                 request    /web/remind.do?method=selectMan  选择人员
+web_remind_getCustomerAndSupplier                    request    /web/remind.do?method=getCustomerAndSupplier  选择人员界面查询
+web_remind_sendMsg                                   request    /web/remind.do?method=sendMsg  点击发短信
+
+//=============================================== 采购单据复制权限 web_txn_purchase(朱星星)===================================================
+web_txn_purchase_copyPurchaseOrder     /web/RFbuy.do?method=copyPurchaseOrder                    新增（采购单复制）
+
+//=============================================== 入库单据复制权限 web_txn_storage(朱星星)===================================================
+web_txn_storage_reInputPurchaseInventory      /web/storage.do?method=reInputPurchaseInventory   废弃（入库单旧的重新录入）
+web_txn_storage_copyPurchaseInventory     /web/storage.do?method=copyPurchaseInventory          新增（入库单复制）
+//=============================================== 销售单据复制权限 web_txn_sale(朱星星)===================================================
+web_txn_sale_reInputGoodSale           /web/sale.do?method=reInputGoodSale                      废弃（销售单旧的重新录入）
+web_txn_sale_copyGoodSale             /web/sale.do?method=copyGoodSale                          新增（销售单复制）
+
+//=============================================== 商品编码查询权限 web_txn_base(邱鑫宇)===================================================
+web_txn_commodityCode_ajaxToGetProductByCommodityCode    /web/stockSearch.do?method=ajaxToGetProductByCommodityCode  商品编码查询权限
+
+//=============================================== 营业外记账 (李金龙)===================================================
+web_stat_businessAccount_initBusinessAccountSearch    /web/businessAccount.do?method=initBusinessAccountSearch  进入营业外记账
+web_stat_businessAccount_addBusinessAccount    /web/businessAccount.do?method=addBusinessAccount   	营业外记账新增
+web_stat_businessAccount_editBusinessAccount   /web/businessAccount.do?method=editBusinessAccount    	营业外记账修改
+web_stat_businessAccount_deleteBusinessAccount   /web/businessAccount.do?method=deleteBusinessAccount    营业外记账 删除
+web_stat_businessAccount_searchBusinessAccount  /web/businessAccount.do?method=searchBusinessAccount   营业外记账查询
+web_stat_businessAccount_getBusinessCategory    /web/businessAccount.do?method=getBusinessCategory  营业外记账 营业分类
+
+
+六.权限配置结束需要手动刷新资源！ （纪友文）
+
+七.本店计划，单据编号，supplier_record初始化 （陈方雷，姬牧晨，纪友文）
+init.do?method=initShopPlan
+init.do?method=initReceiptNo
+init.do?method=initSupplierRecord
+执行‘order_index初始化’中的sql
+
+八,执行 txn.business_stat初始化中的sql business_category初始化sql
+
+
+九.后台重新索引“所有单据",“所有客户供应商”,
+
+十.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

@@ -1,0 +1,75 @@
+@charset "utf-8";
+/* CSS Document */
+.prompt_box{ width:330px; color:#333;}
+.prompt_box .title{ height:32px; line-height:32px; color:#fff; background:url(../images/tip_title.jpg) repeat-x; font-size:12px; padding:0 8px 0 10px; border-bottom:#BCBCBC 1px solid; font-weight:bold;}
+.prompt_box .title .turn_off{ background:url(../images/turn_off.jpg) no-repeat; width:15px; height:15px; float:right; margin:10px 0 0 0; cursor:pointer;}
+.prompt_box .content{ background:#fff; font-size:12px; padding:10px 15px 15px 15px; line-height:20px;}
+.prompt_box .content p{ margin:0 0 10px 0; padding:0;}
+.prompt_img{ width:120px; float:left;}
+.prompt_txt{ width:150px; float:right; margin-top:30px;}
+.prompt_txt a{ color:#006DFF;}
+.clear{ clear:both;}
+.wid275{ margin:0 auto; margin-top:10px; text-align:center; width:275px;}
+.wid275 .download_btn{ width:275px; height:56px; background:url(../images/t_r8_c3.jpg) no-repeat; cursor:pointer; margin-bottom:10px;}
+.addressList{ height:27px; float:left;  line-height:27px;}
+.addressList a{ background:url(../images/navigation.png) repeat-x; height:19px; line-height:19px; padding:0 15px;text-align:center; display:inline-block; cursor:pointer; color:#007CDA; float:left;  border:1px solid #cacaca; text-decoration:none; margin-right:8px; }
+.addressList a:hover{  color:#FC6100;}
+.prompt_box .content input{
+    float:left;
+    /*margin-top:3px;*/
+}
+.prompt_box .content lable{ float:left;}
+.prompt_title{border:#2C80E2 1px solid; width:220px;padding:3px 5px; height:20px; line-height:20px; background:#fff;}
+.prompt_textarea{ border:#2C80E2 1px solid; width:296px; height:100px; margin-bottom:8px; background:#fff; }
+.prompt_textarea .txt{ height:70px;padding:3px 5px; overflow:hidden;}
+.prompt_textarea .bottom{ line-height:24px; height:24px; padding:0 3px; color:#909090; background:#e5e5e5; text-align:right;}
+.prompt_box .fl{ float:left; margin-right:10px;}
+.wrong{background:url(../images/selicons.png) no-repeat; width:16px; height:16px; display:inline-block;  vertical-align:middle;}
+.right{background:url(../images/selicons.png) no-repeat 0px -16px; width:16px; height:16px; display:inline-block; margin-top:-6px; vertical-align:middle;}
+.gray_color{ color:#aaa;}
+.red_color{ color:#F00;}
+.orange_color {
+    color: #FC6100;
+}
+.blue_color{ color:#007CDA;}
+.operation_table{ border-bottom:#ddd 1px solid;border-left:#ddd 1px solid;}
+.operation_table td,.operation_table th{border-top:#ddd 1px solid;border-right:#ddd 1px solid; line-height:24px; padding-left:10px;}
+.operation_table th{ background:#ddd;}
+.prompt_box .content_input_title{ width:625px; height:22px; border:#CDCDCD 1px solid; line-height:22px;}
+.prompt_box .content_title_textarea {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CDCDCD;
+    height: 130px;
+    margin-bottom: 8px;
+    width: 625px;
+}
+
+.prompt_box .content_title_textarea .txt {
+    height: 100px;
+    overflow: hidden;
+    padding: 3px 5px;
+}
+.prompt_box .content_title_textarea  .bottom {
+    color: #909090;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 3px;
+	border-top:#ccc 1px solid;
+    text-align: right;
+}
+.prompt_box .gray_color{ color:#8D8D8D;}
+.search_btn,.search_btn:hover,.empty_btn,.empty_btn:hover{ width:79px; height:27px; line-height:27px; color:#fff; font-weight:bold; text-align:center; background:url(../images/search_r2_c2.jpg) no-repeat; margin-left:7px; cursor:pointer;}
+.search_btn:hover{ background:url(../images/searchHover_r2_c2.jpg) no-repeat; }
+.empty_btn{ background:url(../images/empty_r2_c4.jpg) no-repeat; }
+.empty_btn:hover{ background:url(../images/emptyHover_r2_c4.jpg) no-repeat;}
+.search_btn,.empty_btn{ float:left;}
+.prompt_box .title{ height:32px; line-height:32px; color:#fff; background:url(../images/tip_title.jpg) repeat-x; font-size:14px; padding:0 0px 0 0px; border-bottom:#BCBCBC 1px solid;}
+.prompt_box .title .turn_off{ background:url(../images/turn_off.jpg) no-repeat; width:15px; height:15px; float:right; margin:8px 0 0 0; cursor:pointer;}
+.prompt_box .title .turn_off:hover{ background:url(../images/turn_off_hover.jpg) no-repeat; width:15px; height:15px; float:right; margin:8px 0 0 0; cursor:pointer;}
+
+.prompt_box .content_t {
+    background: none repeat scroll 0 0 #FFFFFF;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 10px 15px 15px;
+}

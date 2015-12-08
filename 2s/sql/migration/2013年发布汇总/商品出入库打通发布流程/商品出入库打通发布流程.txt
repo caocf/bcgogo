@@ -1,0 +1,19 @@
+初始化：
+1. 数据库sql更新
+
+2、权限
+  执行 见 menu.txt
+
+3.初始化方法
+ update repair_order_item ri,repair_order ro set ri.shop_id = ro.shop_id  where  ri.repair_order_id = ro.id and ri.shop_id is null;
+ update repair_order_service rs,repair_order ro set rs.shop_id = ro.shop_id  where  rs.repair_order_id = ro.id and rs.shop_id is null;
+
+ jackchen登录后执行：
+ init.do?method=initSupplierInventory
+
+
+
+4. solr 更新schema和重做索引
+ product   order_item   customer_supplier
+
+

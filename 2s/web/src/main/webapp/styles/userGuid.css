@@ -1,0 +1,339 @@
+ @charset "utf-8";
+.i_search {
+	margin:0 auto;
+}
+.guid_title {
+	margin:15px 0px 30px 0px;
+	height:31px;
+	float:left;
+}
+.guid_title li {
+	background:url(../images/sms_note.jpg) no-repeat;
+	width:130px;
+	height:31px;
+	float:left;
+	text-align:center;
+	line-height:31px;
+	margin-right:20px;
+}
+.guid_title li a {
+	color:#9c9c9c;
+	font-size:14px;
+	font-weight:bold;
+}
+.i_clickInfo a {
+	color:#1780cb;
+}
+.account_bal {
+	margin:0px 22px 0px 20px;
+	_margin:0px 10px 0px 10px;
+}
+.account_bal, .account_no {
+	background:url(../images/cus_balance.png) no-repeat;
+	width:147px;
+	height:27px;
+	border:none;
+	float:left;
+	color:#fff;
+	margin-top:15px;
+}
+.account_no {
+	background:url(../images/cus_select.png) no-repeat;
+	width:203px;
+	height:27px;
+	margin-right:10px;
+}
+.addClient .addUser {
+	float:right;
+}
+/*The right half*/
+  .guid_content, .guide_info {
+	width:1003px;
+	float:left;
+	
+}
+.guid_content img {
+	display:block;
+	clear:both;
+}
+.guid_content .sever_guid {
+	height:240px;
+	width:1003px;
+	background:url(../images/guid_center.png) repeat-y;
+	_width:980px;
+}
+/*top*/
+.guid_content  .sever_guid {
+	width:969px;
+	padding:0px 17px;
+}
+#num dt .call_no {
+	margin-right:10px;
+}
+#num dt .call_text {
+	margin-right:0px;
+}
+#num dd .call_num {
+	width:50px;
+}
+#num dd .bl_time {
+	width:110px;
+}
+#num dd .call_text {
+	display:block;
+	float:left;
+}
+.sever_guid .shortcut_title strong, .sever_guid dl dt label {
+	color:#996633;
+	font-weight:bold;
+	font-size:14px;
+}
+.sever_guid .shortcut_title {
+	width:969px;
+}
+
+/*left*/
+  .guide_info {
+	width:1003px;
+}
+.custom, .shortcut {
+	float:left;
+	height:100%;
+}
+.custom {
+	width:348px;
+	height:300px;
+	_height:305px;
+}
+.shortcut {
+	width:645px;
+	_background:#eaeaea;
+	_width:527px;
+	_height:284px;
+	overflow:hidden;
+}
+.custom_top .top_left, .custom_top .top_right, .custom_bottom .bottom_left, .custom_bottom .bottom_right {
+	width:174px;
+	_height:0px;
+}
+.shortcut_top .top_left, .shortcut_top .top_right, .shortcut_bottom .bottom_left, .shortcut_bottom .bottom_right {
+	width:322px;
+	_height:0px;
+}
+.shortcut_top .top_left, .shortcut_bottom .bottom_left{width:323px;}
+.custom_content, .shortcut_content {
+	background:#eaeaea;
+	height:243px;
+	width:338px;
+	clear:both;
+}
+.custom_content {
+	height:223px;
+	*height:227px;
+}
+.custom_content h5 {
+	margin-bottom:3px;
+	background:url(../images/line.png) bottom no-repeat;
+	padding-bottom:9px;
+	*padding-bottom:5px;
+}
+.custom_content h5 a {
+	float:right;
+	color:#6699cc;
+	background:url(../images/rightArrows.PNG) no-repeat;
+	background-position:right center;
+	padding-right:10px;
+	font-weight:normal;
+}
+.shortcut_content {
+	width:635px;
+}
+.search_num {
+	_height:35px;
+	margin-bottom:5px;
+}
+.search_num .searchCenter, .search_num .searchCenter input.txt {
+	width:170px;
+}
+.customer {
+	margin-bottom:5px;
+}
+.customer  .cust_left {
+	width:8px;
+}
+.custom_content .addClient {
+	width:330px;
+	height:10px;
+}
+.cust_title .title_sum {
+	margin:0px 55px 0px 0px;
+}
+.customer dd {
+	line-height:23px;
+	clear:both;
+}
+.customer dd label {
+	text-align:left;
+}
+.customer dd .num {
+	width:25px;
+	margin-left:5px;
+	color:#999999;
+	font-weight:normal;
+}
+.customer dd .cust_sum {
+	width:120px;
+	margin-left: 30px;
+	float:left;
+	color:#006ECA;
+	font-weight:bold;
+	text-align:left;
+	line-height:20px;
+	height:20px;
+}
+.customer dd .cust_sum:hover {
+	cursor:pointer;
+}
+
+.sever_guid dl dd .bal_time {
+	width:90px;
+ *width:95px;
+}
+.user_info dd {
+	height:24px;
+}
+/*right*/
+  .shortcut_title {
+	margin-bottom:5px;
+}
+.shortcut_title a {
+	float:right;
+	display:block;
+	margin-right:5px;
+	padding-right:10px;
+	color:#6699cc;
+	background:url(../images/rightArrows.PNG) no-repeat;
+	background-position:right center;
+	padding-right:10px;
+}
+.shortcut_title strong {
+	color:#6699cc;
+}
+.num_type dt {
+	width:528px;
+	_width:517px;
+}
+.num_type dt span {
+	display:block;
+	float:left;
+}
+.num_type dt .cost_mon {
+	margin-right:30px;
+}
+.cust_center {
+	background:url(../images/cus_bg.png) repeat-x;
+	height:23px;
+/*	width:515px;
+	_width:505px;*/
+	line-height:23px;
+}
+.cust_center label {
+	width:45px;
+	font-style:italic;
+	color:#fff;
+}
+.cust_center .carNum, .cust_center .call_num {
+	margin-right:10px;
+}
+.cust_right {
+	background:url(../images/cus_right.png) no-repeat right;
+	width:4px;
+	height:23px;
+}
+/*.num_type dd {
+	clear:both;
+	height:30px;
+}
+.num_type dd label {
+	display:block;
+	float:left;
+	width:60px;
+}
+.num_type dd .call_no {
+	width:32px;
+}
+.num_type dd .car_no {
+	width:87px;
+}
+.num_type dd .call_num {
+	width:47px;
+}
+.num_type dd .contact, .num_type dd .balance, .num_type dd .bal_time {
+	width:95px;
+}
+.num_type dd .call_texts {
+	_width:50px;
+	margin-left:5px;
+}
+.num_type dd .call_texts img {
+	width:16px;
+	height:11px;
+	display:block;
+}
+.num_type dd .call_no, .num_type dd .call_num, .num_type dd .contact, .num_type dd .balance, .num_type dd .call_texts {
+	color:#666666;
+}
+/*欠款客户*/
+.cust_center .call_no {
+	margin-right:5px;
+}
+.cust_center .car_no {
+	margin-right:35px;
+}
+.cust_center .call_num {
+	margin-right:30px;
+}
+.cust_center .contact {
+	margin-right:35px;
+}
+.cust_center .balance {
+	margin-right:40px;
+}
+.cust_center .bal_time {
+	margin-right:35px;
+}
+.num_aa dd .car_no {
+	width:70px;
+}
+.num_aa dd .call_num {
+	width:70px;
+}
+.num_aa dd .balance {
+width:55px;
+}
+dl dd a {
+	display:block;
+	width:20px;
+	float:left;
+}
+.num_aa dd .txt_right,.customer dd .txt_right,.shortcut dl dd .txt_right{ text-align:right; padding-right:15px;}
+
+/* .shortcut{height:100%;}*/
+/*客户服务提醒a*/
+
+.user_customer tr{width:1003px;}
+.user_customer tr td{color:#996633;font-size:12px; height:25px;}
+.user_customer .titlle td{font-weight:bold;}
+/*客户信息*/
+.customer .cust_left{width:70px; line-height:23px; padding-left:10px; height:23px;}
+.customer .titlle td{ height:23px; color:#fff; }
+.customer .cust_right{background:url(../images/comtor.png) right;width:150px;height:23px;}
+.customer tr td{ height:25px;font-size:12px; color:#666666;}
+.customer tr .qian_blue{color:#6699cc:}
+/*欠款客户*/
+
+.shortcut .qiankuan .titlle { height:23px;}
+
+.user_info dd{color:#0060ba;}
+
+.customer dd .cust_sum:hover,.customer dd label:hover{color:#FD5300; text-decoration:underline; cursor:pointer;}

@@ -1,0 +1,5 @@
+{
+    request:{count:4, detailsUrl:""},
+    notification:{count:6, detailsUrl:""},
+    news:{count:9, detailsUrl:""}
+}

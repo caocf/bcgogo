@@ -1,0 +1,5 @@
+
+新增资源：CRM shop操作权限
+contact_migrate_bugFix                     /web/init.do?method=initContactBugFix                SHOP   迁移联系人的数据BugFix    request
+
+重新构建客户和供应商的索引

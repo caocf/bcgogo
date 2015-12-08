@@ -1,0 +1,23 @@
+<bcgogo:inputPermission permissions="/web/txn/stockSearch">
+    <input value="${inputPermissionTag}" type="text" id="abc">
+</bcgogo:inputPermission>
+
+<bcgogo:hasPermission permissions="/web/txn/stockSearch">
+    <input value="a" type="text">
+</bcgogo:hasPermission>
+
+<bcgogo:permission>
+    <bcgogo:if permissions="/web/txn/stockSearch">
+        <input value="b" type="text">
+    </bcgogo:if>
+</bcgogo:permission>
+
+
+<bcgogo:permission>
+    <bcgogo:if permissions="/web/txn/stockSearch">
+        <input value="b" type="text">
+    </bcgogo:if>
+    <bcgogo:else>
+        <input value="c" type="text">
+    </bcgogo:else>
+</bcgogo:permission>

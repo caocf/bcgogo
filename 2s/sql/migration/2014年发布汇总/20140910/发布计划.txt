@@ -1,0 +1,23 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+
+
+三.发布应用
+  1. 发布web,admin
+
+四.添加权限
+
+SHOP-基本权限
+name:         web_exportRepairOrder
+value:        /web/txn.do?method=exportRepairOrder
+systemType:   SHOP
+meno:         导出结算清单Excel
+type:         request
+
+五.初始化
+maven中添加jxl-2.6.3.jar
+
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+

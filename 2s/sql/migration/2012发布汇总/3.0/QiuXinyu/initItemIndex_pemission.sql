@@ -1,0 +1,5 @@
+--退货单重构数据初始化 权限
+insert into   bcuser.`resource` (`id`,`created`,`last_update`,`version`,`value`,`name`,`type`,`module_id`,`status`) VALUES ('11000267','1337862019901','1337862019901','1','/web/init.do?method=initItemIndexProductId','web_bcgogoSystem_initItemIndexProductId','request',null,'active');
+insert into   bcuser.`role_resource` (`resource_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES ('11000267','21000054','31000267',1337862019901,1337862019901,0);
+insert into   bcuser.`role_resource` (`resource_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES ('11000270','21000021','31000270',1337862019901,1337862019901,0);
+insert into   bcuser.`resource` (`id`,`created`,`last_update`,`version`,`value`,`name`,`type`,`module_id`,`status`) VALUES ('11000270','1337862019901','1337862019901','0','/web/goodsReturn.do?method=getProductsSearchResultBySupplierName','web_goodsReturn_getProductsSearchResultBySupplierName','request',null,'active');

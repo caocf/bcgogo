@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+.i_upBody .table2{width:600px;}
+.i_upBody .table2 tr .incomingCount{ text-align:right;}
+.i_upBody .table2 tr td a{ text-decoration:none;}
+.i_upBody  .addNew{ float:left;*padding-top:0px; }
+.detail_font{color:#6699cc}
+.i_upBody .i_leftBtn{ float:right;*padding-top:0px;}
+.i_searchBrand .i_upCenter {width:620px;}
+.i_searchBrand .i_upCenter .i_note{width:570px;}
+.i_searchBrand .i_upBody{width:601px;}
+.i_upBottom .i_upBottomCenter{width:601px;}

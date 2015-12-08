@@ -1,0 +1,81 @@
+/*-------------------------修改分页样式-------------------------------------------------*/
+.stockPager{
+  margin-top: 2px;
+}
+.stockPager .i_pageBtn{
+  font-size: 12px
+}
+.stockPager .i_pageBtn a{
+  background: none;
+}
+.stockPager .i_pageBtn .ellipsis {
+    color: #000000;
+    float: left;
+    padding-top:5px;
+}
+
+.stockPager .i_pageBtn .numButton {
+  color: #272727;
+  width: 10px;
+  display: block;
+}
+.stockPager .pageNum {
+    margin:2px 8px 0px 0px;
+}
+.stockPager .pageNum .pageSure {
+  background: url("../images/tiao.png") no-repeat scroll 0 0 transparent;
+  color: #FFFFFF;
+  display: inline-block;
+  height: 18px;
+  text-align: center;
+  width: 45px;
+  margin-top: 1px;
+  margin-left: 5px;
+}
+
+.stockPager .pageNum .pageSure:hover{
+  background:url(../images/tiaoHover.png) no-repeat;
+  color:#663A02;
+}
+
+.stockPager .i_pageBtn .wordButton:hover{
+  background: none;
+  color: #FF5E04;
+}
+
+.stockPager .i_pageBtn .pageCount,.stockPager .i_pageBtn .recordCount{
+  color: #FF5E04;
+}
+
+.stockPager .i_pageBtn .numButton:hover{
+  background: none;
+  color: #013C89;
+}
+
+.stockPager .i_pageBtn .numButton_selected{
+  color: #013C89;
+}
+
+.stockPager .i_pageBtn .selectPage{
+  height: auto;
+  margin-right: 0;
+  margin-top: 1px;
+  padding-left: 3px;
+  width: 30px;
+}
+
+.stockPager .i_pageBtn .first,.stockPager  .i_pageBtn .last, .stockPager .i_pageBtn .lastPage,.stockPager  .i_pageBtn .nextPage{
+  height: 23px;
+  width: 40px;
+}
+
+.stockPager .i_pageBtn .line{
+  visibility: visible;
+  float: left;
+  padding-top: 2px;
+}
+
+
+/*-------------------------分页 end--------------------------------*/
+
+

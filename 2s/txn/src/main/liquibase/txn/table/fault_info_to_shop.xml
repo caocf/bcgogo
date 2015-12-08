@@ -1,0 +1,46 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet author="xinYuQiu" id="fault_info_to_shop_1">
+        <createTable tableName="fault_info_to_shop">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="app_vehicle_fault_info_id" type="bigint"/>
+            <column name="fault_code_info_id" type="bigint"/>
+            <column name="fault_code" type="varchar(20)"/>
+            <column name="fault_code_description" type="varchar(1500)"/>
+            <column name="fault_code_category" type="varchar(100)"/>
+            <column name="app_user_no" type="varchar(50)"/>
+            <column name="app_vehicle_id" type="bigint"/>
+            <column name="vehicle_no" type="varchar(20)"/>
+            <column name="vehicle_brand" type="varchar(50)"/>
+            <column name="vehicle_model" type="varchar(50)"/>
+            <column name="mobile" type="varchar(50)"/>
+            <column name="fault_code_report_time" type="bigint"/>
+            <column name="is_send_message" type="varchar(20)"/>
+            <column name="is_create_appoint_order" type="varchar(20)"/>
+            <column name="status" type="varchar(20)"/>
+            <column name="appoint_order_id" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="fault_info_to_shop" columnNames="id" constraintName="pk_fault_info_to_shop"/>
+    </changeSet>
+    <changeSet id="fault_info_to_shop_2_sinYuQiu" author="sinYuQiu">
+        <addColumn tableName="fault_info_to_shop">
+            <column name="fault_alert_type" type="varchar(50)"/>
+            <column name="lon" type="varchar(50)"/>
+            <column name="lat" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>
+

@@ -1,0 +1,9 @@
+shop-车辆施工-车辆施工-派单：增加新资源：
+web_invoicing_dispatchRepairOrder    /web/repair.do?method=dispatchRepairOrder  shop 派单改单  request
+shop-车辆施工-车辆施工-完工：增加新资源：
+web_invoicing_finishRepairOrder    /web/repair.do?method=finishRepairOrder  shop 施工单完工  request
+shop-车辆施工-车辆施工-交车结算：增加新资源：
+web_invoicing_accountRepairOrder    /web/repair.do?method=accountRepairOrder  shop 施工单交车结算  request
+
+登录后基本权限
+web_basic_remind_titles     /web/remind.do?method=getTitlePromptNums       shop      导航栏数字提醒     request

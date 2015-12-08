@@ -1,0 +1,102 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="mazdong" id="wash_order_1">
+        <createTable tableName="wash_order">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="customer_id" type="bigint"/>
+            <column name="order_type" type="bigint"/>
+            <column name="card_id" type="bigint"/>
+            <column name="cash_num" type="bigint"/>
+            <column name="state" type="bigint"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="mazdong" id="wash_order_2">
+        <modifyColumn tableName="wash_order">
+            <column name="cash_num" type="float"/>
+        </modifyColumn>
+    </changeSet>
+
+
+    <changeSet author="mazdong" id="wash_order_3">
+        <addPrimaryKey tableName="wash_order" columnNames="id" constraintName="pk_wash_order"/>
+    </changeSet>
+
+  <changeSet author="mazdong" id="wash_order_4">
+        <addColumn tableName="wash_order">
+            <column name="shop_id" type="bigint"/>
+        </addColumn>
+  </changeSet>
+
+    <changeSet author="kailinlin" id="wash_order_5">
+        <addColumn tableName="wash_order">
+            <column name="wash_times" type="bigint"/>
+        </addColumn>
+  </changeSet>
+
+    <changeSet author="luyi" id="wash_order_6">
+        <createIndex tableName="wash_order" indexName="IDX_WASHORDER_CUSTOMERID_CREATED">
+            <column name="customer_id"/>
+            <column name="created"/>
+        </createIndex>
+        <createIndex tableName="wash_order" indexName="IDX_WASHORDER_CUSTOMERID_CREATED_ORDERTYPE">
+            <column name="customer_id"/>
+            <column name="created"/>
+            <column name="order_type"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="wash_order_7">
+        <dropIndex indexName="IDX_WASHORDER_CUSTOMERID_CREATED_ORDERTYPE" tableName="wash_order" />
+    </changeSet>
+
+    <changeSet author="chenfanglei" id="wash_order_8">
+        <addColumn tableName="wash_order">
+            <column name="cost_price" type="double"></column>
+        </addColumn>
+    </changeSet>
+  <changeSet author="chenfanglei" id="wash_order_9">
+        <addColumn tableName="wash_order">
+            <column name="vest_date" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="liuwei" id="wash_order_10">
+              <addColumn tableName="wash_order">
+            <column name="wash_worker" type="varchar(50)"/>
+       </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="wash_order_11">
+       <addColumn tableName="wash_order">
+            <column name="order_type_enum" type="varchar(50)"/>
+       </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="wash_order_12">
+    <modifyColumn tableName="wash_order">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+    <changeSet id="wash_order_13" author="chenfanglei">
+        <addColumn tableName="wash_order">
+            <column name="percentage" type="double"></column>
+            <column name="percentage_amount" type="double"></column>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

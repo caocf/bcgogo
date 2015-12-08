@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<response>
+    <value>
+        <name>车管家包年流量包</name>
+        <num>1</num>
+        <introduce>包含一年期的车管家使用流量，购买后在原基础上延续一年</introduce>
+        <price>458</price>
+    </value>
+    <value>
+        <name>车管家包年流量包2</name>
+        <num>2</num>
+        <introduce>包含一年期的车管家使用流量，购买后在原基础上延续一年</introduce>
+        <price>458</price>
+    </value>
+    <value>
+        <name>车管家包年流量包3</name>
+        <num>3</num>
+        <introduce>包含一年期的车管家使用流量，购买后在原基础上延续一年</introduce>
+        <price>458</price>
+    </value>
+</response>

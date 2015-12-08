@@ -1,0 +1,6 @@
+.trade_price_col{
+	display: table-column;
+}
+.trade_price_td{
+	display: table-cell;
+}

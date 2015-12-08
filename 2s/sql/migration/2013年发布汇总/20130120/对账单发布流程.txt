@@ -1,0 +1,23 @@
+//客户累计消费 刘伟
+update txn.receivable  set member_id = null where member_id = 0;
+
+update txn.receivable set after_member_discount_total = total where after_member_discount_total = 0;
+
+update txn.receivable a ,txn.repair_order b set a.customer_id = b.customer_id, a.vest_date  = b.vest_date,a.debt_type='CUSTOMER_DEBT_RECEIVABLE', a.receipt_no = b.receipt_no where a.shop_id = b.shop_id and a.order_id = b.id;
+
+update txn.receivable a ,txn.wash_beauty_order b set a.customer_id = b.customer_id, a.vest_date  = b.vest_date,a.debt_type='CUSTOMER_DEBT_RECEIVABLE', a.receipt_no = b.receipt_no where a.shop_id = b.shop_id and a.order_id = b.id;
+
+update txn.receivable a ,txn.wash_order b set a.customer_id = b.customer_id, a.vest_date  = b.created,a.debt_type='CUSTOMER_DEBT_RECEIVABLE', where a.shop_id = b.shop_id and a.order_id = b.id ;
+
+update txn.receivable a ,txn.member_card_order b set a.customer_id = b.customer_id, a.vest_date  = b.vest_date,a.debt_type='CUSTOMER_DEBT_RECEIVABLE', where a.shop_id = b.shop_id and a.order_id = b.id ;
+
+update txn.receivable a ,txn.member_card_return b set a.customer_id = b.customer_id, a.vest_date  = b.return_date,a.debt_type='CUSTOMER_DEBT_PAYABLE', where a.shop_id = b.shop_id and a.order_id = b.id ;
+
+update txn.receivable a ,txn.sales_return b set a.customer_id = b.customer_id, a.vest_date  = b.vest_date, a.debt_type='CUSTOMER_DEBT_PAYABLE',a.receipt_no = b.receipt_no where a.shop_id = b.shop_id and a.order_id = b.id ;
+
+update txn.receivable a ,txn.sales_order b set a.customer_id = b.customer_id, a.vest_date  = b.vest_date,a.debt_type='CUSTOMER_DEBT_RECEIVABLE', a.receipt_no = b.receipt_no where a.shop_id = b.shop_id and a.order_id = b.id ;
+
+
+update txn.receivable a set status_enum = 'FINISH' where order_id in ( select order_id from txn.repair_order where  status_enum = 'REPAIR_SETTLED' ) and status_enum is null;
+//检查语句 select * from txn.receivable where status_enum is null;//查询结果应为0条
+update bcuser.customer_record a set total_amount = ( select sum(settled_amount + debt) from txn.receivable where customer_id = a.customer_id  and status_enum = 'FINISH' and order_type_enum in ('REPAIR', 'SALE', 'WASH', 'WASH_BEAUTY'))

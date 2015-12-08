@@ -1,0 +1,6 @@
+solr:
+order, order_item  schema更新 (只更新相应目录下的 conf\schema.xml, 不用重新索引)
+
+权限:
+车辆施工 - 洗车美容 - 新增, 添加以下资源:
+getCouponType     /web/washBeauty.do?method=queryCouponType       SHOP        获取消费券类型       request

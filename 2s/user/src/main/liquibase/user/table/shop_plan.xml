@@ -1,0 +1,72 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="shaolei" id="shop_plan_1">
+        <createTable tableName="shop_plan">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="remind_type" type="varchar(20)"/>
+            <column name="content" type="varchar(500)"/>
+            <column name="customer_ids" type="varchar(500)"/>
+            <column name="customer_names" type="varchar(500)"/>
+            <column name="customer_type" type="varchar(10)"/>
+            <column name="remind_time" type="bigint"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="shop_plan_2" author="shaolei">
+        <addPrimaryKey tableName="shop_plan" columnNames="id" constraintName="pk_shop_plan"/>
+    </changeSet>
+    <changeSet id="shop_plan_3" author="shaolei">
+        <addColumn tableName="shop_plan">
+            <column name="state" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="shop_plan_4" author="shaolei">
+        <renameColumn tableName="shop_plan" oldColumnName="state" newColumnName="status" columnDataType="varchar(20)"/>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="shop_plan_5">
+        <createIndex tableName="shop_plan" indexName="idx_shopplan_shopid_remindtime">
+            <column name="shop_id" />
+            <column name="remind_time" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="jimuchen" id="shop_plan_6">
+        <modifyColumn tableName="shop_plan">
+            <column name="version" type="bigint" >
+                <constraints nullable="false" />
+            </column>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="shop_plan_7" author="chenfanglei">
+        <addColumn tableName="shop_plan">
+            <column name="contact" type="varchar(500)"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="shop_plan_8" author="chenfanglei">
+        <modifyColumn tableName="shop_plan">
+            <column name="customer_names" type="varchar(1000)"></column>
+            <column name="contact" type="varchar(1500)"></column>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="shop_plan_9" author="chenfanglei">
+        <addColumn tableName="shop_plan">
+            <column name="user_info" type="varchar(10000)"></column>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

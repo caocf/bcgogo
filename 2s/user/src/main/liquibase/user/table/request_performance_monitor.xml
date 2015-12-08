@@ -1,0 +1,57 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="liuWei" id="request_performance_monitor_1">
+    <createTable tableName="request_performance_monitor">
+      <column name="id" type="bigint"/>
+      <column name="version" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+
+      <column name="node" type="varchar(50)"></column>
+      <column name="url" type="varchar(150)"></column>
+
+      <column name="year" type="bigint"></column>
+      <column name="month" type="bigint"></column>
+      <column name="day" type="bigint"></column>
+
+      <column name="first_section_amount" type="bigint"></column>
+      <column name="first_section_average" type="double"></column>
+      <column name="first_section_total" type="double"></column>
+
+      <column name="second_section_amount" type="bigint"></column>
+      <column name="second_section_average" type="double"></column>
+      <column name="second_section_total" type="double"></column>
+
+      <column name="third_section_amount" type="bigint"></column>
+      <column name="third_section_average" type="double"></column>
+      <column name="third_section_total" type="double"></column>
+
+    </createTable>
+    <addPrimaryKey tableName="request_performance_monitor" columnNames="id"
+                   constraintName="pk_request_performance_monitor"/>
+  </changeSet>
+
+  <changeSet author="liuWei" id="request_performance_monitor_2">
+    <createIndex tableName="request_performance_monitor" indexName="idx_url_year_month_day">
+      <column name="url"/>
+      <column name="year"/>
+      <column name="month"/>
+      <column name="day"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="liuWei" id="request_performance_monitor_3">
+    <addColumn tableName="request_performance_monitor">
+      <column name="start_time" type="bigint"/>
+      <column name="end_time" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

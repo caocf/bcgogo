@@ -1,0 +1,24 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+2.上传IOS推送证书到tomcat/key 目录
+
+三.发布应用
+  1. 发布web, admin
+  2. 发布定时钟
+  3. 发布api
+  4. 发布socketReceiver.jar（具体配置详见socketReceiver中发布流程：http://192.168.1.46/svn/bcgogo-tools/socketReceiver/发布步骤.txt）
+
+ (1)config 配置
+            name                             value                                                 描述
+        GsmAPNSCertPath     /usr/local/tomcat/key/gsm_development_push_java.key                  IOS推送证书（每次key更新都要修改）
+        gsmAPNSCertPwd                 jamestonggou                                            IOS推送证书密码
+
+五.初始化
+后台admin刷新资源
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+

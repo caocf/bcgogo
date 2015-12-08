@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--待入库-->
+    <bean name="inventoryJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+         <property name="jobClass" value="com.bcgogo.schedule.bean.InventorySchedule"/>
+    </bean>
+
+    <bean id="inventoryTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="inventoryJobDetail"/>
+        <property name="cronExpression" value="1 * * * * ?"/>
+
+    </bean>
+
+    <!--用户事件提醒表-->
+    <bean name="userJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+         <property name="jobClass" value="com.bcgogo.schedule.bean.UserServiceSchedule"/>
+    </bean>
+
+    <bean id="userTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="userJobDetail"/>
+        <property name="cronExpression" value="1 * * * * ?"/>
+
+    </bean>
+
+    <!--客户服务-->
+    <bean name="customerServiceJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+         <property name="jobClass" value="com.bcgogo.schedule.bean.CustomerServiceSchedule"/>
+    </bean>
+
+    <bean id="customerServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="customerServiceJob"/>
+        <property name="cronExpression" value="0 0 0 * * ?"/>
+    </bean>
+
+
+     <!--更新店铺广告状态-->
+    <bean name="shopAdJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+         <property name="jobClass" value="com.bcgogo.schedule.bean.ShopAdSchedule"/>
+    </bean>
+
+    <bean id="shopAdTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="shopAdJob"/>
+        <!--<property name="cronExpression" value="0 0 23 * * ?"/>    &lt;!&ndash;每天23点&ndash;&gt;-->
+        <property name="cronExpression" value="0 0/10 * * * ?"/>     <!--每十分钟跑一次-->
+    </bean>
+
+    <!--更新店铺广告状态-->
+      <bean name="userClientStatJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+           <property name="jobClass" value="com.bcgogo.schedule.bean.UserClientStatSchedule"/>
+      </bean>
+
+      <bean id="userClientStatTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+          <property name="jobDetail" ref="userClientStatJob"/>
+          <property name="cronExpression" value="0 0 23 * * ?"/>    <!--每天23点-->
+          <!--<property name="cronExpression" value="0 0/10 * * * ?"/>     &lt;!&ndash;每十分钟跑一次&ndash;&gt;-->
+      </bean>
+
+     <!--提醒事件给微信用户推信息-->
+    <bean name="wRemindEventJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+         <property name="jobClass" value="com.bcgogo.schedule.bean.WXRemindEventSchedule"/>
+    </bean>
+
+    <bean id="wRemindEventTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="wRemindEventJob"/>
+        <property name="cronExpression" value="0 0 7 * * ?"/>
+    </bean>
+
+     <!--更新店铺商品广告状态-->
+    <bean name="productAdJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+         <property name="jobClass" value="com.bcgogo.schedule.bean.ProductAdSchedule"/>
+    </bean>
+
+    <bean id="productAdTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="productAdJob"/>
+        <property name="cronExpression" value="0 0/10 * * * ?"/>     <!--每十分钟跑一次-->
+    </bean>
+
+      <!--缺料自动发求购-->
+    <bean name="lackAutoPreBuyJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+         <property name="jobClass" value="com.bcgogo.schedule.bean.recommend.LackAutoPreBuySchedule"/>
+    </bean>
+
+    <bean id="lackAutoPreBuyTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="lackAutoPreBuyJob"/>
+        <!--<property name="cronExpression" value="0 0 23 * * ?"/>     &lt;!&ndash;每天23点&ndash;&gt;-->
+        <property name="cronExpression" value="0 0/10 * * * ?"/>
+    </bean>
+
+    <!--从微信平台同步用户信息-->
+    <bean name="synWXUserSchedule" class="org.springframework.scheduling.quartz.JobDetailBean">
+      <property name="jobClass" value="com.bcgogo.schedule.bean.SynWXUserSchedule"/>
+    </bean>
+
+    <bean id="synWXUserScheduleTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+      <property name="jobDetail" ref="synWXUserSchedule"/>
+      <property name="cronExpression" value="0 0 1 * * ?"/> <!-- 每天凌晨1点，执行一次 -->
+        <!--<property name="cronExpression" value="*/10 * * * * ?"/>-->
+    </bean>
+
+    <!--生成gps-city信息-->
+    <bean name="gpsToCitySchedule" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.GpsToCitySchedule"/>
+    </bean>
+
+    <bean id="gpsToCityScheduleTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="gpsToCitySchedule"/>
+        <property name="cronExpression" value="0 0/5 * * * ?"/> <!-- 每隔5分钟，执行一次-->
+    </bean>
+
+    <!--生成driveLog信息-->
+    <!--<bean name="generationDriveLogSchedule" class="org.springframework.scheduling.quartz.JobDetailBean">-->
+        <!--<property name="jobClass" value="com.bcgogo.schedule.bean.GenerationDriveLogSchedule"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="generationDriveLogScheduleTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">-->
+        <!--<property name="jobDetail" ref="generationDriveLogSchedule"/>-->
+        <!--<property name="cronExpression" value="0 5 0 * * ?"/> &lt;!&ndash; 每隔5分钟，执行一次&ndash;&gt;-->
+    <!--</bean>-->
+
+    <!--生成预约服务提醒消息-->
+    <bean name="pushMessageSchedule" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.PushMessageSchedule"/>
+    </bean>
+
+    <bean id="pushMessageScheduleTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="pushMessageSchedule"/>
+        <!--上线调整执行频率-->
+        <property name="cronExpression" value="0 0/3 * * * ?"/>
+    </bean>
+
+    <!-- 代金券消费记录自动结算 -->
+    <bean id="OverdueConsumingRecordSchedule" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.OverdueConsumingRecordSchedule"/>
+    </bean>
+
+    <bean id="OverdueConsumingRecordScheduleTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="OverdueConsumingRecordSchedule" />
+        <property name="cronExpression" value="0 0 2 * * ?"/>   <!--每天凌晨2点执行-->
+        <!--<property name="cronExpression" value="0 0/8 * * * ?"/> &lt;!&ndash; 每隔5分钟，执行一次&ndash;&gt;-->
+    </bean>
+
+    <bean id="todoScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="customerServiceTrigger"/>
+                <ref local="shopAdTrigger"/>
+                <ref local="productAdTrigger"/>
+                <ref local="lackAutoPreBuyTrigger"/>
+                <ref local="wRemindEventTrigger"/>
+                <ref local="synWXUserScheduleTrigger"/>
+                <ref local="userClientStatTrigger"/>
+                <ref local="gpsToCityScheduleTrigger"/>
+                <ref local="OverdueConsumingRecordScheduleTrigger"/>
+            </list>
+        </property>
+    </bean>
+
+
+</beans>

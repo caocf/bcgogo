@@ -1,0 +1,13 @@
+/*@import "bcgogo-autocomplete.css";*/
+/*@import "bcgogo-detailsListPanel.css";*/
+.bcgogo-ui-searchcomplete {position: absolute; top:20px;}
+.bcgogo-ui-searchcomplete-autocomplete {display:inline;float:left;margin: 0; }
+.bcgogo-ui-searchcomplete-autocomplete .ui-bcgogo-autocomplete {height: 296px;border-color:#999;width: 170px; /*background-color: #ECECFF;*/}
+/*.bcgogo-ui-searchcomplete-autocomplete .ui-bcgogo-autocomplete {height: 296px;border-color:#0063DC;width: 170px; }*/
+/*.bcgogo-ui-searchcomplete-autocomplete .ui-bcgogo-autocomplete-option {color: #000000;}*/
+.bcgogo-ui-searchcomplete-autocomplete .ui-bcgogo-autocomplete-highlighted {background-color: #0063DC;color: #fff;}
+.bcgogo-ui-searchcomplete-detailsList {display: inline; position:absolute;float:left;margin: 0;}
+.bcgogo-ui-searchcomplete-detailsList-order {display: inline; position:absolute;float:left;margin: 0;top:60px;}
+.bcgogo-ui-searchcomplete-arrow{background:transparent url(res/arrow.png);background-position:0 1px;position:absolute;float:left;z-index: 100; width: 43px; height: 23px;}
+
+.bcgogo-ui-searchcomplete-searchBar{position:absolute;float:left;margin:0;}

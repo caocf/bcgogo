@@ -1,0 +1,20 @@
+#printBtn, .statisticsRight, .m_topMain, .s_topMain, .title, .cusTitle, .i_mainTitle, .mainTitles, .title_statistics a.normalOne, .title_statistics a.normalTwo, .title_statistics a.normalThree, .title_statistics a.hoverThree, .title_statistics a.hoverTwo {display:none; }
+.i_main {margin: 0;width:650px !important;}
+.statisticsMain{width:650px;}
+.titleBody{width:632px  !important;}
+.bodyMain{width:650px !important;}
+#noTitle{width:40px !important;}
+#nameTitle{width:90px !important;}
+#brandTitle{width:130px !important;}
+#modelTitle{width:100px !important;}
+#vBrandTitle{width:100px !important;}
+#amountTitle{width:90px !important;}
+#totalTitle{width:70px !important;}
+
+#supplierTitle{width:300px !important;}
+
+#vsBrandTitle{width:140px !important;}
+#vsModelTitle{width:140px !important;}
+#vsWashTimesTitle{width:100px !important;}
+#vsRepairTimesTitle{width:100px !important;}
+#vsTotalTimesTitle{width:100px !important;}

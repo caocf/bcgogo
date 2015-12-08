@@ -1,0 +1,35 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhangjuntao" id="instalment_plan_item_zhangjuntao_1">
+        <createTable tableName="instalment_plan_item">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="next_item_id" type="bigint"/>
+            <column name="instalment_plan_id" type="bigint"/>
+            <column name="period_number" type="int"/>
+            <column name="end_time" type="bigint"/>
+            <column name="status" type="varchar(50)"/>
+            <column name="payment_method" type="varchar(50)"/>
+            <column name="paid_amount" type="double"/>
+            <column name="payable_amount" type="double"/>
+            <column name="current_amount" type="double"/>
+            <column name="proportion" type="double"/>
+            <column name="memo" type="varchar(500)"/>
+        </createTable>
+        <addPrimaryKey tableName="instalment_plan_item" columnNames="id" constraintName="pk_instalment_plan_item"/>
+        <createIndex tableName="instalment_plan_item" indexName="idx_instalment_plan_item_shopid">
+            <column name="shop_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

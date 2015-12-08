@@ -1,0 +1,44 @@
+一.备份现有生产上war包,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+三.发布应用 （纪友文）
+
+四.添加权限
+（一）角色
+
+（二）建立关联
+
+（三）资源
+    name                                           type           value                                                          备注
+//-----------------------------------------------------new resource------------------------------------------------------------------------
+//===============================================CRM--shop--库存盘点   =============================================
+web_txn_inventory_check_getInventoryCheck                    request       /web/inventoryCheck.do?method=getInventoryCheck         获取单个盘点记录
+web_txn_inventory_check_getInventoryChecks                   request       /web/inventoryCheck.do?method=getInventoryChecks        获取库存盘点记录
+web_txn_inventory_check_toInventoryCheckRecord               request       /web/inventoryCheck.do?method=toInventoryCheckRecord    跳转到库存盘点
+
+//===============================================SHOP--供应商管理--供应商资料--查看供应商 =======================================
+web_customer_getSupplierJsonDataByMobile          request     /web/customer.do?method=getSupplierJsonDataByMobile    根据手机获取供应商信息
+web_customer_getSupplierJsonDataByTelephone         request     /web/customer.do?method=getSupplierJsonDataByTelephone    根据座机获取供应商信息
+
+//===============================================SHOP--客户管理--客户资料--查看客户 =======================================
+web_customer_getCustomerJsonDataByMobile          request     /web/customer.do?method=getCustomerJsonDataByMobile    根据手机获取客户信息
+web_customer_getCustomerJsonDataByTelephone         request     /web/customer.do?method=getCustomerJsonDataByTelephone    根据座机获取客户信息
+
+//===============================================SHOP--进销存--库存管理--库存盘点调价--库存盘点 =============================================
+web_txn_inventoryCheck_print                           request     /web/inventoryCheck.do?method=print                库存盘点打印
+
+//===============================================SHOP--业务统计--营业分析--销售退货统计查询/打印 ===========================================================
+web_businessAnalysis_getDataToPrint               request       /web/businessAnalysis.do?method=getDataToPrint          退货分析打印
+五.初始化
+1.初始化库存盘点记录（先进入后台crm配置下面权限）
+   init.do?method=initInventoryCheckRecord
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

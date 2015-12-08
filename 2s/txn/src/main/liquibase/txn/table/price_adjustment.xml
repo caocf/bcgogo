@@ -1,0 +1,47 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="Caiwei" id="price_adjustment_1">
+    <createTable tableName="price_adjustment">
+        <column name="id" type="bigint"/>
+        <column name="created" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="last_update" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="version" type="bigint">
+            <constraints nullable="true"/>
+        </column>
+        <column name="shop_id" type="bigint"/>
+        <column name="date" type="bigint"/>
+        <column name="no" type="varchar(20)"/>
+        <column name="product_id" type="bigint"/>
+        <column name="price" type="float"/>
+        <column name="memo" type="varchar(500)"/>
+        <column name="editor_id" type="bigint"/>
+        <column name="editor" type="varchar(20)"/>
+        <column name="edit_date" type="bigint"/>
+        <column name="reviewer_id" type="bigint"/>
+        <column name="reviewer" type="varchar(20)"/>
+        <column name="review_date" type="bigint"/>
+        <column name="invalidator_id" type="bigint"/>
+        <column name="invalidator" type="varchar(20)"/>
+        <column name="invalidate_date" type="bigint"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet  id="price_adjustment_2" author="zhuyinjia">
+    <addPrimaryKey tableName="price_adjustment" columnNames="id" constraintName="pk_price_adjustment"/>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="price_adjustment_3">
+    <modifyColumn tableName="price_adjustment">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

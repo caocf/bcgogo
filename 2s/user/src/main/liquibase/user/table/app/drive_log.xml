@@ -1,0 +1,59 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="sinYuQiu" id="drive_log_1">
+        <createTable tableName="drive_log">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="app_user_no" type="varchar(100)"/>
+            <column name="app_drive_log_id" type="varchar(100)"/>
+            <column name="last_update_time" type="bigint"/>
+            <column name="vehicle_no" type="varchar(20)"/>
+            <column name="start_time" type="bigint"/>
+            <column name="start_lat" type="varchar(20)"/>
+            <column name="start_lon" type="varchar(20)"/>
+            <column name="start_place" type="varchar(100)"/>
+            <column name="end_time" type="bigint"/>
+            <column name="end_lat" type="varchar(20)"/>
+            <column name="end_lon" type="varchar(20)"/>
+            <column name="end_place" type="varchar(100)"/>
+            <column name="travel_time" type="bigint"/>
+            <column name="distance" type="double"/>
+            <column name="oil_wear" type="double"/>
+            <column name="oil_price" type="double"/>
+            <column name="oil_kind" type="varchar(20)"/>
+            <column name="total_oil_money" type="double"/>
+            <column name="status" type="varchar(50)"/>
+        </createTable>
+        <addPrimaryKey tableName="drive_log" columnNames="id" constraintName="pk_drive_log"/>
+
+    </changeSet>
+    <changeSet id="drive_log_sinYuQiu_2" author="sinYuQiu">
+        <addColumn tableName="drive_log">
+            <column name="oil_cost" type="double"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="drive_log_sinYuQiu_3" author="sinYuQiu">
+        <addColumn tableName="drive_log">
+            <column name="drive_stat_status" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="sinYuQiu" id="drive_log_sinYuQiu_4">
+        <createIndex tableName="drive_log" indexName="IDX_drive_log_app_user_no">
+            <column name="app_user_no"/>
+        </createIndex>
+    </changeSet>
+
+
+
+</databaseChangeLog>

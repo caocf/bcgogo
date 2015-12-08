@@ -1,0 +1,124 @@
+一.备份现有生产上war包, 停掉热备份
+
+二.发布前准备
+1. 数据库更新：
+   根据Liquibase生成的DDL语句更新表结构.
+    后台 admin   config  配置
+    RecentlyUsedSmsContactNum       20          最近联系人保存20个
+
+
+三.发布应用
+
+四.添加权限
+SHOP-客户管理-短信管理-短信发送
+web_toSmsWriteSelection           /web/sms.do?method=toSmsWriteSelection         短信选择区            request
+web_toSmsSendFinish               /web/sms.do?method=toSmsSendFinish             短信发送成功            request
+web_toSmsList                     /web/sms.do?method=toSmsList                   跳转到短信列表        request
+web_toSmsDraft                    /web/sms.do?method=toSmsDraft                  跳转到短信草稿        request
+web_toSmsTemplateList             /web/sms.do?method=toSmsTemplateList           跳转到短信模板        request
+web_toAddressList                 /web/sms.do?method=toAddressList               跳转到通讯录          request
+web_toSmsDetail                   /web/sms.do?method=toSmsDetail                 跳转到短信详情        request
+web_querySms                      /web/sms.do?method=querySms                    查询短信列表          request
+web_getTheAssignSms               /web/sms.do?method=getTheAssignSms             查询特定顺序的短信          request
+web_getSmsTemplateList            /web/sms.do?method=getSmsTemplateList          查询短信模板列表      request
+web_saveSmsDraft                  /web/sms.do?method=saveSmsDraft                保存短信草稿          request
+web_saveSmsTemplate               /web/sms.do?method=saveSmsTemplate             保存短信模板          request
+web_saveSmsContact                /web/sms.do?method=saveSmsContact              保存联系人            request
+web_updateSmsContact              /web/sms.do?method=updateSmsContact            更新联系人            request
+web_deleteSmsTemplate             /web/sms.do?method=deleteSmsTemplate           删除短信模板          request
+web_deleteSms                     /web/sms.do?method=deleteSms                   删除短信              request
+web_modifySendTime                /web/sms.do?method=modifySendTime              修改短信发送时间      request
+web_deleteContact                 /web/contact.do?method=deleteContact           删除联系人            request
+web_cancelSendSms                 /web/sms.do?method=cancelSendSms               取消发送短信          request
+web_doSendSms                     /web/sms.do?method=doSendSms                   立即发送短信          request
+web_reSendSms                     /web/sms.do?method=reSendSms                   再次发送短信          request
+web_queryContactSuggestion        /web/contact.do?method=queryContactSuggestion  查询联系人下拉建议    request
+web_querySmsContactSuggestion     /web/contact.do?method=querySmsContactSuggestion  查询写短信联系人下拉建议    request
+web_deleteAllRecentlyUsedContact  /web/contact.do?method=deleteAllRecentlyUsedContact  删除最近联系人  request
+web_queryContact                  /web/contact.do?method=queryContact            查询联系人            request
+web_getSmsStat                    /web/sms.do?method=getSmsStat                  查询短信统计数据      request
+web_getContactGroupTreeNode       /web/contact.do?method=getContactGroupTreeNode         查询联系人组树型结构      request
+web_getDefaultContactDTO          /web/sms.do?method=getDefaultContactDTO     根据手机号查询联系人     request
+CRM--shop操作权限--shop数据初始化
+initSmsInfo	  /web/init.do?method=initSmsInfo	             SHOP   初始化短信    request
+---------------------------------------------------------金远----------------------------------------------------------
+ CRM->销售管理->增加角色(短信销售管理菜单)
+ 新增资源 sales_sms_order_list   CRM.SALES_MANAGER.SMS.ORDER_LIST   CRM 销售管理-短信销售订单-查询 render   把资源添加到(短信销售管理菜单)角色下
+ 从bcuser库获得该角色的ID(方法如下)：xxxxxxxxx
+ select id from bcuser.role where value = '短信销售管理菜单';
+ 短信销售管理菜单id 替换 下面sql中的  xxxxxxxxxxxxxx
+  insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`)
+  VALUES ('800030001','1','1','1','短信销售管理','Ext.controller.sales.BcgogoReceivableSmsOrderController','COMPONENT','','短信销售管理','2',800000001,xxxxxxxxxxxxxx,'true');
+
+ 在系统维护-->角色配置中  将 短信销售管理菜单的权限 分配给系统管理角色
+
+ CRM->SHOP操作权限->SHOP数据初始化
+ 新增资源  web_initSmsRechargeReceiptNo   /web/init.do?method=initSmsRechargeReceiptNo  SHOP   初始化短信销售单单据号   request
+ 新增资源  web_initBcgogoReceivableRecord   /web/init.do?method=initBcgogoReceivableRecord  SHOP  初始化BCGOGO订单记录   request
+ 新增资源  web_initShopSmsRecord   /web/init.do?method=initShopSmsRecord  SHOP  初始化客户短信账单   request
+ 新增资源  web_initShopSmsConsumeRecord   /web/init.do?method=initShopSmsConsumeRecord  SHOP  初始化客户按记录消费短信   request
+
+
+ SHOP--客户管理--短信管理--短信充值：
+ 新增： web_shopSmsAccount   /web/smsrecharge.do?method=shopSmsAccount   SHOP   短信账单  request
+ 新增：web_getShopSmsAccount  /web/smsrecharge.do?method=getShopSmsAccount  SHOP  短信账单列表  request
+
+ 后台ADMIN---数据维护---系统配置---新增：
+ key：smsPreferentialPolicyPath    value：/common/preferentialPolicy.jpg    描述：短信充值优惠政策图片路径
+ 将web/src/main/webapp/images/message/top_up.jpg重命名为preferentialPolicy.jpg，上传至upyun的common目录下，生产和测试分别上传
+ -------------------------------------------------------------------------------------------------------------------
+
+五.初始化
+1.数据初始化
+user库：
+update `menu` set label='供应商查询' where label='供应商列表';
+insert into `menu` values(1000000000000021,1366096873988,1366096873988,0,3,'短信账单',10000010018381741,1000020045084314,'smsrecharge.do?method=shopSmsAccount',21,'WEB.CUSTOMER_MANAGER.SMS_ACCOUNT');
+
+insert into bcuser.contact_group values('10000010002000001', '1332249387687', '1332249387687', '0', '-1','有手机客户组','CUSTOMER','FALSE');
+insert into bcuser.contact_group values('10000010002000002', '1332249387687', '1332249387687', '0', '-1','有手机供应商组','SUPPLIER','FALSE');
+insert into bcuser.contact_group values('10000010002000003', '1332249387687', '1332249387687', '0', '-1','有手机会员组','MEMBER','FALSE');
+insert into bcuser.contact_group values('10000010002000004', '1332249387687', '1332249387687', '0', '-1','手机客户端组','APP_CUSTOMER','FALSE');
+insert into bcuser.contact_group values('10000010002000005', '1332249387687', '1332249387687', '0', '-1','未分组','OTHERS','FALSE');
+txn库：
+在执行之前，先将shop_sms_account shop_sms_record备份下
+
+update txn.sms_recharge set recharge_method='CUSTOMER_RECHARGE',status='TO_BE_PAID' where state in (0,1,3);
+update txn.sms_recharge set payment_way='CHINA_PAY';
+insert into txn.preferential_policy values (10000001,1329530754703,1329530754703,0,1000,100,'FALSE');
+insert into txn.preferential_policy values (10000002,1329530754703,1329530754703,0,2000,500,'FALSE');
+insert into txn.preferential_policy values (10000003,1329530754703,1329530754703,0,5000,5000,'FALSE');
+update txn.shop_sms_account ssa,config.shop_balance sb set ssa.current_balance=round(sb.sms_balance,1),ssa.current_number=round(sb.sms_balance*10) where ssa.shop_id = sb.shop_id;
+update txn.shop_sms_account set consumption_balance=round(recharge_balance+handsel_balance-current_balance,1),consumption_number=recharge_number+handsel_number-current_number;
+update txn.shop_sms_record set stat_type='DAY' where sms_category='SHOP_CONSUME';
+
+notification库：
+update notification.out_box set sender='bcgogo' where sender='Bcgogo';
+update notification.out_box set sms_send_scene='MANUALLY' where sms_send_scene is null;
+update notification.out_box set sms_send_kind='YI_MEI' where sms_send_kind is null;
+update notification.out_box set sms_id=null  where sms_id = 'null';
+update notification.out_box set sms_channel='INDUSTRY' where sms_channel is null;
+
+2. Jackchen登录web, 执行初始化：
+    init.do?method=createDefaultPageConfig
+    init.do?method=initSmsRechargeReceiptNo
+    init.do?method=initBcgogoReceivableRecord
+    init.do?method=initShopSmsRecord
+    init.do?method=initShopSmsConsumeRecord
+3.初始化短信数据
+（1）执行 init.do?method=initSmsInfo
+（2）执行
+     begin;
+     update notification.sms s,bcuser.user u set s.user_id=u.id where s.shop_id=u.shop_id;
+     commit;
+     update notification.sms_job set sms_id=group_id_temp;
+
+
+六、solr
+
+customer_supplier、product schema.xml 替换后重做索引
+
+回滚步骤：
+1.关闭服务
+2.恢复生产数据库
+3.使用旧war包重新发布
+4.验证功能

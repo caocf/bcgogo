@@ -1,0 +1,131 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="Caiwei" id="purchase_order_item_1">
+    <createTable tableName="purchase_order_item">
+        <column name="id" type="bigint"/>
+        <column name="created" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="last_update" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="version" type="bigint">
+            <constraints nullable="true"/>
+        </column>
+        <column name="purchase_order_id" type="bigint"/>
+        <column name="product_id" type="bigint"/>
+        <column name="amount" type="float"/>
+        <column name="price" type="float"/>
+        <column name="total" type="float"/>
+        <column name="memo" type="varchar(500)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet  id="purchase_order_item_2" author="zhuyinjia">
+    <addPrimaryKey tableName="purchase_order_item" columnNames="id" constraintName="pk_purchase_order_item"/>
+  </changeSet>
+  <changeSet author="zhouxiaochen" id="purchase_order_item_3">
+        <addColumn tableName="purchase_order_item">
+            <column name="vehicle_brand" type="varchar(50)"/>
+            <column name="vehicle_model" type="varchar(50)"/>
+            <column name="vehicle_year" type="varchar(50)"/>
+            <column name="vehicle_engine" type="varchar(50)"/>
+        </addColumn>
+  </changeSet>
+
+    <changeSet author="luyi" id="purchase_order_item_4">
+        <createIndex tableName="purchase_order_item" indexName="IDX_PURCHASEORDERITEM_PURCHASEORDERID_PRICE">
+            <column name="purchase_order_id"/>
+            <column name="price"/>
+        </createIndex>
+    </changeSet>
+
+   <changeSet author="caiwei" id="purchase_order_item_5">
+        <dropIndex indexName="IDX_PURCHASEORDERITEM_PURCHASEORDERID_PRICE" tableName="purchase_order_item" />
+    </changeSet>
+
+   <changeSet author="caiwei" id="purchase_order_item_6">
+        <createIndex tableName="purchase_order_item" indexName="IDX_PURCHASEORDERITEM_PURCHASEORDERID">
+            <column name="purchase_order_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="qiuxinyu" id="purchase_order_item_7">
+        <addColumn tableName="purchase_order_item">
+            <column name="unit" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="purchase_order_item_8">
+    <modifyColumn tableName="purchase_order_item">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+	<changeSet id="purchase_order_item_9" author="chenfanglei">
+		<addColumn tableName="purchase_order_item">
+			<column name="product_kind" type="varchar(200)"></column>
+		</addColumn>
+	</changeSet>
+
+	<changeSet author="qiuxinyu" id="purchase_order_item_10">
+		<addColumn tableName="purchase_order_item">
+			<column name="supplier_product_id" type="bigint"/>
+		</addColumn>
+	</changeSet>
+
+    <changeSet id="purchase_order_item_11" author="jimuchen">
+      <addColumn tableName="purchase_order_item">
+          <column name="product_history_id" type="bigint" />
+      </addColumn>
+    </changeSet>
+    <changeSet id="purchase_order_item_xzhu_12" author="xzhu">
+        <addColumn tableName="purchase_order_item">
+            <column name="promotions_id" type="bigint" />
+        </addColumn>
+    </changeSet>
+    <changeSet id="purchase_order_item_xzhu_13" author="xzhu">
+        <addColumn tableName="purchase_order_item">
+            <column name="purchase_price" type="double"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id = "purchase_order_item_xzhu_14" author="xzhu">
+        <renameColumn tableName="purchase_order_item" oldColumnName="price" newColumnName="quoted_price" columnDataType="double"/>
+        <renameColumn tableName="purchase_order_item" oldColumnName="purchase_price" newColumnName="price" columnDataType="double"/>
+    </changeSet>
+
+  <changeSet id="purchase_order_item_15" author="jimuchen">
+    <modifyColumn tableName="purchase_order_item">
+      <column name="quoted_price" type="double(20,2)"/>
+      <column name="total" type="double(20,2)"/>
+      <column name="price" type="double(20,2)"/>
+		</modifyColumn>
+  </changeSet>
+  <changeSet id="purchase_order_item_xzhu_16" author="xzhu">
+    <addColumn tableName="purchase_order_item">
+      <column name="quoted_pre_buy_order_item_id" type="bigint"/>
+		</addColumn>
+  </changeSet>
+
+  <changeSet id="purchase_order_item_17" author="jimuchen">
+      <modifyColumn tableName="purchase_order_item">
+        <column name="promotions_id" type="varchar(50)"/>
+  		</modifyColumn>
+    </changeSet>
+
+  <changeSet id="purchase_order_item_18" author="jimuchen">
+    <addColumn tableName="purchase_order_item">
+      <column name="custom_price_flag" type="tinyint"/>
+    </addColumn>
+  </changeSet>
+
+    <changeSet id="purchase_order_item_19" author="yangwj">
+        <modifyColumn tableName="purchase_order_item">
+            <column name="vehicle_brand" type="varchar(200)"/>
+            <column name="vehicle_model" type="varchar(200)"/>
+        </modifyColumn>
+    </changeSet>
+</databaseChangeLog>

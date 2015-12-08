@@ -1,0 +1,156 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+    font-size: 12px;
+    background: #666;
+    position: relative;
+}
+
+.content {
+    width: 500px;
+    height: 500px;
+    background: #efefef;
+    overflow: hidden;
+}
+
+.clr {
+    clear: both;
+}
+
+.trajectory {
+    padding: 2%;
+}
+
+.date_w {
+    text-align: center;
+    padding: 5px;
+}
+
+.date {
+    background: #d1d1d1;
+    border-radius: 5px;
+    margin: 0 auto;
+    line-height: 20px;
+    padding: 5px;
+    color: #fff;
+    display: inline
+}
+
+.padding10 {
+    padding: 10px;
+}
+
+.a1, .a2 {
+    background: #53b2ea;
+    padding: 5px;
+    line-height: 20px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.a2 {
+    background: #F8F8FF;
+    color: #000;
+}
+
+.w99 {
+    width: 50px;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 50px;
+    border: #dfdfdf 1px solid;
+}
+
+.w76 {
+    width: 385px;
+}
+
+.w23 {
+    width: 60px;
+    padding: 0 10px;
+}
+
+.sj_relative {
+    position: relative;
+}
+
+.lan_absolute, .bai_absolute {
+    position: absolute;
+    width: 13px;
+    height: 13 x;
+    left: 80%;
+    display: block;
+    top: 5px;
+}
+
+.bai_absolute {
+    left: 82px;
+}
+
+.tr {
+    text-align: right;
+}
+
+.add_txt {
+    background: #e8e8e8;
+    color: #fff;
+    position: fixed;
+    bottom: 0px;
+    left: 460px;
+    line-height: 20px;
+    left: 0;
+    text-align: center;
+    width: 486px;
+    padding: 7px;
+    /*z-index: 2;*/
+    margin: 0 auto;
+}
+
+.add_txt_input input {
+    border: #d4d4d4 1px solid;
+    height: 22px;
+    width: 400px;
+    margin: 0 5px;
+    background: #fff;
+}
+
+.blue_radius {
+    padding: 5px 10px;
+    background: #53B2EA;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    height: 30px;
+    line-height: 20px;
+    cursor: pointer;
+    -moz-border-radius: 15px; /* Gecko browsers */
+    -webkit-border-radius: 15px; /* Webkit browsers */
+    border-radius: 15px;
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right;
+}
+
+.w20 {
+    width: 24px;
+    height: 24px;
+}
+
+.history {
+    background: url(../images/history.png) no-repeat 14% 40%;
+    text-indent: 1.1em;
+    line-height: 18px;
+    width: 120px;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.history a {
+    color: #2688dc;
+}
+

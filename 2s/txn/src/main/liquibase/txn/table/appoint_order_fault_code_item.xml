@@ -1,0 +1,25 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="xinYuQiu" id="appoint_order_fault_code_item_1">
+    <createTable tableName="appoint_order_fault_code_item">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="appoint_order_id" type="bigint"/>
+      <column name="fault_code" type="varchar(50)"/>
+      <column name="app_vehicle_id" type="bigint"/>
+      <column name="description" type="varchar(500)"/>
+    </createTable>
+    <addPrimaryKey tableName="appoint_order_fault_code_item" columnNames="id" constraintName="pk_appoint_order_fault_code_item"/>
+  </changeSet>
+</databaseChangeLog>
+

@@ -1,0 +1,219 @@
+一.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波、邱新宇）
+
+
+三.发布应用 （纪友文）
+
+四.添加权限
+SHOP-客户管理，新建OBD管理，增加角色 管理。分配到4s店所有角色
+web_toOBDManager                /web/OBDManager.do?method=toOBDManager             SHOP   OBD管理            request
+web_getOBDList                  /web/OBDManager.do?method=getOBDList               SHOP   获取OBD列表        request
+web_getOBDByImeiAndSimNo        /web/OBDManager.do?method=getOBDByImeiAndSimNo     SHOP   查询OBD信息        request
+web_OBDStorage                  /web/OBDManager.do?method=OBDStorage               SHOP   OBD入库            request
+web_OBDInstall                  /web/OBDManager.do?method=OBDInstall               SHOP   OBD安装            request
+web_gsmOBDBind                  /web/OBDManager.do?method=gsmOBDBind               SHOP   OBD绑定            request
+web_unInstallGsmOBD             /web/OBDManager.do?method=unInstallGsmOBD          SHOP   车辆OBD解除绑定    request
+web_getShopOBDSuggestion        /web/OBDManager.do?method=getShopOBDSuggestion     SHOP   OBD信息下拉提示    request
+
+增加菜单权限
+(1)添加资源,并添加到角色 SHOP-客户管理-OBD管理
+      OBDManager    WEB.OBD_MANAGER.BASE    SHOP    OBD管理    menu
+(2)添加菜单,
+    insert into menu values(1000000000022,1366091984555,1366091984555,0,2,'OBD管理',(select r.id from bcuser.resource r where r.value="WEB.OBD_MANAGER.BASE"),1000020045084312,'OBDManager.do?method=toOBDManager',60,'WEB.CUSTOMER_MANAGER.OBD_MANAGER');
+begin;
+update menu m set m.sort=20 where label='短信管理';
+update menu m set m.sort=30 where label='车辆管理';
+update menu m set m.sort=40 where label='车型统计';
+update menu m set m.sort=50 where label='会员套餐管理';
+update menu m set m.sort=70 where label='宣传管理';
+commit;
+
+
+在CRM-系统维护-权限维护-模块角色资源维护-CRM 下：
+增加子模块：OBD管理
+1,在“OBD管理”下面增加角色：
+  value:导入OBD-SIM
+  name:CRM_IMPORT_OBD
+  sort:1
+新增资源：
+  name：crm_import_obd
+  value:CRM.OBD_MANAGER_IMPORT
+  systemType:CRM
+  memo:导入OBD
+  type:render
+
+2,在“OBD管理”下面增加角色：
+  value:编辑OBD-SIM
+  name:CRM_EDIT_OBD
+  sort:2
+新增资源：
+  name：crm_edit_obd_sim
+  value:CRM.OBD_MANAGER_EDIT
+  systemType:CRM
+  memo:编辑OBD-SIM
+  type:render
+
+3,在“OBD管理”下面增加角色：
+  value:出库OBD-SIM
+  name:CRM_OUT_STORAGE_OBD
+  sort:3
+新增资源：
+  name：crm_out_storage_obd_sim
+  value:CRM.OBD_MANAGER_OUT_STORAGE
+  systemType:CRM
+  memo:OBD出库
+  type:render
+
+4,在“OBD管理”下面增加角色：
+  value:销售OBD-SIM
+  name:CRM_SELL_OBD
+  sort:4
+新增资源：
+  name：crm_sell_obd_sim
+  value:CRM.OBD_MANAGER_SELL
+  systemType:CRM
+  memo:OBD销售
+  type:render
+
+5,在“OBD管理”下面增加角色：
+  value:组装OBD-SIM
+  name:CRM_COMBINE_OBD
+  sort:5
+新增资源：
+  name：crm_combine_obd_sim
+  value:CRM.OBD_MANAGER_COMBINE
+  systemType:CRM
+  memo:OBD组装
+  type:render
+
+6,在“OBD管理”下面增加角色：
+  value:删除OBD-SIM
+  name:CRM_DELETE_OBD_SIM
+  sort:6
+新增资源：
+  name：crm_delete_obd_sim
+  value:CRM.OBD_MANAGER_DELETE
+  systemType:CRM
+  memo:OBD-SIM删除
+  type:render
+
+7,在“OBD管理”下面增加角色：
+  value:拆分OBD-SIM
+  name:CRM_SPLIT_OBD_SIM
+  sort:7
+新增资源：
+  name：crm_split_obd_sim
+  value:CRM.OBD_MANAGER_SPLIT
+  systemType:CRM
+  memo:OBD-SIM拆分
+  type:render
+
+8,在“OBD管理”下面增加角色：
+  value:查看日志OBD-SIM
+  name:CRM_SHOW_OBD_SIM_LOG
+  sort:8
+新增资源：
+  name：crm_show_obd_sim_log
+  value:CRM.OBD_MANAGER_SHOW_LOG
+  systemType:CRM
+  memo:OBD-SIM查看日志
+  type:render
+
+9,在“OBD管理”下面增加角色：
+  value:归还OBD-SIM
+  name:CRM_RETURN_OBD_SIM
+  sort:9
+新增资源：
+  name：crm_return_obd_sim
+  value:CRM.OBD_MANAGER_RETURN
+  systemType:CRM
+  memo:OBD-SIM归还
+  type:render
+
+10,在“OBD管理”下面增加角色：
+  value:查看全部OBD信息
+  name:CRM_VIEW_ALL_OBD_SIM
+  sort:10
+新增资源：
+  name：crm_view_all_obd_sim
+  value:CRM.OBD_MANAGER_VIEW_ALL
+  systemType:CRM
+  memo:查看全部OBD信息
+  type:logic
+
+11,在“OBD管理”下面增加角色：
+  value:查看相关OBD信息
+  name:CRM_VIEW_RELATE_OBD_SIM
+  sort:11
+新增资源：
+  name：crm_view_relate_obd_sim
+  value:CRM.OBD_MANAGER_VIEW_RELATE
+  systemType:CRM
+  memo:查看相关OBD信息
+  type:render
+
+数据库更新
+user库
+INSERT INTO `tree_menu` (`id`, `created`, `last_update`, `version`, `text`, `component`, `type`, `icon_class`, `description`, `sort`, `parent_id`, `leaf`, `role_id`) VALUES (900000001, 1, 1, 1, 'OBD管理', '', '', '', 'OBD管理', 4, NULL, 'true', NULL);
+
+
+UPDATE tree_menu SET sort = 5 where text = '销售管理';
+UPDATE tree_menu SET sort = 6 where text = '财务管理';
+UPDATE tree_menu SET sort = 7 where text = '店铺业务统计';
+
+INSERT INTO `tree_menu` (`id`, `created`, `last_update`, `version`, `text`, `component`, `type`, `icon_class`, `description`, `sort`, `parent_id`, `leaf`, `role_id`) VALUES
+(900010001, 1, 1, 1, 'OBD库存', 'Ext.controller.obdManager.OBDStorageManager', 'COMPONENT', '', 'OBD库存', 1, 900000001, 'true', (select id from role where name='CRM_VIEW_RELATE_OBD_SIM'));
+
+在CRM-系统维护-角色配置中 新增角色（如果已经存在就不需要新增了但是权限还要重新设置）
+  角色名称：代理商
+  角色描述：代理商
+  角色状态：启用
+
+
+
+为“销售”，“销售（不能登录前台）”，“代理商” 配置以下资源：
+  销售OBD-SIM
+  查看相关OBD信息
+
+为“仓管”配置以下资源：
+  导入OBD-SIM
+  编辑OBD-SIM
+  出库OBD-SIM
+  组装OBD-SIM
+  删除OBD-SIM
+  拆分OBD-SIM
+  查看日志OBD-SIM
+  归还OBD-SIM
+  查看相关OBD信息
+
+为“系统管理员”配置 OBD管理下面全部资源
+
+Admin新增配置：
+key：agentDepartmentIds
+value：（根据不同环境找到不同Id）
+描述：代理商部门IDs，逗号分隔
+
+
+CRM-SHOP操作权限-SHOP数据初始化
+新增以下资源
+web_toInitObdStoragePage    /web/init.do?method=toInitObdStoragePage   CRM    OBD库存初始化页面  request
+web_initObdStorage    /web/init.do?method=initObdStorage   CRM    OBD库存初始化  request
+
+五.初始化
+
+用jackchen登录web
+web/init.do?method=toInitObdStoragePage 进入初始化页面
+选择初始化文件 提交
+
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、肖开波）
+4.验证功能（纪友文、肖开波）
+
+

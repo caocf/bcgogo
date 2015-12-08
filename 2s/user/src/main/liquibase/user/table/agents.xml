@@ -1,0 +1,62 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="shaolei" id="agents_1">
+    <createTable tableName="agents">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="agent_id" type="varchar(20)"/>
+      <column name="name" type="varchar(20)"/>
+      <column name="address" type="varchar(200)"/>
+      <column name="mobile" type="varchar(20)"/>
+      <column name="resp_area" type="varchar(100)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="agents_2" author="shaolei">
+    <addPrimaryKey tableName="agents" columnNames="id" constraintName="pk_agents"/>
+  </changeSet>
+
+  <changeSet author="luyi" id="agents_3">
+    <createIndex tableName="agents" indexName="IDX_AGENTS_NAME">
+      <column name="name"/>
+    </createIndex>
+  </changeSet>
+  <changeSet id="agents_4" author="shaolei">
+    <renameColumn tableName="agents" oldColumnName="agent_id" newColumnName="agent_code" columnDataType="varchar(20)"/>
+    <addColumn tableName="agents">
+      <column name="person_in_charge" type="varchar(20)"/>
+    </addColumn>
+
+
+  </changeSet>
+  <changeSet id="agents_5" author="shaolei">
+    <addColumn tableName="agents">
+      <column name="state" type="int"/>
+    </addColumn>
+  </changeSet>
+
+    <changeSet author="zoujianhong" id="agents_6">
+        <dropIndex indexName="IDX_AGENTS_NAME" tableName="agents" />
+        <createIndex tableName="agents" indexName="IDX_AGENTS_AGENTCODE">
+            <column name="agent_code" />
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="agents_7">
+    <modifyColumn tableName="agents">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+</databaseChangeLog>

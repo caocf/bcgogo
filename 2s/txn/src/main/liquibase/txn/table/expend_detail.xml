@@ -1,0 +1,75 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="liuWei" id="expend_detail_1">
+    <createTable tableName="expend_detail">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+
+      <column name="year" type="bigint"/>
+      <column name="month" type="bigint"/>
+      <column name="day" type="bigint"/>
+
+      <column name="rent_year" type="numeric(18,1)"/>
+      <column name="rent_month" type="numeric(18,1)"/>
+      <column name="rent_day" type="numeric(18,1)"/>
+
+      <column name="labor_year" type="numeric(18,1)"/>
+      <column name="labor_month" type="numeric(18,1)"/>
+      <column name="labor_day" type="numeric(18,1)"/>
+
+      <column name="other_year" type="numeric(18,1)"/>
+      <column name="other_month" type="numeric(18,1)"/>
+      <column name="other_day" type="numeric(18,1)"/>
+
+      <column name="total_year" type="numeric(18,1)"/>
+      <column name="total_month" type="numeric(18,1)"/>
+      <column name="total_day" type="numeric(18,1)"/>
+
+
+    </createTable>
+  </changeSet>
+
+  <changeSet author="liuWei" id="expend_detail_2">
+    <addPrimaryKey tableName="expend_detail" columnNames="id" constraintName="pk_expend_detail"/>
+  </changeSet>
+
+  <changeSet author="liuWei" id="expend_detail_3">
+    <createIndex tableName="expend_detail" indexName="idx_expend_detail_shopid_year_month_day">
+      <column name="shop_id"/>
+      <column name="year"/>
+      <column name="month"/>
+      <column name="day"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="expend_detail_4">
+    <modifyColumn tableName="expend_detail">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="expend_detail_5" author="liuWei">
+    <addColumn tableName="expend_detail">
+      <column name="other_fee_year" type="double"/>
+      <column name="other_fee_month" type="double"/>
+      <column name="other_fee_day" type="double"/>
+      <column name="other_expend_year" type="double"/>
+      <column name="other_expend_month" type="double"/>
+      <column name="other_expend_day" type="double"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

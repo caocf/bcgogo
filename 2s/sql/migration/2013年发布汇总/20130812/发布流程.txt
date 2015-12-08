@@ -1,0 +1,67 @@
+一.备份现有生产上war包,停掉热备份
+
+二.发布前准备
+1. 数据库更新：
+根据Liquibase生成的DDL语句更新表结构.
+
+2. admin进后台，打开系统配置  新增  key：ExportFileDir    value:/usr/local/tomcat/temp/   描述：导出文件的内容存放目录
+                              新增  key: TotalNumPerExcel   value:10000                   描述：每个导出文件中最大的数据条数
+
+   注意：在该目录下会生成.xls结尾的文件   该目录由运维定期迁移维护
+
+3. 短信模板
+  增加短信模板
+  (1)
+      重置密码短信
+      resetPassword
+      NECESSARY
+      CHANGE_PASSWORD
+     您好!一发软件用户名{userNo}对应密码修改为{newpassword},如有问题请拨打客服电话:0512-66733331与我们联系。
+
+  (2)
+      重置账号短信
+      changeUserNo
+      NECESSARY
+      CHANGE_USER_NO
+      您好!一发软件用户名修改为{userNo}，密码为{newpassword},如有问题请拨打客服电话:0512-66733331与我们联系。
+
+4. SQL初始化
+update shop s, shop_contact sc set sc.name = s.owner where s.id = sc.shop_id and s.owner is not null and sc.name is null and sc.is_shop_owner = 1;
+update shop s, shop_contact sc set sc.name = s.owner where s.id = sc.shop_id and s.owner!=sc.name and sc.is_shop_owner = 1;
+
+三.发布应用
+
+四.配置权限
+*******************************************************导出**********************************************************
+新增资源：
+exportInventory           /web/export.do?method=exportInventory      SHOP       导出库存       request
+downloadExportFile        /web/download.do?method=downloadExportFile   SHOP       下载导出文件       request
+exportCustomer            /web/export.do?method=exportCustomer        SHOP       导出会员       request
+exportOrder           /web/export.do?method=exportOrder        SHOP       导出单据       request
+exportCustomerTransaction           /web/export.do?method=exportCustomerTransaction        SHOP       导出客户交易       request
+exportBusinessStat           /web/export.do?method=exportBusinessStat        SHOP       导出营业额统计       request
+SHOP上点击新增角色“导出权限”  将上述资源全部添加进去  将该角色分配给每一个版本的老板用户组
+
+CRM --------SHOP操作权限------SHOP数据初始化,  新增资源
+（新）initShopFollowId    /web/init.do?method=initShopFollowId   shop  初始化shop跟进人          request
+
+增加到待办事项模块：
+web_remind_totalCounts      /web/remind.do?method=getNewTodoCounts        SHOP      待办事项获取所有数字      request
+
+
+五.发布后初始化
+1. 后台打印模板上传新流水统计（日收入、日支出）模板，模板在sql/打印模板/default_超级管理统计打印/营业收入流水统计-日.html、营业支出流水统计-日.html 不要选择店铺。
+上传 营业分类销售额统计模板： sql\打印模板\default_超级管理统计打印\营业分类销售额统计.html
+
+2. jackchen登录后执行：init.do?method=initShopFollowId
+3. 索引所有“施工单”，“洗车美容单”，“销售单”，“销售退货单”，“入库退货单”。
+索引所有客户和供应商
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+回滚步骤：
+1.关闭服务
+2.恢复生产数据库
+3.使用旧war包重新发布
+4.验证功能

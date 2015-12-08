@@ -1,0 +1,157 @@
+.accountMain .tab_remind{  
+  width:500px;
+  position:relative;
+  margin:0 auto;
+}
+.accountMain .tab_remind td{
+	line-height:35px;
+	padding-left:10px;
+}
+.accountMain .tab_remind .remindTitle{
+	margin-left:-55px;
+}
+.accountMain .tab_remind .remindTitle .remindLeft{
+	float:left;
+	background:url(../images/remindLeft.png) no-repeat;
+	width:6px;
+	height:27px;
+}
+.accountMain .tab_remind .remindTitle .remindCenter{
+	float:left;
+    background:url(../images/remindBg.png) repeat-x;
+	width:170px;
+	height:27px;
+	text-align:center;
+	line-height:27px;
+}
+.accountMain .tab_remind .remindTitle .remindRight{
+	float:left;
+	background:url(../images/remindRight.png) no-repeat;
+	width:6px;
+	height:27px;
+}
+.accountMain .tab_remind .remindTitle .width{
+	width:150px;
+}
+.accountMain .tab_remind .remindBtn{
+	float:left;
+	margin:0px 0px 0px 18px;
+}
+/*.accountMain .tab_remind .remindImg .remindOpen{
+	float:left;
+	color:#FFFFFF;
+	line-height:20px;
+	padding-left:10px;
+}
+.accountMain .tab_remind .remindImg .remindClose{
+	float:right;
+	color:#FFFFFF;
+	line-height:20px;
+	padding-right:10px;
+}
+.accountMain .tab_remind .remindImg .btnRemind{
+	float:right;
+	background:url(../images/remindBtn.png) no-repeat;
+	width:29px;
+	height:16px;
+	margin:-18px 3px 0px 0px;
+	cursor:pointer;
+}*/
+
+.accountMain .tab_remind .remindNum{
+	padding-left:5px;
+}
+.accountMain .tab_remind .remindNum .txtRemind{
+	border:1px solid #CCCCCC;
+	border-top: 1px solid #666666;
+	width:50px;
+	margin:7px 5px 0px 0px;
+	height:20px;
+}
+.accountMain .tab_remind .radio{
+	float:left;
+	padding:0px 0px 0px 10px;
+}
+
+.accountMain .tab_remind .remindBtn {
+    margin-left: -5px;
+}
+
+.accountMain .tab_remind .remindBtn .manual{
+	float:left;
+	background:url(../images/manual.png) no-repeat;
+	width:38px;
+	height:24px;
+	text-align:center;
+	line-height:24px;
+}
+.accountMain .tab_remind .remindBtn .manualHover{
+	float:left;
+	background:url(../images/manualHover.png) no-repeat;
+	width:37px;
+	height:24px;
+	text-align:center;
+	line-height:24px;
+}
+.accountMain .tab_remind .remindBtn .automatic{
+	float:left;
+	background:url(../images/automatic.png) no-repeat;
+	width:38px;
+	height:24px;
+	text-align:center;
+	line-height:24px;
+}
+.accountMain .tab_remind .remindBtn .automaticHover{
+	float:left;
+	background:url(../images/automaticHover.png) no-repeat;
+	width:37px;
+	height:24px;
+	text-align:center;
+	line-height:24px;
+}
+.accountMain .tab_remind .remindBtn .closed{
+	float:left;
+	background:url(../images/closed.png) no-repeat;
+	width:43px;
+	height:24px;
+	text-align:center;
+	line-height:24px;
+}
+.accountMain .tab_remind .remindBtn .closedHover{
+	float:left;
+	background:url(../images/closeHover.png) no-repeat;
+	width:43px;
+	height:24px;
+	text-align:center;
+	line-height:24px;
+}
+.accountMain .remindBorder{
+	float:left;
+	width:100%;
+	border:1px dotted #CCCCCC;
+	height:0px;
+}
+.accountMain .tab_remind .remindTxt{
+	height:25px;
+	padding-top:10px;
+}
+.accountMain .tab_remind .btnRestore{
+	float:right;
+	background:url(../images/search_hi.jpg) no-repeat;
+	width:93px;
+	height:35px;
+	text-align:center;
+	line-height:35px;
+	color:#FFFFFF;
+	border:none;
+	cursor:pointer;
+}
+
+.remindBtn a{
+  cursor:pointer;
+}
+
+
+
+
+

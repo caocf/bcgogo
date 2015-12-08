@@ -1,0 +1,70 @@
+一.添加权限
+后台添加：
+（一）角色
+                    name                                        备注
+//----------------------------------------------new role-----------------------------------------------------------------------------
+
+（二）建立关联
+用户组操作：
+Shop版本操作：
+
+（三）资源
+           name                                           type           value                                                          备注
+//--------------------------------------------------------------------------new resource---------------------------------------------------------------------
+             name                     value                          type          memo
+====================================role:CRM_PRODUCT_CATEGORY_ADD====================================
+CRM_product_category_add          Ext.view.productMaintenance.AddCategoryView             render        增加产品分类
+
+             name                     value                          type          memo
+====================================role:CRM_PRODUCT_CATEGORY_UPDATE====================================
+CRM_product_category_update          Ext.view.productMaintenance.ProductCategoryForm      render        修改产品分类
+
+             name                     value                          type          memo
+====================================role:CRM_PRODUCT_CATEGORY_SEARCH====================================
+CRM_product_category_search          Ext.view.productMaintenance.ProductCategoryMainView       render        查询查看产品分类
+
+
+//=================================================== web_droplist_service (姬牧晨) ================================================
+web_droplist_service_update                           request           /web/category.do?method=ajaxUpdateServiceName    ajax修改服务名
+web_droplist_service_delete                           request           /web/category.do?method=ajaxDeleteService      ajax删除服务
+
+//=================================================== web_customer_list (韦凌枫) ================================================
+web_customer_list_getCustomerConsumptionHistory       request           /web/unitlink.do?method=getCustomerConsumptionHistory    条件查询客户的消费历史记录
+
+//=================================================== web_supplier_list (韦凌枫) ================================================
+web_supplier_list_getSupplierOrderHistory             request           /web/unitlink.do?method=getSupplierOrderHistory    条件查询供应商的单据历史记录
+
+
+（四）权限相关SQL
+//产品分类管理相关权限---刘伟
+
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`) VALUES ('520000010','1','1','1','数据维护','','','','开发使用的模块','10',null,null,'true');
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`) VALUES ('520100002','1','1','1','数据字典','Ext.controller.productMaintenance.ProductMainController','COMPONENT','','数据字典','1',520000001,510000102,'true');
+
+INSERT INTO `module` (`id`, `created`, `last_update`, `version`, `value`, `name`, `parent_id`) VALUES (500000017, 1, 1, 1, '产品分类管理', 'CRM_PRODUCT_CATEGORY', NULL);
+
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000100','1','1','1','CRM_PRODUCT_CATEGORY_ADD','active','产品分类增加','产品分类增加','CRM','500000017');
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000101','1','1','1','CRM_PRODUCT_CATEGORY_UPDATE','active','产品分类修改','产品分类修改','CRM','500000017');
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('510000102','1','1','1','CRM_PRODUCT_CATEGORY_SEARCH','active','产品分类查询','产品分类查询','CRM','500000017');
+
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000100,540000117,1,1,1);
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000101,540000118,1,1,1);
+insert into `user_group_role` (`user_group_id`,`role_id`,`id`,`created`,`last_update`,`version`) VALUES (41000006,510000102,540000119,1,1,1);
+
+INSERT INTO `product_category` (`id`, `created`, `last_update`, `version`, `shop_id`, `name`, `parent_id`, `category_type`, `status`) VALUES (-1, 0, 0, 0, 0, '所有产品分类', NULL, 'TOP_CATEGORY', 'USED');
+
+
+二.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+三.数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，姬牧晨）
+
+四.发布应用 （纪友文）
+
+五.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

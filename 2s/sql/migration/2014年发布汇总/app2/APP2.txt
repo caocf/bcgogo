@@ -1,0 +1,75 @@
+一.备份现有生产上war包,停掉热备份
+
+二.发布前准备
+  1. 数据库更新： 根据Liquibase生成的DDL语句更新表结构.
+
+  2. Solr更新:
+
+  3.JVM环境配置
+  -Dis.production.environment=false (测试)
+  -Dis.production.environment=true (生产)
+
+三.发布应用
+
+四.配置
+  1. 权限
+    CRM --------SHOP操作权限------SHOP数据初始化,  新增资源
+    （新）initJuheViolateRegulationCitySearchCondition    /web/juhe.do?method=initJuheViolateRegulationCitySearchCondition     初始化聚合城市参数接口    request  shop
+    （新）initBinding    /web/shopInit.do?method=initBinding     初始化obd与shop绑定    request  shop
+
+  ======================================================询价管理（邱鑫宇）==================================================================
+   SHOP-待办事项模块下面添加子模块”询价管理“
+   “询价管理”下面添加角色：“询价查询”
+   “询价查询”下面新增资源：
+     web_schedule_enquiry_showEnquiryOrderList          /web/enquiry.do?method=showEnquiryOrderList          SHOP          询价列表页面          request
+     EnquiryList   WEB.SCHEDULE.ENQUIRY_LIST 询价比价单列表    menu     SHOP
+     web_schedule_enquiry_searchShopEnquiryList       /web/enquiry.do?method=searchShopEnquiryList          SHOP          询价查询          request
+     web_schedule_enquiry_showEnquiryDetail       /web/enquiry.do?method=showEnquiryDetail          SHOP          询价单详情          request
+     web_schedule_enquiry_shopEnquiryResponse       /web/enquiry.do?method=shopEnquiryResponse          SHOP          询价单报价          request
+     web_schedule_enquiry_printEnquiryOrderDetail       /web/enquiry.do?method=printEnquiryOrderDetail          SHOP          询价单打印          request
+
+
+ 版本维护里面“汽修初级版，汽修综合版，汽修高级版”的“老板，经理，前台，销售顾问”添加“询价管理”所有权限
+   ========================================================================================================================
+
+
+
+
+
+
+
+  2. 短信模板
+
+  3.config 配置
+            name                             value                                                 描述
+        JUHE_VIOLATE_REGULATION_KEY       60ad2a9b3c7bcda13b781dabe01fe843                     聚合云数据平台-全国车辆违章查询key
+  4.打印模板
+      打印模板：上传新模板：
+      模板类型：询价单
+      模板名称（唯一）：enquiryOrder-131125
+      显示名称：enquiryOrder-131125
+      选择文件：bcgogo-UI\打印模板\default_改\询价单打印.html
+五.数据初始化
+  1. jackchen登录后执行：
+         shopInit.do?method=initBinding
+  2. SQL:
+    执行area.sql,juhe_violate_regulation_city_search_condition.sql
+    --询价单memu 邱鑫宇
+       INSERT INTO bcuser.menu values(1000021045134332,1366278907970,1366278907970,0,2,'询价比价',-1,-1,'enquiry.do?method=showEnquiryOrderList',50,'WEB.SCHEDULE.ENQUIRY_LIST');
+       update  bcuser.menu set resource_id = (select id from resource where value = 'WEB.SCHEDULE.ENQUIRY_LIST') where id = 1000021045134332;
+       update  menu set parent_id = 1000020044934293 where id=  1000021045134332;
+
+  3. Solr索引
+        shop
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+ 1. 测试点
+
+
+回滚步骤：
+1.关闭服务
+2.恢复生产数据库
+3.使用旧war包重新发布
+4.验证功能
+
+
+

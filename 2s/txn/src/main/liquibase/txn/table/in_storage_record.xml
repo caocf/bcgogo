@@ -1,0 +1,109 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="xzhu" id="in_storage_record_1">
+    <createTable tableName="in_storage_record">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="in_storage_order_id" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+
+      <column name="shop_id" type="bigint"/>
+      <column name="in_storage_order_type" type="varchar(30)"/>
+      <column name="in_storage_order_status" type="varchar(30)"/>
+      <column name="in_storage_item_id" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="product_id" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="in_storage_item_amount" type="double"/>
+      <column name="in_storage_unit" type="varchar(20)"/>
+      <column name="supplier_id" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="supplier_name" type="varchar(200)"/>
+      <column name="remain_amount" type="double"/>
+    </createTable>
+    <addPrimaryKey tableName="in_storage_record" columnNames="id" constraintName="pk_in_storage_record_id"/>
+  </changeSet>
+
+  <changeSet author="lw" id="in_storage_record_2">
+    <addColumn tableName="in_storage_record">
+      <column name="store_house_name" type="varchar(100)"/>
+      <column name="store_house_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="xzhu" id="in_storage_record_xzhu_1">
+    <createIndex tableName="in_storage_record" indexName="in_storage_record_index">
+      <column name="shop_id"/>
+      <column name="product_id"/>
+      <column name="store_house_id"/>
+      <column name="supplier_id"/>
+    </createIndex>
+    <createIndex tableName="in_storage_record" indexName="in_storage_record_index_order">
+      <column name="shop_id"/>
+      <column name="in_storage_order_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="lw" id="in_storage_record_3">
+    <modifyColumn tableName="in_storage_record">
+      <column name="supplier_id" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet author="lw" id="in_storage_record_4">
+    <addColumn tableName="in_storage_record">
+      <column name="price" type="double"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="lw" id="in_storage_record_5">
+    <addColumn tableName="in_storage_record">
+      <column name="is_disabled" type="varchar(20)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="lw" id="in_storage_record_6">
+    <addColumn tableName="in_storage_record">
+      <column name="supplier_type" type="varchar(30)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="lw" id="in_storage_record_7">
+    <addColumn tableName="in_storage_record">
+      <column name="supplier_related_amount" type="double"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="lw" id="in_storage_record_8">
+    <modifyColumn tableName="in_storage_record">
+      <column name="in_storage_item_id" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet author="lw" id="in_storage_record_9">
+    <modifyColumn tableName="in_storage_record">
+      <column name="in_storage_order_id" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

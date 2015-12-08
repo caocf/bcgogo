@@ -1,0 +1,379 @@
+ 一.备份现有生产上war包（纪友文）,停掉热备份
+
+ 二.发布前准备
+    1. 库bcuser添加表
+       CREATE TABLE `impact_video` (
+              `id` bigint(20) NOT NULL DEFAULT '0',
+              `created` bigint(20) NOT NULL,
+              `last_update` bigint(20) NOT NULL,
+              `version` bigint(20) NOT NULL,
+              `app_user_no` varchar(100) DEFAULT NULL,
+              `uuid` varchar(50) DEFAULT NULL,
+              `name` varchar(50) DEFAULT NULL,
+              `path` varchar(50) DEFAULT NULL,
+              `size` bigint(20) DEFAULT NULL,
+              `upload_time` bigint(20) NOT NULL,
+              `upload_status` bigint(20) NOT NULL,
+              `block_num` bigint(20) NOT NULL,
+              `deleted` varchar(20) DEFAULT NULL,
+              PRIMARY KEY (`id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+         CREATE TABLE `app_user_wx_qr_code` (
+              `id` bigint(20) NOT NULL DEFAULT '0',
+              `created` bigint(20) NOT NULL,
+              `last_update` bigint(20) NOT NULL,
+              `version` bigint(20) NOT NULL,
+              `qr_code_id` bigint(20) DEFAULT NULL,
+              `public_no` varchar(100) DEFAULT NULL,
+              `app_user_no` varchar(100) DEFAULT NULL,
+              `deleted` varchar(20) DEFAULT NULL,
+              PRIMARY KEY (`id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+         CREATE TABLE `app_wx_user` (
+              `id` bigint(20) NOT NULL DEFAULT '0',
+              `created` bigint(20) NOT NULL,
+              `last_update` bigint(20) NOT NULL,
+              `version` bigint(20) NOT NULL,
+              `app_user_no` varchar(100) DEFAULT NULL,
+              `open_id` varchar(100) DEFAULT NULL,
+              `deleted` varchar(20) DEFAULT NULL,
+              PRIMARY KEY (`id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+         CREATE TABLE `accident_specialist` (
+              `id` bigint(20) NOT NULL DEFAULT '0',
+              `created` bigint(20) NOT NULL,
+              `last_update` bigint(20) NOT NULL,
+              `version` bigint(20) NOT NULL,
+              `name` varchar(50) DEFAULT NULL,
+              `mobile` varchar(50) DEFAULT NULL,
+              `shop_id` bigint(20) DEFAULT NULL,
+              `open_id` varchar(100) DEFAULT NULL,
+              `deleted` varchar(20) DEFAULT NULL,
+              PRIMARY KEY (`id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+
+            DROP TABLE IF EXISTS `impact`;
+            CREATE TABLE `impact` (
+              `id` bigint(20) NOT NULL,
+              `created` bigint(20) NOT NULL,
+              `last_update` bigint(20) NOT NULL,
+              `version` bigint(20) NOT NULL,
+              `uuid` varchar(50) NOT NULL,
+              `app_user_no` varchar(50) DEFAULT NULL,
+              `upload_time` bigint(20) DEFAULT NULL,
+              `shop_id` bigint(20) DEFAULT NULL,
+              `upload_server_time` bigint(20) DEFAULT NULL,
+              `lon` double DEFAULT NULL,
+              `lat` double DEFAULT NULL,
+              `addr` varchar(50) DEFAULT NULL,
+              `addr_short` varchar(50) DEFAULT NULL,
+              PRIMARY KEY (`id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+            SET FOREIGN_KEY_CHECKS=0;
+            -- ----------------------------
+            -- Table structure for `rescue`
+            -- ----------------------------
+            DROP TABLE IF EXISTS `rescue`;
+            CREATE TABLE `rescue` (
+              `id` bigint(20) NOT NULL,
+              `created` bigint(20) NOT NULL,
+              `last_update` bigint(20) NOT NULL,
+              `version` bigint(20) NOT NULL,
+              `shop_id` bigint(20) DEFAULT NULL,
+              `app_user_no` varchar(50) DEFAULT NULL,
+              `lon` double DEFAULT NULL,
+              `lat` double DEFAULT NULL,
+              `upload_time` bigint(20) DEFAULT NULL,
+              `upload_server_time` bigint(20) DEFAULT NULL,
+              `addr` varchar(50) DEFAULT NULL,
+              `addr_short` varchar(50) DEFAULT NULL,
+              `sos_status` varchar(50) DEFAULT NULL,
+              PRIMARY KEY (`id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+             SET FOREIGN_KEY_CHECKS=0;
+             -- ----------------------------
+             -- Table structure for `gsm_vehicle_data`
+             -- ----------------------------
+             DROP TABLE IF EXISTS `gsm_vehicle_data`;
+             CREATE TABLE `gsm_vehicle_data` (
+               `id` bigint(20) NOT NULL,
+               `created` bigint(20) NOT NULL,
+               `last_update` bigint(20) NOT NULL,
+               `version` bigint(20) NOT NULL,
+               `uuid` varchar(50) NOT NULL,
+               `appUserNo` varchar(50) DEFAULT NULL,
+               `curMil` varchar(50) DEFAULT NULL,
+               `door` varchar(50) DEFAULT NULL,
+               `uploadTime` bigint(20) DEFAULT NULL,
+               `uploadServerTime` bigint(20) DEFAULT NULL,
+               `dttpe` int(20) DEFAULT NULL,
+               `spwr` varchar(50) DEFAULT NULL,
+               `rpm` varchar(50) DEFAULT NULL,
+               `vss` varchar(50) DEFAULT NULL,
+               `lon` varchar(50) DEFAULT NULL,
+               `lonDir` varchar(50) DEFAULT NULL,
+               `lat` varchar(50) DEFAULT NULL,
+               `latDir` varchar(50) DEFAULT NULL,
+               `gpsSpeed` varchar(50) DEFAULT NULL,
+               `gpsHeading` varchar(50) DEFAULT NULL,
+               `gpsDataValidity` varchar(50) DEFAULT NULL,
+               `aOilWear` varchar(50) DEFAULT NULL,
+               `rOilMass` varchar(50) DEFAULT NULL,
+               `vehicle_status` varchar(50) NOT NULL,
+               `rdtc` varchar(50) DEFAULT NULL,
+               `gsm_vehicle_status` varchar(50) DEFAULT NULL,
+               `wbtm` varchar(50) DEFAULT NULL,
+               `gx` varchar(50) DEFAULT NULL,
+               `gy` varchar(50) DEFAULT NULL,
+               `gz` varchar(50) DEFAULT NULL,
+               `voltageForOxygenSensor` varchar(50) DEFAULT NULL,
+               `throttlePosition` varchar(50) DEFAULT NULL,
+               `gps_city_status` varchar(50) DEFAULT NULL,
+               PRIMARY KEY (`id`)
+             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+             SET FOREIGN_KEY_CHECKS=0;
+             -- ----------------------------
+             -- Table structure for `illegal_city`
+             -- ----------------------------
+             DROP TABLE IF EXISTS `illegal_city`;
+             CREATE TABLE `illegal_city` (
+               `id` bigint(20) NOT NULL,
+               `app_user_no` varchar(50) NOT NULL,
+               `juhe_city_code` varchar(80) DEFAULT NULL,
+               `juhe_city_name` varchar(80) DEFAULT NULL,
+               `created` bigint(20) NOT NULL,
+               `last_update` bigint(20) NOT NULL,
+               `version` bigint(20) NOT NULL,
+               PRIMARY KEY (`id`)
+             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+       txn库
+       CREATE TABLE txn.`shop_talk_message` (
+              `id` bigint(20) NOT NULL DEFAULT '0',
+              `created` bigint(20) NOT NULL,
+              `last_update` bigint(20) NOT NULL,
+              `version` bigint(20) NOT NULL,
+              `shop_id` bigint(20) DEFAULT NULL,
+              `fromUserName` varchar(100) DEFAULT NULL,
+              `app_user_no` varchar(100) DEFAULT NULL,
+              `vehicle_no` varchar(50) DEFAULT NULL,
+              `customer_id` bigint(20) DEFAULT NULL,
+              `customer` varchar(50) DEFAULT NULL,
+              `send_time` bigint(20) DEFAULT NULL,
+              `content` varchar(50) DEFAULT NULL,
+              `reply_time` bigint(20) DEFAULT NULL,
+              `reply_content` varchar(50) DEFAULT NULL,
+              PRIMARY KEY (`id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+     2.修改表
+       ALTER TABLE bcuser.wx_account add COLUMN account_type VARCHAR(20) DEFAULT NULL;
+       UPDATE  bcuser.wx_account SET account_type='YIFA'
+       ALTER TABLE bcuser.wx_qr_code add COLUMN scene VARCHAR(20) DEFAULT NULL;
+       ALTER TABLE bcuser.wx_qr_code add COLUMN create_time bigint;
+       ALTER TABLE bcuser.wx_qr_code add COLUMN expire_time bigint;
+       ALTER TABLE bcuser.wx_qr_code modify COLUMN expire_seconds bigint;
+       UPDATE bcuser.wx_qr_code set scene='SHOP_USER';
+       CREATE INDEX IDX_gsm_vehicle_data_uuid ON bcuser.gsm_vehicle_data (uuid) USING BTREE;
+       ALTER TABLE bcuser.drive_log add COLUMN expire_time bigint;
+
+       obd obd_history obd_sim 三张表的obd_sim_type字段值设置为50的varcher，原来只有25不够用
+       ALTER TABLE bcuser.rescue add COLUMN sos_status VARCHAR(50) DEFAULT NULL;
+       ALTER TABLE bcuser.app_vehicle add COLUMN insuranceCompanyId bigint DEFAULT NULL;
+
+     3.添加模版
+
+     INSERT INTO bcuser.wx_kw_template SELECT max(id) + 1,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,'gh_90e5bd7565e1','车辆碰撞提醒' ,'JRcOPg9YVWpntIaZ1V5FOwPiZpy0vsfL_gpXZ5gRA-g','尊敬的{vehicleNo}车主，您的车辆发生碰撞：','','#000080','#000080','#173177','#173177','#173177','#FF0000','FALSE' FROM wx_kw_template;
+     INSERT INTO bcuser.wx_kw_template SELECT max(id) + 1,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,'gh_90e5bd7565e1','车辆异常提醒' ,'zVf8dJ35okmDlGO4gfCUPG91HUaWpLTzekXd_W2hJe8','尊敬的{vehicleNo}车主，您的车辆产生一条异常信息：','驱动电机坏了，不能够启动。','#000080','#000080','#173177','#173177','#173177','#FF0000','FALSE' FROM wx_kw_template;
+     INSERT INTO bcuser.wx_kw_template SELECT max(id) + 1,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,'gh_90e5bd7565e1','新违章通知' ,'eWGv0TliJvqcSkRgyhq7oO4IEM2aPB6EJTpMHxaMmbU','尊敬的{vehicleNo}车主，您有新的违章。','','#000080','#000080','#173177','#173177','#173177','#FF0000','FALSE' FROM wx_kw_template;
+     INSERT INTO bcuser.wx_kw_template SELECT max(id) + 1,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,'gh_90e5bd7565e1','车辆请求救援提醒' ,'ZqY-hx5fN25YrjrmIqKqiEQtUqutHmtF-Ivx0s0aXLw','车主{vehicleNo}请求救援','请尽快联系。','#000080','#000080','#173177','#173177','#173177','#FF0000','FALSE' FROM wx_kw_template;
+     INSERT INTO bcuser.wx_kw_template SELECT max(id) + 1,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,'gh_90e5bd7565e1','待处理通知' ,'u01bMpkrdPlK8YOGU3ElKyPgbwKd0Qtm-r2rEPilyYw','您的后视镜发来一条新消息','点击查看详细。','#000080','#000080','#173177','#173177','#173177','#FF0000','FALSE' FROM wx_kw_template;
+
+
+
+ 三.发布应用
+
+ 四.配置权限
+      SHOP-系统管理-本店资料-本店资料修改，添加下面资源
+        web_unBindAccidentSpecial      /web/shopData.do?method=unBindAccidentSpecial    shop   事故专员解除绑定        request
+        web_saveAccidentSpecialist     /web/shopData.do?method=saveAccidentSpecialist   shop   保存事故专员信息        request
+
+        4s店基本权限 添加资源：
+        four_s_base_menu               WEB.VERSION.FOUR_S_VERSION_BASE_MENU             shop   4S店菜单基本权限         menu
+
+        代办事项模块下添加角色: 客户互动类   车辆里程类  车辆救援类 碰撞视频类。
+        代办事项模块--客户互动类
+        todo_mirror_talk_msg           WEB.SCHEDULE.REMIND_TODO.MIRROR_TALK_MSG         shop   客服互动提醒            render
+        web_getShopTalkMessageList     /web/remind.do?method=getShopTalkMessageList     shop   查询互动对话            request
+        代办事项模块--车辆里程类
+        todo_vehicle_mileage           WEB.SCHEDULE.REMIND_TODO.VEHICLE_MILEAGE         shop   车辆里程提醒            render
+        代办事项模块--车辆救援类
+        todo_vehicle_rescue            WEB.SCHEDULE.REMIND_TODO.VEHICLE_RESCUE          SHOP   车辆救援提醒            render
+        代办事项模块--碰撞视频类
+        todo_vehicle_fault_code        WEB.SCHEDULE.REMIND_TODO.VEHICLE_FAULT_CODE      shop   客户故障码提醒          render
+        todo_vehicle_impact_video      WEB.SCHEDULE.REMIND_TODO.VEHICLE_IMPACT_VIDEO    shop   客户碰撞提醒            render
+        web_toVideo                    /web/remind.do?method=toVideo                    shop   跳转到查看碰撞视频界面  request
+        web_deleteImpactVideo          /web/remind.do?method=deleteImpactVideo          shop   删除碰撞视频            request
+        web_impactClass                /web/remind.do?method=impactVideo                shop   跳转到碰撞视频类        request
+        web_fault                      /web/remind.do?method=searchShopFaultInfoList    shop   查询客户故障提醒        request
+        web_sos                        /web/remind.do?method=searchSosList              shop   查询客户sos提醒         request
+        web_mileage                    /web/remind.do?method=searchMileageList          shop   里程提醒列表查询        request
+        web_tap_searchImpact           /web/shopImpactInfo.do?method=showShopImpactInfoList shop   跳转到碰撞查询界面  request
+        web_searchShopImpactInfoList   /web/shopImpactInfo.do?method=searchShopImpactInfoList shop  碰撞查询列表界面   request
+        web_deleteShopImpactInfo       /web/shopImpactInfo.do?method=deleteImpactInfoCode     shop  删除碰撞记录       request
+        web_showShopMileageInfoList    /web/shopMileageInfo.do?method=showShopMileageInfoList  shop  跳转到里程查询界面 request
+        web_searchShopMileageInfoList  /web/shopMileageInfo.do?method=searchShopMileageInfoList shop  里程查询         request
+        web_showShopSosInfoList        /web/shopSosInfo.do?method=showShopSosInfoList   shop   跳转到救援查询界面      request
+        web_searchShopSosInfoList      /web/shopSosInfo.do?method=searchShopSosInfoList shop   救援信息查询            request
+        web_deleteSosInfo              /web/shopSosInfo.do?method=deleteSosInfo         shop   删除救援信息            request
+        web_detailSos                  /web/remind.do?method=detailSos                  shop   处理救援信息            request
+        web_updateShopMileageInfo      /web/remind.do?method=updateShopMileageInfo      shop   处理到期里程保养        request
+        web_showShopTalkMessageInfoList   /web/shopTalkMessageInfo.do?method=showShopTalkMessageInfoList    shop   跳转到互动查询界面    request
+        web_searchShopTalkMessageInfoList  /web/shopTalkMessageInfo.do?method=searchShopTalkMessageInfoList  shop  互动查询   request
+        web_shopMileageInfo_ShopMileageInfoMenu    WEB.SCHEDULE.SHOP_MILEAGE_INFO.BASE     SHOP   里程查询菜单   menu
+        web_shopImpactInfo_ShopImpactInfoMenu      WEB.SCHEDULE.SHOP_IMPACT_INFO.BASE      SHOP   碰撞查询菜单   menu
+        web_shopTalkMessageInfo_ShopTalkMessageInfoMenu    WEB.SCHEDULE.SHOP_TALK_INFO.BASE     SHOP   互动查询菜单   menu
+        web_shopSosInfo_ShopSosInfoMenu    WEB.SCHEDULE.SHOP_SOS_INFO.BASE     SHOP   救援查询菜单   menu
+
+ 五.初始化
+    1.登录后台admin,添加变量
+        video_backup_path                 /home/video_backup/impact/                                 视频本地备份存储路径
+        video_play_path                   /impact/                                                   视频播放路径路径
+        video_host                        42.121.113.26                                              视频服务器地址      42.121.98.170
+        video_host_port                   35522                                                      视频服务器端口
+        video_host_username               root                                                       视频服务器账户名
+        video_host_password               BG2013Mrideoserver                                         视频服务器密码
+        video_host_path                   /var/www/bcpopularize                                      视频服务器存储路径
+        BcgogoOBDVersion                  2013032250                                                 OBD版本
+        BcgogoOBDUpgradeURL               http://42.121.113.26/resources/obd2013032250.zip           后视镜app安装文件
+        BcgogoAppVersionWinCE             1.0.0                                                      后视镜app版本
+        BcgogoAppWinCEAppUpgradeURL       http://42.121.113.26/resources/mirror_1.0.0.zip            后视镜app安装文件
+        baidu_map_ak                      cZNZP9qnnXBvxSGhDEtuy33s                                   百度地址密钥
+        impact_notify_switch              OFF                                                        碰撞消息通知开关
+        fault_code_notify_switch          OFF                                                        错误码提醒开关
+        impact_video_upload_switch        ON                                                         碰撞视频上传开关
+        IMPACT_VIDEO_UPLOAD_LIMIT         5                                                          每个用户每月碰撞视频上次次数限制
+        MQ_IP_INTERNET                    http://shop.bcgogo.com                                     MQ服务器外网地址
+        MQ_LISTENER_PORT                  60111                                                      MQ服务器端口
+        MQ_RMI_LISTENER_PORT              19105                                                      MQ服务器RMI端口
+        IMPACT_VIDEO_UPLOAD_MOUTH_LIMIT   5                                                          碰撞视频每月上传数量上限
+        MIRROR_PUBLIC_NO                  gh_90e5bd7565e1                                            后视镜公众号的publicNo
+        gasoline_price                    6.83                                                       当前油价
+        mirror_mobile                     13646203695                                                后视镜使用问题客户电话
+
+    2.服务器执行命令(每台都要执行)
+       mkdir /home/video_backup/impact/
+       cd  /home/video_backup
+       chmod 777 impact
+
+    3.后台添加 利宜行 微信
+
+    4.4s店版本权限修改(老板，前台，经理都修改)
+      1.去掉 待办事项模块--待办事项--维修美容类
+      2.去掉 财务统计
+      3.去掉 查询中心(failed)
+      4.去掉 车辆管理
+      5.系统管理只保留本店资料
+
+    5.sql添加菜单
+      里程菜单添加：
+      create procedure initMenu()
+           begin
+               declare _id bigint;
+               declare _created bigint;
+               declare _last_update bigint;
+               declare _resource_id bigint;
+               declare _count int;
+               select max(id)+1 into _id from menu;
+               set _created:=unix_timestamp(now())*1000;
+               set _last_update:=unix_timestamp(now())*1000;
+               select id into _resource_id from resource where value='WEB.SCHEDULE.SHOP_MILEAGE_INFO.BASE';
+               select count(*) into _count from menu where label = '里程查询';
+               if _count < 1 then
+                   insert into menu(id, created, last_update, version, grade, label, resource_id, parent_id, href, sort, menu_name) values
+                       (_id, _created, _last_update, 0 , 2, '里程查询', _resource_id, 1000020044934293, 'shopMileageInfo.do?method=showShopMileageInfoList', 70, 'WEB.SCHEDULE.SHOP_MILEAGE_INFO.BASE');
+               end if;
+           end;
+           call initMenu();
+           drop procedure initMenu;
+
+      碰撞菜单添加：
+      create procedure initMenu()
+           begin
+               declare _id bigint;
+               declare _created bigint;
+               declare _last_update bigint;
+               declare _resource_id bigint;
+               declare _count int;
+               select max(id)+1 into _id from menu;
+               set _created:=unix_timestamp(now())*1000;
+               set _last_update:=unix_timestamp(now())*1000;
+               select id into _resource_id from resource where value='WEB.SCHEDULE.SHOP_IMPACT_INFO.BASE';
+               select count(*) into _count from menu where label = '碰撞查询';
+               if _count < 1 then
+                   insert into menu(id, created, last_update, version, grade, label, resource_id, parent_id, href, sort, menu_name) values
+                       (_id, _created, _last_update, 0 , 2, '碰撞查询', _resource_id, 1000020044934293, 'shopImpactInfo.do?method=showShopImpactInfoList', 80, 'WEB.SCHEDULE.SHOP_IMPACT_INFO.BASE');
+               end if;
+           end;
+           call initMenu();
+           drop procedure initMenu;
+
+      互动菜单添加：
+      create procedure initMenu()
+           begin
+               declare _id bigint;
+               declare _created bigint;
+               declare _last_update bigint;
+               declare _resource_id bigint;
+               declare _count int;
+               select max(id)+1 into _id from menu;
+               set _created:=unix_timestamp(now())*1000;
+               set _last_update:=unix_timestamp(now())*1000;
+               select id into _resource_id from resource where value='WEB.SCHEDULE.SHOP_TALK_INFO.BASE';
+               select count(*) into _count from menu where label = '互动查询';
+               if _count < 1 then
+                   insert into menu(id, created, last_update, version, grade, label, resource_id, parent_id, href, sort, menu_name) values
+                       (_id, _created, _last_update, 0 , 2, '互动查询', _resource_id, 1000020044934293, 'shopTalkMessageInfo.do?method=showShopTalkMessageInfoList', 90, 'WEB.SCHEDULE.SHOP_TALK_INFO.BASE');
+               end if;
+           end;
+           call initMenu();
+           drop procedure initMenu;
+
+      救援菜单添加：
+      create procedure initMenu()
+           begin
+               declare _id bigint;
+               declare _created bigint;
+               declare _last_update bigint;
+               declare _resource_id bigint;
+               declare _count int;
+               select max(id)+1 into _id from menu;
+               set _created:=unix_timestamp(now())*1000;
+               set _last_update:=unix_timestamp(now())*1000;
+               select id into _resource_id from resource where value='WEB.SCHEDULE.SHOP_SOS_INFO.BASE';
+               select count(*) into _count from menu where label = '救援查询';
+               if _count < 1 then
+                   insert into menu(id, created, last_update, version, grade, label, resource_id, parent_id, href, sort, menu_name) values
+                       (_id, _created, _last_update, 0 , 2, '救援查询', _resource_id, 1000020044934293, 'shopSosInfo.do?method=showShopSosInfoList', 100, 'WEB.SCHEDULE.SHOP_SOS_INFO.BASE');
+               end if;
+           end;
+           call initMenu();
+           drop procedure initMenu;
+
+
+
+ 六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+

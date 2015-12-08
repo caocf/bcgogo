@@ -1,0 +1,48 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+2.执行如下sql
+txn库：
+update txn.comment_record tcr, txn.repair_order ro set tcr.customer_id = ro.customer_id ,tcr.receipt_no=ro.receipt_no
+where tcr.order_id = ro.id and tcr.order_type="REPAIR";
+
+update txn.comment_record tcr, txn.wash_beauty_order wbo set tcr.customer_id = wbo.customer_id ,tcr.receipt_no=wbo.receipt_no
+where tcr.order_id = wbo.id and tcr.order_type="WASH_BEAUTY";
+
+update txn.comment_record tcr, txn.purchase_order po set tcr.receipt_no=po.receipt_no
+where tcr.order_id = po.id and tcr.order_type="PURCHASE";
+
+三.发布应用
+  1. 发布web, admin
+  2. 发布定时钟
+  3. 发布api
+
+四.添加权限
+   ---------------------------------------------------------------------马燕----------------------------------------------------
+  在待办事项模块新增评价中心角色，在此角色下添加如下资源：
+  web_showAppShopCommentList   /web/supplier.do?method=showAppShopCommentList   SHOP   跳转到评价中心   request
+  web_getAppCommentRecordByKeyword   /web/supplier.do?method=getAppCommentRecordByKeyword   SHOP   依据关键字搜索评价中心记录   request
+  AppUserCommentRecordList   WEB.VEHICLE_APPUSER_COMMENTRECORD_LIST   SHOP   评价中心列表   menu
+
+  bcuser库：
+  INSERT INTO bcuser.menu values(1000020048084308,1390447349973,1390447349973,0,2,'评价中心',-1,1000020045064322,'supplier.do?method=showAppShopCommentList',50,'WEB.VEHICLE_APPUSER_COMMENTRECORD_LIST');
+
+  update  bcuser.menu set resource_id = (select id from resource where value = 'WEB.VEHICLE_APPUSER_COMMENTRECORD_LIST') where id = 1000020048084308;
+
+  update  menu set parent_id = 1000020044934293 where id=  1000020048084308;
+
+  分配权限：
+  在crm-权限维护-版本维护中 找到4S店专业版、汽修综合版、汽修初级版和汽修高级版：
+  待办事项模块：评价中心勾选
+
+  在此版本下的所有用户：
+  待办事项模块：评价中心勾选
+  ---------------------------------------------------------------------------------------------------------------------------
+
+
+五.初始化
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+

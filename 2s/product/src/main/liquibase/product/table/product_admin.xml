@@ -1,0 +1,39 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xiaojian" id="product_admin_1">
+        <createTable tableName="product_admin">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="shop_name" type="varchar(100)"/>
+            <column name="product_id" type="bigint"/>
+            <column name="name" type="varchar(200)"/>
+            <column name="brand" type="varchar(200)"/>
+            <column name="model" type="varchar(200)"/>
+            <column name="spec" type="varchar(2000)"/>
+            <column name="supplier_id" type="bigint"/>
+            <column name="supplier_name" type="varchar(20)"/>
+            <column name="car_model_name" type="varchar(200)"/>
+        </createTable>
+        <addPrimaryKey tableName="product_admin" columnNames="id" constraintName="pk_product_admin"/>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="product_admin_2">
+    <modifyColumn tableName="product_admin">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,154 @@
+一.备份现有生产上war包,停掉热备份
+
+二.发布前准备
+1..删除生产数据库imported_order，imported_order_item上次临时加的索引(肖开波)
+
+2. 数据库更新：
+ 根据Liquibase生成的DDL语句更新表结构.
+
+3.促销初始化
+执行文件 促销初始化.txt
+
+4. Solr Schema更新：更新product的schema.xml
+
+
+三.发布应用
+
+四.配置权限
+ name                                  value                                              memo                            type  SystemType
+===============================================================================================================================================
+//------------------------找供应商------------------------------
+供求中心-----找供应商----查询
+
+(new)web_customer_getApplySuppliersIndexPage     request       /web/apply.do?method=getApplySuppliersIndexPage     找供应商首页
+
+//------------------------找客户------------------------------
+供求中心-----找客户----查询
+
+(new)web_customer_getApplyCustomersIndexPage     request       /web/apply.do?method=getApplyCustomersIndexPage     找客户首页
+
+
+
+----------------------------------------------------------- 促销 -----------------------------------------------------------------------------
+shop--汽配在线--促销管理(新建角色) 汽修汽配都要分配
+ web_txn_toPromotionsList               /web/promotions.do?method=toPromotionsList              跳转到促销列表           request   shop
+ web_txn_toPromotionsManager            /web/promotions.do?method=toPromotionsManager           跳转到创建促销           request   shop
+ web_txn_toManageMLJ                    /web/promotions.do?method=toManageMLJ                   管理满立减               request   shop
+ web_txn_toManageMJS                    /web/promotions.do?method=toManageMJS                   管理满就送               request   shop
+ web_txn_toManageBargain                /web/promotions.do?method=toManageBargain               管理特价商品             request   shop
+ web_txn_toManageFreeShipping           /web/promotions.do?method=toManageFreeShipping          管理送货上门             request   shop
+ web_txn_toManageSpecialCustomer        /web/promotions.do?method=toManageSpecialCustomer       管理客户优惠             request   shop
+ web_txn_toSpecialCustomerList          /web/promotions.do?method=toSpecialCustomerList         客户优惠列表             request   shop
+ web_txn_toAddPromotionsProduct         /web/promotions.do?method=toAddPromotionsProduct        跳转到添加促销商品       request   shop
+ web_txn_getProductToAddPromotions      /web/promotions.do?method=getProductToAddPromotions     添加促销商品             request   shop
+ web_txn_toPromotionsProductList        /web/promotions.do?method=toPromotionsProductList       跳转到所有促销中的商品   request   shop
+ web_txn_toProductInPromotion           /web/promotions.do?method=toProductInPromotion          跳转到单个促销中的商品    request   shop
+ web_txn_toSendPromotionMsg             /web/promotions.do?method=toSendPromotionMsg            跳转到发送促销中消息      request   shop
+ web_txn_savePromotions                 /web/promotions.do?method=savePromotions                保存促销                  request   shop
+ web_txn_getPromotionsDTO               /web/promotions.do?method=getPromotionsDTO              查询促销                  request   shop
+ web_txn_getPromotionsProduct           /web/promotions.do?method=getPromotionsProduct          查询促销商品              request   shop
+ web_txn_addPromotionsProduct           /web/promotions.do?method=addPromotionsProduct          添加促销的上架商品        request   shop
+ web_txn_deletePromotions               /web/promotions.do?method=deletePromotions              删除促销                  request   shop
+  web_txn_deleteSpecialCustomer         /web/promotions.do?method=deleteSpecialCustomer         删除客户优惠              request   shop
+ web_txn_deletePromotionsProduct        /web/promotions.do?method=deletePromotionsProduct       退出促销商品              request   shop
+ web_txn_getPromotionsMJSDetail         /web/promotions.do?method=getPromotionsMJSDetail        获取满就送的详细          request   shop
+ web_txn_getFreeShippingDetail          /web/promotions.do?method=getFreeShippingDetail        获取送货上门的详细         request   shop
+ web_txn_getSpecialCustomerDetail       /web/promotions.do?method=getSpecialCustomerDetail     获取客户优惠的详细         request   shop
+ web_txn_getOrderPromotionsDetail       /web/promotions.do?method=getOrderPromotionsDetail     获取单据的促销详细         request   shop
+ web_txn_updatePromotionStatus          /web/promotions.do?method=updatePromotionStatus        启动暂停等促销操作         request   shop
+ web_txn_getAddedBargainProduct         /web/promotions.do?method=getAddedBargainProduct        获取已添加的特价商品        request   shop
+
+  shop-汽配基本权限
+ web_txn_getShopRelatedCustomer         /web/autoAccessoryOnline.do?method=getShopRelatedCustomer   查询店铺的关联客户        request   shop
+ web_util_getAllAreaToCity              /web/shop.do?method=getAllAreaToCity               一次性读取地区信息，到二级市           request   shop
+  shop-汽配在线-商品上架-查询
+ web_txn_getProductInSales              /web/autoAccessoryOnline.do?method=getProductInSales        查询店铺的上架商品        request   shop
+  shop-消息中心-通知
+ web_txn_savePromotionMsgJob               /web/message.do?method=savePromotionMsgJob               保存促销站内消息任务              request   shop
+
+  shop-进销存-入库管理-采购单-新增
+ web_txn_getBargainLimitHistoryAmount   /web/promotions.do?method=getBargainLimitHistoryAmount  查询限量促销商品的历史使用量  request   shop
+
+shop--汽配在线--汽配促销管理 (新建角色) 汽配，添加下列资源
+1.配置显示
+WEB_PROMOTIONS_MANAGER    WEB.AUTOACCESSORYONLINE.PROMOTIONS_MANAGER_RENDER 促销管理   render shop;
+ 2.配菜单权限
+ PROMOTIONS_MANAGER_MENU     WEB.AUTOACCESSORYONLINE.PROMOTIONS_MANAGER 促销管理   menu shop;
+ 注意：xx_id=上一步生产的id
+ insert into bcuser.menu values(1000020044134325,1366268907970,1366268907970,0,3,'促销管理',xx_id,1000020044134330,'promotions.do?method=toPromotionsList',90,'PROMOTIONS_MANAGER_MENU');
+
+
+----------------------------------------------------------- 查询中心 -----------------------------------------------------------------------------
+新增模块：
+SHOP下新增模块 '查询中心'
+查询中心下新增子模块 ‘单据查询’以及角色 '出入库明细查询'
+‘单据查询’下新建角色  '系统单据','导入单据'
+
+新增资源：
+inquiryCenter       WEB.INQUIRY_CENTER.BASE          SHOP         查询中心        menu
+product_through_detail_menu    WEB.TXN.INVENTORY.PRODUCT_THROUGH_DETAIL   SHOP 出入库明细   menu
+import_order_menu      WEB.INQUIRY_CENTER.IMPORT_ORDER     SHOP   导入单据   menu
+system_order_menu     WEB.INQUIRY_CENTER.SYSTEM_ORDER   SHOP   系统单据   menu
+inquirycenter_menu   WEB.INQUIRY_CENTER.ORDER_INQUIRY   SHOP   单据查询    menu
+
+导入单据模块里应有以下资源：inquiryCenter    inquirycenter_menu   import_order_menu
+系统单据模块里应有以下资源：inquiryCenter    inquirycenter_menu   system_order_menu
+出入库明细查询模块里应有以下资源：inquiryCenter  product_through_detail_menu
+
+
+所有版本   所有用户组    都具有以上角色
+
+
+
+//------------------找供应商----------------------
+bcuser库
+
+update `menu` set href='apply.do?method=getApplySuppliersIndexPage' where id='1000020045084321';
+
+//------------------找客户----------------------
+bcuser库
+
+update `menu` set href='apply.do?method=getApplyCustomersIndexPage' where id='1000000000000007';
+
+//-----------------除去  本地客户 推荐客户 本地供应商 推荐供应商 菜单--------------------------
+bcuser库
+delete FROM `menu` where id='1000000000000006';
+delete FROM `menu` where id='1000000000000008';
+
+
+
+
+INSERT INTO bcuser.menu values(1000020047084307,1366268907970,1366268907970,0,1,'查询中心',-1,null,'inquiryCenter.do?method=inquiryCenterIndex&pageType=all',null,'INQUIRY_CENTER');
+INSERT INTO bcuser.menu values(1000020047084308,1366268907970,1366268907970,0,2,'单据查询',-1,1000020047084307,'inquiryCenter.do?method=inquiryCenterIndex&pageType=all',10,'ORDER_INQUIRY');
+INSERT INTO bcuser.menu values(1000020047084309,1366268907970,1366268907970,0,2,'出入库明细',-1,1000020047084307,'productThrough.do?method=redirectProductThroughDetail',20,'PRODUCT_THROUGH_DETAIL');
+INSERT INTO bcuser.menu values(1000020047084310,1366268907970,1366268907970,0,3,'系统单据',-1,1000020047084308,'inquiryCenter.do?method=inquiryCenterIndex&pageType=all',10,'SYSTEM_ORDER');
+INSERT INTO bcuser.menu values(1000020047084311,1366268907970,1366268907970,0,3,'导入单据',-1,1000020047084308,'inquiryCenter.do?method=toInquiryImportedOrder&pageType=all',20,'IMPORT_ORDER');
+
+update  bcuser.menu set resource_id = (select id from resource where value = 'WEB.INQUIRY_CENTER.BASE') where id = 1000020047084307;
+update  bcuser.menu set resource_id = (select id from resource where value = 'WEB.INQUIRY_CENTER.ORDER_INQUIRY') where id = 1000020047084308;
+update  bcuser.menu set resource_id = (select id from resource where value = 'WEB.TXN.INVENTORY.PRODUCT_THROUGH_DETAIL') where id = 1000020047084309;
+update  bcuser.menu set resource_id = (select id from resource where value = 'WEB.INQUIRY_CENTER.SYSTEM_ORDER') where id = 1000020047084310;
+update  bcuser.menu set resource_id = (select id from resource where value = 'WEB.INQUIRY_CENTER.IMPORT_ORDER') where id = 1000020047084311;
+
+//经营范围名称修改
+update product.product_category set name ='车身附件' where id = 10001000000005;
+update product.product_category set name ='汽修汽保工具' where id = 10001000000010;
+
+
+//营业统计打印模板修改
+重新上传营业统计打印模板（sql\打印模板\default_超级管理统计打印\营业统计-洗车.html)
+
+五.数据初始化
+1. 执行 init.do?method=createDefaultPageConfig
+2. Solr索引
+    重建索引 product
+    所有单据 ------ 采购单 重做索引（只重做采购单的索引）
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文）
+4.验证功能（纪友文）

@@ -1,0 +1,220 @@
+.lineBody .txt {
+  color: #ADADAD;
+  /*float: left;*/
+  margin-right: 7px;
+  width: 80px;
+}
+
+
+/*.txt, .selTit {*/
+/*border: 1px solid #BBBBBB;*/
+/*height: 19px;*/
+/*line-height: 20px;*/
+/*padding-left: 6px;*/
+/*}*/
+
+
+.lineBody .btn_search {
+  margin: 0;
+}
+
+.lineBody {
+  background: url("../images/line_bg.png") repeat-y scroll 0 0 transparent;
+  color: #666666;
+  float: left;
+  height: 100%;
+  padding: 10px 15px;
+  width: 1003px;
+}
+
+.lineTop {
+  background: url("../images/line_top.png") no-repeat scroll 0 0 transparent;
+  height: 6px;
+  width: 1003px;
+}
+
+.lineBottom {
+  background: url("../images/line_bottom.png") no-repeat scroll 0 0 transparent;
+  float: left;
+  height: 5px;
+  width: 1003px;
+}
+
+.btn_search {
+  background: url("../images/chkNormal.png") no-repeat scroll 0 0 transparent;
+  border: medium none;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 21px;
+  line-height: 21px;
+  margin-top: 1px;
+  padding: 0 0 2px;
+  text-align: center;
+  width: 64px;
+}
+
+.btn_search:hover {
+    background: url("../images/chkNormal.png") no-repeat scroll 0 -29px transparent;
+}
+.divSlip {
+  background: url("../images/title_tbcenter.png") repeat-x scroll 0 0 transparent;
+  height: 32px;
+  line-height: 32px;
+}
+
+.divSlip div {
+  float: left;
+  color: #FFFFFF;
+  font-family: "宋体",Arial;
+  font-size: 12px;
+}
+
+.tabSlip {
+  border: 1px solid #BBBBBB;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.tabSlip .titleBg {
+background: url("../images/titBg.png") no-repeat scroll 0 0 transparent;
+border: medium none;
+color: #FFFFFF;
+height: 26px;
+line-height: 26px;
+}
+
+.tabSlip .titleBg .titLbl {
+  float: left;
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.tabSlip .titleBg .btns {
+  background: url("../images/setMoneyt.png") no-repeat scroll 0 0 transparent;
+  color: #FFFFFF;
+  cursor: pointer;
+  float: right;
+  height: 18px;
+  line-height: 18px;
+  margin: 5px;
+  text-align: center;
+  width: 59px;
+}
+
+.tabSlip .titleBg .btns:hover {
+    background: url("../images/hover_setMoneyt.png") no-repeat scroll 0 0 transparent;
+    color:#663A02;
+}
+.tabSlip .titleBg .up, .tabSlip .titleBg .down {
+  background: url("../images/rightArrow.png") no-repeat scroll 32px 9px transparent;
+  cursor: pointer;
+  float: right;
+  padding-left: 5px;
+  padding-right: 20px;
+}
+.tab .titleBg td {
+    border: medium none;
+    color: #FFFFFF;
+}
+.tab .tabSlip {
+    border-width: 0;
+}
+.tabSlip td {
+    color: #272727;
+    height: 28px;
+    line-height: 28px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: keep-all;
+}
+.tabSlip .titleBg a {
+  color: #006ECA;
+}
+.tabSlip tr{ border:0px;}
+.yellow_color {
+  color: #FF5E04;
+}
+
+.tabSlip .title_Bg {
+    background: url("../images/tab_bg.png") repeat-x scroll 0 0 transparent;
+    color: #006ECA;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 10px;
+}
+/*-------------------------修改分页样式-------------------------------------------------*/
+.stockPager{
+  margin-top: 10px;
+}
+.stockPager .i_pageBtn{
+  font-size: 12px
+}
+.stockPager .i_pageBtn a{
+  background: none;
+}
+
+.stockPager .i_pageBtn .numButton {
+  color: #272727;
+  width: 10px;
+}
+
+
+.stockPager .pageNum .pageSure {
+  background: url("../images/tiao.png") no-repeat scroll 0 0 transparent;
+  color: #FFFFFF;
+  display: inline-block;
+  height: 18px;
+  text-align: center;
+  width: 45px;
+  margin-top: 1px;
+  margin-left: 5px;
+}
+
+.stockPager .pageNum .pageSure:hover{
+  background:url(../images/tiaoHover.png) no-repeat;
+  color:#663A02;
+}
+
+.stockPager .i_pageBtn .wordButton:hover{
+  background: none;
+  color: #FF5E04;
+}
+
+.stockPager .i_pageBtn .pageCount,.stockPager .i_pageBtn .recordCount{
+  color: #FF5E04;
+}
+
+.stockPager .i_pageBtn .numButton:hover{
+  background: none;
+  color: #013C89;
+}
+
+.stockPager .i_pageBtn .numButton_selected{
+  color: #013C89;
+}
+
+.stockPager .i_pageBtn .selectPage{
+  height: auto;
+  margin-right: 0;
+  margin-top: 1px;
+  padding-left: 3px;
+  width: 30px;
+}
+
+.stockPager .i_pageBtn .first,.stockPager  .i_pageBtn .last, .stockPager .i_pageBtn .lastPage,.stockPager  .i_pageBtn .nextPage{
+  height: 23px;
+  width: 40px;
+}
+
+.stockPager .i_pageBtn .line{
+  visibility: visible;
+  float: left;
+  padding-top: 2px;
+}
+
+
+/*-------------------------分页 end--------------------------------*/
+
+

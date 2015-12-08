@@ -1,0 +1,53 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="liuWei" id="user_guide_flow_1">
+    <createTable tableName="user_guide_flow">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+
+      <column name="name" type="varchar(100)">
+        <constraints unique="true"/>
+      </column>
+
+      <column name="previous_flow_name" type="varchar(100)"/>
+      <column name="next_flow_name" type="varchar(100)"/>
+      <column name="shop_versions" type="varchar(200)"/>
+      <column name="is_enabled" type="varchar(50)"/>
+      <column name="first_step_name" type="varchar(100)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="liuWei" id="user_guide_flow_2">
+    <addPrimaryKey tableName="user_guide_flow" columnNames="id" constraintName="pk_user_guide_flow"/>
+  </changeSet>
+
+  <changeSet author="liuWei" id="user_guide_flow_3">
+    <createIndex tableName="user_guide_flow" indexName="index_name_perviousflowname">
+      <column name="name"/>
+      <column name="previous_flow_name"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="liuWei" id="user_guide_flow_4">
+    <addColumn tableName="user_guide_flow">
+      <column name="flow_type" type="varchar(50)"/>
+    </addColumn>
+    <addColumn tableName="user_guide_flow">
+      <column name="is_head" type="varchar(50)"/>
+    </addColumn>
+    <addColumn tableName="user_guide_flow">
+      <column name="is_tail" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

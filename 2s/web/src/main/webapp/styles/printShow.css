@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+
+.print_cont{ clear:both;width:740px;margin:0 auto; color:#000; }
+.balance_count{width:740px;}
+.print_info{font-size:14px;}
+.print_info .car_info dd span{width:160px;_width:130px;}
+.print_info  .car_user span{width:170px;_width:170px;}
+.print_info dl dd span{width:130px;color:#000; }
+.print_info dl dd label{color:#000; }
+.print_info .car_transition dd{width:220px;}
+
+.i_searchTitle{
+
+	width:740px;
+	text-align:center;
+	font-size:16px;
+}
+.i_searchTitle  .receipt{width:290px;_width:410px;text-align:left;}
+.i_searchTitle  .danju{font-size:12px;margin-top:17px;}
+.print_top .order_info{ width:668px;font-size:14px;}
+.print_top .order_info .name_dan{ width:340px; display:block; float:left;}
+.table2{/*width:665px;*/width:740px;}
+.table2 tr td{ font-size:12px;color:#000; height:25px; border:1px solid #000;word-wrap:break-word;word-break:break-all;
+}
+.qianzi{ width:740px;}
+.print_num{ width:200px; }
+.print_top .order_info .worker_man{margin-left:10px;}
+.qianzi span{  width:80px;}
+.pruch_use span{width:70px; color:#000;}
+.pruch_use label{ color:#000;}
+.pruch_use .address_show{width:240px; }
+.address{float:left;width:740px;}
+.pruch_use .non_pruch {width:105px;}
+.qianzi  .kehu{ margin-right:580px;}
+/*.qianzi .kehu_qian{ margin-right:275px;}*/
+/*.qianzi  .kehu_show{ margin-right:270px;}*/
+.kehu_qian{ float:left;width:155px;}
+.heji{height:30px;}
+.balance_he{ float:left;}
+.balance_shou{ margin-left:200px;}
+.balance_title span{width:90px;*width:108px;}
+.balance_title .nome{ float:right;}
+.balance_title  .balance_phon{width:280px;}
+.qianzi .kehu_balance{ margin-right:395px;}
+.qianzi .dianzhang{ margin-right:95px;}
+.print_balance{ display:block; width:190px; float:right; }
+.balance_pruch{width:759px; }
+
+.balance_top{ }
+.work_order .table2 tr td{font-size:12px;color:#000;}
+.balance_pruch tr td{font-size:12px;}
+.time_pr,.qianzi .man_zi,.man_zi{ float:left;width:181px;font-weight:bold; color:#000;}
+.time_pint,.time_caigou{width:181px; }
+.shishou{ width:185px;*width:190px; display:block; float:left;}
+.heji_show{width:180px;*width:188px;}
+.time_caigou{ }
+.time_add{width:381px;*width:389px;}
+.time_p,.time_add{  margin:0px;width:460px;*width:440px;}
+.time_gai{ margin-left:186px;width:198px;*width:200px;*margin-left:188px;}
+.time{float:left; color:#000;}
+.time label{font-weight:normal;}
+.time_p span,.time_p label,.time_add span,.time_add label{display:block; float:left;width:400px;*width:380px;}
+.time_p span,.time_add span{width:60px; }
+.bodyMain .table2{width:740px;}
+.table2 .font_set{ font-size:16px; }
+.address .phone_time{ float:right;}

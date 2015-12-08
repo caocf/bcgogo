@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>License Plate Number Validator</title>
+		<script type="text/javascript">
+			//This is a strict rule setting by Liyi.
+		   var leeRegx = /(^[\u4e00-\u9fa5]{2}$)|(^[a-zA-Z]{2}([a-zA-Z\d]{4}|\d{2}[a-zA-Z\d]{5})$)|(^[\u4e00-\u9fa5]{1}[a-zA-Z]{1}([a-zA-Z\d]{4,5})([\u4e00-\u9fa5]{1}$)?$)/;
+
+		   //This is a rule write by the PDF document.
+		   var docRegx = /(^[\u4e00-\u9fa5]{2}$)|(^([a-zA-Z\d]{5,6}|[a-zA-Z\d]{9})$)|(^[\u4e00-\u9fa5]{1,2}[a-zA-Z\d]{5,7}([\u4e00-\u9fa5]{1}$)?$)/;
+
+	       var validate=function(regx){
+		       var data = document.getElementById('licence').value.toUpperCase().replace(/\s|\.|\-/g,'');
+		       alert(regx.test(data));
+	       };
+
+	       var changeValue=function(){
+	       		var licenceVal=document.getElementById('licence');
+	       		var data = licenceVal.value.toUpperCase().replace(/\s|\.|\-/g,'');
+				licenceVal.value=data;
+	       };
+		</script>
+		<style type="text/css">
+			.container{position:absolute;top:50%;left:50%;margin:-60px 0 0 -160px;text-align:center;border:#000 1px dotted;}
+			.title{font-size:1em;}
+			.box{height:50px;width:300px;padding:10px}
+			.txtValidator{outline:0;padding:2px 5px;}
+			.btnValidator{border:1px solid #000;padding:2px 20px;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1 class="title">License Plate Number Validator:</h1>
+			<div class="box">
+		    	<input type="text" id="licence" onblur="changeValue()" class="txtValidator" />
+		    	<button onclick="validate(docRegx);" class="btnValidator">根据PDF文档规则进行测试</button>
+		</div>
+  </body>
+</html>

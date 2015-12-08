@@ -1,0 +1,116 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="mazidong" id="inventory_1">
+    <createTable tableName="inventory">
+        <column name="id" type="bigint"/>
+        <column name="created" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="last_update" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="version" type="bigint">
+            <constraints nullable="true"/>
+        </column>
+        <column name="shop_id" type="bigint"/>
+        <column name="product_id" type="bigint"/>
+        <column name="amount" type="float"/>
+        <column name="memo" type="varchar(500)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet  id="inventory_2" author="zhuyinjia">
+    <addPrimaryKey tableName="inventory" columnNames="id" constraintName="pk_inventory"/>
+  </changeSet>
+   <changeSet author="zhouxiaochen" id="inventory_3">
+        <createIndex tableName="inventory" indexName="idx_inventory_shopid_productid">
+            <column name="shop_id"/>
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="qiuxinyu" id="inventory_4">
+       <addColumn tableName="inventory">
+            <column name="unit" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="qiuxinyu" id="inventory_5">
+        <addColumn tableName="inventory">
+            <column name="lower_limit" type="double"/>
+            <column name="upper_limit" type="double"/>
+        </addColumn>
+    </changeSet>
+    <!--todo how to add index for shopId amount lowerLimit upperLimit-->
+
+  <changeSet author="jimuchen" id="inventory_6">
+    <modifyColumn tableName="inventory">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+	<changeSet author="qiuxinyu" id="inventory_7">
+    <addColumn tableName="inventory">
+        <column name="no_order_inventory" type="double"/>
+    </addColumn>
+</changeSet>
+
+  	<changeSet author="lijinlong" id="inventory_8">
+		<addColumn tableName="inventory">
+			<column name="latest_inventory_price" type="double"/>
+     	<column name="inventory_average_price" type="double"/>
+      <column name="sales_price" type="double"/>
+		</addColumn>
+	</changeSet>
+
+  <changeSet author="liuWei" id="inventory_9">
+    <addColumn tableName="inventory">
+      <column name="last_sales_time" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="inventory_10">
+    <modifyColumn tableName="inventory">
+      <column name="latest_inventory_price" type="double(10,2)"/>
+     	<column name="inventory_average_price" type="double(10,2)"/>
+      <column name="sales_price" type="double(10,2)"/>
+    </modifyColumn>
+  </changeSet>
+
+    <changeSet author="xzhu" id="inventory_xzhu_11">
+        <addColumn tableName="inventory">
+            <column name="last_storage_time" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="inventory_12">
+    <dropIndex tableName="inventory" indexName="idx_inventory_shopid_productid"/>
+    <createIndex tableName="inventory" indexName="idx_inventory_shopid_id">
+        <column name="shop_id"/>
+        <column name="id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="lw" id="inventory_13">
+    <addColumn tableName="inventory">
+      <column name="achievement_type" type="varchar(50)"></column>
+      <column name="achievement_amount" type="double"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="inventory_14" author="lw">
+
+    <renameColumn tableName="inventory" oldColumnName="achievement_type" newColumnName="sales_total_achievement_type"
+                  columnDataType="varchar(50)"/>
+    <renameColumn tableName="inventory" oldColumnName="achievement_amount" newColumnName="sales_total_achievement_amount"
+                  columnDataType="double"/>
+    <addColumn tableName="inventory">
+      <column name="sales_profit_achievement_type" type="varchar(50)"/>
+      <column name="sales_profit_achievement_amount" type="double"/>
+    </addColumn>
+  </changeSet>
+
+
+</databaseChangeLog>

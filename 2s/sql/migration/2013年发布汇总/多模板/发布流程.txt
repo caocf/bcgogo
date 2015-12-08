@@ -1,0 +1,9 @@
+-- txn 删除无用模板
+delete from print_template where id not in (select distinct template_id from shop_print_template);
+设置已有模板默认显示名称
+update shop_print_template spt, print_template pt set spt.display_name = pt.name where spt.template_id = pt.id;
+
+
+权限配置：
+登录后基本权限：
+getPrintTemplate       /web/print.do?method=getTemplates      SHOP    获取打印模板列表      request

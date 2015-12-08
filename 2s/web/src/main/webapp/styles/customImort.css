@@ -1,0 +1,54 @@
+/*-------------------------------------------自定义导入-------------------------------------------------*/
+.leftStep{ float: left; width:771px; font-family: "宋体"}
+.step .stepLeft{ background:url(../images/step.png) no-repeat; width:4px; height:29px; float:left;}
+.step .stepBody{ background:url(../images/stepBody.png) repeat-x; width:763px; height:29px; line-height:39px; float:left; color:#FF4800; }
+.step .stepRight{ background:url(../images/step.png) no-repeat -48px 0px; width:4px; height:29px; float:left;}
+.step .stepBody .stepImg{ background:url(../images/step.png) no-repeat -12px 0px; width:20px; height:29px; display:inline-block; float:left;}
+.step .stepBody span{ float:left; line-height:30px; padding:0px 8px;}
+.stepType{ color:#474747; float:left;}
+.stepType .bgTop{ background:url(../images/bgTop.png) no-repeat; width:771px; height:4px; float:left;}
+.stepType .bgBody{ background:url(../images/bgBody.png) repeat-y; width:771px; height:100%; float:left; padding:10px 0px;}
+.stepType .bgBottom{ background:url(../images/bgBottom.png) no-repeat; width:771px; height:4px; float:left;}
+.stepType .select{ background:url(../images/radNor.png) no-repeat 0px -1px; width:14px; height:14px; padding-left:20px; padding-right:10px;}
+.stepType .selected{
+    /*background:url(../images/radClick.png) no-repeat 0px -1px; */
+    width:14px; height:14px; padding-left:0px; color: #0B70CE; font-weight:bold; padding-right:5px;}
+.stepType .selBtn{ background:url(../images/btnAgree.png) no-repeat; width:64px; height:21px; line-height:23px; text-align:center; display:inline-block; color:#474747; margin:0px 0px 0px 10px;}
+.stepType .selBtn:hover{ background:url(../images/btnAgree.png) no-repeat 0px -21px; cursor:pointer; color:#FFFFFF;}
+/*.listBox{ border:1px solid #CCCCCC; background:#f9f9f9; width:150px; height:220px; float:left; padding:5px 0px;}*/
+/*.listBox a{ color:#474747; padding:0px 10px; margin:5px 0px 0px 0px; height:25px; line-height:25px; display:block; width:130px;}*/
+/*.listBox a:hover{background:#FCEBA9; border:1px solid #FF4800; border-width:1px 0px; color:#FF4800; height:25px; line-height:26px; margin:3px 0px 0px; cursor:pointer;}*/
+/*.listBox a.value:hover{background:#FCEBA9 url(../images/tiClose.png) no-repeat 130px 7px;display:inline-block;}*/
+/*.listBox h4{padding-left:5px; height:22px; line-height:19px; border-bottom:1px solid #CCCCCC; background:#FFFFFF;}*/
+.stepType .button{ width:100%;}
+.stepType .button a{ background:url(../images/chkTong.png) no-repeat; width:76px; height:25px; line-height:26px; text-align:center; color:#FFFFFF; font-size:14px;display: inline-block;margin-right: 10px;}
+.stepType .button a:hover{ background:url(../images/chkTi.png) no-repeat; cursor:pointer; color:#663A02;}
+.stepType .selUp{ background:url(../images/chkNormall.png) repeat;cursor: pointer; width:64px; height:21px; line-height:21px; text-align:center; display:inline-block; margin-left:100px; }
+.stepType .selUp:hover{ background:url(../images/chkHoverr.png) no-repeat;  color:#663A02;}
+.stepType .J_selUp_hover{ background:url(../images/chkHoverr.png) no-repeat;  color:#663A02;}
+
+.tips{ float:right;font-family: "宋体";}
+.tips .tips_top{background:url(../images/dataTop.png) no-repeat; width:219px; height:4px;}
+.tips .tips_body{background:url(../images/dataBgg.png) repeat-y; width:199px; height:100%; padding:10px 10px; color:#474747;}
+.tips .tips_bottom{background:url(../images/dataBottom.png) no-repeat; width:219px; height:3px;}
+.tips .tips_body .lines,.tips .tips_body .line{ line-height:22px;}
+.tips .tips_body .blue_color:hover{ cursor:pointer; color:#FF4800; text-decoration:underline;}
+.tips .help{ background:url(../images/help.png) no-repeat; display:inline-block; padding-left:15px;float:right;}
+
+.template{width:216px; height:100%; float:right;font-family: "宋体";}
+.template .tempTop{ background:url(../images/tempTop.png) repeat-x; height:29px; line-height:31px; padding:0px 10px;border:1px solid #CCCCCC;  color:#5b5b5b;}
+.template .tempTop h3{ float:left;}
+.template .tempTop .info{background:url(../images/rightArrow.png) no-repeat 30px 10px; float:right; padding-left: 5px; padding-right: 10px; cursor:pointer;}
+.template .tempBody{border:1px solid #CCCCCC; border-top:none;  line-height:22px; padding:5px 10px; background:url(../images/dataBgg.png) repeat-y; height:100%;}
+.template .tempBody .line .excelImg{ color:#474747; background:url(../images/excel.png) no-repeat 0px 3px; display:inline-block; padding-left:15px;}
+.template .tempBody .line .blue_color{ float:right;}
+.template .tempBody .line .blue_color:hover{ color:#FF4800; text-decoration:underline; cursor:pointer;}
+.position{display: inline-block;}
+
+.listBox{ border:1px solid #CCCCCC; background:#f9f9f9; width:220px; height:220px; float:left; padding:5px 0px;}
+.listBox div div{ color:#474747; padding:0px 10px; margin:5px 0px 0px 0px; height:25px; line-height:25px; display:block; width:190px;}
+.listBox div div:hover{background:#FCEBA9; border:1px solid #FF4800; border-width:1px 0px; color:#FF4800; height:25px; line-height:26px; margin:3px 0px 0px; cursor:pointer;}
+.listBox div div .close{ float:right; padding-top:6px;}
+.listBox h4{padding-left:5px; height:22px; line-height:19px; border-bottom:1px solid #CCCCCC; background:#FFFFFF;}
+
+.div_hover{background:#FCEBA9; border:1px solid #FF4800; border-width:1px 0px; color:#FF4800; height:25px; line-height:26px; margin:3px 0px 0px; cursor:pointer;}

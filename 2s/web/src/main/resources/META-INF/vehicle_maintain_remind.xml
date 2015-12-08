@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+  <!--定时钟去检查app车辆当前里程，和shop下的customer 对比生成提醒-->
+    <bean name="vehicleMaintainRemindScheduleJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.VehicleMaintainRemindSchedule"/>
+    </bean>
+
+    <bean id="vehicleMaintainRemindTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="vehicleMaintainRemindScheduleJobDetail"/>
+        <!--<property name="cronExpression" value="1 * * * * ?"/>-->
+          <property name="cronExpression" value="0 0 0 * * ?"/>
+        <!--每天0点跑一遍-->
+    </bean>
+
+    <bean id="vehicleMaintainRemindSchedule" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="vehicleMaintainRemindTrigger"/>
+            </list>
+        </property>
+        <property name="autoStartup" value="true"/>
+    </bean>
+</beans>

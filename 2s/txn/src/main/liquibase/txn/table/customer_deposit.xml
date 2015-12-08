@@ -1,0 +1,32 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+   <!--客户预约金表 customer_deposite 对应于供应商的deposite表-->
+    <changeSet author="zhuj" id="customer_deposit">
+        <createTable tableName="customer_deposit">
+            <column name="id" type="bigint"/>
+            <column name="shop_id" type="bigint"/>
+            <column name="cash" type="float"/>
+            <column name="bank_card_amount" type="float"/>
+            <column name="check_amount" type="float"/>
+            <column name="check_no" type="varchar(50)"/>
+            <column name="actually_paid" type="float" />
+            <column name="customer_id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="customer_deposit" columnNames="id" constraintName="pk_customer_deposit"/>
+    </changeSet>
+    <changeSet author="jinyuan" id="customer_deposit_2">
+        <addColumn tableName="customer_deposit">
+            <column name="memo" type="varchar(500)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

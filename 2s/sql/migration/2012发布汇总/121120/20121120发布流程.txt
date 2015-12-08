@@ -1,0 +1,43 @@
+一.添加权限
+后台添加：
+（一）角色
+                    name                                        备注
+//----------------------------------------------new role-----------------------------------------------------------------------------
+web_shopSystem_stat_memberStat                              会员消费统计
+
+（二）建立关联
+用户组操作：増加“会员消费统计”到“老板/财务"和“BCGOGO管理员”用户组 下
+Shop版本操作：増加“会员消费统计”角色到 所有shop版本 下
+
+（三）资源
+
+//=====================================  web_shopSystem_stat_memberStat  会员消费统计 角色 (刘伟)===================================================
+web_shopSystem_stat_memberStat_memberStat     request               /web/member.do?method=memberStat           会员消费统计
+web_shopSystem_stat_memberStat_getMemberStatData     request               /web/member.do?method=getMemberStatData           会员消费统计
+web_shopSystem_stat_memberStat_getMemberCardOrder     request               /web/member.do?method=getMemberCardOrder         获取会员购卡列表
+web_shopSystem_stat_memberStat_getMemberReturnOrder     request               /web/member.do?method=getMemberReturnOrder     获取会员退卡列表
+web_shopSystem_stat_memberStat_getMemberConsume     request               /web/member.do?method=getMemberConsume     获取会员消费列表
+
+
+二.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+三.数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，姬牧晨）
+
+
+五.发布应用 （纪友文）
+
+六.初始化
+1. 会员消费统计初始化
+   1.先执行 receivable初始化.sql文件里sql语句
+   2.更新order schema, 重新索引所有单据
+2.分项统计初始化
+   1.更新order_item schema, 重新索引所有单据
+
+七.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

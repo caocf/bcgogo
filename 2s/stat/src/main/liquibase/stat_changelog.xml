@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <preConditions>
+    <or>
+      <dbms type="oracle" />
+      <dbms type="mysql" />
+    </or>
+  </preConditions>
+
+  <changeSet id="hibernate_unique_key_1" author="cli">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="hibernate_unique_key"/>
+      </not>
+    </preConditions>
+    <createTable tableName="hibernate_unique_key">
+      <column name="next_hi" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+    <insert tableName="hibernate_unique_key">
+      <column name="next_hi" value="1000000" />
+    </insert>
+  </changeSet>
+
+  <include file="stat/table/assistant_stat.xml"/>
+  <include file="stat/table/customer_stat.xml"/>
+  <include file="stat/table/biz_stat.xml"/>
+  <include file="stat/table/service_vehicle_count.xml"/>
+  <include file="stat/table/business_category.xml"/>
+  <include file="stat/table/business_category_stat.xml"/>
+  <include file="stat/table/business_account.xml"/>
+
+</databaseChangeLog>

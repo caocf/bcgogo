@@ -1,0 +1,48 @@
+h3 {
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+}
+
+h3, .request {
+    line-height: 30px;
+}
+
+.request label {
+    text-align: right;
+    width: 110px;
+    float: left;
+}
+
+.request .txt, .request .textarea {
+    border: 1px solid #BBBBBB;
+}
+
+.request .textarea {
+    resize: none;
+    width: 74%;
+    height: 60px;
+}
+
+.btnClick {
+    position: relative;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.btnClick input {
+    background: url(../images/chkTong.png) no-repeat;
+    width: 76px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.btnClick input:hover {
+    background: url(../images/chkTi.png) no-repeat;
+    color: #663A02;
+}

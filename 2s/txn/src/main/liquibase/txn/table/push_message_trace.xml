@@ -1,0 +1,61 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="ZhangJuntao" id="push_message_trace_ZhangJuntao_1">
+        <createTable tableName="push_message_trace">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="title" type="varchar(100)"/>
+
+            <column name="level" type="int"/>
+
+            <column name="end_date" type="bigint"/>
+            <column name="create_time" type="bigint"/>
+
+            <column name="content" type="varchar(500)"/>
+
+            <column name="type" type="varchar(50)"/>
+            <column name="redirect_url" type="varchar(500)"/>
+            <column name="params" type="text"/>
+        </createTable>
+        <addPrimaryKey tableName="push_message_trace" columnNames="id" constraintName="pk_push_message_trace"/>
+    </changeSet>
+    <changeSet id="push_message_trace_2_ZhangJuntao" author="ZhangJuntao">
+        <addColumn tableName="push_message_trace">
+            <column name="creator_type" type="varchar(50)"/>
+            <column name="creator_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="push_message_trace_xzhu_3" author="xzhu">
+        <addColumn tableName="push_message_trace">
+            <column name="valid_time_period" type="varchar(50)"/>
+            <column name="valid_date_from" type="bigint"/>
+            <column name="valid_date_to" type="bigint"/>
+            <column name="creator" type="varchar(50)"/>
+            <column name="deleted" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="push_message_trace_xzhu_4" author="xzhu">
+        <addColumn tableName="push_message_trace">
+            <column name="content_text" type="text"/>
+        </addColumn>
+        <modifyColumn tableName="push_message_trace">
+            <column name="content" type="text"/>
+        </modifyColumn>
+    </changeSet>
+    <changeSet id="push_message_trace_xzhu_5" author="xzhu">
+        <addColumn tableName="push_message_trace">
+            <column name="prompt_content" type="varchar(500)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

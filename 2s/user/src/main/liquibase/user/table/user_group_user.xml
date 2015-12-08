@@ -1,0 +1,47 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="mazidong" id="user_group_user_1">
+    <createTable tableName="user_group_user">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="user_group_id" type="bigint"/>
+      <column name="user_id" type="bigint"/>
+    </createTable>
+  </changeSet>
+
+    <changeSet author="xiaojian" id="user_group_user_2">
+        <addPrimaryKey tableName="user_group_user" columnNames="id" constraintName="pk_user_group_user"/>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="user_group_user_3">
+        <createIndex tableName="user_group_user" indexName="index_usergroupuser_usergroupiduserid">
+            <column name="user_group_id"/>
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="user_group_user_4">
+    <modifyColumn tableName="user_group_user">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+    <changeSet id="user_group_user_5_qiuxinyu" author="qiuxinyu">
+        <createIndex tableName="user_group_user" indexName="idx_user_group_user_user_id">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+
+
+</databaseChangeLog>

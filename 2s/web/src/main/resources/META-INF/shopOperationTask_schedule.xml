@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--shop check-->
+    <bean name="shopCheckJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.ShopCheckSchedule"/>
+    </bean>
+    <bean id="shopCheckJobDetailTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="shopCheckJobDetail"/>
+        <property name="cronExpression" value="0 0 3 * * ?"/>
+    </bean>
+
+    <!--店铺启用和禁用之后的task-->
+    <bean name="shopOperateTask" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.index.stat.ShopOperateSchedule"/>
+    </bean>
+    <bean id="shopOperateTaskTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="shopOperateTask"/>
+        <property name="cronExpression" value="*/30 * * * * ?"/>
+        <!--<property name="cronExpression" value="0 0 0/1 * * ?"/>-->
+    </bean>
+
+    <bean id="shopOperateTaskTriggerScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="shopCheckJobDetailTrigger"/>
+                <ref local="shopOperateTaskTrigger"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>

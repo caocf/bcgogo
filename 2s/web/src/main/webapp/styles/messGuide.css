@@ -1,0 +1,443 @@
+* {
+	padding:0px;
+	margin:0px;
+}
+.admin_title {
+	height:32px;
+}
+/*.i_search .searchCenter, .search_num .searchCenter {
+	float:left;
+	background:url(../images/i_center.jpg) repeat-x;
+	height:29px;
+	width:180px;
+}
+.search_num .searchCenter {
+	background:url(../images/search_txt.png) -20px 0;
+	width:190px;
+	height:30px;
+}
+.i_search .searchCenter input, .search_num .searchCenter input {
+	border:1px solid #FFFFFF;
+	height:12px;
+	color:#999999;
+}
+.i_search .searchCenter input.btn, .search_num .searchRight input.btn {
+	border:none;
+	background:url(../images/i_search.jpg) no-repeat;
+	width:16px;
+	height:16px;
+	margin-top:6px;
+	cursor:pointer;
+}*/
+.i_search .searchLeft, .search_num .searchLeft {
+	float:left;
+	background:url(../images/i_left.jpg) no-repeat;
+	width:14px;
+	height:29px;
+}
+.search_num .searchLeft {
+	background:url(../images/search_txt.png) no-repeat;
+	width:20px;
+	height:30px;
+}
+.search_num .searchCenter input.txt {
+	height:21px;
+	margin-top:4px;
+	line-height:21px;
+*height:20px;
+	width:190px;
+	color:#cccccc;
+	font-weight:bold;
+}
+.search_num .searchCenter input.btn {
+	margin-top:7px;
+}
+.search_num {
+	margin:10px 0px;
+}
+.i_search .searchRight, .search_num .searchRight {
+	float:left;
+	background:url(../images/i_right.jpg) no-repeat;
+	width:14px;
+	height:29px;
+}
+.search_num {
+	background:url(../images/line.png) bottom no-repeat;
+	padding-bottom:10px;
+	_padding-bottom:1px;
+	overflow:hidden;
+	margin-bottom:0px;
+}
+.search_num .searchRight {
+	background:url(../images/search_txt.png) right 0;
+	height:30px;
+	width:33px;
+}
+/*图片展示*/
+.pic_show {
+	margin:30px 0px 10px 0px;
+	clear:both;
+	height:238px;
+}
+.pic_show .left_pic, .pic_show .center_pic, .pic_show .right_pic, .balance_count .left_num, .balance_count .center_num, .balance_count .right_num {
+	display:block;
+	float:left;
+	height:238px;
+}
+.balance_count .left_num, .balance_count .center_num, .balance_count .right_num {
+	height:39px;
+}
+.pic_show .left_pic {
+	background:url(../images/mssRight.png) no-repeat;
+	width:489px;
+}
+.pic_show .right_pic {
+	background:url(../images/mssLeft.png) no-repeat;
+	width:446px;
+}
+.pic_show .center_pic {
+	background:url(../images/messCenter.png) repeat-x;
+	width:68px;
+}
+.balance_count .left_num {
+	background:url(../images/numLeft.png) no-repeat;
+	width:18px;
+}
+.balance_count .center_num {
+	background:url(../images/numCenter.png) repeat-x;
+	width:976px;
+}
+.balance_count .right_num {
+	background:url(../images/numRight.png) no-repeat;
+	width:9px;
+}
+/*欠款总额*/
+.sum_all, .more_sum {
+	height:39px;
+	line-height:39px;
+	float:left;
+	width:183px;
+	color:#9b5d0b;
+	font-size:14px;
+	font-weight:bold;
+}
+.sum_all label {
+	margin-left:5px;
+}
+.more_sum {
+	display:block;
+	background:url(../images/more.png) no-repeat right;
+	width:67px;
+	color:#6e8fba;
+	font-weight:normal;
+}
+.close_sum {
+	background:none;
+	background:url(../images/close.png) no-repeat;
+	float:right;
+	width:7px;
+	height:7px;
+	margin-top:6px;
+	border:none;
+}
+/*欠款信息*/
+.guide_info {
+	margin-top:10px;
+}
+/*客户总信息*/
+.custom, .shortcut {
+	width:253px;
+	float:left;
+	height:422px;
+}
+.custom_top span, .custom_bottom span, .shortcut_top span, .shortcut_bottom span {
+	display:block;
+	float:left;
+}
+.custom_top .top_left, .custom_top .top_right, .custom_bottom .bottom_left, .custom_bottom .bottom_right, .shortcut_top .top_left, .shortcut_top .top_right, .shortcut_bottom .bottom_left, .shortcut_bottom .bottom_right {
+	background:url(../images/cc_03.png) left;
+	height:4px;
+	_overflow:hidden;
+	width:126px;
+	_background:none;
+}
+.custom_top .top_right, .shortcut_top .top_right {
+	background:url(../images/cc_03.png) right;
+	_background:none;
+}
+.custom_bottom .bottom_left, .custom_bottom .bottom_right, .shortcut_bottom .bottom_left, .shortcut_bottom .bottom_right {
+	height:3px;
+	_overflow:hidden;
+}
+.shortcut_bottom, shortcut_top {
+	height:100px;
+	clear:both;
+}
+.custom_bottom .bottom_left {
+	background:url(../images/cc_14.png) left;
+	_background:none;
+}
+.custom_bottom .bottom_right {
+	background:url(../images/cc_14.png) right;
+	_background:none;
+}
+.custom_content, .shortcut_content {
+	background:#eaeaea;
+	height:415px;
+	width:253px;
+	clear:both;
+}
+.custom_content {
+	padding:8px 5px;
+	width:243px;
+	height:395px;
+	_padding:10px 4px;
+}
+.custom_content h5 {
+	color:#006ECA;
+	font-size:12px;
+	width:100%;
+}
+/*快捷短信*/
+.shortcut {
+	width:740px;
+	margin-left:10px;
+}
+.shortcut_top .top_left, .shortcut_top .top_right, .shortcut_bottom .bottom_left, .shortcut_bottom .bottom_right {
+	width:370px;
+}
+.shortcut_bottom .bottom_left {
+	background:url(../images/cc_14.png) left;
+	_background:none;
+}
+.shortcut_bottom .bottom_right {
+	background:url(../images/cc_14.png) right;
+	_background:none;
+}
+.shortcut_content {
+	width:998px;
+	padding:0px 5px;
+}
+/*欠款信息结束*/
+/*客户*/
+.customer {
+	margin-bottom:5px;
+}
+.customer .titlle {
+	width:243px;
+	height:23px;
+	margin-bottom:5px;
+	padding-left:35px;
+
+}
+.customer  .cust_left {
+	background:url(../images/comtor.png) left;
+	float:left;
+	width:23px;
+	height:23px;
+}
+.customer .cust_title {
+	background:url(../images/comtor.png) right;
+	float:left;
+	width:220px;
+	height:23px;
+	line-height:23px;
+}
+.customer .titlle .cust_title label {
+	font-style:italic;
+	color:#fff;
+}
+
+
+.customer dt {
+	height:30px;
+}
+.customer dd {
+	height:21px;
+	line-height:21px;
+	padding-left:5px;
+	_height:20px;
+	_line-height:20px;
+}
+.customer dd label {
+	display:block;
+	float:left;
+	color:#006ECA;
+	font-weight:bold;
+}
+.customer dd .num {
+	width:25px;
+}
+.customer dd .cust_name {
+	width:55px;
+}
+.customer dd .cust_sum {
+	width:80px;
+}
+/*新增客户*/
+.custom_content .addClient {
+	background:url(../images/line.png) top no-repeat;
+	width:243px;
+	height:50px;
+}
+.addClient .addUser {
+	background:url(../images/button.jpg) no-repeat;
+	width:93px;
+	height:37px;
+	line-height:37px;
+	border:none;
+	margin:10px 0px 0px 0px;
+	color:#6699cc;
+	font-size:14px;
+	letter-spacing:3px;
+	text-align:center;
+}
+/*快捷短信*/
+.shortcut_title {
+	height:30px;
+	line-height:30px;
+}
+.shortcut_title strong {
+	color:#6e8fba;
+}
+.shortcut_send {
+	height:50px;
+}
+.shortcut_send .affirm_send, .shortcut_send .delayed {
+	background:url(../images/chkNormal2.png) no-repeat scroll 0 0 transparent;
+	width:90px;
+	height:25px;
+	border:none;
+	line-height:25px;
+	font-size:14px;
+	color:#fff;
+	letter-spacing:2px;
+  float:left;
+	cursor:pointer;
+}
+.shortcut_send .affirm_send:hover, .shortcut_send .delayed:hover {
+  background:url(../images/btnHover2.png) no-repeat scroll 0 0 transparent;
+  color:#663A02;
+}
+.affirm_send {
+	margin:10px 10px 0px 20px;
+}
+.delayed {
+	margin-top:10px;
+}
+/*短信编辑*/
+.text_edit {
+}
+/*短信内容*/
+.text_cont, .text_type {
+	float:left;
+}
+.text_cont {
+	padding:15px 30px 0px 25px;
+}
+.text_cont tabel {
+	border:none;
+}
+.text_cont tabel tr {
+	margin-bttom:20x;
+}
+.txt_edit {
+	padding-bottom:45px;
+}
+.txt_ti {
+	padding-bottom:32px;
+}
+.txt_lbl {
+	color:#a4a4a4;
+}
+.text_cont .phoNumber {
+	border:none;
+	background:url(../images/phoNumber.png);
+	width:345px;
+	height:15px;
+	padding:5px;
+	overflow:hidden;
+	margin-bottom:5px;
+	line-height:15px;
+}
+.text_cont .phoContent {
+	border:none;
+	background:url(../images/phoContent.png) no-repeat;
+	width:335px;
+	height:55px;
+	padding:10px;
+	overflow:hidden;
+	margin-bottom:10px;
+}
+.text_cont .text_lab {
+	color:#666666;
+	font-weight:bold;
+	display:block;
+	margin-right:10px;
+}
+.text_cont .lis_pho {
+	margin-bottom:75px;
+}
+.text_cont .send_cont {
+	margin-bottom:100px;
+}
+.text_cont .send_time {
+	margin-bottom:5px;
+}
+.add_Contacts {
+	background:url(../images/contacts.png) no-repeat;
+	width:85px;
+	height:25px;
+	border:none;
+	color:#fff;
+  cursor:pointer;
+}
+.text_cont .txt_char {
+	width:177px;
+	display:block;
+	float:left;
+}
+.i_searchTime {
+	background:url(../images/time.jpg) no-repeat;
+	width:179px;
+	height:27px;
+	border:none;
+	margin-bottom:8px;
+}
+.i_searchTime span {
+	color:#999999;
+	line-height:27px;
+	padding-left:6px;
+}
+.i_searchTime img {
+	float:right;
+	padding:2px 5px 0px 0px;
+}
+.i_searchTime input {
+	border:none;
+	margin:3px 0px 0px 6px;
+	height:20px;
+	line-height:20px;
+}
+/*短信类型*/
+.text_type {
+	height:270px;
+	margin-top:10px;
+	padding:15px;
+	width:210px;
+	background:url(../images/line_drie.png) repeat-y left;
+}
+.text_type li {
+	width:95px;
+	margin-bottom:25px;
+*width:110px;
+	height:20px;
+	line-height:20px;
+	color:#666666;
+	font-weight:bold;
+}
+.txt_type {
+	margin-right:3px;
+}
+/*短信编辑结束*/
+/*快捷短信结束*/

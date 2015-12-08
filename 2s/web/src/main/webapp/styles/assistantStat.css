@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+
+.tb_top img ,.tb_top ul,.tab_cuSearch tr td div span label{ display:block; float:left;}
+.tb_top ul,table .tr_title td{background:url(../images/center_con.png) repeat-x top; line-height:24px; text-align:center; border-bottom:#181818 1px solid;border-right:#181818 1px solid;border-left:#454545 1px solid;}
+.cuSearch .tab_cuSearch tr.titBody_Bg td{ padding-right:0px;text-align:center;}
+.tb_top ul,table .tr_bottom td{background:url(../images/center_con.png) repeat-x bottom;line-height:24px; text-align:center; border-top:#454545 1px solid;}
+.cuSearch .tab_cuSearch tr.titBody_Bg td{ padding-right:0px;text-align:center;}
+.tab_cuSearch tr td div h1{font-size:12px; font-weight:bold; text-align:center;background:url(../images/border_bg.png) repeat-x 0px bottom; line-height:24px; }
+.tab_cuSearch tr td div h1,.tab_cuSearch tr td div span{ display:block;text-align:center; }
+.tab_cuSearch tr td div span label{ text-align:center; padding:5px 5px;text-align:center;}
+.sale_mon{}
+.bumen { background:url(../images/border_shu.png) repeat-y right 0px;font-weight:bold;text-align:center;}
+
+.txt_Search label,.txt_Search input,.txt_Search select{ display:block; float:left; margin-left:5px;height:21px; line-height:21px;}
+.txt_Search input,.txt_Search select{ border: 1px solid #BBBBBB; }
+.txt_Search  .yue_show{ margin-left:10px; border:none;}
+
+.txt_Search .btn_so{background:url(../images/newBtn.png) no-repeat; color: #FFFFFF; cursor: pointer; height: 21px; line-height: 21px; padding: 0 0 2px; text-align: center; width: 64px; border:none;}
+.txt_Search .btn_so:hover{background:url(../images/newBtn.png) no-repeat left -23px; color:#663A02;}
+.bumen span label{ font-weight:normal; }
+
+.cuSearch .tab_cuSearch tr.tb_body td{ padding-right:0px;text-align:left;}
+
+.cuTable { width: 981px; float:left; line-height:20px;}
+.cuTable tr.titBody_Bg{ background:#FFFFFF url(../images/lineBg_top.png) repeat-x; height:100%;}
+.cuTable tr.titBody_Bg td{ vertical-align:top; padding:6px 6px 5px 0px;word-break: break-all; word-wrap: break-word; color:#000000; text-align:center;}
+.cuTable tr.titBody_Bg td .txt{ width:86%; font-size:12px; height:18px; margin-top:-3px; padding-left:3px;}
+.cuTable tr.titleBg{background:url(../images/titBg.png) no-repeat; height:26px; line-height:26px; color:#FFFFFF; border:none;}
+.cuTable tr.space td{ height:8px; line-height:8px; }
+.cuTable tr.titBottom_Bg td{ background:url(../images/lineBg_bottom.png) repeat-x; height:8px; border:none;}
+.cuTable .left{border-left: 1px solid #454545;}
+.cuTable .right{border-right: 1px solid #181818;}

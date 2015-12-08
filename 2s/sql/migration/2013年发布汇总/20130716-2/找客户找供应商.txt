@@ -1,0 +1,29 @@
+资源：
+//------------------------找供应商------------------------------
+供求中心-----找供应商----查询
+
+(new)web_customer_getApplySuppliersIndexPage     request       /web/apply.do?method=getApplySuppliersIndexPage     找供应商首页
+
+//------------------------找客户------------------------------
+供求中心-----找客户----查询
+
+(new)web_customer_getApplyCustomersIndexPage     request       /web/apply.do?method=getApplyCustomersIndexPage     找客户首页
+
+
+
+
+sql：
+//------------------找供应商----------------------
+bcuser库
+
+update `menu` set href='apply.do?method=getApplySuppliersIndexPage' where id='1000020045084321';
+
+//------------------找客户----------------------
+bcuser库
+
+update `menu` set href='apply.do?method=getApplyCustomersIndexPage' where id='1000000000000007';
+
+//-----------------除去  本地客户 推荐客户 本地供应商 推荐供应商 菜单--------------------------
+bcuser库
+delete FROM `menu` where id='1000000000000006';
+delete FROM `menu` where id='1000000000000008';

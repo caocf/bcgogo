@@ -1,0 +1,517 @@
+一.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，姬牧晨）
+
+2. Solr schema:  更新 order_item,product,customer_or_supplier
+
+三.发布应用 （纪友文）
+
+四.添加权限 (生产发布时跳过，权限自定义已包含）
+关于店铺关联的逻辑，取消关联权限只给老板，其余权限给到每个用户
+（一）角色
+//----------------------------------------------new role-----------------------------------------------------------------------------
+web_txn_goodsInOffSales                商品上架维护         用户组：经理/店长  老板/财务       版本：批发商版
+
+
+（二）建立关联
+ 修改 rander资源下的 name：‘VehicleConstruction’ 和   'MemberStoredValue' 的type 改为 ‘logic’
+
+（三）资源
+          name                                           type           value                                                          备注
+//-----------------------------------------------------new resource------------------------------------------------------------------------
+//===============================================登录后基本权限  (朱星星)   =============================================
+web_product_getProductSuggestion                                request       /web/product.do?method=getProductSuggestion                            商品下拉建议
+
+//===============================================进销存--销售管理--商品上架维护  (朱星星)   =============================================
+web_txn_goodsInOffSales                                         render        WEB.TXN.SALE_MANAGE.GOODS_IN_OFF_SALES_MANAGE
+web_txn_goodsInOffSales_goodsInOffSalesManage                   request       /web/goodsInOffSales.do?method=goodsInOffSalesManage                   进入商品上架维护页面
+web_txn_goodsInOffSales_goodsInSalesList                        request       /web/goodsInOffSales.do?method=goodsInSalesList                        上架商品数据
+web_txn_goodsInOffSales_goodsOffSalesList                       request       /web/goodsInOffSales.do?method=goodsOffSalesList                       下架商品数据
+web_txn_goodsInOffSales_goodsInOffSales                         request       /web/goodsInOffSales.do?method=goodsInOffSales                         商品上架下架操作
+web_txn_goodsInOffSales_allGoodsInOffSales                      request       /web/goodsInOffSales.do?method=allGoodsInOffSales                      全部商品上架下架操作
+web_txn_goodsInOffSales_savePromotions                          request       /web/goodsInOffSales.do?method=savePromotions                          保存商品促销
+web_txn_goodsInOffSales_getPromotionsDTODetailById              request       /web/goodsInOffSales.do?method=getPromotionsDTODetailById              根据促销id获取促销信息
+web_txn_goodsInOffSales_cancelPromotionsByProductLocalInfoIds   request       /web/goodsInOffSales.do?method=cancelPromotionsByProductLocalInfoIds   取消商品促销
+web_txn_goodsInOffSales_deletePromotionsByPromotionsId          request       /web/goodsInOffSales.do?method=deletePromotionsByPromotionsId          根据促销id删除促销
+web_txn_goodsInOffSales_addGoodsToPromotions                    request       /web/goodsInOffSales.do?method=addGoodsToPromotions                    把指定商品加入促销
+web_txn_goodsInOffSales_validateGoodsInSales                    request       /web/goodsInOffSales.do?method=validateGoodsInSales                    商品上架校验
+web_txn_goodsInOffSales_updateSingleInSalesAmount               request       /web/product.do?method=updateSingleInSalesAmount                       单个设置商品上架量
+web_txn_goodsInOffSales_updateMultipleInSalesAmount             request       /web/product.do?method=updateMultipleInSalesAmount                     批量设置商品上架量
+
+//===============================================供应商管理--商品报价  (朱星星)   =============================================
+web_supplier_list_validatorPurchaseProduct        request       /web/customer.do?method=validatorPurchaseProduct               采购商品校验
+
+供应商合并及合并记录查询
+1.查找资源getMergeRecords改为
+web_txn_customer_getMergeCustomerRecords    request    /web/customer.do?method=getMergeCustomerRecords     查询客户合并记录
+2.查找资源getMergedCustomerSnap改为
+web_txn_customer_getMergeCustomerSnap       request    /web/customer.do?method=getMergeCustomerSnap       查询客户合并记录快照
+//===============================================供应商管理--供应商资料--合并  (董楠)   =============================================
+web_supplier_getMergedSuppliers         request       /web/supplier.do?method=getMergedSuppliers               获取要合并的供应商
+web_supplier_mergeSupplierHandler       request       /web/supplier.do?method=mergeSupplierHandler             处理供应商合并
+mergeSupplier                           render        WEB.SUPPLIER_MANAGER.SUPPLIER_MERGE                      合并供应商显示
+//===============================================供应商管理--供应商资料--合并记录查询  (董楠)   =============================================
+web_supplier_toMergeRecord              request       /web/supplier.do?method=toMergeRecord                    跳转到合并记录
+web_supplier_getSupplierMergeRecords    request       /web/supplier.do?method=getSupplierMergeRecords          获取合并记录列表
+web_supplier_getMergeSupplierSnap       request       /web/supplier.do?method=getMergeSupplierSnap             获取合并信息快照
+getMergeSupplierRecord                  render        WEB.SUPPLIER_MANAGER.SUPPLIER_MERGE_RECORD               合并供应商记录显示
+
+待办事项
+//===============================================CRM--shop操作权限--shop数据初始化       (韦凌枫)   ====================================
+initRemindEvent                 request		/web/init.do?method=initRemindEvent		    提醒事件数据初始化
+//===============================================SHOP--待办事项模块--待办事项--客户服务类(韦凌枫)   ====================================
+cancelRemindEventById		    request		/web/txn.do?method=cancelRemindEventById	根据ID逻辑删除提醒
+
+订单中心（原待办单据模块的资源全部转移至订单中心，原待办单据的资源、角色、模块一并删除）
+//===============================================SHOP--进销存--订单中心（每个都加）      (韦凌枫)   ====================================
+orderCenterBase			        render		WEB.TXN.ORDER_CENTER.BASE			        订单中心基础
+//===============================================SHOP--进销存--订单中心--待办销售单	     (韦凌枫)   ====================================
+todoSaleOrders			        render		WEB.TXN.ORDER_CENTER.SALE			        待办销售单
+//===============================================SHOP--进销存--订单中心--待办销售退货单	 (韦凌枫)   ====================================
+todoSaleReturnOrders		    render		WEB.TXN.ORDER_CENTER.SALE_RETURN		    待办销售退货单
+//===============================================SHOP--进销存--订单中心--待办采购单	     (韦凌枫)   ====================================
+todoPurchaseOrders		        render		WEB.TXN.ORDER_CENTER.PURCHASE			    待办采购单
+//===============================================SHOP--进销存--订单中心--待办入库退货单  (韦凌枫)   ====================================
+todoPurchaseReturnOrders	    render		WEB.TXN.ORDER_CENTER.PURCHASE_RETURN		待办入库退货单
+//===============================================SHOP--进销存--订单中心（每个都加）	     (韦凌枫)   ====================================
+orderCenter			            request		/web/navigator.do?method=orderCenter		订单中心
+//===============================================SHOP--进销存--订单中心（每个都加）	     (韦凌枫)   ====================================
+showOrderCenter			        request		/web/txn.do?method=showOrderCenter		    订单中心首页
+//===============================================SHOP--进销存--订单中心（每个都加）	     (韦凌枫)   ====================================
+showOperationLog		        request		/web/txn.do?method=showOperationLog		    查看操作记录
+
+库存首页——韦凌枫
+    1、SHOP——待办事项模块——待办事项——维修美容类，所有版本的【仓管】都不能有权限
+
+    2、SHOP——进销存——库存管理-->新增角色（查看施工单缺料待入库）【汽配版、综合版、初级版、高级版】【老板/财务、仓管】
+    （查看施工单缺料待入库）增加以下资源：
+        （新）LACK_STORAGE_FOR_REPAIR      WEB.SCHEDULE.INVENTORY_MANAGE.LACK_STORAGE_FOR_REPAIR       SHOP    施工单缺料待入库                render
+        （新）lackStorageRemind            /web/remind.do?method=lackStorageRemind                     SHOP    库存首页查询施工单的缺料提醒    request
+
+消息中心---张峻滔
+    1、SHOP--代办事项--消息中心---->修改角色（消息发送）为（新增站内消息）
+    （新增站内消息）增加以下资源：
+        （修）WEB.SCHEDULE.MESSAGE_CENTER.SEND 修改为：WEB.SCHEDULE.MESSAGE_CENTER.STATION_MESSAGE.SEND
+        （新）createStationMessage	/web/stationMessage.do?method=createStationMessage	 SHOP   站内消息收件箱     request
+        （新）stationMessageBase	WEB.SCHEDULE.MESSAGE_CENTER.STATION_MESSAGE.BASE	 SHOP   站内消息收、发件箱     render
+        （旧）/web/message.do?method=selectProduct
+        （旧）/web/message.do?method=selectCustomer
+        （旧）/web/stationMessage.do?method=showStationMessageList
+
+    2、SHOP--代办事项--消息中心---->增加角色（站内消息收件箱）
+    （站内消息接收）增加以下资源：
+        （新）showStationMessageList	/web/stationMessage.do?method=showStationMessageList	 SHOP   站内消息收/发件箱     request
+        （旧）WEB.SCHEDULE.MESSAGE_CENTER.STATION_MESSAGE.BASE
+        （新）stationMessageReceiveBox	WEB.SCHEDULE.MESSAGE_CENTER.STATION_MESSAGE.RECEIVE_BOX	 SHOP   站内消息收件箱     render
+        （新）showReceiveStationMessageList	/web/stationMessage.do?method=showReceiveStationMessageList	 SHOP   站内消息收件箱     request
+        （新）validateProduct       /web/message.do?method=validateProduct	 SHOP   校验上下架     request
+        （新）searchStationMessages	   /web/stationMessage.do?method=searchStationMessages	 SHOP   站内消息拼接json     request
+        （新）updateReceiveStationMessageToRead	   /web/stationMessage.do?method=updateReceiveStationMessageToRead	 SHOP   读站内消息     request
+        （新）deleteStationMessage	   /web/stationMessage.do?method=deleteStationMessage	 SHOP   删除站内消息     request
+        （复）复制（消息查询）到此角色下
+
+    3、SHOP--代办事项--消息中心---->增加角色（站内消息发送箱）
+    （站内消息发送箱）增加以下资源：
+        （旧）WEB.SCHEDULE.MESSAGE_CENTER.STATION_MESSAGE.BASE
+        （旧）/web/stationMessage.do?method=showStationMessageList
+        （旧）/web/message.do?method=validateProduct
+        （旧）/web/stationMessage.do?method=searchStationMessages
+        （旧）/web/stationMessage.do?method=deleteStationMessage
+        （新）stationMessageSendBox	WEB.SCHEDULE.MESSAGE_CENTER.STATION_MESSAGE.SEND_BOX	 SHOP   站内消息发送箱     render
+        （新）showSendStationMessageList	/web/stationMessage.do?method=showSendStationMessageList	 SHOP   站内消息发送箱     request
+        （复制）复制（消息查询）到此角色下
+
+    4、SHOP--代办事项--消息中心---->增加角色（通知）
+        （新）notice	WEB.SCHEDULE.MESSAGE_CENTER.NOTICE.BASE	 SHOP   通知     render
+        （新）associationNotice	WEB.SCHEDULE.MESSAGE_CENTER.NOTICE.ASSOCIATION_NOTICE	 SHOP   关联通知     render
+        （新）showNoticeList	/web/notice.do?method=showNoticeList	 SHOP   所有通知     request
+        （新）showRelatedNoticeList	/web/notice.do?method=showRelatedNoticeList	 SHOP   所有关联通知     request
+        （新）getNotice	       /web/notice.do?method=getNotice	 SHOP   通知json     request
+        （新）updateNoticeToRead	       /web/notice.do?method=updateNoticeToRead	 SHOP   把通知标为已读     request
+        （新）deleteNotice	       /web/notice.do?method=deleteNotice	 SHOP   删除通知     request
+
+    5、SHOP--代办事项--消息中心---->增加角色（客户关联请求）
+        （新）ApplyBase	   WEB.SCHEDULE.MESSAGE_CENTER.APPLY.BASE	 SHOP   请求     render
+        （新）customerApply	   WEB.SCHEDULE.MESSAGE_CENTER.APPLY.CUSTOMER_APPLY	 SHOP   客户关联请求     render
+        （新）showMessageApplyPage	/web/apply.do?method=showMessageApplyPage	 SHOP   所有关联请求     request
+        （新）showMessageApplyCustomerPage	/web/apply.do?method=showMessageApplyCustomerPage	 SHOP   客户关联请求     request
+        （新）searchInvite	/web/apply.do?method=searchInvite	 SHOP   关联请求     request
+        （新）acceptCustomerApply	/web/apply.do?method=acceptCustomerApply	 SHOP   同意客户关联请求     request
+        （新）refuseApply	/web/apply.do?method=refuseApply	 SHOP   拒绝关联请求     request
+        （新）deleteShopRelationInvite	/web/apply.do?method=deleteShopRelationInvite	 SHOP   删除关联请求     request
+
+    6、SHOP--代办事项--消息中心---->增加角色（供应商关联请求）
+        （旧）WEB.SCHEDULE.MESSAGE_CENTER.APPLY.BASE
+        （旧）/web/apply.do?method=showMessageApplyPage
+        （旧）/web/apply.do?method=searchInvite
+        （新）supplierApply	   WEB.SCHEDULE.MESSAGE_CENTER.APPLY.SUPPLIER_APPLY	 SHOP   供应商关联请求     render
+        （新）showMessageApplySupplierPage	/web/apply.do?method=showMessageApplySupplierPage	 SHOP   供应商关联请求     request
+         （新）acceptSupplierApply	/web/apply.do?method=acceptSupplierApply	 SHOP   同意供应商关联请求     request
+         （旧）refuseApply
+         （旧）deleteShopRelationInvite
+
+    7、在（消息中心）模块下增加以下资源：
+        （旧）WEB.SCHEDULE.BASE
+        （旧）WEB.SCHEDULE.MESSAGE_CENTER.BASE
+        （新）messageCenter	/web/navigator.do?method=messageCenter	                     SHOP   消息中心     request
+    8、在（基本）中添加权限：
+        （新）getNumberOfMessageCenter	/web/notice.do?method=getNumberOfMessageCenter	 SHOP   消息数量     request
+     （删）删除（消息查询）角色
+
+基本权限：
+    （新）大型批发商基本权限 LARGE_WHOLESALER_SHOP_BASE （把《批发商基本权限》资源复制到《大型批发商基本权限》中）
+版本配置 ：
+    新增站内消息     批发商 大型批发商
+    站内消息收件箱   综合店 初级版 高级版
+    站内消息发送箱   批发商 大型批发商
+    通知             综合店 初级版 高级版  批发商 大型批发商
+    客户关联请求     批发商 大型批发商
+    供应商关联请求   综合店 初级版 高级版
+
+//注册权限配置 ==================================SHOP--基本	     (邱鑫宇)   ====================================
+  将name为：
+  web_shop_checkshopname，
+  web_shop_checkStoreManagerMobile,
+  web_shop_selectarea,
+  web_shop_product_searchlicenseNo,
+  web_shop_shopagreement
+
+  的资源分配给 shop 基本
+  新增资源分配给 shop_基本：
+  web_shop_saveShopInfo   request      /web/shopRegister.do?method=saveShopInfo   保存店铺
+  web_shop_validateInvitationCode   request      /web/shopRegister.do?method=validateInvitationCode   验证邀请码
+  web_shop_getSystemInvite          request       /web/invitationCodeSms.do?method=getSystemInvite    获取系统邀请码
+  registerMain                      request        /web/shopRegister.do?method=registerMain   注册主页面
+  registerDetail                    request        /web/shopRegister.do?method=registerDetail   注册详细页面
+
+
+  ==================================SHOP--客户管理--客户资料     (邱鑫宇)   ====================================
+  1,新增加子角色：
+  推荐客户使用一发软件
+  2,为该角色新增资源：
+  web_customer_sentInvitationCodePromotionalSms       request        /web/invitationCodeSms.do?method=sentInvitationCodePromotionalSms  批量推荐供应商使用一发软件
+  checkCustomerOrSupplierWithoutSendInvitationCodeSms       request   /web/invitationCodeSms.do?method=checkCustomerOrSupplierWithoutSendInvitationCodeSms  检查推荐供应商/客户使用一发软件
+  web_customer_sentInvitationCodeSms       request     /web/invitationCodeSms.do?method=sentInvitationCodeSms 推荐供应商使用一发软件
+  3,新增子角色：
+  一发推荐客户
+  4,为该角色新增资源
+  web_customer_getApplyCustomersPage    request     /web/apply.do?method=getApplyCustomersPage    进入系统推荐客户页面
+  web_customer_searchApplyCustomers    request     /web/apply.do?method=searchApplyCustomers      查看系统推荐客户信息请求
+  web_customer_applyCustomerRelation    request     /web/apply.do?method=applyCustomerRelation      申请客户关联
+  webSearchApplyCustomer    render     WEB.CUSTOMER_MANAGER.SEARCH.APPLY.CUSTOMER                 查看系统推荐客户信息
+  5,新增子角色：
+    取消客户关联
+  6,为该角色新增资源
+    web_customer_validateSupplierCancelCustomerShopRelation    request     /web/apply.do?method=validateSupplierCancelCustomerShopRelation    取消客户关联校验
+    web_customer_supplierCancelCustomerShopRelation    request     /web/apply.do?method=supplierCancelCustomerShopRelation    取消客户关联
+
+  7,新增资源到升级客户：
+  web_shop_validateShopRegBasicInfo      request        /web/shop.do?method=validateShopRegBasicInfo      客户升级校验
+
+  ==================================SHOP--供应商管理--供应商资料     (邱鑫宇)   ====================================
+  1,新增加子角色：
+  推荐供应商使用一发软件
+  2,为该角色新增资源：
+  （旧）/web/invitationCodeSms.do?method=sentInvitationCodePromotionalSms  批量推荐客户使用一发软件
+  （旧）/web/invitationCodeSms.do?method=sentInvitationCodeSms 推荐客户使用一发软件
+  （旧）invitationCodeSms.do?method=checkCustomerOrSupplierWithoutSendInvitationCodeSms
+   3,新增子角色：
+    一发推荐供应商
+  4,为该角色新增资源
+    web_supplier_getApplySuppliersPage    request     /web/apply.do?method=getApplySuppliersPage    进入系统推荐供应商页面
+    web_supplier_searchApplySuppliers    request     /web/apply.do?method=searchApplySuppliers      查看系统推荐供应商信息请求
+    web_supplier_applySupplierRelation    request     /web/apply.do?method=applySupplierRelation      申请供应商关联
+    webSearchApplySupplier    render     WEB.SUPPLIER_MANAGER.SEARCH.APPLY.SUPPLIER                 查看系统推荐供应商信息
+   5,新增子角色：
+      取消供应商关联
+    6,为该角色新增资源
+      web_supplier_customerCancelSupplierShopRelation    request     /web/apply.do?method=customerCancelSupplierShopRelation    取消供应商关联
+      web_supplier_validateCustomerCancelSupplierShopRelation    request     /web/apply.do?method=validateCustomerCancelSupplierShopRelation    取消供应商关联校验
+
+ //===============================================CRM--shop操作权限--shop数据初始化       (邱鑫宇)   ====================================
+ initShopArea                 request		/web/init.do?method=initShopArea		    店铺地址分类信息初始化
+ initShopAttachment           request       /web/init.do?method=initShopAttachment      图片初始化
+ initMessageReceive           request       /web/init.do?method=initMessageReceive      消息初始化
+ initTxnShop           request       /web/init.do?method=initTxnShop      Txn店面初始化
+
+//===========================================================  版本资源======================================================================================================
+WEB_VERSION_IGNORE_VERIFIER_INVENTORY       logic               WEB.VERSION.IGNORE_VERIFIER_INVENTORY    //忽略校验库存                     REPAIR_SHOP("初级版"),	WASH_SHOP("微型版")
+WEB_VERSION_STOREHOUSE                      logic               WEB.VERSION.STOREHOUSE                  //仓库资源                          高级版  批发商版  大型批发商
+WEB_VERSION_APPOINT_SERVICE                 logic               WEB.VERSION.APPOINT_SERVICE             //预约服务资源                      除了微型版  批发商、小型批发商版、大型批发商和汽配  其他都有
+WEB_VERSION_DISABLE_SEARCH_VEHICLE          logic               WEB.VERSION.DISABLE_SEARCH_VEHICLE      //禁用 车牌搜索框  显示禁用图标      REPAIR_SHOP("初级版"),	WASH_SHOP("微型版"),批发商、大型批发商和汽配
+WEB_VERSION_DISABLE_SEARCH_CUSTOMER         logic               WEB.VERSION.DISABLE_SEARCH_CUSTOMER     //禁用 搜索框  显示禁用图标          REPAIR_SHOP("初级版"),	WASH_SHOP("微型版"),
+WEB_VERSION_DISABLE_SEARCH_PRODUCT          logic               WEB.VERSION.DISABLE_SEARCH_PRODUCT      //禁用 商品搜索框  显示禁用图标      REPAIR_SHOP("初级版"),	WASH_SHOP("微型版"),
+WEB_VERSION_DISABLE_SCHEDULE                logic               WEB.VERSION.DISABLE_SCHEDULE            //禁用 代办事项模块 显示禁用图标     WASH_SHOP("微型版"),
+WEB_VERSION_DISABLE_TXN                     logic               WEB.VERSION.DISABLE_TXN                 //禁用 进销存模块  显示禁用图标      WASH_SHOP("微型版"),
+WEB_VERSION_WASHBEAUTY_SHORTCUTS            logic               WEB.VERSION.WASHBEAUTY_SHORTCUTS        //首页洗车单快捷方式                WASH_SHOP("微型版"),
+WEB_VERSION_ORDER_MOBILE_REMIND             logic               WEB.VERSION.ORDER_MOBILE_REMIND         //单据结算填写手机提醒              所有都有
+WEB_VERSION_SEND_INVITATION_CODE_TO_CUSTOMER logic               WEB.VERSION.SEND_INVITATION_CODE_TO_CUSTOMER         //发送邀请码给客户   批发商、大型批发商
+WEB_VERSION_RELATION_SUPPLIER                logic               WEB.VERSION.RELATION_SUPPLIER          //关联供应商                       除了批发商、小型批发商版和大型批发商
+WEB_VERSION_RELATION_CUSTOMER                logic               WEB.VERSION.RELATION_CUSTOMER          //关联客户                         批发商、大型批发商
+
+登录后基本权限 下添加资源 web_searchInventoryIndex_getVehicleLicenceNoSuggestion（在上面已经增加过，这边只要分配给角色就行，不用新增）
+
+汽配中的   WEB.VERSION.VEHICLE_CONSTRUCTION  资源删除掉
+综合店中的 仓管 角色， 待办事项模块-待办事项-维修美容类，取消掉
+所有版本的 仓管 角色， 待办事项模块-消息中心， 全部勾选
+
+五.增加批发商标准版(小型批发商版本)   SMALL_WHOLESALER_SHOP
+1.配一份跟    批发商（WHOLESALER_SHOP）一样的 权限
+2.去除资源    进销存--库存管理--仓库调拨，客户管理--客户资料--升级客户,系统管理--自定义配置管理--仓库管理-内部领料-内部退料
+3.新增角色    小型批发商基本权限  SMALL_WHOLESALER_SHOP_BASE
+4.分配 小型批发商基本权限  以下资源（这样资源在上面已经增加过，这边只要分配给角色就行，不用新增）：
+    1.WEB_VERSION_DISABLE_SEARCH_VEHICLE                禁用 车牌搜索框  显示禁用图标
+    2.WEB_VERSION_RELATION_CUSTOMER                     关联客户
+    3.WEB_VERSION_SEND_INVITATION_CODE_TO_CUSTOMER      发送邀请码给客户
+    4.WEB_VERSION_ORDER_MOBILE_REMIND                   单据结算填写手机提醒
+
+
+六.初始化
+1. 数据库sql更新
+//====================================================================================
+-- 商品初始化     product库          朱星星
+update product_local_info set sales_status='NotInSales';
+
+--销售单采购单初始化 txn库            朱星星
+update sales_order_item set sales_price=price;
+update purchase_order_item set purchase_price=price;
+
+--更新 loan_transfers表   txn库          朱星星
+update loan_transfers l set l.shop_version_id = (select id from bcuser.shop_version v where v.name=l.shop_type);
+
+----更新 operation_log 表  config库 朱星星
+update operation_log set operation_type = 'FINISH' where operation_type='FIHISH';
+
+--修改店铺状态                            张峻滔
+update shop set shop_status = 'REGISTERED_PAID' where shop_status='REGISTERED';
+select * from shop where `shop_status` is null ORDER BY created DESC;
+（查看无状态的：  NO_INTENTION("无意向"),
+                  LATENT("潜在"),
+                  INTENTION("意向"),
+                  CHECK_PENDING("待审核"),
+                  REGISTERED_TRIAL("注册试用"),
+                  REGISTERED_PAID("缴费使用");
+）
+update shop set shop_state ='IN_ACTIVE' where shop_state='inActive';
+update shop set shop_state ='ACTIVE' where shop_state='active' or shop_state is null;
+update shop set shop_state ='DELETED' where shop_state='deleted';
+--txn
+update message set status='ACTIVE';
+
+ --search 库
+update inventory_search_index isi ,txn.inventory i set isi.amount = i.amount where isi.id = i.id;
+
+ -- 在Admin中添加config 配置
+ UnApplyShopIdSwitch，ON，测试店铺是否需要在推荐里显示ON表示不显示
+ PRIMARY_WHOLESALER_LIMIT_CUSTOMER 500 初级批发商可以拥有的客户数量
+ SEND_INVITATION_CODE_BY_BCGOGO_DATE_LIMIT              10      bcgogo帮助客户发送邀请码时间段限制
+ INVITATION_CODE_EFFECTIVE_DATE              10      邀请码有效期
+ INVITATION_CODE_OVERDUE_DATE              60      邀请码过期时间
+ INVITATION_CODE_PROMOTE_SMS_SEND_TIME       9    bcgogo促销短信几点发送（小时）（9-表示9点钟发送）
+ SHOP_PROBATIONARY_PERIOD                    30    试用版使用天数
+ AUTOMATIC_PROMOTION_INVITATION_CODE_SMS           off    Bcgogo发送促销邀请码短信开关
+ BACKGROUND_AUDIT_STAFF_MOBILES           13000000000    后台审核人员的手机号码（,分割）
+ CommonShopVersionsToRegister             10000010017531655,10000010017531654,10000010039823882,10000010037193620           可以注册的普通版的shopVersion
+ CommonShopVersions                       10000010017531656,10000010017531653,10000010017531655,10000010017531654,10000010039823882           属于普通版的shopVersion
+	WholesalerShopVersionsToRegister        10000010037193620,10000010017531657,10000010037193619        可以注册的批发商版的shopVersion
+	WholesalerShopVersions                  10000010037193620,10000010017531657,10000010037193619                   属于批发商版的shopVersion
+	ShopVersionRecommendedToWholesalers      10000010017531653,10000010017531654,10000010017531655,10000010017531656,10000010039823882   系统推荐给批发商的客户店铺版本ID
+	ShopVersionRecommendedToCustomers        10000010037193620,10000010017531657,10000010037193619                     系统推荐给客户的批发商店铺版本ID
+	WHOLESALER_SHOP_REGISTER_SHOP_VERSIONS   10000010017531655,10000010017531654,10000010039823882,10000010037193620  批发商版注册的版本种类
+  REPAIR_PICK_SWITCH_SHOP_VERSIONS              10000010017531654,10000010039823882                            拥有维修领料功能的店铺版本ID
+
+  SupplierRegister   http://regs.bcgogo.com            批发商注册网址
+  CustomerRegister   http://regc.bcgogo.com          普通版注册网址
+  CommonRegister     http://reg.bcgogo.com            通用注册网址
+  RegisterRedirect   http://192.168.1.104:8080/web/ 注册重定向网址  (服务器地址)
+-- 短信模板
+    (1) 短信客户邀请码
+    invitationCodeToCustomer
+    INVITATION_CODE
+    NECESSARY
+    我在用一发软件,这是汽车行业最好的管理软件,了解视频:vc.bcgogo.com注册网址:regc.bcgogo.com邀请码(有效期10天):{invitationCode}。
+
+    (2) 短信供应商邀请码
+    invitationCodeToSupplier
+    INVITATION_CODE
+    NECESSARY
+    我在用一发软件,这是汽车行业最好的管理软件,了解视频:vs.bcgogo.com注册网址:regs.bcgogo.com邀请码(有效期10天):{invitationCode}。
+
+    (3)试用版注册提醒
+    trialRegisterSmsSendToCustomer
+    TRIAL_REGISTER_SMS_SEND_TO_CUSTOMER
+    NECESSARY
+    <{shortName}><{storeManager}>您好!感谢使用一发软件,您的用户名{userNo}密码为{password},免费试用期为30天，祝您使用愉快! 如有疑问请拨打客服电话:0512-66733331
+
+    (4)注册提醒短信
+    registrationReminderForBackgroundAuditStaff
+    SYSTEM_SMS
+    NECESSARY
+    有新的客户<{shopName}>待审核，请尽快处理！
+
+    （5）修改：去掉模板中“{shopName}敬启”
+
+
+
+ --初始化采购单的suppliershopId   txn库
+ update purchase_order p left join sales_order s on p.id = s.purchase_order_id set p.supplier_shop_id = s.shop_id where s.id is not null;
+
+ --初始化入库退货单的suppliershopId   txn库
+ update purchase_return p left join sales_return s on p.id = s.purchase_return_order_id set p.supplier_shop_id = s.shop_id where s.id is not null;
+
+-测试库 bcuser库需要插入下面这条数据,生产不需要
+INSERT INTO `shop_version` (`id`, `created`, `last_update`, `version`, `value`, `name`) VALUES (10000010037193619, 1360117737352, 1360117737352, 0, '大型批发商版', 'LARGE_WHOLESALER_SHOP');
+
+ --初始化shopVersion 描述 bcuser库
+ update shop_version set description ='汽配版(后续不提供注册)',soft_price=1900 where name = 'TXN_SHOP';
+ update shop_version set description ='综合版(适用中小型一站式维修厂)',soft_price=1980,value='汽修综合版' where name = 'INTEGRATED_SHOP';
+ update shop_version set description ='初级版(适用小型汽修美容店)',soft_price=980,value='汽修初级版' where name = 'REPAIR_SHOP';
+ update shop_version set description ='微型版(适用小型汽修美容店)',soft_price=980 where name = 'WASH_SHOP';
+ update shop_version set description ='专业版(适用中型批发商)',soft_price=5900,value='汽配专业版' where name = 'WHOLESALER_SHOP';
+ update shop_version set description ='高级版(适用大型汽修店及4S店)',soft_price=2980,value='汽修高级版' where name = 'ADVANCED_SHOP';
+ update shop_version set description ='豪华版(适用大型批发商)',soft_price=9900,value='汽配豪华版' where name = 'LARGE_WHOLESALER_SHOP';
+ update shop_version set description ='标准版(适用小型批发商)',soft_price=1900,value='汽配标准版' where name = 'SMALL_WHOLESALER_SHOP';
+
+2. jackchen登录后执行：
+--初始化店铺地址信息 邱鑫宇
+init.do?method=initShopArea
+--初始化提醒信息 韦凌枫
+init.do?method=initRemindEvent
+--初始化 迁移图片 张峻滔
+init.do?method=initShopAttachment
+--初始化 站内消息 张峻滔
+init.do?method=initMessageReceive
+--初始化 初始化汽配版 张峻滔
+    init.do?method=initTxnShop&shopIds=10000010006350535,10000010006390539
+    或者 除去哪些店shopId 其他都升级
+    init.do?method=initTxnShop&withoutShopIds=10000010011941096,10000010011941095
+
+//============邱鑫宇===================
+ --初始化批发商店铺的客户数量    config库
+ update shop set shop_level = 'PRIMARY_WHOLESALER' where shop_version_id in(10000010037193620,10000010017531657,10000010037193619);
+
+ update shop s2,(select count(c.id) as customerAmount,c.shop_id as wholesalerShopId from bcuser.customer c where c.shop_id in(select s.id from shop s where s.shop_version_id in(10000010037193620,10000010017531657)) and c.customer_shop_id is not null
+ group by c.shop_id) s3 set s2.relative_customer_amount = s3.customerAmount,s2.shop_level = 'PRIMARY_WHOLESALER' where s2.shop_version_id in(10000010037193620,10000010017531657) and s2.id = s3.wholesalerShopId;
+
+--初始化测试店铺类型，config库
+ update shop set shop_kind = 'TEST' where id in(0,
+                                                100,
+                                                10000010001010001,
+                                                10000010001030003,
+                                                10000010001030004,
+                                                10000010001030005,
+                                                10000010001030006,
+                                                10000010001030007,
+                                                10000010001040004,
+                                                10000010001040005,
+                                                10000010001040006,
+                                                10000010001040007,
+                                                10000010001040008,
+                                                10000010001040009,
+                                                10000010001040010,
+                                                10000010001040011,
+                                                10000010001070007,
+                                                10000010001070008,
+                                                10000010001080008,
+                                                10000010001080009,
+                                                10000010001090009,
+                                                10000010001090010,
+                                                10000010001090011,
+                                                10000010001090013,
+                                                10000010001090014,
+                                                10000010001090015,
+                                                10000010001110011,
+                                                10000010001110013,
+                                                10000010001130013,
+                                                10000010001130014,
+                                                10000010001130015,
+                                                10000010001150015,
+                                                10000010001170017,
+                                                10000010001170018,
+                                                10000010001170019,
+                                                10000010001190019,
+                                                10000010001210021,
+                                                10000010001210022,
+                                                10000010001230023,
+                                                10000010001250025,
+                                                10000010001250026,
+                                                10000010001270027,
+                                                10000010001270028,
+                                                10000010001290029,
+                                                10000010001330035,
+                                                10000010001330036,
+                                                10000010001330037,
+                                                10000010001350035,
+                                                10000010001350036,
+                                                10000010001360037,
+                                                10000010001360039,
+                                                10000010001360040,
+                                                10000010001380038,
+                                                10000010001380041,
+                                                10000010001900090,
+                                                10000010002200120,
+                                                10000010002200121,
+                                                10000010002490149,
+                                                10000010002580159,
+                                                10000010003050205,
+                                                10000010004000304,
+                                                10000010004430343,
+                                                10000010004500350,
+                                                10000010004500351,
+                                                10000010004570358,
+                                                10000010004690369,
+                                                10000010005230424,
+                                                10000010005560456,
+                                                10000010005630466,
+                                                10000010005950496,
+                                                10000010006680570,
+                                                10000010007210621,
+                                                10000010007210622,
+                                                10000010007210623,
+                                                10000010007210624,
+                                                10000010007300630,
+                                                10000010007300633,
+                                                10000010007300636,
+                                                10000010007730673,
+                                                10000010007910692,
+                                                10000010008650765,
+                                                10000010009000801,
+                                                10000010009040805,
+                                                10000010009160816,
+                                                10000010009340835,
+                                                10000010009460851,
+                                                10000010009460852,
+                                                10000010009460853,
+                                                10000010009520856,
+                                                10000010009520857,
+                                                10000010009520858,
+                                                10000010009830891,
+                                                10000010010480949,
+                                                10000010010480952,
+                                                10000010010560956,
+                                                10000010010580958);
+--初始化店铺关联客户，供应商的关联类型  bcuser库
+ update bcuser.customer c,config.shop s set c.relation_type = 'REGISTER_RELATED' where c.shop_id = s.id and s.shop_version_id in (10000010017531657,10000010037193620) and c.customer_shop_id is not null;
+ update bcuser.customer c,config.shop s set c.relation_type = 'UNRELATED' where c.shop_id = s.id and c.customer_shop_id is null;
+ #校验初始化结果:select * from bcuser.customer c,config.shop s where c.shop_id = s.id and s.shop_version_id in (10000010017531657,10000010037193620) and c.customer_shop_id is not null;
+
+ update bcuser.supplier sp,config.shop s set sp.relation_type = 'BE_REGISTERED' where sp.shop_id = s.id and s.shop_version_id in(10000010017531653,10000010017531654,10000010017531655,10000010017531656,10000010039823882) and sp.supplier_shop_id is not null;
+ update bcuser.supplier sp,config.shop s set sp.relation_type = 'UNRELATED' where sp.shop_id = s.id and sp.supplier_shop_id is  null;
+#校验初始化结果:select sp.* from bcuser.supplier sp,config.shop s where sp.shop_id = s.id and s.shop_version_id in(10000010017531653,10000010017531654,10000010017531655,10000010017531656,10000010039823882) and sp.supplier_shop_id is not null;
+
+
+
+3. solr 重做索引  order,order_item,product,customer_or_supplier
+
+七.上传采购单，销售单打印模板
+
+八.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）
+
+

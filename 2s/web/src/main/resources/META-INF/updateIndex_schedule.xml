@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+  <!--客户后供应商合并，更新reindex单据-->
+    <bean name="mergeReindex" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.index.stat.MergeReindexSchedule"/>
+    </bean>
+
+    <bean id="mergeReindexTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="mergeReindex"/>
+        <property name="cronExpression" value="*/30 * * * * ?"/>
+    </bean>
+
+    <bean id="orderReindexScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="mergeReindexTrigger"/>
+            </list>
+        </property>
+        <property name="autoStartup" value="true"/>
+    </bean>
+
+    <!--客户供应商改变区域后，reindex该客户或供应商下的单据-->
+    <bean name="orderReindex" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.index.stat.UpdateCusOrSupOrderIndexSchedule"/>
+    </bean>
+
+    <bean id="orderReindexTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="orderReindex"/>
+        <property name="cronExpression" value="* */5 * * * ?"/>
+    </bean>
+
+    <bean id="cusOrSupOrderReindexScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="orderReindexTrigger"/>
+            </list>
+        </property>
+        <property name="autoStartup" value="true"/>
+    </bean>
+</beans>

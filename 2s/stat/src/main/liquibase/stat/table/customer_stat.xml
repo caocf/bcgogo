@@ -1,0 +1,41 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="mazidong" id="customer_stat_1">
+    <createTable tableName="customer_stat">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="customer_type" type="varchar(20)"/>
+      <column name="amount" type="bigint"/>
+    </createTable>
+  </changeSet>
+
+    <changeSet author="xiaojian" id="customer_stat_2">
+        <addPrimaryKey tableName="customer_stat" columnNames="id" constraintName="pk_customer_stat"/>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="customer_stat_3">
+      <createIndex tableName="customer_stat" indexName="idx_customer_stat_shopid">
+          <column name="shop_id" />
+      </createIndex>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="customer_stat_4">
+    <modifyColumn tableName="customer_stat">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

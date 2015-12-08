@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+.text_justified,.i_upBody .table2 .table_title .text_justified{ text-align:right;padding-right:6px;}
+.i_upBody .table2{margin-top:10px; margin-bottom:5px;width:400px; margin-right:10px;}
+.i_upBody .i_leftBtn{ float:right;width:80px;}
+ .i_searchBrand .i_upCenter .i_note{width:370px;}
+ .i_searchBrand .i_upCenter{width:420px}
+ .i_searchBrand .i_upBody,.i_upBottom .i_upBottomCenter{width:402px;}
+.i_upBody .table2 .qian_blue{color:#6699cc;}
+.more_his{ margin-right:10px;}
+.i_upBody .table2 input{width:90%;}
+.i_upBody .table2  .tab_arrow{width:20px;}
+.add_upBottom{width:450px;}

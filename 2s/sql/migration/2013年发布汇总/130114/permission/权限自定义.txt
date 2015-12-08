@@ -1,0 +1,106 @@
+最先执行
+1.bcuser数据库执行 tree_menu.sql
+2.bcuser数据库执行 shop_version.sql
+3.config数据库  关联shop
+    update shop set shop_version_id=10000010017431643  where type='BCGOGO_SHOP';
+    update shop set shop_version_id=10000010017531653  where type='TXN_SHOP';
+    update shop set shop_version_id=10000010017531654  where type='INTEGRATED_SHOP';
+    update shop set shop_version_id=10000010017531655  where type='REPAIR_SHOP';
+    update shop set shop_version_id=10000010017531656  where type='WASH_SHOP';
+    update shop set shop_version_id=10000010017531657  where type='WHOLESALER_SHOP';
+4.bcuser数据库 user_group.sql
+5.bcuser数据库 user_group_shop.sql
+6.bcuser数据库 重新关联 user_group user
+（0）备份user_group_user
+（1）浏览目前 user_group-user 之间的关系 （挑20个比较 不要集中 分散挑 截图备份）
+    select u.id,u.`name`,ugu.user_group_id,ug.`name` ,t.user_group_id,t.user_group_name,t.shop_id,t.shop_version_id,sh.shop_version_id
+    from `user` u ,user_group_user ugu ,user_group ug ,config.shop sh ,
+    (select ug.id as user_group_id,u.id as user_id,s.id as shop_id ,ug.`name` as user_group_name,s.shop_version_id as shop_version_id,sv.`name` as shop_version_name
+        from `user` u
+        JOIN config.shop s on u.shop_id = s.id
+        JOIN shop_version sv on sv.id = s.shop_version_id
+        JOIN user_group_shop ugs on s.shop_version_id= ugs.shop_version_id
+        JOIN user_group ug on ugs.user_group_id= ug.id
+        WHERE u.shop_id !=0
+    ) t
+    where t.user_id=u.id and t.user_group_name=ug.`name` and ugu.user_id=u.id and ug.id= ugu.user_group_id and u.shop_id=sh.id ;
+（2）重新关联非bcgogo店铺
+    update user_group_user ugu ,
+    (select
+            ug.id as user_group_id,
+            u.id as user_id,s.id as shop_id ,
+            ug.`name` as user_group_name
+        from `user` u
+        JOIN config.shop s on u.shop_id = s.id
+        JOIN user_group_shop ugs on s.shop_version_id= ugs.shop_version_id
+        JOIN user_group ug on ugs.user_group_id= ug.id
+        WHERE u.shop_id !=0) t,user_group ug ,`user` u
+    set ugu.user_group_id = t.user_group_id
+    where t.user_id=u.id and t.user_group_name=ug.`name` and ugu.user_id=u.id and ug.id= ugu.user_group_id ;
+ (3) 重新关联 bcgogo
+    UPDATE user_group_user ugu set ugu.user_group_id =10000010019911892 where  ugu.user_group_id =41000005;
+    UPDATE user_group_user ugu set ugu.user_group_id =10000010016461553 where  ugu.user_group_id =41000006;
+ (4) 检查 是否与（1）备份的关系正确 （反复测试---特别比较user_group_user是否关联正确）
+     SELECT u.id as userId,u.`name` as userName,ugu.user_group_id as user_group_id ,ug.`name` as user_group_name,u.shop_id,sv.`name`
+      from `user` u
+     LEFT JOIN user_group_user ugu on ugu.user_id = u.id
+     LEFT JOIN config.shop s on s.id = u.shop_id
+     LEFT JOIN user_group ug on ugu.user_group_id =ug.id
+     LEFT JOIN user_group_shop ugs on ugs.shop_version_id =s.shop_version_id
+     LEFT JOIN shop_version sv on sv.id =ugs.shop_version_id
+     where ugs.user_group_id = ugu.user_group_id;
+7.bcuser中执行
+    (1) delete from `shop_role`;
+        delete from `module`;
+        delete from `resource`;
+        delete from `role`;
+        delete from `role_resource`;
+        delete from `user_group_role`;
+    (2)执行文件(以下表，实时更新测试库)
+        shop_role.sql,
+        module.sql,
+        resource.sql,
+        role.sql,
+        role_resource.sql,
+        user_group_role.sql
+    （发生产时 需要更换）
+8.进入后台 crm 给《系统管理》角色配置所有权限（除了shop 中注册）
+9.user department sales_man 初始化
+    （0）备份sales_man 、department 、user
+    （1）update `user` set `name`='用户' where `name` is null or  `name` = '' ;
+    （2）update `sales_man` set `name`='员工' where `name` is null or  `name` = '' ;
+    （3）http://XXXXXXXX:8080/web/init.do?method=initSaleMansDepartment （成功再往下执行）
+        只要检查sales_man中 department表中 的name 与department是否一致
+        sql：SELECT s.id ,s.department,s.department_id,d.`name` from sales_man s JOIN department d on d.id=s.department_id where s.department is not null and s.department !='';
+    （4）http://XXXXXXXX:8080/web/init.do?method=initPermission
+        user 中sales_man_id 指向 sales_man，bcgogo shop
+        SQL：select * from `user` where sales_man_id is null and shop_id!=0;
+        user 补充到 sales_man
+        SQL：SELECT u.id,s.`name` as sales_man_name FROM `user` u LEFT JOIN sales_man s on u.sales_man_id = s.id where u.shop_id!=0 and( s.`name` is null or s.`name` ='');
+10. 更新  sales_man 的 user_group_id， 与user user_group_user 对应的user_group_id一致（备份sales_man）
+    update sales_man sm JOIN `user` u on sm.id=u.sales_man_id JOIN user_group_user ugu on ugu.user_id = u.id SET sm.user_group_id=ugu.user_group_id ;
+11. user备份  检查 user_type是否正确 （老板、BCGOGO 为：SYSTEM_CREATE，其他：NORMAL）(注意查看数据是够更新正确)
+    http://XXXXXXXX:8080/web/init.do?method=initUser
+12. 测试 各种账号是否能正常登陆 （包括销售 bcgogo管理员）
+    包括crm中给销售分配部门与角色
+14. delete FROM `department` WHERE `parent_id` IS NULL AND `name` NOT LIKE '%统购%' AND `shop_id` = '0';
+*15.清空废弃数据 （等到全部测试完成后，也可以不进行此操作）
+    （0）备份bcuser
+    （1）
+        delete from user_group_role where user_group_id not in (SELECT ug.id from user_group ug);
+        delete from user_group_shop where shop_version_id is null and shop_id != 0;
+    （2）
+        select ugu.id as user_group_user_id,ugu.user_id,ugu.user_group_id as notice_userGroupId,ug.`name` as userGroupName,u.shop_id ,s.`name` as shopName,s.type,s.address,s.mobile,s.short_name as shopShortName
+        from user_group_user ugu
+        JOIN user_group ug on ugu.user_group_id = ug.id
+        JOIN `user` u on ugu.user_id = u.id
+        JOIN config.shop s on u.shop_id =s.id;
+     *(3）店铺升级
+         (a)SELECT ug.id as user_group_id,ug.`name`,sv.`name` as shop_version_name,sv.`value` as shop_version_value from user_group_shop ugs
+         LEFT JOIN user_group ug on ug.id= ugs.user_group_id
+         LEFT JOIN shop_version sv on sv.id=ugs.shop_version_id
+         where ug.`name`='销售顾问' and sv.`value` = '批发商版' ;
+
+         通过user_id 查找user_group_user 替换掉 user_group_id
+         (b).修改shop 中type 与shop_version_id
+

@@ -1,0 +1,325 @@
+/*搜索小图片*/
+.icon-search {
+    background-image: url(../images/icons/search.png) !important;
+}
+
+/*关闭*/
+.close {
+    background-image: url(../images/icons/closeCurrentTab.png) !important;
+}
+
+.icon-nav {
+    background-image: url(../images/icons/nav.png) !important;
+}
+
+.icon-tree {
+    background-image: url(../images/icons/tree.png) !important;
+}
+
+.icon-activity {
+    background-image: url(../images/icons/activity.png) !important;
+}
+
+.icon-hr {
+    background-image: url(../images/icons/hr.png) !important;
+}
+
+.icon-tree-selected {
+    color: red;
+    font-style: italic;
+}
+
+.icon-system {
+    background-image: url(../images/icons/system.png) !important;
+}
+
+.icon-user {
+    background-image: url(../images/icons/man.gif) !important;
+}
+
+.icon-file {
+    background-image: url(../images/icons/download-file.png) !important;
+}
+
+.icon-add {
+    background-image: url(../images/icons/add.png) !important;
+}
+
+.icon-del {
+    background-image: url(../images/icons/delete.png) !important;
+}
+
+.icon-add-p {
+    background-image: url(../images/icons/add_p.png) !important;
+}
+
+.icon-del-p {
+    background-image: url(../images/icons/delete_p.png) !important;
+}
+
+.icon-edit {
+    background-image: url(../images/icons/edit.png) !important;
+}
+
+.icon-refresh {
+    background-image: url(../images/icons/refresh.gif) !important;
+}
+
+.icon-grid-list {
+    background-image: url(../images/icons/grid_list.png) !important;
+}
+
+.icon-search-form {
+    background-image: url(../images/icons/search_form.png) !important;
+}
+
+.icon-form {
+    background-image: url(../images/icons/form.png) !important;
+}
+
+.icon-search {
+    background-image: url(../images/icons/search.png) !important;
+}
+
+.icon-total {
+    background-image: url(../images/icons/user_edit.png) !important;
+    width: 16px;
+    height: 16px;
+}
+
+.icon-save {
+    background-image: url(../images/icons/save.png) !important;
+}
+
+.icon-reset {
+    background-image: url(../images/icons/reset.png) !important;
+}
+
+.icon-chart {
+    background-image: url(../images/icons/chart.gif) !important;
+}
+
+.icon-upload {
+    background-image: url(../images/icons/upload-file.png) !important;
+}
+
+.icon-unupload {
+    background-image: url(../images/icons/del-file.png) !important;
+}
+
+.icon-download {
+    background-image: url(../images/icons/download-file.png) !important;
+}
+
+.icon-word {
+    background-image: url(../images/icons/word.png) !important;
+}
+
+.icon-pdf {
+    background-image: url(../images/icons/pdf.png) !important;
+}
+
+.icon-excel {
+    background-image: url(../images/icons/excel.png) !important;
+}
+
+.icon-info {
+    background-image: url(../images/icons/info.gif) !important;
+}
+
+.icon-logout {
+    background-image: url(../images/icons/logout.png) !important;
+}
+
+.icon-style {
+    background-image: url(../images/icons/style.png) !important;
+}
+
+.icon-person-info {
+    /*background-image: url(images/person_info.png) !important;*/
+}
+
+.icon-person-info-edit {
+    background-image: url(../images/icons/person_info_edit.png) !important;
+}
+
+.icon-key-edit {
+    background-image: url(../images/icons/key_edit.png) !important;
+}
+
+.icon-version {
+    background-image: url(../images/icons/version.png) !important;
+}
+.icon-register {
+    background-image: url(../images/icons/register.png) !important;
+}
+
+.icon-docs {
+    background-image: url(../images/icons/docs.gif) !important;
+}
+
+.icon-help {
+    background-image: url(../images/icons/help.png) !important;
+}
+
+.icon-layout {
+    background-image: url(../images/icons/layout.png) !important;
+}
+
+.icon-grant {
+    background-image: url(../images/icons/grant.png) !important;
+}
+
+.icon-collapse-all {
+    background-image: url(../images/icons/collapse-all.gif) !important;
+}
+
+.icon-expand-all {
+    background-image: url(../images/icons/expand-all.gif) !important;
+}
+
+.icon-load-r {
+    background-image: url(../images/icons/load_r.png) !important;
+}
+
+.icon-yes {
+    background-image: url(../images/icons/yes.png) !important;
+}
+
+.icon-no {
+    background-image: url(../images/icons/no.png) !important;
+}
+
+.icon-ok {
+    background-image: url(../images/icons/ok.png) !important;
+}
+
+.icon-cancel {
+    background-image: url(../images/icons/cancel.png) !important;
+}
+
+.icon-tip {
+    background-image: url(../images/icons/tip.png) !important;
+}
+
+.icon-logout {
+    background-image: url(../images/icons/logout.png) !important;
+}
+
+.icon-sys-config {
+    background-image: url(../images/icons/sys_config.png) !important;
+}
+
+.icon-status-away {
+    background-image: url(../images/icons/status_away.png) !important;
+}
+
+.icon-status-busy {
+    background-image: url(../images/icons/status_busy.png) !important;
+}
+
+.icon-status-offline {
+    background-image: url(../images/icons/status_offline.png) !important;
+}
+
+.icon-status-online {
+    background-image: url(../images/icons/status_online.png) !important;
+}
+
+.icon-user-info {
+    background-image: url(../images/icons/user_info.png) !important;
+}
+
+.icon-email {
+    background-image: url(../images/icons/email.png) !important;
+}
+
+.icon-email-list {
+    background-image: url(../images/icons/email_list.png) !important;
+}
+
+.icon-im {
+    background-image: url(../images/icons/im.png) !important;
+}
+
+.icon-note {
+    background-image: url(../images/icons/note.png) !important;
+}
+
+.icon-link {
+    background-image: url(../images/icons/link.png) !important;
+}
+
+.icon-notice {
+    background-image: url(../images/icons/notice.png) !important;
+}
+
+.icon-news {
+    background-image: url(../images/icons/news.png) !important;
+}
+
+.icon-cog_edit {
+    background-image: url(../images/icons/cog_edit.png) !important;
+}
+
+.icon-user-set {
+    background-image: url(../images/icons/user_set.png) !important;
+}
+
+.icon-accordion {
+    background-image: url(../images/icons/accordion.gif) !important;
+}
+
+.icon-workflow {
+    background-image: url(../images/icons/workflow.png) !important;
+}
+
+.x-message-box .icon-saving {
+    background: transparent url(../images/icons/download.gif) no-repeat bottom left;
+    height: 46px;
+}
+
+.icon-product-relevance {
+    background-image: url(../images/icons/plugin.gif) !important;
+}
+
+.icon-product-asc {
+    background-image: url(../images/icons/Ascending.png) !important;
+}
+
+.icon-product-desc {
+    background-image: url(../images/icons/Descending.png) !important;
+}
+/*禁用启用*/
+.icon-enable {
+    background-image: url(../images/icons/accept.png) !important;
+}
+.icon-disable {
+    background-image: url(../images/icons/delete.png) !important;
+}
+/*定位*/
+.icon-locate{
+    background-image: url(../images/icons/locate.png) !important;
+}
+/*审核*/
+.icon-check-pending {
+    background-image: url(../images/icons/user_edit.png) !important;
+}
+.icon-check-pending-rejected {
+    background-image: url(../images/icons/stop.png) !important;
+}
+.icon-update {
+    background-image: url(../images/icons/Ascending.png) !important;
+}
+.icon-extension {
+    background-image: url(../images/icons/rss_go.png) !important;
+}
+.icon-audit-bargain {
+    background-image: url(../images/icons/user_comment.png) !important;
+}
+.icon-apply-bargain {
+    background-image: url(../images/icons/user_comment.png) !important;
+}
+.icon-application-view-list {
+    background-image: url(../images/icons/application_view_list.png) !important;
+}

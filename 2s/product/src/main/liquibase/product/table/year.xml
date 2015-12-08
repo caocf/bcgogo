@@ -1,0 +1,45 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="wujiaolong" id="year_1">
+        <createTable tableName="year">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="uuid" type="char(36)"/>
+            <column name="brand_id" type="bigint"/>
+            <column name="mfr_id" type="bigint"/>
+            <column name="model_id" type="bigint"/>
+            <column name="year" type="integer"/>
+            <column name="state" type="bigint"/>
+            <column name="memo" type="varchar(2000)"/>
+            <column name="shop_id" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="year" columnNames="id" constraintName="pk_year"/>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="year_2">
+        <createIndex tableName="year" indexName="idx_year_model_brand_year">
+            <column name="brand_id"/>
+            <column name="model_id"/>
+            <column name="year"/>
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="year_3">
+    <modifyColumn tableName="year">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

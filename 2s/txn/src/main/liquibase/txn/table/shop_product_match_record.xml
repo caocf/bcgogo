@@ -1,0 +1,52 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lw" id="shop_product_match_record_1">
+    <createTable tableName="shop_product_match_record">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="seed_product_name" type="varchar(200)"/>
+      <column name="seed_product_brand" type="varchar(200)"/>
+
+      <column name="matched_id" type="bigint"/>
+      <column name="matched_product_name" type="varchar(200)"/>
+      <column name="matched_product_brand" type="varchar(200)"/>
+
+      <column name="week_of_year" type="bigint"/>
+      <column name="match_time" type="bigint"/>
+
+    </createTable>
+  </changeSet>
+
+  <changeSet author="lw" id="shop_product_match_record_2">
+    <addPrimaryKey tableName="shop_product_match_record" columnNames="id"
+                   constraintName="pk_shop_product_match_record"/>
+  </changeSet>
+
+  <changeSet id="shop_product_match_record_3" author="lw">
+    <addColumn tableName="shop_product_match_record">
+      <column name="stat_day" type="bigint"/>
+      <column name="stat_month" type="bigint"/>
+      <column name="stat_year" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="shop_product_match_record_4" author="lw">
+    <addColumn tableName="shop_product_match_record">
+      <column name="product_id" type="bigint"/>
+      <column name="product_local_info_id" type="bigint"/>
+      <column name="product_category_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

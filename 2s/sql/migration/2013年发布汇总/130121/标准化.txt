@@ -1,0 +1,57 @@
+
+INSERT INTO `module` (`id`, `created`, `last_update`, `version`, `value`, `name`, `parent_id`) VALUES (600000001, 1, 1, 1, '产品管理', 'CRM_PRODUCT_MANAGE', NULL);
+
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('610000001','1','1','1','CRM_PRODUCT_SHOP_SEARCH','active','查询店铺商品','查询店铺商品','CRM','600000001');
+insert into  `role` (`id`,`created`,`last_update`,`version`,`name`,`status`,`memo`,`value`,`type`,`module_id`) VALUES ('610000002','1','1','1','CRM_PRODUCT_NORMAL_SEARCH','active','查询标准化商品','查询标准化商品','CRM','600000001');
+
+
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`) VALUES ('620000001','1','1','1','产品管理','','','','产品管理','1',null,null,'true');
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`) VALUES ('620010001','1','1','1','店铺商品管理','Ext.controller.product.ShopProductConfiguration','COMPONENT','','店铺商品管理','1',620000001,610000001,'true');
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`) VALUES ('620010002','1','1','1','标准产品库管理','Ext.controller.product.NormalProductConfiguration','COMPONENT','','标准产品库管理','2',620000001,610000002,'true');
+
+
+在 admin下 增加角色
+CRM_PRODUCT_NORMAL_SEARCH                查询标准化产品
+CRM_PRODUCT_NORMAL_ADD                   新增标准化产品
+CRM_PRODUCT_NORMAL_UPDATE                修改标准化产品
+CRM_PRODUCT_NORMAL_DELETE                删除标准化产品
+CRM_PRODUCT_NORMAL_SEARCH_RELEVANCE      查看被关联的店铺商品
+CRM_PRODUCT_NORMAL_DELETE_RELEVANCE      删除被关联的店铺商品
+
+CRM_PRODUCT_SHOP_SEARCH                  查询店铺商品
+CRM_PRODUCT_SHOP_SEARCH_NORMAL           弹出标准化界面
+CRM_PRODUCT_SHOP_NORMAL                  直接选标准化产品进行关联
+CRM_PRODUCT_SHOP_ADD_NORMAL              新增标准化产品进行关联
+
+在 admin下 增加资源
+             name                     value                                                      type          memo
+====================================role:CRM_PRODUCT_NORMAL_SEARCH================================================================
+CRM_product_normal_search             Ext.view.product.normalProduct.search                      render        查询标准化产品
+
+====================================role:CRM_PRODUCT_NORMAL_ADD================================================================
+CRM_product_normal_add                Ext.view.product.normalProduct.add                         render        新增标准化产品
+
+====================================role:CRM_PRODUCT_NORMAL_UPDATE================================================================
+CRM_product_normal_update             Ext.view.product.normalProduct.update                      render        修改标准化产品
+
+====================================role:CRM_PRODUCT_NORMAL_DELETE================================================================
+CRM_product_normal_delete             Ext.view.product.normalProduct.delete                      render        删除标准化产品
+
+====================================role:CRM_PRODUCT_NORMAL_SEARCH_RELEVANCE================================================================
+CRM_product_normal_search_relevance   Ext.view.product.normalProduct.searchRelevanc              render        查看被关联的店铺商品
+
+====================================role:CRM_PRODUCT_NORMAL_DELETE_RELEVANCE================================================================
+CRM_product_normal_delete_relevance   Ext.view.product.normalProduct.deleteRelevanc              render        删除被关联的店铺商品
+
+====================================role:CRM_PRODUCT_SHOP_SEARCH================================================================
+CRM_product_shop_search               Ext.view.product.shopProduct.search                        render        查询店铺商品
+
+====================================role:CRM_PRODUCT_SHOP_SEARCH_NORMAL================================================================
+CRM_product_shop_search_normal        Ext.view.product.shopProduct.searchNormal                  render        弹出标准化界面
+
+====================================role:CRM_PRODUCT_SHOP_NORMAL================================================================
+CRM_product_shop_normal              Ext.view.product.shopProduct.normal                         render        直接选标准化产品进行关联
+
+====================================role:CRM_PRODUCT_SHOP_ADD_NORMAL================================================================
+CRM_product_shop_add_normal              Ext.view.product.shopProduct.addNormal                  render        新增标准化产品进行关联
+

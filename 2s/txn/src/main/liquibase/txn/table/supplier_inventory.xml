@@ -1,0 +1,65 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="qiuxinyu" id="supplier_inventory_1">
+        <createTable tableName="supplier_inventory">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="bigint"/>
+            <column name="supplier_id" type="bigint"/>
+            <column name="shop_id" type="bigint"/>
+            <column name="storehouse_id" type="bigint"/>
+            <column name="total_in_storage_amount" type="double"/>
+            <column name="remain_amount" type="double"/>
+            <column name="unit" type="varchar(30)"/>
+            <column name="max_storage_price" type="double"/>
+            <column name="min_storage_price" type="double"/>
+            <column name="average_storage_price" type="double"/>
+            <column name="last_storage_time" type="bigint"/>
+            <column name="last_storage_price" type="double"/>
+            <column name="supplier_type" type="varchar(30)"/>
+            <column name="supplier_name" type="varchar(100)"/>
+            <column name="supplier_contact" type="varchar(100)"/>
+            <column name="supplier_mobile" type="varchar(100)"/>
+        </createTable>
+        <addPrimaryKey tableName="supplier_inventory" columnNames="id" constraintName="pk_supplier_inventory_id"/>
+    </changeSet>
+
+    <changeSet id="supplier_inventory_2" author="qiuxinyu">
+        <addColumn tableName="supplier_inventory">
+            <column name="last_purchase_inventory_order_id" type="bigint"/>
+            <column name="last_storage_amount" type="double"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="supplier_inventory_3" author="qiuxinyu">
+        <createIndex tableName="supplier_inventory" indexName="index_productId_supplierId_storehouseId">
+            <column name="product_id"/>
+            <column name="supplier_id"/>
+            <column name="shop_id"/>
+            <column name="storehouse_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="supplier_inventory_4" author="qiuxinyu">
+        <addColumn tableName="supplier_inventory">
+            <column name="is_disabled" type="varchar(20)"/>
+        </addColumn>
+        <dropIndex tableName="supplier_inventory" indexName="index_productId_supplierId_storehouseId"/>
+        <createIndex tableName="supplier_inventory" indexName="index_productId_supplierId_storehouseId">
+            <column name="product_id"/>
+            <column name="supplier_id"/>
+            <column name="shop_id"/>
+            <column name="storehouse_id"/>
+            <column name="is_disabled"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,169 @@
+@charset "utf-8";
+/* CSS Document */
+
+.i_main .i_mainTitle a{
+	margin-right:13px;
+}
+.card_main{
+	color:#000;
+	font-size:14px;
+	font-weight:bold;
+}
+.card_main .select_card{
+	width:165px;
+	margin-top:62px;
+	margin-top:60px\9;
+	clear:both;
+}
+.card_main .select_card,.card_main ul{
+	display:block;
+	float:left;
+}
+
+ul .setCard input{
+	background:url(../images/tacitly.png) no-repeat;
+	border:none;
+	width:64px;
+	height:31px;
+	height:36px\9;
+	color:#fff;
+	margin-right:5px;
+}
+ul .setCard  .choose_btn{
+	background:url(../images/navigate.png) no-repeat;
+}
+ul .card_show img{
+	margin-top:12px;
+}
+ul .setCard label{
+	margin:7px 10px 0px 0px;
+}
+.card_main ul li label,.card_main ul li img,.card_main ul li input{
+	display:block;
+	float:left;
+}
+
+.card_main ul li input[ type="radio"]:hover {
+  color:#663A02;
+  cursor: pointer;
+}
+.card_main .main_show li{
+	clear:both;
+	margin-bottom:10px;
+}
+.card_main ul  .card_show{
+	line-height:51px;
+}
+.card_main ul  .card_show input{
+	margin-top:20px;
+}
+.card_main ul .card_show label,.card_main ul .card_show img,.card_main ul .card_show input{
+	margin-right:5px;
+}
+.next_show input{
+	background:url(../images/register_button.jpg) no-repeat;
+	width:263px;
+	height:41px;
+	border:none;
+	margin-top:10px;
+	color:#fff;
+	font-size:20px;
+}
+.radio_card input{
+	margin-right:8px;
+}
+.radio_card input.txt_card{
+	margin:0px 8px;
+	width:80px;
+}
+.stock_txtName {
+	padding-top:0px;
+}
+.stock_txtName{
+	position: relative;
+}
+.type_card{
+	border:1px solid #BFBFC1;
+	color:#000000;
+	font-weight:normal;
+	position:absolute;
+	width:131px;
+	top:20px;
+	border-top:none;
+}
+.radio_card .type_card li{
+	padding-left:10px;
+	line-height:25px;
+	margin-bottom:0px;
+}
+.type_card li:hover{
+	color:#fff;
+	background: #666666;
+}
+.main_show .setCard{
+	margin-bottom:10px;
+	height:30px;
+}
+.radio_card .type_ca{
+	width:150px;
+	margin:0px 15px 0px 10px;
+}
+
+/*second--card*/
+.select_card label,.select_card span{
+	display:block;
+	text-align:right;
+	margin-right:20px;
+}
+.select_card span{
+	margin:18px 20px 0px 0px;
+	margin:4px 20px 0px 0px\9;
+}
+.chose_card span{
+	margin:10px 20px 0px 0px;
+	margin:-4px 20px 0px 0px\9;
+}
+.card_main ul li .txt_second{
+	margin-top:15px;
+}
+
+/*cardPolice*/
+.table2{
+	width:350px;
+	margin-top:10px;
+}
+.table2 tr  .tb_title{
+	padding-left:10px;
+}
+.table2 tr td{
+	height:25px;
+}
+.table2 tr td input{
+	width:95%;
+}
+.table2 tr td img{
+	margin:0px 5px 0px 5px;
+}
+.police_radio input{
+	width:100px;
+	margin-right:5px;
+}
+.card_main .show_polic li{
+	margin-bottom:15px;
+}
+
+.table2  tr .qixian input,.table2  .qixian label{
+	display:block;
+	float:left;
+}
+.table2  tr  .qixian  .txt_input{
+	width:110px;
+}
+.table2  tr  .qixian  .rad_input{
+	margin-top:12px;
+	margin-left:5px;
+}
+.table2  tr .qixian label{
+	margin-left: 5px;
+	margin-top: 7px;
+}

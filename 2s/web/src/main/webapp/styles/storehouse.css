@@ -1,0 +1,101 @@
+.i_upLeft{
+    float:left;
+    background:url(../images/i_brandLeft.jpg) no-repeat;
+    width:2px;
+    height:30px;
+}
+.i_upRight{
+    float:left;
+    background:url(../images/i_brandRight.jpg) no-repeat;
+    width:2px;
+    height:30px;
+}
+.i_supplierInfo{
+    float:left;
+    width:310px;
+}
+.more_supplier{width:590px;}
+
+.i_supplierInfo .i_upCenter{
+    width:300px;
+    float:left;
+    background:url(../images/i_brandbg.jpg) repeat-x;
+    height:30px;
+    color:#FFFFFF;
+}
+.i_supplierInfo .i_two{width:586px;}
+.i_supplierInfo .i_upCenter .i_note{
+    float:left;
+    background:url(../images/note.jpg) no-repeat 5px 7px;
+    width:250px;
+    padding-left:25px;
+    line-height:30px;
+    font-weight:bold;
+    color:#FFFFFF;
+}
+.i_supplierInfo .i_upCenter .more_title{width:530px;}
+
+.i_supplierInfo .i_upBottom .i_upBottomCenter{
+    float:left;
+    background:url(../images/centerBottom.jpg) repeat-x;
+    width:292px;
+    height:1px;
+    margin-top:6px;
+}
+.more_supplier .i_upBottom .i_upBottomCenter{width:578px;}
+.i_supplierInfo .supplierTable td{
+    border-bottom:none;
+    color:#000000;
+    height:35px;
+}
+td input.btn{background:url(../images/chkTong.png) no-repeat; width:76px; height:25px; line-height:25px; text-align:center; color:#fff; cursor:pointer; border:none;}
+td input.btn:hover{background:url(../images/chkTi.png) no-repeat; color:#663A02}
+.i_supplierInfo .i_addStoreHouse_body {
+    color: #666666;
+    font-weight: bold;
+}
+.tab_repay .i_upBottom{
+    float:left;
+    background:#FFFFFF;
+}
+.tab_repay .i_upBottom .i_upBottomCenter{
+    float:left;
+    background:url(../images/centerBottom.jpg) repeat-x;
+    width:262px;
+    height:1px;
+    margin-top:6px;
+}
+.i_upBottom{
+    float:left;
+    background:#FFFFFF;
+}
+.i_upBottomLeft{
+    float:left;
+    background:url(../images/leftBottom.jpg) no-repeat;
+    width:6px;
+    height:7px;
+}
+.i_supplierInfo .i_upBottom .i_upBottomCenter{
+    float:left;
+    background:url(../images/centerBottom.jpg) repeat-x;
+    width:292px;
+    height:1px;
+    margin-top:6px;
+}
+.i_upBottom .i_upBottomRight{
+    float:left;
+    background:url(../images/rightBottom.jpg) no-repeat;
+    width:6px;
+    height:7px;
+}
+
+.i_upCenter .i_close {
+    background: url(../images/close.jpg) no-repeat 0 6px ;
+    cursor: pointer;
+    float: left;
+    height: 28px;
+    width: 17px;
+}
+textarea {
+    resize: none;
+}

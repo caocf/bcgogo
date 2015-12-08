@@ -1,0 +1,45 @@
+一.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波、邱鑫宇）
+
+
+三.发布应用 （纪友文）
+
+四.添加权限
+
+董楠：
+1.所有汽修版本的前台，仓管，经理/店长，老板/财务添加权限
+    求购咨询
+2.所有汽配版本的经理/店长，老板/财务添加权限
+    供求中心/找供应商
+3.所有汽配版本的经理/店长，老板/财务添加权限
+    供求中心/我要买配件/发布求购
+    供求中心/我要买配件/我的求购
+
+web_util_getAllAreaToCity /web/shop.do?method=getAllAreaToCity 添加到登录后基本权限   shop request
+
+邱鑫宇：
+新增资源：
+web_ad_show   WEB.AD_SHOW  SHOP    侧边栏广告     render
+web_autoAccessoryOnline_getCommodityAd    /web/autoAccessoryOnline.do?method=getCommodityAd   SHOP   默认推荐广告   request
+已有资源：
+web_autoAccessoryOnline_getCommodityQuotationsList
+将这三个资源分配给：SHOP下面的“汽配专业版基本权限”，“汽配豪华版基本权限”，“汽配标准版基本权限”，“初级版基本权限”，“高级版基本权限”，
+              “微型版基本权限”，“汽配版基本权限”，“综合基本权限”
+
+新增资源：
+web_user_screen_info  /web/user.do?method=getUserScreenInfo  SHOP  获取用户浏览器信息   request
+
+五.初始化
+
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、肖开波）
+4.验证功能（纪友文、肖开波）
+
+

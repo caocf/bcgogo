@@ -1,0 +1,38 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="wujiaolong" id="template_1">
+        <createTable tableName="template">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="uuid" type="char(36)"/>
+            <column name="type" type="integer"/>
+            <column name="name" type="varchar(50)"/>
+            <column name="template" type="longtext"/>
+            <column name="kindId" type="bigint"/>
+            <column name="ver" type="decimal(18,4)"/>
+            <column name="state" type="bigint"/>
+            <column name="memo" type="varchar(2000)"/>
+            <column name="shop_id" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="template" columnNames="id" constraintName="pk_template"/>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="template_2">
+    <modifyColumn tableName="template">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

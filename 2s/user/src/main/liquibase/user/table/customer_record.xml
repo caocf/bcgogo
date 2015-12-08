@@ -1,0 +1,193 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="mazidong" id="customer_record_1">
+        <createTable tableName="customer_record">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="name" type="varchar(20)"/>
+            <column name="company" type="varchar(20)"/>
+            <column name="mobile" type="varchar(20)"/>
+            <column name="member_number" type="varchar(20)"/>
+            <column name="birthday" type="bigint"/>
+            <column name="qq" type="varchar(20)"/>
+            <column name="email" type="varchar(50)"/>
+            <column name="address" type="varchar(50)"/>
+            <column name="brand" type="varchar(20)"/>
+            <column name="model" type="varchar(20)"/>
+            <column name="year" type="varchar(20)"/>
+            <column name="engine" type="varchar(20)"/>
+            <column name="vin" type="varchar(20)"/>
+            <column name="car_date" type="bigint"/>
+            <column name="total_amount" type="float"/>
+            <column name="total_receivable" type="float"/>
+            <column name="last_date" type="bigint"/>
+            <column name="last_bill" type="varchar(500)"/>
+            <column name="last_amount" type="float"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="mzdong" id="customer_record_2">
+        <addColumn tableName="customer_record">
+            <column name="licence_no" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="mzdong" id="customer_record_3">
+        <addColumn tableName="customer_record">
+            <column name="repay_date" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="mzdong" id="customer_record_4">
+        <dropColumn tableName="customer_record" columnName="birthday"/>
+        <addColumn tableName="customer_record">
+            <column name="customer_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="xiaojian" id="customer_record_5">
+        <addPrimaryKey tableName="customer_record" columnNames="id" constraintName="pk_customer_record"/>
+    </changeSet>
+
+    <changeSet author="zhouxiaochen" id="customer_record_6">
+        <createIndex tableName="customer_record" indexName="idx_customer_id">
+            <column name="customer_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="shaolei" id="customer_record_7">
+        <addColumn tableName="customer_record">
+            <column name="contact" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+
+
+    <changeSet author="zoujianhong" id="customer_record_8">
+        <createIndex tableName="customer_record" indexName="IDX_CUSTOMERRECORD_SHOPID_TOTALRECEIVABLE_TOTALAMOUNT">
+            <column name="shop_id" />
+            <column name="total_receivable" />
+            <column name="total_amount" />
+        </createIndex>
+        <createIndex tableName="customer_record" indexName="IDX_CUSTOMERRECORD_NAME">
+            <column name="name" />
+        </createIndex>
+        <createIndex tableName="customer_record" indexName="IDX_CUSTOMERRECORD_MOBILE">
+            <column name="mobile" />
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="zoujianhong" id="customer_record_9">
+        <modifyColumn tableName="customer_record">
+            <column name="name" type="varchar(100)"/>
+        </modifyColumn>
+    </changeSet>
+
+  <changeSet author="zoujianhong" id="customer_record_10">
+        <modifyColumn tableName="customer_record">
+            <column name="mobile" type="varchar(100)"/>
+        </modifyColumn>
+    </changeSet>
+
+   <changeSet author="zhangjuntao" id="customer_record_11">
+        <addColumn tableName="customer_record">
+            <column name="lastbillshort" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+  <changeSet author="zhangjuntao" id="customer_record_12">
+        <addColumn tableName="customer_record">
+            <column name="memo" type="varchar(500)"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="customer_record_13">
+    <modifyColumn tableName="customer_record">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="customer_record_14" author="chenfanglei">
+      <addColumn tableName="customer_record">
+          <column name="status" type="varchar(20)"></column>
+      </addColumn>
+  </changeSet>
+
+  <changeSet id="customer_record_15" author="weilingfeng">
+      <addColumn tableName="customer_record">
+          <column name="customer_shop_id" type="bigint"></column>
+      </addColumn>
+  </changeSet>
+
+  <changeSet id="customer_record_16" author="jimuchen">
+      <addColumn tableName="customer_record">
+          <column name="total_return_amount" type="float" defaultValue ="0">
+              <constraints nullable="false" />
+          </column>
+      </addColumn>
+  </changeSet>
+
+  <changeSet id="customer_record_17" author="chenfanglei">
+      <addColumn tableName="customer_record">
+          <column name="total_debt" type="double" defaultValue ="0">
+          </column>
+      </addColumn>
+  </changeSet>
+
+   <changeSet id="customer_record_18" author="chenfanglei">
+       <renameColumn tableName="customer_record"
+                     oldColumnName="total_debt" newColumnName="total_payable" columnDataType="double"/>
+   </changeSet>
+
+   <changeSet author="liuWei" id="customer_record_19">
+    <modifyColumn tableName="customer_record">
+      <column name="total_amount" type="double"/>
+    </modifyColumn>
+     <modifyColumn tableName="customer_record">
+      <column name="total_receivable" type="double"/>
+    </modifyColumn>
+     <modifyColumn tableName="customer_record">
+      <column name="last_amount" type="double"/>
+    </modifyColumn>
+     <modifyColumn tableName="customer_record">
+      <column name="total_return_amount" type="double"/>
+    </modifyColumn>
+  </changeSet>
+
+    <changeSet id="customer_record_jinyun_19" author="jinyuan">
+        <addColumn tableName="customer_record">
+            <column name="province" type="bigint"></column>
+            <column name="city" type="bigint"></column>
+            <column name="region" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="customer_record_20">
+     <modifyColumn tableName="customer_record">
+      <column name="brand" type="varchar(50)"/>
+    </modifyColumn>
+     <modifyColumn tableName="customer_record">
+      <column name="model" type="varchar(50)"/>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="customer_record_21" author="lw">
+    <addColumn tableName="customer_record">
+      <column name="consume_times" type="bigint"></column>
+      <column name="member_consume_times" type="bigint"></column>
+      <column name="member_consume_total" type="double"></column>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

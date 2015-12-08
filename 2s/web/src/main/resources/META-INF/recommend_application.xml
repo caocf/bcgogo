@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配件推荐job-->
+    <bean name="accessoryRecommendJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+         <property name="jobClass" value="com.bcgogo.schedule.bean.recommend.AccessoryRecommendSchedule"/>
+    </bean>
+
+    <bean id="accessoryRecommendTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="accessoryRecommendJobDetail"/>
+        <property name="cronExpression" value="0 0 1 * * ?"/>
+    </bean>
+
+    <!--资讯推荐job-->
+    <bean name="preBuyOrderInformationRecommendJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.recommend.PreBuyOrderInformationRecommendSchedule"/>
+    </bean>
+
+    <bean id="preBuyOrderInformationRecommendTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="preBuyOrderInformationRecommendJobDetail"/>
+        <property name="cronExpression" value="0 */10 * * * ?"/>
+    </bean>
+
+    <!--店铺推荐job  变更小   数据量大  每天一次-->
+    <bean name="shopRecommendJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.recommend.ShopRecommendSchedule"/>
+    </bean>
+
+    <bean id="shopRecommendTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="shopRecommendJobDetail"/>
+        <property name="cronExpression" value="0 0 1 * * ?"/>
+    </bean>
+
+    <!--推送消息job-->
+    <bean name="pushMessageBuildJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.recommend.PushMessageBuildSchedule"/>
+    </bean>
+
+    <bean id="pushMessageBuildTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="pushMessageBuildJobDetail"/>
+        <property name="cronExpression" value="0 */10 * * * ?"/>
+    </bean>
+
+    <!--数据迁移job  每tian  1点-->
+    <bean name="moveDataToTraceJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.MoveDataToTraceSchedule"/>
+    </bean>
+
+    <bean id="moveDataToTraceTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="moveDataToTraceJobDetail"/>
+        <property name="cronExpression" value="0 0 1 * * ?"/>
+    </bean>
+
+    <bean name="sellWellBusinessChanceBuildJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.recommend.SellWellBusinessChanceSchedule"/>
+    </bean>
+
+    <bean id="sellWellBusinessChanceBuildTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="sellWellBusinessChanceBuildJob"/>
+        <property name="cronExpression" value="0 0 1 ? * L"/><!--每周星期天1点-->
+    </bean>
+
+    <bean id="recommendScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                 <ref local="accessoryRecommendTrigger"/>
+                 <ref local="preBuyOrderInformationRecommendTrigger"/>
+                 <ref local="shopRecommendTrigger"/>
+                 <ref local="pushMessageBuildTrigger"/>
+                 <ref local="moveDataToTraceTrigger"/>
+                 <ref local="sellWellBusinessChanceBuildTrigger"/>
+            </list>
+        </property>
+    </bean>
+
+
+</beans>

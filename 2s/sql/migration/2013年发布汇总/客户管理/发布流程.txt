@@ -1,0 +1,4 @@
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`)
+VALUES ('52000002','1','1','1','客户管理','','','','客户管理','2',null,null,'true');
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`)
+VALUES ('520020001','1','1','1','线索客户','Ext.controller.customerMange.customersClues.CustomerClueController','COMPONENT','','角色配置','1',52000002,10000010020181918,'true');

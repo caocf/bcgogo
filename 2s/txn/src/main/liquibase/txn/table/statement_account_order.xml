@@ -1,0 +1,70 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="liuWei" id="statement_account_order_1">
+    <createTable tableName="statement_account_order">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="start_date" type="bigint"/>
+      <column name="end_date" type="bigint"/>
+      <column name="receipt_no" type="varchar(20)"/>
+      <column name="vest_date" type="bigint"/>
+      <column name="sales_man_id" type="bigint"/>
+      <column name="sales_man" type="varchar(50)"/>
+      <column name="customer_or_supplier_id" type="bigint"/>
+      <column name="customer_or_supplier" type="varchar(100)"/>
+      <column name="total" type="double"/>
+      <column name="order_type" type="varchar(50)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="statement_account_order_2" author="liuWei">
+    <addPrimaryKey tableName="statement_account_order" columnNames="id" constraintName="pk_statement_account_order"/>
+  </changeSet>
+
+  <changeSet author="liuWei" id="statement_account_order_3">
+    <createIndex tableName="statement_account_order" indexName="IDX_STATEMENTACCOUNTORDER_SHOPID_RECEIPTNO_SALESMANID">
+      <column name="shop_id"/>
+      <column name="receipt_no"/>
+      <column name="sales_man_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="statement_account_order_4" author="liuWei">
+    <addColumn tableName="statement_account_order">
+      <column name="order_status" type="varchar(50)"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="statement_account_order_5" author="liuWei">
+    <addColumn tableName="statement_account_order">
+      <column name="statement_account_order_id" type="varchar(50)"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="statement_account_order_6" author="liuWei">
+    <addColumn tableName="statement_account_order">
+      <column name="contact" type="varchar(100)"/>
+      <column name="mobile" type="varchar(100)"/>
+      <column name="address" type="varchar(100)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="statement_account_order_7" author="liuWei">
+    <addColumn tableName="statement_account_order">
+      <column name="total_receivable" type="double"/>
+      <column name="total_payable" type="double"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

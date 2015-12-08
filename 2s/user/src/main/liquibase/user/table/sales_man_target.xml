@@ -1,0 +1,50 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="shaolei" id="sales_man_target_1">
+    <createTable tableName="sales_man_target">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="sales_man_id" type="bigint"/>
+      <column name="month" type="int"/>
+      <column name="month_target" type="int"/>
+      <column name="year" type="varchar(4)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="sales_man_target_2" author="shaolei">
+    <addPrimaryKey tableName="sales_man_target" columnNames="id" constraintName="pk_sales_man_target"/>
+  </changeSet>
+
+  <changeSet id="sales_man_target_3" author="shaolei">
+    <addColumn tableName="sales_man_target">
+      <column name="year_target" type="int"/>
+    </addColumn>
+  </changeSet>
+
+    <changeSet author="zoujianhong" id="sales_man_target_4">
+        <createIndex tableName="sales_man_target" indexName="IDX_SALESMANTARGET_YEAR_MONTH_SALESMANID">
+            <column name="year" />
+            <column name="month" />
+            <column name="sales_man_id" />
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="sales_man_target_5">
+    <modifyColumn tableName="sales_man_target">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

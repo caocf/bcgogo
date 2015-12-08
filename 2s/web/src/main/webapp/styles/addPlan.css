@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+.table2 tr td input{ width:90%;}
+.more_his{ float:right;}
+.more_his input.btn {
+	background:url(../images/editCancel.jpg) no-repeat;
+	border:none;
+	width:58px;
+	height:31px;
+	color:#6699cc;
+	cursor:pointer;
+}
+.i_searchBrand .i_upBody{ padding-right:10px;width:820px;}
+.more_his{ margin-top:10px;*margin-top:0px;}
+.table2 tr .time_plan input,.table2 tr .time_plan img,.table2 tr .pone_plan input,.table2 tr .pone_plan img{ display:block; float:left;}
+.table2 tr .time_plan input,.table2 tr .pone_plan input{width:70%; margin-right:2px;}
+.table2 tr .time_plan img{width:22px; height:22px;}
+.table2 tr .pone_plan input{width:70%;*width:71%;}
+.table2 tr .pone_plan img{width:20px; height:20px;}

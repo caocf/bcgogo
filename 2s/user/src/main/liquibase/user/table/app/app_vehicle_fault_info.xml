@@ -1,0 +1,40 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="lw" id="app_vehicle_fault_info_1">
+        <createTable tableName="app_vehicle_fault_info">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="app_user_no" type="varchar(100)"/>
+            <column name="app_vehicle_id" type="bigint"/>
+            <column name="obd_id" type="bigint"/>
+            <column name="report_time" type="bigint"/>
+            <column name="status" type="varchar(50)"/>
+            <column name="error_code" type="varchar(50)"/>
+            <column name="content" type="varchar(500)"/>
+        </createTable>
+        <addPrimaryKey tableName="app_vehicle_fault_info" columnNames="id" constraintName="pk_app_vehicle_fault_info"/>
+    </changeSet>
+
+    <changeSet id="app_vehicle_fault_info_2_qiuxinyu" author="qiuxinyu">
+        <createIndex tableName="app_vehicle_fault_info" indexName="IDX_APP_VEHICLE_FAULT_INFO_APP_USER_NO">
+          <column name="app_user_no"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="app_vehicle_fault_info_3_qiuxinyu" author="QiuXinYu">
+        <addColumn tableName="app_vehicle_fault_info">
+            <column name="last_operate_time" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

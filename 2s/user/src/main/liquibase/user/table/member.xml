@@ -1,0 +1,81 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="chenfanglei" id="member_1">
+    <createTable tableName="member">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"></column>
+      <column name="customer_id" type="bigint"></column>
+      <column name="type" type="varchar(50)"></column>
+      <column name="member_no" type="varchar(50)"></column>
+      <column name="status" type="varchar(50)"></column>
+      <column name="balance" type="double"></column>
+      <column name="accumulate_points" type="bigint"></column>
+      <column name="service_discount" type="double"></column>
+      <column name="material_discount" type="double"></column>
+      <column name="join_date" type="bigint"></column>
+      <column name="deadline" type="bigint"></column>
+      <column name="password" type="varchar(50)"></column>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="member_2" author="chenfanglei">
+    <addPrimaryKey tableName="member" columnNames="id" constraintName="pk_member"></addPrimaryKey>
+  </changeSet>
+
+  <changeSet id="member_3" author="chenfanglei">
+    <createIndex tableName="member" indexName="idx_member_1">
+      <column name="shop_id"></column>
+      <column name="customer_id"></column>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="member_4" author="chenfanglei">
+    <addColumn tableName="member">
+      <column name="password_status" type="varchar(20)"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="liuWei" id="member_5">
+    <dropIndex tableName="member" indexName="idx_member_1"/>
+  </changeSet>
+
+  <changeSet id="member_6" author="liuWei">
+    <createIndex tableName="member" indexName="idx_shopid">
+      <column name="shop_id"></column>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="liuWei" id="member_7">
+    <dropIndex tableName="member" indexName="idx_shopid"/>
+    <createIndex tableName="member" indexName="idx_shopid_customerid">
+      <column name="shop_id"></column>
+      <column name="customer_id"></column>
+    </createIndex>
+    <createIndex tableName="member" indexName="idx_memberno">
+      <column name="member_no"></column>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="member_8" author="jimuchen">
+    <modifyColumn tableName="member">
+      <column name="password" type="varchar(100)"/>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="member_9" author="chenfanglei">
+      <addColumn tableName="member">
+          <column name="member_discount" type="double"></column>
+      </addColumn>
+  </changeSet>
+</databaseChangeLog>

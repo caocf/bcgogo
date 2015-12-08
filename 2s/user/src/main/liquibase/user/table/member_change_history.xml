@@ -1,0 +1,36 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="chenfanglei" id="member_change_history_1">
+        <createTable tableName="member_change_history">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"></column>
+            <column name="member_id" type="bigint"></column>
+            <column name="customer_id" type="bigint"></column>
+            <column name="type" type="varchar(50)"></column>
+            <column name="member_card_id" type="bigint"></column>
+            <column name="old_member_type" type="bigint"></column>
+            <column name="new_member_type" type="bigint"></column>
+            <column name="old_balance" type="double"></column>
+            <column name="new_balance" type="double"></column>
+            <column name="old_accumulate_points" type="bigint"></column>
+            <column name="new_accumulate_points" type="bigint"></column>
+            <column name="reason" type="varchar(100)"></column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="member_change_history_2" author="chenfanglei">
+        <addPrimaryKey tableName="member_change_history" columnNames="id" constraintName="pk_member_service"></addPrimaryKey>
+    </changeSet>
+
+</databaseChangeLog>

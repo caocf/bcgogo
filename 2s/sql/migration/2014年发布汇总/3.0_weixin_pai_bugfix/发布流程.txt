@@ -1,0 +1,66 @@
+
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+
+  1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+     发布生产执行
+        SET FOREIGN_KEY_CHECKS=0;
+        -- ----------------------------
+        -- Table structure for `wx_shop_account`
+        -- ----------------------------
+        DROP TABLE IF EXISTS `wx_shop_account`;
+        CREATE TABLE `wx_shop_account` (
+          `id` bigint(20) NOT NULL DEFAULT '0',
+          `created` bigint(20) NOT NULL,
+          `last_update` bigint(20) NOT NULL,
+          `version` bigint(20) NOT NULL,
+          `shop_id` bigint(20) DEFAULT NULL,
+          `account_id` bigint(20) DEFAULT NULL,
+          `deleted` varchar(20) COLLATE utf8mb4_bin DEFAULT NULL,
+          PRIMARY KEY (`id`),
+          KEY `IDX_wx_shop_account_account_id` (`account_id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+         alter table wx_qr_code add column public_no varchar(100);
+
+三.发布应用
+
+六.初始化
+ 1.执行sql
+  update wx_qr_code set public_no='gh_8517c1b80e05';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------下面是12-2发布内容，已作废----------------------------------------------------------------------------------------------------------
+
+
+ 配置权限
+ SHOP-客户管理-微信管理，添加下面资源
+   web_toWxShopConfig         /web/weChat.do?method=toWxShopConfig      SHOP     跳转到微信配置                          request
+   web_saveWelcomeWord        /web/weChat.do?method=saveWelcomeWord     SHOP     保存欢迎词                              request
+ 初始化,执行sql
+
+ALTER TABLE `shop_config` ADD COLUMN(
+ `value` varchar(500) COLLATE utf8_bin DEFAULT NULL,
+  `description` varchar(500) COLLATE utf8_bin DEFAULT NULL
+ )

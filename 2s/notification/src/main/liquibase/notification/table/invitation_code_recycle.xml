@@ -1,0 +1,33 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet author="zhangjuntao" id="invitation_code_recycle_1">
+        <createTable tableName="invitation_code_recycle">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inviter_id" type="bigint"/>
+            <column name="inviter_type" type="varchar(20)"/>
+            <column name="invitee_id" type="bigint"/>
+            <column name="invitee_type" type="varchar(20)"/>
+            <column name="status" type="varchar(20)"/>
+            <column name="code" type="varchar(50)"/>
+            <column name="usage_time" type="bigint"/>
+            <column name="expiration_time" type="bigint"/>
+            <column name="invite_time" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="invitation_code_recycle" columnNames="id" constraintName="pk_invitation_code_recycle"/>
+    </changeSet>
+    <changeSet author="zhangjuntao" id="invitation_code_recycle_2">
+        <addColumn tableName="invitation_code_recycle">
+            <column name="type" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,42 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet author="zhangjuntao" id="juhe_violate_regulation_city_search_condition_1">
+        <createTable tableName="juhe_violate_regulation_city_search_condition">
+            <column name="id" type="bigint"/>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="province_name" type="varchar(50)"/>
+            <column name="province_code" type="varchar(50)"/>
+            <column name="city_name" type="varchar(50)"/>
+            <column name="city_code" type="varchar(50)"/>
+            <column name="engine" type="bigint"/>
+            <column name="engine_no" type="bigint"/>
+            <column name="classa" type="bigint"/>
+            <column name="class_no" type="bigint"/>
+            <column name="regist" type="bigint"/>
+            <column name="regist_no" type="bigint"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="juhe_violate_regulation_city_search_condition_2_zhangjuntao" author="zhangjuntao">
+        <addPrimaryKey tableName="juhe_violate_regulation_city_search_condition" columnNames="id" constraintName="pk_juhe_violate_regulation_city_search_condition"/>
+    </changeSet>
+    <changeSet author="zhangjuntao" id="juhe_violate_regulation_city_search_condition_3_zhangjuntao">
+        <createIndex tableName="juhe_violate_regulation_city_search_condition" indexName="idx_city_code">
+            <column name="city_code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="juhe_violate_regulation_city_search_condition_4_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="juhe_violate_regulation_city_search_condition">
+            <column name="status" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

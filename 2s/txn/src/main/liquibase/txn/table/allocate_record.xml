@@ -1,0 +1,44 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xzhu" id="allocate_record_xzhu_1">
+        <createTable tableName="allocate_record">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="receipt_no" type="varchar(20)"/>
+
+            <column name="editor_id" type="bigint"/>
+            <column name="editor" type="varchar(20)"/>
+            <column name="edit_date" type="bigint"/>
+
+            <column name="vest_date" type="bigint"/>
+
+            <column name="out_storehouse_id" type="bigint"/>
+            <column name="out_storehouse_name" type="varchar(100)"/>
+
+            <column name="in_storehouse_id" type="bigint"/>
+            <column name="in_storehouse_name" type="varchar(100)"/>
+
+            <column name="origin_order_id" type="bigint"/>
+            <column name="origin_order_type" type="varchar(50)"/>
+
+            <column name="total_cost_price" type="double"/>
+            <column name="total_amount" type="double"/>
+            <column name="memo" type="varchar(500)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="allocate_record_xzhu_2" author="xzhu">
+        <addPrimaryKey tableName="allocate_record" columnNames="id" constraintName="pk_allocate_record"/>
+    </changeSet>
+</databaseChangeLog>

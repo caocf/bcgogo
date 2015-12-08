@@ -1,0 +1,67 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet author="zhoudongming" id="repeal_order_1">
+    <createTable tableName="repeal_order">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="date" type="bigint"/>
+      <column name="no" type="varchar(20)"/>
+      <column name="dept_id" type="bigint"/>
+      <column name="dept" type="float"/>
+      <column name="executor_id" type="bigint"/>
+      <column name="executor" type="varchar(20)"/>
+      <column name="total" type="float"/>
+      <column name="memo" type="varchar(500)"/>
+      <column name="editor_id" type="bigint"/>
+      <column name="editor" type="varchar(20)"/>
+      <column name="edit_date" type="bigint"/>
+      <column name="order_id" type="bigint"/>
+      <column name="order_type" type="char(20)"/>
+      <column name="repeal_date" type="bigint"/>
+      <column name="settled_amount" type="float"/>
+      <column name="status" type="bigint"/>
+      <column name="vest_date" type="bigint"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="repeal_order_2" author="zhoudongming">
+    <addPrimaryKey tableName="repeal_order" columnNames="id" constraintName="pk_repair_order"/>
+  </changeSet>
+
+  <changeSet id="repeal_order_3" author="zhoudongming">
+    <modifyColumn tableName="repeal_order">
+      <column name="dept" type="varchar(20)"/>
+    </modifyColumn>
+  </changeSet>
+  <changeSet id="repeal_order_4" author="zhoudongming">
+    <addColumn tableName="repeal_order">
+      <column name="debt" type="float"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="repeal_order_5" author="jimuchen">
+    <addColumn tableName="repeal_order">
+      <column name="order_type_enum" type="varchar(50)"/>
+      <column name="status_enum" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="repeal_order_6">
+    <modifyColumn tableName="repeal_order">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

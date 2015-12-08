@@ -1,0 +1,36 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="lw" id="obd_user_vehicle_1">
+        <createTable tableName="obd_user_vehicle">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="obd_id" type="bigint"/>
+            <column name="app_user_no" type="varchar(100)"/>
+            <column name="app_vehicle_id" type="bigint"/>
+            <column name="status" type="varchar(50)"/>
+            <column name="bind_time" type="bigint"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="obd_user_vehicle_2" author="lw">
+        <addPrimaryKey tableName="obd_user_vehicle" columnNames="id" constraintName="pk_obd_user_vehicle"/>
+    </changeSet>
+
+    <changeSet author="lw" id="obd_user_vehicle_3">
+        <createIndex tableName="obd_user_vehicle" indexName="IDX_APPUSERNO_OBDID_APPVEHICLEID">
+            <column name="app_user_no"/>
+            <column name="obd_id"/>
+            <column name="app_vehicle_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

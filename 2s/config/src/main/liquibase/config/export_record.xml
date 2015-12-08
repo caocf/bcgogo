@@ -1,0 +1,32 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zoujianhong" id="export_record_1">
+        <createTable tableName="export_record" >
+            <column name="id" type="bigint"/>
+            <column name="version" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="user_no" type="varchar(100)"/>
+            <column name="scene" type="varchar(20)"/>
+            <column name="description" type="varchar(4000)"/>
+            <column name="status" type="varchar(20)"/>
+        </createTable>
+
+        <addPrimaryKey tableName="export_record" columnNames="id" constraintName="pk_export_record"/>
+    </changeSet>
+    <changeSet author="jinyuan" id="export_record_2">
+        <modifyColumn tableName="export_record">
+            <column name="scene" type="varchar(50)"/>
+        </modifyColumn>
+    </changeSet>
+</databaseChangeLog>

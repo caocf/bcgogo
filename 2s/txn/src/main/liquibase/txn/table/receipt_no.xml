@@ -1,0 +1,38 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="chenfanglei" id="receipt_no_1">
+        <createTable tableName="receipt_no">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="type" type="varchar(20)"/>
+            <column name="receipt_no" type="varchar(20)" />
+        </createTable>
+    </changeSet>
+    
+    <changeSet id="receipt_no_2" author="chenfanglei">
+        <createIndex tableName="receipt_no" indexName="IDX_RECEIPTNO_001">
+            <column name="shop_id"></column>
+            <column name="type"></column>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="receipt_no_3" author="chenfanglei">
+        <addPrimaryKey tableName="receipt_no" columnNames="id" constraintName="pk_receipt_no"/>
+    </changeSet>
+    <changeSet id="receipt_no_4" author="liuWei">
+      <modifyColumn tableName="receipt_no">
+        <column name="type" type="varchar(50)"/>
+      </modifyColumn>
+    </changeSet>
+</databaseChangeLog>

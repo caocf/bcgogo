@@ -1,0 +1,75 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="lw" id="app_user_1">
+        <createTable tableName="app_user">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="app_user_no" type="varchar(100)"/>
+            <column name="password" type="varchar(100)"/>
+            <column name="mobile" type="varchar(50)"/>
+            <column name="email" type="varchar(100)"/>
+            <column name="name" type="varchar(100)"/>
+            <column name="recommend_shop_id" type="bigint"/>
+            <column name="recommend_shop_employee" type="varchar(100)"/>
+            <column name="status" type="varchar(50)"/>
+            <column name="send_sms_date" type="bigint"/>
+            <column name="send_sms_times" type="int"/>
+        </createTable>
+        <addPrimaryKey tableName="app_user" columnNames="id" constraintName="pk_app_user"/>
+        <createIndex tableName="app_user" indexName="IDX_APPUSER_USERNO">
+            <column name="app_user_no"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="app_user_2_zhangjuntao" author="zhangjuntao">
+        <addUniqueConstraint tableName="app_user" columnNames="app_user_no" constraintName="unique_app_user_no"/>
+        <addUniqueConstraint tableName="app_user" columnNames="mobile" constraintName="unique_app_user_mobile"/>
+    </changeSet>
+    <changeSet id="app_user_3_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="app_user">
+            <column name="last_expense_shop_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="app_user_4_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="app_user">
+            <column name="data_kind" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="app_user_5_zhangjuntao" author="zhangjuntao">
+        <renameColumn tableName="app_user" oldColumnName="recommend_shop_id" newColumnName="registration_shop_id"
+                      columnDataType="bigint"/>
+        <renameColumn tableName="app_user" oldColumnName="recommend_shop_employee"
+                      newColumnName="registration_shop_employee" columnDataType="varchar(100)"/>
+    </changeSet>
+
+    <changeSet id="app_user_6_lw" author="lw">
+      <addColumn tableName="app_user">
+        <column name="user_type" type="varchar(50)"/>
+      </addColumn>
+    </changeSet>
+
+    <changeSet id="app_user_7_jmc" author="jimuchen">
+        <dropUniqueConstraint tableName="app_user" constraintName="unique_app_user_mobile" />
+        <addUniqueConstraint tableName="app_user" columnNames="mobile,user_type" constraintName="unique_app_user_mobile_usertype" />
+    </changeSet>
+    <changeSet id="app_user_8_sinYuQiu" author="sinYuQiu">
+        <addColumn tableName="app_user">
+            <column name="device_token" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="app_user_9_sinYuQiu" author="sinYuQiu">
+        <addColumn tableName="app_user">
+            <column name="um_device_token" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

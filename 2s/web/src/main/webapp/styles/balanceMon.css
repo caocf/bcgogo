@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS Document */
+.title_color .cus_titleLeft,.title_color .cus_titleBody,.title_color .cus_titleRight{ background:none;}
+.title_color div{color:#666; font-size:14px; font-weight:bold;}
+.i_history .bg_color{ background:none;width:720px;}
+.i_history .i_upCenter {width:715px; }
+.i_history .i_upCenter .i_note{width:665px;}
+.i_history .i_upBody{width:701px; clear:both;}
+.i_mainRight .cus_titleBody {
+width:640px;
+_width:645px;
+
+
+}
+.i_history .i_upBottom .i_upBottomCenter{width:707px; float:left; }
+.cus_titleBody{margin-left:45px;_margin-left:20px;}
+.i_mainRight .cus_titleBody  div{
+
+font-weight:bold;
+color:#000;
+}
+.i_settlement{width:47px; float:left; text-align:center;  }
+
+.i_sure{  height:65px; margin-top:20px;padding-left:50px; }
+.i_sure .out{ margin:0px; padding:0px;margin-top:47px; margin-left:20px;}
+ .i_sure div a{color:#000; display:block; clear:both; width:47px;}
+ .i_sure .total{ float:left; width:350px; margin-left:70px; margin-top:47px;}
+  .i_sure .total div{ float:left;}
+    .i_sure .total div input{width:97px; height:20px; background:url(../images/i_left.png) no-repeat;margin:0px; border:none; padding:0px; float:left; margin-left:5px;}
+  .i_sure .total div span{ width:50px; }
+  .i_settlement input {
+	background:url(../images/settlement.jpg) no-repeat;
+	width:47px;
+	height:48px;
+	border:none;
+	cursor:pointer;
+	float:left;
+	display:block;
+	margin:0px;
+	
+}
+.cus_table tr{ height:40px;}
+.cus_table tr td label{ background:url(../images/check_off.jpg) no-repeat;width:15px; height:16px; display:block; margin-left:5px; }

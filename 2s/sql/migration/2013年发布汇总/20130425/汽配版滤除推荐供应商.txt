@@ -1,0 +1,13 @@
+﻿版本权限
+
+所有汽配版    去除   供应商管理 --  一发推荐供应商 权限
+
+
+版本资源
+
+（Old）WEB.VERSION.DISABLE.SEARCH.SUPPLIER.ONLINE     添加到所有汽配版
+
+
+外部借调数据修正：
+update borrow_order bo, (select sum(boi.total) as tot, bo.id, bo.total from borrow_order_item boi left join borrow_order bo on boi.order_id = bo.id where bo.total is null group by boi.order_id) fix
+set bo.total = fix.tot where bo.id = fix.id;

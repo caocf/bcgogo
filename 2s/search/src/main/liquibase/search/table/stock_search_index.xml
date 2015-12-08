@@ -1,0 +1,57 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="wujiaolong" id="stock_search_index_1">
+        <createTable tableName="stock_search_index">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="uuid" type="char(36)"/>
+            <column name="shop_id" type="bigint"/>
+            <column name="product_id" type="bigint"/>
+            <column name="edit_date" type="bigint"/>
+            <column name="product_name" type="char(30)"/>
+            <column name="product_brand" type="char(30)"/>
+            <column name="product_spec" type="char(30)"/>
+            <column name="product_model" type="char(30)"/>
+            <column name="brand" type="char(30)"/>
+            <column name="model" type="char(30)"/>
+            <column name="year" type="char(30)"/>
+            <column name="engine" type="char(30)"/>
+            <column name="amount" type="integer"/>
+        </createTable>
+        <addPrimaryKey tableName="stock_search_index" columnNames="id" constraintName="pk_stock_search_index"/>
+        <createIndex tableName="stock_search_index" indexName="idx_stock_search_index_vehicle">
+            <column name="product_name"/>
+            <column name="shop_id"/>
+            <column name="brand"/>
+            <column name="model"/>
+            <column name="year"/>
+            <column name="engine"/>
+        </createIndex>
+
+        <createIndex tableName="stock_search_index" indexName="idx_stock_search_index_product">
+            <column name="product_name"/>
+            <column name="shop_id"/>
+            <column name="product_brand"/>
+            <column name="product_spec"/>
+            <column name="product_model"/>
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="stock_search_index_2">
+    <modifyColumn tableName="stock_search_index">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+</databaseChangeLog>

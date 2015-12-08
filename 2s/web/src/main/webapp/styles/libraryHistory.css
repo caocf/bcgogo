@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+
+@charset "utf-8";
+/* CSS Document */
+.i_upBody .table2{width:180px;}
+ .i_searchBrand .i_upCenter .i_note{width:160px;}
+ .i_searchBrand .i_upCenter{width:210px}
+ .i_searchBrand .i_upBody,.i_upBottom .i_upBottomCenter{width:202px;}
+ 
+.i_searchBrand .i_upBody{
+	height:162px;
+    overflow-x: hidden;
+    overflow-y: scroll;	
+}

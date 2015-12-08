@@ -1,0 +1,50 @@
+
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+2.执行如下sql
+
+stat库
+delete from stat.business_category;
+delete from stat.business_account where id = 10000010043364239;
+
+3.上传打印模板
+
+    后台打印模板上传新模板，模板类型 营业外记账 模板在sql/打印模板/default_超级管理统计打印/营业外记账记录.html  不要选择店铺。
+
+    上传 default_改/施工单.html 为默认模板
+
+4.后台修正短信模板, 将“详请”修改为“详情”
+  1)customerRemindDebt
+  2)customerRemindGuarantee
+  3)customerRemindKeepInGoodRepair
+  4)customerRemindValidateCar
+  5)maintainMileage
+  6)sendFinishMsg1
+  7)customerRemindBirthday
+ 
+
+5.后台配置系统配置：
+AUTOMATIC_PROMOTION_INVITATION_CODE_SMS 设置为  on
+增加 SmsIndustryTag  on 亿美行业通道开关
+
+三.发布应用 （纪友文）
+
+四.添加权限
+
+----------------------------------------------------------- SHOP数据初始化（刘伟） -----------------------------------------------------------------------------
+CRM--SHOP数据操作权限--SHOP数据初始化
+web_initBusinessAccount              /web/init.do?method=initBusinessAccount          初始化营业外记账    shop request
+
+CRM-SHOP-财务统计-营业外记账 查询 、新增、 修改角色中 增加资源
+web_stat_businessAccount_getBusinessCategoryLikeItemName    /web/businessAccount.do?method=getBusinessCategoryLikeItemName  营业外记账类别下拉
+
+
+五.初始化
+
+1. jackchen登录后执行：
+init.do?method=initBusinessAccount
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。

@@ -1,0 +1,50 @@
+.header {
+    background: url("../images/logo_bg.png") repeat-x scroll 0 0 transparent;
+    height: 86px;
+}
+
+.x-grid-record-red {
+    color: #FF0000;
+}
+
+.x-grid-record-yellow {
+    color: #ffe638;
+}
+
+.x-action-col-cell img {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+
+.x-action-col-cell img.enable-col {
+    background-image: url(../images/icons/accept.gif);
+}
+
+.x-action-col-cell img.disable-col {
+    background-image: url(../images/icons/delete.png);
+}
+
+.x-action-col-cell img.updates-col {
+    background-image: url(../images/icons/Ascending.png);
+}
+.x-action-col-cell img.check-pending-col {
+    background-image: url(../images/icons/user_edit.png);
+}
+.x-action-col-cell img.check-pending-rejected-col {
+    background-image: url(../images/icons/stop.png);
+}
+.x-action-col-cell img.payment-offlinepay-col {
+    background-image: url(../images/icons/edit.png);
+}
+.x-action-col-cell img.payment-audit-col {
+    background-image: url(../images/icons/user_edit.png);
+}
+
+.x-panel-header-text,.x-btn-default-small .x-btn-inner, .x-btn-default-medium .x-btn-inner, .x-btn-default-large .x-btn-inner, .x-btn-default-toolbar-small .x-btn-inner, .x-btn-default-toolbar-medium .x-btn-inner, .x-btn-default-toolbar-large .x-btn-inner, .x-menu-item-text, .x-html-editor-tb .x-font-select, .x-panel-header-default, .x-panel-header-text-default, .x-panel-header-default-framed, .x-tip-header, .x-tip-body, .x-form-invalid-tip-body, .x-tip-header-text, .x-progress-text, .x-toolbar, .x-toolbar .x-form-item-label, .x-toolbar .x-toolbar-text, .x-window-header-text-default, .x-tab-bar, .x-tab button, .x-grid-rowbody, .x-grid-row .x-grid-cell, .x-grid-group-title, .x-grid-row-editor .x-form-field, .x-grid-row-editor .x-form-display-field, .x-form-invalid-under, .x-fieldset-header, .x-column-header, .x-mask-msg div, .x-btn-group-header-text-default-framed, table.x-datepicker-inner a, .x-monthpicker-item, .x-dd-drag-ghost {
+    font: 12px arial, sans-serif;
+}
+
+.x-column-header {
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
+}

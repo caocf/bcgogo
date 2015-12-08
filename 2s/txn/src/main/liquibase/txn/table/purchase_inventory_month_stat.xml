@@ -1,0 +1,48 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="jimuchen" id="purchase_inventory_month_stat_1">
+    <createTable tableName="purchase_inventory_month_stat">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="stat_year" type="int"/>
+      <column name="stat_month" type="int"/>
+      <column name="product_name" type="varchar(200)"/>
+      <column name="product_brand" type="varchar(200)"/>
+      <column name="vehicle_model" type="varchar(50)"/>
+      <column name="vehicle_brand" type="varchar(50)"/>
+      <column name="times" type="int"/>
+      <column name="amount" type="numeric(18,1)"/>
+      <column name="total" type="numeric(18,1)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="purchase_inventory_month_stat_2">
+    <addPrimaryKey tableName="purchase_inventory_month_stat" columnNames="id" constraintName="pk_purchase_inventory_month_stat"/>
+  </changeSet>
+    <changeSet id="purchase_inventory_month_stat_3_qiuxinyu" author="qiuxinyu">
+        <createIndex tableName="purchase_inventory_month_stat"
+                     indexName="IDX_PURCHASE_INVENTORY_MONTH_STAT_SHOPID_PRODUCTNAME">
+            <column name="shop_id"/>
+            <column name="product_name"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="purchase_inventory_month_stat_4" author="yangwj">
+        <modifyColumn tableName="purchase_inventory_month_stat">
+            <column name="vehicle_brand" type="varchar(200)"/>
+            <column name="vehicle_model" type="varchar(200)"/>
+        </modifyColumn>
+    </changeSet>
+
+</databaseChangeLog>

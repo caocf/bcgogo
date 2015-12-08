@@ -1,0 +1,34 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="qiuxinyu" id="repair_picking_item_1">
+    <createTable tableName="repair_picking_item">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="repair_picking_id" type="bigint"/>
+      <column name="product_id" type="bigint"/>
+      <column name="amount" type="double"/>
+      <column name="unit" type="varchar(20)"/>
+      <column name="operation_man" type="varchar(50)"/>
+      <column name="picking_man" type="varchar(50)"/>
+      <column name="operation_date" type="bigint"/>
+      <column name="status" type="varchar(50)"/>
+    </createTable>
+      <addPrimaryKey tableName="repair_picking_item" columnNames="id" constraintName="pk_repair_picking_item"/>
+  </changeSet>
+    <changeSet id="repair_picking_item_2" author="qiuxinyu">
+        <addColumn tableName="repair_picking_item">
+            <column name="operation_man_id" type="bigint"/>
+            <column name="picking_man_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

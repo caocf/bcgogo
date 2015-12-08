@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+#busStatic{width:100%;}
+#busStatic tr td{ color:#000; font-size:12px; line-height:20px;text-align:center;}
+#busStatic .title_r td{ font-size:14px; color:#787777; font-weight:bold;}
+#busStatic .red_r td{color:#C50404}
+#busStatic .blue_r td{color:#338F01;}
+#busStatic .hui_r td{color:#787777;font-weight:bold;}
+#busStatic  tr td label{margin-left:20px;}
+#busStatic  tr .right_td label{ margin-left:30px;}
+/*#busStatic  tr .bei_jin:hover{ border:1px solid #427AA2; border-bottom:none; border-top:none; background:#cce6f9;}*/
+#busStatic  tr .txt_left{ text-align:left;}
+
+#infoCard .tab_title .tab_first {
+
+   background:#fff url(../images/cont_left.png) no-repeat right;width:1px;
+}
+#infoCard .tab_title .tab_last {
+    background:#fff url("../images/cont_right.png") no-repeat;
+    width: 1px;
+}
+
+
+.payMoneys {
+    background: url("../images/liushui.png") no-repeat scroll 0 0 transparent;
+    color: #424242;
+    display: block;
+    height: 61px;
+    padding: 10px 15px;
+    width: 349px;
+}
+.payMoneys div {
+    cursor: pointer;
+    line-height: 22px;
+}
+.payMoneys div>span:hover, .payMoneys div>span:hover{
+    color: #FF5E04;
+    cursor: pointer;
+    text-decoration: underline;
+}

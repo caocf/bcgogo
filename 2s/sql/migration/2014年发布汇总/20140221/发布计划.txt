@@ -1,0 +1,1 @@
+update txn.running_stat_change set customer_deposit_pay_expenditure = 0, customer_debt_discount = 0;

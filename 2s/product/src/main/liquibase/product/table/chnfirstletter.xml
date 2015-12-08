@@ -1,0 +1,33 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhangchuanlong" id="chnfirstletter_1">
+        <createTable tableName="chnfirstletter">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="hanzi" type="varchar(10)"/>
+            <column name="py" type="varchar(20)"/>
+            <column name="firstLetter" type="varchar(5)"/>
+        </createTable>
+        <addPrimaryKey tableName="chnfirstletter" columnNames="id" constraintName="pk_chnfirstletter"/>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="chnfirstletter_2">
+    <modifyColumn tableName="chnfirstletter">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+
+</databaseChangeLog>

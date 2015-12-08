@@ -1,0 +1,93 @@
+后台系统配置 添加
+            key                              value                                备注
+
+PreBuyOrderPopLifeCycle                      30000                         求购资讯右下角弹出框持续时间 单位 ms
+PreBuyOrderPopIntervalTime                   600000                        求购资讯右下角弹出框间隔时间 单位 ms
+PreBuyOrderMessageLifeCycle                  259200000                     求购资讯推送消息的有效时间   单位  ms
+
+//资源角色配置
+
+
+(old)进销存--入库管理---采购单---新增
+(new)web_txn_purchase_createPurchaseOrderOnlineByQuotedPreBuyOrder                 request             /web/RFbuy.do?method=createPurchaseOrderOnlineByQuotedPreBuyOrder     根据报价生成在线采购单
+求购单
+汽配在线-----发布求购(新增模块)----新增求购(新增角色)          分配给   汽修版本   的老板、经理/店长、仓管
+(new)web_txn_createPreBuyOrder                       request       /web/preBuyOrder.do?method=createPreBuyOrder         发布求购页面
+(new)web_txn_createPreBuyOrderByProductIdInfos       request       /web/preBuyOrder.do?method=createPreBuyOrderByProductIdInfos  根据本店商品生成求购
+(new)web_txn_savePreBuyOrder                         request       /web/preBuyOrder.do?method=savePreBuyOrder          保存求购
+(new)ReleasePreBuyOrder                              menu        WEB.AUTOACCESSORYONLINE.RELEASE_PREBUYORDER           //发布求购
+
+(old)AutoAccessoryOnline                             menu          WEB.AUTOACCESSORYONLINE.BASE
+(old)web_autoAccessoryOnline                       request             /web/navigator.do?method=autoAccessoryOnline                    汽配在线
+
+
+汽配在线-----我的求购(新增模块)----求购列表(新增角色)          分配给   汽修版本   的老板、经理/店长、仓管
+(new)web_txn_preBuyOrderManage       request       /web/preBuyOrder.do?method=preBuyOrderManage     我的求购列表
+(new)web_txn_getPreBuyOrderList      request      /web/preBuyOrder.do?method=getPreBuyOrderList    我的求购数据
+(new)MyPreBuyOrder                   menu        WEB.AUTOACCESSORYONLINE.MY_PREBUYORDER           //我的求购
+(old)AutoAccessoryOnline                             menu          WEB.AUTOACCESSORYONLINE.BASE
+(old)web_autoAccessoryOnline                     request             /web/navigator.do?method=autoAccessoryOnline                    汽配在线
+
+汽配在线-----我的求购----查看求购(新增角色)                  分配给     汽修版本   的老板、经理/店长、仓管
+(new)web_txn_showPreBuyOrderById     request       /web/preBuyOrder.do?method=showPreBuyOrderById     查看求购信息
+
+汽配在线-----我的求购----查看报价详细(新增角色)               分配给    汽修版本   的老板、经理/店长、仓管
+(new)web_txn_showSupplierQuotedItemDetailByItemId     request      /web/preBuyOrder.do?method=showSupplierQuotedItemDetailByItemId     查看报价详细信息
+(new)web_txn_showSupplierQuotedDetailByPreBuyOrderIdAndSupplierShopId     request      /web/preBuyOrder.do?method=showSupplierQuotedDetailByPreBuyOrderIdAndSupplierShopId     查看多个报价详细信息
+
+汽配在线-----求购资讯(新增模块)----资讯列表(新增角色)         分配给   汽修版本   的老板、经理/店长、仓管      汽配版本 所有角色
+(new)web_txn_preBuyInformation                           request       /web/preBuyOrder.do?method=preBuyInformation     资讯列表页面
+(new)web_txn_getPreBuyInformationList                    request       /web/preBuyOrder.do?method=getPreBuyInformationList     资讯列表数据
+(new)web_txn_showBuyInformationDetailByPreBuyOrderId     request       /web/preBuyOrder.do?method=showBuyInformationDetailByPreBuyOrderId     查看求购资讯详细
+(new)PreBuyInformation                                   menu          WEB.AUTOACCESSORYONLINE.BUYING_INFORMATION           //求购资讯
+(old)AutoAccessoryOnline                             menu          WEB.AUTOACCESSORYONLINE.BASE
+(old)web_autoAccessoryOnline                       request             /web/navigator.do?method=autoAccessoryOnline                    汽配在线
+
+汽配在线-----求购资讯(新增模块)----资讯推送(新增角色)         分配给    汽配版本 所有角色
+(new)web_txn_getPushPreBuyOrderMessage                           request       /web/preBuyOrder.do?method=getPushPreBuyOrderMessage     获取资讯消息
+(new)PreBuyOrderMessage                                          render          WEB.AUTOACCESSORYONLINE.PRE_BUY_ORDER_MESSAGE           //资讯消息
+
+汽配在线-----我的报价(新增模块)----报价列表(新增角色)       分配给    汽配版本 所有角色
+(new)web_txn_quotedPreBuyOrderManage      request       /web/preBuyOrder.do?method=quotedPreBuyOrderManage     报价列表页面
+(new)web_txn_getQuotedPreBuyOrderList     request       /web/preBuyOrder.do?method=getQuotedPreBuyOrderList     报价列表数据
+
+(new)MyQuotedPreBuyOrder                   menu        WEB.AUTOACCESSORYONLINE.MY_QUOTEDPREBUYORDER           //我的报价
+(old)AutoAccessoryOnline                   menu          WEB.AUTOACCESSORYONLINE.BASE
+(old)web_autoAccessoryOnline               request             /web/navigator.do?method=autoAccessoryOnline                    汽配在线
+
+汽配在线-----我的报价----新增报价(新增角色)               分配给       汽配版本 所有角色
+(new)web_txn_quotedSelectProduct                   request       /web/preBuyOrder.do?method=quotedSelectProduct     报价流程选择商品
+(new)web_txn_saveQuotedPreBuyOrder                 request       /web/preBuyOrder.do?method=saveQuotedPreBuyOrder     报价流程保存
+
+
+(new)AddQuotedPreBuyOrder                    render        WEB.AUTOACCESSORYONLINE.ADD_QUOTEDPREBUYORDER           //新增报价
+
+
+汽配在线-----我的报价----查看报价(新增角色)              分配给       汽配版本 所有角色
+(new)web_txn_showBuyInformationDetailByQuotedPreBuyOrderItemId     request       /web/preBuyOrder.do?method=showBuyInformationDetailByQuotedPreBuyOrderItemId     查看报价详细
+
+
+
+
+//执行以下sql
+
+
+INSERT INTO `menu` (`id`, `created`, `last_update`, `version`, `grade`, `label`, `resource_id`, `parent_id`, `href`, `sort`, `menu_name`)
+VALUES (1000020044134321, 1366168907970, 1366168907970, 0, 3, '求购资讯', -1, 1000020045134313, 'preBuyOrder.do?method=preBuyInformation', 70, 'WEB_AUTOACCESSORYONLINE_BUYING_INFORMATION');
+INSERT INTO `menu` (`id`, `created`, `last_update`, `version`, `grade`, `label`, `resource_id`, `parent_id`, `href`, `sort`, `menu_name`)
+VALUES (1000020044134322, 1366168907970, 1366168907970, 0, 3, '发布求购', -1, 1000020045134313, 'preBuyOrder.do?method=createPreBuyOrder', 80, 'WEB_AUTOACCESSORYONLINE_RELEASE_PREBUYORDER');
+INSERT INTO `menu` (`id`, `created`, `last_update`, `version`, `grade`, `label`, `resource_id`, `parent_id`, `href`, `sort`, `menu_name`)
+VALUES (1000020044134323, 1366168907970, 1366168907970, 0, 3, '我的求购', -1, 1000020045134313, 'preBuyOrder.do?method=preBuyOrderManage', 90, 'WEB_AUTOACCESSORYONLINE_MY_PREBUYORDER');
+INSERT INTO `menu` (`id`, `created`, `last_update`, `version`, `grade`, `label`, `resource_id`, `parent_id`, `href`, `sort`, `menu_name`)
+VALUES (1000020044134324, 1366168907970, 1366168907970, 0, 3, '我的报价', -1, 1000020045134313, 'preBuyOrder.do?method=quotedPreBuyOrderManage', 90, 'WEB_AUTOACCESSORYONLINE_MY_QUOTEDPREBUYORDER');
+
+
+update menu set resource_id=(select id from resource where `value`='WEB.AUTOACCESSORYONLINE.BUYING_INFORMATION') where id=1000020044134321;
+update menu set resource_id=(select id from resource where `value`='WEB.AUTOACCESSORYONLINE.RELEASE_PREBUYORDER') where id=1000020044134322;
+update menu set resource_id=(select id from resource where `value`='WEB.AUTOACCESSORYONLINE.MY_PREBUYORDER') where id=1000020044134323;
+update menu set resource_id=(select id from resource where `value`='WEB.AUTOACCESSORYONLINE.MY_QUOTEDPREBUYORDER') where id=1000020044134324;
+
+
+//solr  更新
+
+product   order  order_item   customerOrSupplier   更新配置文件和重做索引

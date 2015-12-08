@@ -1,0 +1,199 @@
+﻿ul li
+{
+	float:left;
+}
+ul li a
+{
+	
+}
+ul li a:hover
+{
+
+}
+/*导航*/
+.i_search
+{
+	height:50px;
+}
+.admin_title
+{
+	margin-top:20px;
+}
+.admin_title li
+{
+	background:url(../images/admin_title.png) no-repeat;
+	width:128px; 
+	height:32px;
+	line-height:30px;
+	text-align:center;
+	margin-right:15px;
+}
+.admin_title li:hover
+{
+	cursor:pointer;
+}
+.admin_title li a
+{
+	color:#666666;
+	font-size:14px;
+	font-weight:bold;
+}
+.admin_title .title_leave
+{
+	background:url(../images/title_hover.png) no-repeat;
+	text-align:left;
+}
+.admin_title .title_leave a
+{
+	color:#fff;
+	margin-left:23px;
+}
+/*导航结束*/
+/*数据显示*/
+.num_show
+{
+	background:url(../images/admin_10.png) no-repeat;
+	height:325px;
+	width:1003px;
+}
+/*数据显示结束*/
+/*统计信息*/
+.count_info
+{
+	margin-top:10px;
+}
+.count_title 
+{
+	width:220px;
+	float:left;
+}
+.count_title li
+{
+	padding-left:50px;
+	margin-bottom:45px;
+	clear:both;
+}
+.count_title li h4
+{
+	font-size:18px;
+	color:#666666;
+	font-weight:bold;
+}
+.count_title li a
+{
+	font-size:12px;
+	color:#999999;
+	font-weight:bold;
+}
+.count_title .payable_count
+{
+	background:url(../images/payable.png) no-repeat;
+}
+.count_title .goods_count
+{
+	background:url(../images/goods.png) no-repeat;
+}
+.count_title .custom_count
+{
+	background:url(../images/custom.png) no-repeat;
+	height:50px;
+	margin:0px;
+}
+/*营销项目统计*/
+.market_count
+{
+	float:left;
+	width:376px;
+}
+/*营销项目统计结束*/
+/*商品库存统计*/
+.com_stock
+{
+	float:left;
+}
+.com_stock p
+{
+	color:#666;
+	font-size:18px;
+	font-weight:bold;
+	margin-bottom:10px;
+	*margin-bottom:7px;
+}
+.com_stock dl{clear:both;}
+.com_stock dl dt
+{
+	height:24px;
+	padding:0px;
+	margin:0px;
+	width:322px;
+}
+.com_stock dl dt .com_left,.com_stock dl dt .com_center,.com_stock dl dt .com_right
+{
+	 display:block;
+	 float:left;
+	 width:5px;
+	height:24px;
+}
+.com_stock dl dt .com_left
+{
+	background:url(../images/left.png) no-repeat;
+	width:5px;
+}
+.com_stock dl dt .com_center
+{
+	background:url(../images/com_center.png) repeat-x;
+	width:310px;
+}
+.com_stock dl dt .com_center label
+{
+	margin-right:50px;
+	line-height:24px;
+	font-weight:bold;
+	font-size:14px;
+	color:#fff;
+	
+}
+.com_stock dl dt .com_center  .handle
+{
+	margin:0px;
+}
+.com_stock dl dt .com_right
+{
+	background:url(../images/right.png) no-repeat;
+	width:7px;
+}
+.com_stock dl dd
+{
+	height:35px;
+	line-height:35px;
+	padding:0px 15px 0px 5px;
+	border-bottom:1px solid #d5d5d5;
+	width:302px;
+	color:#666666;
+	font-weight:bold;
+	clear:both;
+}
+.com_stock dl dd label,.com_stock dl dd span,.com_stock dl dd a
+{
+	display:block;
+	float:left;
+}
+.com_stock dl dd label
+{
+	width:55px;
+}
+.com_stock dl dd span
+{
+	width:195px;
+	text-align:center;
+	color:#57892a;
+	font-weight:bold;
+	_width:19px;
+}
+.com_stock dl dd a
+{
+	color:#909090;
+	font-weight:bold;
+}
+/*商品库存统计结束*/
+/*统计信息结束*/

@@ -1,0 +1,221 @@
+@charset "utf-8";
+/* CSS Document */
+.i_searchTitle {
+    margin-bottom: 55px;
+}
+
+/*历史搜素*/
+.his_search ul, .his_search .his_time, .his_time .time_search div, .his_time .time_search label, .his_search ul li, .his_search ul li label, .his_list div, .goods_search li, .goods_search li label, .goods_chk label {
+    display: block;
+    float: left;
+    color: #000;
+    font-weight: bold;
+}
+
+.goods_search {
+    margin-bottom: 10px;
+    height: 25px;
+}
+
+.goods_search li {
+    letter-spacing: 4px;
+}
+
+.goods_search .xinhao {
+    margin-right: 0px;
+}
+
+.his_search ul {
+    width: 475px;
+}
+
+.his_search ul li, .goods_search li {
+    height: 20px;
+    line-height: 20px;
+    margin: 0px 17px 30px 0px;
+    _margin: 0px 6px 15px 0px;
+    width: 220px;
+}
+
+.goods_search li, .godds_index ul li {
+    margin-bottom: 25px;
+}
+
+.his_search ul li label, .goods_search li label {
+    width: 59px;
+}
+
+.his_search ul li input, .i_searchTime, .goods_search li input {
+    border: 1px solid #7F9DB9;
+    height: 22px;
+    line-height: 22px;
+}
+
+.i_searchTime {
+    width: 140px;
+    margin: 0px 10px;
+    position: relative;
+}
+
+.his_time .goods_time .i_searchTime {
+    width: 150px;
+}
+
+.goods_time .time_first {
+    margin-right: 25px;
+}
+
+.goods_time .to_time {
+    margin-right: 27px;
+}
+
+.i_searchTime img {
+    position: absolute;
+    right: 5px;
+    bottom: 0px;
+}
+
+.his_time .time_search {
+    height: 25px;
+}
+
+.goods_time .i_searchTime {
+    margin-left: 18px;
+}
+
+.his_time .time_search .i_searchTime input {
+    border: none;
+    width: 118px;
+    height: 22px;
+    line-height: 22px;
+}
+
+.his_list {
+    margin-top: 15px;
+    height: 36px;
+}
+
+.godds_index .his_list {
+    margin-top: 10px;
+}
+
+.today_list {
+    background: url(../images/time_ico.png) no-repeat;
+    width: 70px;
+    height: 36px;
+    position: relative;
+    margin-right: 14px;
+}
+
+.today_list a {
+    cursor: pointer;
+}
+
+.his_first {
+    margin-left: 40px;
+}
+
+.today_list .his_now {
+    position: absolute;
+    left: 20px;
+    top: 5px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.today_list .his_top, .today_list .his_bottom {
+    display: block;
+    background: url(../images/his_top.png) no-repeat;
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    right: 5px;
+    top: 4px;
+}
+
+.today_list .his_bottom {
+    background: url(../images/his_bottom.png) no-repeat;
+}
+
+.search_his {
+    background: url(../images/search_his.png) no-repeat;
+    width: 114px;
+    height: 35px;
+    margin-left: 37px;
+    line-height: 35px;
+    text-align: center;
+}
+
+.search_his label {
+    color: #fefefe;
+    font-size: 14px;
+    letter-spacing: 4px;
+    background: url(../images/search_hisicon.png) no-repeat right;
+    padding-right: 25px;
+}
+
+.goods_chk {
+    margin-bottom: 20px;
+}
+
+.search_chk {
+    background: url(../images/check_off.jpg) no-repeat;
+    width: 15px;
+    height: 16px;
+    float: left;
+}
+
+.search_chked {
+    background: url(../images/check_on.jpg) no-repeat;
+    width: 15px;
+    height: 16px;
+    float: left;
+}
+
+.goods_chk label {
+    margin: 0px 50px 0px 5px;
+    letter-spacing: 2px;
+}
+
+/*历史搜素结束*/
+
+/*数据显示*/
+.i_main, .i_main p {
+    color: #000;
+}
+
+.i_main table {
+    border-top: 3px solid #6d8fb9;
+}
+
+.i_main p {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.i_leftBtn span {
+    display: block;
+    float: left;
+    margin-right: 10px;
+}
+
+.table_title {
+    font-weight: bold;
+}
+
+.table2 tr td {
+    line-height:26px;
+}
+
+/*数据显示结束*/
+.table2 .qian_red {
+    color: #a62d38;
+}
+
+.time_search .i_searchTime #endDateStr, .time_search .i_searchTime #endDateStr2 {
+    *border: 1px solid red;
+    *border: none;
+    *height: 19px;
+}

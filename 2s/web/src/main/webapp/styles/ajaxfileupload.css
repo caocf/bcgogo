@@ -1,0 +1,25 @@
+hr
+{
+    height: 1px;
+    border: none;
+    color: #999;
+    background-color: #999;
+}
+
+/* ~~~ === POSITIONG SELECTORS ======================================= ~~~ */
+#wrapper
+{
+    position: relative;
+    width: 773px;
+    height: 474px;
+}
+
+#content
+{
+    float: left;
+    display: inline;
+    width: 541px;
+    height: 341px;
+    margin: 30px 0 0 8px;
+    padding: 22px;
+}

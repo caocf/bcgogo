@@ -1,0 +1,500 @@
+/**************************style************************************************/
+@charset "utf-8";
+body {
+    background: none repeat scroll 0 0 #fff;
+    margin: 0 auto;
+    max-width: 640px;
+}
+
+@media screen and (min-width: 640px) {
+    body {
+        background: none repeat scroll 0 0 #2d3132;
+    }
+}
+
+* {
+    border: 0 none;
+    color: #282828;
+    font-family: Arial, "微软雅黑", "黑体";
+    font-size: 100%;
+    /*line-height: 1;*/
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.wx {
+    border: 0 none;
+    color: #282828;
+    font-family: Arial, "微软雅黑", "黑体";
+    font-size: 100%;
+    line-height: 1;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+@media screen and (max-width: 500px) {
+    #footer p {
+        font-size: 0.5em;
+    }
+}
+
+.red_txt {
+    color: #d80707;
+    vertical-align:middle;
+}
+
+span.select {
+    display: inline-block;
+    height: 25px;
+    position: relative;
+    width: 55px;
+}
+
+span.select:after {
+    background: url(/web/images/blue-arrow.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    content: "";
+    height: 10px;
+    position: absolute;
+    right: -5px;
+    top: 10px;
+    width: 10px;
+}
+
+button {
+    background: none repeat scroll 0 0 #55c126;
+    border: 0 none;
+    border-radius: 2px 15px;
+    color: #fff;
+    font-size: 18px;
+    padding-bottom: 13px;
+    padding-top: 13px;
+    width: 50%;
+}
+
+p.button {
+    background: none repeat scroll 0 0 #fff;
+    border-bottom: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    text-align: center;
+}
+
+p.button a, p.button a > span {
+    color: #469c21;
+    text-decoration: none;
+}
+
+p.button a > img {
+    margin-top: -5px;
+    vertical-align: middle;
+    width: 20px;
+}
+
+/*******************************wx************************************/
+
+
+.wrap {
+    background: none repeat scroll 0 0 #fff;
+    padding-bottom: 30px;
+}
+.clear {
+    clear: both;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    font-weight: normal;
+}
+
+input:-moz-placeholder, textarea:-moz-placeholder {
+    font-weight: normal;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+    font-weight: normal;
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    font-weight: normal;
+}
+
+.td p {
+    line-height: 50px;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 16px;
+}
+
+.td .td-first-p {
+    border-top: 1px solid #e5e5e5;
+}
+
+.td p select {
+    vertical-align: middle;
+    display: inline-block;
+    line-height: normal;
+    -webkit-appearance: none;
+    border-radius: 0;
+    border: 0;
+    width: 100%;
+    height: 24px;
+    font-weight: bold;
+}
+
+.sub-b-p {
+    border-bottom: 0 !important;
+    text-align: center;
+}
+
+.sub-div {
+    text-align: center;
+}
+
+.submit-btn {
+    float: left;
+    display: block;
+    width: 100%;
+    -webkit-appearance: none;
+    border: 0;
+    background: #00CB7C;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 2px 2px 15px 2px;
+}
+
+.sub-b-p span {
+    display: block;
+    float: left;
+    line-height: 54px;
+    height: 54px;
+}
+
+.suv-b-p div {
+    text-align: center;
+}
+
+.upper-case {
+    text-transform: uppercase;
+}
+
+.text-area{
+    height: 16px;
+}
+
+p input,p textarea {
+    font-weight: bold;
+    width:65%;
+    padding: 4px 0 0;
+    background: transparent;
+}
+
+
+.center-div {
+    margin: 0 auto 20px;
+    width: 93%;
+}
+
+.center-div2 {
+    margin: 20px 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 20px;
+    color: #35910A;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+label {
+    line-height: 2;
+    padding-right: 5px;
+    vertical-align: middle;
+    zoom: 1;
+    color: #767676;
+}
+
+.container {
+    padding: 0 20px;
+    background: none repeat scroll 0 0 #fff;
+        padding-bottom: 30px;
+}
+
+#result {
+    margin: 10px;
+}
+
+.mheader {
+    padding: 16px 0 16px 16px;
+    border: 1px solid #e5e5e5;
+    height: 34px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mheader img {
+    height: 34px;
+}
+
+.mheader .yanglogo {
+    width: 90px;
+}
+
+.reCalculate span {
+    border: 5px solid;
+    border-color: transparent #fff transparent transparent;
+    float: left;
+    height: 0px;
+    margin: 13px 8px 0 5px;
+}
+
+.reCalculate h2 {
+    line-height: 26px;
+    width: 84px;
+    border: 5px solid #35910A;;
+    border-radius: 3px 3px 3px 10px;
+    color: #fff;
+    background: #35910A;
+    height: 24px;
+}
+
+.flagImg {
+    height: 30px !important;
+    width: 32px;
+    position: absolute;
+    left: 180px;
+    top: 25px;
+}
+
+.flagImg2 {
+    height: 30px !important;
+    width: 32px;
+    position: absolute;
+    left: 285px;
+    top: 25px;
+}
+
+.chexianlogo, .yanglogo {
+    margin-left: 16px;
+}
+
+.sel-logo {
+    border: 1px solid #35910A;
+    margin: -1px -1px -1px 15px;
+}
+
+.words {
+    font-size: 14px;
+    margin-top: 1px;
+    margin-left: 10px;
+}
+
+.theprice b {
+    color: #ff742b;
+}
+
+.float {
+    float: left;
+}
+
+.clean {
+    clear: both;
+}
+
+.theprice {
+    font-size: 28px;
+    color: #ff742b;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.small {
+    font-size: 14px;
+    color: #ff742b;
+}
+
+.titleimg {
+    padding: 20px 0 0 13px;
+}
+
+.txt-yh strong {
+    font-size: 18px;
+    color: #008cbd;
+}
+
+.txt-sc span {
+    text-decoration: line-through;
+    font-style: italic;
+    font-size: 14px;
+    font-weight: normal;
+    color: #008cbd;
+}
+
+.menu-two {
+    padding: 10px 0px 10px 20px;
+    line-height: 24px;
+}
+
+.header {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 1em;
+    background: #fff;
+    padding-left: 1em;
+    padding-right: 1em;
+    position: relative;
+}
+
+.resl {
+    margin-top: 10px;
+}
+
+.resl p {
+    float: left;
+    padding-right: 10px;
+}
+
+.menu-one .txt {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+span.select-area {
+
+}
+
+/*.select + .select {*/
+    /*margin-left: 10px;*/
+/*}*/
+
+/*select {*/
+    /*background: #fff;*/
+/*}*/
+
+.select-area {
+    margin-left: 10px;
+}
+
+.container .select-area {
+    background: url("/web/images/blue-arrow.png") no-repeat center right;
+    /*width: 30%;*/
+    background-size: 10px;
+    vertical-align: middle;
+}
+
+span.select:after {
+    background: #fff;
+    display: none;
+}
+
+span.select-area {
+    width: 63%;
+    height: 20px;
+    overflow: hidden;
+    background: url("/web/images/blue-arrow.png") no-repeat center right;
+    background-size: 10px;
+    vertical-align: middle;
+    /*height: 24px;*/
+       margin-left: -3px;
+       line-height: 24px;
+}
+
+.select-area select {
+    width: 100%;
+    background:transparent;
+
+}
+
+
+.newcarlable {
+    width: 80px;
+    display: inline-block;
+}
+
+.inputwidth {
+    width: 180px;
+    display: inline-block;
+}
+
+.pinganlogo {
+    width: 70px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.checked, .unchecked,
+input[type=checkbox] {
+    width: 16px;
+    height: 16px;
+    vertical-align: -4px;
+    -webkit-appearance: none;
+    background: url(http://img.buding.cn/weiche/2014/09/18/54fee7950aa5a551f6e36fd25146c040.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.unchecked {
+    background: url(http://img.buding.cn/weiche/2014/09/18/54fee7950aa5a551f6e36fd25146c040.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+
+input:checked {
+    background: url(http://img.buding.cn/weiche/2014/09/18/249fe3d69041657fa0a82658ce9dbe6e.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.price {
+    width: 120px;
+}
+
+.baby {
+    padding-left: 10px;
+}
+
+.nav {
+    border-bottom: 1px solid #e5e5e5;
+    height: 48px;
+    color: #ccc;
+}
+
+.nav span {
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    padding: 15px 0;
+    margin: 0 6.2%;
+    font-size: 16px;
+    color: #888;
+}
+
+.nav .taped {
+    border-bottom: 2px solid #00CB7C;
+    color: #333;
+}
+.error-msg{
+    color: red;
+    margin-left:10px
+}
+
+

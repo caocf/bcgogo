@@ -1,0 +1,31 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+2   solr vehicle 替换shcema.xml
+
+
+bcuser执行：
+
+update bcuser.app_user set user_type ='BLUE_TOOTH';
+update bcuser.obd set obd_type = 'BLUE_TOOTH';
+
+三.发布应用
+  1. 发布web, admin
+  2. 发布定时钟
+  3. 发布api
+
+四.添加权限
+
+
+五.初始化
+  1，备份 bcuser.app_user_customer
+  2,清空 app_user_customer
+
+
+
+
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+

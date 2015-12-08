@@ -1,0 +1,17 @@
+
+（一）添加新角色
+系统管理下添加子模块系统帮助，然后添加新角色 帮助。并分配到  "登陆后基本权限资源"
+
+资源
+          name                                           type           value                                                          备注
+//-----------------------------------------------------new resource------------------------------------------------------------------------
+//===============================================帮助   =============================================
+web_sys_help_toHelper                                request       /web/help.do?method=toHelper                          跳转到帮助
+web_sys_help_getHelpResourceConfig                   request       /web/help.do?method=getHelpResourceConfig             获取帮助资源
+（二）
+在admin下添加配置
+ key                  value                          描述
+help_resources_domain   http://127.0.0.1:8080/web      帮助资源(flv,mp4,swf...)的服务器域名
+注：http://127.0.0.1:8080/web要改成发布应用的地址
+
+

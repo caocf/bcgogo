@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                                 http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="product" transaction-type="RESOURCE_LOCAL">
+
+
+        <class>com.bcgogo.product.model.Brand</class>
+        <class>com.bcgogo.product.model.Kind</class>
+        <class>com.bcgogo.product.model.Model</class>
+        <class>com.bcgogo.product.model.Product</class>
+        <class>com.bcgogo.product.model.ProductVehicle</class>
+        <class>com.bcgogo.product.model.Template</class>
+        <class>com.bcgogo.product.model.Year</class>
+        <class>com.bcgogo.product.model.Engine</class>
+        <class>com.bcgogo.product.model.ProductLocalInfo</class>
+        <class>com.bcgogo.product.model.Licenseplate</class>
+        <class>com.bcgogo.product.model.ProductAdmin</class>
+        <class>com.bcgogo.product.model.Chnfirstletter</class>
+        <class>com.bcgogo.product.model.ProductBarcode</class>
+	      <class>com.bcgogo.product.model.ProductSupplier</class>
+	      <class>com.bcgogo.product.model.OldProductModifyLog</class>
+	      <class>com.bcgogo.product.model.ProductMapping</class>
+        <class>com.bcgogo.product.model.NormalProduct</class>
+        <class>com.bcgogo.product.model.ProductCategory</class>
+        <class>com.bcgogo.product.model.ProductCategoryRelation</class>
+        <class>com.bcgogo.product.model.NormalBrand</class>
+        <class>com.bcgogo.product.model.NormalModel</class>
+        <class>com.bcgogo.product.model.Promotions</class>
+        <class>com.bcgogo.product.model.PromotionsRule</class>
+        <class>com.bcgogo.product.model.PromotionsProduct</class>
+        <class>com.bcgogo.product.model.PromotionsRuleMJS</class>
+        <class>com.bcgogo.product.model.PromotionOrderRecord</class>
+
+        <class>com.bcgogo.product.model.PromotionsArea</class>
+        <class>com.bcgogo.product.model.ShopRegisterProduct</class>
+        <class>com.bcgogo.product.model.ProductDic</class>
+        <class>com.bcgogo.product.model.ProductUnit</class>
+
+        <class>com.bcgogo.product.model.StandardVehicleModel</class>
+        <class>com.bcgogo.product.model.StandardVehicleBrand</class>
+        <class>com.bcgogo.product.model.ShopVehicleBrandModel</class>
+        <class>com.bcgogo.product.model.app.DictionaryFaultInfo</class>
+        <class>com.bcgogo.product.model.app.Dictionary</class>
+        <class>com.bcgogo.product.model.app.VehicleDictionary</class>
+
+
+        <class>com.bcgogo.product.model.BcgogoProduct</class>
+        <class>com.bcgogo.product.model.BcgogoProductProperty</class>
+        <class>com.bcgogo.product.model.NormalProductVehicleBrandModel</class>
+        <class>com.bcgogo.product.model.NormalProductModifyRecord</class>
+        <class>com.bcgogo.product.model.ShopAdProduct</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+    </persistence-unit>
+
+    <persistence-unit name="productRead" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.bcgogo.product.model.Brand</class>
+        <class>com.bcgogo.product.model.Kind</class>
+        <class>com.bcgogo.product.model.Model</class>
+        <class>com.bcgogo.product.model.Product</class>
+        <class>com.bcgogo.product.model.ProductVehicle</class>
+        <class>com.bcgogo.product.model.Template</class>
+        <class>com.bcgogo.product.model.Year</class>
+        <class>com.bcgogo.product.model.Engine</class>
+        <class>com.bcgogo.product.model.ProductLocalInfo</class>
+        <class>com.bcgogo.product.model.Licenseplate</class>
+        <class>com.bcgogo.product.model.ProductAdmin</class>
+        <class>com.bcgogo.product.model.Chnfirstletter</class>
+        <class>com.bcgogo.product.model.ProductBarcode</class>
+        <class>com.bcgogo.product.model.ProductSupplier</class>
+        <class>com.bcgogo.product.model.OldProductModifyLog</class>
+        <class>com.bcgogo.product.model.ProductMapping</class>
+        <class>com.bcgogo.product.model.NormalProduct</class>
+        <class>com.bcgogo.product.model.ProductCategory</class>
+        <class>com.bcgogo.product.model.ProductCategoryRelation</class>
+        <class>com.bcgogo.product.model.NormalBrand</class>
+        <class>com.bcgogo.product.model.NormalModel</class>
+        <class>com.bcgogo.product.model.Promotions</class>
+        <class>com.bcgogo.product.model.PromotionsRule</class>
+        <class>com.bcgogo.product.model.PromotionsProduct</class>
+        <class>com.bcgogo.product.model.PromotionOrderRecord</class>
+        <class>com.bcgogo.product.model.ShopRegisterProduct</class>
+
+        <class>com.bcgogo.product.model.ProductDic</class>
+        <class>com.bcgogo.product.model.ProductUnit</class>
+
+        <class>com.bcgogo.product.model.StandardVehicleModel</class>
+        <class>com.bcgogo.product.model.StandardVehicleBrand</class>
+        <class>com.bcgogo.product.model.ShopVehicleBrandModel</class>
+        <class>com.bcgogo.product.model.app.DictionaryFaultInfo</class>
+        <class>com.bcgogo.product.model.app.Dictionary</class>
+        <class>com.bcgogo.product.model.app.VehicleDictionary</class>
+
+        <class>com.bcgogo.product.model.BcgogoProduct</class>
+        <class>com.bcgogo.product.model.BcgogoProductProperty</class>
+        <class>com.bcgogo.product.model.NormalProductVehicleBrandModel</class>
+        <class>com.bcgogo.product.model.NormalProductModifyRecord</class>
+        <class>com.bcgogo.product.model.ShopAdProduct</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    </persistence-unit>
+</persistence>

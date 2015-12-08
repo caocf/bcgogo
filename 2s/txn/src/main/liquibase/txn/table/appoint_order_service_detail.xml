@@ -1,0 +1,29 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="xinYuQiu" id="appoint_order_service_detail_1">
+    <createTable tableName="appoint_order_service_detail">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="service" type="varchar(100)"/>
+      <column name="appoint_order_id" type="bigint"/>
+      <column name="service_id" type="bigint"/>
+      <column name="total" type="double(20,2)"/>
+      <column name="standard_hours" type="double(20,2)"/>
+      <column name="standard_unit_price" type="double(20,2)"/>
+      <column name="status" type="varchar(50)"/>
+    </createTable>
+    <addPrimaryKey tableName="appoint_order_service_detail" columnNames="id" constraintName="pk_appoint_order_service_detail"/>
+  </changeSet>
+</databaseChangeLog>
+

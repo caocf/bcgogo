@@ -1,0 +1,232 @@
+后台系统配置
+
+新增
+PushMessagePopHideInterval                         30000                           右下角推送消息弹出框持续时间 单位ms
+PushMessagePopRequestInterval                      600000                           右下角推送消息弹出框请求间隔时间 单位ms
+
+PreBuyHardMatchAccessoryPushMessageCount               5                                 求购准确匹配配件 推送的消息数量
+PreBuySoftMatchAccessoryPushMessageCount               3                                 求购近似匹配配件 推送的消息数量
+
+AccessorySeedCount                                     20                                配件匹配种子数量
+AccessoryRecommendCount                                100                               配件推荐数量
+PreBuyRecommendCount                                   100                               求购推荐数量
+ShopRecommendCount                                     15                                店铺推荐数量
+
+
+ProductMatchScale                                      5                                 商品匹配度系数（a*商品匹配度+b*价格比例+c*区域得分）
+ProductPriceScale                                      4                                 商品价格系数（a*商品匹配度+b*价格比例+c*区域得分）
+ProductAreaScale                                       2                                 商品区域系数（a*商品匹配度+b*价格比例+c*区域得分）
+
+
+
+PreBuyMatchScale                                      5                                 求购商品匹配度系数（a*商品匹配度+b*区域得分）
+PreBuyAreaScale                                       2                                 求购区域系数（a*商品匹配度+b*区域得分）
+
+
+
+
+---------------------------初始化-----------------------------------------------------------
+//SHOP-登陆后基本权限角色 添加以下资源
+web_businessScope_getSecondCategoryByShopId     /web/businessScope.do?method=getSecondCategoryByShopId       SHOP 根据店铺获取店铺的第二大类经营范围      request
+
+
+
+//CRM - SHOP操作权限 - SHOP数据初始化
+web_businessScope_initWeekStat     /web/businessScope.do?method=initWeekStat       SHOP        获取上周销量统计      request
+
+//页脚
+在 SHOP ----  基本 中添加
+companyProfile   /web/shop.do?method=companyProfile     SHOP   跳转到公司简介页面   request
+web_businessScope_searchBrandSuggestion     /web/product.do?method=searchBrandSuggestion       SHOP 填写注册商品获取车型、车牌下拉建议      request
+web_businessScope_getAllBusinessScope     /web/businessScope.do?method=getAllBusinessScope       SHOP       获取所有经营范围       request
+
+
+//------------------------求购资讯------------------------------
+汽配在线-----求购资讯(新增模块)----资讯列表
+
+(new)web_txn_showBuyInformationDetailByPreBuyOrderItemId     request       /web/preBuyOrder.do?method=showBuyInformationDetailByPreBuyOrderItemId     查看求购资讯详细
+
+
+
+--------------------------消息推送-------------------------------------------------------------------------------
+登录后基本权限
+(new)web_txn_getPushMessageData                              request       /web/pushMessage.do?method=getPushMessageData                              获取推送消息的数据
+(new)web_txn_processPushMessageFeedback                              request       /web/pushMessage.do?method=processPushMessageFeedback              处理推送消息的反馈动作
+
+
+CRM--shop操作权限--shop数据初始化
+(new)processRecommendJobs	/web/init.do?method=processRecommendJobs	   SHOP  request  手动处理推荐schedule
+
+//测试可以使用以下方式  快速执行 定时钟
+init.do?method=processRecommendJobs                                         全部执行
+
+init.do?method=processRecommendJobs&processType=ShopRecommend                 处理店铺推荐 (定时钟每天1点执行一次)
+init.do?method=processRecommendJobs&processType=AccessoryRecommend                 处理配件推荐(定时钟10分钟执行一次)
+init.do?method=processRecommendJobs&processType=PreBuyOrderInformationRecommend                 处理求购资讯(定时钟10分钟执行一次)
+init.do?method=processRecommendJobs&processType=PushMessageBuild                   生成推送消息(定时钟10分钟执行一次)
+
+
+把  汽配在线   名称 修改为  供求中心
+--------------------------供求中心------------------------------------------
+
+客户管理--客户列表--推荐客户   移动到   供求中心--推荐客户
+推荐客户  名称  修改为  找客户
+
+供应商管理--供应商列表--推荐供应商 移动到   供求中心--推荐供应商
+推荐供应商  名称  修改为  找供应商
+
+
+供求中心-----我要卖配件(新增模块)
+把  商品上架  促销管理   客户库存   我的报价   都移到   我要卖配件（可以用拖拽方式移动）
+
+我要卖配件 下 都添加以下2个资源：
+(new)SalesAccessoryBase                                  menu        WEB.AUTOACCESSORYONLINE.SALES_ACCESSORY.BASE       SHOP                   //我要卖配件
+(new)salesAccessory			                             request     /web/navigator.do?method=salesAccessory		SHOP                         我要卖配件
+
+
+供求中心-----我要买配件(新增模块)
+把  发布求购  我的求购   购物车 在线退货  我要买配件（可以用拖拽方式移动）
+
+我要买配件 下 都添加以下2个资源：
+(new)buyAccessoryBase                                  menu        WEB.AUTOACCESSORYONLINE.BUY_ACCESSORY.BASE       SHOP                   //我要买配件
+(new)buyAccessory			                             request     /web/navigator.do?method=buyAccessory		SHOP                         我要买配件
+
+
+供求中心  下 都添加以下3个资源：
+(new)web_supplyDemand_getBcgogoRecommendSupplierShop     request     /web/supplyDemand.do?method=getBcgogoRecommendSupplierShop       SHOP        获取明星供应商
+(new)web_supplyDemand_getRecommendShopByShopId           request     /web/supplyDemand.do?method=getRecommendShopByShopId       SHOP        获取推荐店铺
+(new)web_supplyDemand_getProductRecommendByShopId           request     /web/supplyDemand.do?method=getProductRecommendByShopId       SHOP        获取推荐配件
+(new)web_supplyDemand_toSupplyDemand                     request     /web/supplyDemand.do?method=toSupplyDemand       SHOP        跳转到供求中心首页
+(new)web_supplyDemand_getWholesalerPreBuyOrderRecommendByShopId           request     /web/supplyDemand.do?method=getWholesalerPreBuyOrderRecommendByShopId       SHOP        获取推荐求购资讯
+(new)web_supplyDemand_getLastWeekSalesInventoryStatByShopId           request     /web/supplyDemand.do?method=getLastWeekSalesInventoryStatByShopId       SHOP        获取上周销量、入库量统计
+
+
+角色删除  供求中心--求购资讯--资讯推送
+
+
+汽配版 配件报价,我的报价 求购资讯 (老板/财务,经理/店长,仓管,前台均有此权限)
+汽修版(微型版除外) 配件报价,求购资讯,我的求购,发布求购 (老板/财务,经理/店长,仓管,前台均有此权限)
+
+数据更新
+txn库：
+update shopping_cart_item s set s.supplier_shop_id = (select  supplier_shop_id from bcuser.supplier sp where sp.id=s.supplier_id );
+
+config库：
+delete from config where name in ('PreBuyOrderPopLifeCycle','PreBuyOrderPopIntervalTime','PreBuyOrderMessageLifeCycle');
+
+
+bcuser库：
+
+update menu set label='供求中心' where id='1000020045134313';
+-- 配件报价
+update menu set sort='10' where id='1000020045134315';
+update menu set grade='2' where id='1000020045134315';
+-- 求购资讯
+update menu set sort='20' where id='1000020044134321';
+update menu set grade='2' where id='1000020044134321';
+-- 推荐客户
+update menu set label='找客户' where id='1000000000000007';
+update menu set sort='30' where id='1000000000000007';
+update menu set grade='2' where id='1000000000000007';
+update menu set parent_id='1000020045134313' where id='1000000000000007';
+
+-- 推荐供应商
+update menu set label='找供应商' where id='1000020045084321';
+update menu set sort='40' where id='1000020045084321';
+update menu set grade='2' where id='1000020045084321';
+update menu set parent_id='1000020045134313' where id='1000020045084321';
+
+-- 订单中心
+update menu set sort='50' where id='1000020044934294';
+update menu set grade='2' where id='1000020044934294';
+-- 我要卖配件
+INSERT INTO `menu` (`id`, `created`, `last_update`, `version`, `grade`, `label`, `resource_id`, `parent_id`, `href`, `sort`, `menu_name`)
+VALUES (1000020044134330, 1366168907970, 1366168907970, 0, 2, '我要卖配件', -1, 1000020045134313, 'navigator.do?method=salesAccessory', 60, 'WEB.AUTOACCESSORYONLINE.SALES_ACCESSORY.BASE');
+
+update menu set resource_id=(select id from resource where `value`='WEB.AUTOACCESSORYONLINE.SALES_ACCESSORY.BASE') where id=1000020044134330;
+
+-- 商品上架
+update menu set sort='10' where id='1000020044934295';
+update menu set grade='3' where id='1000020044934295';
+update menu set parent_id='1000020044134330' where id='1000020044934295';
+
+-- 促销管理
+-- update menu set sort='20' where id='1000020044134322';
+-- update menu set grade='3' where id='1000020044134322';
+update menu set parent_id='1000020044134330' where id='1000020044134322';
+
+-- 客户库存
+update menu set sort='30' where id='1000020045134314';
+update menu set grade='3' where id='1000020045134314';
+update menu set parent_id='1000020044134330' where id='1000020045134314';
+
+-- 我的报价
+update menu set sort='40' where id='1000020044134324';
+update menu set grade='3' where id='1000020044134324';
+update menu set parent_id='1000020044134330' where id='1000020044134324';
+
+
+-- 我要买配件
+INSERT INTO `menu` (`id`, `created`, `last_update`, `version`, `grade`, `label`, `resource_id`, `parent_id`, `href`, `sort`, `menu_name`)
+VALUES (1000020044134340, 1366168907970, 1366168907970, 0, 2, '我要买配件', -1, 1000020045134313, 'navigator.do?method=buyAccessory', 60, 'WEB.AUTOACCESSORYONLINE.BUY_ACCESSORY.BASE');
+
+update menu set resource_id=(select id from resource where `value`='WEB.AUTOACCESSORYONLINE.BUY_ACCESSORY.BASE') where id=1000020044134340;
+
+-- 发布求购
+update menu set sort='10' where id='1000020044134322';
+update menu set grade='3' where id='1000020044134322';
+update menu set parent_id='1000020044134340' where id='1000020044134322';
+-- 我的求购
+update menu set sort='20' where id='1000020044134323';
+update menu set grade='3' where id='1000020044134323';
+update menu set parent_id='1000020044134340' where id='1000020044134323';
+-- 购物车
+update menu set sort='30' where id='1000020045134316';
+update menu set grade='3' where id='1000020045134316';
+update menu set parent_id='1000020044134340' where id='1000020045134316';
+-- 在线退货
+update menu set sort='40' where id='1000020045134317';
+update menu set grade='3' where id='1000020045134317';
+update menu set parent_id='1000020044134340' where id='1000020045134317';
+
+
+
+
+solr  替换config/schema、data/words-bcgogo.dic
+
+solr_home
+customer_supplier product   order_item  order suggestion vehicle
+
+重启solr
+
+重做索引
+
+jackchen登录用户 并执行 初始化  /web/businessScope.do?method=initWeekStat
+
+---------------------------------------读备份库设置------------------------------------------------------
+//tomcat  jpa-persistence.properties 更新
+增加
+#备份库
+JDBC_URL_BACKUP = jdbc:mysql://127.0.0.1:3306/
+USERNAME_BACKUP=root
+PASSWORD_BACKUP=root
+
+txnRead.dataSource.url = ${JDBC_URL_BACKUP}txn${JDBC_URL_EXTRA}
+txnRead.dataSource.username = ${USERNAME_BACKUP}
+txnRead.dataSource.password = ${PASSWORD_BACKUP}
+txnRead.dataSource.initialSize = 5
+txnRead.dataSource.maxActive = 50
+txnRead.dataSource.maxIdle = 15
+txnRead.dataSource.minIdle = 5
+txnRead.dataSource.maxWait = -1
+
+
+productRead.dataSource.url = ${JDBC_URL_BACKUP}product${JDBC_URL_EXTRA}
+productRead.dataSource.username = ${USERNAME_BACKUP}
+productRead.dataSource.password = ${PASSWORD_BACKUP}
+productRead.dataSource.initialSize = 5
+productRead.dataSource.maxActive = 50
+productRead.dataSource.maxIdle = 15
+productRead.dataSource.minIdle = 5
+productRead.dataSource.maxWait = -1
+

@@ -1,0 +1,152 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="zhuyinjia" id="repair_remind_event_1">
+    <createTable tableName="repair_remind_event">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="repair_order_id" type="bigint"/>
+      <column name="event_type" type="bigint"/>
+      <column name="event_content" type="bigint"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="repair_remind_event_2" author="zhuyinjia">
+    <addPrimaryKey tableName="repair_remind_event" columnNames="id" constraintName="pk_repair_remind_event"/>
+  </changeSet>
+
+  <changeSet id="repair_remind_event_3" author="shaolei">
+    <createIndex tableName="repair_remind_event" indexName="idx_repair_remind_event">
+      <column name="shop_id"/>
+      <column name="event_type"/>
+      <column name="repair_order_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="caiwei" id="repair_remind_event_4">
+    <addColumn tableName="repair_remind_event">
+      <column name="amount" type="float"/>
+      <column name="vehicle_brand" type="varchar(20)"/>
+      <column name="vehicle_model" type="varchar(20)"/>
+      <column name="vehicle_year" type="varchar(10)"/>
+      <column name="vehicle_engine" type="varchar(20)"/>
+      <column name="product_name" type="varchar(100)"/>
+      <column name="product_spec" type="varchar(40)"/>
+      <column name="product_model" type="varchar(40)"/>
+      <column name="vehicle" type="varchar(40)"/>
+      <column name="customer" type="varchar(40)"/>
+      <column name="mobile" type="varchar(40)"/>
+      <column name="service" type="varchar(40)"/>
+    </addColumn>
+  </changeSet>
+  <changeSet author="caiwei" id="repair_remind_event_5">
+    <addColumn tableName="repair_remind_event">
+      <column name="product_id" type="bigint"/>
+      <column name="finish_time" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="caiwei" id="repair_remind_event_6">
+    <addColumn tableName="repair_remind_event">
+      <column name="product_brand" type="varchar(40)"/>
+    </addColumn>
+  </changeSet>
+
+ <changeSet author="zhouxiaochen" id="repair_remind_event_7">
+    <addColumn tableName="repair_remind_event">
+      <column name="start_date" type="varchar(40)"/>
+      <column name="end_date" type="varchar(40)"/>
+    </addColumn>
+  </changeSet>
+
+    <changeSet author="luyi" id="repair_remind_event_8">
+        <createIndex tableName="repair_remind_event" indexName="IDX_REPAIRREMINDEVENT_SHOPID_EVENTTYPE">
+            <column name="shop_id"/>
+            <column name="event_type"/>
+        </createIndex>
+        <createIndex tableName="repair_remind_event" indexName="IDX_REPAIRREMINDEVENT_SHOPID_EVENTTYPE_PRODUCTID">
+            <column name="shop_id"/>
+            <column name="event_type"/>
+            <column name="product_id"/>
+        </createIndex>
+        <createIndex tableName="repair_remind_event" indexName="IDX_REPAIRREMINDEVENT_SHOPID_EVENTTYPE_PRODUCTID_FINISHTIME">
+            <column name="shop_id"/>
+            <column name="event_type"/>
+            <column name="product_id"/>
+            <column name="finish_time"/>
+        </createIndex>
+        <createIndex tableName="repair_remind_event" indexName="IDX_REPAIRREMINDEVENT_SHOPID_EVENTTYPE_PRODUCTID_AMOUNT">
+            <column name="shop_id"/>
+            <column name="event_type"/>
+            <column name="product_id"/>
+            <column name="amount"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="repair_remind_event_9">
+        <dropIndex indexName="IDX_REPAIRREMINDEVENT_SHOPID_EVENTTYPE" tableName="repair_remind_event" />
+        <dropIndex indexName="IDX_REPAIRREMINDEVENT_SHOPID_EVENTTYPE_PRODUCTID" tableName="repair_remind_event" />
+        <dropIndex indexName="IDX_REPAIRREMINDEVENT_SHOPID_EVENTTYPE_PRODUCTID_FINISHTIME" tableName="repair_remind_event" />
+        <dropIndex indexName="IDX_REPAIRREMINDEVENT_SHOPID_EVENTTYPE_PRODUCTID_AMOUNT" tableName="repair_remind_event" />
+        <dropIndex indexName="idx_repair_remind_event" tableName="repair_remind_event" />
+        <createIndex tableName="repair_remind_event" indexName="IDX_REPAIRREMINDEVENT_SHOPID_REPAIRORDERID">
+            <column name="shop_id" />
+            <column name="repair_order_id" />
+        </createIndex>
+        <createIndex tableName="repair_remind_event" indexName="IDX_REPAIRREMINDEVENT_PRODUCTID">
+            <column name="product_id" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="qiuxinyu" id="repair_remind_event_10">
+        <addColumn tableName="repair_remind_event">
+            <column name="unit" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+  <changeSet id="repair_remind_event_11" author="zhangjuntao">
+    <modifyColumn tableName="repair_remind_event">
+      <column name="service" type="varchar(200)"></column>
+    </modifyColumn>
+  </changeSet>
+
+    <changeSet author="jimuchen" id="repair_remind_event_12">
+        <addColumn tableName="repair_remind_event">
+            <column name="event_type_enum" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="repair_remind_event_13">
+    <modifyColumn tableName="repair_remind_event">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="repair_remind_event_14" author="jimuchen">
+    <modifyColumn tableName="repair_remind_event">
+      <column name="product_name" type="varchar(200)" />
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="repair_remind_event_15" author="jimuchen">
+    <modifyColumn tableName="repair_remind_event">
+      <column name="vehicle_brand" type="varchar(200)" />
+      <column name="vehicle_model" type="varchar(50)" />
+      <column name="product_spec" type="varchar(2000)" />
+      <column name="product_brand" type="varchar(200)" />
+      <column name="product_model" type="varchar(50)" />
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

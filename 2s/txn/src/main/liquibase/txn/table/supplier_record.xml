@@ -1,0 +1,39 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="jimuchen" id="supplier_record_1">
+    <createTable tableName="supplier_record">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="supplier_id" type="bigint"/>
+      <column name="credit_amount" type="double"/>
+    </createTable>
+    <addPrimaryKey tableName="supplier_record" columnNames="id" constraintName="pk_supplier_record"/>
+    <createIndex tableName="supplier_record" indexName="idx_shop_supplier">
+      <column name="shop_id" />
+      <column name="supplier_id" />
+    </createIndex>
+  </changeSet>
+
+    <changeSet id="supplier_record_2" author="chenfanglei">
+        <addColumn tableName="supplier_record">
+            <column name="debt" type="double"></column>
+        </addColumn>
+    </changeSet>
+  <changeSet author="ndong" id="supplier_record_3">
+    <addColumn tableName="supplier_record">
+      <column name="status" type="varchar(20)"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

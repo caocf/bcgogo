@@ -1,0 +1,43 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xzhu" id="pre_buy_order_message_xzhu_1">
+        <createTable tableName="pre_buy_order_message">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+
+            <column name="pre_buy_order_id" type="bigint"/>
+            <column name="shop_province" type="bigint"/>
+            <column name="shop_city" type="bigint"/>
+            <column name="shop_region" type="bigint"/>
+            <column name="edit_date" type="bigint"/>
+
+
+            <column name="shop_name" type="varchar(200)"/>
+            <column name="shop_kind" type="varchar(20)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="pre_buy_order_message_xzhu_2" author="xzhu">
+        <addPrimaryKey tableName="pre_buy_order_message" columnNames="id" constraintName="pk_pre_buy_order_message"/>
+    </changeSet>
+
+    <changeSet author="xzhu" id="pre_buy_order_message_xzhu_3">
+        <addColumn tableName="pre_buy_order_message">
+            <column name="vest_date" type="bigint" />
+            <column name="end_date" type="bigint" />
+            <column name="deleted" type="varchar(20)" />
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

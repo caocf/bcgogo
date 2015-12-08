@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+.i_main .i_mainLeft .i_searchTime span{color:#CCC; line-height:27px;padding-left:5px;}
+.account_bal{margin-left:230px;_margin-left:210px;}
+.guid_title .ziliao,.guid_title li:hover { background:url(../images/sms_noteHover.jpg) no-repeat;width:130px; height:32px; }
+.guid_title .ziliao a,.guid_title li:hover a{color:#fff;}
+/*客户详细资料*/
+.guide_info{width:1003px; color:#000000;}
+.detail h3{ height:19px; background:url(../images/detail_top.png) no-repeat;padding-top:8px;_padding-top:7px; display:block; _margin-bottom:-1px;}
+.detail h3 label{font-size:14px; font-weight:bold;color:#666666;margin-left:15px;}
+ .detail_cont{ background:url(../images/cont_center.png) repeat-y; width:1003px; height:190px;}
+ .detail_cont ul{ width:700px; float:left; margin:30px 0px 0px 15px;}
+ .detail_cont ul li{width:345px; float:left; line-height:22px;}
+  .detail_cont ul li span, .detail_cont ul li label,.cont_user label,.cont_user span{color:#666666; font-weight:bold; display:block; float:left;width:80px;}
+  .cont_user{ line-height:22px;}
+  .cont_user label{width:50px;}
+  .detail_cont ul li label,.cont_user label{width:160px;}
+  .cont_user label{width:70px;}
+ .cont_user{ float:left;width:190px;margin:30px 0px 0px 15px;}
+ .addUser{ background:url(../images/assUser.png); color:#fff; width:82px; height:26px; line-height:26px; display:block; border:none; margin:90px 0px 0px 90px;_margin-left:80px;}
+/*消费记录*/
+.shortcut{ margin-top:10px;width:950px;_background:none;_width:778px;}
+.shortcut h5{font-size:14px;font-weight:bold; font-style:italic;  margin-left:20px; margin-bottom:5px;color:#666666;}
+#num2 .cust_left {
+	background:url(../images/comtor.png) left;
+	width:55px;
+	padding-left:10px;
+	text-align:left;
+}
+#num2  .cust{background:url(../images/comtor.png) right;width:40px;}
+.cust_mi {
+	background:url(../images/cus_bg.png) repeat-x;
+/*	width:515px;
+	_width:505px;*/
+}
+.tab_desic tr td{ height:25px;}
+.tab_desic .titlle td{color:#fff;  height:23px; border:none; line-height:23px; text-align:left;}
+.state_center{width:31px;}
+#num2{width:1003px;}

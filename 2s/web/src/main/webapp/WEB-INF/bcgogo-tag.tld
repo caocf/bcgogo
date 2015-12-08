@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+    <!--<?xml version="1.0" encoding="ISO-8859-1"?>-->
+    <tlib-version>1.0</tlib-version>
+    <short-name>bcgogo</short-name>
+    <uri>http://www.bcgogo.com/taglibs/tags</uri>
+    <tag>
+        <name>hasPermission</name>
+        <tag-class>com.bcgogo.tag.permission.HasPermissionTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>permissions</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>resourceType</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>permission</name>
+        <tag-class>com.bcgogo.tag.permission.PermissionTag</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+
+    <tag>
+        <name>if</name>
+        <tag-class>com.bcgogo.tag.permission.IfTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>permissions</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>resourceType</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+
+
+    <tag>
+        <name>else</name>
+        <tag-class>com.bcgogo.tag.permission.ElseTag</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+
+    <tag>
+        <name>permissionParam</name>
+        <tag-class>com.bcgogo.tag.permission.PermissionParamTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>permissions</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>resourceType</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>permissionKey</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>orderPageConfigurationParam</name>
+        <tag-class>com.bcgogo.tag.configuration.PersonalizedPageOrderConfigurationTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <!--[o1,r1],[o2,r2]-->
+            <name>orderNameAndResource</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>orderGroupName</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>resourceName</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <!-- Invoke 'Generate' action to add tags or functions -->
+
+    <tag>
+        <name>hasNewReminder</name>
+        <tag-class>com.bcgogo.tag.HasNewReminder</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+
+    <tag>
+        <name>hasConfig</name>
+        <tag-class>com.bcgogo.tag.HasConfig</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>configValue</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>expectResult</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+
+
+
+    <tag-file>
+        <name>ajaxPaging</name>
+        <path>/WEB-INF/tags/ajaxPaging.tag</path>
+    </tag-file>
+
+    <tag-file>
+        <name>paging</name>
+        <path>/WEB-INF/tags/paging.tag</path>
+    </tag-file>
+
+    <tag-file>
+        <name>ajaxPagingUpAndDown</name>
+        <path>/WEB-INF/tags/ajaxPagingUpAndDown.tag</path>
+    </tag-file>
+
+    <function>
+        <description>NumberUtil</description>
+        <name>roundInt</name>
+        <function-class>com.bcgogo.utils.NumberUtil</function-class>
+        <function-signature>
+             int roundInt(java.lang.Object)
+        </function-signature>
+    </function>
+
+     <function>
+        <description>NumberUtil</description>
+        <name>round</name>
+        <function-class>com.bcgogo.utils.NumberUtil</function-class>
+        <function-signature>
+             double round(java.lang.Object)
+        </function-signature>
+    </function>
+
+     <function>
+        <description>StringUtil</description>
+        <name>getShortStr</name>
+        <function-class>com.bcgogo.utils.StringUtil</function-class>
+        <function-signature>
+            java.lang.String getShortStr(java.lang.String,int)
+        </function-signature>
+    </function>
+
+</taglib>

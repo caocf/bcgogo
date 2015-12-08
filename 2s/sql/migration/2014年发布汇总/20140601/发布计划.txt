@@ -1,0 +1,35 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+
+
+三.发布应用
+  1. 发布web, admin
+  2. 发布定时钟
+  3. 发布api
+
+四.添加权限
+
+bcuser:（刘伟）
+update bcuser.app_user_login_info a set user_type = ( select user_type from bcuser.app_user where app_user_no = a.app_user_no);
+
+  1. admin->配置
+    (1)config 配置
+            name                             value                                                 描述
+        BcgogoAppVersionAndroid              1.0                                                 一发软件APP版安卓版本
+        BcgogoAppVersionIOS                  1.0                                                 一发软件APP版IOS版本
+
+        BcgogoAppAndroidAppUpgradeURL               手机端提供                                   一发软件APP安卓更新URL
+        BcgogoAppISOAppUpgradeURL                   手机端提供                                   一发软件APP IOS更新URL
+
+        YFUMAppKey                 53758ca756240bab770101d3                                   安卓友盟推送一发app的AppKey
+        YFUMAppMasterSecret        llelw4qypr50g08n0lv8wupdcttkyyez                           安卓友盟推送一发app的AppMasterSecret
+
+五.初始化
+
+
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+

@@ -1,0 +1,93 @@
+.shelvesed {
+    border: 1px solid #CCCCCC;
+    color: #444443;
+    float: left;
+    width: 490px;
+}
+
+.shelvesed .topTitle {
+    background: url("../images/titleBg.png") repeat-x scroll 0 0 transparent;
+    border-bottom: 1px solid #CCCCCC;
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+    height: 31px;
+    line-height: 32px;
+    text-align: left;
+    width: 100%;
+}
+
+.order {
+    padding: 10px;
+}
+
+.shelves {
+    margin-left: 19px;
+}
+
+.shelvesed .orderTitle {
+    color: #000000;
+    text-align: left;
+}
+
+.shelvesed .orderTitle .cuEdit {
+    float: right;
+    padding: 0 6px 0 0;
+    position: relative;
+}
+
+.shelvesed .cuEdit {
+    color: #006ECA;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 2px 0 0 68px;
+    position: absolute;
+}
+
+.shelvesed .cuEdit:hover {
+    color: #FF5113;
+    text-decoration: underline;
+}
+
+.order .divOrder {
+    line-height: 22px;
+}
+
+.order .divOrder label {
+    font-size: 14px;
+}
+
+.order .divOrder .blue_color {
+    color: #006ECA;
+    cursor: pointer;
+}
+
+.order .divOrder .blue_color {
+    color: #006ECA;
+    cursor: pointer;
+}
+
+.order .divOrder .blue_color:hover {
+    color: #FF5113;
+    text-decoration: underline;
+}
+
+.order hr {
+    color: #EEEEEE;
+    margin: 5px -10px;
+}
+
+.todoCountDiv{
+    width:99%;
+    border:1px solid #BBBBBB;
+    border-collapse:collapse;
+    background-color:#F9F9F9;
+    padding:5px;
+    margin-bottom:5px;
+}
+
+.todoCountDiv a:hover{
+    color: #FF5E04;
+    text-decoration: underline;
+}

@@ -1,0 +1,41 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhangjuntao" id="bcgogo_receivable_record_zhangjuntao_1">
+        <createTable tableName="bcgogo_receivable_record">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="status" type="varchar(50)"/>
+            <column name="payment_amount" type="double"/>
+            <column name="paid_amount" type="double"/>
+            <column name="operator_id" type="bigint"/>
+            <column name="operator_time" type="bigint"/>
+            <column name="payee_id" type="bigint"/>
+            <column name="payment_time" type="bigint"/>
+            <column name="submit_time" type="bigint"/>
+            <column name="submitter_id" type="bigint"/>
+            <column name="auditor_id" type="bigint"/>
+            <column name="audit_time" type="bigint"/>
+            <column name="memo" type="varchar(500)"/>
+        </createTable>
+        <addPrimaryKey tableName="bcgogo_receivable_record" columnNames="id" constraintName="pk_bcgogo_receivable_record"/>
+        <createIndex tableName="bcgogo_receivable_record" indexName="idx_bcgogo_receivable_record_shopid">
+            <column name="shop_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="bcgogo_receivable_record_xzhu_2" author="xzhu">
+        <addColumn tableName="bcgogo_receivable_record">
+            <column name="payee_name" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,11 @@
+新增资源：
+exportInventory           /web/export.do?method=exportInventory      SHOP       导出库存       request
+downloadExportFile        /web/download.do?method=downloadExportFile   SHOP       下载导出文件       request
+exportCustomer            /web/export.do?method=exportCustomer        SHOP       导出会员       request
+exportOrder           /web/export.do?method=exportOrder        SHOP       导出单据       request
+exportCustomerTransaction           /web/export.do?method=exportCustomerTransaction        SHOP       导出客户交易       request
+exportBusinessStat           /web/export.do?method=exportBusinessStat        SHOP       导出营业额统计       request
+
+SHOP上点击新增角色“导出权限”  将上述资源全部添加进去  将该角色分配给每一个版本的老板用户组
+
+admin进后台，打开系统配置  新增  key：ExportFileDir    value:/usr/local/tomcat/temp/   描述：导出文件的内容存放目录

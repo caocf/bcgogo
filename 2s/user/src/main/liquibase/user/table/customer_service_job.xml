@@ -1,0 +1,80 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="mazdong" id="customer_service_job_1">
+        <createTable tableName="customer_service_job">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="remind_type" type="varchar(20)"/>
+            <column name="customer_id" type="bigint"/>
+            <column name="vehicle_id" type="bigint"/>
+            <column name="remind_date" type="bigint"/>
+            <column name="remind_mode" type="bigint"/>
+            <column name="state" type="bigint"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="mzdong" id="customer_service_job_2">
+        <dropColumn tableName="customer_service_job" columnName="remind_date"/>
+        <addColumn tableName="customer_service_job">
+            <column name="remind_time" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="mzdong" id="customer_service_job_3">
+        <dropColumn tableName="customer_service_job" columnName="remind_type"/>
+        <addColumn tableName="customer_service_job">
+            <column name="remind_type" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="xiaojian" id="customer_service_job_4">
+        <addPrimaryKey tableName="customer_service_job" columnNames="id" constraintName="pk_customer_service_job"/>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="customer_service_job_5">
+        <createIndex tableName="customer_service_job" indexName="IDX_CUSTOMERSERVICEJOB_SHOPID_REMINDTIME">
+            <column name="shop_id" />
+            <column name="remind_time" />
+        </createIndex>
+        <createIndex tableName="customer_service_job" indexName="IDX_CUSTOMERRECORD_CUSTOMERID">
+            <column name="customer_id" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="shaolei" id="customer_service_job_6">
+      <renameColumn tableName="customer_service_job" oldColumnName="state" newColumnName="status" columnDataType="varchar(20)"/>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="customer_service_job_7">
+    <modifyColumn tableName="customer_service_job">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet author="ndong" id="customer_service_job_8">
+    <addColumn tableName="customer_service_job">
+      <column name="appoint_service_id" type="bigint"/>
+      <column name="appoint_name" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+    <changeSet author="xinYuQiu" id="customer_service_job_9_xinYuQiu">
+        <addColumn tableName="customer_service_job">
+            <column name="remind_mileage" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

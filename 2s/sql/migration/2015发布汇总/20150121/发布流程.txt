@@ -1,0 +1,26 @@
+ 一.备份现有生产上war包（纪友文）,停掉热备份
+
+ 二.发布前准备
+     1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+ 三.发布应用
+
+ 四.配置权限
+    SHOP-基本，添加下面资源
+      web_getProbableShopByFinger          /web/user.do?method=getProbableShopByFinger        SHOP    不登录获取店铺信息         request
+
+ 五.初始化
+     1.上传文件pojo/com/bcgogo/wx/menu/wx_menu.xml,到tomcat/key/wx 目录(部署到各台服务器）
+     2.进入后台admin 微信管理-公共号管理，重建各个公共号的的菜单
+
+ 六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+
+
+
+/*****************************************************   发布生产的DDL   ***************************************************************/
+
+alert table user_client_info add column finger varchar(50);
+alert table user_client_info add column score int;
+alert table user_login_log add column finger varchar(50);

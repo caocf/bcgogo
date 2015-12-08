@@ -1,0 +1,324 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.i_mainRight .inventoryCheck_show {
+  /*border-collapse: collapse;*/
+  /*margin: 10px 0px;*/
+  /*width: 1003px;*/
+  /*border: 1px solid #C9C6C6;*/
+}
+
+.inventoryCheck_show tr {
+  padding: 0px 5px;
+}
+
+.inventoryCheck_show tr td {
+  /*height: 31px;*/
+}
+
+/*.i_mainRight .inventoryCheck_total {*/
+  /*border-collapse: collapse;*/
+  /*margin-bottom: 10px;*/
+  /*width: 1003px;*/
+  /*border: 1px solid #C9C6C6;*/
+  /*border-top: 0px;*/
+/*}*/
+
+.inventoryCheck_total tr {
+  padding: 0px 5px;
+}
+
+.inventoryCheck_total tr td {
+  height: 31px;
+}
+
+.inventoryCheck_show tr td input {
+  height: 21px;
+}
+
+/*.i_mainRight .inventoryCheck_show tr td .dele_a {*/
+  /*color: #c00000;*/
+  /*text-decoration: underline;*/
+/*}*/
+
+/*.inventoryCheck_show .title_tb {*/
+  /*background: url(../images/title_tbcenter.png) repeat-x;*/
+  /*color: #fff;*/
+  /*text-align: center;*/
+/*}*/
+
+/*.i_mainRight .inventoryCheck_show .heji_tb td {*/
+  /*font-weight: bold;*/
+  /*color: #7f7f7f;*/
+/*}*/
+
+table tr td input {
+  border: 1px solid #ADADAD;
+}
+
+.ti_btn input {
+  background: url("../images/btn_tong.png") no-repeat scroll 0 0 transparent;
+  border: medium none;
+  display: block;
+  float: left;
+  height: 25px;
+  margin-right: 10px;
+  width: 76px;
+}
+
+.ti_btn input:hover {
+  background: url(../images/btn_ti.png) no-repeat;
+  color: #fff;
+}
+
+.titBody {
+  clear: both;
+  float: left;
+  height: 100%;
+  width: 100%;
+}
+
+.lineTitle {
+  background: url("../images/title.png") no-repeat scroll 0 0 transparent;
+  color: #1B5EA1;
+  float: left;
+  font-size: 14px;
+  font-weight: bold;
+  height: 33px;
+  line-height: 35px;
+  padding-left: 10px;
+  width: 993px;
+}
+
+.lineBody {
+  background: url("../images/line_bg.png") repeat-y scroll 0 0 transparent;
+  color: #272727;
+  float: left;
+  height: 100%;
+  padding: 10px 15px;
+  width: 973px;
+}
+
+.tab .tabSlip {
+  border-width: 0;
+}
+
+.tabSlip {
+  border: 1px solid #BBBBBB;
+  border-collapse: collapse;
+  table-layout: fixed;
+  /*width: 100%;*/
+}
+
+.tab .titleBg {
+  background: url("../images/titBg.png") no-repeat scroll 0 0 transparent;
+  border: medium none;
+  color: #FFFFFF;
+  height: 26px;
+  line-height: 26px;
+}
+
+.tab .titleBg td {
+  border: medium none;
+  color: #FFFFFF;
+}
+.tabSlip td {
+  color: #272727;
+  height: 28px;
+  line-height: 28px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
+.tabTitle {
+  color: #272727;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+
+.tab {
+  width: 983px;
+  border-color:#CCCCCC;
+  border-image: none;
+  border-right: 1px solid #CCCCCC;
+  border-style: none solid solid;
+  border-width: medium 1px 1px;
+  float: left;
+  padding: 10px;
+}
+
+.bodys .divTit .btn_search {
+  margin-top: 1px;
+}
+.lineBody .btn_search {
+  margin: 0;
+}
+.btn_search {
+  background: url("../images/chkNormal.png") no-repeat scroll 0 0 transparent;
+  border: medium none;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 21px;
+  line-height: 21px;
+  margin-top: 1px;
+  padding: 0 0 2px;
+  text-align: center;
+  width: 64px;
+}
+
+.bodys .divTit .lbl {
+  padding-left: 10px;
+}
+
+body {
+  color: #FFFFFF;
+  font-family: "宋体",Arial;
+  font-size: 12px;
+}
+
+.titBody.bodys .divTit {
+  line-height: 35px;
+}
+
+.bodys .divTit .txt, .bodys .divTit .selTit {
+    border: 1px solid #BBBBBB;
+    color: #515151;
+    height: 19px;
+    line-height: 20px;
+    padding-left: 6px;
+    width: 100px;
+}
+
+.bodys .divTit .lbl input {
+    margin: -3px 3px 0 0;
+    vertical-align: middle;
+}
+
+.btn_search:hover {
+  background: url("../images/chkHover.png") no-repeat scroll 0 0 transparent;
+}
+
+.lineBottom {
+  background: url("../images/line_bottom.png") no-repeat scroll 0 0 transparent;
+  float: left;
+  height: 5px;
+  width: 1003px;
+}
+
+.btnPan {
+  background: url("../images/btn.png") no-repeat scroll 0 0 transparent;
+  cursor: pointer;
+  display: block;
+  float: right;
+  height: 18px;
+  line-height: 19px;
+  margin: 8px 22px 0 0;
+  text-align: center;
+  width: 65px;
+}
+.btnPan:hover {
+  background: url("../images/btn.png") no-repeat scroll 0 -18px transparent;
+}
+
+.titBody .divTit {
+    color: #000000;
+    float: left;
+    line-height: 24px;
+    padding-right: 20px;
+    margin-top: 10px;
+}
+
+.printBtn {
+  cursor: pointer;
+  float: left;
+  width: 50px;
+}
+
+.divImg {
+  cursor: pointer;
+  float: left;
+  margin-left: 20px;
+  text-align: center;
+}
+
+.titBody {
+  clear: both;
+  float: left;
+  height: 100%;
+  width: 100%;
+}
+
+.inventoryCheck_show .btnPlus, .inventoryCheck_show .btnMinus {
+  display: block;
+  float: inherit;
+}
+/*.inventoryCheck_show .btnPlus {*/
+  /*background: url("../images/opera1.jpg") no-repeat scroll 0 0 transparent;*/
+  /*border: medium none;*/
+  /*cursor: pointer;*/
+  /*height: 16px;*/
+  /*width: 16px;*/
+/*}*/
+
+/*.inventoryCheck_show .btnMinus {*/
+  /*background: url("../images/opera2.jpg") no-repeat scroll 0 0 transparent;*/
+  /*border: medium none;*/
+  /*cursor: pointer;*/
+  /*height: 16px;*/
+  /*width: 16px;*/
+/*}*/
+
+#table_productNo tr td input {
+  width: 85%;
+}
+
+#table_productNo .btnPlus, #table_productNo .btnMinus {
+    height: 16px;
+    /*width: 16px;*/
+    margin-left: 6px;
+    float: left;
+}
+
+.red_color, td.red_color {
+    color: #CB0000;
+}
+
+.green_color, td.green_color {
+    color: #1F541E;
+}
+
+.titBody .divTit .txt{
+    border: 1px solid #BBBBBB;
+    height: 19px;
+    line-height: 20px;
+    padding-left: 6px;
+    width: 100px;
+}
+
+.addNew {
+    background: url("../images/chkNormal2.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: right;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    width: 90px;
+    margin-top: 4px;
+     margin-right: 14px;
+}
+
+.addNew:hover {
+    background: url(../images/btnHover2.png) no-repeat;
+    color: #663A02;
+}
+
+.inventoryCheck_show tr.red_color td {
+    background: none repeat scroll 0 0 #F9B3B3;
+    color: #000000;
+}

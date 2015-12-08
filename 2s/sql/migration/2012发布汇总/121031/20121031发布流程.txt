@@ -1,0 +1,125 @@
+一.添加权限
+
+（一）角色
+                    name                                        备注
+//-------------------------------------------------------------------------------------------------new role----------------------------------------------------------------------------------------------------
+               web_shopSystem_admin_loanTransfers             货款转账
+
+资源
+          name                                          type             value                                        备注
+//-------------------------------------------------------------------------------------------------new resource----------------------------------------------------------------------------------------------------
+//===============================================  web_basic_login  	不登陆可使用的权限 (张峻滔)===================================================
+web_chinapay_smsRechargeReceive               request         /web/chinapay.do?method=smsRechargeReceive                             短信充值银联后台
+web_chinapay_loanTransfersReceive             request         /web/chinapay.do?method=loanTransfersReceive                           货款转账银联后台
+//===============================================  web_txn_wash  	洗车 (邱)===================================================
+web_txn_wash_washBeautyOrderRepeal            request         /web/washBeauty.do?method=washBeautyOrderRepeal                        洗车作废
+web_txn_wash_washBeautyOrderCopy              request         /web/washBeauty.do?method=washBeautyOrderCopy                          洗车复制
+//===============================================  web_shopSystem_admin_loanTransfers 货款转账 	 (张峻滔)===================================================
+web_shopSystem_admin_loanTransfers_page_render         render         /web/systemManager/admin/loanTransfers                           货款转账（页面控制）
+web_shopSystem_admin_loanTransfers_showPage            request         /web/loanTransfers.do?method=showPage                           货款转账（历史记录）
+web_shopSystem_admin_loanTransfers_saveLoan            request         /web/loanTransfers.do?method=saveLoan                           货款转账（转账）
+web_shopSystem_admin_loanTransfers_saveLoanComplete    request         /web/loanTransfers.do?method=saveLoanComplete
+//=============================================== 商品分类 web_txn_product_modify（韦凌枫）  ===================================================
+web_product_ajaxSaveProductKind			    /web/stockSearch.do?method=ajaxSaveProductKind			    Ajax保存或者新增一条商品分类
+web_product_getProductKindsRecentlyUsed		/web/stockSearch.do?method=getProductKindsRecentlyUsed		获取最近使用的15条商品分类
+web_product_saveOrUpdateProductKind		    /web/stockSearch.do?method=saveOrUpdateProductKind		    修改kind表的分类名称，并同步更新引用此分类名称的商品库存信息
+web_product_setProductKind			        /web/txn.do?method=setProductKind				            批量修改商品分类的弹出框
+web_product_getProductKindsWithFuzzyQuery	/web/stockSearch.do?method=getProductKindsWithFuzzyQuery	输入中模糊查询商品分类
+web_product_updateMultipleProductKind		/web/txn.do?method=updateMultipleProductKind	    批量修改商品分类
+web_product_deleteProductKind			    /web/stockSearch.do?method=deleteProductKind			    逻辑删除商品分类
+
+  //===============================================  web_txn_salePriceSettings 进销存-设定销售价（邱鑫宇）  ===================================================
+web_txn_ajaxUpdateMultipleRecommendedPrice		request	    /web/txn.do?method=ajaxUpdateMultipleRecommendedPrice			    ajax批量保存设定销售价
+
+  //===============================================  web_shopSystem_import 超级管理-单据导入（董楠）  ===================================================
+web_shopSystem_import		request	    /web/importOrder.do?method=uploadExcel			            上传单据模板
+web_shopSystem_import		request	    /web/importOrder.do?method=importOrderFromExcel			    导入上传的单据
+
+二.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+
+三.数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，邹建宏）
+//===============================================（商品分类 韦凌枫）=====================================================
+3.0\search\src\main\liquibase\search\table\stock_search_index.xml 更新
+3.0\product\src\main\liquibase\product\table\kind.xml 更新
+
+四.solr schema 更新 customer_supplier更新，vehicle更新，order更新  product更新 suggestion更新
+最后执行重做索引
+
+五.发布应用 （纪友文）
+
+六.初始化
+     //===============================================（单据receivableId错误初始化 刘伟） =====================================================
+     1.增加权限 web_bcgogoSystem_initReceivableForOrderId			     	/web/init.do?method=initReceivableForOrderId  单据receivableId错误初始化
+     执行初始化:/web/init.do?method=initReceivableForOrderId
+     2.执行以下sql
+     update bcuser.customer_record cr ,(
+     select d.customerId as dcustomerId,sum(d.debt) totalDebt
+     from txn.debt d
+     where d.status_enum = 'ARREARS'
+     and customerId is not null
+     group by d.customerId) td
+     set cr.total_receivable = td.totalDebt
+     where cr.customer_id = td.dcustomerId ;
+
+
+     select cr.total_receivable ,td.totalDebt from bcuser.customer_record cr ,(
+     select d.customerId as dcustomerId,sum(d.debt) totalDebt
+     from txn.debt d
+     where d.status_enum = 'ARREARS'
+     and customerId is not null
+     group by d.customerId) td
+     where cr.customer_id = td.dcustomerId  and cr.total_receivable != td.totalDebt ;
+
+
+     //===============================================（作废单营业统计、流水统计处理 刘伟） =====================================================
+     1.先备份下面sql语句所涉及的数据 再执行如下sql语句
+
+				//店铺清数据没有完全清空
+				delete from txn.payable_history_record where id =  10000010033673355;
+				delete from txn.payable_history_record where id =  10000010033733369;
+				delete from txn.payable where id = 10000010033653353;
+				delete from txn.payable_history where id = 10000010033663354;
+				delete from txn.payable where id = 10000010033713365;
+				delete from txn.payable_history where id = 10000010033723368;
+
+				//原因 只初始化了 洗车 施工销售
+				update txn.business_stat_change set sales =0, wash =0,service = 0, product_cost = 0, stat_sum = 0;
+
+				//所有单据的reception记录都初始化了
+				delete from txn.running_stat_change;
+
+				update txn.reception_record set day_type = 'NO_INIT_DAY' where day_type is null;
+				update txn.payable_history_record set day_type = 'NO_INIT_DAY' where day_type is null;
+
+				//这几条单据都是结算 作废后 产生实收的
+				update txn.reception_record set day_type = 'TODAY' where order_id = 10000010039513939;
+				update txn.reception_record set day_type = 'TODAY' where order_id = 10000010040024000;
+				update txn.reception_record set day_type = 'TODAY' where order_id = 10000010040734000;
+				update txn.reception_record set remain_debt = -500 where id = 10000010044904634;
+
+				//增加两个字段 初始化为0
+				update txn.running_stat set customer_debt_discount = 0, supplier_debt_discount = 0;
+		 2. 初始化:
+		    供应商record 初始化:/web/init.do?method=initSupplierRecord
+		    营业统计初始化:/web/init.do?method=businessStat
+        流水统计初始化:/web/statInit.do?method=initStat
+
+     //库存均价初始化
+     update search.inventory_search_index set search.inventory_search_index.inventory_average_price=search.inventory_search_index.purchase_price;
+     update txn.inventory as a,search.inventory_search_index as b set a.inventory_average_price = b.purchase_price where a.id = b.product_id;
+     update txn.inventory as a,search.inventory_search_index as b set a.sales_price = b.recommended_price where a.id = b.product_id;
+     update txn.inventory as a,search.inventory_search_index as b set a.latest_inventory_price = b.purchase_price where a.id = b.product_id;
+
+七.admin后面添加系统配置
+config 配置：
+生产：CHINA_PAY_BACK_URL   http://61.147.80.131/web/    银联返回url
+
+功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

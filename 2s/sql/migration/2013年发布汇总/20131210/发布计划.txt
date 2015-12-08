@@ -1,0 +1,57 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+2.执行如下sql
+
+bcuser库
+update bcuser.menu set label ='项目设置' where id = 1000020045084310;
+
+DELETE m FROM menu m where m.menu_name = 'SCHEDULE_NEW_TO_DO';//删除"待办事项"下的二级菜单"代办事项";
+
+txn库
+update insurance_order set status='UNSETTLED';
+
+
+
+
+
+三.发布应用 （纪友文）
+
+四.添加权限
+
+在 SHOP-财务统计- 员工业绩统计 角色中添加这些资源：
+web_assistantStat_updateProductProfitAchievement            request   /web/assistantStat.do?method=updateProductProfitAchievement              批量更新商品利润提成
+web_assistantStat_getAssistantStatList            request   /web/assistantStat.do?method=getAssistantStatList              获取店铺的员工、部门、服务列表
+web_assistantStat_redirectBusinessAccountRecord            request   /web/assistantStat.do?method=redirectBusinessAccountRecord 跳转到员工营业外收入记录页面
+web_assistantStat_getAssistantBusinessAccountByPage            request   /web/assistantStat.do?method=getAssistantBusinessAccountByPage 分页获取员工营业外收入记录
+web_assistantStat_printAssistantBusinessAccount  request   /web/assistantStat.do?method=printAssistantBusinessAccount 打印员工营业外收入记录
+
+web_assistantStat_getShopAllServiceByShopId            request   /web/assistantStat.do?method=getShopAllServiceByShopId              获取店铺的所有服务
+
+SHOP-财务统计-营业记账 查询 、新增、 修改角色中 增加资源
+web_stat_businessAccount_getSalesManByDepartmentId    /web/businessAccount.do?method=getSalesManByDepartmentId  根据部门id获取员工列表
+web_stat_businessAccount_getDepartmentLikeName    /web/businessAccount.do?method=getDepartmentLikeName  营业外记账查询部门下拉
+
+CRM--SHOP数据操作权限--SHOP数据初始化
+web_initAccountAssistant              /web/init.do?method=initAccountAssistant          初始化营业外记账的部门和员工    shop request
+
+SHOP--车辆施工--保险理赔 查询、新增、打印角色中分别增加如下资源：
+insurance_searchInsuranceOrderData      /web/insurance.do?method=searchInsuranceOrderData  关键字排序查看保险单记录  SHOP request
+insurance_nullifyOrSettledInsuranceOrder    /web/insurance.do?method=nullifyOrSettledInsuranceOrder  作废或者结算保险单  SHOP request
+insurance_printInsuranceOrderPreview   /web/insurance.do?method=printInsuranceOrderPreview 打印保险理赔预览单 SHOP request
+
+SHOP--进销存--库存管理--库存查询-库存查询，添加已存在的资源web_deleteProductImageRelation
+
+五.初始化
+
+1.重启memcache
+2. jackchen登录后执行：init.do?method=initAccountAssistant
+
+3.进入后台admin ，导入打印模板
+ 模板路径：bcgogo-UI/打印模板/default_超级管理统计打印/员工业绩统计 下所有模板重新导入 营业外记账业绩统计.html 对应 营业外记账业绩统计 不要选择店铺
+           bcgogo-UI/打印模板/default_超级管理统计打印/应收款统计记录.html  应付款统计记录.html  模板类型分别选择 应收统计打印单和应付统计打印单   默认模板
+           bcgogo-UI/web/打印单/打印单000/insuranceClaims.html  模板类型和名称都选择 保险理赔预览单   默认模板
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。

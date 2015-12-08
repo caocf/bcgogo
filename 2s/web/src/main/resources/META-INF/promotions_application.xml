@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--定时促销消息-->
+    <bean name="promotionMsgJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.PromotionsMsgSchedule"/>
+    </bean>
+
+    <bean id="promotionsMsgTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="promotionMsgJobDetail"/>
+         <property name="cronExpression" value="0 */3 * * * ?"/> <!-- 3分钟执行一次 -->
+    </bean>
+
+    <!--定时更新促销-->
+    <bean name="promotionsCheckJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.bean.PromotionsCheckSchedule"/>
+    </bean>
+
+    <bean id="promotionsCheckTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="promotionsCheckJobDetail"/>
+          <property name="cronExpression" value="0 */1 * * * ?"/> <!-- 1分钟执行一次 -->
+    </bean>
+
+
+    <bean id="promotionsScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="promotionsMsgTrigger"/>
+                <ref local="promotionsCheckTrigger"/>
+            </list>
+        </property>
+        <property name="autoStartup" value="true"/>
+    </bean>
+
+
+</beans>

@@ -1,0 +1,12 @@
+1.config.config中的所有shopId改成-1
+
+查询(接口)
+测试环境：http://bianmin-test.chinapay.com/cpeduinterface/QueryGet.do
+生产环境：http://apps.chinapay.com/cpeduinterface/QueryGet.do
+
+2.手动 check 银联
+    时间段： dateTime-现在
+    http://localhost:8080/web/chinapay.do?method=check&dateTime=2012-6-11
+    或者
+    几天的：timePeriod
+    http://localhost:8080/web/chinapay.do?method=check&timePeriod=3

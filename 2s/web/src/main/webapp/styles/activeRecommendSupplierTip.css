@@ -1,0 +1,10 @@
+a.jian{ background:url(../images/jian.png) no-repeat; width:21px; height:21px; display:inline-block; cursor:pointer; vertical-align: middle; margin-top:-3px; }
+.tip{ width:245px; position:absolute;}
+.tip .tipTop{ background:url(../images/jianTop.png) no-repeat; width:245px; height:8px; float:left;}
+.tip .tipBody{ background:url(../images/jianBody.png) repeat-y; width:225px; height:100%; float:left; padding:10px; font-size:12px;}
+.tip .tipBody .tipTittle{ font-size:14px; color:#FF6600; padding-bottom:5px; float:left; width:100%;}
+.tip .tipBody .tipLine{ width:100%; line-height:20px;float:left;}
+.tip .tipBody .tipLine .tipName{ width:100px; text-align:left; display:inline-block;}
+.tip .tipBody .tipLine .buy{ float:right;}
+.tip .tipBody .buyList{ border:1px solid #fbb688; width:202px; padding:5px 10px; background:#FFFFFF;margin-top:5px; float:left;}
+.tip .tipBottom{ background:url(../images/jianBottom.png) no-repeat; width:245px; height:3px; float:left;}

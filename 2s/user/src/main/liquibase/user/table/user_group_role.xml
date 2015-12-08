@@ -1,0 +1,47 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="mazidong" id="user_group_role_1">
+        <createTable tableName="user_group_role">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="user_group_id" type="bigint"/>
+            <column name="role_id" type="bigint"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="xiaojian" id="user_group_role_2">
+        <addPrimaryKey tableName="user_group_role" columnNames="id" constraintName="pk_user_group_role"/>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="user_group_role_3">
+        <createIndex tableName="user_group_role" indexName="index_usergrouprole_usergroupid">
+            <column name="user_group_id"/>
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="user_group_role_4">
+    <modifyColumn tableName="user_group_role">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+    
+    <changeSet id="user_group_role_5_qiuxinyu" author="qiuxinyu">
+        <createIndex tableName="user_group_role" indexName="index_user_group_role_role_id_user_group_id">
+            <column name="role_id"/>
+            <column name="user_group_id"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,198 @@
+.body {
+    color: #000000;
+    float: left;
+    width: 100%;
+}
+
+.body .hide{
+    display: none;
+}
+
+.body .inlineBlock {
+    display: inline-block;
+}
+
+.body h1 {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "宋体";
+    padding: 5px;
+}
+
+.body .float_left {
+    float: left;
+}
+
+.body .float_right {
+    float: right;
+}
+
+.body .float_clear {
+    overflow: hidden;
+}
+
+.body .bold {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.body .top {
+    border-top: 1px solid #DDDDDD;
+}
+
+.body .top .title {
+    border-bottom: 1px solid #DDDDDD;
+    color: #272727;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 10px 0px 10px;
+    width: 981px;
+    font-weight: bold;
+    background: url("../../images/title.jpg") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+}
+
+.body .top .content {
+    color: #000000;
+    padding: 0px 50px 10px 50px;
+    width: 903px;
+    background: url("../../images/line_bg.png") repeat-y scroll 0 0 rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.body .top .content .line {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+}
+
+.body .top .content .line .dateSelect {
+    border: 1px solid #CDCDCD;
+    color: #007EFF;
+    cursor: pointer;
+    height: 22px;
+    line-height: 22px;
+    display: inline-block;
+    padding: 0px 5px 0px 5px;
+}
+
+.body .top .content .line .dateSelect:hover{
+    border: 1px solid #FF6600;
+    color: #FF6600;
+}
+
+
+.body .top .content .line .dateSelect.clicked {
+    background: url("../../images/icon_range.png") no-repeat scroll right bottom #F5F5F5;
+    border: 1px solid #FF6600;
+}
+
+.body .top .content .line input {
+    height: 21px;
+}
+
+.body .top .content .line div:first-child {
+    margin-right: 10px;
+}
+
+.body .top .content .line input[type=checkbox] {
+    margin-top: 8px;
+    margin-right: 5px;
+}
+
+.body .top .content .line label {
+    margin-right: 20px;
+}
+
+.body .top .content .line .a {
+    color: #007CDA;
+    font-size: 14px;
+    line-height: 27px;
+    cursor: pointer;
+}
+
+.body .top .content .line .a:hover {
+    color: #FF5E04;
+    text-decoration: underline;
+}
+
+.body .top .content .line .button {
+    background: url("../../images/big_button.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    height: 26px;
+    line-height: 27px;
+    margin-right: 10px;
+    text-align: center;
+    text-decoration: none;
+    width: 76px;
+}
+
+.body .top .content .line .button:hover {
+    background: url("../../images/big_button.png") no-repeat scroll 0 -28px rgba(0, 0, 0, 0);
+    color: #000000;
+}
+
+.body .middle {
+    margin: 5px 0px 5px 0px;
+    padding: 5px 15px 5px 15px;
+    background: url("../../images/cu_Body_01.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 25px;
+    line-height: 25px;
+    width: 973px;
+}
+
+.body .bottom {
+    background: url("../../images/borderBody.png") repeat-y scroll 0 0 rgba(0, 0, 0, 0);
+    padding: 10px;
+    width: 983px;
+    border-radius: 3px;
+}
+
+.body .bottom .title {
+    background: url("../../images/titBg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #FFFFFF;
+    height: 26px;
+    line-height: 26px;
+    float: none;
+    font-size: 12px;
+}
+
+.body .bottom .title td {
+    padding-bottom: 8px;
+    text-align: center;
+}
+
+.body .bottom .line {
+    color: #000000;
+    background: url("../../images/lineBg_top.png") repeat-x scroll 0 0 #FFFFFF;
+}
+
+.body .bottom .line td {
+    font-size: 12px;
+    height: 40px;
+    padding-bottom: 8px;
+    border-top: 1px solid #DCDCDC;
+    text-align: center;
+}
+
+.body .bottom table {
+    margin-bottom: 6px;
+}
+
+.body .bottom tr td:first-child {
+    padding-left: 10px;
+}
+
+.body .bottom .line a {
+    color: #007CDA;
+}
+
+.body .bottom .line a:hover {
+    text-decoration: underline;
+    color: #FF5E04;
+}

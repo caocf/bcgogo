@@ -1,0 +1,642 @@
+*{
+        padding: 0;
+        margin: 0;
+    }
+
+    /*header*/
+    div.header_title{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        padding-top: 10px;
+        font-weight: bold;
+        font-size: 1.8em;
+        background-color: black;
+        text-align: center;
+        color: white;
+        line-height: 30px;
+    }
+
+    /*wrap1*/
+    div.wrap1{
+        position: relative;
+        margin-top: 40px;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        /*background-color: red;*/
+        background: url(images/temp/wrap1_bg.jpg) no-repeat;
+        /*background: url(img/wrap1_bg.jpg) no-repeat;*/
+        background-size: 100% 100%;
+    }
+    div.wrap1 div.filling{
+        width: 100%;
+        height: 2%;
+        background-color: black;
+    }
+    div.wrap1 div.img_big img{
+        position: absolute;
+        top: 5%;
+        right: 15%;
+        width: 60%;
+        height: 35%;
+        -webkit-animation: wrap1_img_big 1.5s ease-out;
+        -moz-animation: wrap1_img_big 1.5s ease-out;
+        -o-animation: wrap1_img_big 1.5s ease-out;
+        animation: wrap1_img_big 1.5s ease-out;
+    }
+    @-webkit-keyframes wrap1_img_big{ from{ opacity: 0; right: -15%; }to{ right: 15%; opacity: 1; } }
+    @-moz-keyframes wrap1_img_big{ from{ opacity: 0; right: -15%; } to { right: 15%; opacity: 1; } }
+    @-o-keyframes wrap1_img_big{ from{ opacity: 0; right: -15%; }to{ right: 15%; opacity: 1; } }
+    @keyframes wrap1_img_big{ from{ opacity: 0; right: -15%; }to{ right: 15%; opacity: 1; } }
+    div.wrap1 div.img_small img{
+        position: absolute;
+        top: 41%;
+        left: 5%;
+        width: 25%;
+        height: 15%;
+        -webkit-animation: wrap1_img_small 1.5s ease-out;
+        -moz-animation:  wrap1_img_small 1.5s ease-out;
+        -o-animation:  wrap1_img_small 1.5s ease-out;
+        animation: wrap1_img_small 1.5s ease-out;
+    }
+    @-webkit-keyframes wrap1_img_small{ from{ left: -15%; opacity: 0; }to{ left: 5%; opacity: 1; } }
+    @-moz-keyframes wrap1_img_small{ from{ left: -15%; opacity: 0; }to{ left: 5%; opacity: 1; } }
+    @-o-keyframes wrap1_img_small{ from{ left: -15%; opacity: 0; }to{ left: 5%; opacity: 1; } }
+    @keyframes wrap1_img_small{ from{ left: -15%; opacity: 0; }to{ left: 5%; opacity: 1; } }
+    div.wrap1 div.content_title{
+        position: absolute;
+        top: 60%;
+        left: 5%;
+        width: 95%;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+    }
+    div.wrap1 div.content{
+        position: absolute;
+        top: 68%;
+        left: 5%;
+        width: 90%;
+        font-size: 18px;
+        line-height: 130%;
+        font-weight: bold;
+        margin-right: 10px;
+        margin-bottom: 5px;
+        text-indent: 9%;
+        -webkit-animation: wrap1_content 1.5s ease-out;
+        -moz-animation: wrap1_content 1.5s ease-out;
+        -o-animation: wrap1_content 1.5s ease-out;
+        animation: wrap1_content 1.5s ease-out;
+    }
+    @-webkit-keyframes wrap1_content{ from{ left: -50%; opacity: 0; }to{ left: 5%; opacity: 1; } }
+    @-moz-keyframes wrap1_content{ from{ left: -50%; opacity: 0; }to{ left: 5%; opacity: 1; } }
+    @-o-keyframes wrap1_content{ from{ left: -50%; opacity: 0; }to{ left: 5%; opacity: 1; } }
+    @keyframes wrap1_content{ from{ left: -50%; opacity: 0; }to{ left: 5%; opacity: 1; } }
+
+    /*wrap2*/
+    div.wrap2{
+        position: relative;
+        margin-top: 40px;
+        width: 100%;
+        height: 100%;
+        font-weight: bold;
+        overflow: hidden;
+        /*background-color: red;*/
+        background: url(images/temp/wrap2_bg.jpg) no-repeat;
+        /*background: url(img/wrap2_bg.jpg) no-repeat;*/
+        background-size: 100% 100%;
+    }
+    div.wrap2 div.filling{
+        width: 100%;
+        height: 2%;
+        background-color: #000000;
+    }
+    div.wrap2 div.sub_title{
+        position: absolute;
+        top: 3%;
+        left: 2%;
+        width: 100%;
+        color: white;
+        -webkit-animation: wrap2_subtitle 1.5s ease-out 1s;
+        -moz-animation: wrap2_subtitle 1.5s ease-out 1s;
+        -o-animation: wrap2_subtitle 1.5s ease-out 1s;
+        animation: wrap2_subtitle 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap2_subtitle{ from{ opacity: 0; top: -5%; } to{ opacity: 1; top: 3%; } }
+    @-moz-keyframes wrap2_subtitle{ from{ opacity: 0; top: -5%; } to{ opacity: 1; top: 3%; } }
+    @-o-keyframes wrap2_subtitle{ from{ opacity: 0; top: -5%; } to{ opacity: 1; top: 3%; } }
+    @keyframes wrap2_subtitle{ from{ opacity: 0; top: -5%; } to{ opacity: 1; top: 3%; } }
+    div.wrap2 div.sub_title .line_1{
+        font-size: 1.5em;
+    }
+    div.wrap2 div.sub_title .line_2{
+        font-size: 1.4em;
+        line-height: 35px;
+        margin-left: 15%;
+    }
+    div.wrap2 div.img_day img{
+        position: absolute;
+        top: 18%;
+        width: 100%;
+        height: 33%;
+        -webkit-animation: wrap2_img_day 1.5s ease-out 1s;
+        -moz-animation: wrap2_img_day 1.5s ease-out 1s;
+        -o-animation: wrap2_img_day 1.5s ease-out 1s;
+        animation: wrap2_img_day 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap2_img_day{ from{  top: 0; opacity: 0; } to{  top: 18%; opacity: 1; } }
+    @-moz-keyframes wrap2_img_day{ from{  top: 0; opacity: 0; } to{  top: 18%; opacity: 1; } }
+    @-o-keyframes wrap2_img_day{ from{  top: 0; opacity: 0; } to{  top: 18%; opacity: 1; } }
+    @keyframes wrap2_img_day{ from{  top: 0; opacity: 0; } to{  top: 18%; opacity: 1; } }
+    div.wrap2 div.day{
+        position: absolute;
+        left: 35%;
+        top: 52%;
+        height: 5%;
+        width: 35%;
+        text-align: center;
+        font-size: 1.5em;
+        color: white;
+        -webkit-animation: wrap2_day 1.5s ease-out 1s;
+        -moz-animation: wrap2_day 1.5s ease-out 1s;
+        -o-animation: wrap2_day 1.5s ease-out 1s;
+        animation: wrap2_day 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap2_day{ from{top:95%;left:0;opacity:0;} to{top:52%;left:35%;opacity:1;}}
+    @-moz-keyframes wrap2_day{ from{top:95%;left:0;opacity:0;} to{top:52%;left:35%;opacity:1;}}
+    @-o-keyframes wrap2_day{ from{top:95%;left:0;opacity:0;} to{top:52%;left:35%;opacity:1;}}
+    @keyframes wrap2_day{ from{top:95%;left:0;opacity:0;} to{top:52%;left:35%;opacity:1;}}
+    div.wrap2 div.img_night img{
+        position: absolute;
+        top: 58%;
+        width: 100%;
+        height: 33%;
+        -webkit-animation: wrap2_img_night 1.5s ease-out 1s;
+        -moz-animation: wrap2_img_night 1.5s ease-out 1s;
+        -o-animation: wrap2_img_night 1.5s ease-out 1s;
+        animation: wrap2_img_night 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap2_img_night{ from{ top: 40%; opacity: 0;} to{ top: 58%; opacity: 1;} }
+    @-moz-keyframes wrap2_img_night{ from{ top: 40%; opacity: 0;} to{ top: 58%; opacity: 1;} }
+    @-o-keyframes wrap2_img_night{ from{ top: 40%; opacity: 0;} to{ top: 58%; opacity: 1;} }
+    @keyframes wrap2_img_night{ from{ top: 40%; opacity: 0;} to{ top: 58%; opacity: 1;} }
+    div.wrap2 div.night{
+        position: absolute;
+        top: 92%;
+        left: 35%;
+        width: 35%;
+        height: 5%;
+        text-align: center;
+        font-size: 1.5em;
+        color: white;
+        -webkit-animation: wrap2_night 1.5s ease-out 1s;
+        -moz-animation: wrap2_night 1.5s ease-out 1s;
+        -o-animation: wrap2_night 1.5s ease-out 1s;
+        animation: wrap2_night 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap2_night{from{top:95%;left:0;opacity:0;} to{top:92%;left:35%;opacity:1;}}
+    @-moz-keyframes wrap2_night{from{top:95%;left:0;opacity:0;} to{top:92%;left:35%;opacity:1;}}
+    @-o-keyframes wrap2_night{from{top:95%;left:0;opacity:0;} to{top:92%;left:35%;opacity:1;}}
+    @keyframes wrap2_night{from{top:95%;left:0;opacity:0;} to{top:92%;left:35%;opacity:1;}}
+
+
+    /*wrap3*/
+    div.wrap3{
+        position: relative;
+        margin-top: 40px;
+        width: 100%;
+        height: 100%;
+        font-weight: bold;
+        overflow: hidden;
+        /*background-color: red;*/
+        background: url(images/temp/wrap3_bg.png) no-repeat;
+        /*background: url(img/wrap3_bg.png) no-repeat;*/
+        background-size: 100% 100%;
+    }
+    div.wrap3 div.filling{
+        width: 100%;
+        height: 2%;
+        background-color: black;
+    }
+    div.wrap3 div.drive{
+        position: absolute;
+        top: 3%;
+        left: 2%;
+        color: white;
+        -webkit-animation: wrap3_drive 1.5s ease-out 1s;
+        -moz-animation: wrap3_drive 1.5s ease-out 1s;
+        -o-animation: wrap3_drive 1.5s ease-out 1s;
+        animation: wrap3_drive 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap3_drive{ from{ top: -20%; opacity: 0; } to{ top: 3%; opacity: 1; } }
+    @-moz-keyframes wrap3_drive{ from{ top: -20%; opacity: 0; } to{ top: 3%; opacity: 1; } }
+    @-o-keyframes wrap3_drive{ from{ top: -20%; opacity: 0; } to{ top: 3%; opacity: 1; } }
+    @keyframes wrap3_drive{ from{ top: -20%; opacity: 0; } to{ top: 3%; opacity: 1; } }
+    div.wrap3 div.drive .line_1{
+        font-size: 1.2em;
+    }
+    div.wrap3 div.drive .line_2{
+        margin-left: 10%;
+        font-size: 1.1em;
+    }
+    div.wrap3 div.img_drive img{
+        position: absolute;
+        top: 22%;
+        width: 100%;
+        height: 25%;
+        -webkit-animation: wrap3_img_drive 1.5s ease-out 1s;
+        -moz-animation: wrap3_img_drive 1.5s ease-out 1s;
+        -o-animation: wrap3_img_drive 1.5s ease-out 1s;
+        animation: wrap3_img_drive 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap3_img_drive{ from{left: -100%; opacity: 0;} to{left: 0; opacity: 1;} }
+    @-moz-keyframes wrap3_img_drive{ from{left: -100%; opacity: 0;} to{left: 0; opacity: 1;} }
+    @-o-keyframes wrap3_img_drive{ from{left: -100%; opacity: 0;} to{left: 0; opacity: 1;} }
+    @keyframes wrap3_img_drive{ from{left: -100%; opacity: 0;} to{left: 0; opacity: 1;} }
+    div.wrap3 div.stop{
+        position: absolute;
+        top: 48%;
+        left: 2%;
+        color: white;
+        -webkit-animation: wrap3_stop 1.5s ease-out 1s;
+        -moz-animation: wrap3_stop 1.5s ease-out 1s;
+        -o-animation: wrap3_stop 1.5s ease-out 1s;
+        animation: wrap3_stop 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap3_stop{ from{ top: 25%; opacity: 0; } to{ top: 48%; opacity: 1; } }
+    @-moz-keyframes wrap3_stop{ from{ top: 25%; opacity: 0; } to{ top: 48%; opacity: 1; } }
+    @-o-keyframes wrap3_stop{ from{ top: 25%; opacity: 0; } to{ top: 48%; opacity: 1; } }
+    @keyframes wrap3_stop{ from{ top: 25%; opacity: 0; } to{ top: 48%; opacity: 1; } }
+    div.wrap3 div.stop .line_1{
+        font-size: 1.2em;
+    }
+    div.wrap3 div.stop .line_2{
+        margin-left: 10%;
+        font-size: 1.1em;
+    }
+    div.wrap3 div.img_stop img{
+        position: absolute;
+        top: 71%;
+        width: 100%;
+        height: 25%;
+        -webkit-animation: wrap3_img_stop 1.5s ease-out 1s;
+        -moz-animation: wrap3_img_stop 1.5s ease-out 1s;
+        -o-animation: wrap3_img_stop 1.5s ease-out 1s;
+        animation: wrap3_img_stop 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap3_img_stop{ from{ left: -100%;opacity: 0; } to{ left: 0;opacity: 1; } }
+    @-moz-keyframes wrap3_img_stop{ from{ left: -100%;opacity: 0; } to{ left: 0;opacity: 1; } }
+    @-o-keyframes wrap3_img_stop{ from{ left: -100%;opacity: 0; } to{ left: 0;opacity: 1; } }
+    @keyframes wrap3_img_stop{ from{ left: -100%;opacity: 0; } to{ left: 0;opacity: 1; } }
+
+
+    /*wrap4*/
+    div.wrap4{
+        position: relative;
+        margin-top: 40px;
+        width: 100%;
+        height: 100%;
+        font-weight: bold;
+        overflow: hidden;
+        /*background-color: red;*/
+        background: url(images/temp/wrap4_bg.jpg) no-repeat;
+        /*background: url(img/wrap4_bg.jpg) no-repeat;*/
+        background-size: 100% 100%;
+    }
+    div.wrap4 div.filling{
+        width: 100%;
+        height: 2%;
+        background-color: black;
+    }
+    div.wrap4 div.up_title{
+        position: absolute;
+        top: 7%;
+        left: 8%;
+        font-size: 1.5em;
+        color: white;
+        -webkit-animation: wrap4_up_title 1.5s ease-out 1s;
+        -moz-animation: wrap4_up_title 1.5s ease-out 1s;
+        -o-animation: wrap4_up_title 1.5s ease-out 1s;
+        animation: wrap4_up_title 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap4_up_title{from{top:-10%;left:-10%;opacity:0} to{top:8%; left:7%;opacity:1}}
+    @-moz-keyframes wrap4_up_title{from{top:-10%;left:-10%;opacity:0} to{top:8%;left:7%;opacity:1}}
+    @-o-keyframes wrap4_up_title{from{top:-10%;left:-10%;opacity:0} to{top:8%;left:7%;opacity:1}}
+    @keyframes wrap4_up_title{from{top:-10%;left:-10%;opacity:0} to{top:8%;left:7%;opacity:1}}
+    div.wrap4 div.img_center img{
+        position: absolute;
+        top: 18%;
+        width: 100%;
+        height: 45%;
+        -webkitanimation: wrap4_img_center 1.5s ease-out 1s;
+        -moz-animation: wrap4_img_center 1.5s ease-out 1s;
+        -o-animation: wrap4_img_center 1.5s ease-out 1s;
+        animation: wrap4_img_center 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap4_img_center{ from{ top: -10%; opacity: 0; } to{ top: 18%; opacity: 1; } }
+    @-moz-keyframes wrap4_img_center{ from{ top: -10%; opacity: 0; } to{ top: 18%; opacity: 1; } }
+    @-o-keyframes wrap4_img_center{ from{ top: -10%; opacity: 0; } to{ top: 18%; opacity: 1; } }
+    @keyframes wrap4_img_center{ from{ top: -10%; opacity: 0; } to{ top: 18%; opacity: 1; } }
+    div.wrap4 div.down_title{
+        position: absolute;
+        top: 72%;
+        left: 5%;
+        font-size: 1.4em;
+        color: white;
+        -webkit-animation: wrap4_down_title 1.5s ease-out 1s;
+        -moz-animation: wrap4_down_title 1.5s ease-out 1s;
+        -oanimation: wrap4_down_title 1.5s ease-out 1s;
+        animation: wrap4_down_title 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap4_down_title{ from{ -webkit-transform:   rotateX(0deg); color:  white; }
+                                           to{ -webkit-transform: rotateX(360deg); color: orange; } }
+    @-moz-keyframes wrap4_down_title{ from{ -moz-transform:   rotateX(0deg); color:  white; }
+                                        to{ -moz-transform: rotateX(360deg); color: orange; } }
+    @-o-keyframes wrap4_down_title{ from{ -o-transform:   rotateX(0deg); color:  white; }
+                                      to{ -o-transform: rotateX(360deg); color: orange; } }
+    @keyframes wrap4_down_title{ from{ transform:   rotateX(0deg); color:  white; }
+                                   to{ transform: rotateX(360deg); color: orange; } }
+    div.wrap4 div.down_title .line_1{
+        position: relative;
+        left: 70%;
+        display: block;
+        width: 100%;
+    }
+    div.wrap4 div.down_title .line_2{
+        position: relative;
+        left: 130%;
+        display: block;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+
+    /*wrap5*/
+    div.wrap5{
+        position: relative;
+        margin-top: 40px;
+        width: 100%;
+        height: 100%;
+        font-weight: bold;
+        overflow: hidden;
+        /*background-color: red;*/
+        background: url(images/temp/wrap5_bg.png) no-repeat;
+        /*background: url(img/wrap5_bg.png) no-repeat;*/
+        background-size: 100% 100%;
+    }
+    div.wrap5 div.filling{
+        width: 100%;
+        height: 2%;
+        background: black;
+    }
+    div.wrap5 div.img_up img{
+        position: absolute;
+        top: 2%;
+        width: 100%;
+        height: 45%;
+        -webkit-animation: wrap5_img_up 1.5s ease-out 1s;
+        -moz-animation: wrap5_img_up 1.5s ease-out 1s;
+        -o-animation: wrap5_img_up 1.5s ease-out 1s;
+        animation: wrap5_img_up 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap5_img_up{ from{ top: -20%; opacity: 0; } to{ top: 2%; opacity: 1; } }
+    @-moz-keyframes wrap5_img_up{ from{ top: -20%; opacity: 0; } to{ top: 2%; opacity: 1; } }
+    @-o-keyframes wrap5_img_up{ from{ top: -20%; opacity: 0; } to{ top: 2%; opacity: 1; } }
+    @keyframes wrap5_img_up{ from{ top: -20%; opacity: 0; } to{ top: 2%; opacity: 1; } }
+    div.wrap5 ul.left{
+        position: absolute;
+        top: 62%;
+        left: 10%;
+        font-size: 1.5em;
+        color: yellow;
+    }
+    div.wrap5 ul.left li{
+        color: white;
+        font-size: 0.8em;
+        margin-top: 20%;
+        list-style: none;
+        -webkit-animation: wrap5_li_left 1.5s ease-out 1s;
+        -moz-animation: wrap5_li_left 1.5s ease-out 1s;
+        -o-animation: wrap5_li_left 1.5s ease-out 1s;
+        animation: wrap5_li_left 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap5_li_left{ from{  left: -10%;  -webkit-transform: rotate(0deg);   opacity: 0; }
+                                      to{    left:  10%;  -webkit-transform: rotate(360deg); opacity: 1; } }
+    @-moz-keyframes wrap5_li_left{ from{  left: -10%;  -moz-transform:   rotate(0deg);  opacity: 0; }
+                                   to{    left:  10%;  -moz-transform: rotate(360deg);  opacity: 1; } }
+    @-o-keyframes wrap5_li_left{ from{  left: -10%;  -o-transform:  rotate(0deg);   opacity: 0; }
+                                   to{  left:  10%;  -o-transform: rotate(360deg);  opacity: 1; } }
+    @keyframes wrap5_li_left{ from{  left: -10%;  transform:   rotate(0deg);  opacity: 0; }
+                                to{  left:  10%;  transform: rotate(360deg);  opacity: 1; } }
+    div.wrap5 ul.right{
+        position: absolute;
+        top: 52%;
+        right: 12%;
+        font-size: 1.5em;
+        color: #C2F44A;
+    }
+    div.wrap5 ul.right li{
+        color: white;
+        font-size: 0.8em;
+        margin-top: 8%;
+        list-style: none;
+        -webkit-animation: wrap5_li_left 1.5s ease-out 1s;
+        -moz-animation: wrap5_li_left 1.5s ease-out 1s;
+        -o-animation: wrap5_li_left 1.5s ease-out 1s;
+        animation: wrap5_li_left 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap5_li_right{ from{ transform: rotate(0deg);    opacity: 0; }
+                                         to{ transform: rotate(-360deg); opacity: 1; } }
+    @-moz-keyframes wrap5_li_right{ from{ transform: rotate(0deg);    opacity: 0; }
+                                      to{ transform: rotate(-360deg); opacity: 1; } }
+    @-o-keyframes wrap5_li_right{ from{ transform: rotate(0deg);    opacity: 0; }
+                                    to{ transform: rotate(-360deg); opacity: 1; } }
+    @keyframes wrap5_li_right{ from{ transform: rotate(0deg);    opacity: 0; }
+                                 to{ transform: rotate(-360deg); opacity: 1; } }
+    div.wrap5 ul li span{
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 6px;
+        background: white;
+    }
+
+
+
+    /*wrap6*/
+    div.wrap6{
+        position: relative;
+        margin-top: 40px;
+        width: 100%;
+        height: 100%;
+        font-weight: bold;
+        font-family: "microsoft yahei";
+        overflow: hidden;
+        color: #555;
+        /*background-color: red;*/
+        background: url(images/temp/wrap6_bg.png) no-repeat;
+        /*background: url(img/wrap6_bg.png) no-repeat;*/
+        background-size: 100% 100%;
+    }
+    div.wrap6 div.filling{
+        position: absolute;
+        width: 100%;
+        height: 2%;
+        background: black;
+    }
+    div.wrap6 div.up_title{
+        /*position: absolute;
+        top: 5%;
+        left: 5%;*/
+    }
+    div.wrap6 div.up_title img{
+        position: absolute;
+        top: 3%;
+        left: 10%;
+        width: 25%;
+        height: 18%;
+        -webkit-animation: wrap6_up_title 1.5s ease-out 1s;
+        -moz-animation: wrap6_up_title 1.5s ease-out 1s;
+        -o-animation: wrap6_up_title 1.5s ease-out 1s;
+        animation: wrap6_up_title 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap6_up_title{ from{ top: -10%; opacity: 0; } to{ top: 3%; opacity: 1; } }
+    @-moz-keyframes wrap6_up_title{ from{ top: -10%; opacity: 0; } to{ top: 3%; opacity: 1; } }
+    @-o-keyframes wrap6_up_title{ from{ top: -10%; opacity: 0; } to{ top: 3%; opacity: 1; } }
+    @keyframes wrap6_up_title{ from{ top: -10%; opacity: 0; } to{ top: 3%; opacity: 1; } }
+    div.wrap6 div.up_title .title{
+        position: absolute;
+        top: 9%;
+        left: 38%;
+        font-size: 1.5em;
+        word-spacing: 0.8em;
+        vertical-align: 80%;
+    }
+    div.wrap6 div.buy_method{
+        position: absolute;
+        top: 25%;
+        width: 100%;
+        -webkit-animation: wrap6_buy_method 1.5s ease-out 1s;
+        -moz-animation: wrap6_buy_method 1.5s ease-out 1s;
+        -o-animation: wrap6_buy_method 1.5s ease-out 1s;
+        animation: wrap6_buy_method 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap6_buy_method{ from{ top: 10%; opacity: 0; } to{ top: 25%; opacity: 1; } }
+    @-moz-keyframes wrap6_buy_method{ from{ top: 10%; opacity: 0; } to{ top: 25%; opacity: 1; } }
+    @-o-keyframes wrap6_buy_method{ from{ top: 10%; opacity: 0; } to{ top: 25%; opacity: 1; } }
+    @keyframes wrap6_buy_method{ from{ top: 10%; opacity: 0; } to{ top: 25%; opacity: 1; } }
+    div.wrap6 div.buy_method .tel{
+        font-size: 1.3em;
+        font-weight: bold;
+        text-align: center;
+    }
+    div.wrap6 div.buy_method .qq{
+        font-size: 1.3em;
+        font-weight: bold;
+        text-align: center;
+        margin: 18px 0;
+    }
+    div.wrap6 div.buy_method .other{
+        font-weight: bold;
+        text-align: center;
+    }
+    div.wrap6 div.buy_addr{
+        position: absolute;
+        top: 84%;
+        -webkit-animation: wrap6_buy_addr 1.5s ease-out 1s;
+        -moz-animation: wrap6_buy_addr 1.5s ease-out 1s;
+        -o-animation: wrap6_buy_addr 1.5s ease-out 1s;
+        animation: wrap6_buy_addr 1.5s ease-out 1s;
+    }
+    @-webkit-keyframes wrap6_buy_addr{ from{ top: 70%; opacity: 0; } to{ top: 84%; opacity: 1; } }
+    @-moz-keyframes wrap6_buy_addr{ from{ top: 70%; opacity: 0; } to{ top: 84%; opacity: 1; } }
+    @-o-keyframes wrap6_buy_addr{ from{ top: 70%; opacity: 0; } to{ top: 84%; opacity: 1; } }
+    @keyframes wrap6_buy_addr{ from{ top: 70%; opacity: 0; } to{ top: 84%; opacity: 1; } }
+    div.wrap6 div.buy_addr .web{
+        text-align: center;
+        width: 72%;
+        margin-left: 9%;
+        font-size: 1.1em;
+        margin-bottom: 5px;
+    }
+    div.wrap6 div.buy_addr .addr{
+        width: 94%;
+        height: 5%;
+        margin-top: 5px;
+        margin-left: 3%;
+        text-align: center;
+    }
+
+
+
+    /*footer*/
+    div.footer div.page{
+        position: fixed;
+        bottom: 5px;
+        right: 2%;
+        color: white;
+    }
+    div.progressbar{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 5px;
+        background: orange;
+    }
+    div#showMap{
+        position: absolute;
+        top: 53%;
+        height: 30%;
+        width: 90%;
+        margin-left: 5%;
+        z-index: 9999;
+        opacity: 0;
+    }
+    .mapLaunch{
+        -webkit-animation: mapLaunch 1.5s linear;
+        -moz-animation: mapLaunch 1.5s linear;
+        -o-animation: mapLaunch 1.5s linear;
+        animation: mapLaunch 1.5s linear;
+    }
+    @-webkit-keyframes mapLaunch {from{height:0;width:0;opacity:0}to{width:90%;height:30%;opacity:1 } }
+    @-moz-keyframes mapLaunch {from{height:0;width:0;opacity:0}to{width:90%;height:30%;opacity:1 } }
+    @-o-keyframes mapLaunch {from{height:0;width:0;opacity:0}to{width:90%;height:30%;opacity:1 } }
+    @keyframes mapLaunch {from{height:0;width:0;opacity:0}to{width:90%;height:30%;opacity:1 } }
+    div.turnning div.prevWrap{
+        position: absolute;
+        top: 7%;
+        left: 49%;
+        font-weight: bold;
+        font-size: 1.1em;
+        color: orange;
+        -webkit-animation: prevWrap 1.5s linear infinite;
+        -moz-animation: prevWrap 1.5s linear infinite;
+        -o-animation: prevWrap 1.5s linear infinite;
+        animation: prevWrap 1.5s linear infinite;
+    }
+    @-webkit-keyframes prevWrap { from{ top: 9%; opacity: 0; } to{ top: 7%; opacity: 1; } }
+    @-moz-keyframes prevWrap { from{ top: 9%; opacity: 0; } to{ top: 7%; opacity: 1; } }
+    @-o-keyframes prevWrap { from{ top: 9%; opacity: 0; } to{ top: 7%; opacity: 1; } }
+    @keyframes prevWrap { from{ top: 9%; opacity: 0; } to{ top: 7%; opacity: 1; } }
+    div.turnning div.nextWrap{
+        position: absolute;
+        bottom: 2%;
+        right: 49%;
+        font-weight: bold;
+        font-size: 1.1em;
+        color: orange;
+        -webkit-animation: nextWrap 1.5s linear infinite;
+        -moz-animation: nextWrap 1.5s linear infinite;
+        -o-animation: nextWrap 1.5s linear infinite;
+        animation: nextWrap 1.5s linear infinite;
+    }
+    @-webkit-keyframes nextWrap { from{ bottom: 4%; opacity: 0; } to{ bottom: 2%; opacity: 1; } }
+    @-moz-keyframes nextWrap { from{ bottom: 4%; opacity: 0; } to{ bottom: 2%; opacity: 1; } }
+    @-o-keyframes nextWrap { from{ bottom: 4%; opacity: 0; } to{ bottom: 2%; opacity: 1; } }
+    @keyframes nextWrap { from{ bottom: 4%; opacity: 0; } to{ bottom: 2%; opacity: 1; } }
+    .wrap2,.wrap3,.wrap4,.wrap5,.wrap6{
+        display: none;
+    }

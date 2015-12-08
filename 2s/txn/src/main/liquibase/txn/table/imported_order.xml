@@ -1,0 +1,56 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="dongnan" id="imported_order_1">
+        <createTable tableName="imported_order">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="user_id" type="bigint"/>
+            <column name="receipt" type="varchar(150)"/>
+            <column name="order_type_str" type="varchar(20)"/>
+            <column name="order_status" type="varchar(20)"/>
+            <column name="order_status_str" type="varchar(20)"/>
+            <column name="vest_date" type="bigint"/>
+            <column name="customer_supplier_name" type="varchar(150)"/>
+            <column name="vehicle" type="varchar(150)"/>
+
+            <column name="contact" type="varchar(50)"/>
+            <column name="mobile" type="varchar(50)"/>
+            <column name="member_type" type="varchar(50)"/>
+            <column name="member_type_str" type="varchar(50)"/>
+            <column name="member_card_no" type="varchar(50)"/>
+            <column name="pay_per_project" type="varchar(50)"/>
+            <column name="sales_man" type="varchar(50)"/>
+
+            <column name="in_time" type="bigint"/>
+            <column name="out_time" type="bigint"/>
+            <column name="pay_way" type="varchar(50)"/>
+            <column name="actually_paid" type="double"/>
+            <column name="debt" type="double"/>
+            <column name="total" type="double"/>
+            <column name="memo" type="varchar(500)"/>
+            <column name="order_type" type="varchar(20)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="imported_order_2" author="dongnan">
+        <addPrimaryKey tableName="imported_order" columnNames="id" constraintName="pk_imported_order"/>
+    </changeSet>
+
+    <changeSet author="dongnan" id="imported_order_3">
+        <createIndex tableName="imported_order" indexName="IDX_IMPORTED_ORDER_SHOP_ID">
+            <column name="shop_id"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,47 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lw" id="vehicle_violate_regulation_record_1">
+    <createTable tableName="vehicle_violate_regulation_record">
+      <column name="id" type="bigint"/>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+
+      <column name="city" type="varchar(200)"/>
+      <column name="vehicle_no" type="varchar(200)"/>
+
+      <column name="date" type="varchar(200)"/>
+      <column name="area" type="varchar(200)"/>
+      <column name="act" type="varchar(500)"/>
+      <column name="code" type="varchar(200)"/>
+      <column name="fen" type="varchar(200)"/>
+      <column name="money" type="varchar(200)"/>
+      <column name="handled" type="varchar(200)"/>
+
+      <column name="record_date" type="bigint"/>
+
+    </createTable>
+  </changeSet>
+
+  <changeSet id="vehicle_violate_regulation_record_2" author="lw">
+    <addPrimaryKey tableName="vehicle_violate_regulation_record" columnNames="id"
+                   constraintName="pk_vehicle_violate_regulation_record"/>
+  </changeSet>
+
+  <changeSet id="vehicle_violate_regulation_record_3" author="lw">
+    <addColumn tableName="vehicle_violate_regulation_record">
+      <column name="query_type" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+
+</databaseChangeLog>

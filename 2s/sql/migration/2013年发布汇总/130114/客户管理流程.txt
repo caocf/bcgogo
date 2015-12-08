@@ -1,0 +1,13 @@
+可以最后在执行本文件
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`)
+VALUES ('52000002','1','1','1','客户管理','','','','客户管理','2',null,null,'true');
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`)
+VALUES ('520020001','1','1','1','客户线索管理','Ext.controller.customerMange.CustomerClueController','COMPONENT','','客户线索管理','1',52000002,10000010020181918,'true');
+
+insert into  `tree_menu` (`id`,`created`,`last_update`,`version`,`text`,`component`,`type`,`icon_class`,`description`,`sort`,`parent_id`,`role_id`,`leaf`)
+VALUES ('520020002','1','1','1','已有客户管理','Ext.controller.customerMange.CustomerManagerController','COMPONENT','','已有客户管理','1',52000002,10000010039763876,'true');
+
+
+update shop set `status`='REGISTERED' where state=1;
+初始化shop 与销售关系
+/web/init.do?method=initShopSaleMap

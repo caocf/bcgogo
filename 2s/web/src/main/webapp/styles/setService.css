@@ -1,0 +1,111 @@
+@charset "utf-8";
+/* CSS Document */
+
+.i_main .yinye_title
+{
+}
+.i_main .yinye_title {
+	margin-bottom:0px;
+}
+.i_main .yinye_title li{
+	color:#787777;
+	background:url(../images/yinyen.png) no-repeat;
+	width:91px;
+	float:left;
+	height:29px;
+	margin-right:10px;
+	line-height:29px;
+	text-align:center;
+}
+.i_main .yinye_title li:hover{
+	cursor:pointer;
+	color:#0071CD;
+}
+.i_main .yinye_title .hover_yinye{
+	background:url(../images/button_bj.png) no-repeat;
+	color:#fff;
+}
+.i_main .yinye_title .hover_yinye:hover{
+	color:#fff;
+}
+.tuihuo_first table {
+	border-collapse:collapse;
+}
+
+#tb_tui .se_xiaoshou{
+	background:url(../images/btnBuy.png) no-repeat;
+	width:84px;
+	height:21px;
+	display:block;
+	margin:0 auto;
+	margin-bottom:1px;
+}
+
+#tb_tui .se_xiaoshou:hover {
+  background:url(../images/btnBuyHover.png) no-repeat;
+  color:#663A02;
+
+}
+/*#tb_tui tr td label{
+	display:block;
+	background:url(../images/opera2.png) no-repeat right;
+	width:60px;
+	margin:auto;
+}*/
+
+.serviceInput{
+  width: 95%;
+}
+
+.i_scroll_percentage {
+  position: absolute;
+  display:none;
+  background: #F4F4F4;
+  border:1px solid #C2C2C2;
+}
+
+.i_scroll_serviceName {
+	position:absolute;
+	border: 1px solid #CCCCCC;
+	width:300px;
+	height:220px;
+	background:#FFFFFF;
+	z-index:99;
+}
+
+.Scroller-Container_service {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	margin:5px 0px 0px 4px;
+}
+.Scroller-Container_service a {
+	display:block;
+	width:300px;
+	height:20px;
+	line-height:20px;
+	padding-left:5px;
+	color:#000000;
+}
+.Scroller-Container_service a.hover {
+	background:url(../images/a_03.png) repeat-x;
+	width:300px;
+	color:#FFFFFF;
+	cursor:pointer;
+}
+
+.i_scroll_percentage_service {
+  position: absolute;
+  display:none;
+  background: #fff;
+}
+
+/*#tb_tui tr td input{
+	height:20px;
+}*/
+/*#tb_tui tr td{
+	text-align: left;
+}*/
+#tb_tui td{
+	line-height:26px;
+}

@@ -1,0 +1,58 @@
+一.备份现有生产上war包,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+2. config表DML:
+INSERT INTO `config`.`config` (`id`,`version`,`created`,`last_update`,`shop_id`,`name`,`value`)
+VALUES
+(10000010002080008,0,1329530754703,1329530754703,-1,'request_section','section_1:[3000,5000]|section_2:[5000,10000]|section_3:[10000,-1]'),
+(10000010003080008,0,1329530754703,1329530754703,-1,'SystemMonitor','ON')
+
+3. 在每个Tomcat VM parameters 参数中添加:-Dnode=tomcatX X为Tomcat编号 1 2 3 4 5此次类推
+
+4. 在测试环境添加几条监控url到url_monitor_config表中; 类似：   等发生产时,需求再整理需要监控的url
+INSERT INTO `url_monitor_config` VALUES ('10000010021332033', '1361516375703', '1361516799671', '4', 'INCLUDE', '/web/businessStat.do?method=getBusinessStat');
+
+三.发布应用 （纪友文）
+
+四.配置权限
+      name                            type                                value                         memo                  SystemType
+===============================================================================================================================================
+web_staffManage_getSalesManInfo    request           /web/staffManage.do?method=getSalesManInfo  通过ID获得员工信息            SHOP
+web_staffManage_saveSalesManInfo   request           /web/staffManage.do?method=saveSalesManInfo 下拉框修改保存员工信息          SHOP
+把这两个资源添加到SHOP->系统管理->员工管理->修改员工资料和查询员工 这两个角色中（都要添加）
+
+//===================SHOP-->车辆施工-->洗车美容单-->打印小票 （陈方雷）======================================================
+web_washBeauty_printWashBeautyNoId     request   /web/washBeauty.do?method=printWashBeautyNoId   洗车美容不结算打印 SHOP
+
+//===================SHOP-->系统管理-->数据导入 （陈方雷）======================================================
+web_import_openSimpleImportPage   request           /web/import.do?method=openSimpleImportPage 进入简单导入界面     SHOP
+web_import_simpleImportExcelData   request           /web/import.do?method=simpleImportExcelData 开始简单导入    SHOP
+web_download_downloadStaticFile     request       /web/download.do?method=downloadStaticFile      下载模板
+
+//===========================================================  版本资源======================================================================================================
+WEB_VERSION_NOT_WHOLESALERS       logic               WEB.VERSION.NOT_WHOLESALERS   //  除了批发商之外的所有              SHOP
+WEB_VERSION_WHOLESALERS           logic               WEB.VERSION.WHOLESALERS   //  所有批发商                           SHOP
+
+五.初始化
+1. 采购单加入库时间
+update purchase_order po, purchase_inventory pi set po.inventory_vest_date = pi.vest_date where po.id = pi.purchase_order_id;
+
+2. 权限表数据不规范（类别）
+update user_group set variety = 'SYSTEM_DEFAULT' where user_group_no like 'MRZW00%' and variety is null;
+
+2. 打印模板上传:
+洗车美容单打印模板  -- 默认， 宁波市镇海区骆驼弛耐普汽车美容养护骆驼特许连锁店
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）
+
+
+
+
+

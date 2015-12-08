@@ -1,0 +1,163 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="shaolei" id="sales_man_1">
+    <createTable tableName="sales_man">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="sales_man_code" type="varchar(20)"/>
+      <column name="agent_id" type="bigint"/>
+      <column name="name" type="varchar(20)"/>
+      <column name="mobile" type="varchar(20)"/>
+      <column name="address" type="varchar(200)"/>
+      <column name="state" type="int"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="sales_man_2" author="shaolei">
+    <addPrimaryKey tableName="sales_man" columnNames="id" constraintName="pk_sales_man"/>
+  </changeSet>
+
+  <changeSet author="zoujianhong" id="sales_man_3">
+    <createIndex tableName="sales_man" indexName="IDX_SALESMAN_AGENTID">
+      <column name="agent_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="sales_man_4">
+    <modifyColumn tableName="sales_man">
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="sales_man_5" author="liuWei">
+    <addColumn tableName="sales_man">
+      <column name="shop_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="sales_man_6" author="liuWei">
+    <addColumn tableName="sales_man">
+      <column name="sex" type="varchar(20)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="sales_man_7" author="liuWei">
+    <addColumn tableName="sales_man">
+      <column name="department" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="sales_man_8" author="liuWei">
+    <addColumn tableName="sales_man">
+      <column name="position" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="sales_man_9" author="liuWei">
+    <addColumn tableName="sales_man">
+      <column name="identity_card" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="sales_man_10" author="liuWei">
+    <addColumn tableName="sales_man">
+      <column name="salary" type="float"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="sales_man_11" author="liuWei">
+    <addColumn tableName="sales_man">
+      <column name="allowance" type="float"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="sales_man_12" author="liuWei">
+    <addColumn tableName="sales_man">
+      <column name="career_date" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="sales_man_13" author="liuWei">
+    <renameColumn tableName="sales_man" oldColumnName="state" newColumnName="status" columnDataType="varchar(20)"/>
+  </changeSet>
+
+  <changeSet id="sales_man_14" author="liuWei">
+    <addColumn tableName="sales_man">
+      <column name="memo" type="varchar(200)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="liuWei" id="sales_man_15">
+    <dropIndex tableName="sales_man" indexName="IDX_SALESMAN_AGENTID"/>
+  </changeSet>
+
+  <changeSet id="sales_man_16" author="liuWei">
+    <createIndex tableName="sales_man" indexName="idx_shopid">
+      <column name="shop_id"></column>
+    </createIndex>
+  </changeSet>
+
+
+  <changeSet id="sales_man_17" author="chenfanglei">
+    <modifyColumn tableName="sales_man">
+      <column name="memo" type="varchar(500)"></column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="sales_man_18" author="chenfanglei">
+    <modifyColumn tableName="sales_man">
+      <column name="sales_man_code" type="varchar(50)"></column>
+    </modifyColumn>
+  </changeSet>
+  
+  <changeSet id="sales_man_19" author="chenfanglei">
+    <modifyColumn tableName="sales_man">
+      <column name="department" type="varchar(150)"></column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="sales_man_20" author="chenfanglei">
+    <modifyColumn tableName="sales_man">
+      <column name="salary" type="double"></column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="sales_man_21" author="chenfanglei">
+    <modifyColumn tableName="sales_man">
+      <column name="allowance" type="double"></column>
+    </modifyColumn>
+  </changeSet>
+
+    <changeSet id="sales_man_22_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="sales_man">
+            <column name="department_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="sales_man_23_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="sales_man">
+            <column name="qq" type="varchar(50)"/>
+            <column name="email" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="sales_man_24_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="sales_man">
+            <column name="occupation_id" type="bigint"/>
+            <column name="user_group_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

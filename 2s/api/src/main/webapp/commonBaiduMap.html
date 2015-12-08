@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+	<!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=MYApAVxTuGi4dsSPIpkd2WoT"></script>-->
+</head>
+<body>
+<div id="map_container" style=" width: 800px;height: 600px;"></div>
+</body>
+<script type="text/javascript">
+	(function () { //闭包
+		function load_script(xyUrl, callback) {
+			var head = document.getElementsByTagName('head')[0];
+			var script = document.createElement('script');
+			script.type = 'text/javascript';
+			script.src = xyUrl;
+			//借鉴了jQuery的script跨域方法
+			script.onload = script.onreadystatechange = function () {
+				if ((!this.readyState || this.readyState === "loaded" || this.readyState === "complete")) {
+					callback && callback();
+					// Handle memory leak in IE
+					script.onload = script.onreadystatechange = null;
+					if (head && script.parentNode) {
+						head.removeChild(script);
+					}
+				}
+			};
+			// Use insertBefore instead of appendChild to circumvent an IE6 bug.
+			head.insertBefore(script, head.firstChild);
+		}
+
+		function translate(point, type, callback) {
+			var callbackName = 'cbk_' + Math.round(Math.random() * 10000); //随机函数名
+			var xyUrl = "http://api.map.baidu.com/ag/coord/convert?from=" + type + "&to=4&x=" + point.lng + "&y=" + point.lat + "&callback=BMap.Convertor." + callbackName;
+			//动态创建script标签
+			load_script(xyUrl);
+			BMap.Convertor[callbackName] = function (xyResult) {
+				delete BMap.Convertor[callbackName]; //调用完需要删除改函数
+				var point = new BMap.Point(xyResult.x, xyResult.y);
+				callback && callback(point);
+			}
+		}
+
+		window.BMap = window.BMap || {};
+		BMap.Convertor = {};
+		BMap.Convertor.translate = translate;
+	})();
+
+	function getUrlParameter(name) {
+		"use strict";
+		return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || "";
+	}
+
+	function initLocationMap() {
+		var coordinateLat = getUrlParameter("coordinateLat") ,
+				coordinateLon = getUrlParameter("coordinateLon");
+		//31.263733,120.726823
+//		coordinateLon = "120.726823";
+//		coordinateLat ="31.263733";
+		if (!coordinateLon || !coordinateLat)return;
+		var gpsPoint = new BMap.Point(coordinateLon, coordinateLat);
+		//坐标转换完之后的回调函数
+		translateCallback = function (point) {
+			var bm = new BMap.Map("map_container");
+			var marker = new BMap.Marker(point);
+			bm.addOverlay(marker);
+			bm.centerAndZoom(point, 16);
+			var label = new BMap.Label("故障地点", {offset: new BMap.Size(20, -10)});
+			marker.setLabel(label); //添加百度label
+			bm.setCenter(point);
+		};
+
+		setTimeout(function () {
+			BMap.Convertor.translate(gpsPoint, 0, translateCallback);     //真实经纬度转成百度坐标
+		}, 500);
+	}
+	initLocationMap();
+
+</script>
+</html>

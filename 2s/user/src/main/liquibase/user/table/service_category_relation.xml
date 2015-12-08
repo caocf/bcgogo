@@ -1,0 +1,28 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+  <changeSet author="xzhu" id="service_category_relation_1">
+    <createTable tableName="service_category_relation">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="data_id" type="bigint"/>
+      <column name="data_type" type="varchar(50)"/>
+      <column name="service_category_id" type="bigint"/>
+      <column name="deleted" type="varchar(50)"/>
+    </createTable>
+    <addPrimaryKey tableName="service_category_relation" columnNames="id" constraintName="pk_service_category_relation"/>
+      <createIndex tableName="service_category_relation" indexName="index_shop_data">
+          <column name="shop_id"/>
+          <column name="data_id"/>
+      </createIndex>
+  </changeSet>
+</databaseChangeLog>

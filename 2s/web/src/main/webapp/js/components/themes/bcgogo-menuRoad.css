@@ -1,0 +1,42 @@
+.bcgogo-menubar {
+    font-family: "宋体", "Arial";font-size: 14px;position: relative; width: auto; height: auto;
+}
+.bcgogo-menubar .Jmenu  {
+    padding:0;margin: 0;list-style: none;z-index: 3;position: absolute; width: auto;height: auto;
+}
+.bcgogo-menubar .Jmenu  li {
+    padding: 0; margin:0;float:left;padding-left: 3px;padding-right: 3px; width: auto;
+    display:block; height:30px;line-height: 30px;
+}
+.bcgogo-menubar .Jmenu .JDcontent {
+    color: #787777;
+}
+
+.bcgogo-menubar .Jmenu .Jcontent {
+    color: #007CDA;
+}
+.bcgogo-menubar .Jmenu .Jcontent:hover {
+    color:#FC6100;cursor:pointer;
+}
+
+.bcgogo-menubar .Jmenu .Jhover {
+    border:solid 1px #aaa;padding-left: 2px;padding-right: 2px;
+    background-color: #fff;margin-top: -1px;border-bottom: none;
+}
+
+.bcgogo-menubar .Jmenu .Jarrow {
+    color: #787777;
+}
+
+.bcgogo-menubar .Jsibling {
+    padding: 0; margin: 0;padding: 9px;  background: #fff;  z-index: 100;
+    margin-top: 29px;position: absolute;box-shadow:1px 1px 2px #aaa;
+    border:solid 1px #aaa;
+    list-style: none;
+}
+.bcgogo-menubar .Jsibling li{
+    padding: 0;margin: 0;line-height: 24px;color:#555555;height: auto;width:auto;float:none;display:block;
+}
+.bcgogo-menubar .Jsibling li:hover {
+    color:#0067c2;text-decoration: underline;cursor:pointer;
+}

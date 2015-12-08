@@ -1,0 +1,43 @@
+一.备份现有生产上war包,停掉热备份
+
+二.发布前准备
+1. 修改短信模板：输入customerRemindDebt    点击查找   点击修改   将‘{licenceNo}车主’修改为 ‘{name}’
+
+2. Solr更新:
+替换 order  order_item  product customer_supplier 的 schema.xml
+替换 所有的词库 ：  data/words-bcgogo.dic
+
+3. 数据库更新：
+根据Liquibase生成的DDL语句更新表结构.
+
+三.发布应用
+
+四.配置权限
+CRM --------SHOP操作权限------SHOP数据初始化,  新增资源
+processSupplierReceivable         /web/init.do?method=processSupplierReceivable     SHOP     初始化供应商欠费提醒   request
+preBuyOrderFilter                 /web/preBuyOrder.do?method=preBuyOrderFilter      SHOP     发送求购过滤           request
+ajaxSavePreBuyOrder               /web/preBuyOrder.do?method=ajaxSavePreBuyOrder     SHOP    ajax发送求购           request
+
+在 SHOP ----  基本 中添加
+web_businessScope_searchBusinessScope     /web/businessScope.do?method=searchBusinessScope       SHOP       搜索经营范围  request
+web_businessScope_getAllStandardVehicleBrandModel     /web/businessScope.do?method=getAllStandardVehicleBrandModel       SHOP 获取所有标准车辆品牌、车型  request
+检查所有汽配版本员工业绩是否配置正确（如果未分配  分配角色 SHOP-财务统计- 员工业绩统计  并分配该角色给老板财务用户组）
+
+五.数据初始化
+1. jackchen登录后执行： init.do?method=processSupplierReceivable
+
+2. SQL:
+   在product库执行 standard_vehicle_brand.sql 、 standard_vehicle_model.sql文件
+   在search库执行 solr_match_stop_word.sql文件
+
+3. Solr索引
+   重新做 商品、单据和客户供应商的 索引       -- 商品、单据建议两台Tomcat同时做
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+回滚步骤：
+1.关闭服务
+2.恢复生产数据库
+3.使用旧war包重新发布
+4.验证功能

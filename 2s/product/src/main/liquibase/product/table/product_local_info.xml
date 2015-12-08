@@ -1,0 +1,122 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="wujiaolong" id="product_local_info_1">
+        <createTable tableName="product_local_info">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="price" type="double"/>
+            <column name="product_id" type="bigint"/>
+            <column name="shop_id" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="product_local_info" columnNames="id" constraintName="pk_product_local_info"/>
+    </changeSet>
+
+    <changeSet author="wujiaolong" id="product_local_info_2">
+        <addColumn tableName="product_local_info">
+            <column name="purchase_price" type="double"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="product_local_info_3">
+        <createIndex tableName="product_local_info" indexName="idx_productlocalinfo_shopid_productid">
+            <column name="shop_id"/>
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="luyi" id="product_local_info_4">
+        <addColumn tableName="product_local_info">
+            <column name="barcode" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="qiuxinyu" id="product_local_info_5">
+        <dropColumn tableName="product_local_info" columnName="barcode"/>
+    </changeSet>
+    <changeSet author="qiuxinyu" id="product_local_info_6">
+        <addColumn tableName="product_local_info">
+            <column name="storage_unit" type="varchar(20)"/>
+            <column name="sell_unit" type="varchar(20)"/>
+            <column name="rate" type="double"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="jimuchen" id="product_local_info_7">
+        <modifyColumn tableName="product_local_info">
+            <column name="version" type="bigint" >
+                <constraints nullable="false" />
+            </column>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="product_local_info_8" author="chenfanglei">
+        <addColumn tableName="product_local_info">
+            <column name="percentage" type="double"></column>
+            <column name="percentage_amount" type="double"></column>
+            <column name="points_exchangeable" type="varchar(20)"></column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="product_local_info_9" author="qiuxinyu">
+        <addColumn tableName="product_local_info">
+            <column name="storage_bin" type="varchar(50)"/>
+            <column name="trade_price" type="double"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="product_local_info_10" author="chenfanglei">
+        <addColumn tableName="product_local_info">
+            <column name="business_category_id" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="product_local_info_xzhu_11" author="xzhu">
+        <addColumn tableName="product_local_info">
+            <column name="sales_status" type="varchar(50)"></column>
+            <column name="in_sales_amount" type="double"></column>
+            <column name="last_in_sales_time" type="bigint"></column>
+            <column name="last_off_sales_time" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="zhangjuntao" id="product_local_info_12_zjt">
+        <dropIndex tableName="product_local_info" indexName="idx_productlocalinfo_shopid_productid"/>
+        <createIndex tableName="product_local_info" indexName="idx_productlocalinfo_shop_id">
+            <column name="shop_id"/>
+        </createIndex>
+        <createIndex tableName="product_local_info" indexName="idx_productlocalinfo_product_id">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="product_local_info_13_ndong" author="ndong">
+        <addColumn tableName="product_local_info">
+            <column name="in_sales_price" type="double"></column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="product_local_info_14_ndong" author="ndong">
+        <addColumn tableName="product_local_info">
+            <column name="guarantee_period" type="varchar(100)"></column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="product_local_info_15_ndong" author="ndong">
+        <addColumn tableName="product_local_info">
+            <column name="in_sales_unit" type="varchar(20)"></column>
+        </addColumn>
+    </changeSet>
+     <changeSet author="ndong" id="product_local_info_16_ndong">
+        <createIndex tableName="product_local_info" indexName="idx_productlocalinfo_lastInSalesTime">
+            <column name="last_in_sales_time"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="product_local_info_17_ndong" author="ndong">
+        <addColumn tableName="product_local_info">
+            <column name="ad_status" type="varchar(20)"></column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

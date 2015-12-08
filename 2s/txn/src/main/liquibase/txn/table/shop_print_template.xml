@@ -1,0 +1,60 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet id="shop_print_template_1" author="chenfanglei">
+        <createTable tableName="shop_print_template">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="order_type" type="varchar(20)"/>
+            <column name="shop_id" type="bigint"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="shop_print_template_2" author="chenfanglei">
+        <addPrimaryKey tableName="shop_print_template" columnNames="id" constraintName="pk_shop_print_template"/>
+    </changeSet>
+
+    <changeSet id="shop_print_template_3" author="chenfanglei">
+        <createIndex tableName="shop_print_template" indexName="ipx_shop_print_template_1">
+            <column name="shop_id"/>
+            <column name="order_type"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="shop_print_template_4" author="chenfanglei">
+        <addColumn tableName="shop_print_template">
+            <column name="template_id" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="shop_print_template_5" author="jimuchen" >
+        <addColumn tableName="shop_print_template">
+            <column name="order_type_enum" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="shop_print_template_6">
+    <modifyColumn tableName="shop_print_template">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="shop_print_template_7" author="jimuchen">
+    <addColumn tableName="shop_print_template">
+      <column name="display_name" type="varchar(100)"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

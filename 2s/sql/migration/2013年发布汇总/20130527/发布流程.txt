@@ -1,0 +1,137 @@
+一.备份现有生产上war包,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+2..txn 删除无用模板
+   delete from print_template where id not in (select distinct template_id from shop_print_template);
+3.设置已有模板默认显示名称
+   update shop_print_template spt, print_template pt set spt.display_name = pt.name where spt.template_id = pt.id;
+
+4.流水统计加预付金初始化
+  update running_stat set customer_deposit_pay_expenditure= 0 where customer_deposit_pay_expenditure is null;
+  update running_stat set customer_deposit_pay_income= 0 where customer_deposit_pay_income is null;
+
+5.购卡续卡初始化
+  update member_card_order set member_order_type='NEW' where old_member_no is null;
+  update member_card_order set member_order_type='RENEW' where old_member_no is not null;
+
+6.初始化已发送短信
+update out_box set sender='Shop' where sender='shop';
+
+三.发布应用
+
+四.配置权限
+ name                                  value                            SystemType        memo                 type
+===============================================================================================================================================
+登录后基本权限：
+getPrintTemplate       /web/print.do?method=getTemplates            SHOP        获取打印模板列表      request
+//===================SHOP-->进销存-->库存盘点-->查询 ======================================================
+web_txn_getInventoryCheckByProductId  /web/inventoryCheck.do?method=getInventoryCheckByProductId  根据商品id获取盘点记录  request
+
+
+
+----------------------------------------------------------- 以下 预收预付相关权限 -----------------------------------------------------------------------------
+	
+资源
+deposit_stat_print			/web/depositOrdersStat.do?method=printDepositStat				SHOP 预收预付统计打印		request
+deposit_customer_print			/web/customerDeposit.do?method=printDeposit					SHOP 客户预收款打印		request
+business_analysis_supplier_deposit_stat_print   WEB.STAT.SUPPLIER_DEPOSIT.STAT_PRINT  SHOP  供应商预付款打印显示   render
+business_analysis_customer_deposit_stat_print   WEB.STAT.CUSTOMER_DEPOSIT.STAT_PRINT  SHOP  客户预收款打印显示   render
+deposit_stat_main			/web/navigator.do?method=depositStat						SHOP 预收预付款入口		request
+deposit_stat_menu			WEB.STAT.DEPOSIT_STAT.BASE							SHOP 预收预付款统计菜单		menu
+supplier_deposit_stat_menu		WEB.STAT.DEPOSIT_STAT.SUPPLIER							SHOP 预付款统计菜单		menu
+customer_deposit_stat_menu		WEB.STAT.DEPOSIT_STAT.CUSTOMER							SHOP 预收款统计菜单		menu 
+goto_supplier_deposit_stat		/web/depositOrdersStat.do?method=renderSupplierDepositOrderQueryPage		SHOP 预付款统计查询		request
+depoist_order_stat_query		/web/depositOrdersStat.do?method=ajaxQueryDepositOrders				SHOP 预收预付款查询权限		request
+goto_customer_deposit_order_stat	/web/depositOrdersStat.do?method=renderCustomerDepositOrderQueryPage		SHOP 预收款统计			request
+supplier_deposit_order_query		/web/payable.do?method=queryDepositOrdersShopIdAndSupplierId			SHOP 预付款记录查询		request
+web_version_deposit_use			WEB.VERSION.CUSTOMER.DEPOSIT.USE						SHOP 预收款render权限		render
+customer_deposit_query			/web/customerDeposit.do?method=queryDepositOrdersByCustomerIdOrSupplierId	SHOP 当前预收款额度查询		request
+customer_deposit_add			/web/customerDeposit.do?method=addCustomerDeposit				SHOP 预收款充值			request
+customer_deposit_amount_query    /web/customerDeposit.do?method=ajaxGetCustomerDeposit     SHOP      客户定金获取    request
+
+
+角色
+客户管理->客户资料->我的客户
+      新增：	预收款
+						deposit_customer_print 
+						WEB.VERSION.CUSTOMER_DEPOSIT_USE
+						customer_deposit_query
+						customer_deposit_add
+
+      修改：删除
+          添加 customer_deposit_amount_query
+
+供应商管理-我的供应商-供应商付定金 新增：
+          supplier_deposit_order_query
+
+业务统计 新增： 
+				预收预付统计
+
+					-> 预收款
+						-> 查询
+							goto_supplier_deposit_stat
+							depoist_order_stat_query
+							deposit_stat_main
+
+						-> 打印
+							deposit_stat_print
+							business_analysis_customer_deposit_stat_print
+					-> 预付款
+						-> 查询
+							goto_supplier_deposit_stat
+							depoist_order_stat_query
+							deposit_stat_main
+
+						-> 打印
+							deposit_stat_print
+							business_analysis_supplier_deposit_stat_print
+
+版本维护里面 
+		汽配版拥有预收款相关的权限
+
+
+菜单权限相关
+
+	2级菜单
+		insert into bcuser.menu values(1000020045084345,1366096873988,1366096873988,0,2,'预收预付',10000010026432545,1000020045084319,'navigator.do?method=depositStat',40,'WEB.STAT.DEPOSIT_STAT.BASE');
+
+
+	3级菜单
+
+		预收
+		insert into bcuser.menu values(1000020045084346,1366096873988,1366096873988,0,3,'预收',10000010026432543,1000020045084345,'depositOrdersStat.do?method=renderCustomerDepositOrderQueryPage',10,'WEB.STAT.DEPOSIT_STAT.CUSTOMER');
+		预付
+		insert into bcuser.menu values(1000020045084347,1366096873988,1366096873988,0,3,'预付',10000010026432544,1000020045084345,'depositOrdersStat.do?method=renderSupplierDepositOrderQueryPage',20,'WEB.STAT.DEPOSIT_STAT.SUPPLIER');
+
+    备注： 菜单权限相关的resourceId 以及 parentId 以实际的环境插入的为准。 
+	
+---------------------------------------------------------------------------预收预付相关结束-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+五. 导入打印模板、短信模板
+1. admin后台登录，上传：
+预付款单：   sql/打印模板/default_改/预付款单.html
+预收款单：   sql/打印模板/default_改/预收款单.html
+预付款统计：  sql/打印模板/default_超级管理统计打印/预付款统计.html
+预收款统计：  sql/打印模板/default_超级管理统计打印/预收款统计.html
+
+2. 短信模板：
+  1).增加 场景为 MEMBER_RENEW 的短信模板：
+  会员续卡短信    memberRenewCardMsg    必要
+  您好，$!{cardOwnerName}，您已成功续卡。#if(${passwordChanged})会员卡号：$!{memberNo}，密码：$!{password}；#end当前储值金额：$!{remainAmount}元。如有问题请联系工作人员！
+
+  2). 修改 场景为 MEMBER_BUY 的短信模板内容：
+  您好，$!{cardOwnerName}，您的会员卡已办理成功。会员卡号：$!{memberNo}，密码：$!{password}。储值金额：$!{remainAmount}元。如有任何问题请与我们的工作人员联系！
+
+六.Solr索引
+重新索引 所有客户供应商
+
+七.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

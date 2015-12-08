@@ -1,0 +1,61 @@
+.bcgogo-searchBar {}
+.bcgogo-searchBar-content{
+    font-size: 12px;display:inline-block; width:911px;height:60px;position: relative;background-color: /*#ebf0ff;*/ #fdeba9;
+    border:solid /*#d4d9e8*/ #999 2px;border-radius: 3px;border-bottom:#ddd;  /*color: #ff4800;*/ color:#000;
+}
+.bcgogo-searchBar-content input[class*='fuzzy_search'] {border:#9FAFD1 solid 1px;}
+.bcgogo-searchBar-content input {margin:0;padding:0;border:#ffaa06 solid 1px;}
+.bcgogo-searchBar-content label {cursor: pointer;;}
+
+.bcgogo-searchBar-content-block {float:left; margin:0;padding:0;margin-left:5px;margin-right:5px;}
+
+.bcgogo-searchBar-rules-input {text-align: left;position:relative;font-size: 12px;font-family: "宋体", "Arial";margin-top:3px;}
+.bcgogo-searchBar-rules-input ol{text-align: left;position:relative;margin: 5px 0 0;position: relative;display: block;height:20px;}
+.bcgogo-searchBar-rules-time {list-style-type: none;margin:0;padding:0;}
+.bcgogo-searchBar-rules-time li {list-style-type: none;display:inline;}
+.bcgogo-searchBar-rules-product {list-style-type: none;margin:0;padding:0;}
+.bcgogo-searchBar-rules-product li {list-style-type: none;display:inline;}
+
+.bcgogo-searchBar-NoInput {color:grey;}
+.bcgogo-searchBar-AlreadyInput {color:black;}
+
+.bcgogo-searchBar-searchButton {
+    width: 50px;position: relative;border: solid 1px #bbcef1;height:52px; float:right;
+    border-radius: 3px;left:5px;background-color:#f2f2f2;cursor: pointer; margin-top:3px;margin-right:8px;
+    color: #db6800;font-size: 14px;
+}
+.bcgogo-searchBar-searchButton:hover {border-color: #598bec;color: #005db7}
+/*.bcgogo-searchBar-searchButton-normal {}*/
+/*.bcgogo-searchBar-searchButton-hover {}*/
+/*.bcgogo-searchBar-searchButton-waiting {}*/
+/*.bcgogo-searchBar-searchButton-disabled {}*/
+.bcgogo-searchBar-searchButtonImg {
+    width:30px;height:30px;position:absolute;top:50%;margin-top:-15px;
+    left:50%;margin-left: -15px; line-height: 30px;text-align: center;
+    /*background: url('res/searchBar-searchButton.png') 4px 0;*/
+}
+
+.bcgogo-searchBar-waiting {
+    width: 48px;height:48px;position:absolute;top:50%;margin-top:-24px;left:50%;margin-left:-24px;
+    background:url('res/waiting.gif');
+}
+
+.w-60 {width:60px;}
+.w-80 {width:80px;}
+.w-100 {width:100px;}
+.w-170 {width:170px;}
+
+/*品名*/
+.J-product_name {}
+/*品牌、产地*/
+.J-product_branch {}
+/*规格*/
+.J-product_spec {}
+/*型号*/
+.J-product_model {}
+/*车型*/
+.J-product_vehicle_model {}
+/*车品牌*/
+.J-product_vehicle_brand {}
+/*商品编号*/
+.J-commodity_code {}

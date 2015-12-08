@@ -1,0 +1,63 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lw" id="sales_inventory_week_stat_1">
+    <createTable tableName="sales_inventory_week_stat">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="product_name" type="varchar(200)"/>
+      <column name="product_brand" type="varchar(200)"/>
+      <column name="sales_amount" type="double"/>
+      <column name="sales_unit" type="varchar(50)"/>
+      <column name="inventory_amount" type="double"/>
+      <column name="inventory_unit" type="varchar(50)"/>
+      <column name="stat_time" type="bigint"/>
+      <column name="shop_kind" type="varchar(50)"/>
+      <column name="week_of_year" type="bigint"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="lw" id="sales_inventory_week_stat_2">
+    <addPrimaryKey tableName="sales_inventory_week_stat" columnNames="id"
+                   constraintName="pk_sales_inventory_week_stat"/>
+  </changeSet>
+
+  <changeSet author="lw" id="sales_inventory_week_stat_3">
+    <createIndex tableName="sales_inventory_week_stat" indexName="IDX_WEEK_KIND_NAME_BRAND">
+      <column name="week_of_year"/>
+      <column name="shop_kind"/>
+      <column name="product_name"/>
+      <column name="product_brand"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="sales_inventory_week_stat_4" author="lw">
+    <addColumn tableName="sales_inventory_week_stat">
+      <column name="stat_day" type="bigint"/>
+      <column name="stat_month" type="bigint"/>
+      <column name="stat_year" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="lw" id="sales_inventory_week_stat_5">
+    <dropIndex tableName="sales_inventory_week_stat" indexName="IDX_WEEK_KIND_NAME_BRAND"/>
+    <createIndex tableName="sales_inventory_week_stat" indexName="IDX_YEAR_MONTH_DAY_KIND_NAME_BRAND">
+      <column name="stat_year"/>
+      <column name="stat_month"/>
+      <column name="stat_day"/>
+      <column name="shop_kind"/>
+      <column name="product_name"/>
+      <column name="product_brand"/>
+    </createIndex>
+  </changeSet>
+
+</databaseChangeLog>

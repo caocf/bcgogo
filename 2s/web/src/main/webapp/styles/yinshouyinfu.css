@@ -1,0 +1,36 @@
+.pay{background:url(../images/pay.png) no-repeat;  height:21px; line-height:24px; cursor:pointer; }
+.pay:hover{background:url(../images/hoverPay.png) no-repeat;}
+.pay .gray_color{ color:#aaaaaa;}
+.pay .payMoney{display:inline-block; padding-left:3px; width:74px;}
+.pay span.fuMoney{
+    padding-left:3px;
+    /*display:inline-block;*/
+    display: inline-block;
+    /*padding-left: 5px;*/
+    width: 77px;
+}
+.green_color, td.green_color {
+    color: #1F541E;
+}
+.red_color td.red_color{
+    color: #CB0000;
+}
+.pay .red_color{color:#CB0000}
+
+.pay1{background:url(../images/newtodoDebt1.png) no-repeat;  height:21px; line-height:24px; cursor:pointer; }
+.pay1:hover{background:url(../images/newtodoDebt2.png) no-repeat; color:#FFFFFF;}
+.pay1:hover span{color:#FFFFFF;}
+.pay1 .gray_color{ color:#aaaaaa;}
+.pay1 .payMoney{display:inline-block; padding-left:5px;}
+.pay1 span.fuMoney{
+    padding-left:3px; display:inline-block;
+    display: inline-block;
+    padding-left: 5px;
+    width: 75px;
+}
+.pay1 .red_color{color:#CB0000}
+
+
+
+a.duizhan,.i_mainRight .table2 tr td a.duizhan{background:url(../images/tiao.png) no-repeat; width:45px; height:18px; display:inline-block; text-align:center; line-height:20px; cursor:pointer; color:#FFFFFF; font-size:12px;}
+a.duizhan:hover,.i_mainRight .table2 tr td a.duizhan:hover{background:url(../images/tiaoHover.png) no-repeat; color:#663a02; text-decoration:none;}

@@ -1,0 +1,5 @@
+INSERT INTO `business_category`(`id`,`created`,`last_update`,`version`,`item_name`,`item_type`,`shop_id`) VALUES ('1', '1348641050680', '1348641050680', '0', '水电杂项', 'account', null);
+INSERT INTO `business_category`(`id`,`created`,`last_update`,`version`,`item_name`,`item_type`,`shop_id`) VALUES ('2', '1348642440773', '1348642440773', '0', '其他支出', 'account', null);
+INSERT INTO `business_category`(`id`,`created`,`last_update`,`version`,`item_name`,`item_type`,`shop_id`) VALUES ('3', '1348661856711', '1348661856711', '0', '营业外收入', 'account', null);
+INSERT INTO `business_category`(`id`,`created`,`last_update`,`version`,`item_name`,`item_type`,`shop_id`) VALUES ('4', '1329530754703', '1329530754703', '0', '房租', 'account', null);
+INSERT INTO `business_category`(`id`,`created`,`last_update`,`version`,`item_name`,`item_type`,`shop_id`) VALUES ('5', '1329530754703', '1329530754703', '0', '工资提成', 'account',null);

@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+.tab_repayTime{font-weight:bold;}
+.sure input{ margin-right:5px; font-weight:bold; letter-spacing:2px; text-align:center;}
+.number_xiche{ font-size:12px;}
+.tab_repayTime label{color:#6699cc;}
+
+/*sureSupplier.html*/
+.rad_user{clear:both;}
+.rad_user label{ margin-right:20px;font-weight:bold;}
+.rad_user input{ margin-right:5px;}

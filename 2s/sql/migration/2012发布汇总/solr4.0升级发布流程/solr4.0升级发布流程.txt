@@ -1,0 +1,19 @@
+﻿1.服务器solr升级到4.0 :去  \\192.168.1.254\开发工具   下载 solr4.0.zip 替换tomcat webapp下原来solr的整个文件
+2.在tomcat路径下新建solr-home  文件夹(\usr\local\tomcat\solr-home)，把项目中的 solr 配置文件：solrconfig、schema和所有的data文件夹 复制到solr-home下
+3.修改tomcat config下server.xml的solr home 的路径(\usr\local\tomcat\solr-home)
+4.重启tomcat
+5.重新导入 车型 数据
+6.重做索引
+7.user表更新
+update `user` set `status`='active';
+
+
+
+
+
+
+
+以下是开发本地更新说明：
+1.去  \\192.168.1.254\开发工具   下载 solr4.0.zip
+2.解压后  完全替换原来的 solr
+3.用项目中的search模块下 src\test\resources\solr下的文件 替换  你原来项目指定的 solr home 下的文件

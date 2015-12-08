@@ -1,0 +1,42 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xzhu" id="push_message_receiver_match_record_xzhu_1">
+        <createTable tableName="push_message_receiver_match_record">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="message_id" type="bigint"/>
+            <column name="push_message_receiver_id" type="bigint"/>
+            <column name="create_time" type="bigint"/>
+            <column name="custom_score" type="double"/>
+            <column name="matching_rule" type="varchar(50)"/>
+
+            <column name="seed_product_shop_id" type="bigint"/>
+            <column name="seed_product_name" type="varchar(200)"/>
+            <column name="seed_product_brand" type="varchar(200)" />
+            <column name="seed_product_spec" type="varchar(200)" />
+            <column name="seed_product_model" type="varchar(200)" />
+            <column name="seed_product_vehicle_model" type="varchar(200)" />
+            <column name="seed_product_vehicle_brand" type="varchar(200)" />
+
+            <column name="matched_product_shop_id" type="bigint"/>
+            <column name="matched_product_name" type="varchar(200)"/>
+            <column name="matched_product_brand" type="varchar(200)" />
+            <column name="matched_product_spec" type="varchar(200)" />
+            <column name="matched_product_model" type="varchar(200)" />
+            <column name="matched_product_vehicle_model" type="varchar(200)" />
+            <column name="matched_product_vehicle_brand" type="varchar(200)" />
+
+        </createTable>
+        <addPrimaryKey tableName="push_message_receiver_match_record" columnNames="id" constraintName="pk_push_message_receiver_match_record"/>
+    </changeSet>
+</databaseChangeLog>

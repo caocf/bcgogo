@@ -1,0 +1,42 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="liuWei" id="user_guide_step_1">
+    <createTable tableName="user_guide_step">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="name" type="varchar(100)">
+        <constraints unique="true"/>
+      </column>
+      <column name="flow_name" type="varchar(100)"/>
+      <column name="previous_step" type="varchar(100)"/>
+      <column name="next_step" type="varchar(100)"/>
+      <column name="is_head" type="varchar(20)"/>
+      <column name="is_tail" type="varchar(20)"/>
+      <column name="message" type="varchar(500)"/>
+      <column name="url" type="varchar(100)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="liuWei" id="user_guide_step_2">
+    <addPrimaryKey tableName="user_guide_step" columnNames="id" constraintName="pk_user_guide_step"/>
+  </changeSet>
+
+  <changeSet author="liuWei" id="user_guide_step_3">
+    <createIndex tableName="user_guide_step" indexName="index_flowname_perviousstep_name">
+      <column name="flow_name"/>
+      <column name="previous_step"/>
+      <column name="name"/>
+    </createIndex>
+  </changeSet>
+
+</databaseChangeLog>

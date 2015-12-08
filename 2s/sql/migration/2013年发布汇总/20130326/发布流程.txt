@@ -1,0 +1,85 @@
+一.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，姬牧晨）
+
+2. 清除产品表中特殊字符
+update product set model = SUBSTRING(model,1,length(model)-3) where ascii(right(model, 1)) = 238;
+update product set spec = REPLACE(spec,right(spec, 1),'') where ascii(right(spec, 1)) = 238;
+
+update product set model = REPLACE(model, '', ' ') where model like '%%';
+
+三.发布应用 （纪友文)
+
+四.添加权限
+
+（一）角色
+在crm shop->供应商管理->供应商资料->增加角色 供应商点评，并分配版本和用户组
+//----------------------------------------------new role-----------------------------------------------------------------------------
+供应商点评                         用户组：经理/店长  老板/财务  仓管     版本：微型版除外
+
+在crm shop->系统管理 增加模块 基本资料,在该模块增加角色：基本资料  ，并分配版本和用户组
+//----------------------------------------------new role-----------------------------------------------------------------------------
+基本资料                         用户组：经理/店长  老板/财务      版本：所有版本
+
+
+在crm shop->系统管理->基本资料,在该模块增加角色：本店评价  ，并分配版本和用户组
+//----------------------------------------------new role-----------------------------------------------------------------------------
+本店评价                         用户组：经理/店长  老板/财务      版本：所有汽配版
+
+在crm shop->进销存->库存管理->增加角色 借调单，并分配版本和用户组
+//----------------------------------------------new role-----------------------------------------------------------------------------
+借调单                           用户组：经理/店长  老板/财务  仓管     版本：微型版除外
+
+
+供应商点评角色中 增加资源：
+      name                            type                                value                         memo                  SystemType
+===============================================================================================================================================
+web_supplier_supplierComment_saveSupplierComment    request           /web/storage.do?method=saveSupplierComment  保存供应商评价            SHOP
+web_supplier_supplierComment_addSupplierComment   request           /web/storage.do?method=addSupplierComment 追加供应商点评记录          SHOP
+
+web_supplier_supplierComment_redirectSupplierComment    request           /web/supplier.do?method=redirectSupplierComment  跳转到供应商评价记录详情页面            SHOP
+web_supplier_supplierComment_getSupplierCommentRecord   request           /web/supplier.do?method=getSupplierCommentRecord 获取已经统计的供应商评价记录          SHOP
+
+web_supplier_supplierComment_SupplierCommentSave    render           WEB.SUPPLIER_MANAGER.SUPPLIER_COMMENT.SAVE               保存或追加供应商评价            SHOP
+
+web_supplier_supplierComment_supplierCommentRecord   render           WEB.SUPPLIER_MANAGER.SUPPLIER_COMMENT.RECORD  供应商评价详情          SHOP
+
+借调单
+web_txn_toBorrowOrderList       request       /web/borrow.do?method=toBorrowOrderList         链接到借单列表
+web_txn_toBorrowOrderDetail     request       /web/borrow.do?method=toBorrowOrderDetail       链接到借单的详细信息
+web_txn_getBorrowOrderDetail    request       /web/borrow.do?method=getBorrowOrderDetail      获取单个借单的详细信息
+web_txn_getBorrowOrders         request       /web/borrow.do?method=getBorrowOrders           获取借单的单据
+web_txn_createBorrowOrder       request       /web/borrow.do?method=createBorrowOrder         创建借单
+web_txn_saveBorrowOrder         request       /web/borrow.do?method=saveBorrowOrder           保存借单
+web_txn_getBorrowOrderToReturn  request       /web/borrow.do?method=getBorrowOrderToReturn    归还借单
+web_txn_saveReturnOrder         request       /web/borrow.do?method=saveReturnOrder           保存还单
+web_txn_getReturnRunningRecord  request       /web/borrow.do?method=getReturnRunningRecord    获取商品归还流水记录
+web_txn_printBorrowOrder        request       /web/borrow.do?method=printBorrowOrder          打印借调单
+borrowOrderManager              render        WEB.TXN.INVENTORY_MANAGE.BORROW_ORDER           借调单
+
+基本资料角色中 增加资源：
+web_shopBasic_getShopBasicInfo   request           /web/shopBasic.do?method=getShopBasicInfo 获取本店基本资料          SHOP
+web_sys_shopBasic    render           WEB.SYSTEM_SETTINGS.SHOP_BASIC  本店基本资料             SHOP
+web_shopBasic_getShopPhoto (测试环境已添加 无需添加)  request         /web/shopBasic.do?method=getShopPhotoByShopId 获取店面照片          SHOP
+web_shopBasic_getShopBusinessLicense (测试环境已添加 无需添加)  request         /web/shopBasic.do?method=getShopBusinessLicense 获取店面营业执照          SHOP
+
+本店评价角色中 增加资源：
+web_sys_shopBasic_comment    render           WEB.SYSTEM_SETTINGS.SHOP_BASIC_COMMENT   查看本店评价            SHOP
+
+进销存-入库管理-入库单-新增修改入库单  增加资源：
+web_storage_validatePurchaseOrder   request     /web/storage.do?method=validatePurchaseOrder       采购单转入库时验证采购单状态
+
+五.后台上传打印模板
+ 借调单模板路径  sql/打印单据/default_改/借调单
+
+六.Solr索引
+重新索引 "标准商品" 和 "所有店面商品和库存"
+
+七.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

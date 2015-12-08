@@ -1,0 +1,37 @@
+package com.bcgogo.constant;
+
+/**
+ * Created by IntelliJ IDEA.
+ * User: ZhangJuntao
+ * Date: 13-1-1
+ * Time: 下午1:49
+ * 逻辑资源 constants
+ */
+public class LogicResource {
+  public final static String SHOP_LOGIN = "Shop.Login.Base";//shop 登录权限
+  public final static String MAIN_LOGIN = "Shop.Main.Login";//主页面登录权限
+  public final static String SALE_LOGIN = "Shop.Sale.Login";//销售登录权限 -bcgogo
+
+  public final static String WEB_VERSION_STOREHOUSE ="WEB.VERSION.STOREHOUSE";//店铺的仓库资源
+  public final static String WEB_VERSION_IGNORE_VERIFIER_INVENTORY ="WEB.VERSION.IGNORE_VERIFIER_INVENTORY";//店铺的不用库存校验
+  public final static String WEB_VERSION_MEMBER_STORED_VALUE ="WEB.VERSION.MEMBER_STORED_VALUE";//会员储值服务
+  public final static String WEB_VERSION_VEHICLE_CONSTRUCTION ="WEB.VERSION.VEHICLE_CONSTRUCTION";//车辆施工
+  public final static String WEB_VERSION_SEND_INVITATION_CODE_TO_CUSTOMER ="WEB.VERSION.SEND_INVITATION_CODE_TO_CUSTOMER";//发送邀请码给客户
+
+  public final static String WEB_VERSION_DISABLE_VEHICLE_CONSTRUCTION = "WEB.VERSION.DISABLE_VEHICLE_CONSTRUCTION";//不显示车辆施工菜单
+
+  public final static String WEB_VERSION_WHOLESALERS = "WEB.VERSION.WHOLESALERS";
+
+  public final static String WEB_VERSION_NOT_WHOLESALERS = "WEB.VERSION.NOT_WHOLESALERS";
+
+  public final static String WEB_VERSION_DISABLE_SEARCH_SUPPLIER_ONLINE = "WEB.VERSION.DISABLE.SEARCH.SUPPLIER.ONLINE";
+  public final static String WEB_VERSION_PRODUCT_THROUGH_SELECT_SUPPLIER = "WEB.VERSION.PRODUCT.THROUGH_SELECT_SUPPLIER";
+  public final static String WEB_VERSION_DISABLE_UNRELATED_SUPPLIER_COMMODITYQUOTATIONS = "WEB.VERSION.DISABLE.UNRELATED.SUPPLIER.COMMODITYQUOTATIONS";
+  public final static String WEB_VERSION_ACTIVE_RECOMMEND_SUPPLIER = "WEB.VERSION.ACTIVE_RECOMMEND_SUPPLIER";
+
+  public final static String WEB_VERSION_CUSTOMER_DEPOSIT_USE = "WEB.VERSION.CUSTOMER.DEPOSIT.USE";
+
+  public final static String WEB_SCHEDULE_SHOP_FAULT_INFO_BASE = "WEB.SCHEDULE.SHOP_FAULT_INFO.BASE";  //事故故障
+  public final static String WEB_SCHEDULE_REMIND_TODO_CUSTOMER_SERVICE = "WEB.SCHEDULE.REMIND_TODO.CUSTOMER_SERVICE";//客户服务提醒
+  public final static String VEHICLE_CONSTRUCTION_APPOINT_ORDER_LIST = "WEB.VEHICLE_CONSTRUCTION.APPOINT_ORDER_LIST"; //预约
+}

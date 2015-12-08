@@ -1,0 +1,13 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+
+三.发布应用 （纪友文）
+
+四.添加权限
+SHOP--车辆施工--车辆施工 查询角色中增加如下资源：
+getMemberData   /web/repair.do?method=getMemberData 车辆施工单获取会员信息 SHOP request
+
+五.初始化
+
+

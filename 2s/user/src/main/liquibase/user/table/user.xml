@@ -1,0 +1,122 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="mazidong" id="user_1">
+        <createTable tableName="user">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="user_no" type="varchar(20)"/>
+            <column name="user_name" type="varchar(20)"/>
+            <column name="password" type="varchar(20)"/>
+            <column name="name" type="varchar(20)"/>
+            <column name="login_times" type="bigint"/>
+            <column name="last_time" type="bigint"/>
+            <column name="email" type="varchar(50)"/>
+            <column name="mobile" type="varchar(20)"/>
+            <column name="qq" type="varchar(20)"/>
+            <column name="state" type="int"/>
+            <column name="memo" type="varchar(500)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="xiaojian" id="user_2">
+        <createIndex tableName="user" indexName="index_user_user_name">
+            <column name="user_name"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="xiaojian" id="user_3">
+        <createIndex tableName="user" indexName="index_user_user_no">
+            <column name="user_no"/>
+        </createIndex>
+        <createIndex tableName="user" indexName="index_user_mobile">
+            <column name="mobile"/>
+        </createIndex>
+        <createIndex tableName="user" indexName="index_user_email">
+            <column name="email"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="xiaojian" id="user_4">
+        <modifyColumn tableName="user">
+            <column name="password" type="varchar(100)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet author="xiaojian" id="user_5">
+        <addPrimaryKey tableName="user" columnNames="id" constraintName="pk_user"/>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="user_6">
+        <createIndex tableName="user" indexName="index_user_shopid">
+            <column name="shop_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="user_7" author="zhangjuntao">
+       <addColumn tableName="user">
+            <column name="status" type="varchar(20)"/>
+       </addColumn>
+    </changeSet>
+  <changeSet id="user_8" author="zhangjuntao">
+    <modifyColumn tableName="user">
+            <column name="user_no" type="varchar(100)"/>
+    </modifyColumn>
+  </changeSet>
+  <changeSet author="jimuchen" id="user_7">
+    <modifyColumn tableName="user">
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+    <changeSet author="zhangjuntao" id="user_8_zhangjuntao">
+        <addColumn tableName="user">
+            <column name="department_id" type="bigint"/>
+            <column name="occupation_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="zhangjuntao" id="user_9_zhangjuntao">
+        <addColumn tableName="user">
+            <column name="department_responsibility" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="zhangjuntao" id="user_10_zhangjuntao">
+        <addColumn tableName="user">
+            <column name="sales_man_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="zhangjuntao" id="user_11_zhangjuntao">
+        <addColumn tableName="user">
+            <column name="user_type" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="zhangjuntao" id="user_12_zhangjuntao">
+        <addColumn tableName="user">
+            <column name="has_user_guide" type="varchar(20)"/>
+            <column name="is_finish_user_guide" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="user_13_sinYuQiu" author="sinYuQiu">
+        <addColumn tableName="user">
+            <column name="device_token" type="varchar(100)"/>
+            <column name="um_device_token" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

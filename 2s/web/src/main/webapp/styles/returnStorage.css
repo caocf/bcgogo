@@ -1,0 +1,175 @@
+/*@charset "utf-8";*/
+/* CSS Document */
+/*table tr td input {*/
+    /*border: 1px solid #ADADAD;*/
+/*}*/
+
+/*.tuihuo_first span {*/
+    /*display: block;*/
+    /*clear: both;*/
+    /*background: url(../images/right_tui.png) no-repeat;*/
+    /*width: 1003px;*/
+    /*height: 3px;*/
+/*}*/
+
+/*.tuihuo_first table {*/
+    /*border-collapse: collapse;*/
+    /*background: url(../images/center_tui.png) repeat-y;*/
+    /*width: 1003px;*/
+    /*display: block;*/
+/*}*/
+
+/*.tuihuo_first table tr td {*/
+    /*text-align: right;*/
+    /*line-height: 45px;*/
+/*}*/
+
+/*.i_main .caogao {*/
+    /*display: block;*/
+    /*float: right;*/
+    /*background: url(../images/caogao.png) no-repeat;*/
+    /*width: 119px;*/
+    /*height: 21px;*/
+    /*color: #fff;*/
+    /*margin-right: 10px;*/
+/*}*/
+
+/*.tuihuo_first table tr td input {*/
+    /*display: block;*/
+    /*float: left;*/
+/*}*/
+
+/*.tuihuo_first table tr .xiangxi_td  a {*/
+    /*text-decoration: underline;*/
+/*}*/
+
+/*.tuihuo_first table tr .xiangxi_td input {*/
+    /*margin-top: 10px;*/
+/*}*/
+
+/*.tuihuo_first table tr td .xiangxi {*/
+    /*background: url(../images/btn_la.png) no-repeat;*/
+    /*border: none;*/
+    /*width: 13px;*/
+    /*height: 13px;*/
+    /*margin-top: 15px;*/
+    /*margin-right: 5px;*/
+/*}*/
+
+/*.tuihuo_first table tr .xiangxi_td input, .tuihuo_first table tr .xiangxi_td a {*/
+    /*display: block;*/
+    /*float: left;*/
+/*}*/
+
+/*.tuihuo_first .right_tuihuo {*/
+    /*background: url(../images/left_tui.png) no-repeat;*/
+    /*width: 1003px;*/
+    /*height: 3px;*/
+    /*display: block;*/
+    /*float: left;*/
+/*}*/
+
+.selectTime {
+    border: 1px solid #ADADAD;
+    height: 25px;
+    width: 110px;
+    float: left;
+    margin-bottom: 5px;
+    background: #fff;
+}
+
+.selectTime input {
+    border: none;
+    width: 80px;
+    height: 23px;
+    line-height: 23px;
+    float: left;
+    padding-left: 6px;
+}
+
+/*.i_mainRight .tuihuo_show {*/
+    /*border-collapse: collapse;*/
+    /*margin: 10px 0px;*/
+    /*width: 1003px;*/
+    /*border: 1px solid #C9C6C6;*/
+/*}*/
+
+.i_main .caogao {
+    line-height: 21px;
+    text-align: center;
+    float: right;
+}
+
+/*.tuihuo_show tr {*/
+    /*padding: 0px 5px;*/
+/*}*/
+
+/*.tuihuo_show tr td {*/
+    /*height: 31px;*/
+/*}*/
+
+/*.i_mainRight .tuihuo_show tr td .dele_a {*/
+    /*color: #c00000;*/
+    /*text-decoration: underline;*/
+/*}*/
+
+/*.tuihuo_show .title_tb {*/
+    /*background: url(../images/title_tbcenter.png) repeat-x;*/
+    /*color: #fff;*/
+/*}*/
+
+/*.i_mainRight .tuihuo_show .heji_tb td {*/
+    /*font-weight: bold;*/
+    /*color: #7f7f7f;*/
+    /*border-style:solid;*/
+    /*border-width:1px 0;*/
+    /*border-color:#BBBBBB;*/
+/*}*/
+
+.ti_btn input {
+    display: block;
+    float: left;
+    background: url(../images/btn_tong.png) no-repeat;
+    width: 76px;
+    height: 25px;
+    border: none;
+    margin-right: 10px;
+}
+
+.ti_btn .save_caogao {
+    margin-left: 400px;
+}
+
+.ti_btn input:hover {
+    background: url(../images/btn_ti.png) no-repeat;
+    color: #fff;
+}
+
+/*.tuihuo_first .tabMsg{width:100%; table-layout:fixed;}*/
+/*.tuihuo_first .tabMsg  tr td input{width:90%;}*/
+/*.tuihuo_first table tr .pay{float:left; width:154px; margin:12px 0px 0px 0px; text-align:left;}*/
+.danju .connect {
+    background: url("../images/link.png") no-repeat scroll -58px 0 transparent;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    height: 18px;
+    line-height: 18px;
+    margin-left: 3px;
+    padding-left: 2px;
+    text-align: center;
+    width: 35px;
+}
+.danju.connect:hover {
+    background: url("../images/link.png") no-repeat scroll -58px -19px transparent;
+    height: 18px;
+}
+
+.table2 .s_tabelBorder td {
+    border: medium none;
+}
+
+.tuihuo_first .warehouseList{float:left; width:900px; white-space:normal; text-align:left;line-height:25px;}
+.tuihuo_first .warehouseList .rad{ white-space:nowrap; display:inline-block;}
+.tuihuo_first .warehouseList .rad input{ vertical-align:middle; margin:0px 3px 4px 0px; width:auto;}
+.tuihuo_first .warehouseList .rad input, .tuihuo_first .warehouseList input.txt{ float:none; display:inline;}

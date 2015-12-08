@@ -1,0 +1,70 @@
+
+在所有汽配版本 分配角色 SHOP-财务统计- 员工业绩统计 并分配给老板财务用户组
+
+
+删除角色： SHOP - 车辆施工 - 设定施工项目 - 设定员工提成
+
+在 SHOP-车辆施工- 设定施工项目  设定施工项目角色中添加这些资源：
+set_the_business_construction  WEB.SET_THE_BUSINESS_CONSTRUCTION        render 设定施工项目
+web_member_toSetCategoryPage  /web/category.do?method=toSetCategoryPage    shop  设定施工项目页面跳转  request
+（新 ）web_category_batchUpdateServiceCategory            request   /web/category.do?method=batchUpdateServiceCategory 批量更新服务的营业分类
+
+在 SHOP-财务统计- 员工业绩统计 角色中添加这些资源：
+web_assistantStat_searchServiceConfig               request   /web/assistantStat.do?method=searchServiceConfig              获取需要配置的项目
+web_assistantStat_searchSalesManConfig             request   /web/assistantStat.do?method=searchSalesManConfig              获取需要配置的员工
+web_assistantStat_redirectSalesManConfig             request   /web/assistantStat.do?method=redirectSalesManConfig              获取需要配置的员工
+web_assistantStat_redirectProductConfig             request   /web/assistantStat.do?method=redirectProductConfig              获取需要配置的商
+web_assistantStat_setProductAchievement             request   /web/assistantStat.do?method=setProductAchievement              批量设置商品提成
+web_assistantStat_updateProductAchievement            request   /web/assistantStat.do?method=updateProductAchievement              批量更新商品提成
+web_assistantStat_getProductAchievementByPager            request   /web/assistantStat.do?method=getProductAchievementByPager 分页获取未设置提成商品
+web_assistantStat_updateSalesManInfoDepartment            request   /web/assistantStat.do?method=updateSalesManInfoDepartment 更新员工部门
+web_assistantStat_getAssistantAchievementByPager            request   /web/assistantStat.do?method=getAssistantAchievementByPager 分页获取未设置部门的员工
+web_assistantStat_getServiceAchievementByPager            request   /web/assistantStat.do?method=getServiceAchievementByPager 分页获取未设置提成的服务
+web_assistantStat_redirectAssistantStat            request   /web/assistantStat.do?method=redirectAssistantStat 进入员工业绩统计页面
+web_assistantStat_getAssistantStatByPage            request   /web/assistantStat.do?method=getAssistantStatByPage 分页获取员工统计页面
+web_assistantStat_redirectServiceRecord            request   /web/assistantStat.do?method=redirectServiceRecord 跳转到员工服务记录页面
+web_assistantStat_getAssistantServiceByPage            request   /web/assistantStat.do?method=getAssistantServiceByPage 分页获取员工服务记录
+web_assistantStat_getAssistantProductByPage            request   /web/assistantStat.do?method=getAssistantProductByPage 分页获取员工商品销售记录
+web_assistantStat_redirectProductRecord            request   /web/assistantStat.do?method=redirectProductRecord 跳转到员工商品记录页面
+web_assistantStat_getAssistantMemberByPage            request   /web/assistantStat.do?method=getAssistantMemberByPage 分页获取员工会员销售记录
+web_assistantStat_redirectMemberRecord            request   /web/assistantStat.do?method=redirectMemberRecord 跳转到员工会员记录页面
+web_assistantStat_updateMemberAchievement            request   /web/assistantStat.do?method=updateMemberAchievement 更新员工会员卡提成配置
+web_assistantStat_assistantStatByShopId            request   /web/assistantStat.do?method=assistantStatByShopId 统计本店面员工业绩
+
+web_assistantStat_redirectWashRecord            request   /web/assistantStat.do?method=redirectWashRecord 跳转到员工洗车记录页面
+（新）web_assistantStat_updateServiceAchievement            request   /web/assistantStat.do?method=updateServiceAchievement 更新员工施工提成
+
+
+删除resouce：
+/web/category.do?method=getServiceNoCategory
+
+初始化sql
+bcuser 库
+update menu set href = 'category.do?method=toSetCategoryPage' where href = 'category.do?method=getCategoryItemSearch';
+txn 库
+update service set standard_hours = 1,standard_unit_price = price where price >0;
+
+6.9号 新
+web_assistantStat_getSalesManConfigNum            request   /web/assistantStat.do?method=getSalesManConfigNum 获得未配置部门的员工个数
+
+web_assistantStat_getProductConfigNum            request   /web/assistantStat.do?method=getProductConfigNum 获得未配置商品提成的个数
+
+
+
+INSERT INTO `menu` (`id`, `created`, `last_update`, `version`, `grade`, `label`, `resource_id`, `parent_id`, `href`, `sort`, `menu_name`)
+VALUES (10000134321, 1366168907970, 1366168907970, 0, 3, '提成配置', -1, 1000020045084327, 'bizstat.do?method=agentAchievements&month=thisMonth', 10, 'WEB.STAT.AGENT_ACHIEVEMENTS.CONFIG');
+
+INSERT INTO `menu` (`id`, `created`, `last_update`, `version`, `grade`, `label`, `resource_id`, `parent_id`, `href`, `sort`, `menu_name`)
+VALUES (10000134322, 1366168907970, 1366168907970, 0, 3, '提成统计', -1, 1000020045084327, 'assistantStat.do?method=redirectAssistantStat', 20, 'WEB.STAT.AGENT_ACHIEVEMENTS.STAT');
+
+
+在 SHOP-财务统计- 员工业绩统计 角色中添加这些资源：
+set_the_business_construction_menu  WEB.SET_THE_BUSINESS_CONSTRUCTION_MENU        menu 提成配置
+web_agentStat_agentAchievements  WEB.STAT.AGENT_ACHIEVEMENTS.STAT_MENU        menu 提成统计
+
+
+update menu set resource_id=(select id from resource where `value`='WEB.SET_THE_BUSINESS_CONSTRUCTION_MENU') where id=10000134321;
+update menu set resource_id=(select id from resource where `value`='WEB.STAT.AGENT_ACHIEVEMENTS.STAT_MENU') where id=10000134322;
+
+update menu set parent_id= 1000020045084327 where id=10000134321;
+update menu set parent_id= 1000020045084327 where id=10000134322;

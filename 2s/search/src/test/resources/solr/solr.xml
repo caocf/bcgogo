@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<solr persistent="true" sharedLib="lib">
+    <cores adminPath="/admin/cores">
+        <core name="product" instanceDir="product" schema="${solr.solr.home}/product/conf/schema.xml"/>
+        <core name="vehicle" instanceDir="vehicle" schema="${solr.solr.home}/vehicle/conf/schema.xml"/>
+        <core name="order" instanceDir="order" schema="${solr.solr.home}/order/conf/schema.xml"/>
+        <core name="order_item" instanceDir="order_item" schema="${solr.solr.home}/order_item/conf/schema.xml"/>
+        <core name="suggestion" instanceDir="suggestion" schema="${solr.solr.home}/suggestion/conf/schema.xml"/>
+        <core name="shop" instanceDir="shop" schema="${solr.solr.home}/shop/conf/schema.xml"/>
+        <core name="customer_supplier" instanceDir="customer_supplier"
+              schema="${solr.solr.home}/customer_supplier/conf/schema.xml"/>
+    </cores>
+</solr>

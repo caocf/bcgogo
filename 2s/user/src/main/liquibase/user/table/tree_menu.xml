@@ -1,0 +1,43 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet author="zhangjuntao" id="tree_menu_1">
+        <createTable tableName="tree_menu">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="text" type="varchar(50)"/>
+            <column name="component" type="varchar(50)"/>
+            <column name="type" type="varchar(50)"/>
+            <column name="icon_class" type="varchar(50)"/>
+            <column name="description" type="varchar(100)"/>
+            <column name="sort" type="bigint"/>
+            <column name="parent_id" type="bigint"/>
+        </createTable>
+        <addPrimaryKey tableName="tree_menu" columnNames="id" constraintName="pk_tree_menu"/>
+    </changeSet>
+    <changeSet author="zhangjuntao" id="tree_menu_2">
+        <addColumn tableName="tree_menu">
+            <column name="leaf" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="zhangjuntao" id="tree_menu_3">
+        <addColumn tableName="tree_menu">
+            <column name="role_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="tree_menu_4" author="liuWei">
+      <modifyColumn tableName="tree_menu">
+        <column name="component" type="varchar(200)"/>
+      </modifyColumn>
+    </changeSet>
+
+</databaseChangeLog>

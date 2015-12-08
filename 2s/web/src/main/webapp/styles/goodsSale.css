@@ -1,0 +1,41 @@
+#tdCustomer{
+    overflow: hidden;
+}
+
+.saleDiv {
+    color: #616161;
+    font-weight: bold;
+    overflow: hidden;
+    display: inline-block;
+    float: left;
+}
+
+.saleDiv .cell {
+    width: 220px;
+    display: inline-block;
+    margin-right: 15px;
+    float: left;
+}
+
+.saleDiv .cell2 {
+    width: 210px;
+}
+
+.saleDiv .cell3 {
+    width: 200px;
+    margin-right: 0px;
+}
+
+.saleDiv .cell.more{
+    width: 85px;
+    float: right;
+    margin-right:0px;
+}
+
+.saleDiv .cash {
+    display: inline-block;
+    width: 290px;
+    color: #616161;
+    font-weight: bold;
+    float: left;
+}

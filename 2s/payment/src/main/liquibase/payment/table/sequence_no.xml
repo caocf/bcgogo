@@ -1,0 +1,43 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="sunyingzi" id="sequence_no_1">
+        <createTable tableName="sequence_no">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="trans_id" type="bigint"/>
+            <column name="sequence_no" type="varchar(20)"/>
+        </createTable>
+
+        <addPrimaryKey tableName="sequence_no" columnNames="id" constraintName="pk_sequence_no"/>
+
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="sequence_no_2">
+      <createIndex tableName="sequence_no" indexName="idx_sequence_no_sequenceno">
+          <column name="sequence_no" />
+      </createIndex>
+      <createIndex tableName="sequence_no" indexName="idx_sequence_no_transid">
+          <column name="trans_id" />
+      </createIndex>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="sequence_no_3">
+    <modifyColumn tableName="sequence_no">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+</databaseChangeLog>

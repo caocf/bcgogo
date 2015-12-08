@@ -1,0 +1,72 @@
+.rightSearch {
+    background: url("../images/rightSearch.jpg") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    width: 45px;
+    cursor: pointer;
+}
+
+.config_table td a.manual{
+  margin-left: 30px;
+  color:#FFFFFF;
+	float:left;
+	background:url(../images/manual.png) no-repeat;
+	width:38px;
+	height:24px;
+	text-align:center;
+	line-height:24px;
+  cursor: pointer;
+}
+.config_table td a.manualHover{
+  margin-left: 30px;
+  color:#FFFFFF;
+	float:left;
+	background:url(../images/manualHover.png) no-repeat;
+	width:37px;
+	height:24px;
+	text-align:center;
+	line-height:24px;
+  cursor: pointer;
+}
+
+.config_table td a.closed{
+	float:left;
+  color:#FFFFFF;
+	background:url(../images/closed.png) no-repeat;
+	width:43px;
+	height:24px;
+	text-align:center;
+	line-height:24px;
+  cursor: pointer;
+}
+.config_table td a.closedHover{
+	float:left;
+  color:#FFFFFF;
+	background:url(../images/closeHover.png) no-repeat;
+	width:43px;
+	height:24px;
+	text-align:center;
+	line-height:24px;
+  cursor: pointer;
+}
+
+.audit-article-detail{
+    width: 95%;
+}
+
+.wx-shop-info{
+   color: #000000;
+}
+
+.wx-shop-info div{
+    height:25px;
+}
+
+.wx-title-label,.audit-article-detail .label{
+    font-weight: bold;
+    font-size: 14px;
+}
+

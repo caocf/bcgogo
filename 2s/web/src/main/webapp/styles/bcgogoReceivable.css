@@ -1,0 +1,80 @@
+.clear{ clear:both;}
+.height{ height:10px;}
+.alertMain{ border:1px solid #85b5d9; width:600px; height:100%; float:left; padding:0px 10px 10px 10px; font-size:12px; font-family:"宋体";}
+.alertMain .alert_title{ margin:3px -7px 0px -7px; float:left; font-size:14px; color:#FFFFFF; line-height:28px; }
+.alertMain .alert_title .left{ background:url(../images/upTitle.png) no-repeat; width:6px; height:28px; float:left;}
+.alertMain .alert_title .right{ background:url(../images/upTitle.png) no-repeat -8px 0px; width:6px; height:28px; float:left;}
+.alertMain .alert_title .body{ background:url(../images/upTitleBg.png) repeat-x; height:28px; float:left; width:596px;padding-left:6px;}
+.alertMain .titBody{float:left;}
+.alertMain .titBody .titLine, .alertMain .tabRecord .tabTitle{ background:url(../images/upTitBg.png) repeat-x; height:28px; float:left; border:1px solid #d6d6d6; color:#007eff; font-size:14px; line-height:28px; width:588px; padding-left:10px; font-weight:bold;}
+.alertMain .titBody .titBodys{ background:url(../images/titBody.png) repeat; width:598px; height:100%; float:left; border:1px solid #d6d6d6; border-width:0px 1px 1px 1px; padding-bottom:10px;}
+.alertMain .titBody .titBodys .alertDivTit{ float:left; margin-left:10px;}
+.alertMain .titBody .titBodys .alertDivTit .alertTxt{ border:1px solid #CCCCCC; margin:10px 0px; width:60px; color: #AEAEAE;height: 19px;}
+.alertMain .titBody .titBodys .alertDivTit .btnCheck{ background:url(../images/chkBtn.png) no-repeat; width:52px; height:21px; display:inline-block; line-height:21px; text-align:center; color:#FFFFFF; cursor:pointer; font-size:12px;}
+.alertMain .titBody .titBodys .alertDivTit .btnCheck:hover{ background:url(../images/chkBtn.png) no-repeat -54px 0px; color:#663A02;}
+.alertMain .record{color: #272727; line-height:25px; float:left;}
+.alertMain .tabRecord{	border-collapse: collapse; table-layout: fixed; width:100%;}
+.alertMain .tabRecord tr{ border:1px solid #D6D6D6;}
+.alertMain .tabRecord .tabTitle{ font-size:12px; font-weight:normal; float:none;}
+.alertMain .tabRecord td{ height:25px; line-height:22px; padding-left:10px;}
+.alertMain .tabRecord td .chk{margin-right:5px; padding-top:5px; }
+.alertMain .button{ float:left; text-align:center; width:100%;}
+.alertMain .button a.btnSure{ background:url(../images/btnNormals.png) no-repeat; width:64px; height:21px; line-height:22px; text-align:center; color:#FFFFFF; display:inline-block; cursor:pointer; font-size:14px; margin-right:10px;}
+.alertMain .button a.btnSure:hover{ background:url(../images/btnHoverss.png) no-repeat; color:#663A02;}
+/*-----------------------------------分页--------------------------------------*/
+.pageNum .record{float:left; color:#525252;}
+.pageNum .record span{color:#ff5e04; padding:0px 5px 0px 5px;}
+.pageNum .record .txtNum{border:1px solid #CCCCCC; width:24px; padding-left:6px; height:20px; line-height:20px; margin:0px 5px;}
+.pageNum .unclick{color:#ACA899;}
+.pageNum .record{float:none;color: #006ECA; }
+.pageNum{padding-left:10px; }
+.pageNum .nums{color: #272727;font-size:14px;}
+.pageNum a,.pageNum,.pageNum .click,.pageNum .nums:hover{color: #006ECA; cursor:pointer;}
+.pageNum .record .txtNum{height:auto; margin-right:0px; margin-top:1px; padding-left:3px; width:30px;}
+.pageNum .move{background:url(../images/tiao.png) no-repeat; width:45px; height:18px; text-align:center; color:#FFFFFF; display:inline-block; padding-top:2px;margin-left:-3px;}
+.pageNum .move:hover{background:url(../images/tiaoHover.png) no-repeat; color:#663A02;}
+.pageNum .pageNums:hover{color:#FF5E04;}
+
+
+a.blue_color{color:#006ECA; cursor:pointer;}
+a.blue_color:hover{ color:#FF5E04; text-decoration:underline;}
+.red_color{color: #CB0000;}
+
+
+
+/*-----------------------------------系统管理——在线支付——软件付款--------------------------------------*/
+.height{ height:10px; clear:both;}
+.divPay{ color:#424242; width:100%; float:left; line-height:25px;}
+.divPay .payTit{ width:90px; display:inline-block; text-align:right; float:left;}
+.divPay .lblPay{ padding-right:10px;}
+.divPay .lblPay input{ vertical-align:text-bottom; margin:0px 3px 1px 0px;}
+.divPay .txt{ border:1px solid #CCCCCC; width:60px;}
+.divPay .tabPay{ float:left; border-collapse:collapse;}
+.divPay .tabPay .tabTit{ background:url(../images/upTitBg.png) repeat-x; height:28px; line-height:28px;}
+.divPay .tabPay td{ border:1px solid #CCCCCC; text-align:center;}
+.btnPay{ margin-left:90px; float:left;}
+.btnPay .pay{ background:url(../images/btnBuy_star.png) no-repeat; width:64px; height:21px; line-height:22px; text-align:center; display:inline-block; margin-right:10px; color:#FFFFFF; cursor:pointer;}
+.btnPay .pay:hover{ background:url(../images/tishi_hover.png) no-repeat; color:#663A02;}
+.btnClick {
+    position: relative;
+    width: 200px;
+    margin: 0 auto;
+    font-family: "宋体",Arial;
+}
+
+.btnClick input {
+    background: url(../images/chkTong.png) no-repeat;
+    width: 76px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.btnClick input:hover {
+    background: url(../images/chkTi.png) no-repeat;
+    color: #663A02;
+}

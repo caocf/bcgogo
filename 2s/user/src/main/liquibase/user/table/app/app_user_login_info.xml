@@ -1,0 +1,44 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="lw" id="app_user_login_info_1">
+        <createTable tableName="app_user_login_info">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="app_user_no" type="varchar(100)"/>
+            <column name="platform" type="varchar(20)"/>
+            <column name="platform_version" type="varchar(20)"/>
+            <column name="app_version" type="varchar(20)"/>
+            <column name="image_version" type="varchar(50)"/>
+            <column name="login_time" type="bigint"/>
+            <column name="session_id" type="varchar(50)"/>
+            <column name="mobile_model" type="varchar(50)"/>
+            <column name="session_create_time" type="bigint"/>
+            <column name="logout_time" type="bigint"/>
+            <column name="status" type="varchar(50)"/>
+        </createTable>
+        <addPrimaryKey tableName="app_user_login_info" columnNames="id" constraintName="pk_app_user_login_info"/>
+        <createIndex tableName="app_user_login_info" indexName="idx_app_user_login_info_app_user_no">
+            <column name="app_user_no"/>
+        </createIndex>
+        <createIndex tableName="app_user_login_info" indexName="idx_app_user_login_info_session_id">
+            <column name="session_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="app_user_login_info_2" author="lw">
+        <addColumn tableName="app_user_login_info">
+            <column name="user_type" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

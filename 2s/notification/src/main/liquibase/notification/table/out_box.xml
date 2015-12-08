@@ -1,0 +1,122 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="lijie" id="out_box_1">
+        <createTable tableName="out_box">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="shop_id" type="bigint"/>
+            <column name="type" type="bigint"/>
+            <column name="send_mobile" type="varchar(20)"/>
+            <column name="content" type="varchar(500)"/>
+            <column name="user_id" type="bigint"/>
+            <column name="sender" type="varchar(20)"/>
+            <column name="priority" type="bigint"/>
+            <column name="send_time" type="datetime"/>
+            <column name="send_channel" type="bigint"/>
+            <column name="raw_data" type="text"/>
+            <column name="status" type="bigint"/>
+        </createTable>
+
+        <addPrimaryKey tableName="out_box" columnNames="id" constraintName="pk_out_box"/>
+
+    </changeSet>
+
+    <changeSet author="mzdong" id="out_box_2">
+        <addColumn tableName="out_box">
+            <column name="sms_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="mzdong" id="out_box_3">
+        <modifyColumn tableName="out_box">
+            <column name="sms_id" type="varchar(50)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet author="lijie" id="out_box_4">
+        <createIndex tableName="out_box" indexName="idx_out_box_shopid_status">
+            <column name="shop_id"/>
+            <column name="status"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="out_box_5">
+        <createIndex tableName="out_box" indexName="idx_out_box_shopid_sendmobile_sendtime">
+            <column name="shop_id"/>
+            <column name="send_mobile"/>
+            <column name="send_time"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ZhangJuntao" id="out_box_6">
+        <modifyColumn tableName="out_box">
+            <column name="status" type="varchar(20)"/>
+        </modifyColumn>
+    </changeSet>
+    <changeSet author="ZhangJuntao" id="out_box_7">
+        <modifyColumn tableName="out_box">
+            <column name="send_mobile" type="varchar(500)"/>
+        </modifyColumn>
+    </changeSet>
+    <changeSet author="jimuchen" id="out_box_8">
+        <modifyColumn tableName="out_box">
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="out_box_9" author="chenfanglei">
+        <modifyColumn tableName="out_box">
+            <column name="content" type="varchar(1000)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet author="ZhangJuntao" id="out_box_10">
+        <addColumn tableName="out_box">
+            <column name="sms_channel" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ZhangJuntao" id="out_box_11">
+        <dropColumn tableName="out_box" columnName="send_channel"/>
+    </changeSet>
+
+    <changeSet id="out_box_12" author="ZhangJuntao">
+        <modifyColumn tableName="out_box">
+            <column name="content" type="varchar(2000)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="out_box_13" author="zhangjuntao">
+        <addColumn tableName="out_box">
+            <column name="sms_send_kind" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="out_box_14" author="jimuchen">
+        <addColumn tableName="out_box">
+            <column name="sms_send_scene" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="out_box_15" author="jinyuan">
+        <addColumn tableName="out_box">
+            <column name="stat_status" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="qiuxinyu" id="out_box_16">
+        <modifyColumn tableName="out_box">
+            <column name="send_mobile" type="varchar(2000)"/>
+        </modifyColumn>
+    </changeSet>
+</databaseChangeLog>

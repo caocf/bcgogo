@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+  <!--对方店铺更新资料，定时钟去同步关联店铺信息-->
+    <bean name="relatedShopUpdateTaskJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.bcgogo.schedule.index.stat.RelatedShopUpdateTaskSchedule"/>
+    </bean>
+
+    <bean id="relatedShopUpdateTaskTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="relatedShopUpdateTaskJobDetail"/>
+        <property name="cronExpression" value="*/30 * * * * ?"/>
+    </bean>
+
+    <bean id="relatedShopUpdateTaskSchedule" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="relatedShopUpdateTaskTrigger"/>
+            </list>
+        </property>
+        <property name="autoStartup" value="true"/>
+    </bean>
+</beans>

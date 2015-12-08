@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                                 http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="notification" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.bcgogo.notification.model.ToBox</class>
+        <class>com.bcgogo.notification.model.SmsJob</class>
+        <class>com.bcgogo.notification.model.Sms</class>
+        <class>com.bcgogo.notification.model.SmsIndex</class>
+        <class>com.bcgogo.notification.model.FailedSmsJob</class>
+        <class>com.bcgogo.notification.model.InBox</class>
+        <class>com.bcgogo.notification.model.OutBox</class>
+        <class>com.bcgogo.notification.model.MessageTemplate</class>
+        <class>com.bcgogo.notification.model.MessageSwitch</class>
+        <class>com.bcgogo.notification.model.SensitiveWords</class>
+        <class>com.bcgogo.notification.model.Announcement</class>
+        <class>com.bcgogo.notification.model.Festival</class>
+        <class>com.bcgogo.notification.model.UserReadRecord</class>
+        <class>com.bcgogo.notification.model.InvitationCode</class>
+        <class>com.bcgogo.notification.model.InvitationCodeRecycle</class>
+        <class>com.bcgogo.notification.model.SmsSendingTimes</class>
+        <class>com.bcgogo.notification.model.PromotionMsgJob</class>
+        <class>com.bcgogo.notification.model.WXMsg</class>
+        <class>com.bcgogo.notification.model.WXMsgReceiver</class>
+        <class>com.bcgogo.notification.model.WXSendStatusReport</class>
+        <class>com.bcgogo.notification.model.WXShopBill</class>
+
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    </persistence-unit>
+</persistence>

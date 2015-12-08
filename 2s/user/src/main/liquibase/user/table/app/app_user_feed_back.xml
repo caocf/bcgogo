@@ -1,0 +1,34 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lw" id="app_user_feed_back_1">
+    <createTable tableName="app_user_feed_back">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="app_user_no" type="varchar(100)"/>
+      <column name="content" type="varchar(2000)"/>
+      <column name="feed_back_time" type="bigint"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="app_user_feed_back_2" author="lw">
+    <addPrimaryKey tableName="app_user_feed_back" columnNames="id" constraintName="pk_app_user_feed_back"/>
+  </changeSet>
+
+  <changeSet id="app_user_feed_back_3" author="lw">
+    <addColumn tableName="app_user_feed_back">
+      <column name="mobile" type="varchar(50)"/>
+      <column name="is_handle" type="varchar(100)"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

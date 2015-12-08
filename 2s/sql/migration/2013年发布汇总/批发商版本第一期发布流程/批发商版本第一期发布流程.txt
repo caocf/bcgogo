@@ -1,0 +1,194 @@
+一、权限配置
+（一）角色
+                    name                                        备注
+//----------------------------------------------new role-----------------------------------------------------------------------------
+web_txn_sales_return                             销售退货单                       用户组：前台 仓管、经理/店长  老板/财务          版本：批发商版
+web_remind_todoOrders	                         待办事项-待办单据                用户组：前台  经理/店长  老板/财务 仓管     版本：除微型版以外
+web_remind_messages	                             待办事项-消息中心                用户组：所有                                版本：所有
+web_register  （老用户加老权限）                                                  用户组：经理/店长  老板/财务（老用户加老权限）
+web_txn_setUnit                                  设定单位                         用户组：所有                                版本：所有
+
+执行sql：
+delete from role_resource where id = '31000056' or id = '31000057';
+delete from resource where name = 'web_txn_gotoSetUnitPage' or name = 'web_txn_setSellUnitAndRate';
+
+
+
+后台管理admin中:
+新的批发商的shop版本添加已有的角色，以下角色【不需要】添加
+web_invoicing_repairOrder
+web_member_normal
+web_remind_remind
+web_txn_historSearch_invoicing
+web_txn_wash
+web_invoicing_base
+web_basic_login
+web_droplist_service
+
+仓管中添加已有的角色  	
+web_txn_cancel
+仓管中删除已有的角色
+web_customer_base
+
+仅为仓管添加新角色
+web_txn_sale_dispatch   销售单发货请求(批发商仓管)
+仅为前台添加新角色
+web_txn_sale_repeal    销售单终止销售(批发商前台)
+
+（二）资源
+          name                                      type                       value                                        备注
+//=====================================  web_remind_messages  消息中心 角色 (朱星星)===================================================
+web_remind_messages_messageCenter              request                 /web/message.do?method=messageCenter          站内消息页面
+web_remind_messages_getMessages                request                 /web/message.do?method=getMessages            站内消息页面数据
+web_remind_messages_createMessage              request                 /web/message.do?method=createMessage          新增站内消息页面
+web_remind_messages_selectCustomer             request                 /web/message.do?method=selectCustomer         站内消息选择客户
+web_remind_messages_selectProduct              request                 /web/message.do?method=selectProduct          站内消息选择商品
+web_remind_messages_saveMessage                request                 /web/message.do?method=saveMessage            站内消息保存
+web_remind_messages_toCommodityQuotations      request                 /web/message.do?method=toCommodityQuotations  站内消息跳转商品页面
+
+//=====================================  web_txn_return  入库退货单 角色 (朱星星)===================================================
+web_txn_return_modifyReturnStorage              request                 /web/goodsReturn.do?method=modifyReturnStorage          入库退货单修改
+web_txn_return_settle                           request                 /web/goodsReturn.do?method=settleForWholesaler          入库退货单结算
+web_txn_return_repeal                           request                 /web/goodsReturn.do?method=repealReturnStorage          入库退货单作废
+//=====================================  web_txn_sales_return  销售退货单 角色 (朱星星)===================================================
+web_txn_sales_return_accept                     request                 /web/salesReturn.do?method=acceptSalesReturnOrder               销售退货单接受
+web_txn_sales_return_refuse                     request                 /web/salesReturn.do?method=refuseSalesReturnOrder               销售退货单拒绝
+web_txn_sales_return_show                       request                 /web/salesReturn.do?method=showSalesReturnOrderBySalesReturnOrderId           销售退货单显示
+web_txn_sales_return_accountDetail              request                 /web/salesReturn.do?method=accountDetail                销售退货单结算显示
+web_txn_sales_return_settle                     request                 /web/salesReturn.do?method=settleForWholesaler          销售退货单结算
+web_txn_sales_return                            render                  /web/txn/salesReturn                                            销售退货单页面渲染
+web_txn_sales_return_printSalesReturnOrder      request                 /web/salesReturn.do?method=printSalesReturnOrder        销售退货单打印
+
+web_txn_sales_return_settleForNormal            request                 /web/salesReturn.do?method=settleForNormal             普通销售退货单结算
+web_txn_sales_return_createSalesReturn            request               /web/salesReturn.do?method=createSalesReturn           创建销售退货单
+web_txn_sales_return_validateSalesReturnBeforeSettle            request               /web/salesReturn.do?method=validateSalesReturnBeforeSettle 销售退货单结算前校验
+
+
+//=====================================  web_remind_todoOrders  待办事项-待办单据 （韦凌枫）===================================================
+web_remind_todoOrders_getTodoOrders		        request		            /web/txn.do?method=getTodoOrders	                            待办单据
+web_remind_todoOrders_getTodoOrders_render		render		            /web/remind/todoSaleOrders	                                  待办单据页面渲染
+//=====================================  web_supplier_list      供应商列表 角色 （韦凌枫）===================================================
+web_supplier_list_toCommodityQuotations		    request		            /web/RFbuy.do?method=toCommodityQuotations	                    商品报价页面跳转
+web_supplier_list_getAllWholeSalerStock         request                 /web/customer.do?method=getAllWholeSalerStock                   查询批发商商品报价
+//=====================================  web_txn_base           进销存基础 （韦凌枫）===================================================
+web_txn_base_shortageStorage		            request		            /web/storage.do?method=shortageStorage	                        销售单缺料入库
+
+//=====================================  web_customer_list  客户列表 角色 （董楠）===================================================
+web_customer_list_toRelatedCustomerStock		  request		        /web/RFbuy.do?method=toRelatedCustomerStock	                    客户库存页面跳转
+web_customer_list_getAllRelatedCustomerStock      request               /web/customer.do?method=getAllRelatedCustomerStock              查询客户库存
+web_customer_list_getRelatedCustomerStock         request               /web/customer.do?method=getRelatedCustomerStock                 查询单个客户库存
+
+//=====================================  web_droplist_supplier  下拉建议-供应商 角色 （董楠）===================================================
+ web_droplist_supplier_getWholesalerSuggestion      request             /web/customer.do?method=getWholesalerSuggestion                批发商下拉建议
+//=====================================  web_droplist_product  下拉建议-产品 角色 （董楠）===================================================
+ web_droplist_product_searchWholeSalerProductInfo   request             /web/product.do?method=searchWholeSalerProductInfo             批发商商品下拉建议
+
+//=====================================  web_txn_sale  销售单结算 （刘伟）===================================================
+web_txn_sale_saleOrderSettle		         request		            /web/sale.do?method=saleOrderSettle	                            销售单结算
+web_txn_sale_validateSupplierSalesOrder  request		                /web/sale.do?method=validateSupplierSalesOrder	                销售单结算前校验
+web_txn_sale_supplierSalesAccount		     request		            /web/sale.do?method=supplierSalesAccount	                    销售单跳转结算页面
+
+//=====================================  web_txn_repair  进销存与车辆施工共用 （邱鑫宇）===================================================
+web_txn_ajaxToGetSupplierProductInfo 		    request		       /web/stockSearch.do?method=ajaxToGetSupplierProductInfo              校验批发商商品
+ajaxToGetSupplierProductByCommodityCode 		request		       /web/stockSearch.do?method=ajaxToGetSupplierProductByCommodityCode   根据商品编码获取批发商商品
+//=====================================  web_txn_sale  商品销售 （邱鑫宇）===================================================
+web_sale_acceptSaleOrder 		request		       /web/sale.do?method=acceptSaleOrder         接受采购单
+web_sale_refuseSaleOrder 		request		       /web/sale.do?method=refuseSaleOrder         拒绝采购单
+web_sale_dispatchSaleOrder 		request		       /web/sale.do?method=dispatchSaleOrder     销售发货
+
+//=====================================  web_txn_repair  进销存与车辆施工共用 （姬牧晨）===================================================
+web_txn_validateRepealStrikeSettled 		    request		       /web/txn.do?method=validateRepealStrikeSettled          校验单据是否被冲帐过
+//=====================================  web_txn_setUnit  设定单位 （邱鑫宇）===================================================
+web_txn_gotoSetUnitPage 		    request		       /web/txn.do?method=gotoSetUnitPage          设定单位页面跳转
+web_txn_setSellUnitAndRate 		    request		       /web/txn.do?method=setSellUnitAndRate     保存设定单位
+
+
+//=====================================  web_txn_sale_dispatch  销售单发货（董楠） ===================================================
+web_txn_sale_dispatch 		    request		      /web/sale.do?method=dispatchSaleOrder        销售单发货请求(批发商仓管)
+
+//=====================================  web_txn_sale_repeal  销售单终止销售（董楠） ===================================================
+web_txn_sale_repeal 		    request		      /web/sale.do?method=saleOrderRepeal        销售单终止销售(批发商前台)
+
+
+
+（三）短信模板  -- admin　后台配置
+    模板名 	         类型 	              场景 	            必要性 	                            内容
+销售单接受短信  salesAccepted       SALES_ACCEPTED        UNNECESSARY       您的采购订单{orderNumber}已经被供应商接受，正在备货中！
+销售单拒绝短信  salesRefuse         SALES_REFUSE          UNNECESSARY       您的采购订单{orderNumber}已经被供应商拒绝，如有问题请与供应商联系！
+备货中作废短信  stockingCancel      STOCKING_CANCEL       UNNECESSARY       您的采购订单{orderNumber}已经被供应商销售终止，如有问题请与供应商联系！
+已发货作废短信  shippedCancel       SHIPPED_CANCEL        UNNECESSARY       您的采购订单{orderNumber}已经被供应商销售终止，如有问题请与供应商联系！
+退货单接受短信  returnsAccepted     RETURNS_ACCEPTED      UNNECESSARY       您的入库退货单{orderNumber}已经被供应商接受，可以继续做结算操作！
+退货单拒绝短信  returnsRefuse       RETURNS_REFUSE        UNNECESSARY       您的入库退货单{orderNumber}已经被供应商拒绝，如有问题请与供应商联系！
+
+
+二、备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+三、数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，姬牧晨）
+
+四、数据库更新：DML
+（一） 权限订正      -- bcuser
+-- 员工管理相关更正到 系统管理-员工业绩统计权限 角色下
+update role_resource set role_id = 21000043 where id = 31000318;
+update role_resource set role_id = 21000043 where id = 31000319;
+update role_resource set role_id = 21000043 where id = 31000320;
+update role_resource set role_id = 21000014 where id = 31000321;
+
+（二） 入库退货单初始化 (朱星星)
+purchase_return表
+update purchase_return set status ='SETTLED' where status='PURCHASE_RETURN_DONE';
+update purchase_return set status ='REPEAL' where status='PURCHASE_RETURN_REPEAL';
+
+order_index表
+update order_index set order_status_enum ='SETTLED' where order_type_enum ='RETURN' and  order_status_enum is null;
+
+item_index表
+update item_index set order_status_enum ='SETTLED' where  order_type_enum ='RETURN' and order_status_enum is null;
+
+（三） 流水统计初始化（刘伟）   -- txn
+update running_stat set  strike_amount_income  = 0;
+
+sales_order表
+update txn.sales_order s, txn.receivable r set s.status = 6,  s.status_enum ='SALE_DEBT_DONE' where s.status_enum = 'SALE_DONE' and s.id = r.order_id and r.debt > 0 ;
+
+order_index表
+update search.order_index s, txn.receivable r set s.order_status = 6, s.order_status_enum ='SALE_DEBT_DONE' where s.order_status_enum = 'SALE_DONE' and s.order_id = r.order_id and r.debt > 0  and s.order_type_enum = 'SALE'and r.order_type_enum = 'SALE';
+
+item_index表
+update search.item_index s, txn.receivable r set s.order_status = 6, s.order_status_enum ='SALE_DEBT_DONE' where s.order_status_enum = 'SALE_DONE' and s.order_id = r.order_id and r.debt > 0  and s.order_type_enum = 'SALE' and r.order_type_enum = 'SALE';
+
+
+
+（四） 待办单据 （韦凌枫）
+
+user_group_shop表
+INSERT INTO `user_group_shop` VALUES ('271000001', '1337862019901', '1337862019901', '0', '41000001', 'WHOLESALER_SHOP');
+INSERT INTO `user_group_shop` VALUES ('271000002', '1337862019901', '1337862019901', '0', '41000002', 'WHOLESALER_SHOP');
+INSERT INTO `user_group_shop` VALUES ('271000003', '1337862019901', '1337862019901', '0', '41000003', 'WHOLESALER_SHOP');
+INSERT INTO `user_group_shop` VALUES ('271000004', '1337862019901', '1337862019901', '0', '41000004', 'WHOLESALER_SHOP');
+INSERT INTO `user_group_shop` VALUES ('271000005', '1337862019901', '1337862019901', '0', '41000007', 'WHOLESALER_SHOP');
+
+（五） 订正Inventory表中最新入库价，销售价（姬牧晨）
+update txn.inventory i, product.product_local_info pli set i.latest_inventory_price = pli.purchase_price
+where i.id = pli.id and i.latest_inventory_price is null and pli.purchase_price is not null;
+
+update txn.inventory i, search.inventory_search_index isi set i.sales_price = isi.recommended_price
+where i.id = isi.id and i.sales_price is null and isi.recommended_price is not null;
+
+
+五、发布应用 （纪友文）
+
+六、更新Solr：
+Solr schema.xml
+order、order_item、customerSupplier和product都要 替换  然后重做索引
+
+七.销售退货单模板上传
+
+八.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）

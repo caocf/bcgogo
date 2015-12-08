@@ -1,0 +1,39 @@
+Ext.define('Ext.model.obdManager.ObdSimBindModel',{
+    extend:'Ext.data.Model',
+    fields:[
+        {name:'id',type:'string'},
+        {name:'idStr',type:'string'},
+        {name:'obdId',type:'string'},
+        {name:'obdIdStr',type:'string'},
+        {name:'simId',type:'string'},
+        {name:'simIdStr',type:'string'},
+        {name:'obdHistoryId',type:'string'},
+        {name:'status',type:'string'},
+        {name:'bindTime',type:'string'},
+        {name:'obdSimType',type:'string'},
+        {name:'imei',type:'string'},
+        {name:'obdVersion',type:'string'},
+        {name:'spec',type:'string'},
+        {name:'color',type:'string'},
+        {name:'pack',type:'string'},
+        {name:'openCrash',type:'string'},
+        {name:'openShake',type:'string'},
+        {name:'simNo',type:'string'},
+        {name:'mobile',type:'string'},
+        {name:'useDateStr',type:'date',dateFormat:'Y-m'},
+        {name:'usePeriod',type:'int'},
+        {name:'obdStatus',type:'string'},
+        {name:'obdStatusStr',type:'string'},
+        {name:'ownerName',type:'string'},
+        {name:'edit',type:'boolean'},
+        {name:'delete',type:'boolean'},
+        {name:'package',type:'boolean'},
+        {name:'split',type:'boolean'},
+        {name:'sell',type:'boolean'},
+        {name:'outStorage',type:'boolean'},
+        {name:'return',type:'boolean'},
+        {name:'log',type:'boolean'}
+    ]
+});
+
+

@@ -1,0 +1,36 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="zhangjutano" id="shop_balance_1">
+    <createTable tableName="shop_balance">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="true"/>
+      </column>
+      <column name="shop_id" type="bigint"/>
+      <column name="recharge_total" type="float"/>
+      <column name="sms_balance" type="float"/>
+
+    </createTable>
+
+    <addPrimaryKey tableName="shop_balance" columnNames="id" constraintName="pk_shop_balance"/>
+    <createIndex tableName="shop_balance" indexName="IDX_SHOP_BALANCE_SHOPID">
+      <column name="shop_id"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="shop_balance_2">
+    <modifyColumn tableName="shop_balance">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+</databaseChangeLog>

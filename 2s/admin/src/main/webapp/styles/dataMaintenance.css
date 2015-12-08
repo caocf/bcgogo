@@ -1,0 +1,95 @@
+
+.config_title {
+    background: url("../images/note.jpg") no-repeat scroll 5px 7px transparent;
+    color: #FFFFFF;
+    float: left;
+    font-weight: bold;
+    line-height: 30px;
+    padding-left: 25px;
+    width: 350px;
+}
+.i_upCenter{
+	width:400px;
+	/*float:left;*/
+	background:url(../images/i_brandbg.jpg) repeat-x;
+	height:30px;
+	color:#FFFFFF;
+}
+.i_upCenter .i_close {
+    background: url("../images/close.jpg") no-repeat scroll 0 6px transparent;
+    cursor: pointer;
+    float: right;
+    height: 28px;
+    width: 17px;
+}
+ .i_upBody{
+	/*float:left;*/
+	border: 1px solid #DADADA;
+	background:#FFFFFF;
+	border-bottom:none;
+	border-top:none;
+	width:380px;
+	padding:10px 10px 10px 10px;
+	color:#666666;
+	font-weight:bold;
+}
+body {
+    font-family: "微软雅黑",Arial;
+    font-size: 14px;
+}
+body {
+    color: #FFFFFF;
+    font-family: "微软雅黑",Arial;
+    font-size: 12px;
+}
+.i_upBottom{
+	float:left;
+	background:#FF00FF;
+  width:160px;
+}
+ .i_upBottomLeft{
+	float:left;
+	background:url(../images/leftBottom.jpg) no-repeat;
+	width:60px;
+	height:7px;
+}
+
+ .i_upBottom .i_upBottomRight{
+	float:left;
+	background:url(../images/rightBottom.jpg) no-repeat;
+	width:60px;
+	height:7px;
+}
+
+.addConfigBtn_div{
+    height: 150;
+    width: 150;
+    float:right;
+}
+
+.config_table{
+	font-family:"宋体";
+	float:left;
+	font-size:12px;
+	font-weight:normal;
+	border-collapse: collapse;
+	/*table-layout: fixed;*/
+	/*width:100%;*/
+}
+
+.table_msgTemplate{
+	font-family:"宋体";
+	float:left;
+	font-size:12px;
+	font-weight:normal;
+	border-collapse: collapse;
+	/*table-layout: fixed;*/
+	/*width:100%;*/
+}
+.dm_table_title{
+     font-family:"宋体";
+	/*float:left;*/
+	font-size:14px;
+	font-weight:bold;
+	border-collapse: collapse;
+}

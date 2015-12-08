@@ -1,0 +1,104 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="weilingfeng" id="remind_event_1">
+        <createTable tableName="remind_event">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="order_id" type="bigint"/>
+            <column name="order_type" type="varchar(20)"/>
+            <column name="event_type" type="varchar(20)"/>
+            <column name="event_status" type="varchar(20)"/>
+            <column name="remind_time" type="bigint"/>
+            <column name="remind_status" type="varchar(20)"/>
+            <column name="customer_id" type="bigint"/>
+            <column name="customer_name" type="varchar(20)"/>
+            <column name="supplier_id" type="bigint"/>
+            <column name="supplier_name" type="varchar(20)"/>
+            <column name="mobile" type="varchar(20)"/>
+            <column name="object_id" type="bigint"/>
+            <column name="debt" type="float"/>
+            <column name="licence_no" type="varchar(20)"/>
+            <column name="appoint_service_id" type="bigint"/>
+            <column name="service_id" type="bigint"/>
+            <column name="services" type="varchar(200)"/>
+            <column name="old_remind_event_id" type="bigint"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="remind_event_2" author="weilingfeng">
+        <addPrimaryKey tableName="remind_event" columnNames="id" constraintName="pk_remind_event"/>
+    </changeSet>
+
+    <changeSet id="remind_event_3" author="weilingfeng">
+        <modifyColumn tableName="remind_event">
+            <column name="order_type" type="varchar(50)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="remind_event_4" author="ndong">
+        <modifyColumn tableName="remind_event">
+            <column name="services" type="varchar(500)"/>
+        </modifyColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="repair_order_5">
+    <createIndex tableName="remind_event" indexName="IDX_REMINDEVENT_ORDER_ID_EVENTTYPE">
+      <column name="order_id"/>
+      <column name="event_type"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="remind_event_6" author="jimuchen">
+      <modifyColumn tableName="remind_event">
+          <column name="customer_name" type="varchar(100)"/>
+          <column name="supplier_name" type="varchar(100)"/>
+      </modifyColumn>
+  </changeSet>
+    <changeSet author="qiuxinyu" id="remind_event_7_qiuxinyu">
+        <dropIndex tableName="remind_event" indexName="IDX_REMINDEVENT_ORDER_ID_EVENTTYPE"/>
+        <createIndex tableName="remind_event" indexName="idx_remind_event_shopId">
+            <column name="shop_id"/>
+        </createIndex>
+        <createIndex tableName="remind_event" indexName="idx_remind_event_order_id">
+            <column name="order_id"/>
+        </createIndex>
+        <createIndex tableName="remind_event" indexName="idx_remind_event_product_old_remind_event_id">
+            <column name="old_remind_event_id"/>
+        </createIndex>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="remind_event_8">
+      <createIndex tableName="remind_event" indexName="idx_remind_event_customer_id">
+          <column name="customer_id"/>
+      </createIndex>
+      <createIndex tableName="remind_event" indexName="idx_remind_event_supplier_id">
+          <column name="supplier_id"/>
+      </createIndex>
+  </changeSet>
+    <changeSet author="xinYuQiu" id="remind_event_9_xinYuQiu">
+        <addColumn tableName="remind_event">
+            <column name="remind_mileage" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="jinyuan" id="remind_event_10_jinyuan">
+        <addColumn tableName="remind_event">
+            <column name="deleted_type" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ndong" id="remind_event_11">
+        <addColumn tableName="remind_event">
+            <column name="wx_remind_status" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

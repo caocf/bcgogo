@@ -1,0 +1,143 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="mazidong" id="sales_order_item_1">
+    <createTable tableName="sales_order_item">
+        <column name="id" type="bigint"/>
+        <column name="created" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="last_update" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="version" type="bigint">
+            <constraints nullable="true"/>
+        </column>
+        <column name="sales_inventory_id" type="bigint"/>
+        <column name="sales_product_id" type="bigint"/>
+        <column name="product_id" type="bigint"/>
+        <column name="amount" type="float"/>
+        <column name="price" type="float"/>
+        <column name="total" type="float"/>
+        <column name="memo" type="varchar(500)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet  id="sales_order_item_2" author="zhuyinjia">
+    <addPrimaryKey tableName="sales_order_item" columnNames="id" constraintName="pk_sales_order_item"/>
+  </changeSet>
+
+    <changeSet author="luyi" id="sales_order_item_3">
+        <createIndex tableName="sales_order_item" indexName="IDX_SALESORDERITEM_SALESINVENTORYID">
+            <column name="sales_inventory_id"/>
+        </createIndex>
+    </changeSet>
+
+   <changeSet author="caiwei" id="sales_order_item_4">
+        <dropIndex tableName="sales_order_item" indexName="IDX_SALESORDERITEM_SALESINVENTORYID"/>
+    </changeSet>
+
+   <changeSet author="caiwei" id="sales_order_item_5">
+       <renameColumn tableName="sales_order_item"  oldColumnName="sales_inventory_id" newColumnName="sales_order_id" columnDataType = "bigint"/>
+   </changeSet>
+
+   <changeSet author="caiwei" id="sales_order_item_6">
+        <createIndex tableName="sales_order_item" indexName="IDX_SALESORDERITEM_SALESORDERID">
+            <column name="sales_order_id"/>
+        </createIndex>
+    </changeSet>
+
+   <changeSet id="sales_order_item_7" author="liuWei">
+    <addColumn tableName="sales_order_item">
+      <column name="shop_id" type="bigint"/>
+    </addColumn>
+
+  </changeSet>
+
+   <changeSet id="sales_order_item_8" author="chenfanglei">
+    <addColumn tableName="sales_order_item">
+      <column name="cost_price" type="float"/>
+      <column name="total_cost_price" type="float"/>
+    </addColumn>
+  </changeSet>
+
+    <changeSet id="sales_order_item_9" author="qiuxinyu">
+        <addColumn tableName="sales_order_item">
+            <column name="unit" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet author="jimuchen" id="sales_order_item_10">
+    <modifyColumn tableName="sales_order_item">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+    <changeSet id="sales_order_item_11" author="chenfanglei">
+        <addColumn tableName="sales_order_item">
+            <column name="percentage" type="double"></column>
+            <column name="percentage_amount" type="double"></column>
+        </addColumn>
+    </changeSet>
+    
+    <changeSet id="sales_order_item_12" author="chenfanglei">
+        <addColumn tableName="sales_order_item">
+            <column name="business_category_id" type="bigint"></column>
+            <column name="business_category_name" type="varchar(200)"></column>
+        </addColumn>
+    </changeSet>
+		<changeSet id="sales_order_item_13" author="qiuxinyu">
+		<addColumn tableName="sales_order_item">
+			<column name="reserved" type="double"/>
+		</addColumn>
+	</changeSet>
+
+    <changeSet id="sales_order_item_14" author="jimuchen">
+      <addColumn tableName="sales_order_item">
+          <column name="product_history_id" type="bigint" />
+      </addColumn>
+    </changeSet>
+
+    <changeSet id = "sales_order_item_xzhu_15" author="xzhu">
+        <addColumn tableName="sales_order_item">
+            <column name="sales_price" type="double"/>
+            <column name="promotions_id" type="bigint" />
+        </addColumn>
+    </changeSet>
+
+    <changeSet id = "sales_order_item_xzhu_16" author="xzhu">
+        <renameColumn tableName="sales_order_item" oldColumnName="price" newColumnName="quoted_price" columnDataType="double"/>
+        <renameColumn tableName="sales_order_item" oldColumnName="sales_price" newColumnName="price" columnDataType="double"/>
+    </changeSet>
+
+  <changeSet id="sales_order_item_17" author="jimuchen">
+    <modifyColumn tableName="sales_order_item">
+      <column name="total" type="double(20,2)"/>
+      <column name="price" type="double(20,2)"/>
+      <column name="quoted_price" type="double(20,2)"/>
+      <column name="cost_price" type="double(20,2)"/>
+      <column name="total_cost_price" type="double(20,2)"/>
+		</modifyColumn>
+  </changeSet>
+    <changeSet id="sales_order_item_xzhu_18" author="xzhu">
+        <addColumn tableName="sales_order_item">
+            <column name="quoted_pre_buy_order_item_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet id="sales_order_item_19" author="jimuchen">
+    <modifyColumn tableName="sales_order_item">
+      <column name="promotions_id" type="varchar(50)"/>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="sales_order_item_20" author="jimuchen">
+    <addColumn tableName="sales_order_item">
+      <column name="custom_price_flag" type="tinyint"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>

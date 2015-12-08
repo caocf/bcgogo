@@ -1,0 +1,38 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhangjuntao" id="bcgogo_receivable_order_record_relation_zhangjuntao_1">
+        <createTable tableName="bcgogo_receivable_order_record_relation">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="bcgogo_receivable_order_id" type="bigint"/>
+            <column name="bcgogo_receivable_record_id" type="bigint"/>
+            <column name="instalment_plan_id" type="bigint"/>
+            <column name="instalment_plan_item_id" type="bigint"/>
+            <column name="receivable_method" type="varchar(50)"/>
+            <column name="payment_method" type="varchar(50)"/>
+            <column name="payment_type" type="varchar(50)"/>
+            <column name="amount" type="double"/>
+            <column name="memo" type="varchar(500)"/>
+        </createTable>
+        <addPrimaryKey tableName="bcgogo_receivable_order_record_relation" columnNames="id" constraintName="pk_bcgogo_receivable_order_record_relation"/>
+        <createIndex tableName="bcgogo_receivable_order_record_relation" indexName="idx_bcgogo_receivable_order_record_relation_shopid">
+            <column name="shop_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="bcgogo_receivable_order_record_relation_jinyuan_2" author="jinyuan">
+        <addColumn tableName="bcgogo_receivable_order_record_relation">
+            <column name="sms_recharge_id" type="bigint"></column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

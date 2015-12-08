@@ -1,0 +1,115 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="lw" id="appoint_order_1">
+    <createTable tableName="appoint_order">
+      <column name="id" type="bigint"/>
+      <column name="created" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_update" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="version" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="app_user_no" type="varchar(100)"/>
+      <column name="shop_id" type="bigint"/>
+      <column name="order_id" type="bigint"/>
+      <column name="order_type" type="varchar(50)"/>
+      <column name="status" type="varchar(50)"/>
+      <column name="service_type" type="varchar(50)"/>
+      <column name="appoint_way" type="varchar(50)"/>
+      <column name="create_time" type="bigint"/>
+      <column name="appoint_time" type="bigint"/>
+      <column name="remark" type="varchar(1500)"/>
+      <column name="customer" type="varchar(50)"/>
+      <column name="customer_mobile" type="varchar(50)"/>
+      <column name="customer_landline" type="varchar(50)"/>
+      <column name="customer_id" type="bigint"/>
+      <column name="vehicle_no" type="varchar(20)"/>
+      <column name="vehicle_model_id" type="bigint"/>
+      <column name="vehicle_brand_id" type="bigint"/>
+      <column name="engine_no" type="varchar(50)"/>
+      <column name="vehicle_vin" type="varchar(50)"/>
+      <column name="vehicle_contact" type="varchar(50)"/>
+      <column name="vehicle_mobile" type="varchar(50)"/>
+      <column name="next_maintain_mileage" type="double"/>
+      <column name="next_examine_time" type="bigint"/>
+      <column name="next_insurance_time" type="bigint"/>
+      <column name="next_maintain_time" type="bigint"/>
+      <column name="assistant_id" type="bigint"/>
+    </createTable>
+    <addPrimaryKey tableName="appoint_order" columnNames="id" constraintName="pk_appoint_order"/>
+  </changeSet>
+
+  <changeSet id="appoint_order_2" author="lw">
+    <addColumn tableName="appoint_order">
+      <column name="vehicle_model" type="varchar(50)"/>
+      <column name="vehicle_brand" type="varchar(50)"/>
+      <column name="appoint_customer" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="appoint_order_3" author="lw">
+    <addColumn tableName="appoint_order">
+      <column name="receipt_no" type="varchar(20)"/>
+    </addColumn>
+  </changeSet>
+
+    <changeSet id="appoint_order_4_xinYuQiu" author="xinYuQiu">
+        <dropColumn tableName="appoint_order" columnName="service_type"/>
+    </changeSet>
+
+  <changeSet id="appoint_order_5" author="lw">
+    <addColumn tableName="appoint_order">
+      <column name="standard_vehicle_model_id" type="bigint"/>
+      <column name="standard_vehicle_brand_id" type="bigint"/>
+    </addColumn>
+  </changeSet>
+
+    <changeSet id="appoint_order_6_xinYuQiu" author="xinYuQiu">
+        <dropColumn tableName="appoint_order" columnName="next_maintain_mileage"/>
+        <dropColumn tableName="appoint_order" columnName="next_examine_time"/>
+        <dropColumn tableName="appoint_order" columnName="next_insurance_time"/>
+        <dropColumn tableName="appoint_order" columnName="next_maintain_time"/>
+  </changeSet>
+    <changeSet id="appoint_order_7_xinYuQiu" author="xinYuQiu">
+      <addColumn tableName="appoint_order">
+        <column name="coordinate_lat" type="varchar(20)"/>
+        <column name="coordinate_lon" type="varchar(20)"/>
+      </addColumn>
+    </changeSet>
+    <changeSet id="appoint_order_8_xinYuQiu" author="xinYuQiu">
+        <createIndex tableName="appoint_order" indexName="idx_app_user_no">
+            <column name="app_user_no"/>
+        </createIndex>
+        <createIndex tableName="appoint_order" indexName="idx_customer_id">
+            <column name="customer_id"/>
+        </createIndex>
+
+    </changeSet>
+
+    <changeSet id="appoint_order_9" author="yangwj">
+        <modifyColumn tableName="appoint_order">
+            <column name="vehicle_brand" type="varchar(200)"/>
+            <column name="vehicle_model" type="varchar(200)"/>
+        </modifyColumn>
+    </changeSet>
+    <changeSet id="appoint_order_9_xinYuQiu" author="xinYuQiu">
+        <addColumn tableName="appoint_order">
+            <column name="total" type="double(20,2)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="appoint_order_10_xinYuQiu" author="xinYuQiu">
+        <addColumn tableName="appoint_order">
+            <column name="current_mileage" type="double(20,0)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="appoint_order_11" author="ndong">
+        <addColumn tableName="appoint_order">
+          <column name="open_id" type="varchar(100)"/>
+        </addColumn>
+      </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,301 @@
+@charset "utf-8";
+/* CSS Document */
+
+.new_sale .setlab{
+	margin:10px 0px 0px 5px;
+	line-height:19px;
+}
+.new_sale .setCommission{
+	margin-left:7px;
+	float:left;
+}
+.new_sale .setShow{
+	background:url(../images/setAlert.png);
+	color:#fff;
+}
+
+.new_sale .lack{
+	background:url(../images/noteBtn2.png) no-repeat;
+	width:81px;
+	height:20px;
+	line-height:20px;
+	margin-top:7px;
+}
+.stock_txtName .stock_txtBody {
+	width:65px;
+}
+.setCommission{
+	background:url(../images/setBtn.png);
+	color:#6699cc;
+}
+
+#table_productNo{
+	position:relative;
+	z-index:1;
+	color:#272727;
+	border-bottom:1px solid #bbbbbb;
+}
+#table_productNo .table_title,#table_productNo .item{
+    border-color:#BBBBBB;
+    border-style:solid;
+    border-width:0 1px;
+}
+.table2 tr .gui_lei:hover,.table2 tr .shop_lei:hover{
+	background:none;
+}
+.table2 tr .gui_lei span,.table2 tr .shop_lei span{
+	display: none;
+}
+
+.table2 tr .gui_lei:hover span,.table2 tr .shop_lei:hover span{
+	/*span 标签仅在 :hover 状态时显示*/
+display:block;
+	position:absolute;
+	top:25px;
+	right:80px;
+	width:100px;
+	border:1px solid #6699cc;
+	background-color:#fff;
+	padding: 3px;
+	color:#6699cc;
+}
+.table2 tr .shop_lei:hover span{
+	right:0px;
+}
+
+.tableRowHover{
+	background:#FCEBA9;
+	color:#ff4800;
+}
+
+
+/*stockSearch.jsp 库存查询*/
+.stockSearch .distance{
+	margin-top: 0;
+}
+.stockSearch .distance a{
+	color: #007CDA;
+}
+.stockSearch .distance .new_sale {
+	background: url(../images/center_tui.png) repeat-y;
+	height: 30px;
+	line-height: 30px;
+	padding: 0px 10px 0px 15px;
+	margin-top: 0;
+}
+.stockSearch .new_sale{
+	height: 30px;
+	line-height: 30px;
+	padding: 5px 10px 5px 15px;
+	background: url(../images/center_tui.png) repeat-y;
+	margin-top: 0;
+}
+.stockSearch .qian_blue{
+	color: #0094FF;
+}
+.stockSearch input.stock_text{
+	border: 1px solid #ADADAD;
+	background: #FFFFFF;
+	padding-left: 5px;
+	margin: 0px 5px;
+	color: #AEAEAE;
+	height: 25px;
+	line-height: 25px;
+	display: block;
+	float: left;
+}
+.stockSearch .stock_txtName{
+	padding:0;
+}
+.stockSearch .stock_txtName input.stock_search{
+	background: url(../images/chkNormal.png) no-repeat;
+	width: 70px;
+	height: 25px;
+	border: none;
+	cursor: pointer;
+}
+.stockSearch .stock_txtName input.stock_search:hover{
+	background: url(../images/chkHover.png) no-repeat;
+	width: 70px;
+	height: 25px;
+	border: none;
+	cursor: pointer;
+}
+.stockSearch .table_title{
+	/*background: url(../images/title_tbcenter.png) repeat-x;*/
+	color: white;
+	text-align: center;
+}
+/*#table_productNo .item{*/
+	/*background:#FFFFFF;*/
+/*}*/
+.stockSearch table td,.stockSearch table th{
+	text-align:left;
+	padding-left: 6px;
+	cursor: pointer;
+}
+.stockSearch .table2 tr.table_title td {
+	text-align:left;
+	padding-left: 6px;
+}
+/*.stockSearch .over{*/
+	/*background: url(../images/setMoneyt.png) no-repeat;*/
+	/*width:80px;*/
+	/*height: 18px;*/
+	/*text-align: center;*/
+	/*line-height: 18px;*/
+	/*color: white;*/
+	/*border: none;*/
+	/*font-size: 12px;*/
+	/*cursor: pointer;*/
+/*}*/
+.stockSearch .table2 a{
+	color: #0094FF;
+}
+/*.stockSearch .table2 td{*/
+	/*border:0;*/
+	/*border-bottom: 1px solid #BBBBBB;*/
+	/*color: #272727;*/
+/*}*/
+.stockSearch .txt_one_unit,.stockSearch .txt_one_money{
+	width:35px;
+	height: 21px;
+	border: 1px solid #ADADAD;
+	text-align:left;
+}
+.stockSearch .txt_one_money{
+	width:80px;
+}
+
+/**/
+.stockSearch .main_area{
+	width:1000px;
+	position:relative;
+}
+.stockSearch .sub_area{
+	width:450px;
+	margin:0 auto;
+	position:absolute;
+	top:62px;
+	left:500px;
+	overflow:hidden;
+	z-index:0;
+	border:0;
+}
+.stockSearch .table_set_float{
+	background: #ffffff;
+	border-bottom:1px solid #BBBBBB;
+	width:450px;
+	position:relative;
+	top:-1px;
+	left:460px;
+	color:#787878;
+}
+.stockSearch .table_set_float .input_text{
+	width:50px;
+	height:20px;
+	border:1px solid #ADADAD;
+}
+.stockSearch .table_set_float .input_text_limit{
+	width:20px;
+	height:20px;
+	border:1px solid #ADADAD;
+}
+.stockSearch .btnExpand{
+	background:url("../images/expand_bg.png");
+	color:#ffffff;
+	cursor:pointer;
+	border:0;
+	display:none;
+	width:13px;
+	position:absolute;
+	top:60px;
+	left:935px;
+	z-index:2;
+}
+.stockSearch .btnExpand i{
+	display:block;
+	width:5px;
+	height:9px;
+	background:url("../images/expand_arrow.png") no-repeat -2px -3px;
+	position:absolute;
+	top:50%;
+	left:6px;
+	margin-top:-5px;
+}
+.stockSearch .btnExpand .expand{
+	display:block;
+	width:5px;
+	height:9px;
+	background:url("../images/expand_arrow.png") no-repeat -8px -3px;
+	position:absolute;
+	top:50%;
+	left:6px;
+	margin-top:-5px;
+}
+/*.stockSearch .se_xiaoshou{*/
+	/*background: url(../images/setMoneyt.png) no-repeat;*/
+	/*width: 80px;*/
+	/*height: 18px;*/
+	/*text-align: center;*/
+	/*line-height: 18px;*/
+	/*color: white;*/
+	/*border: none;*/
+	/*font-size: 12px;*/
+	/*cursor: pointer;*/
+/*}*/
+.stockSearch .new_sale .lack{
+	background: url(../images/rightTit.jpg) no-repeat;
+	width: 70px;
+	height: 26px;
+	margin-top: 0;
+	margin-left: 10px;
+	line-height: 26px;
+	font-size: 12px;
+	color: #AEAEAE;
+	font-weight: normal;
+}
+.stockSearch .left_tuihuo{
+	display: block;
+	clear: both;
+	background: url(../images/right_tui.png) no-repeat;
+	width: 1003px;
+	height: 2px;
+}
+.stockSearch .right_tuihuo{
+	background:url(../images/left_tui.png) no-repeat;
+	width:1003px;
+	height:3px;
+	display:block;
+}
+#pop_info{
+	border: 1px solid #FFAA07;
+}
+#pop_info table{
+	font-family:"宋体";
+	background: #FDEBA9;
+	color:#505050;
+	font-weight:normal;
+	width:1000px;
+	height:120px;
+	border: 1px solid #FFFFFF;
+	box-shadow: 3px 3px 5px #666666;
+	border-collapse:collapse;
+}
+.stockSearch input[type="checkbox"]{
+	display:none;
+}
+.stockSearch .checkbox{
+	display:block;
+	width:13px;
+	height:13px;
+	cursor:pointer;
+	background:url(../images/fxk.png) no-repeat;
+}
+.stockSearch .checkboxSelect{
+	display:block;
+	width:13px;
+	height:13px;
+	cursor:pointer;
+	background:url(../images/fxk_checked.png) no-repeat;
+}

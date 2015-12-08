@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+
+.more_his{
+	margin-bottom:10px;
+}
+.more_his .txt_more{
+	width:400px;
+	height:25px;
+	line-height:25px;
+}
+/*#tb_tui .tab_title .tab_first{
+	width:0px;
+}*/
+.i_history .i_upBody{
+	width:770px;
+    padding:10px;
+}
+
+.i_history .i_upBottom .i_upBottomCenter{
+	width:780px;
+}
+
+.i_history .i_upCenter .i_note{
+	width:660px;
+}
+
+.i_history .i_upCenter {
+	width:788px;
+}
+
+.clear .tableInfo4 {
+	width:440px;
+}
+
+.select_title{
+	width:660px;
+}
+
+
+.btnSearch {
+    background: url("../images/sure.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    height: 26px;
+    line-height: 26px;
+    margin-left: 10px;
+    text-align: center;
+    width: 62px;
+}
+
+#tb_tui td{
+	line-height:1;
+}

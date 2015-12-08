@@ -1,0 +1,3 @@
+权限：
+在 SHOP ----  基本 中添加
+companyProfile   /web/shop.do?method=companyProfile     SHOP   跳转到公司简介页面   request

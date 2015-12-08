@@ -1,0 +1,96 @@
+一.备份现有生产上war包（纪友文）,停掉热备份
+
+二.发布前准备
+
+  1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+
+  2.tomcat下key文件下新建目录 wx
+     上传文件s_k_file和wx_menu.xml 到 tomcat/key/wx 目录(部署到各台服务器）
+
+  3.文件夹路径usr/local 创建文件夹 wx,并将文件夹wx_img_lib 传送到该文件夹（部署到各台服务器）
+
+三.发布应用
+  1. 发布web, admin
+  2. 发布定时钟
+  3. 发布api
+
+四.配置权限
+   CRM-SHOP操作权限-SHOP数据初始化，添加下面资源
+   web_encryptAllAccount         /web/weChat.do?method=encryptAllAccount     SHOP    加密帐号                                   request
+   SHOP-基本，添加下面资源
+    m_toWOrderDetail             /web/wxTxn.do?method=2w                     SHOP    微信端查询单据详细                         request
+    m_toWOrderDetail             /web/wxTxn.do?method=2w                     SHOP    微信端查询单据详细                         request
+    m_gList                      /web/wxTxn.do?method=gList                  SHOP    微信端查询单据详细                         request
+    m_toWOrderList               /web/wxTxn.do?method=oList                  SHOP    微信端查询单据                             request
+    m_toMemberCardDetail         /web/wxTxn.do?method=mCard                  SHOP    微信端查看会员卡详细                       request
+    m_toVehicleBind              /web/weChat.do?method=2Bind                 SHOP    跳转到微信端绑定车牌                       request
+    m_saveBindVehicle            /web/weChat.do?method=sBind                 SHOP    保存绑定车牌                               request
+    m_editVehicle                /web/weChat.do?method=edit                  SHOP    保存编辑车辆信息                           request
+    m_unBind                     /web/weChat.do?method=unBind                SHOP    解绑绑定车牌                               request
+    m_vReg                       /web/weChat.do?method=vReg                  SHOP    车辆违章记录                               request
+    m_toVehicleEdit              /web/weChat.do?method=vEdit                 SHOP    编辑车牌                                   request
+    m_articleDetail              /web/weChat.do?method=aDetail               SHOP    跳转到素材详细                             request
+    m_saveCommentRecord          /web/wxTxn.do?method=saveCommentRecord      SHOP    微信端保存评价                             request
+    web_toSendRecord             /web/weChat.do?method=toWxSent              SHOP    跳转到发送记录界面                         request
+    web_inintWxRecord            /web/weChat.do?method=inintSendRecord       SHOP    微信发送记录列表                           request
+    web_findWxSend               /web/weChat.do?method=toFindWxSend          SHOP    查看发送的微信                             request
+    web_deleteWXMsg              /web/weChat.do?method=deleteWXMsg           SHOP    删除发送记录中的微信信息                   request
+
+   SHOP-客户管理 下面添加【子模块】“微信管理”,微信管理下面添加【角色】 “微信查看”,分配给三个汽修版本基础权限
+  “微信查看” 添加资源：
+    web_weChat_synUserDTOList          /web/weChat.do?method=synUserDTOList            SHOP    微信平台关注的用户同步到本地数据库         request
+    web_weChat_createMenu              /web/weChat.do?method=createMenu                SHOP    创建菜单                                   request
+    web_weChat_printWXQRCode           /web/weChat.do?method=printWXQRCode             SHOP    打印微信二维码                             request
+    web_weChat_getShopWXMsgRecord      /web/weChat.do?method=getShopWXMsgRecord        SHOP    查询店铺发送记录                           request
+
+    admin_toWXOperator           /admin/weChat.do?method=toWXOperator          SHOP     wx Operator                             request
+    admin_createMenu             /admin/weChat.do?method=createMenu            SHOP     微信生成菜单                            request
+    admin_buildWXImageLib        /admin/weChat.do?method=buildWXImageLib       SHOP     微信创建图库                            request
+
+    SHOP-客户管理 下面添加【子模块】“微信管理”,微信管理下面添加【角色】 “微信管理”,分配给三个汽修版本基础权限
+   “微信管理” 添加资源：
+    web_wxManager_wxUserList           /web/weChat.do?method=getShopWXUsers      SHOP    查询店铺粉丝                         request
+    web_wxManager_wxArticleTemplate    /web/weChat.do?method=getWXMsgTemplate    SHOP    获取微信模板                         request
+    增加微信管理菜单权限
+    WXManagerMenu                      WEB.WX_MANAGER.BASE                       SHOP    微信管理                             menu
+
+    权限添加完后，台admin刷新资源
+
+五.进入后台admin,
+  1.config 配置
+   wx_cfg_path                 /usr/local/tomcat/key/wx/                          微信配置路径
+   wx_img_lib_path             /usr/local/wx/wx_img_lib/                          微信图库路径
+
+  2.进入微信管理--OPERATOR
+    1)生成菜单
+    2)同步用户
+    3）生成微信图库
+
+六.初始化
+ 1.执行sql
+   ALTER TABLE bcuser.wx_user MODIFY nick_name VARCHAR(1500) CHARACTER SET utf8mb4;
+   insert into bcuser.wx_account values(10000010055900489,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,-1,'统购车业','wx332bd28888208b2d','c8e4b28ed80c3fc4140b1a9832cfbabf','wx_bcgogo_token','gh_8517c1b80e05','FALSE');
+   insert into bcuser.wx_account values(10000010055900490,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,-1,'苏州统购','wxbb680e8d91db399e','4f9b69507594e740d35f676c871acb67','wx_bcgogo_token','gh_e1f30832359c','FALSE');
+   insert into bcuser.wx_account values(10000010055900491,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,-1,'测试微信公共号1','wx877da823ec90b943','b1cea12b2667731061107b87fcd0c917','wx_bcgogo_token','gh_015116eb8fb1','FALSE');
+   insert into bcuser.wx_account values(10000010055900492,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,-1,'测试微信公共号2','wx77d6a358d75fad03','15bb76b1b5a8c87e4ffb0b1d44350457','wx_bcgogo_token','gh_4f6b0896db27','FALSE');
+
+   insert into bcuser.wx_kw_template values(100000100500400,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,'gh_8517c1b80e05','预约到期提醒','VdrvnAbEZ1T1IJXEdNQTSAQ9dnT1bPXjCpmi19DKBqc','尊敬的{vehicleNo}车主您好，您预约的服务已到期，具体信息如下','','#000080','#000080','#173177','#173177','#173177','#FF0000','FALSE');
+   insert into bcuser.wx_kw_template values(100000100500401,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,'gh_e1f30832359c','预约到期提醒','ieTfDxAuyDbTZ-NfkXgZtIHP0Rzp3Sd0dRz34g9HMvk','尊敬的{vehicleNo}车主您好，您预约的服务已到期，具体信息如下','','#000080','#000080','#173177','#173177','#173177','#FF0000','FALSE');
+   insert into bcuser.wx_kw_template values(100000100500402,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,'gh_8517c1b80e05','消费提醒','2iQTkFx808Cbd0PQ1RGlnB-MPITE9y01OfINQ-r28Aw','您的车牌号{vehicleNo},{orderType}消费了一笔金额，具体信息如下','','#000080','#000080','#173177','#173177','#173177','#FF0000','FALSE');
+   insert into bcuser.wx_kw_template values(100000100500403,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,'gh_e1f30832359c','消费提醒','Zl638_TS02zRQt8aHK1ZTsAoYfAERDGoW5jXgs4aZp8','您的车牌号{vehicleNo},{orderType}消费了一笔金额，具体信息如下','','#000080','#000080','#173177','#173177','#173177','#FF0000','FALSE');
+   insert into bcuser.wx_kw_template values(100000100500404,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,'gh_8517c1b80e05','违章提醒','9tmjXmyhLQGXj4lXQcKmMohBM23RbbNZvPsVuXruSYQ','尊敬的{vehicleNo}车主您有一条违章，罚款{money}元','','#000080','#000080','#173177','#173177','#173177','#FF0000','FALSE');
+   insert into bcuser.wx_kw_template values(100000100500405,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,'gh_e1f30832359c','违章提醒','bwZnVDf298rdb9Muru6YwNSGmSFluE9FscVPeTFO6aE','尊敬的{vehicleNo}车主您有一条违章，罚款{money}元','','#000080','#000080','#173177','#173177','#173177','#FF0000','FALSE');
+   添加菜单
+   insert into menu values(1000000000022,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,2,'微信管理',(select r.id from bcuser.resource r where r.value="WEB.WX_MANAGER.BASE"),1000020045084312,'weChat.do?method=toSendMessagePage',80,'WEB.CUSTOMER_MANAGER.WX_MANAGER');
+
+ 2.发布成功并执行完sql后，登录jackchen，执行下面地址,看到返回字符串“encryptAllAccount success”,表示执行成功
+   https://shop.bcgogo.com/web/weChat/encryptAllAccount
+
+六.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+insert into bcuser.wx_kw_template values(100000100500408,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,'gh_f6eabd5ac6ac','预约到期提醒','uxEJ_n5z2XqdpOJZscSq4qWA6hshaK36vyBHtlyhT9I','尊敬的{vehicleNo}车主您好，您预约的服务已到期，具体信息如下','','#000080','#000080','#173177','#173177','#173177','#FF0000','FALSE');
+insert into bcuser.wx_kw_template values(100000100500409,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,'gh_f6eabd5ac6ac','消费提醒','1ZsvWVFww4z24iAlN028e0yuMWJuqIA05cEctqZ7HMA','您的车牌号{vehicleNo},{orderType}消费了一笔金额，具体信息如下','','#000080','#000080','#173177','#173177','#173177','#FF0000','FALSE');
+insert into bcuser.wx_kw_template values(100000100500410,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,'gh_f6eabd5ac6ac','违章提醒','ITY0J7n20d2lI4cewPTZsx6fCA4U5bXb_ho9CKtStBw','尊敬的{vehicleNo}车主您有一条违章，罚款{money}元','','#000080','#000080','#173177','#173177','#173177','#FF0000','FALSE');
+insert into bcuser.wx_kw_template values(100000100500411,UNIX_TIMESTAMP()*1000,UNIX_TIMESTAMP()*1000,0,'gh_f6eabd5ac6ac','会员消费通知','zXftiFeMcWkSA1AltLPR6oPR4hs-LBp4ln5w3v7D0cw','{DATE}，您的会员卡消费了一笔金额，具体信息如下','','#000080','#000080','#173177','#173177','#173177','#FF0000','FALSE');
+

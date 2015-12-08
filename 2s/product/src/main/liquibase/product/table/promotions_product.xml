@@ -1,0 +1,45 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xzhu" id="promotions_product_xzhu_1">
+        <createTable tableName="promotions_product">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_id" type="bigint"/>
+            <column name="promotions_id" type="bigint"/>
+            <column name="product_local_info_id" type="bigint"/>
+            <column name="deleted" type="varchar(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="promotions_product_xzhu_2" author="xzhu">
+        <addPrimaryKey tableName="promotions_product" columnNames="id" constraintName="pk_promotions_product"/>
+    </changeSet>
+
+    <changeSet id="promotions_product_xzhu_3" author="xzhu">
+        <createIndex tableName="promotions_product" indexName="idx_productid_shopid_promotionsid">
+            <column name="shop_id"/>
+            <column name="promotions_id"/>
+            <column name="product_local_info_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="promotions_product_ndong_3" author="ndong">
+        <addColumn tableName="promotions_product">
+            <column name="promotions_type" type="varchar(50)"/>
+            <column name="bargain_type" type="varchar(50)"/>
+            <column name="limit_amount" type="double"/>
+            <column name="discount_amount" type="double"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

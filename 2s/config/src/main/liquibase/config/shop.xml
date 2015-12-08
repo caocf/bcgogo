@@ -1,0 +1,342 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="xiaojian" id="shop_1">
+        <createTable tableName="shop">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="legal_rep" type="varchar(20)"/>
+            <column name="no" type="varchar(20)"/>
+            <column name="area_id" type="bigint"/>
+            <column name="address" type="varchar(100)"/>
+            <column name="zip" type="varchar(20)"/>
+            <column name="contact" type="varchar(20)"/>
+            <column name="landline" type="varchar(20)"/>
+            <column name="mobile" type="varchar(20)"/>
+            <column name="fax" type="varchar(20)"/>
+            <column name="email" type="varchar(50)"/>
+            <column name="qq" type="varchar(20)"/>
+            <column name="bank" type="varchar(20)"/>
+            <column name="account" type="varchar(20)"/>
+            <column name="category_id" type="bigint"/>
+            <column name="account_name" type="varchar(20)"/>
+            <column name="reviewer" type="varchar(20)"/>
+            <column name="review_date" type="bigint"/>
+            <column name="agent" type="varchar(20)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="xiaojian" id="shop_2">
+        <addColumn tableName="shop">
+            <column name="state" type="bigint"/>
+            <column name="memo" type="varchar(500)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="xiaojian" id="shop_3">
+        <addPrimaryKey tableName="shop" columnNames="id" constraintName="pk_shop"/>
+    </changeSet>
+
+    <changeSet author="mzdong" id="shop_4">
+        <addColumn tableName="shop">
+            <column name="owner" type="varchar(20)"/>
+            <column name="operator" type="varchar(20)"/>
+            <column name="agent_id" type="bigint"/>
+            <column name="agent_mobile" type="varchar(20)"/>
+            <column name="soft_price" type="float"/>
+            <column name="operation_mode" type="varchar(200)"/>
+            <column name="business_hours" type="varchar(20)"/>
+            <column name="established" type="bigint"/>
+            <column name="qualification" type="varchar(20)"/>
+            <column name="personnel" type="varchar(20)"/>
+            <column name="area" type="varchar(20)"/>
+            <column name="business_scope" type="varchar(20)"/>
+            <column name="related_business" type="varchar(20)"/>
+            <column name="feature" type="varchar(20)"/>
+            <column name="attachment" type="varchar(500)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="mzdong" id="shop_5">
+        <addColumn tableName="shop">
+            <column name="store_manager" type="varchar(20)"/>
+            <column name="store_manager_mobile" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="mzdong" id="shop_6">
+        <modifyColumn tableName="shop">
+            <column name="business_scope" type="varchar(500)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet author="mzdong" id="shop_7">
+        <modifyColumn tableName="shop">
+            <column name="business_scope" type="varchar(200)"/>
+            <column name="related_business" type="varchar(200)"/>
+            <column name="feature" type="varchar(200)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet author="mzdong" id="shop_8">
+        <dropColumn tableName="shop" columnName="attachment"/>
+        <addColumn tableName="shop">
+            <column name="attachment" type="blob"/>
+        </addColumn>
+    </changeSet>
+
+
+     <changeSet author="zhangchuanlong" id="shop_9">
+        <addColumn tableName="shop">
+            <column name="short_name" type="varchar(50)"/>
+             <column name="licence_plate" type="varchar(2)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="zhouxiaochen" id="shop_10">
+        <addColumn tableName="shop">
+            <column name="photo" type="varchar(500)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="shop_11">
+        <createIndex tableName="shop" indexName="idx_shop_name">
+            <column name="name"/>
+        </createIndex>
+        <createIndex tableName="shop" indexName="idx_shop_reviewdate">
+            <column name="review_date"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="zoujianhong" id="shop_12">
+        <createIndex tableName="shop" indexName="idx_shop_mobile">
+            <column name="mobile"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="zhangchuanlong" id="shop_13">
+           <modifyColumn tableName="shop">
+               <column name="business_scope" type="varchar(500)"/>
+           </modifyColumn>
+       </changeSet>
+
+      <changeSet author="zhangchuanlong" id="shop_14">
+        <dropColumn tableName="shop" columnName="attachment"/>
+        <addColumn tableName="shop">
+            <column name="attachment" type="mediumblob"/>
+        </addColumn>
+    </changeSet>
+
+      <changeSet author="zhangchuanlong" id="shop_15">
+           <modifyColumn tableName="shop">
+               <column name="business_scope" type="varchar(1000)"/>
+           </modifyColumn>
+       </changeSet>
+        <changeSet author="zhangjuntao" id="shop_16">
+           <addColumn tableName="shop">
+               <column name="type" type="varchar(30)"/>
+           </addColumn>
+       </changeSet>
+
+    <changeSet author="jimuchen" id="shop_17">
+      <modifyColumn tableName="shop">
+        <column name="version" type="bigint" >
+          <constraints nullable="false" />
+        </column>
+      </modifyColumn>
+    </changeSet>
+
+    <changeSet author="weilingfeng" id="shop_18">
+       <addColumn tableName="shop">
+           <column name="wholesaler_shop_id" type="bigint"/>
+       </addColumn>
+    </changeSet>
+
+    <changeSet author="zhangjuntao" id="shop_19_zhangjuntao">
+        <addColumn tableName="shop">
+            <column name="shop_version_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="zhangjuntao" id="shop_20_zhangjuntao">
+        <addColumn tableName="shop">
+            <column name="used_software" type="varchar(100)"/>
+            <column name="network_type" type="varchar(50)"/>
+            <column name="has_computer" type="varchar(50)"/>
+            <column name="registration_date" type="bigint"/>
+            <column name="status" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="zhangjuntao" id="shop_21_zhangjuntao">
+        <addColumn tableName="shop">
+            <column name="submit_application_date" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="zhangjuntao" id="shop_22_zhangjuntao">
+        <addColumn tableName="shop">
+            <column name="state_enum" type="varchar(10)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="qiuxinyu" id="shop_qiuxinyu_23">
+        <addColumn tableName="shop">
+            <column name="province" type="bigint"/>
+            <column name="city" type="bigint"/>
+            <column name="region" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="qiuxinyu" id="shop_qiuxinyu_24">
+        <addColumn tableName="shop">
+            <column name="shop_kind" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="shop_qiuxinyu_25" author="qiuxinyu">
+        <addColumn tableName="shop">
+            <column name="relative_customer_amount" type="int"/>
+            <column name="shop_level" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="shop_26_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="shop">
+            <column name="trial_end_time" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="shop_27_qiuxinyu" author="qiuxinyu">
+        <addColumn tableName="shop">
+            <column name="url" type="varchar(100)"/>
+            <column name="shop_photo_id" type="bigint"/>
+            <column name="business_license_id" type="bigint"/>
+            <column name="register_type" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="shop_27_zhangjuntao" author="zhangjuntao">
+        <renameColumn tableName="shop" oldColumnName="state_enum" newColumnName="shop_state" columnDataType="varchar(50)"/>
+        <renameColumn tableName="shop" oldColumnName="status" newColumnName="shop_status" columnDataType="varchar(50)"/>
+    </changeSet>
+    <changeSet author="xzhu" id="shop_28_xzhu">
+        <dropColumn tableName="shop" columnName="type"/>
+    </changeSet>
+    <changeSet id="shop_28_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="shop">
+            <column name="trial_start_time" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="shop_29_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="shop">
+            <column name="business_type" type="varchar(500)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="shop_30_zhangjuntao" author="zhangjuntao">
+        <modifyColumn tableName="shop">
+            <column name="register_type" type="varchar(50)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="shop_31_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="shop">
+            <column name="using_end_time" type="bigint"/>
+            <column name="payment_status" type="varchar(50)"/>
+            <column name="bargain_status" type="varchar(50)"/>
+            <column name="bargain_price" type="double"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="xzhu" id="shop_xzhu_32">
+        <addColumn tableName="shop">
+            <column name="name_py" type="varchar(500)"/>
+            <column name="name_fl" type="varchar(200)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="shop_32_jimuchen" author="jimuchen">
+        <addColumn tableName="shop">
+            <column name="clue_input_time" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="shop_33_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="shop">
+            <column name="shop_recommended_type" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="shop_34_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="shop">
+            <column name="shop_recommended_grade" type="tinyint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="shop_35_zhangjuntao" author="zhangjuntao">
+        <addColumn tableName="shop">
+            <column name="follow_id" type="bigint"/>
+            <column name="follow_name" type="varchar(50)"/>
+        </addColumn>
+        <modifyColumn tableName="shop">
+            <column name="agent_id"  type="varchar(50)"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="shop_35" author="lw">
+      <addColumn tableName="shop">
+        <column name="shop_select_brand_model" type="varchar(50)"/>
+      </addColumn>
+    </changeSet>
+
+    <changeSet id="shop_36_lw" author="lw">
+      <addColumn tableName="shop">
+        <column name="coordinate_lat" type="varchar(500)"/>
+        <column name="coordinate_lon" type="varchar(500)"/>
+      </addColumn>
+    </changeSet>
+
+    <changeSet id="shop_37_xzhu" author="xzhu">
+      <addColumn tableName="shop">
+        <column name="buy_channels" type="varchar(100)"/>
+      </addColumn>
+    </changeSet>
+
+    <changeSet id="shop_37_jy" author="jinyuan">
+        <addColumn tableName="shop">
+            <column name="charge_type" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="shop_37_zhangjuntao" author="zhangjuntao">
+      <addColumn tableName="shop">
+        <column name="locate_status" type="varchar(50)"/>
+      </addColumn>
+    </changeSet>
+    <changeSet id="shop_38_zhangjuntao" author="zhangjuntao">
+      <addColumn tableName="shop">
+        <column name="detail_address" type="varchar(100)"/>
+      </addColumn>
+    </changeSet>
+    <changeSet id="shop_39_sinYuQiu" author="sinYuQiu">
+        <addColumn tableName="shop">
+            <column name="accident_mobile" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+    
+    <changeSet id="shop_40_sinYuQiu" author="sinYuQiu">
+        <addColumn tableName="shop">
+            <column name="ad_price_per_month" type="double"/>
+            <column name="ad_start_date" type="bigint"/>
+            <column name="ad_end_date" type="bigint"/>
+            <column name="product_ad_type" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="shop_41_sinYuQiu" author="sinYuQiu">
+        <modifyColumn tableName="shop">
+            <column name="ad_price_per_month" type="double(20,2)"/>
+        </modifyColumn>
+    </changeSet>
+
+</databaseChangeLog>

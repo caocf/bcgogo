@@ -1,0 +1,53 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <preConditions>
+        <dbms type="mysql"/>
+    </preConditions>
+
+    <changeSet id="hibernate_unique_key_1" author="lijie">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="hibernate_unique_key"/>
+            </not>
+        </preConditions>
+        <createTable tableName="hibernate_unique_key">
+            <column name="next_hi" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <insert tableName="hibernate_unique_key">
+            <column name="next_hi" value="1000000"/>
+        </insert>
+    </changeSet>
+    <!-- Schema -->
+    <include file="notification/table/to_box.xml"/>
+    <include file="notification/table/in_box.xml"/>
+    <include file="notification/table/out_box.xml"/>
+    <include file="notification/table/template.xml"/>
+    <include file="notification/table/channel.xml"/>
+    <include file="notification/table/template_type.xml"/>
+    <include file="notification/table/sms_job.xml"/>
+    <include file="notification/table/sms.xml"/>
+    <include file="notification/table/sms_index.xml"/>
+    <include file="notification/table/failed_sms_job.xml"/>
+    <include file="notification/table/message_template.xml"/>
+    <include file="notification/table/message_switch.xml"/>
+    <include file="notification/table/sensitive_words.xml"/>
+    <include file="notification/table/announcement.xml"/>
+    <include file="notification/table/user_read_record.xml" />
+    <include file="notification/table/festival_s.xml"/>
+    <include file="notification/table/invitation_code.xml"/>
+    <include file="notification/table/invitation_code_recycle.xml"/>
+    <include file="notification/table/sms_sending_times.xml"/>
+    <include file="notification/table/promotion_msg_job.xml"/>
+    <include file="notification/table/wx_shop_bill.xml"/>
+    <include file="notification/table/wx_msg.xml"/>
+    <include file="notification/table/wx_msg_receiver.xml"/>
+    <include file="notification/table/wx_send_status_report.xml"/>
+
+
+
+</databaseChangeLog>

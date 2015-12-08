@@ -1,0 +1,65 @@
+一.备份现有生产上war包,停掉热备份
+
+二.发布前准备
+1. 数据库更新：根据Liquibase生成的DDL语句更新表结构.
+2. Solr更新：customerOrSupplier
+
+三.发布应用
+
+
+四.初始化
+      update customer set cancel_recommend_associated_count=0;
+      update supplier set cancel_recommend_associated_count=0;
+
+五.配置权限
+
+新增资源：
+        contact_migrate                      /web/init.do?method=initContact                SHOP   迁移联系人的数据    request
+        WEB_VERSION_HAS_CUSTOMER_CONTACTS    WEB.VERSION.HAS_CUSTOMER_CONTACTS              SHOP   拥有客户多联系人    logic
+        WEB_VERSION_HAS_SUPPLIER_CONTACTS    WEB.VERSION.HAS_SUPPLIER_CONTACTS              SHOP   供应商多联系人      logic
+        contact_query                        /web/contact.do?method=getContactsByIdAndType  SHOP   联系人信息查询      request
+        get_supplier_by_id                   /web/supplier.do?method=getSupplierById        SHOP   id查询supplier      request  -- 这个权限如果测试已经有了 就不用新增了
+        order_supplier_info                  /web/txn.do?method=orderSupplierInfo           SHOP   采购、入库、入库退货 访问客户详细  request
+        order_update_supplier                /web/txn.do?method=updateSupplier              SHOP   采购、入库、入库退货时更新供应商信息 request
+
+分配资源：
+        contact_migrate 统购平台->CRM->SHOP操作权限->SHOP数据初始化
+        WEB_VERSION_HAS_SUPPLIER_CONTACTS 赋给所有版本的基本权限(分别赋予到不同版本的基本权限中）
+        WEB_VERSION_HAS_CUSTOMER_CONTACTS 赋给所有汽配版本的基本权限
+        contact_query 赋给如下角色:
+                        进销存->销售管理->销售单-> 查询
+                        进销存->销售管理->销售退货单 ->查询
+                        进销存->入库管理->采购单 -> 查询
+                        进销存->入库管理->入库单 -> 查询
+                        进销存->入库管理->入库退货单 -> 查询
+        get_supplier_by_id
+                        客户资料 ->　我的客户　-> 新增/修改
+        order_supplier_info 和 order_update_supplier
+                        进销存->入库管理->采购单 -> 查询
+                        进销存->入库管理->入库单 -> 查询
+                        进销存->入库管理->入库退货单 -> 查询
+
+六后台系统配置
+        PushMessageSwitch                               ON                            消息推送开关
+        ClientCurrentVersion                            1.0                           客户端当前版本
+        FirefoxCurrentVersion                           21.0                          火狐浏览器当前版本
+        ClientNextRequestTimeInterval                    10                          下次请求时间间隔(分钟)
+        CancelRecommendAssociatedCountLimit              10                          关联匹配最大次数
+        FirefoxUpdateUrl            http://download.firefox.com.cn/releases/webins3.0/official/zh-CN/Firefox-latest.exe （注意问肖哥要地址）           firefox更新地址
+        ClientUpdateUrl            http://download.firefox.com.cn/releases/webins3.0/official/zh-CN/Firefox-latest.exe   （注意问肖哥要地址）         client更新地址
+        PushMessageLifeCycle                               432000000                              推送消息有效时间5天  单位ms
+
+七. 初始化：
+        用jackchen账号登陆，执行初始化: /web/init.do?method=initContact
+
+八. solr索引：
+        更换customerOrSupplier schema 重新构建客户和供应商的索引
+
+九.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+回滚步骤：
+1.关闭服务
+2.恢复生产数据库
+3.使用旧war包重新发布
+4.验证功能

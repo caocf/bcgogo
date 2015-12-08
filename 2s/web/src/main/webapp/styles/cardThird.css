@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+.i_main{ color:#000;}
+.card_set,.card_name,.card_providing{font-size:14px; font-weight:bold; font:Verdana, Geneva, sans-serif;}
+ .card_set input{ background:url(../images/tacitly.png) no-repeat; border:none;width:64px;height:31px; height:36px\9;color:#fff;margin-right:5px;}
+.card_set  .choose_btn{ background:url(../images/navigate.png) no-repeat; }
+
+.card_set label{ margin-right:10px;}
+.card_set .btn_three{ background:url(../images/showfx.png) no-repeat; width:65px; height:25px; border:none; color:#fff;}
+.card_name{ line-height:50px; margin-top:10px; padding-bottom:10px;}
+.card_name label,.card_name img,.card_name input{display:block; float:left;}
+.card_name input{ margin-top:15px;width:100px;}
+.card_name label{ margin:0px 10px 0px 10px;}
+
+.card_providing{padding-bottom:10px; margin-top:10px;}
+.card_providing  label,.card_providing tabel,.card_providing img,.card_providing .money_show{ display:block; float:left;}
+.card_providing  label,.card_providing img{ margin:10px 5px 0px 0px;}
+.card_providing .money_show{ margin:0px 10px;}
+.card_zekou{ border:none;}
+.table2 tr td{ text-align:center;}
+.table2 tr td input{text-align:center;}
+.table2 tr td .txt_zekou{width:40px; margin-right:5px;}
+.input_next{background:url(../images/register_button.jpg) no-repeat;width:263px; clear:both;  margin:10px 0px 0px 550px; margin:10px 0px 0px 490px\9; height:41px; border:none; color:#fff;font-size:20px; display:block; clear:both;}
+
+
+.table2 .count{
+	color:#F00000;
+	float:right;
+}
+.tabPresent{
+	width:600px;
+}
+.tabPresent .deadline{
+	float:left;
+
+}
+.table2 tr td input{
+	width:auto;
+	display:inline-block;
+	float:none;
+}
+.table2 tr td input.txt_card{
+	width:70%;
+}
+.table2 tr td .indefinitely{
+	margin:0px;
+	padding:0px;
+	float:left;
+	width:auto;
+	padding-left:10px;
+}
+
+.jici_demo{ border-bottom:none;}
+
+.table2 tr td .addService{ float:right;}
+
+.table2 tr td .addService{
+  float:right;
+  background:url(../images/i_search.jpg) no-repeat;
+  width:18px;
+  height:18px;
+  border:none;
+  cursor:pointer;
+}
+
+.serviceName
+{
+  margin:0 5px
+}
+

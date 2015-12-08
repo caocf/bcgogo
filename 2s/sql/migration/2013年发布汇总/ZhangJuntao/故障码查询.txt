@@ -1,0 +1,45 @@
+ 1、SHOP->待办事项模块->待办事项->增加角色(故障提醒)
+  增加资源：
+     web_shopFaultInfo_showShopFaultInfoList                    /web/shopFaultInfo.do?method=showShopFaultInfoList                        SHOP   故障查询页面   request
+     web_shopFaultInfo_searchShopFaultInfoList                  /web/shopFaultInfo.do?method=searchShopFaultInfoList                      SHOP   故障查询请求   request
+     web_shopFaultInfo_getShopFaultInfoVehicleNoSuggestion      /web/shopFaultInfo.do?method=getShopFaultInfoVehicleNoSuggestion          SHOP   故障车牌号建议   request
+     web_shopFaultInfo_getShopFaultInfoMobileSuggestion         /web/shopFaultInfo.do?method=getShopFaultInfoMobileSuggestion             SHOP   故障车手机建议   request
+     web_shopFaultInfo_shopFaultInfo                            /web/shopFaultInfo.do?method=getFaultInfoCodeSMSTemplate                  SHOP   获得故障短信模板   request
+     web_shopFaultInfo_sendSMSAndAppNotice                      /web/shopFaultInfo.do?method=sendSMSAndAppNotice                          SHOP   发故障送短信消息   request
+     web_shopFaultInfo_deleteFaultInfoCode                      /web/shopFaultInfo.do?method=deleteFaultInfoCode                          SHOP   故障删除   request
+     web_shopFaultInfo_ShopFaultInfoMenu                        WEB.SCHEDULE.SHOP_FAULT_INFO.BASE                                         SHOP   故障查询菜单   menu
+ 2、分配版本：汽修（豪华、综合、初级）
+ 分配用户组：老板/店长
+
+3、sql 增加菜单:
+ create procedure initMenu()
+     begin
+         declare _id bigint;
+         declare _created bigint;
+         declare _last_update bigint;
+         declare _resource_id bigint;
+         declare _count int;
+         select max(id)+1 into _id from menu;
+         set _created:=unix_timestamp(now())*1000;
+         set _last_update:=unix_timestamp(now())*1000;
+         select id into _resource_id from resource where value='WEB.SCHEDULE.SHOP_FAULT_INFO.BASE';
+         select count(*) into _count from menu where label = '故障查询';
+         if _count < 1 then
+             insert into menu(id, created, last_update, version, grade, label, resource_id, parent_id, href, sort, menu_name) values
+                 (_id, _created, _last_update, 0 , 2, '故障查询', _resource_id, 1000020044934293, 'shopFaultInfo.do?method=showShopFaultInfoList', 60, 'WEB.SCHEDULE.SHOP_FAULT_INFO.BASE');
+         end if;
+     end;
+     call initMenu();
+     drop procedure initMenu;
+
+
+4. 短信模板
+  故障短信模板
+  faultInfoCodeMsg
+  FAULT_INFO_CODE_SMS
+  必要
+  您好，您的车辆{licenceNo}于{time}出现{faultCode}故障提醒，请尽快来店检查，详情咨询{mobile}。
+
+
+
+

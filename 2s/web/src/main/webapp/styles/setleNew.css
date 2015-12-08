@@ -1,0 +1,151 @@
+@charset "utf-8";
+/* CSS Document */
+.i_history{
+	width:900px;
+}
+.i_history .i_upCenter .i_note {
+	width:840px;
+}
+.i_history .i_upCenter{
+	width:888px;
+}
+.i_history .i_upBody{
+	width:860px;
+}
+.i_upBottom .i_upBottomCenter{
+	width:880px;
+}
+#tuihuo_show{
+	border-collapse:collapse;
+	border:1px solid #C9C6C6;
+	width:100%;
+	overflow:auto;
+	height:100px;
+}
+#tuihuo_show tr td{
+	height:30px;
+	line-height:30px;
+	text-align:center;
+}
+table tr td .chkk{
+	border:none;
+}
+table tr td a{
+	text-decoration:none;
+}
+.tuihuo_first table{
+	width:100%;
+}
+.tuihuo_first table{
+	border:1px solid #DCDBDB;
+	background: url(../images/center_tui.png) repeat-y;
+	border-collapse: collapse;
+}
+.tuihuo_first table tr td{
+	text-align:left;
+}
+.tuihuo_first table .shixi td{
+	border:1px solid #C9C6C6;
+	border-left:none;
+	border-right:none;
+}
+
+.ti_btn input,.ti_btn label,.ti_btn .sure_tui {
+	display:block;
+	float:left;
+	margin:0;
+	margin-left:10px;
+}
+.ti_btn label{
+	margin-top:5px;
+	margin-left:0px;
+}
+
+.contentTitle a{
+	float:left;
+	width:75px;
+	height:29px;
+	text-align:center;
+	line-height:29px;
+	cursor:pointer;
+	color:#000;
+	display:block;
+	margin-right:10px;
+	*height:30px;
+}
+
+ .contentTitle a.hover_title{
+	background:#FFFFFF url(../images/hover_count.png) no-repeat;
+	border:none;
+	width:89px;
+	height:27px;
+	text-align:center;
+	line-height:30px;
+	color:#c00000;
+	font-weight:normal;
+}
+.cont_title{
+	border-bottom:1px solid #C9C6C6;
+	height:26px;
+	margin-bottom:10px;
+}
+#cardsTitle{
+	float:left;
+	display:block;
+	line-height:27px;
+}
+#cardsTitle strong{
+	color:#c00000;
+}
+
+.i_pageBtn {
+	margin-left:250px;
+	float:left;
+}
+.btnSearch{
+	background-image: url("../images/btn_tong.png");
+	width:76px;
+	height:25px;
+	color:#000;
+}
+.lan_txt{
+	border:1px solid #0094ff;
+	color:#1067ca;
+	font-weight:bold;
+}
+.tuihuo_first table tr td input{
+	padding:0px 5px;
+	height: 25px;
+	line-height: 25px;
+}
+
+.tuihuo_first table tr td {
+    line-height: 45px;
+}
+
+.ti_btn input{
+	display:block;
+	float:left;
+	background:url(../images/chkTong.png) no-repeat;
+	width:76px;
+	height:25px;
+	border:none;
+	margin-right:10px;
+	cursor:pointer;
+    color:#ffffff;
+}
+
+.ti_btn input[disabled]{
+    background:url(../images/chk-disabled.png) no-repeat;
+}
+
+.ti_btn input[disabled]:hover {
+    color: #FFFFFF;
+    background: url(../images/chk-disabled.png) no-repeat;
+    cursor: default;
+}
+
+.ti_btn input:hover{
+	background:url(../images/chkTi.png) no-repeat;
+	color:#663A02;
+}

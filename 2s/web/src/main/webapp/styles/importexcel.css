@@ -1,0 +1,200 @@
+body{
+	color:#666666;
+}
+.accountMain .sysSet_table {
+	width: 550px;
+}
+table.sysSet_table tr td{
+	padding:10px 0px 10px 10px;
+}
+
+.sysSet_table td input.localUpload {
+	float:left;
+	background:url(../images/upload.png) no-repeat;
+	width:91px;
+	height:24px;
+	text-align:center;
+	line-height:24px;
+	color:#FFFFFF;
+	border:none;
+	cursor:pointer;
+}
+.sysSet_table td.uploadPercent input{
+	float:left;
+	background:url(../images/percentNum.png) no-repeat;
+	width:36px;
+	height:26px;
+	text-align:center;
+	padding-left:4px;
+	line-height:26px;
+	color:#FFFFFF;
+	border:none;
+}
+.sysSet_table .field{
+	border: 1px solid #CCCCCC;
+	/*border-top: 1px solid #666666;
+	*/
+	height:200px;
+  border-top:0px;
+}
+.sysSet_table .field .sysField{
+	border-right: 1px solid #CCCCCC;
+	width:50%;
+	height:200px;
+	float:left;
+	text-align:left;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border-top: 0px;
+}
+.sysSet_table .field .sysField .sysFieldTitle, .sysSet_table .field .uploadField .uploadTitle{
+	float:left;
+	background:#F9F9F9;
+	height:25px;
+	line-height:25px;
+	width:100%;
+	padding-left:15px;
+	color:#000000;
+}
+.sysSet_table .field .sysField div, .sysSet_table .field .uploadField div{
+	clear:both;
+	padding-left:15px;
+	line-height:25px;
+	color:#666666;
+  margin-bottom: 5px;
+}
+.sysSet_table .field .uploadField{
+	width:48%;
+	height:200px;
+	float:right;
+	text-align:left;
+	overflow:scroll;
+	overflow-x:hidden;
+	color:#666666;
+}
+
+.sysSet_table .fieldBtn{
+	width:100%;
+	padding-top:10px;
+}
+.sysSet_table .fieldBtn input{
+	float:right;
+	background:url(../images/sure.png) no-repeat;
+	width:62px;
+	height:26px;
+	text-align:center;
+	line-height:26px;
+	color:#FFFFFF;
+	border:none;
+	margin-left:10px;
+	cursor:pointer;
+}
+.progress{
+}
+.progress .progressLeft{
+	float:left;
+	background:url(../images/percentLeft.png) no-repeat;
+	width:4px;
+	height:26px;
+}
+.progress .progressBody{
+	float:left;
+	border:1px solid #CCCCCC;
+	border-left:none;
+	border-right:none;
+	width:294px;
+	height:23px;
+}
+.progress .progressBody .proBarLeft{
+	float:left;
+	background:url(../images/percentBgleft.png) no-repeat;
+	width:4px;
+	height:23px;
+	margin-left:-3px;
+}
+.progress .progressBody .proBarBody{
+	float:left;
+	background:url(../images/percentBg.png) repeat-x;
+	width:75%;
+	height:23px;
+}
+.progress .progressBody .proBarRight{
+	float:left;
+	background:url(../images/percentBgright.png) no-repeat;
+	width:4px;
+	height:23px;
+}
+.progress .progressRight{
+	float:left;
+	background:url(../images/percentRight.png) no-repeat;
+	width:4px;
+	height:26px;
+}
+.sysSet_table td input.file{
+	filter: alpha(opacity=0);
+	-moz-opacity:0;
+	opacity:0;
+	height:auto;
+	float:left;
+	color:#000000;
+	width:200px;
+}
+
+.sysSet_table td input.txt{
+	float:left;
+}
+.sysSet_table td .upFile{
+	position:relative;
+	z-index: 2;
+	float:left;
+	margin-left:-155px;
+	*margin-left:-200px;
+}
+.sysSet_table td .upFileBtn{
+    z-index: 1;
+	position:relative;
+	float:left;
+}
+
+.fieldItem{
+  cursor: pointer;
+  font-size: 12px;
+  font-weight:bold;
+}
+
+.selectedFieldItem{
+  background-color:#ACD6FF;
+}
+
+.mouseOverFieldItem{
+  background-color:#ACD6FF;
+}
+
+.sysSet_table .fieldHead{
+  border:1px solid #CCCCCC;
+  border-top: 1px solid #666666;
+  height:25px;
+  border-bottom: 0px;
+  background-color: #F9F9F9;
+}
+.sysSet_table .sysFieldTitle,.sysSet_table .uploadTitle{
+  float:left;
+	background:#F9F9F9;
+	height:25px;
+	line-height:25px;
+	width:225px;
+	color:#000000;
+  border-bottom: 0px;
+	text-align:center;
+}
+
+.sysSet_table #selectfile {
+    width: 230px;
+}
+
+
+
+
+
+
+

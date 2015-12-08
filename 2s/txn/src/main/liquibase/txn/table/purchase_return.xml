@@ -1,0 +1,143 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="Caiwei" id="purchase_return_1">
+    <createTable tableName="purchase_return">
+        <column name="id" type="bigint"/>
+        <column name="created" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="last_update" type="bigint">
+            <constraints nullable="false"/>
+        </column>
+        <column name="version" type="bigint">
+            <constraints nullable="true"/>
+        </column>
+        <column name="shop_id" type="bigint"/>
+        <column name="date" type="bigint"/>
+        <column name="no" type="varchar(20)"/>
+        <column name="ref_no" type="varchar(20)"/>
+        <column name="purchase_order_id" type="bigint"/>
+        <column name="purchase_order_no" type="varchar(20)"/>
+        <column name="purchase_inventory_id" type="bigint"/>
+        <column name="dept_id" type="bigint"/>
+        <column name="dept" type="varchar(20)"/>
+        <column name="supplier_id" type="bigint"/>
+        <column name="supplier" type="varchar(20)"/>
+        <column name="executor_id" type="bigint"/>
+        <column name="executor" type="varchar(20)"/>
+        <column name="total" type="float"/>
+        <column name="status" type="bigint"/>
+        <column name="memo" type="varchar(500)"/>
+        <column name="editor_id" type="bigint"/>
+        <column name="editor" type="varchar(20)"/>
+        <column name="edit_date" type="bigint"/>
+        <column name="reviewer_id" type="bigint"/>
+        <column name="reviewer" type="varchar(20)"/>
+        <column name="review_date" type="bigint"/>
+        <column name="invalidator_id" type="bigint"/>
+        <column name="invalidator" type="varchar(20)"/>
+        <column name="invalidate_date" type="bigint"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet  id="purchase_return_2" author="zhuyinjia">
+    <addPrimaryKey tableName="purchase_return" columnNames="id" constraintName="pk_purchase_return"/>
+  </changeSet>
+
+  <changeSet author="jimuchen" id="purchase_return_3">
+    <modifyColumn tableName="purchase_return">
+      <column name="version" type="bigint" >
+        <constraints nullable="false" />
+      </column>
+    </modifyColumn>
+  </changeSet>
+
+  <changeSet id="purchase_return_4" author="zhangjuntao">
+    <addColumn tableName="purchase_return">
+      <column name="vest_date" type="bigint">
+      </column>
+    </addColumn>
+  </changeSet>
+
+    <changeSet id="purchase_return_5" author="chenfanglei">
+        <addColumn tableName="purchase_return">
+            <column name="receipt_no" type="varchar(20)"></column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="purchase_return_6" author="chenfanglei">
+        <createIndex tableName="purchase_return" indexName="IDX_PURCHASERETURN_RECEIPT_NO">
+            <column name="shop_id"></column>
+            <column name="receipt_no"></column>
+        </createIndex>
+    </changeSet>
+
+
+  <changeSet author="lijinlong" id="purchase_return_7">
+    <modifyColumn tableName="purchase_return">
+      <column name="status" type="varchar(50)" >
+      </column>
+    </modifyColumn>
+  </changeSet>
+    <changeSet author="xzhu" id="purchase_return_8">
+        <addColumn tableName="purchase_return">
+            <column name="refuse_reason" type="varchar(500)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id = "purchase_return_9" author="jimuchen">
+		<addColumn tableName="purchase_return">
+			<column name="supplier_contact" type="varchar(20)"/>
+            <column name="supplier_mobile" type="varchar(20)"/>
+            <column name="supplier_landline" type="varchar(20)"/>
+            <column name="supplier_address" type="varchar(50)"/>
+		</addColumn>
+	</changeSet>
+
+    <changeSet id="purchase_return_xzhu_9" author="xzhu">
+        <addColumn tableName="purchase_return">
+            <column name="storehouse_id" type="bigint"/>
+            <column name="storehouse_name" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+  <changeSet id="purchase_return_10" author="liuWei">
+        <addColumn tableName="purchase_return">
+            <column name="statement_account_order_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+  <changeSet id = "purchase_return_11" author="jimuchen">
+		<modifyColumn tableName="purchase_return">
+      <column name="supplier_mobile" type="varchar(100)"/>
+      <column name="supplier_landline" type="varchar(100)"/>
+      <column name="supplier_address" type="varchar(100)"/>
+		</modifyColumn>
+	</changeSet>
+
+    <changeSet id="purchase_return_qiuxinyu_12" author="liuWei">
+          <addColumn tableName="purchase_return">
+              <column name="supplier_shop_id" type="bigint"/>
+          </addColumn>
+      </changeSet>
+
+  <changeSet id="purchase_return_13" author="jimuchen">
+    <modifyColumn tableName="purchase_return">
+      <column name="total" type="double(20,2)"/>
+		</modifyColumn>
+  </changeSet>
+
+     <changeSet id="purchase_return_ndong_14" author="ndong">
+          <addColumn tableName="purchase_return">
+              <column name="origin_order_id" type="bigint"/>
+          </addColumn>
+      </changeSet>
+
+    <changeSet id="purchase_return_15" author="zhuj">
+        <addColumn tableName="purchase_return">
+            <column name="supplier_contact_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

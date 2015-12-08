@@ -1,0 +1,72 @@
+一.添加权限
+（一）角色
+     新增角色
+     web_deleteCustomer (经理/店长，老板/财务有权限)
+（二）资源
+          name                                          type             value                                        备注
+//=============================================== BCGOGO初始化权限 web_basic_login (姬牧晨)===================================================
+web_init_initPasswordToSHA256                        request     /web/init.do?method=initPasswordToSHA256         密码初始化为SHA-256
+
+//===============================================  客户逻辑删除 web_deleteCustomer (陈方雷)===================================================
+web_deleteCustomer_txn_getRepairOrderReceiptNoOfNotSettled  request /web/txn.do?method=getRepairOrderReceiptNoOfNotSettled  检查获取没结算的施工单单据号
+web_deleteCustomer_customer_deleteCustomerAjax       request        /web/customer.do?method=deleteCustomerAjax     客户列表界面ajax删除客户
+web_deleteCustomer_member_checkMemberBalanceExist    request        /web/member.do?method=checkMemberBalanceExist  查询会员储值余额是否大于0
+web_deleteCustomer_customer_checkArrears             request        /web/customer.do?method=checkArrears           查询是否有欠款
+web_deleteCustomer_customer_deleteCustomer           request        /web/customer.do?method=deleteCustomer         详情界面删除客户(已影藏)
+web_deleteCustomer_customer_checkCustomerStatus      request        /web/customer.do?method=checkCustomerStatus    查询客户是否被删除
+web_deleteCustomer_txn_checkRepairOrderStatus        request        /web/txn.do?method=checkRepairOrderStatus      查询施工单有无未结算的单据，除去已作废的单据
+
+//===============================================  会员导入 web_shopSystem_import (陈方雷)===================================================
+web_shopSystem_importMemberService_uploadExcel       request        /web/importMemberService.do?method=uploadExcel  上传表格
+web_shopSystem_importMemberServiceFromExcel          request        /web/importMemberService.do?method=importMemberServiceFromExcel  导入会员服务
+
+//=============================================== 施工单模板  web_invoicing_repairOrder （李金龙） ==========================================
+资源名称                                                    请求类型  资源URL                                                        备注
+web_txn_invoicing_repairOrderTemplate_getTemplateByName     request /web/txn.do?method=getRepairOrderTemplateByTemplateName  根据模板名称获取施工单模板
+web_txn_invoicing_repairOrderTemplate_saveExistingTemplate  request /web/txn.do?method=saveRepairOrderTemplateWithExistingSameNameRepairOrderTemplate 保存已经存在相同名称的施工单模板
+web_txn_invoicing_repairOrderTemplate_rename                request /web/txn.do?method=renameRepairOrderTemplate              施工单模板重命名
+web_txn_invoicing_repairOrderTemplate_getTop5               request /web/txn.do?method=getTop5RepairOrderTemplateOrderByUsageCounter 获取使用频率最高的五个施工单模板
+web_txn_invoicing_repairOrderTemplate_getAllTemplate        request /web/txn.do?method=getAllRepairOrderTemplateOrder  获取所有施工单模板
+web_txn_invoicing_repairOrderTemplate_delete                request /web/txn.do?method=deleteRepairOrderTemplate             施工单模板删除
+web_txn_invoicing_repairOrderTemplate_save                  request /web/txn.do?method=saveRepairOrderTemplate               施工单模板保存
+
+          name                                          type             value                                        备注
+//===============================================  web_customer_modify (韦凌枫)===================================================
+web_customer_deleteCustomerVehicleById               request     /web/customer.do?method=deleteCustomerVehicleById      ajax动态删除客户车辆信息
+web_customer_ajaxAddOrUpdateCustomerVehicle          request     /web/customer.do?method=ajaxAddOrUpdateCustomerVehicle ajax动态新增或更新客户车辆信息
+web_customer_getCarStatusByVehicleIdAndShopId 	     request     /web/txn.do?method=getCarStatusByVehicleIdAndShopId    根据车辆ID查询施工状态
+//===============================================  web_supplier_list (韦凌枫)=====================================================
+web_supplier_getPurchaseInventoryHistory             request     /web/unitlink.do?method=getPurchaseInventoryHistory 	供应商详细页面入库记录查询
+
+//===============================================  施工里程数补录 web_invoicing_repairOrder (刘伟)===================================================
+web_txn_invoicing_updateStartMileage       request      /web/txn.do?method=updateStartMileage  施工里程数补录
+
+//===============================================  设定施工项目 web_invoicing_repairOrder (刘伟)===================================================
+web_category_setServiceAssistant      request      /web/category.do?method=setServiceAssistant  批量更新施工项目员工提成
+web_category_setAllCategory           request      /web/category.do?method=setAllCategory  批量修改施工项目营业分类
+web_category_getServiceCategory       request      /web/category.do?method=getServiceCategory   	获得已分类的施工项目
+
+
+二.备份现有生产上war包（纪友文）,停掉热备份（肖开波）
+
+三.数据库更新：根据Liquibase生成的DDL语句更新表结构.（肖开波，邹建宏）
+
+四.solr schema 更新 customer_supplier更新，vehicle更新，order更新
+
+五.发布应用 （纪友文）
+
+六.密码初始化 （姬牧晨）
+1. 备份user, member表至sql文件
+2. init.do?method=initPasswordToSHA256
+3. 初始化成功后在数据库中手动删除此条权限记录  web_init_initPasswordToSHA256
+
+七.solr reindex  客户供应商，单据，车辆
+
+八.功能验证（测试组）， 如果不通过执行回滚步骤。
+
+
+回滚步骤：
+1.关闭服务（肖开波）
+2.恢复生产数据库（肖开波）
+3.使用旧war包重新发布（纪友文、方晓东）
+4.验证功能（纪友文、方晓东）
