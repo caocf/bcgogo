@@ -1,0 +1,19 @@
+发布步骤：
+
+1. 打包(Hudson中已配置好)：
+mvn clean install -P prod
+得到
+socketReceiver-[version].jar
+
+2. 将jar传至生产环境
+
+3. 配置生产环境配置文件
+   在src/main/resources/prod下，把相应的配置文件中IP设置为mysql, API的IP地址
+   将log4j.properties中的MAIL相关配置改为生产异常邮件配置
+   并将prod目录拷至linux中，与socketReceiver.jar同目录下
+
+4. 在jar所在目录中运行命令：
+注意：执行此命令前应确保API所在的Tomcat已开启！！
+注意今后在API发布之后，为确保服务正常，需重新启动socketReceiver
+
+java -Xbootclasspath/a:./prod/; -jar socketReceiver-[version].jar &

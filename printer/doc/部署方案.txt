@@ -1,0 +1,14 @@
+
+1.部署服务器端
+  1)下载项目 http://192.168.1.46/svn/bcgogo-tools/printer
+
+2.编译打包项目
+  进入项目根目录 /printer,执行命令 mvn clean install
+
+3.制作客户端安装包(windows环境)
+  详细参考《制作安装包教程.doc》
+
+
+
+
+

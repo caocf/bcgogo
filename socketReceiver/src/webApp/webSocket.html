@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+</head>
+<body>
+<label>服务器网址：<input type="text" id="wsServer" value="ws://61.177.55.242:60000"/></label>
+<label>发送信息：<input type="text" id="message"/></label>
+<input type="button" value="发送信息" id="pushMessageBtn">
+<input type="button" value="连接" id="connectionBtn" >
+<div id="messageContain"></div>
+</body>
+<script type="text/javascript">
+	var SocketCreated = false;
+	var webSocket;
+	function addMessage(message) {
+		var $messageDom = $("#messageContain");
+		$messageDom.html($messageDom.html() + "<br>" + message);
+	}
+	function toggleConnectionClicked(){
+				if(SocketCreated && (webSocket.readyState ==0 || webSocket.readyState == 1)){
+					webSocket.close();
+					SocketCreated = false;
+					$("#connectionBtn").val("连接");
+				}else{
+					addMessage("准备建立socket连接 ...");
+					try{
+						webSocket = new WebSocket($("#wsServer").val());
+						webSocket.binaryType = "arraybuffer";
+						SocketCreated = true;
+						$("#connectionBtn").val("断开");
+						webSocket.onopen = function (evt){
+							addMessage("连接已经建立。");
+							console.info("连接已经建立。");
+							console.info(evt);
+						};
+						webSocket.onmessage = function (evt){
+							addMessage("接收到服务器发送的信息:");
+							addMessage(evt.data);
+							console.info("接收到服务器发送的信息");
+							console.info(evt);
+						};
+						webSocket.onclose = function (evt){
+							$("#connectionBtn").val("连接");
+							addMessage("连接关闭。");
+							console.info("连接关闭。");
+							console.info(evt);
+						};
+						webSocket.onerror = function (evt){
+							addMessage("连接出错:");
+							console.info("连接出错。");
+							console.info(evt);
+						}
+					}catch (e){
+						addMessage("socket连接出错:");
+						addMessage(e);
+						console.info("socket连接出错");
+						console.info(e);
+					}
+				}
+			}
+	 $("#connectionBtn").click(function(){
+		 toggleConnectionClicked();
+	 });
+	$("#pushMessageBtn").click(function () {
+
+		var message = $("#message").val();
+		if(webSocket){
+			webSocket.send(message);
+		}
+
+
+	});
+</script>
+</html>

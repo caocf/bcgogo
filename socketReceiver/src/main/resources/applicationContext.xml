@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+                <value>classpath:rmi.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <context:component-scan base-package="com.bcgogo"/>
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}?zeroDateTimeBehavior=convertToNull&amp;characterEncoding=utf8"/>
+        <property name="user" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="minPoolSize" value="${jdbc.miniPoolSize}"/>
+        <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
+        <property name="initialPoolSize" value="${jdbc.initialPoolSize}"/>
+        <property name="maxIdleTime" value="${jdbc.maxIdleTime}"/>
+        <property name="acquireIncrement" value="${jdbc.acquireIncrement}"/>
+        <property name="maxConnectionAge" value="20000"/>
+        <!--<property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}"/>-->
+        <!--<property name="acquireRetryDelay" value="${jdbc.acquireRetryDelay}"/>-->
+        <property name="idleConnectionTestPeriod" value="${jdbc.idleConnectionTestPeriod}"/>
+        <!--<property name="checkoutTimeout" value="${jdbc.checkoutTimeout}"/>-->
+        <property name="maxIdleTimeExcessConnections" value="${jdbc.maxIdleTimeExcessConnections}"/>
+        <property name="testConnectionOnCheckin" value="false"/>
+        <property name="testConnectionOnCheckout" value="true"/>
+    </bean>
+
+    <bean id="improvedNamingStrategy" class="org.hibernate.cfg.ImprovedNamingStrategy"/>
+
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="com.bcgogo.socketReceiver.model"/>
+        <property name="namingStrategy" ref="improvedNamingStrategy"/>
+        <property name="entityInterceptor">
+            <bean class="com.bcgogo.socketReceiver.model.base.TimestampInterceptor"/>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+                <!--<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl_auto}</prop>-->
+            </props>
+        </property>
+    </bean>
+
+    <bean id="txManager"
+          class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config>
+        <aop:pointcut id="bizMethods" expression="execution(* com.bcgogo.socketReceiver.service.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="bizMethods"/>
+    </aop:config>
+    <aop:config>
+        <aop:pointcut id="baseBizMethods" expression="execution(* com.bcgogo.socketReceiver.service.base.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="baseBizMethods"/>
+    </aop:config>
+
+    <bean id="taskExecutor"
+          class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="20"/>
+        <property name="maxPoolSize" value="20"/>
+        <property name="WaitForTasksToCompleteOnShutdown" value="true"/>
+    </bean>
+
+    <bean id="loggingFilter" class="org.apache.mina.filter.logging.LoggingFilter"/>
+
+    <bean id="protocolCodecFilter" class="org.apache.mina.filter.codec.ProtocolCodecFilter">
+        <constructor-arg>
+            <bean class="com.bcgogo.socketReceiver.service.filter.CharsetCodecFactory" />
+        </constructor-arg>
+    </bean>
+     <!--配置 executorFilter -->
+    <bean id="executorFilter" class="org.apache.mina.filter.executor.ExecutorFilter">
+        <constructor-arg index="0">
+            <value>100</value>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <value>3000</value>
+        </constructor-arg>
+    </bean>
+
+
+    <bean id="filterChainBuilder" class="org.apache.mina.core.filterchain.DefaultIoFilterChainBuilder">
+        <property name="filters">
+            <map>
+                <entry key="codecFilter" value-ref="protocolCodecFilter"/>
+                <entry key="executorFilter" value-ref="executorFilter"/>
+                <entry key="loggingFilter" value-ref="loggingFilter"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <entry key="java.net.SocketAddress">
+                    <bean class="org.apache.mina.integration.beans.InetSocketAddressEditor"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="ioAcceptor" class="org.apache.mina.transport.socket.nio.NioSocketAcceptor" init-method="bind"
+          destroy-method="unbind">
+        <constructor-arg index="0">
+            <value>1000</value>
+        </constructor-arg>
+        <property name="defaultLocalAddress" value=":60000"/>
+        <property name="handler" ref="gsmObdHandler"/>
+        <property name="filterChainBuilder" ref="filterChainBuilder"/>
+    </bean>
+
+    <bean id="sessionConfig" factory-bean="ioAcceptor" factory-method="getSessionConfig">
+        <property name="receiveBufferSize" value="1024"/>
+        <property name="minReadBufferSize" value="1024"/>
+        <property name="readBufferSize" value="1024"/>
+    </bean>
+
+
+    <!-- RMI server side, for receiving command called from Bcgogo and execute/send to OBD -->
+    <bean id="rmiServerProxy" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="service" ref="gsmObdSender" />
+        <property name="serviceName" value="gsmObdSender" />
+        <property name="serviceInterface" value="com.bcgogo.socketReceiver.service.handler.socket.IGsmObdSender" />
+        <property name="registryPort" value="19010" />
+        <property name="servicePort" value="19010" />
+    </bean>
+
+
+    <!-- RMI client side, for calling method from Bcgogo API RMI server -->
+    <bean id="socketRmiServer" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceUrl" value="rmi://${rmi.ip_address}:19005/socketRmiServer"/>
+        <property name="serviceInterface" value="com.bcgogo.socketReceiver.rmi.IBcgogoApiSocketRmiServer"/>
+    </bean>
+
+</beans>
