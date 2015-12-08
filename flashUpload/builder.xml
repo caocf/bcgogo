@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="Test Builder" basedir="C:\\apache-ant-1.9.2">
+	<taskdef resource="flexTasks.tasks" classpath="${basedir}/lib/flexTasks.jar" />
+	<property name="FLEX_HOME"
+		value="D:\\SDKS\\flex-sdks\\flex-sdk4.10" />
+	<property name="APP_ROOT" value="." />
+	<property name="DEPLOY_DIR" value="D:\\Flash Builder Workspace\\bcgogoimageupload" />
+	<target name="mainTest">
+		<mxmlc file="${APP_ROOT}/src/ImageUploader.as"
+			keep-generated-actionscript="false" output="${DEPLOY_DIR}/ImageUploader.swf">
+			<load-config filename="${FLEX_HOME}/frameworks/flex-config.xml" />
+			<source-path path-element="${FLEX_HOME}/frameworks" />
+		</mxmlc>
+	</target>
+</project>

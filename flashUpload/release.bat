@@ -1,0 +1,1 @@
+copy /Y "D:\Flash Builder Workspace\bcgogoimageupload\bin-debug\ImageUploader.swf" "D:\Projects\bcgogo\3.0\web\src\main\webapp\js\components\themes\res\imageupload"

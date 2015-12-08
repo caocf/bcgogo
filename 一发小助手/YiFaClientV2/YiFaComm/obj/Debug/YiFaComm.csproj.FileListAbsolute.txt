@@ -1,0 +1,20 @@
+D:\work\YiFaClient\YiFaComm\bin\Debug\YiFaComm.dll
+D:\work\YiFaClient\YiFaComm\bin\Debug\YiFaComm.pdb
+D:\work\YiFaClient\YiFaComm\bin\Debug\Newtonsoft.Json.dll
+D:\work\YiFaClient\YiFaComm\bin\Debug\Newtonsoft.Json.pdb
+D:\work\YiFaClient\YiFaComm\bin\Debug\Newtonsoft.Json.xml
+C:\work\YiFaClient\YiFaClient\dll\YiFaComm.dll
+C:\work\YiFaClient\YiFaClient\dll\YiFaComm.pdb
+C:\work\YiFaClient\YiFaComm\obj\Debug\ResolveAssemblyReference.cache
+C:\work\YiFaClient\YiFaComm\obj\Debug\YiFaComm.dll
+C:\work\YiFaClient\YiFaComm\obj\Debug\YiFaComm.pdb
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\dll\YiFaComm.dll
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\dll\YiFaComm.pdb
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaComm\obj\Debug\ResolveAssemblyReference.cache
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaComm\obj\Debug\YiFaComm.dll
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaComm\obj\Debug\YiFaComm.pdb
+D:\work\YiFaClient\YiFaClient\dll\YiFaComm.dll
+D:\work\YiFaClient\YiFaClient\dll\YiFaComm.pdb
+D:\work\YiFaClient\YiFaComm\obj\Debug\ResolveAssemblyReference.cache
+D:\work\YiFaClient\YiFaComm\obj\Debug\YiFaComm.dll
+D:\work\YiFaClient\YiFaComm\obj\Debug\YiFaComm.pdb

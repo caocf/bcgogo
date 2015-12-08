@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="smart_v20111208" type="flex">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/smart_v20111208.swc!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

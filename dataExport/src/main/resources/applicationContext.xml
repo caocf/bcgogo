@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+  <bean id="propertyConfigurer"
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="location">
+      <value>classpath:jdbc.properties</value>
+    </property>
+  </bean>
+
+  <context:component-scan base-package="com.bcgogo"/>
+
+  <bean id="dataSourceA" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+    <property name="driverClass" value="${jdbc.driver}"/>
+    <property name="jdbcUrl" value="${jdbc.url.a}?zeroDateTimeBehavior=convertToNull&amp;characterEncoding=utf8"/>
+    <property name="user" value="${jdbc.user.a}"/>
+    <property name="password" value="${jdbc.password.a}"/>
+    <property name="minPoolSize" value="${jdbc.miniPoolSize}"/>
+    <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
+    <property name="initialPoolSize" value="${jdbc.initialPoolSize}"/>
+    <property name="maxIdleTime" value="${jdbc.maxIdleTime}"/>
+    <property name="acquireIncrement" value="${jdbc.acquireIncrement}"/>
+    <property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}"/>
+    <property name="acquireRetryDelay" value="${jdbc.acquireRetryDelay}"/>
+    <property name="idleConnectionTestPeriod" value="${jdbc.idleConnectionTestPeriod}"/>
+    <property name="checkoutTimeout" value="${jdbc.checkoutTimeout}"/>
+  </bean>
+
+  <bean id="dataSourceB" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+    <property name="driverClass" value="${jdbc.driver}"/>
+    <property name="jdbcUrl" value="${jdbc.url.b}?zeroDateTimeBehavior=convertToNull&amp;characterEncoding=utf8"/>
+    <property name="user" value="${jdbc.user.b}"/>
+    <property name="password" value="${jdbc.password.b}"/>
+    <property name="minPoolSize" value="${jdbc.miniPoolSize}"/>
+    <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
+    <property name="initialPoolSize" value="${jdbc.initialPoolSize}"/>
+    <property name="maxIdleTime" value="${jdbc.maxIdleTime}"/>
+    <property name="acquireIncrement" value="${jdbc.acquireIncrement}"/>
+    <property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}"/>
+    <property name="acquireRetryDelay" value="${jdbc.acquireRetryDelay}"/>
+    <property name="idleConnectionTestPeriod" value="${jdbc.idleConnectionTestPeriod}"/>
+    <property name="checkoutTimeout" value="${jdbc.checkoutTimeout}"/>
+  </bean>
+
+  <bean id="dataSource245" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+    <property name="driverClass" value="${jdbc.driver}"/>
+    <property name="jdbcUrl" value="${jdbc.url.test245}?zeroDateTimeBehavior=convertToNull&amp;characterEncoding=utf8"/>
+    <property name="user" value="${jdbc.user.test245}"/>
+    <property name="password" value="${jdbc.password.test245}"/>
+    <property name="minPoolSize" value="${jdbc.miniPoolSize}"/>
+    <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
+    <property name="initialPoolSize" value="${jdbc.initialPoolSize}"/>
+    <property name="maxIdleTime" value="${jdbc.maxIdleTime}"/>
+    <property name="acquireIncrement" value="${jdbc.acquireIncrement}"/>
+    <property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}"/>
+    <property name="acquireRetryDelay" value="${jdbc.acquireRetryDelay}"/>
+    <property name="idleConnectionTestPeriod" value="${jdbc.idleConnectionTestPeriod}"/>
+    <property name="checkoutTimeout" value="${jdbc.checkoutTimeout}"/>
+  </bean>
+
+  <bean id="transactionManagerA"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSourceA"/>
+  </bean>
+
+  <bean id="transactionManagerB"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSourceB"/>
+  </bean>
+
+  <bean id="transactionManager245"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSource245"/>
+  </bean>
+
+  <bean id="jdbcTemplateA"
+        class="org.springframework.jdbc.core.JdbcTemplate">
+    <property name="dataSource" ref="dataSourceA"/>
+  </bean>
+
+  <bean id="jdbcTemplateB"
+        class="org.springframework.jdbc.core.JdbcTemplate">
+    <property name="dataSource" ref="dataSourceB"/>
+  </bean>
+
+  <bean id="jdbcTemplate245"
+        class="org.springframework.jdbc.core.JdbcTemplate">
+    <property name="dataSource" ref="dataSource245"/>
+  </bean>
+
+</beans>

@@ -1,0 +1,76 @@
+C:\work\YiFaClient\YiFaClient\bin\Debug\YiFaClient.exe.config
+C:\work\YiFaClient\YiFaClient\bin\Debug\YiFaClient.exe.manifest
+C:\work\YiFaClient\YiFaClient\bin\Debug\YiFaClient.application
+C:\work\YiFaClient\YiFaClient\bin\Debug\YiFaClient.exe
+C:\work\YiFaClient\YiFaClient\bin\Debug\YiFaClient.pdb
+C:\work\YiFaClient\YiFaClient\bin\Debug\Newtonsoft.Json.dll
+C:\work\YiFaClient\YiFaClient\bin\Debug\YiFaComm.dll
+C:\work\YiFaClient\YiFaClient\bin\Debug\Newtonsoft.Json.pdb
+C:\work\YiFaClient\YiFaClient\bin\Debug\Newtonsoft.Json.xml
+C:\work\YiFaClient\YiFaClient\bin\Debug\YiFaComm.pdb
+C:\work\YiFaClient\YiFaClient\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.ClientMain.resources
+C:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.CloseNotifyWindow.resources
+C:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.FirstNotifyWindow.resources
+C:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.LoginForm.resources
+C:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.Popup.resources
+C:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.Properties.Resources.resources
+C:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.UpdateFFNotify.resources
+C:\work\YiFaClient\YiFaClient\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\work\YiFaClient\YiFaClient\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.TrustInfo.xml
+C:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.exe.manifest
+C:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.application
+C:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.exe
+C:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.pdb
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\bin\Debug\YiFaClient.exe.config
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.exe
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.pdb
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\bin\Debug\YiFaClient.exe.manifest
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\bin\Debug\YiFaClient.application
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\bin\Debug\YiFaClient.exe
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\bin\Debug\YiFaClient.pdb
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\bin\Debug\Newtonsoft.Json.dll
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\bin\Debug\YiFaComm.dll
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\bin\Debug\Newtonsoft.Json.pdb
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\bin\Debug\Newtonsoft.Json.xml
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\bin\Debug\YiFaComm.pdb
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.ClientMain.resources
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.CloseNotifyWindow.resources
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.FirstNotifyWindow.resources
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.LoginForm.resources
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.Popup.resources
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.Properties.Resources.resources
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.UpdateFFNotify.resources
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.TrustInfo.xml
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.exe.manifest
+D:\Downloads\YiFaClient (1)\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.application
+D:\work\YiFaClient\YiFaClient\bin\Debug\YiFaClient.exe.config
+D:\work\YiFaClient\YiFaClient\bin\Debug\YiFaClient.exe.manifest
+D:\work\YiFaClient\YiFaClient\bin\Debug\YiFaClient.application
+D:\work\YiFaClient\YiFaClient\bin\Debug\YiFaClient.exe
+D:\work\YiFaClient\YiFaClient\bin\Debug\YiFaClient.pdb
+D:\work\YiFaClient\YiFaClient\bin\Debug\Newtonsoft.Json.dll
+D:\work\YiFaClient\YiFaClient\bin\Debug\YiFaComm.dll
+D:\work\YiFaClient\YiFaClient\bin\Debug\Newtonsoft.Json.pdb
+D:\work\YiFaClient\YiFaClient\bin\Debug\Newtonsoft.Json.xml
+D:\work\YiFaClient\YiFaClient\bin\Debug\YiFaComm.pdb
+D:\work\YiFaClient\YiFaClient\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.ClientMain.resources
+D:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.CloseNotifyWindow.resources
+D:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.FirstNotifyWindow.resources
+D:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.forgetPassNotify.resources
+D:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.LoginForm.resources
+D:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.Popup.resources
+D:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.Properties.Resources.resources
+D:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.UpdateFFNotify.resources
+D:\work\YiFaClient\YiFaClient\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\work\YiFaClient\YiFaClient\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.TrustInfo.xml
+D:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.exe.manifest
+D:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.application
+D:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.exe
+D:\work\YiFaClient\YiFaClient\obj\x86\Debug\YiFaClient.pdb

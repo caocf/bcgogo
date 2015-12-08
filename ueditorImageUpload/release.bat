@@ -1,0 +1,1 @@
+cp -r /d/Flash\ Builder\ Workspace/bcgogoimageupload/bin-debug/ImageUploader.swf /d/Projects/bcgogo/3.0/web/src/main/webapp/js/components/themes/res/imageupload

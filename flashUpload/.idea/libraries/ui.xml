@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ui" type="flex">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/assets/ui.swc!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

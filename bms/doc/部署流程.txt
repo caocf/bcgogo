@@ -1,0 +1,7 @@
+
+部署流程
+1.进入项目目录 /bms,执行命令 mvn clean package
+2.进入路径/usr/local,新建目录bms
+3./bms/target 将bcgogo-1.0.jar拷贝到路径/usr/local/bms
+4.项目路径下prop.properties文件ip地址改写成部署环境ip
+5.在此路径下，启动服务 java -jar bcgogo-1.0.jar

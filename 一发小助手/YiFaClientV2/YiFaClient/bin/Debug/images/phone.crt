@@ -1,0 +1,59 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 1 (0x1)
+        Signature Algorithm: md5WithRSAEncryption
+        Issuer: C=CN, ST=JIANGSU, L=SUZHOU, O=BCGOGO, OU=BCGOGO, CN=BCGOGO/emailAddress=xiaokaibo@bcgogo.com
+        Validity
+            Not Before: Aug 14 03:14:09 2013 GMT
+            Not After : Aug 14 03:14:09 2014 GMT
+        Subject: C=CN, ST=JIANGSU, L=SUZHOU, O=BCGOGO, OU=BCGOGO, CN=phone.bcgogo.cn/emailAddress=xiaokaibo@bcgogo.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (1024 bit)
+                Modulus:
+                    00:c7:a1:a3:e8:8e:88:33:97:01:86:41:33:92:b2:
+                    f7:f6:78:dd:dd:48:ac:47:59:c9:67:9a:30:a1:99:
+                    d9:5c:d4:91:a7:3b:c1:0a:ce:c6:df:a4:47:e7:0d:
+                    8e:66:9b:a0:7c:0d:e1:a7:30:34:1f:85:93:0b:8b:
+                    c3:8d:38:26:50:0b:7f:4c:6c:d1:b9:68:9f:32:32:
+                    63:47:72:69:1b:a9:63:94:e3:ee:bb:06:bb:a4:25:
+                    fc:f3:b1:ea:d9:51:91:5f:fb:d4:e7:c3:93:9b:78:
+                    f6:8e:02:47:74:b9:bb:b7:36:d6:54:7f:be:04:f6:
+                    23:a4:81:2e:dc:de:d7:2a:c5
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Authority Key Identifier: 
+                keyid:D7:9E:E8:FB:0A:B7:DF:D4:25:21:31:F8:B6:9E:26:82:8A:02:DC:0E
+
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication, TLS Web Client Authentication, Microsoft Server Gated Crypto, Netscape Server Gated Crypto
+            X509v3 Basic Constraints: critical
+                CA:FALSE
+    Signature Algorithm: md5WithRSAEncryption
+        92:82:57:26:1c:d6:19:bf:66:90:bb:b4:2d:cb:fc:3b:c2:bd:
+        c4:38:28:2f:6c:98:34:07:8c:cf:89:3f:57:a6:cb:dd:0a:d2:
+        b8:ef:07:77:46:c0:b2:7c:80:67:45:56:c8:24:7b:24:18:78:
+        8d:46:c9:68:3e:f5:f5:00:ef:bb:57:02:28:63:b4:ba:09:36:
+        0d:c6:42:cb:aa:22:72:be:d4:25:ef:82:05:ac:91:1a:10:12:
+        6e:14:e5:31:bd:ea:27:4a:88:20:e5:c6:c5:5a:39:d0:88:b1:
+        8c:a8:d7:75:2c:4f:89:c1:f1:b4:cb:73:7f:d6:c4:01:ab:a0:
+        0a:96
+-----BEGIN CERTIFICATE-----
+MIIC+DCCAmGgAwIBAgIBATANBgkqhkiG9w0BAQQFADCBiDELMAkGA1UEBhMCQ04x
+EDAOBgNVBAgTB0pJQU5HU1UxDzANBgNVBAcTBlNVWkhPVTEPMA0GA1UEChMGQkNH
+T0dPMQ8wDQYDVQQLEwZCQ0dPR08xDzANBgNVBAMTBkJDR09HTzEjMCEGCSqGSIb3
+DQEJARYUeGlhb2thaWJvQGJjZ29nby5jb20wHhcNMTMwODE0MDMxNDA5WhcNMTQw
+ODE0MDMxNDA5WjCBkTELMAkGA1UEBhMCQ04xEDAOBgNVBAgTB0pJQU5HU1UxDzAN
+BgNVBAcTBlNVWkhPVTEPMA0GA1UEChMGQkNHT0dPMQ8wDQYDVQQLEwZCQ0dPR08x
+GDAWBgNVBAMTD3Bob25lLmJjZ29nby5jbjEjMCEGCSqGSIb3DQEJARYUeGlhb2th
+aWJvQGJjZ29nby5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMeho+iO
+iDOXAYZBM5Ky9/Z43d1IrEdZyWeaMKGZ2VzUkac7wQrOxt+kR+cNjmaboHwN4acw
+NB+FkwuLw404JlALf0xs0blonzIyY0dyaRupY5Tj7rsGu6Ql/POx6tlRkV/71OfD
+k5t49o4CR3S5u7c21lR/vgT2I6SBLtze1yrFAgMBAAGjZzBlMB8GA1UdIwQYMBaA
+FNee6PsKt9/UJSEx+LaeJoKKAtwOMDQGA1UdJQQtMCsGCCsGAQUFBwMBBggrBgEF
+BQcDAgYKKwYBBAGCNwoDAwYJYIZIAYb4QgQBMAwGA1UdEwEB/wQCMAAwDQYJKoZI
+hvcNAQEEBQADgYEAkoJXJhzWGb9mkLu0Lcv8O8K9xDgoL2yYNAeMz4k/V6bL3QrS
+uO8Hd0bAsnyAZ0VWyCR7JBh4jUbJaD719QDvu1cCKGO0ugk2DcZCy6oicr7UJe+C
+BayRGhASbhTlMb3qJ0qIIOXGxVo50IixjKjXdSxPicHxtMtzf9bEAaugCpY=
+-----END CERTIFICATE-----

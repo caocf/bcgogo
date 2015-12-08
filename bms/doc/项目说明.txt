@@ -1,0 +1,4 @@
+
+项目说明
+bms全称为bcgogo message system,统购消息系统
+使用activeMQ做消息框架,此项目是服务端

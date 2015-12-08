@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CppTools.Loader" reportImplicitCastToBool="false" reportNameReferencedOnce="false" version="3" compilerSelect="AUTO" />
+  <component name="IdProvider" IDEtalkID="6D24F6B0F75A545031994C18EF949411" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="flex-sdk4.10" project-jdk-type="Flex SDK Type (new)">
+    <output url="file://$PROJECT_DIR$/classes" />
+  </component>
+</project>
+
