@@ -1,0 +1,38 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <preConditions>
+        <or>
+            <dbms type="oracle"/>
+            <dbms type="mysql"/>
+        </or>
+    </preConditions>
+
+    <changeSet id="hibernate_unique_key_1" author="jimuchen">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="hibernate_unique_key"/>
+            </not>
+        </preConditions>
+        <createTable tableName="hibernate_unique_key">
+            <column name="next_hi" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <insert tableName="hibernate_unique_key">
+            <column name="next_hi" value="1000000"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="etl_1" author="jimuchen" dbms="mysql" runAlways="true">
+        <sql>SET storage_engine = InnoDB;</sql>
+    </changeSet>
+
+    <include file="etl/table/gsm_obd_status.xml"/>
+    <include file="etl/table/gsm_vehicle_info.xml"/>
+    <include file="etl/table/gsm_point.xml"/>
+    <include file="etl/table/gsm_point_trace.xml"/>
+    <include file="etl/table/gsm_vehicle_info_trace.xml"/>
+</databaseChangeLog>

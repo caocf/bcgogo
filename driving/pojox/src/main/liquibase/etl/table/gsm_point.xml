@@ -1,0 +1,77 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="zhangjuntao" id="gsm_point_1_zhangjuntao">
+        <createTable tableName="gsm_point">
+            <column name="id" type="bigint"/>
+            <column name="created" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="emi" type="varchar(50)"/>
+            <column name="app_user_no" type="varchar(50)"/>
+            <column name="state" type="int"/>
+            <column name="app_password" type="varchar(50)"/>
+            <column name="gp_group" type="varchar(50)"/>
+            <column name="cell_pos" type="varchar(50)"/>
+            <column name="lon" type="varchar(50)"/>
+            <column name="lon_dir" type="varchar(50)"/>
+            <column name="lat" type="varchar(50)"/>
+            <column name="lat_dir" type="varchar(50)"/>
+            <column name="velocity" type="varchar(50)"/>
+            <column name="heading" type="varchar(50)"/>
+            <column name="gp_date" type="bigint"/>
+            <column name="gp_time" type="bigint"/>
+            <column name="org_info" type="varchar(2000)"/>
+            <column name="gsm_vehicle_status" type="varchar(50)"/>
+        </createTable>
+        <addPrimaryKey tableName="gsm_point" columnNames="id" constraintName="pk_gsm_point"/>
+    </changeSet>
+    <changeSet author="zhangjuntao" id="gsm_point_2_zhangjuntao">
+        <addColumn tableName="gsm_point">
+            <column name="group_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="sinYuQiu" id="gsm_point_3_sinYuQiu">
+        <addColumn tableName="gsm_point">
+            <column name="upload_time" type="bigint"/>
+            <column name="upload_server_time" type="bigint"/>
+            <column name="gsm_alert_type" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="gsm_point_4_sinYuQiu" author="sinYuQiu">
+        <dropColumn tableName="gsm_point" columnName="gsm_alert_type"/>
+        <addColumn tableName="gsm_point">
+            <column name="gsm_point_type" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="gsm_point_5_sinYuQiu" author="sinYuQiu">
+        <modifyColumn tableName="gsm_point">
+            <column name="gp_date" type="varchar(20)"/>
+            <column name="gp_time" type="varchar(20)"/>
+        </modifyColumn>
+    </changeSet>
+    <changeSet id="gsm_point_6_sinYuQiu" author="sinYuQiu">
+        <addColumn tableName="gsm_point">
+            <column name="impact_strength" type="int"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="gsm_point_7_sinYuQiu" author="sinYuQiu">
+        <createIndex tableName="gsm_point" indexName="idx_gsm_point_emi">
+            <column name="emi"/>
+        </createIndex>
+        <createIndex tableName="gsm_point" indexName="idx_gsm_point_upload_time">
+            <column name="upload_time"/>
+        </createIndex>
+        <createIndex tableName="gsm_point" indexName="idx_gsm_point_upload_server_time">
+            <column name="upload_server_time"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

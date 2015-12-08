@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+                <value>classpath:log4j.properties</value>
+                <value>classpath:cfg.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Scans the classpath of this application for @Components to deploy as beans -->
+    <context:component-scan base-package="com.bcgogo.driving"/>
+
+    <context:annotation-config/>
+
+    <bean id="dataSourceTest" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+            <property name="driverClass" value="${jdbc.driver}"/>
+            <property name="jdbcUrl" value="jdbc:mysql://192.168.1.252:3306/bcuser?zeroDateTimeBehavior=convertToNull&amp;characterEncoding=utf8"/>
+            <property name="user" value="web"/>
+            <property name="password" value="web2012"/>
+            <property name="minPoolSize" value="${jdbc.miniPoolSize}"/>
+            <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
+            <property name="initialPoolSize" value="${jdbc.initialPoolSize}"/>
+            <property name="maxIdleTime" value="${jdbc.maxIdleTime}"/>
+            <property name="acquireIncrement" value="${jdbc.acquireIncrement}"/>
+            <property name="maxConnectionAge" value="20000"/>
+            <!--<property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}"/>-->
+            <!--<property name="acquireRetryDelay" value="${jdbc.acquireRetryDelay}"/>-->
+            <property name="idleConnectionTestPeriod" value="${jdbc.idleConnectionTestPeriod}"/>
+            <!--<property name="checkoutTimeout" value="${jdbc.checkoutTimeout}"/>-->
+            <property name="maxIdleTimeExcessConnections" value="${jdbc.maxIdleTimeExcessConnections}"/>
+            <property name="testConnectionOnCheckin" value="false"/>
+            <property name="testConnectionOnCheckout" value="true"/>
+        </bean>
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://192.168.124.5:23306/bcuser?zeroDateTimeBehavior=convertToNull&amp;characterEncoding=utf8"/>
+        <property name="user" value="bcshop"/>
+        <property name="password" value="BG2012@version"/>
+        <property name="minPoolSize" value="20"/>
+        <property name="maxPoolSize" value="200"/>
+        <property name="initialPoolSize" value="20"/>
+        <property name="maxIdleTime" value="10000"/>
+        <property name="acquireIncrement" value="1"/>
+        <property name="maxConnectionAge" value="20000"/>
+        <!--<property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}"/>-->
+        <!--<property name="acquireRetryDelay" value="${jdbc.acquireRetryDelay}"/>-->
+        <property name="idleConnectionTestPeriod" value="300"/>
+        <!--<property name="checkoutTimeout" value="${jdbc.checkoutTimeout}"/>-->
+        <property name="maxIdleTimeExcessConnections" value="240"/>
+        <property name="testConnectionOnCheckin" value="false"/>
+        <property name="testConnectionOnCheckout" value="true"/>
+    </bean>
+
+    <bean id="improvedNamingStrategy" class="org.hibernate.cfg.ImprovedNamingStrategy"/>
+
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="com.bcgogo.driving.model"/>
+        <property name="namingStrategy" ref="improvedNamingStrategy"/>
+        <property name="entityInterceptor">
+            <bean class="com.bcgogo.driving.model.base.TimestampInterceptor"/>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.format_sql">false</prop>
+                <!--<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl_auto}</prop>-->
+            </props>
+        </property>
+    </bean>
+
+    <bean id="txManager"
+          class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config>
+        <aop:pointcut id="bizMethods" expression="execution(* com.bcgogo.driving.service.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="bizMethods"/>
+    </aop:config>
+    <aop:config>
+        <aop:pointcut id="baseBizMethods" expression="execution(* com.bcgogo.driving.service.base.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="baseBizMethods"/>
+    </aop:config>
+
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean id="jsonHttpMessageConverter"
+                      class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+                    <!--<property name="objectMapper" ref="customObjectMapper" />-->
+                </bean>
+
+                <bean id="formHttpMessageConverter"
+                      class="org.springframework.http.converter.FormHttpMessageConverter"/>
+
+                <bean id="stringHttpMessageConverter"
+                      class="org.springframework.http.converter.StringHttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+
+
+      <!--<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">-->
+        <!--<property name="defaultContentType" value="application/json"/>-->
+        <!--<property name="mediaTypes">-->
+            <!--<map>-->
+                <!--<entry key="xml" value="application/xml"/>-->
+                <!--<entry key="html" value="text/html"/>-->
+                <!--<entry key="json" value="application/json"/>-->
+            <!--</map>-->
+        <!--</property>-->
+        <!--&lt;!&ndash;<property name="favorPathExtension" value="true"/>-->
+        <!--<property name="favorParameter" value="true"/>-->
+        <!--<property name="ignoreAcceptHeader" value="false"/>&ndash;&gt;-->
+        <!--<property name="viewResolvers">-->
+            <!--<list>-->
+                <!--&lt;!&ndash;<bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>&ndash;&gt;-->
+                <!--<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">-->
+                    <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+                    <!--<property name="suffix" value=".jsp"/>-->
+                <!--</bean>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+
+
+    <bean id="taskExecutor"
+          class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="20"/>
+        <property name="maxPoolSize" value="20"/>
+        <property name="WaitForTasksToCompleteOnShutdown" value="true"/>
+    </bean>
+
+
+
+</beans>
