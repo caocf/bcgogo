@@ -1,0 +1,79 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    
+    <!-- 违章查询 TextView 指示器样式 -->
+    <style name="transgress_query_text_indicator" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_h2</item>
+        <item name="android:gravity">right</item>
+        <item name="android:minEms">4</item>
+        <item name="android:textColor">#c000</item>
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+    
+     <style name="transgress_query_text_orange" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_h3</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minEms">2</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:background">@drawable/transgress_query_text_orange_bg</item>
+    </style>
+    
+    <style name="transgress_query_text_select" parent="@style/transgress_query_text_orange">
+        <item name="android:textColor">#7c7c7c</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:background">@drawable/transgress_query_text_select_bg</item>
+        <item name="android:drawableRight">@drawable/shopsmore</item>
+    </style>
+   
+    <style name="blue_button" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">@dimen/text_h2</item>
+        <item name="android:background">@drawable/button_blue_selector</item>
+    </style>
+    
+    <style name="Global_Match_Match">
+        <item name="android:layout_width">match_parent</item>
+         <item name="android:layout_height">match_parent</item>
+    </style>
+    
+    <style name="Global_Wrap_Wrap">
+        <item name="android:layout_width">wrap_content</item>
+         <item name="android:layout_height">wrap_content</item>
+    </style>
+    
+    <style name="Global_Match_Wrap">
+        <item name="android:layout_width">match_parent</item>
+         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+</resources>

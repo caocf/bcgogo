@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/dimen_10dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/single_btn_dialog_bg"
+        android:gravity="center"
+        android:minHeight="200dp"
+        android:minWidth="300dp"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_10dp" >
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_h2" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_negative"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/alpha_holo_blue_btn_selector"
+                android:text="@string/btn_cancel"
+                android:layout_marginRight="@dimen/dimen_10dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_h3" />
+
+            <Button
+                android:id="@+id/btn_positive"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/dtc_btn_green_selector"
+                android:text="@string/btn_confirm"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_h3" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

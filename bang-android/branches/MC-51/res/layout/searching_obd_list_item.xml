@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/query_item"
+			android:layout_width="fill_parent"
+			android:layout_height="60dp"
+			android:background="@drawable/devices_item"	    
+		    >
+		   
+    
+    
+    	<ProgressBar
+			    android:id="@+id/connecting_progressBar"
+			    style="?android:attr/progressBarStyleSmall"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_marginLeft="15dp"
+			    android:visibility="invisible"
+			    android:layout_centerVertical="true" />
+			
+			<TextView
+			    android:id="@+id/devices_name"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"				
+				android:text="123"
+				android:textColor="#0669b2"
+				android:textSize="16dp" 
+				android:layout_marginLeft="40dp"  
+				android:layout_centerVertical="true"/>
+
+		
+			
+</RelativeLayout>
+		   

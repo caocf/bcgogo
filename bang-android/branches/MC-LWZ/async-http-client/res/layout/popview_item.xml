@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center" >
+
+    <TextView
+        android:id="@+id/popview_name"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="@dimen/popup_list_child_height"
+        android:text="@string/set_data"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/text_h3" />
+
+</LinearLayout>

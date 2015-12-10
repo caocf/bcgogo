@@ -1,0 +1,274 @@
+<resources>
+
+    <string name="app_name">帮帮车驾</string>
+    <string name="pressed_back_key_one_more_time_to_exit_app">再按一次退出利宜行</string>
+    <string name="info_baidu_map_auth_failure">百度地图授权失败，请重新打开 APP</string>
+
+    <!-- update -->
+    <string name="info_app_connot_update">当前版本已是最新版</string>
+    <string name="info_update_version_now">马上升级</string>
+
+    <!-- network -->
+    <string name="network_socket_timeout">网络连接请求超时</string>
+    <string name="network_invalidate">当前网络不可用，请检查网络设置</string>
+    <string name="network_login_expire">登录过期</string>
+
+    <!-- login / register -->
+    <string name="txt_username">手机号</string>
+    <string name="txt_pwd">密码</string>
+    <string name="btn_login">登录</string>
+    <string name="txt_remember_pwd">记住密码</string>
+    <string name="title_register">注册</string>
+    <string name="btn_register">注册帐号</string>
+    <string name="btn_next_step">下一步</string>
+    <string name="txt_forgot_pwd">忘记密码</string>
+    <string name="txt_imei">IMEI</string>
+    <string name="msg_login">正在登录…</string>
+    <string name="info_please_input_phone_no">请输入手机号</string>
+    <string name="info_please_input_pwd_no">请输入密码</string>
+    <string name="info_please_input_imei">请输入 IMEI 号</string>
+    <string name="txt_info_imei_invalidate">请输入正确的 IMEI 号</string>
+    <string name="txt_info_phone_invalidate">请输入正确的手机号</string>
+
+    <!-- modify pwd -->
+    <string name="title_modify_pwd">修改密码</string>
+    <string name="txt_old_pwd">旧密码</string>
+    <string name="txt_new_pwd">新密码</string>
+    <string name="txt_confirm_pwd">确认密码</string>
+    <string name="btn_submit">提 交</string>
+    <string name="info_old_pwd_donot_empty">请输入旧密码</string>
+    <string name="info_new_pwd_donot_empty">请输入新密码</string>
+    <string name="info_confirm_pwd_donot_empty">请输入确认密码</string>
+    <string name="info_new_confirm_pwd_donot_match">两次输入的密码不一致</string>
+
+    <!-- find pwd -->
+    <string name="title_find_pwd">找回密码</string>
+    <string name="txt_hint_input_phone_no">请输入您的注册手机号</string>
+    <string name="txt_info_find_pwd">您的密码将会被重置，新的密码将会发送到您的手机中。</string>
+    <string name="btn_send_new_pwd">发送新密码</string>
+    <string name="txt_info_please_input_phone_no">请输入手机号</string>
+
+    <!-- menu -->
+    <string name="title_left_menu">常用功能</string>
+    <string name="menu_left_shop_mobile_empty">救援电话不存在</string>
+    <string name="menu_right_user_mobile">"手机号:%s"</string>
+    <string name="btn_logout">退出登录</string>
+    <string name="btn_one_key_sos">一键救援</string>
+
+    <!-- gas station -->
+    <string name="title_gas_station_list">加油站列表</string>
+    <string name="title_gas_station_map">加油站地图</string>
+
+    <!-- violation -->
+    <string name="title_violation_query">违章查询</string>
+    <string name="violation_area">地点：</string>
+    <string name="violation_action">内容：</string>
+    <string name="violation_money">金额：</string>
+    <string name="violation_score">扣分：</string>
+    <string name="subtitle_violation_query_setting">设置</string>
+    <string name="title_violation_query_setting">查询设置</string>
+    <string name="title_violation_city_select">选择城市</string>
+    <string name="hint_select_query_city">请选择城市</string>
+    <string name="violation_query_city">查询城市：</string>
+    <string name="vehicle_engine_no">发动机号：</string>
+    <string name="vehicle_frame_no">车架号：</string>
+    <string name="vehicle_register_no">登记证书号：</string>
+    <string name="txt_info_query_city_donot_empty">请选择查询城市</string>
+    <string name="txt_info_vehicle_engin_no_donot_empty">请输入发动机号</string>
+    <string name="txt_info_vehicle_frame_no_donot_empty">请输入车架号</string>
+    <string name="txt_info_register_no_donot_empty">请输入登记证书号</string>
+    <string name="txt_format_violation_count">共有%d条违章记录</string>
+    <string name="txt_info_query_timeout">查询违章超时，请重试</string>
+
+
+    <!-- refresh view last update time chache key-->
+    <string name="key_last_update_time_violation_record_listview">last_update_time_violation_record</string>
+
+    <!-- scan bar code -->
+    <string name="title_scan_bar_code">扫描 IMEI 号</string>
+
+    <!-- Home -->
+    <string name="title_home">首页</string>
+
+    <!-- driving track -->
+    <string name="title_driving_track">行车轨迹</string>
+    <string name="title_driving_track_playback">轨迹回放</string>
+    <string name="title_driving_track_detail">轨迹详情</string>
+    <string name="current_week_statistics">本周统计</string>
+    <string name="subtitle_track_statistics">行程分析</string>
+    <string name="subtitle_track_playback">轨迹回放</string>
+    <string name="current_track_average_oil">本次行程平均油耗</string>
+    <string name="average_oil">综合平均油耗</string>
+    <string name="unit_L_100KM">L/100KM</string>
+    <string name="unit_L">L</string>
+    <string name="oilwear_best">最佳</string>
+    <string name="oilwear_worst">最差</string>
+    <string name="oilwear_average">平均</string>
+    <string name="oilwear_current">本次</string>
+    <string name="format_unit_L_100Km">"%s L/100KM"</string>
+    <string name="compare_great_then">高于</string>
+    <string name="compare_less_then">低于</string>
+    <string name="compare_equals">等于</string>
+    <string name="chinese_unit">"单位：%s"</string>
+    <string name="info_driving_track_points_loading">正在加载行车轨迹,请稍候…</string>
+    <string name="info_driving_track_points_empty">当前记录没有行车轨迹</string>
+    <string name="info_vehicle_location_loading">正在获取车辆位置，请稍候…</string>
+    <string name="title_vehicle_location">车辆位置</string>
+    <string name="titlebar_right_btn_replay">重播</string>
+
+    <!-- vehicle manager -->
+    <string name="title_vehicle_manager">车辆管理</string>
+    <string name="subtitle_base_info">基本信息(必填)</string>
+    <string name="subtitle_vehicle_info">车辆信息(选填，查询违章使用)</string>
+    <string name="subtitle_maintain_remind">保养提醒(选填)</string>
+    <string name="vehicle_no">车牌号码：</string>
+    <string name="vehicle_model">车型：</string>
+    <string name="oil_price">油价：</string>
+    <string name="current_mileage">当前里程：</string>
+    <string name="maintain_cycle">保养周期：</string>
+    <string name="last_maintain_mileage">上次保养里程：</string>
+    <string name="next_maintain_time">下次保养时间：</string>
+    <string name="next_examination_time">下次验车时间：</string>
+    <string name="unit_km">KM</string>
+    <string name="unit_price">元</string>
+    <string name="x1000">"x1000 "</string>
+    <string name="btn_confirm">确定</string>
+    <string name="btn_save">保存</string>
+    <string name="txt_info_picked_date_time_must_after_now">选择的时间必须大于当前时间</string>
+    <string name="txt_info_oil_price_donot_empty">请输入油价</string>
+    <string name="txt_hint_oil_price_range">"范围为%1$d-%2$d"</string>
+    <string name="txt_info_oil_price_out_of_range">请输入正确的油价范围</string>
+    <string name="txt_info_current_mileage_donot_empty">请输入当前里程</string>
+    <string name="txt_info_maintain_period_donot_empty">请输入保养周期</string>
+    <string name="txt_info_current_mileage_too_low">当前里程太小，请重新输入</string>
+
+    <!-- appointment -->
+    <string name="title_appointment">预约服务</string>
+    <string name="appointment_vehicle_no">车牌号码：</string>
+    <string name="appointment_shop">服务店面：</string>
+    <string name="appointment_service_type">服务类型：</string>
+    <string name="appointment_time">预约时间：</string>
+    <string name="appointment_contact">联系人：</string>
+    <string name="appointment_contact_info">联系方式：</string>
+    <string name="appointment_extra">备注：</string>
+    <string name="btn_shop_detail">介绍</string>
+    <string name="appointment_date_donot_empty">请选择预约时间</string>
+    <string name="appointment_contact_donot_empty">请输入联系人</string>
+    <string name="appointment_contact_info_donot_empty">请输入联系手机号</string>
+
+    <!-- DTC manager -->
+    <string name="title_dtc_status_query">车况查询</string>
+    <string name="title_dtc_manager">故障查询</string>
+    <string name="item_list_dtc_code">故障码：</string>
+    <string name="item_list_dtc_type">故障类型：</string>
+    <string name="item_list_dtc_desc">故障描述：</string>
+    <string name="btn_handled">已处理</string>
+    <string name="btn_delete">删除</string>
+    <string name="btn_background_knowledge">背景知识</string>
+    <string name="tab_unhandle_dtc">当前故障</string>
+    <string name="tab_handled_dtc">历史故障</string>
+    <string name="btn_titlebar">预约维修</string>
+    <string name="info_no_more_data">已是最后一页</string>
+
+    <!-- paylist manager -->
+    <string name="title_pay_list_manager">我的账单</string>
+    <string name="tab_paid">已结算</string>
+    <string name="tab_unpay">未结算</string>
+    <string name="txt_total_money">总计：</string>
+    <string name="item_list_pay_type">账单类型：</string>
+    <string name="item_list_unpay_status">账单状态：</string>
+    <string name="item_list_paid_money">账单金额：</string>
+    <string name="format_paid_total_money">"￥ %.1f"</string>
+
+    <!-- paid detail 账单详情 -->
+    <string name="title_paid_detail">账单详情</string>
+    <string name="paid_no">单据号：</string>
+    <string name="paid_type">账单类型：</string>
+    <string name="paid_money">账单金额：</string>
+    <string name="paid_vehicle_no">车牌：</string>
+    <string name="paid_vehicle_type">车型：</string>
+    <string name="paid_timestamp">时间：</string>
+    <string name="paid_contact">联系人：</string>
+    <string name="paid_phone_no">联系电话：</string>
+    <string name="title_payment_detail">消费明细</string>
+    <string name="subtitle_payment_service">服务项目</string>
+    <string name="subtitle_payment_product">购买商品</string>
+
+    <!-- shop detail -->
+    <string name="title_shop_detail">店铺详情</string>
+    <string name="txt_info_shop_landline_empty">暂无电话</string>
+
+    <!-- my device -->
+    <string name="title_my_device">我的设备</string>
+    <string name="device_no">设备编号：</string>
+    <string name="primary_phone_no">主控号码：</string>
+    <string name="txt_hint_primary_phone_no">设置主控号码</string>
+    <string name="btn_send_sms">发送短信</string>
+    <string name="txt_info_primary_phone_no">主控号码：车辆故障及报警信息的主要接收方，建议设置为车主手机号码。</string>
+    <string name="txt_info_sos_phone_no">救援号码：车辆故障及报警信息接收方，建议设置为亲人手机号码及4S店救援号码。</string>
+    <string name="phone_no_1">救援号码 1：</string>
+    <string name="phone_no_2">救援号码 2：</string>
+    <string name="phone_no_3">救援号码 3：</string>
+    <string name="txt_hint_phone_no">设置救援号码</string>
+    <string name="info_sent_success">短信发送成功</string>
+    <string name="info_primary_phone_no_donot_empty">请输入主控号码</string>
+    <string name="info_sos_phone_no_donot_empty">请输入至少一个救援号码</string>
+    <string name="info_sim_card_absent">请先插入 SIM 卡</string>
+
+    <!-- polling vehicle location service -->
+    <string name="desc_service_polling_vehicle_location">车辆位置定位服务</string>
+    <string name="query_vehicle_location_failure">车辆位置信息获取失败</string>
+
+    <!-- message manager -->
+    <string name="title_message_manager">消息中心</string>
+    <string name="dialog_dtc_message_content">"您的爱车出现 %d 处故障"</string>
+    <string name="dialog_dtc_message_confirm">马上处理</string>
+    <string name="content_title_notification">"%s 提醒您"</string>
+    <string name="content_text_notification">"您有 %d 条新消息，点击查看"</string>
+    <string name="content_ticker_notification">"来自 %s 的消息"</string>
+    <string name="no_more_data">没有更多的信息了</string>
+    <string name="btn_cancel">取消</string>
+    <string name="info_is_delete_message">是否删除该条消息？</string>
+
+    <!-- shop notice -->
+    <string name="title_4s_shop">4S店公告</string>
+    <string name="title_4s_shop_detail">4S店公告详情</string>
+    <string name="txt_pull_to_load_old_notice">下拉加载历史公告</string>
+    <string name="txt_release_to_load_old_notice">释放立即加载…</string>
+    <string name="format_shop_notice_timestamp">"%1$s 至 %2$s 有效"</string>
+    <string name="txt_forever">永久</string>
+
+    <!-- vehicle data statistic -->
+    <string name="title_vehicle_data_statistic">数据统计</string>
+    <string name="tab_data_statistic">统计</string>
+    <string name="tab_data_chart">图表</string>
+    <string name="item_list_mileage">总里程：</string>
+    <string name="item_list_oilwear">总油耗：</string>
+    <string name="item_list_avg_oilwear">平均油耗：</string>
+    <string name="item_list_money">总花费：</string>
+    <string name="subtitle_mileage">总里程</string>
+    <string name="subtitle_oilwear">总油耗</string>
+    <string name="subtitle_avg_oilwear">平均油耗</string>
+    <string name="subtitle_money">总花费</string>
+    <string name="format_YYYY_MM">"%1$d 年 %2$d 月"</string>
+    <string name="format_YYYY_MM_to_now">"%1$d 年 %2$d 月 - 至今"</string>
+    <string name="format_unit">"单位：%s"</string>
+    <string name="format_MM">"%s月"</string>
+
+    <!-- edit vehicle no -->
+    <string name="title_edit_vehicle_no">修改车牌号</string>
+    <string name="info_vehicle_no_incorrect">请输入正确的车牌号</string>
+
+    <!-- query movie -->
+    <string name="title_query_video">视频查看</string>
+    <string name="list_title_type">碰撞时间</string>
+    <string name="list_title_time">碰撞时间</string>
+    <string name="list_title_addr">碰撞地点</string>
+    <string name="list_title_car_id">碰撞时间</string>
+    <string name="list_title_upload_status">碰撞时间</string>
+    <string name="title_play_video">视频播放</string>
+
+    <!-- take picture -->
+    <string name="title_query_photograph">主动拍照</string>
+
+</resources>

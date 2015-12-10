@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_launcher"
+    android:insetLeft="@dimen/dimen_10dp"
+    android:insetRight="@dimen/dimen_10dp"
+    android:insetTop="@dimen/dimen_10dp"
+    android:insetBottom="@dimen/dimen_10dp" >
+   
+
+</inset>

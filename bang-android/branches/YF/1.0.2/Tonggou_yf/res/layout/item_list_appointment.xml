@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:indicatorView="http://schemas.android.com/apk/res/com.tonggou.yf.andclient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="@dimen/dimen_10dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_todo_list_item_border"
+        android:orientation="vertical" >
+
+        <com.tonggou.yf.andclient.widget.view.IndicatorTextView
+            android:id="@+id/appointment_time_indicator_text"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/todo_list_item_row_height"
+            android:background="@drawable/bg_todo_list_item_title"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/dimen_10dp"
+            indicatorView:leftIndicatorText="@string/indicator_appointment_time"
+            indicatorView:leftIndicatorTextColor="@color/black"
+            indicatorView:leftIndicatorTextLength="5"
+            indicatorView:mainTextViewTextColor="@color/holo_blue" />
+
+        <com.tonggou.yf.andclient.widget.view.IndicatorTextView
+                android:id="@+id/service_type_indicator_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/todo_list_item_row_height"
+                android:background="@drawable/bg_divider_horizontal"
+                android:layout_margin="1dp"
+                android:padding="@dimen/dimen_10dp"
+                indicatorView:leftIndicatorText="@string/indicator_service_type"
+                indicatorView:leftIndicatorTextColor="@color/gray_deep"
+                indicatorView:leftIndicatorTextLength="5"
+                indicatorView:mainTextViewTextColor="@color/gray_deep" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/todo_list_item_row_height"
+            android:background="@drawable/bg_divider_horizontal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <com.tonggou.yf.andclient.widget.view.IndicatorTextView
+                android:id="@+id/vehicle_no_indicator_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="@dimen/dimen_10dp"
+                indicatorView:leftIndicatorText="@string/indicator_vehicle_no"
+                indicatorView:leftIndicatorTextColor="@color/gray_deep"
+                indicatorView:leftIndicatorTextLength="3"
+                indicatorView:mainTextViewTextColor="@color/gray_deep" />
+
+            <com.tonggou.yf.andclient.widget.view.IndicatorTextView
+                android:id="@+id/vehicle_owner_indicator_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="@dimen/dimen_10dp"
+                indicatorView:leftIndicatorText="@string/indicator_vehicle_owner"
+                indicatorView:leftIndicatorTextColor="@color/gray_deep"
+                indicatorView:leftIndicatorTextLength="3"
+                indicatorView:mainTextViewTextColor="@color/gray_deep" />
+        </LinearLayout>
+
+        <include 
+            layout="@layout/widget_handle_btn_container_accept_time"/>
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_corner_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView 
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_h1"
+        android:padding="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:text="背景知识"
+        android:gravity="center"/>
+    
+    <View
+        android:id="@+id/devider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/title"
+        android:background="@drawable/divide_list" />
+    
+    <ImageButton 
+        android:id="@+id/dismiss_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_dismiss_btn"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/devider"
+        android:background="@null"/>
+    
+    <TextView 
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:padding="10dp"
+        android:layout_below="@id/devider"
+        android:textSize="@dimen/text_h3"
+        android:gravity="left|top"
+        android:lines="20"
+        android:scrollbars="vertical"
+        android:text="..." />
+    
+</RelativeLayout>

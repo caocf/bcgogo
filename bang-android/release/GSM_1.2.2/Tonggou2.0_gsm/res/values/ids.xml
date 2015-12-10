@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="ptr_view" />
+    <item type="id" name="map_fragment" />
+    <item type="id" name="tab_first" />
+    <item type="id" name="tab_second" />
+</resources>

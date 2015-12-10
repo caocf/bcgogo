@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="integer" name="fragment_switch_anim_duration">300</item>
+    <item type="integer" name="imei_max_length">20</item>
+    <item type="integer" name="phone_num_max_length">11</item>
+    <item type="integer" name="pwd_max_length">20</item>
+    <item type="integer" name="maintain_period_max_length">5</item>
+    <item type="integer" name="oilprice_min_value">5</item>
+    <item type="integer" name="oilprice_max_value">15</item>
+    <item type="integer" name="mileage_max_lengh">6</item>
+    <item type="integer" name="violation_edit_max_length">25</item>
+</resources>

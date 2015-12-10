@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Global_Match_Match"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/ll_driving_journal_pull_layout_super"
+        style="@style/Global_Match_Match"
+        android:background="@drawable/bg_driving_journal_pull_layout"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/ll_driving_journal_datas"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/vehicle_condition_datas_height"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                style="@style/Global_horizontal_weight"
+                android:orientation="vertical" >
+
+                <ImageView
+                    style="@style/imgView_driving_journal_style1"
+                    android:src="@drawable/icon_driving_distance" />
+
+                <TextView
+                    android:id="@+id/txt_driving_distance"
+                    style="@style/txt_driving_journal_style1"
+                    android:text="0.0km" />
+
+                <TextView
+                    style="@style/txt_driving_journal_style2"
+                    android:text="行车里程" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Global_horizontal_weight"
+                android:orientation="vertical" >
+
+                <ImageView
+                    style="@style/imgView_driving_journal_style1"
+                    android:src="@drawable/icon_driving_time" />
+
+                <TextView
+                    android:id="@+id/txt_driving_time"
+                    style="@style/txt_driving_journal_style1"
+                    android:singleLine="true"
+                    android:text="0.0h" />
+
+                <TextView
+                    style="@style/txt_driving_journal_style2"
+                    android:text="行车时长" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Global_horizontal_weight"
+                android:orientation="vertical" >
+
+                <ImageView
+                    style="@style/imgView_driving_journal_style1"
+                    android:src="@drawable/icon_driving_oil_wear" />
+
+                <TextView
+                    android:id="@+id/txt_driving_oil_wear"
+                    style="@style/txt_driving_journal_style1"
+                    android:text="0L" />
+
+                <TextView
+                    style="@style/txt_driving_journal_style2"
+                    android:text="耗油量" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Global_horizontal_weight"
+                android:orientation="vertical" >
+
+                <ImageView
+                    style="@style/imgView_driving_journal_style1"
+                    android:src="@drawable/icon_driving_oil_cost" />
+
+                <TextView
+                    android:id="@+id/txt_driving_oil_cost"
+                    style="@style/txt_driving_journal_style1"
+                    android:text="￥0.0" />
+
+                <TextView
+                    style="@style/txt_driving_journal_style2"
+                    android:text="油费" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/Global_Match_Wrap"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/ll_driving_journal_arrow"
+                style="@style/Global_Match_Wrap"
+                android:gravity="center_horizontal|bottom"
+                android:orientation="vertical"
+                android:paddingBottom="10dp" >
+
+                <TextView
+                    style="@style/Global_Wrap_Wrap"
+                    android:text="今天"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/imgView_driving_journal_arrow"
+                    style="@style/Global_Wrap_Wrap"
+                    android:layout_marginTop="7dp"
+                    android:src="@drawable/icon_arrow1_down" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_driving_journal_calendar"
+                style="@style/Global_Match_Wrap"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    style="@style/Global_Match_Wrap"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/imgView_driving_journal_calendar_day"
+                        style="@style/Global_Wrap_Wrap"
+                        android:layout_marginRight="20dp"
+                        android:src="@drawable/icon_calendar_day_selected" />
+
+                    <ImageView
+                        android:id="@+id/imgView_driving_journal_calendar_week"
+                        style="@style/Global_Wrap_Wrap"
+                        android:layout_marginRight="20dp"
+                        android:src="@drawable/icon_calendar_week_normal" />
+
+                    <ImageView
+                        android:id="@+id/imgView_driving_journal_calendar_month"
+                        style="@style/Global_Wrap_Wrap"
+                        android:src="@drawable/icon_calendar_month_normal" />
+                </LinearLayout>
+
+                <com.tonggou.andclient.DrivingJournalCalendarLayout
+                    android:id="@+id/djcl_driving_journal_calendar"
+                    style="@style/Global_Wrap_Wrap"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="3dp"
+                    android:scrollbars="none" >
+                </com.tonggou.andclient.DrivingJournalCalendarLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:drawable="@drawable/blank_page_downloading_one_and_five" android:duration="85" />
+    <item android:drawable="@drawable/blank_page_downloading_two_and_four" android:duration="85" />
+    <item android:drawable="@drawable/blank_page_downloading_three" android:duration="85" />
+    <item android:drawable="@drawable/blank_page_downloading_two_and_four" android:duration="85" />
+    <item android:drawable="@drawable/blank_page_downloading_one_and_five" android:duration="85" />
+    <item android:drawable="@drawable/blank_page_downloading_six_and_eight" android:duration="85" />
+    <item android:drawable="@drawable/blank_page_downloading_seven" android:duration="85" />
+    <item android:drawable="@drawable/blank_page_downloading_six_and_eight" android:duration="85" />
+</animation-list>

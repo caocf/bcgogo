@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/registerback"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <com.tonggou.andclient.myview.SimpleTitleBar
+        android:id="@id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="5"
+                    android:gravity="right"
+                    android:text="@string/register_carname"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/text_h2" />
+
+                <EditText
+                    android:id="@+id/vehicle_no"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/register_editback"
+                    android:padding="5dp"
+                    android:inputType="textCapCharacters|textCapWords|textCapSentences"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="5"
+                    android:gravity="right"
+                    android:text="@string/register_carnum"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/text_h2" />
+
+                 <LinearLayout
+                    android:id="@+id/cartype_mode"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/select_brand_btn"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:background="@drawable/register_editback"
+                        android:gravity="center"
+                        android:hint="+品牌"
+                        android:singleLine="true"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/text_h3"
+                        android:onClick="onSelectBrandBtnClick" />
+
+                    <Button
+                        android:id="@+id/select_type_btn"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/register_editback"
+                        android:gravity="center"
+                        android:hint="+车型"
+                        android:singleLine="true"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/text_h3"
+                        android:onClick="onSelectTypeBtnClick" />
+                </LinearLayout>
+            </LinearLayout>
+            
+            <Button
+                style="@style/blue_button"
+                android:layout_marginTop="20dp"
+                android:text="确定信息"
+                android:onClick="onBtnOkClick" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

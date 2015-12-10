@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_20dp" >
+
+        <EditText
+            android:id="@+id/phoneNo_editText"
+            style="@style/register_editText"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:inputType="phone"
+            android:hint="@string/txt_hint_input_phone_no"
+            android:maxLength="@integer/phone_num_max_length"
+            android:textSize="@dimen/text_h3" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_info_find_pwd"
+            android:textColor="@color/holo_red"
+            android:textSize="@dimen/text_h3" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/holo_blue_btn_selector"
+            android:text="@string/btn_send_new_pwd"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_h2"
+            android:onClick="onSendNewPwdBtnClick" />
+    </LinearLayout>
+
+</LinearLayout>

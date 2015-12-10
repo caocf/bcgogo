@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout 
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent" 
+  android:layout_gravity="center"
+  android:background="#FFFFFF"> 
+  <!-- 顶部bar -->
+  <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/loginheadback" >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/title_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/set_bindcar_title"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+        <ProgressBar
+            android:id="@+id/ topbar_progress"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:visibility="invisible"/>
+       
+    </RelativeLayout>
+<RelativeLayout 
+    android:id="@+id/searchview"   
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/title"
+    android:background="@drawable/searchback">    
+  <TextView
+      android:id="@+id/book_search_sure"
+      android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:layout_marginRight="5dp"
+	  android:layout_marginLeft="5dp"
+	  android:gravity="center"
+	  android:text="@string/button_ok"
+	  android:textColor="#ffffff"
+      android:textSize="20dp"
+ 	  android:background="@drawable/searchbutton"
+	  android:layout_alignParentRight="true"
+	  android:layout_centerVertical="true"/>
+  <RelativeLayout 
+      android:id="@+id/book_search"   
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"  
+      android:layout_marginLeft="10dp"
+      android:layout_marginRight="5dp"
+	  android:layout_centerVertical="true"
+      android:layout_toLeftOf="@id/book_search_sure"
+      android:background="@drawable/search_bg"> 
+    <ImageView
+        android:id="@+id/book_search_icon"
+        android:layout_marginLeft="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_icon"
+        android:layout_centerVertical="true"/>
+   <EditText
+        android:id="@+id/book_search_et"
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:imeOptions="actionSearch"
+	    android:inputType="text"
+	    android:singleLine="true"
+	    android:ellipsize="end"
+	    android:isScrollContainer="true"
+	    android:layout_centerVertical="true"
+	    android:layout_toRightOf="@id/book_search_icon"
+	    android:background="#00000000"
+	    android:textSize="16sp" />
+	<ImageView
+        android:id="@+id/book_search_close_icon"
+        android:visibility="gone"
+        android:layout_marginRight="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/x"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"/>
+ </RelativeLayout>
+ 
+</RelativeLayout>
+   
+  
+   <RelativeLayout 
+      android:id="@+id/nameListView"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:background="#666666"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:paddingLeft="1dp"
+      android:paddingRight="1dp"
+      android:paddingBottom="1dp"
+      android:layout_below="@id/searchview">     
+     <ListView
+		 android:id="@+id/nameList"
+		 android:layout_width="wrap_content"
+		 android:layout_height="wrap_content"		
+		 android:cacheColorHint="#00000000"
+		 android:listSelector="#00000000"
+		 android:dividerHeight="1dp"
+		 android:divider="#666666"
+		 android:fadingEdge="none" 
+		 android:scrollbars="none" 
+		 android:background="#FFFFFF"/>    
+	</RelativeLayout>
+</RelativeLayout>

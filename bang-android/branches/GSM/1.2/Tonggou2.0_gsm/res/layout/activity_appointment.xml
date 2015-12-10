@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:indicator="http://schemas.android.com/apk/res/com.tonggou.gsm.andclient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorTextView
+                android:id="@+id/shop_indicator_edit"
+                style="@style/indicator_edittext"
+                indicator:leftIndicatorTextLength="5"
+                indicator:leftIndicatorTextColor="@color/gray"
+                indicator:indicatorTextSize="@dimen/text_h3"
+                indicator:leftIndicatorText="@string/appointment_shop" />
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorTextView
+                android:id="@+id/vehicle_no_indicator_edit"
+                style="@style/indicator_edittext"
+                indicator:leftIndicatorTextLength="5"
+                indicator:indicatorTextSize="@dimen/text_h3"
+                indicator:leftIndicatorTextColor="@color/gray"
+                indicator:leftIndicatorText="@string/appointment_vehicle_no" />
+            
+            <com.tonggou.gsm.andclient.ui.view.IndicatorSpinner
+                android:id="@+id/service_type_indicator_spinner"
+                style="@style/indicator_edittext"
+                indicator:leftIndicatorTextLength="5"
+                indicator:indicatorTextSize="@dimen/text_h3"
+                indicator:leftIndicatorTextColor="@color/gray"
+                indicator:leftIndicatorText="@string/appointment_service_type" />
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorTextView
+                android:id="@+id/appointment_time_indicator_edit"
+                style="@style/indicator_edittext"
+                indicator:leftIndicatorTextLength="5"
+                indicator:indicatorTextSize="@dimen/text_h3"
+                indicator:leftIndicatorTextColor="@color/gray"
+                indicator:leftIndicatorText="@string/appointment_time" />
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorEditText
+                android:id="@+id/contact_indicator_edit"
+                style="@style/indicator_edittext"
+                indicator:leftIndicatorTextLength="5"
+                indicator:indicatorTextSize="@dimen/text_h3"
+                indicator:leftIndicatorTextColor="@color/gray"
+                indicator:leftIndicatorText="@string/appointment_contact" />
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorEditText
+                android:id="@+id/contact_info_indicator_edit"
+                style="@style/indicator_edittext"
+                indicator:leftIndicatorTextLength="5"
+                indicator:leftIndicatorTextColor="@color/gray"
+                indicator:indicatorTextSize="@dimen/text_h3"
+                indicator:mainTextViewInputType="phone"
+                indicator:mainTextViewMaxLength="11"
+                indicator:leftIndicatorText="@string/appointment_contact_info" />
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorEditText
+                android:id="@+id/extra_indicator_edit"
+                style="@style/indicator_edittext"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dimen_10dp"
+                android:minHeight="@dimen/indicator_edit_text_height"
+                android:background="@color/white"
+                indicator:leftIndicatorTextLength="5"
+                indicator:mainTextViewMinLine="5"
+                indicator:leftIndicatorTextColor="@color/gray"
+                indicator:mainTextViewBackground="@drawable/black_border_white_content_bg"
+                indicator:indicatorTextSize="@dimen/text_h3"
+                indicator:leftIndicatorText="@string/appointment_extra" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

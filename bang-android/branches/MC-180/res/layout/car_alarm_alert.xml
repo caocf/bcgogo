@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/searchpasswordbk"
+    android:gravity="center"
+    android:padding="20dp"
+    android:orientation="vertical" >
+
+  <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView 
+	        android:id="@+id/portrait_imgview"
+	        android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/alarm1"
+			
+	        />
+        
+        <TextView
+        android:id="@+id/alarm_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="立即处理"
+        android:textColor="#ffffff"
+        android:textSize="20dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/content_text_alert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="16dp" 
+        android:textColor="#ffffff" 
+        android:text="发动机出问题！！"/>
+
+    <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+        android:id="@+id/connect_again"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/connect_obd_ok"
+        android:gravity="center"
+        android:text="知道了"
+        android:padding="5dp"
+        android:textColor="#ffffff"
+        android:textSize="16dp" />
+        
+        <TextView
+        android:id="@+id/connect_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/connect_obd_retry"
+        android:gravity="center"
+        android:text="立即处理"
+          android:padding="5dp"
+        android:textColor="#ffffff"
+        android:textSize="16dp" />
+    </LinearLayout>
+    
+
+</LinearLayout>

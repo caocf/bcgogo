@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Global_Match_Match"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <include layout="@layout/my_vehicle_condition_top" />
+
+    <FrameLayout style="@style/Global_Match_Match" >
+
+        <LinearLayout
+            style="@style/Global_Match_Match"
+            android:orientation="vertical" >
+
+            <include
+                android:id="@+id/ll_curr_condtion_datas"
+                layout="@layout/curr_condition_datas" />
+
+            <FrameLayout style="@style/Global_Match_Wrap" >
+
+                <com.baidu.mapapi.map.MapView
+                    android:id="@+id/mv_vehicle_condition"
+                    style="@style/Global_Match_Match" >
+                </com.baidu.mapapi.map.MapView>
+
+                <LinearLayout
+                    android:id="@+id/ll_vehicle_condition_clip"
+                    style="@style/Global_Match_Match"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+
+                    <ProgressBar
+                        android:id="@+id/pb_vehicle_condition_clip"
+                        style="@style/Global_Wrap_Wrap"
+                        android:indeterminateDrawable="@drawable/progressbar_style" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <ListView
+                android:id="@+id/lv_driving_journal"
+                style="@style/Global_Match_Match"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="7dp"
+                android:cacheColorHint="#00000000"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="7dp"
+                android:listSelector="@android:color/transparent"
+                android:scrollbars="none" >
+            </ListView>
+        </LinearLayout>
+
+        <com.tonggou.andclient.DrivingJournalPullLayout
+            android:id="@+id/djpl_journal_pull_layout"
+            style="@style/Global_Match_Wrap"
+            android:visibility="gone" >
+        </com.tonggou.andclient.DrivingJournalPullLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_curr_condtion_dtc_head"
+            style="@style/Global_Wrap_Wrap"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp" >
+
+            <ImageView
+                android:id="@+id/iv_curr_condtion_no_dtc"
+                style="@style/Global_Wrap_Wrap"
+                android:src="@drawable/icon_vehicle_condition_no_dtc"
+                android:visibility="gone" />
+
+            <FrameLayout
+                android:id="@+id/fl_curr_condtion_dtc"
+                style="@style/Global_Wrap_Wrap" >
+
+                <ImageView
+                    android:id="@+id/iv_curr_condtion_dtc1"
+                    style="@style/Global_Wrap_Wrap"
+                    android:src="@drawable/icon_vehicle_condition_dtc_shine" />
+
+                <ImageView
+                    android:id="@+id/iv_curr_condtion_dtc2"
+                    style="@style/Global_Wrap_Wrap"
+                    android:layout_gravity="center"
+                    android:src="@drawable/vehicle_condition_dtc_shine" />
+            </FrameLayout>
+        </FrameLayout>
+    </FrameLayout>
+
+</LinearLayout>

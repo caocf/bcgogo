@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="@dimen/dimen_10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/black_border_white_content_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/item_list_title"
+            android:padding="@dimen/dimen_1dp" >
+
+           <TextView
+                android:id="@+id/voucher_cost_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="代金券类型"
+                android:textColor="@color/gray"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/item_list_title"
+            android:padding="@dimen/dimen_1dp" >
+ 
+            <TextView
+                android:id="@+id/voucher_cost_amount"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="+100.00"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:textColor="@color/gray"/>
+        </LinearLayout>
+
+       <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/item_list_title"
+            android:padding="@dimen/dimen_1dp" >
+           
+            <TextView
+                android:id="@+id/voucher_cost_item"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="保险消费"
+                android:textColor="@color/gray"/>
+        </LinearLayout>
+
+       <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/item_list_title"
+            android:padding="@dimen/dimen_1dp" >
+
+            <TextView
+                android:id="@+id/voucher_cost_addr"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="胜浦汽修店"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:textColor="@color/gray"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/item_list_title"
+            android:padding="@dimen/dimen_1dp" >
+
+           <TextView
+                android:id="@+id/voucher_cost_date"
+                android:layout_gravity="right"
+                android:text="2015.8.15 14:25:25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</FrameLayout>

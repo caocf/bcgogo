@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Global_Match_Match" >
+
+    <LinearLayout style="@style/Global_Match_Match" >
+
+        <GridView
+            android:id="@+id/gv_driving_journal_calendar"
+            style="@style/Global_Match_Match"
+            android:background="@android:color/transparent"
+            android:cacheColorHint="@android:color/transparent"
+            android:listSelector="@android:color/transparent"
+            android:stretchMode="none" >
+        </GridView>
+    </LinearLayout>
+
+</HorizontalScrollView>

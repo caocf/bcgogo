@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">一发软件</string>
+    <string name="info_loading">正在加载,请稍候…</string>
+    <string name="info_pressed_back_key_one_more_time_to_exit_app">再按一次退出帮帮车驾</string>
+    <string name="info_no_more_data">没有更多数据了</string>
+    <string name="info_no_version_update">当前版本已是最新版</string>
+    <string name="info_has_version_update">有新版本更新</string>
+    <string name="dialog_btn_comfirm">确定</string>
+    <string name="info_loading_update_check">正在检测新版本…</string>
+    <string name="info_loading_logout">正在登出…</string>
+    <string name="format_current_username">当前用户：%s</string>
+
+    <!-- main activity -->
+    <string name="title_main">待办事项</string>
+    <string name="txt_btn_update_version">版本更新</string>
+    <string name="txt_btn_logout">退出登录</string>
+    <string name="format_version">V %s</string>
+    <string name="txt_no_more_data">没有待办事项</string>
+
+    <!-- login -->
+    <string name="txt_username">用户名</string>
+    <string name="txt_pwd">密码</string>
+    <string name="btn_login">登录</string>
+    <string name="txt_remember_pwd">记住密码</string>
+    <string name="info_please_input_phone_no">请输入手机号</string>
+    <string name="info_please_input_username">请输入用户名</string>
+    <string name="info_please_input_pwd">请输入密码</string>
+    <string name="info_phone_invalidate">请输入正确的手机号</string>
+    <string name="info_login_loading">正在登录中…</string>
+    <string name="dialog_title_login_express">登录过期</string>
+    <string name="dialog_msg_login_express">请重新登录</string>
+
+    <!-- todo page -->
+    <string name="dialog_title_sms_templet">短信内容</string>
+    <string name="dialog_btn_send_sms">发送</string>
+    <string name="info_please_pull_up_load_data">请上拉加载更多数据</string>
+    <string name="info_loading_sms_templet">正在获取短信模板…</string>
+    <string name="info_load_sms_templet_failure">短信模板获取失败</string>
+    <string name="info_loading_send_sms">正在发送短信…</string>
+    <string name="info_send_sms_failure">发送短信失败</string>
+    <string name="info_send_sms_success">发送短信成功</string>
+    <string name="info_loading_handle">正在处理…</string>
+    <string name="info_handle_success">处理成功</string>
+    <string name="info_handle_failure">处理失败</string>
+    <string name="info_accept_success">接受成功</string>
+    <string name="info_accept_failure">接受失败</string>
+    <string name="info_change_time_success">修改成功</string>
+    <string name="info_change_time_failure">修改失败</string>
+    <string name="info_unfind_sim_card">请插入 SIM 卡</string>
+
+    
+    <!-- dtc page -->
+    <string name="title_dtc">故障</string>
+    <string name="indicator_dtc_type">类型：</string>
+    <string name="indicator_vehicle_no">车牌：</string>
+    <string name="indicator_vehicle_owner">车主：</string>
+    <string name="indicator_dtc_desc">描述：</string>
+    <string name="btn_handled_send_sms">发送短信</string>
+    <string name="btn_handled_phone_call">拨打电话</string>
+    <string name="btn_handled">已处理</string>
+
+    <!-- maintain page -->
+    <string name="title_maintain">保养</string>
+    <string name="indicator_maintain_mileage">距离保养里程：</string>
+    <string name="format_maintain_mileage_beyond">超出 %1.0f KM</string>
+    <string name="format_maintain_mileage_left">还剩 %1.0f KM</string>
+
+    <!-- appointment page -->
+    <string name="title_appointment">预约</string>
+    <string name="indicator_appointment_time">预约时间：</string>
+    <string name="indicator_service_type">服务类型：</string>
+    <string name="btn_handled_accept">接受</string>
+    <string name="btn_handled_change_time">更改服务时间</string>
+    
+    <!-- change service time activity -->
+    <string name="btn_titlebar_right">完成</string>
+    <string name="info_datetime_invalidate">选择的时间必须大于当前时间</string>
+    <string name="subtitle_date_picker">预约日期</string>
+    <string name="subtitle_time_picker">预约时间</string>
+
+</resources>

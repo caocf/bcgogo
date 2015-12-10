@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res/com.tonggou.yf.andclient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/ptr_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="#00000000"
+        android:scrollbarThumbVertical="@drawable/bg_scrollbar_thumb"
+        android:scrollbarTrackVertical="@drawable/bg_scrollbar_track"
+        android:choiceMode="singleChoice"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        ptr:ptrDrawable="@drawable/ic_refresh_arrow"
+        ptr:ptrHeaderBackground="@drawable/bg_ptr_header"
+        ptr:ptrHeaderSubTextColor="@color/white"
+        ptr:ptrHeaderTextColor="@color/white"/>
+</LinearLayout>

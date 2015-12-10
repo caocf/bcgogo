@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:indicatorView="http://schemas.android.com/apk/res/com.tonggou.yf.andclient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="@dimen/dimen_10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_todo_list_item_border"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/todo_list_item_row_height"
+            android:background="@drawable/bg_todo_list_item_title"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_10dp" >
+
+            <com.tonggou.yf.andclient.widget.view.IndicatorTextView
+                android:id="@+id/dtc_type_indicator_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                indicatorView:leftIndicatorText="@string/indicator_dtc_type"
+                indicatorView:leftIndicatorTextColor="@color/black"
+                indicatorView:leftIndicatorTextLength="3"
+                indicatorView:mainTextViewTextColor="@color/black" />
+
+            <TextView
+                android:id="@+id/timestamp_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="2014-05-15"
+                android:textColor="@color/gray_deep" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/todo_list_item_row_height"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_divider_horizontal" >
+
+            <com.tonggou.yf.andclient.widget.view.IndicatorTextView
+                android:id="@+id/vehicle_no_indicator_text"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:padding="@dimen/dimen_10dp"
+                indicatorView:leftIndicatorText="@string/indicator_vehicle_no"
+                indicatorView:leftIndicatorTextColor="@color/gray_deep"
+                indicatorView:leftIndicatorTextLength="3"
+                indicatorView:mainTextViewTextColor="@color/gray_deep" />
+            
+            <Button
+                android:id="@+id/handled_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/btn_handled"
+                android:textSize="@dimen/text_h2"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:background="@drawable/selector_handled_btn"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+        
+        <com.tonggou.yf.andclient.widget.view.IndicatorTextView
+                android:id="@+id/vehicle_owner_indicator_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/todo_list_item_row_height"
+                android:layout_margin="1dp"
+                android:background="@drawable/bg_divider_horizontal"
+                android:padding="@dimen/dimen_10dp"
+                indicatorView:leftIndicatorText="@string/indicator_vehicle_owner"
+                indicatorView:leftIndicatorTextColor="@color/gray_deep"
+                indicatorView:leftIndicatorTextLength="3"
+                indicatorView:mainTextViewTextColor="@color/gray_deep" />
+
+        <com.tonggou.yf.andclient.widget.view.IndicatorTextView
+            android:id="@+id/dtc_desc_indicator_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+			android:minHeight="@dimen/todo_list_item_row_height"
+            android:background="@drawable/bg_divider_horizontal"
+            android:padding="@dimen/dimen_10dp"
+            indicatorView:leftIndicatorText="@string/indicator_dtc_desc"
+            indicatorView:leftIndicatorTextColor="@color/gray_deep"
+            indicatorView:leftIndicatorTextLength="3"
+            indicatorView:mainTextViewMinLine="1"
+            indicatorView:mainTextViewTextColor="@color/gray_deep" />
+
+        <include 
+            layout="@layout/widget_handle_btn_container_sms_call"/>
+    </LinearLayout>
+
+</FrameLayout>

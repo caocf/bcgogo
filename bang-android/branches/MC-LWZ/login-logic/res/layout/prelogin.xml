@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/prelogin" >
+
+	<ImageView
+	    android:id="@+id/logo"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_marginTop="@dimen/prelogin_logo_margin_top"
+        android:adjustViewBounds="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true" />
+	<ImageView
+	    android:id="@+id/logo_text"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:src="@drawable/logo_text" />
+    <TextView
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:text="监测车况，保障安全，节省费用，行车无忧"
+        android:gravity="center_horizontal"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/text_h4" /> 
+
+</RelativeLayout>

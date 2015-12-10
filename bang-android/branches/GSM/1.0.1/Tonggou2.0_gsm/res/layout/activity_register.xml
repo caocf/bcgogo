@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <com.tonggou.gsm.andclient.ui.view.DrawableRightClickableEditText
+        android:id="@+id/imei_editText"
+        style="@style/register_editText"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:drawableRight="@drawable/ic_qr"
+        android:textSize="@dimen/text_h2"
+        android:inputType="number"
+        android:maxLength="@integer/imei_max_length"
+        android:hint="@string/txt_imei" >
+
+        <requestFocus />
+    </com.tonggou.gsm.andclient.ui.view.DrawableRightClickableEditText>
+
+    <EditText
+        android:id="@+id/phoneNo_editText"
+        style="@style/register_editText"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:hint="@string/txt_username"
+        android:textSize="@dimen/text_h2"
+        android:drawableRight="@drawable/empty_edittext_drawable_right"
+        android:inputType="phone"
+        android:maxLength="@integer/phone_num_max_length" />
+
+    <EditText
+        android:id="@+id/pwd_editText"
+        style="@style/register_editText"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:hint="@string/txt_pwd"
+        android:textSize="@dimen/text_h2"
+        android:drawableRight="@drawable/empty_edittext_drawable_right"
+        android:maxLength="@integer/pwd_max_length"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/next_step_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_h2"
+        android:background="@drawable/holo_blue_btn_selector"
+        android:onClick="onNextStepBtnClick"
+        android:text="@string/btn_next_step" />
+
+</LinearLayout>

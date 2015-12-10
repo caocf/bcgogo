@@ -1,0 +1,24 @@
+//
+//  TGFaultTableViewCell.h
+//  TGYF
+//
+//  Created by James Yu on 14-5-19.
+//  Copyright (c) 2014年 james. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface TGFaultTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *type;
+@property (weak, nonatomic) IBOutlet UILabel *time;
+@property (weak, nonatomic) IBOutlet UILabel *vehicleNo;
+@property (weak, nonatomic) IBOutlet UILabel *vehicleOwner;
+@property (weak, nonatomic) IBOutlet UILabel *desc;
+@property (weak, nonatomic) IBOutlet UIButton *sendMsg;
+@property (weak, nonatomic) IBOutlet UIButton *phoneCall;
+@property (weak, nonatomic) IBOutlet UILabel *horizonalLine;
+@property (weak, nonatomic) IBOutlet UILabel *veticleLine;
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UIView *titleBgView;
+
+@end

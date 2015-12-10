@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta content="width=device-width, initial-scale=1,user-scalable=no" name="viewport">
+        <meta charset="utf-8">
+            <style type="text/css">
+                body, h3, label, div {
+                    padding: 0;
+                    margin: 0;
+                }
+            
+            body {
+                padding: 1em;
+                text-align: center;
+            }
+            
+            #title {
+                font-size: 1.5em;
+            }
+            
+            #timestamp {
+                color: #999999;
+                display: block;
+                float: right;
+                font-size: 0.8em;
+                margin: 0.3em 0;
+            }
+            
+            #content {
+                clear: right;
+                text-align: left;
+            }
+            p {
+                word-wrap: break-word;
+                word-break: normal;
+            }
+            img {
+                width: 100%;
+            }
+            </style>
+    </head>
+    <body>
+        <h3 id="title"></h3>
+        <label id="timestamp"></label>
+        <div id="content"></div>
+        
+        <script type="text/javascript">
+            function setContent(title, time, content)
+            {
+                var _title = document.getElementById('title');
+                _title.innerText = title;
+                
+                var _timestamp = document.getElementById('timestamp');
+                _timestamp.innerText = time;
+                
+                var _content = document.getElementById('content');
+                _content.innerHTML = content;
+            }
+        
+        function test()
+        {
+            alert("hello");
+        }
+		
+        </script>
+    </body>
+</html>

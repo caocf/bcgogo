@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="gas_station_detail_item_pressed">#CDF8C0</color>
+    <color name="gas_station_detail_font_blue">#3649DF</color>
+    <color name="gas_station_detail_font_gray">#959595</color>
+    <color name="gas_station_detail_font_orange">#F9AD2B</color>
+    <color name="gas_station_detail_title_blue">#7894F7</color>
+    
+    <color name="item_background">#33CCCC</color>
+    
+    <color name="bai">#f9f9f9</color>
+    <color name="white">#FFFFFF</color>
+	<color name="black">#000000</color>
+	<color name="gray">#808080</color>
+	<color name="red">#FF0000</color>
+	<color name="gold">#FFD700</color>
+	<color name="yellow">#FFFF00</color>
+	<color name="green">#008000</color>
+	<color name="blue">#0000FF</color>
+	<color name="purple">#800080</color>
+	<color name="pink">#FFC0CB</color>
+	<color name="orange">#FFA500</color>
+	<color name="lemonyellow">#FFFACD</color>
+	<color name="graywhite">#F5F5F5</color>
+	<color name="grayslate">#708090</color>
+	<color name="lightblue">#0083FF</color>
+	<color name="calendar_item_selected">#50E0ED</color>
+	
+	
+
+</resources>

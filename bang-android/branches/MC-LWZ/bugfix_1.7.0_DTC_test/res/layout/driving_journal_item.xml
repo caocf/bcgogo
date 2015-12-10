@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Global_Match_Wrap"
+    android:background="@android:color/white"
+    android:orientation="horizontal" >
+
+    <RelativeLayout
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="5dp" >
+
+        <LinearLayout
+            style="@style/ll_driving_journal_item_style1"
+            android:layout_alignParentTop="true" >
+
+            <TextView
+                android:id="@+id/txt_driving_journal_item_startTime"
+                style="@style/txt_driving_journal_item_style1"
+                android:text="07:15" />
+
+            <LinearLayout style="@style/ll_driving_journal_item_style2" >
+
+                <TextView
+                    android:id="@+id/txt_driving_journal_item_startDay"
+                    style="@style/txt_driving_journal_item_style2"
+                    android:text="07" />
+
+                <TextView
+                    android:id="@+id/txt_driving_journal_item_startMonth"
+                    style="@style/txt_driving_journal_item_style3"
+                    android:text="1月" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/ll_driving_journal_item_style1"
+            android:layout_alignParentBottom="true" >
+
+            <TextView
+                android:id="@+id/txt_driving_journal_item_endTime"
+                style="@style/txt_driving_journal_item_style1"
+                android:text="09:25" />
+
+            <LinearLayout style="@style/ll_driving_journal_item_style2" >
+
+                <TextView
+                    android:id="@+id/txt_driving_journal_item_endDay"
+                    style="@style/txt_driving_journal_item_style2"
+                    android:text="07" />
+
+                <TextView
+                    android:id="@+id/txt_driving_journal_item_endMonth"
+                    style="@style/txt_driving_journal_item_style3"
+                    android:text="1月" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_driving_journal_item_span"
+        style="@style/Global_Wrap_Match"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="5dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_driving_journal_item_route_light" />
+
+    <RelativeLayout style="@style/Global_Match_Match" >
+
+        <TextView
+            android:id="@+id/txt_driving_journal_item_startAddr"
+            style="@style/txt_driving_journal_item_style4"
+            android:layout_alignParentTop="true"
+            android:text="南京东路123号" />
+
+        <LinearLayout
+            style="@style/Global_Match_Match"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center_vertical" >
+
+            <LinearLayout
+                style="@style/Global_horizontal_weight2"
+                android:layout_weight="3"
+                android:gravity="left|center_vertical" >
+
+                <ImageView
+                    style="@style/Global_Wrap_Wrap"
+                    android:layout_marginRight="3dp"
+                    android:src="@drawable/icon_driving_journal_item_distance" />
+
+                <TextView
+                    android:id="@+id/txt_driving_journal_item_distance"
+                    style="@style/txt_driving_journal_item_style5"
+                    android:text="7.3公里" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Global_horizontal_weight2"
+                android:layout_weight="2"
+                android:gravity="left|center_vertical" >
+
+                <ImageView
+                    style="@style/Global_Wrap_Wrap"
+                    android:layout_marginRight="3dp"
+                    android:src="@drawable/icon_driving_journal_item_oil_cost" />
+
+                <TextView
+                    android:id="@+id/txt_driving_journal_item_cost"
+                    style="@style/txt_driving_journal_item_style5"
+                    android:text="63.5" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_driving_journal_item_edit"
+                style="@style/Global_horizontal_weight2"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_driving_journal_item_edit" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_driving_journal_item_endAddr"
+            style="@style/txt_driving_journal_item_style4"
+            android:layout_alignParentBottom="true"
+            android:text="南京西路567号" />
+    </RelativeLayout>
+
+</LinearLayout>

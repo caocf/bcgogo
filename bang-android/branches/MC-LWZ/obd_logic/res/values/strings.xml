@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">行车一键通</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="login_name">用户名</string>
+    <string name="login_password">密码</string>
+    <string name="forget_password">忘记密码</string>
+    <string name="register">注册账号</string>   
+    <string name="login">登录</string>
+    <string name="button_ok">确定</string>
+    <string name="search_password">找回密码</string>
+    <string name="searchpassword_name">请输入你的用户名</string>
+    <string name="login_name_null">用户名不能为空</string>
+    <string name="login_password_null">密码不能为空</string>
+    <string name="logining">正在登录...</string>
+    <string name="login_wrong">账号或密码错误</string>
+    
+    <!--  注册页面部分 -->
+    <string name="register_title">用户注册</string>
+    <string name="register_running">正在注册...</string>
+    <string name="register_name">账号：</string>
+    <string name="account_name_hint">车牌号/手机号</string>
+    <string name="password">密码：</string>
+    <string name="password_again">确认密码：</string>
+    <string name="register_password_hint">密码（不少于6位）</string>
+    <string name="login_password_again_null">确认密码不能为空</string>
+    <string name="login_password_same">两次密码输入不一致</string>       
+    <string name="register_nickname">姓名：</string>
+     <string name="login_nicknameStr_ull">客户名不能为空</string>
+    <string name="phone_num">手机号：</string>
+    <string name="password_digits">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    
+    <string name="register_carnames">车牌：</string>  
+    <string name="register_text">注册</string>
+    <string name="shop_name">店面：</string>
+    <string name="obd_device">OBD 设备：</string>
+    <string name="title_scan_shop">扫描店铺</string>
+
+    <string name="register_title2">更多信息</string>
+    <string name="register_carname">车牌号码：</string>
+    <string name="register_carnum">品牌车型：</string>
+    <string name="register_engine_no">发动机号：</string>
+    <string name="register_vehicle_vin_no">车架号：</string>
+    <string name="register_regist_no">登记证书号：</string>
+    <string name="register_scanshop">绑定店面：</string>
+    <string name="register_nowmile">当前里程：</string>
+    <string name="register_nextmile">下次保养里程：</string>
+    <string name="register_nexttime">下次保险时间：</string>
+    <string name="register_nexttime2">下次验车时间：</string>
+    <string name="register_man">当前里程：</string>
+    <string name="register_submit">提交</string>
+     <string name="register_waiting">正在提交...</string>
+     <string name="login_name_wrong">用户名不合法，请重新输入</string>
+    
+     <!--  搜索车辆页面部分 -->
+    <string name="search_cars">搜索车辆</string>
+    <string name="search_cars_ing">正在搜索车辆，你耐心等待。。。</string>
+    <string name="search_cars_out">跳过</string>
+    
+    <string name="shopslist_title">店面查询</string>
+    <string name="shopslist_search">店铺名称/地址</string>
+    <string name="shopslistmap_title">店铺地图</string>
+    <string name="shopslist_array">按距离</string>
+    <string name="shopslist_arrayplcae">距离排序</string>
+    <string name="shopslist_arrayscroe">评分排序</string>
+    <string name="shopslist_service">服务范围</string>
+    <string name="shopslist_serviceweixiu">维修服务</string>
+    <string name="shopslist_servicebaoyang">保养服务</string>
+    <string name="shopslist_serviceyanche">验车服务</string>
+    <string name="shopslist_servicebaoxian">保险服务</string>
+    <string name="shopslist_serviceclean">洗车服务</string>
+    <string name="shopslist_city">城市</string>
+    <string name="shopslist_4s">4S店</string>
+    <string name="shopslist_weixin">维修</string>
+    <string name="shopslist_meirong">美容</string>
+    <string name="shopslist_banjin">钣金</string>
+    <string name="shopslist_baoxianlipei">保险理赔</string>
+    <string name="nextpage_nodata">已经是最后一页</string>
+    <string name="shoplist_no">该地区暂无相关店铺信息！</string>
+    
+    <string name="transgress_query_title">违章查询</string>
+    <string name="vehicle_no">车牌号：</string>
+    <string name="vehicle_type">类型：</string>
+    <string name="city">城市：</string>
+    <string name="total_deduct_score">累计扣分：</string>
+    <string name="total_forfeit">累计罚款：</string>
+    <string name="query">查询</string>
+    
+    <string name="shop_title">店面详情</string>
+    <string name="shop_title1">店面会员</string>
+    <string name="shop_service_names">服务项目</string>
+    <string name="shop_times">服务次数</string>
+    <string name="shop_time">失效时间</string>
+    <string name="shop_place">地址：</string>
+    <string name="shop_service">服务：</string>
+    <string name="shop_distance">距离：</string>
+    <string name="shop_road">行车路线</string>
+    <string name="app_network">在线预约</string>
+    <string name="app_call">电话预约</string>
+    <string name="app_network_ok">预约</string>
+    <string name="app_network_serviceclass">服务类型：</string>
+    <string name="app_network_servicetime">预约时间：</string>
+    <string name="app_network_serviceothers">备注：</string>
+    <string name="app_network_servicecarnum">车牌号：</string>
+    <string name="app_network_serviceman">联系人：</string>
+    <string name="app_network_servicephone">联系方式：</string>
+    
+    <string name="service_title">服务查询</string>
+    <string name="service_no">未完成</string>
+    <string name="service_already">已完成</string>
+    
+    <string name="orderdetil_title">单据详情</string>
+    <string name="orderdetil_num">单据号：</string>
+    <string name="orderdetil_state">类型：</string>
+    <string name="orderdetil_time">时间：</string>
+    <string name="orderdetil_man">客户：</string>
+    <string name="orderdetil_apptime">预约时间：</string>
+    <string name="orderdetil_appman">联系人：</string>
+    <string name="orderdetil_appcall">联系电话：</string>
+    <string name="orderdetil_appother">备注：</string>
+    <string name="orderdetil_carman">车牌：</string>
+    <string name="orderdetil_carstate">车型：</string>
+    <string name="orderdetil_price">结算信息</string>
+    <string name="orderdetil_price_should">应收总额：</string>
+    <string name="orderdetil_price_act">实际总收：</string>
+    <string name="orderdetil_price_kupang">优惠总计：</string>
+    <string name="orderdetil_price_remember">挂账金额：</string>
+    <string name="orderdetil_appraise">服务评价</string>
+    <string name="orderdetil_shopname">店面：</string>
+    
+    <string name="search_brand">品牌搜索</string>
+    <string name="search_model">车型搜索</string>
+    <string name="brand_first">请先选择品牌</string>
+    
+    
+    <string name="set">设置</string>
+    <string name="set_data">个人资料</string>
+    <string name="set_voice">消息提示音</string>
+    <string name="set_bindcar">绑定车辆</string>
+    <string name="set_bindcar_default">设置成默认车辆</string>
+    <string name="set_feedback">用户反馈</string>
+    <string name="set_version">版本检测</string>
+    <string name="set_aboutus">关于我们</string>
+    <string name="set_loginout">退出登录</string>
+    <string name="wrongnumber">手机号格式错误，请重新输入</string>
+    <string name="about_us_notice">检测车况,保障安全,节省费用,行车无忧</string>
+    <string name="about_us_call1">客服电话:</string>
+    <string name="about_us_call2">0512-66733331</string>
+    <string name="about_us_network1">官网:</string>
+    <string name="about_us_network2">www.bcgogo.com</string>
+    <string name="choosephone">选择电话</string>
+    
+    <string name="set_bindcar_title">车辆管理</string>
+    <string name="bindcar_more">新增车辆</string>
+    <string name="addcar_more">新增绑定</string>
+    <string name="bindcar_number">绑定OBD：</string>
+    <string name="add_bindcar_number">+ 添加设备</string>
+    <string name="bindcar_carbrand">品牌：</string>
+    <string name="bindcar_carvin">设备号：</string>
+    <string name="btn_bind_ok">绑定信息</string>
+    <string name="title_confirm_bind_info">信息确认</string>
+    
+    <string name="scan_bluetooth_scanning">正在扫描设备...</string>
+    <string name="scan_bluetooth_paired_device">已配对设备</string>
+    <string name="scan_bluetooth_new_device">可用设备</string>
+    <string name="scan_bluetooth_no_paired_device">没有已配对的设备</string>
+    <string name="scan_bluetooth_no_new_device">没有可用设备</string>
+    
+    <string name="set_user_data">客户资料</string>
+    <string name="set_user_changepassword">修改密码</string>
+    <string name="set_user_oldpassword">旧密码：</string>
+    <string name="set_user_newpassword">新密码：</string>
+    
+    <string name="feedback_phonenumber">请填写联系方式</string>
+    <string name="feedback_information">欢迎您提出宝贵的意见和建议</string>
+    <string name="feedback_send">发送</string>
+    <string name="feedback_call">呼叫客服</string>
+    <string name="scan_notice">将二维码图案放在取景框内，即可自动扫描</string>
+    
+    
+    <string name="preferences_actions_title">找到条码时</string>
+    <string name="preferences_bulk_mode_summary">连续扫描并保存多个条形码</string>
+    <string name="preferences_bulk_mode_title">批量扫描模式</string>
+    <string name="preferences_copy_to_clipboard_title">复制到剪切板</string>
+    <string name="preferences_custom_product_search_summary" formatted="false">使用%s作为产品ID占位符</string>
+    <string name="preferences_custom_product_search_title">自定义搜索网址</string>
+    <string name="preferences_decode_1D_title">扫描 一维条码</string>
+    <string name="preferences_decode_Data_Matrix_title">扫描 DM码</string>
+    <string name="preferences_decode_QR_title">扫描 QR码</string>
+    <string name="preferences_front_light_summary">前灯可用时，打开前灯</string>
+    <string name="preferences_front_light_title">前灯</string>
+    <string name="preferences_general_title">一般设置</string>
+    <string name="preferences_name">设置</string>
+    <string name="preferences_play_beep_title">提示音</string>
+    <string name="preferences_remember_duplicates_summary">在历史记录中保存重复记录</string>
+    <string name="preferences_remember_duplicates_title">记住重复</string>
+    <string name="preferences_result_title">结果设置</string>
+    <string name="preferences_reverse_image_summary">设备上启用了前置摄像头只</string>
+    <string name="preferences_reverse_image_title">反转摄像机的图像</string>
+    <string name="preferences_scanning_title">条码类型选择</string>
+    <string name="preferences_supplemental_summary">尝试检索关于条码内容的更多信息</string>
+    <string name="preferences_supplemental_title">检索更多信息</string>
+    <string name="preferences_vibrate_title">振动</string>
+    
+   	<!--  绑定obd部分 -->
+   	<string name="open_bt_wrong">开打蓝牙失败，是否重试？</string>
+   	<string name="connect_obd_searching">正在搜寻车辆，请耐心等待...</string>
+	<string name="connect_obd_wrong">未搜寻到车辆，是否重试？</string>
+   	<string name="connect_obd_retry">重试</string>
+   	<string name="connect_obd_cancel">跳过</string>
+   	<string name="connect_obd_devieces">蓝牙设备</string>
+   	<string name="connect_obd_failt">无法连接设备</string>
+   	<string name="connect_obd_bind">绑定  OBD</string>
+   	<string name="connect_obd_running">正在连接设备...</string>
+   	<string name="bt_not_enabled_leaving">必须打开蓝牙模块才能连接</string>
+   	
+   	<!--  消息页面部分 -->
+   	<string name="message_title">消息中心</string>
+    <string name="message_delete_all">确定删除全部消息吗？</string>
+    <string name="message_delete">确定删除这条消息吗？</string>
+   	
+   	<!--  车况查询页面部分 -->
+   	<string name="car_conditon_title">车况查询</string>
+   		<string name="car_conditon_ssyh">瞬时油耗</string>
+   			<string name="car_conditon_pjyh">百公里油耗</string>
+   				<string name="car_conditon_syyl">剩余油量</string>
+   					<string name="car_conditon_sxwd">水箱温度</string>
+   	
+   	<!--  预约服务页面部分 -->
+   	<string name="reservation_title">预约服务</string>
+   	<string name="reservation_weixiu">机修保养</string>
+   	<string name="reservation_baoyang">美容装潢</string>
+   	<string name="reservation_baoxian">钣金喷漆</string>
+   	<string name="reservation_xiche">洗车</string>
+   	<string name="reservation_yanche">保险验车</string>
+   	<string name="reservation_category_alert">请选择服务类型</string>
+   	<string name="reservation_mobile_alert">请输入联系方式</string>
+   	<string name="reservation_contact_alert">请输入联系人</string>
+   	<string name="reservation_vehicleNo_alert">请输入车牌号</string>
+   	
+   	<!--  版本检查部分 -->
+   	<string name="no_update">你正在使用最新版</string>
+   	<string name="notice_update">当前版本已过期，需要重新下载最新版本才可使用</string>
+   	
+   	<!--  主页部分 -->
+   	<string name="exit_title">提示</string>
+   	<string name="exit_submit">确定</string>
+   	<string name="exit_cancel">取消</string>
+   	<string name="exit_sure_tonggou">你确定退出吗？</string>
+   	
+   	<!--  搜索推荐店铺部分 -->
+   	<string name="storequery_search_title">搜索店面</string>
+   	<string name="store_map_title">店铺地图</string>
+   	
+   	
+   	<!--  评论部分 -->
+   	<string name="store_comment_title">评论</string>
+   	<string name="store_comment_alert">请打分</string>
+   	<string name="store_comment_input">输入评论</string>
+   	
+   	<!--   加油站 -->
+   	<string name="gas_station_title">加油站</string>
+   	<string name="gas_station_detail_item_price">燃油价格：0#:%1$s  93#:%2$s  97#:%3$s</string>
+   	<string name="gas_station_detail_item_price2">价格：0#:%1$s  93#:%2$s  97#:%3$s</string>
+   	<string name="gas_station_map_route">行车路线</string>
+   	<string name="gas_station_map">加油站地图</string>
+   	<string name="gas_station_detail_network_error">外星人驾到，网络被干扰</string>
+   	<string name="gas_station_detail_network_error_retry">重试</string>
+   	<string name="gas_staion_map_loading">正在努力加载中...</string>
+   	<string name="gas_staion_detail_sort_by_dist">按距离排序</string>
+   	<string name="gas_staion_detail_sort_by_price">按价格排序</string>
+   	<string name="gas_station_detail">加油站</string>
+   	<string name="gas_station_dist">距离：%1$skm</string>
+   	
+</resources>

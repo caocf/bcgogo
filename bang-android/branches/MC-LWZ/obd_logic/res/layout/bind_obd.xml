@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Global_Match_Match"
+    android:background="@android:color/white" >
+
+    <RelativeLayout
+        android:id="@+id/rl_bind_obd_title"
+        style="@style/Global_Match_Wrap"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/loginheadback" >
+
+        <RelativeLayout
+            android:id="@+id/rl_bind_obd_back"
+            android:layout_width="70dp"
+            android:layout_height="40dp" >
+
+            <ImageView
+                style="@style/Global_Wrap_Wrap"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/back" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/Global_Wrap_Wrap"
+            android:layout_centerInParent="true"
+            android:text="绑定OBD"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_bind_obd_address"
+        style="@style/Global_Match_Wrap"
+        android:layout_below="@id/rl_bind_obd_title"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical" >
+
+        <TextView
+            style="@style/Global_Wrap_Wrap"
+            android:layout_marginRight="10dp"
+            android:text="OBD地址"
+            android:textColor="@android:color/black"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/tv_bin_obd_sn"
+            style="@style/Global_Match_Wrap"
+            android:background="@drawable/register_editback"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_bind_obd_vehicles"
+        style="@style/Global_Match_Match"
+        android:layout_below="@+id/ll_bind_obd_address"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="13dp"
+        android:divider="@android:color/transparent"
+        android:listSelector="@android:color/transparent" >
+    </ListView>
+
+</RelativeLayout>

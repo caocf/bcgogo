@@ -1,0 +1,166 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppBaseTheme" parent="android:Theme.Light"></style>
+
+    <style name="AppTheme" parent="AppBaseTheme"></style>
+
+    <!-- 违章查询 TextView 指示器样式 -->
+    <style name="transgress_query_text_indicator" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_h3</item>
+        <item name="android:gravity">right</item>
+        <item name="android:minEms">4</item>
+        <item name="android:textColor">#c000</item>
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+
+    <style name="transgress_query_text_orange" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_h3</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minEms">2</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:background">@drawable/transgress_query_text_orange_bg</item>
+    </style>
+
+    <style name="transgress_query_text_select" parent="@style/transgress_query_text_orange">
+        <item name="android:textColor">#7c7c7c</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:background">@drawable/transgress_query_text_select_bg</item>
+        <item name="android:drawableRight">@drawable/shopsmore</item>
+    </style>
+
+    <style name="blue_button" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">@dimen/text_h2</item>
+        <item name="android:background">@drawable/button_blue_selector</item>
+    </style>
+    <style name="white_button" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#A000</item>
+        <item name="android:textSize">@dimen/text_h2</item>
+        <item name="android:background">@drawable/button_white_selector</item>
+    </style>
+
+    <style name="Global_Match_Match">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="Global_Wrap_Wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Global_Match_Wrap">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="bind_obd_item" parent="@style/Global_Match_Wrap">
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+
+    <style name="Global_horizontal_weight">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="Global_vertical_weight">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="main_func_item_land_ll" parent="@style/Global_horizontal_weight">
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/main_icon_selector</item>
+    </style>
+
+    <style name="main_func_item_port_ll" parent="@style/main_func_item_land_ll">
+        <item name="android:background">@drawable/main_icon_selector</item>
+    </style>
+
+    <style name="main_func_item_txt" parent="@style/Global_Wrap_Wrap">
+        <item name="android:layout_marginTop">@dimen/main_func_txt2img_margin</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">21sp</item>
+    </style>
+
+    <style name="main_func_item_img">
+        <item name="android:layout_width">@dimen/main_func_imgSize</item>
+        <item name="android:layout_height">@dimen/main_func_imgSize</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="change_bindcars_binded_txt" parent="@style/Global_Wrap_Wrap">
+        <item name="android:drawableLeft">@drawable/icon_binded</item>
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:textColor">#5C5A5A</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:gravity">center</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="bindcars_common_item" parent="Global_horizontal_weight">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="bindcars_common_item_label" parent="bindcars_common_item">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center</item>
+    </style>
+    
+    <style name="bindcars_common_item_content" parent="bindcars_common_item">
+        <item name="android:layout_weight">2</item>
+        <item name="android:background">@drawable/register_editback</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center_vertical</item>
+    </style  >
+    
+    <style  name="bindcars_common_item_content2" parent="@style/Global_Match_Wrap">
+        <item name="android:background">@drawable/register_editback</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    
+    <style  name="bindcars_common_item_unit" parent="@style/Global_Wrap_Wrap">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:textColor">@color/gas_station_detail_font_gray</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    
+
+    <style name="bindcars_common_item_ll" parent="@style/Global_Match_Wrap">
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+</resources>

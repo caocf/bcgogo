@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:indicatorView="http://schemas.android.com/apk/res/com.tonggou.gsm.andclient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="@dimen/dimen_10dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/black_border_white_content_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/item_list_title"
+            android:padding="@dimen/dimen_10dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_dtc" />
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorTextView
+                android:id="@+id/dtc_code_indicator_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                indicatorView:leftIndicatorTextColor="@color/gray"
+                indicatorView:leftIndicatorText="@string/item_list_dtc_code"
+                indicatorView:leftIndicatorTextLength="4"
+                indicatorView:mainTextViewTextColor="@color/red" />
+
+            <TextView
+                android:id="@+id/timestamp_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray" />
+        </LinearLayout>
+
+        <com.tonggou.gsm.andclient.ui.view.IndicatorTextView
+            android:id="@+id/dtc_type_indicator_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/divider_horizontal_bg"
+            android:padding="@dimen/dimen_10dp"
+            android:layout_margin="1dp"
+            indicatorView:leftIndicatorText="@string/item_list_dtc_type"
+            indicatorView:leftIndicatorTextColor="@color/gray"
+            indicatorView:leftIndicatorTextLength="5" />
+
+        <com.tonggou.gsm.andclient.ui.view.IndicatorTextView
+            android:id="@+id/dtc_desc_indicator_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/divider_horizontal_bg"
+            android:padding="@dimen/dimen_10dp"
+            android:layout_margin="1dp"
+            indicatorView:leftIndicatorTextColor="@color/gray"
+            indicatorView:leftIndicatorText="@string/item_list_dtc_desc"
+            indicatorView:leftIndicatorTextLength="5"
+            indicatorView:mainTextViewMinLine="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/handled_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/dtc_btn_green_selector"
+                android:text="@string/btn_handled"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/background_knowledge_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/dtc_btn_orange_selector"
+                android:text="@string/btn_background_knowledge"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

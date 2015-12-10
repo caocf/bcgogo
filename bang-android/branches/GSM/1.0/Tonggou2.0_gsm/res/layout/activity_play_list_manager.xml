@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:dobuleTab="http://schemas.android.com/apk/res/com.tonggou.gsm.andclient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white" >
+
+    <com.tonggou.gsm.andclient.ui.view.DoubleTabView 
+        android:id="@+id/tab_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        dobuleTab:fristTabText="@string/tab_unpay"
+        dobuleTab:secondTabText="@string/tab_paid"
+        dobuleTab:fristTabBackground="@drawable/tab_item_left_selector"
+        dobuleTab:secondTabBackground="@drawable/tab_item_right_selector"
+        dobuleTab:tabTextColor="@color/tab_text_selector" />
+    
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    
+</LinearLayout>

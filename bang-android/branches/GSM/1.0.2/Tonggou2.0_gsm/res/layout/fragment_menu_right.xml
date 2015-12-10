@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Match_Match"
+    android:orientation="vertical"
+    android:background="@drawable/bg_menu" >
+	
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/ic_avatar"/>
+    
+    <TextView
+        android:id="@+id/phone_no_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:textSize="@dimen/text_h3"
+        android:textColor="@color/holo_blue_deep"/>
+    
+    <GridView
+        android:id="@+id/right_menu_grid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"     
+        android:gravity="center"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="20dp"
+        android:cacheColorHint="#00000000"
+		android:numColumns="2"
+        android:divider="@drawable/divider_menu_list"
+        android:listSelector="@drawable/list_selector_alpha2_black"
+        android:scrollbars="none" >
+    </GridView>
+    <Button 
+        android:id="@+id/logout_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/alpha_holo_blue_btn_selector"
+        android:layout_margin="@dimen/dimen_20dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_h3"
+        android:text="@string/btn_logout"/>
+</LinearLayout>

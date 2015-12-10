@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:indicator="http://schemas.android.com/apk/res/com.tonggou.gsm.andclient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/subtitle_text"
+                android:text="@string/subtitle_base_info" />
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorTextView
+                android:id="@+id/vehicle_no_indicator_text"
+                style="@style/indicator_edittext"
+                indicator:indicatorTextSize="@dimen/text_h3"
+                indicator:leftIndicatorText="@string/vehicle_no"
+                indicator:leftIndicatorTextColor="@color/gray"
+                indicator:leftIndicatorTextLength="7" />
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorTextView
+                android:id="@+id/vehicle_model_indicator_text"
+                style="@style/indicator_edittext"
+                indicator:indicatorTextSize="@dimen/text_h3"
+                indicator:leftIndicatorText="@string/vehicle_model"
+                indicator:leftIndicatorTextColor="@color/gray"
+                indicator:leftIndicatorTextLength="7" />
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorEditText
+                android:id="@+id/oil_price_indicator_edit"
+                style="@style/indicator_edittext"
+                indicator:indicatorTextSize="@dimen/text_h3"
+                indicator:leftIndicatorText="@string/oil_price"
+                indicator:leftIndicatorTextColor="@color/gray"
+                indicator:leftIndicatorTextLength="7"
+                indicator:mainTextViewInputType="numberDecimal"
+                indicator:rightFirstIndicatorText="@string/unit_price" />
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorEditText
+                android:id="@+id/current_mileage_indicator_edit"
+                style="@style/indicator_edittext"
+                indicator:indicatorTextSize="@dimen/text_h3"
+                indicator:leftIndicatorText="@string/current_mileage"
+                indicator:leftIndicatorTextLength="7"
+                indicator:leftIndicatorTextColor="@color/gray"
+                indicator:mainTextViewInputType="number"
+                indicator:mainTextViewMaxLength="@integer/mileage_max_lengh"
+                indicator:rightFirstIndicatorText="@string/unit_km" />
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorEditText
+                android:id="@+id/maintain_period_indicator_edit"
+                style="@style/indicator_edittext"
+                android:background="@null"
+                indicator:indicatorTextSize="@dimen/text_h3"
+                indicator:leftIndicatorText="@string/maintain_cycle"
+                indicator:leftIndicatorTextLength="7"
+                indicator:leftIndicatorTextColor="@color/gray"
+                indicator:mainTextViewInputType="number"
+                indicator:mainTextViewMaxLength="5"
+                indicator:rightSecondIndicatorText="@string/unit_km" />
+
+            <TextView
+                style="@style/subtitle_text"
+                android:text="@string/subtitle_maintain_remind" />
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorEditText
+                android:id="@+id/last_maintain_mileage_indicator_edit"
+                style="@style/indicator_edittext"
+                indicator:indicatorTextSize="@dimen/text_h3"
+                indicator:leftIndicatorText="@string/last_maintain_mileage"
+                indicator:leftIndicatorTextLength="7"
+                indicator:leftIndicatorTextColor="@color/gray"
+                indicator:mainTextViewInputType="number"
+                indicator:mainTextViewMaxLength="@integer/mileage_max_lengh"
+                indicator:rightFirstIndicatorText="@string/unit_km" />
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorTextView
+                android:id="@+id/next_maintain_time_indicator_text"
+                style="@style/indicator_edittext"
+                indicator:indicatorTextSize="@dimen/text_h3"
+                indicator:leftIndicatorTextColor="@color/gray"
+                indicator:leftIndicatorText="@string/next_maintain_time"
+                indicator:leftIndicatorTextLength="7" />
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorTextView
+                android:id="@+id/next_examination_time_indicator_text"
+                style="@style/indicator_edittext"
+                indicator:indicatorTextSize="@dimen/text_h3"
+                indicator:leftIndicatorTextColor="@color/gray"
+                indicator:leftIndicatorText="@string/next_examination_time"
+                indicator:leftIndicatorTextLength="7" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

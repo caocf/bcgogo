@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="gas_station_detail_item_pressed">#CDF8C0</color>
+    <color name="gas_station_detail_font_blue">#3649DF</color>
+    <color name="gas_station_detail_font_gray">#75111111</color>
+    <color name="gas_station_detail_title_blue">#7894F7</color>
+    <color name="white">#FFFFFF</color>
+
+</resources>

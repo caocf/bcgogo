@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Global_Match_Match"
+    android:background="@android:color/white" >
+
+    <RelativeLayout
+        android:id="@+id/rl_bind_shop_title"
+        style="@style/Global_Match_Wrap"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/loginheadback" >
+
+        <RelativeLayout
+            android:id="@+id/rl_bind_shop_back"
+            android:layout_width="70dp"
+            android:layout_height="40dp" >
+
+            <ImageView
+                style="@style/Global_Wrap_Wrap"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/back" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/Global_Wrap_Wrap"
+            android:layout_centerInParent="true"
+            android:text="绑定店铺"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btn_bind_shop_save"
+            style="@style/Global_Wrap_Wrap"
+            android:layout_height="@dimen/titlebar_btn_height"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/ic_titlebar_btn_bg"
+            android:text="保存"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_bind_shop_shop_name"
+        style="@style/bindcars_common_item_ll"
+        android:layout_below="@id/rl_bind_shop_title" >
+
+        <TextView
+            style="@style/bindcars_common_item_label"
+            android:text="店铺名称" />
+
+        <TextView
+            android:id="@+id/tv_bind_shop_shop_name"
+            style="@style/bindcars_common_item_content"
+            android:ellipsize="end" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        style="@style/bindcars_common_item_ll"
+        android:layout_below="@id/ll_bind_shop_shop_name" >
+
+        <TextView
+            style="@style/bindcars_common_item_label"
+            android:text="车牌号" />
+
+        <TextView
+            android:id="@+id/tv_bind_shop_vehicle_number"
+            style="@style/transgress_query_text_select"
+            android:layout_width="1dp"
+            android:layout_height="36dp"
+            android:layout_weight="2"
+            android:background="@drawable/register_editback"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@android:color/black"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/registerback"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/loginheadback" >
+
+        <RelativeLayout
+            android:id="@+id/left_button"
+            android:layout_width="70dp"
+            android:layout_height="40dp" >
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/back" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/title_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/shop_title"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+
+        <ProgressBar
+            android:id="@+id/shopdetilmappro"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/title_tx"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/right_button"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true" >
+
+            <ImageView
+                android:id="@+id/map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/listtomap" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/storescrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/title"
+        android:fadeScrollbars="false"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingBottom="10dp" >
+
+            <RelativeLayout
+                android:id="@+id/shopdistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/shopname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="80dp"
+                    android:text=""
+                    android:textColor="#2b58af"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/shopmeter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="3dp"
+                    android:text=""
+                    android:textColor="#aaaaaa"
+                    android:textSize="12dp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/shoppalce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shopdistance"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/shop_place"
+                    android:textColor="#565656"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/shoppalce_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLength="100"
+                    android:maxLines="2"
+                    android:text=""
+                    android:textColor="#565656"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/shopservice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shoppalce"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/shop_service"
+                    android:textColor="#565656"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/shopservice_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text=""
+                    android:textColor="#565656"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <com.baidu.mapapi.map.MapView
+                android:id="@+id/mapView"
+                android:layout_width="fill_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/shopservice"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:clickable="true" />
+            
+            <!-- add fbl -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="clip_vertical"
+                android:orientation="horizontal" >
+
+               
+                <LinearLayout
+                    android:id="@+id/Member_lin"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="2"
+                    android:gravity="left|center_vertical"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:id="@+id/left_text1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center_vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="5dp"
+                        android:text="店面会员"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+                </LinearLayout>
+               
+
+                <LinearLayout
+                    android:id="@+id/notMember_lin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="left"
+                    android:orientation="vertical"
+                    android:visibility="visible" >
+
+                    <TextView
+                        android:id="@+id/dmpj1_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="5dp"
+                        android:text="最近评价(共0条)"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
+
+                    <LinearLayout
+                        android:id="@+id/shoplike1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="16dp" >
+
+                        <ImageView
+                            android:id="@+id/shoplistlik1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="3dp"
+                            android:src="@drawable/whitestar" />
+
+                        <ImageView
+                            android:id="@+id/shoplistlik2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="3dp"
+                            android:src="@drawable/whitestar" />
+
+                        <ImageView
+                            android:id="@+id/shoplistlik3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="3dp"
+                            android:src="@drawable/whitestar" />
+
+                        <ImageView
+                            android:id="@+id/shoplistlik4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:src="@drawable/whitestar" />
+
+                        <ImageView
+                            android:id="@+id/shoplistlik5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:src="@drawable/whitestar" />
+
+                        <TextView
+                            android:id="@+id/fenshu_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="3dp"
+                            android:paddingBottom="2dp"
+                            android:text="0.0分"
+                            android:textColor="#fd7801" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right" >
+
+                    <LinearLayout
+                        android:id="@+id/call_lin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                         android:layout_gravity="center_vertical"
+                         android:layout_marginTop="5dp"
+                        android:layout_marginRight="2dp"
+                        android:background="@drawable/connect_obd_ok"
+                        android:gravity="center"
+                        android:orientation="vertical" >
+
+                        <ImageView
+                            android:id="@+id/dianhua_image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:paddingBottom="5dp"
+                            android:paddingTop="5dp"
+                            android:src="@drawable/shopappcall" />
+                    </LinearLayout>
+                      
+                    <LinearLayout 
+                        android:id="@+id/yuyue_lin"
+                        android:layout_toRightOf="@+id/call_lin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/connect_obd_retry"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center"
+                        android:layout_gravity="right"
+                        android:orientation="vertical"
+                        >
+                      <TextView
+                        android:id="@+id/yuyue_text"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="预约"
+                        android:textColor="@color/white"
+                      />
+                      </LinearLayout>  
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!-- vip信息 -->
+
+            <RelativeLayout
+                android:id="@+id/tail"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/shop_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/shop_title1"
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    android:visibility="gone" />
+                
+                <ImageView
+                    android:id="@+id/shop_line_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/shop_title"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/shopline" />
+                
+                <TextView 
+                    android:id="@+id/member_no_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/shop_line_indicator"
+                    android:textSize="@dimen/text_h3"
+                    android:textColor="#000"
+                    android:layout_marginLeft="20dp"
+                    android:text="会员卡号"/>
+                
+                <TextView
+                    android:id="@+id/member_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textSize="@dimen/text_h3"
+                    android:layout_toRightOf="@id/member_no_indicator"
+                    android:textColor="#CA0000"
+                    android:gravity="right"
+                    android:layout_below="@id/shop_line_indicator"
+                    android:layout_alignParentRight="true" />
+
+                <TextView 
+                    android:id="@+id/balance_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/member_no_indicator"
+                    android:textSize="@dimen/text_h3"
+                    android:textColor="#000"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="账户余额"/>
+                
+                <TextView
+                    android:id="@+id/shop_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textSize="@dimen/text_h3"
+                    android:layout_toRightOf="@id/balance_indicator"
+                    android:textColor="#CA0000"
+                    android:layout_marginTop="5dp"
+                    android:gravity="right"
+                    android:layout_below="@id/member_no_indicator"
+                    android:layout_alignParentRight="true" />
+                
+                <ImageView
+                    android:id="@+id/shop_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/shop_balance"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/imaginaryline" />
+
+                <LinearLayout
+                    android:id="@+id/sevice_title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/shop_line"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="@string/shop_service_names"
+                        android:textColor="#000000"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/shop_times"
+                        android:textColor="#000000"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="@string/shop_time"
+                        android:textColor="#000000"
+                        android:textSize="15dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/shop_vip_item"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sevice_title"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center" >
+                </LinearLayout>
+            </RelativeLayout>
+            
+             <ImageView
+                    android:id="@+id/shop_line_gekai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/shop_vip_item"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/imaginaryline" />
+            
+            <!--店面评价  -->
+            
+            <LinearLayout
+                android:id="@+id/storeevaluate_lin"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shop_line_gekai"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical"
+                android:gravity="left"
+                android:visibility="gone" >
+                
+                <TextView 
+                    android:id="@+id/dmpj_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"	
+                    android:text="最近评价(共0条)"
+                    android:textColor="@color/black"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/shoplike"
+                    android:paddingTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/shoplistlike1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
+                        android:src="@drawable/whitestar" />
+
+                    <ImageView
+                        android:id="@+id/shoplistlike2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
+                        android:src="@drawable/whitestar" />
+
+                    <ImageView
+                        android:id="@+id/shoplistlike3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
+                        android:src="@drawable/whitestar" />
+
+                    <ImageView
+                        android:id="@+id/shoplistlike4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/whitestar" />
+
+                    <ImageView
+                        android:id="@+id/shoplistlike5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/whitestar" />
+
+                    <TextView
+                        android:id="@+id/shoplistlikesorce"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
+                        android:text="0.0分"
+                        android:textColor="#fd7801" />
+                </LinearLayout>
+                 <ImageView
+                    android:id="@+id/shop_line_gekai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/imaginaryline" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="6dp"
+                android:orientation="vertical"
+                
+                 >
+
+                <!-- <RelativeLayout
+                    android:id="@+id/shopapp_call"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/feedback_back"
+                    android:gravity="center" >
+
+                    <ImageView
+                        android:id="@+id/shopapp_call_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/shopappcall" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_toRightOf="@id/shopapp_call_iv"
+                        android:gravity="center" >
+
+                        <TextView
+                            android:id="@+id/shopapp_call_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="@string/app_call"
+                            android:textColor="#ffffff"
+                            android:textSize="19dp" />
+
+                        <TextView
+                            android:id="@+id/shopapp_call_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/shopapp_call_tv"
+                            android:textColor="#ffffff"
+                            android:textSize="15dp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/shopapp_nework"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/shopapp_call"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/feedback_back"
+                    android:gravity="center_horizontal" >
+
+                    <ImageView
+                        android:id="@+id/shopapp_network_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/shopappnetwork" />
+
+                    <TextView
+                        android:id="@+id/shopapp_call_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/shopapp_network_iv"
+                        android:text="@string/app_network"
+                        android:textColor="#ffffff"
+                        android:textSize="19dp" />
+                    
+                    
+                </RelativeLayout>
+                 -->
+              <TextView 
+                  android:id="@+id/evaluate_text"
+                  android:paddingTop="5dp"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:text="暂无评论"
+                  android:gravity="center"
+                  android:visibility="gone"
+                  />
+                
+                <com.tonggou.andclient.util.ListViewRun
+                    android:id="@+id/evaluate_list"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/registerback"
+                    android:cacheColorHint="@android:color/transparent"
+                    android:divider="@drawable/imaginaryline"
+                    android:fadingEdge="none"
+                    android:scrollbars="none" 
+                    android:visibility="visible">
+                </com.tonggou.andclient.util.ListViewRun>
+                <TextView
+                    android:id="@+id/moreEvaluateText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="查看更多"
+                    android:textSize="15sp"
+                    android:visibility="gone"
+                    />
+                <!-- 
+                android:dividerHeight="1.0dip"
+                 -->
+            </LinearLayout>
+
+        </LinearLayout>
+        
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,43 @@
+//
+//  TGProgressHUD.m
+//  TGOBD
+//
+//  Created by Jiahai on 14-3-6.
+//  Copyright (c) 2014年 Bcgogo. All rights reserved.
+//
+
+#import "TGProgressHUD.h"
+#import "SVProgressHUD.h"
+
+@implementation TGProgressHUD
+
++ (void)show
+{
+    [SVProgressHUD showWithStatus:nil maskType:SVProgressHUDMaskTypeGradient];
+}
+
++ (void)showWithStatus:(NSString *)status
+{
+    [SVProgressHUD showWithStatus:status maskType:SVProgressHUDMaskTypeGradient];
+}
+
++ (void)showSuccessWithStatus:(NSString *)status
+{
+    [SVProgressHUD showSuccessWithStatus:status];
+}
+
++ (void)showErrorWithStatus:(NSString *)status
+{
+    [SVProgressHUD showErrorWithStatus:status];
+}
+
++ (void)dismiss
+{
+    [SVProgressHUD dismiss];
+}
+
++ (void)dismissWithError:(NSString *)errorMsg title:(NSString *)title
+{
+    [SVProgressHUD showErrorWithStatus:errorMsg];
+}
+@end

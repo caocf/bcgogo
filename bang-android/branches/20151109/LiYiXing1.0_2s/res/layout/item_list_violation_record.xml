@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:indicatorView="http://schemas.android.com/apk/res/com.tonggou.gsm.andclient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/item_violation_bg"
+    android:orientation="vertical"
+    android:padding="@dimen/dimen_10dp" >
+
+    <TextView
+        android:id="@+id/date_time_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_h3"/>
+
+    <com.tonggou.gsm.andclient.ui.view.IndicatorTextView
+        android:id="@+id/violation_area_indicator_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        indicatorView:leftIndicatorText="@string/violation_area"
+        indicatorView:leftIndicatorTextLength="3"
+        indicatorView:mainTextViewMinLine="1"
+        indicatorView:mainTextViewTextColor="@color/gray" />
+
+    <com.tonggou.gsm.andclient.ui.view.IndicatorTextView
+        android:id="@+id/violation_action_indicator_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        indicatorView:leftIndicatorText="@string/violation_action"
+        indicatorView:leftIndicatorTextLength="3"
+        indicatorView:mainTextViewMinLine="1"
+        indicatorView:mainTextViewTextColor="@color/holo_red" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <com.tonggou.gsm.andclient.ui.view.IndicatorTextView
+            android:id="@+id/violation_money_indicator_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dimen_20dp"
+            indicatorView:leftIndicatorText="@string/violation_money"
+            indicatorView:leftIndicatorTextLength="3"
+            indicatorView:mainTextViewTextColor="@color/gray" />
+
+        <com.tonggou.gsm.andclient.ui.view.IndicatorTextView
+            android:id="@+id/violation_score_indicator_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            indicatorView:leftIndicatorText="@string/violation_score"
+            indicatorView:leftIndicatorTextLength="3"
+            indicatorView:mainTextViewTextColor="@color/gray" />
+    </LinearLayout>
+
+</LinearLayout>

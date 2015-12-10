@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dimen_20dp" >
+
+        <TextView
+            android:id="@+id/vehicle_no_prefix_text"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:layout_alignParentLeft="true"
+            android:textSize="@dimen/text_h2"
+            android:textColor="@color/black"
+            android:padding="0dp"
+            android:background="@drawable/vehicle_no_prefix_bg" />
+
+        <EditText
+            android:id="@+id/vehicle_no_editText"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/vehicle_no_prefix_text"
+            android:textSize="@dimen/text_h2"
+            android:background="@drawable/vehicle_no_edit_bg"
+            android:hint=""
+            android:maxLength="6" />
+
+        <GridView
+            android:id="@+id/vehicle_no_prefix_grid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_below="@id/vehicle_no_editText"
+            android:numColumns="auto_fit"
+            android:columnWidth="40dp"
+            android:scrollbars="none"
+            android:listSelector="#00000000" >
+        </GridView>
+    </RelativeLayout>
+
+</LinearLayout>

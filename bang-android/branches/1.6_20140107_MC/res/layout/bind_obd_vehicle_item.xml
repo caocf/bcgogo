@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Global_Match_Match"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/real_item_container"
+        style="@style/Global_Match_Wrap"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/bind_obd_vehicle_item_selector"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            style="@style/bind_obd_item"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_alignParentLeft="true"
+                style="@style/Global_Wrap_Wrap"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/Global_Wrap_Wrap"
+                    android:text="品牌："
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/bind_obd_vehicle_item_brand"
+                    style="@style/Global_Wrap_Wrap"
+                    android:text="奥迪 RS6"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_alignParentRight="true"
+                style="@style/Global_Wrap_Wrap"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/Global_Wrap_Wrap"
+                    android:text="车型："
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/bind_obd_vehicle_item_model"
+                    style="@style/Global_Wrap_Wrap"
+                    android:text="RS6"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            style="@style/bind_obd_item"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/Global_Wrap_Wrap"
+                android:text="车牌号："
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/bind_obd_vehicle_item_vehicleNo"
+                style="@style/Global_Wrap_Wrap"
+                android:text="苏E111111"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <CheckBox
+           android:clickable="false"
+            android:id="@+id/bind_obd_vehicle_item_isBind"
+            style="@style/Global_Wrap_Wrap"
+            android:text="是否已绑定该OBD"
+            android:textColor="@color/black"
+            android:focusable="false" />
+
+    </LinearLayout>
+
+</LinearLayout>

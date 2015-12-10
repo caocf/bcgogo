@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="@dimen/dimen_10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/black_border_white_content_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_1dp" >
+
+           <TextView
+                android:id="@+id/movie_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/movie_type"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:textColor="@color/red"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_1dp" >
+
+            <LinearLayout
+            	android:layout_width="match_parent"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="1"
+            	android:orientation="horizontal"
+            	android:padding="@dimen/dimen_1dp" >
+
+           		<TextView
+                	android:id="@+id/title_addr"
+                	android:text="地点:"
+                	android:layout_weight="3"
+                	android:layout_width="fill_parent"
+                	android:layout_height="wrap_content"
+                	android:textColor="@color/black"/>
+
+            	<TextView
+            	    android:layout_weight="1"
+                	android:id="@+id/movie_addr"
+                	android:singleLine="true"
+                	android:layout_width="fill_parent"
+                	android:layout_height="wrap_content"
+                	android:textColor="@color/gray"/>
+            	</LinearLayout>
+
+            <TextView
+                android:id="@+id/movie_status"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:layout_gravity="right"
+                android:layout_height="wrap_content"
+                android:textColor="@color/holo_blue"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/item_list_title"
+            android:padding="@dimen/dimen_1dp">
+
+            <ImageView
+                android:id="@+id/movie_screen_shot"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

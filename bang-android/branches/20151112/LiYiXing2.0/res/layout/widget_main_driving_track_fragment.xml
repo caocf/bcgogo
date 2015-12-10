@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:orientation="vertical">
+
+    <fragment
+        android:id="@+id/first_driving_track_map_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        class="com.tonggou.gsm.andclient.ui.fragment.MainVehicleAndUserMapFragment" />
+
+    <ImageView 
+        android:id="@+id/first_map_thumb_img"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:visibility="gone"/>
+</FrameLayout>

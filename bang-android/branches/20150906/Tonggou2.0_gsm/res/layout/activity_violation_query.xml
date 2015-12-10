@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/vehicle_no_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/alpha9_yellow"
+        android:drawableLeft="@drawable/ic_car"
+        android:gravity="center_vertical"
+        android:padding="@dimen/dimen_20dp"
+        android:textSize="@dimen/text_h1" />
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@id/ptr_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_10dp"
+        android:layout_weight="1"
+        android:divider="@android:color/transparent" />
+
+    <TextView
+        android:id="@+id/violation_count_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/alpha9_holo_blue_light"
+        android:gravity="center"
+        android:padding="@dimen/dimen_15dp"
+        android:textSize="@dimen/text_h1"
+        android:textColor="@color/holo_red" />
+</LinearLayout>

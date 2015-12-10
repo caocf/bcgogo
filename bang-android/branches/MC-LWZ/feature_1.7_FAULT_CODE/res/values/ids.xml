@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="titlebar" />
+    
+    <item name="expandable_toggle_button" type="id"/>
+	<item name="expandable" type="id"/>
+	
+	<item name="gridview" type="id"/>
+	<item name="webview" type="id"/>
+	<item name="scrollview" type="id"/>
+</resources>

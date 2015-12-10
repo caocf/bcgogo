@@ -1,0 +1,7 @@
+<resources>
+
+     <!-- network -->
+    <string name="network_socket_timeout">网络连接请求超时</string>
+    <string name="network_invalidate">当前网络不可用，请检查网络设置</string>
+    <string name="network_login_expire">登录过期</string>
+</resources>

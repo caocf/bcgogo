@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:indicatorView="http://schemas.android.com/apk/res/com.tonggou.yf.andclient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="@dimen/dimen_10dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_todo_list_item_border"
+        android:orientation="vertical" >
+
+        <com.tonggou.yf.andclient.widget.view.IndicatorTextView
+            android:id="@+id/maintain_mileage_indicator_text"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/todo_list_item_row_height"
+            android:background="@drawable/bg_todo_list_item_title"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/dimen_10dp"
+            indicatorView:leftIndicatorTextColor="@color/black"
+            indicatorView:leftIndicatorTextLength="7"
+            indicatorView:leftIndicatorText="@string/indicator_maintain_mileage"
+            indicatorView:mainTextViewTextColor="@color/holo_blue" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/todo_list_item_row_height"
+            android:background="@drawable/bg_divider_horizontal"
+            android:orientation="horizontal" >
+
+            <com.tonggou.yf.andclient.widget.view.IndicatorTextView
+                android:id="@+id/vehicle_owner_indicator_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:padding="@dimen/dimen_10dp"
+                indicatorView:leftIndicatorText="@string/indicator_vehicle_owner"
+                indicatorView:leftIndicatorTextColor="@color/gray_deep"
+                indicatorView:leftIndicatorTextLength="3"
+                indicatorView:mainTextViewTextColor="@color/gray_deep" />
+
+            <Button
+                android:id="@+id/handled_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/selector_handled_btn"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/btn_handled"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_h2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/todo_list_item_row_height"
+            android:background="@drawable/bg_divider_horizontal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <com.tonggou.yf.andclient.widget.view.IndicatorTextView
+                android:id="@+id/vehicle_no_indicator_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="@dimen/dimen_10dp"
+                indicatorView:leftIndicatorText="@string/indicator_vehicle_no"
+                indicatorView:leftIndicatorTextColor="@color/gray_deep"
+                indicatorView:leftIndicatorTextLength="3"
+                indicatorView:mainTextViewTextColor="@color/gray_deep" />
+<!-- 
+            <TextView
+                android:id="@+id/timestamp_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="@dimen/dimen_10dp"
+                android:text="2014-05-20"
+                android:textSize="@dimen/text_h3"
+                android:drawableStart="@drawable/drawable_left_clock"
+                android:textColor="@color/gray_deep" />
+ -->
+        </LinearLayout>
+
+        <include 
+            layout="@layout/widget_handle_btn_container_sms_call"/>
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/main_car_condition_state"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#88000000" >
+
+        <TextView
+            android:id="@+id/main_car_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:text=""
+            android:textColor="#ffffff" />
+
+        <ImageView
+            android:id="@+id/main_car_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/car1" />
+    </RelativeLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="5dp"
+        android:orientation="vertical">
+        
+        <LinearLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="1"
+	        android:orientation="horizontal">
+	        	<ImageButton 
+	        	    android:layout_width="0dp"
+	        	    android:layout_height="match_parent"
+	        	    android:layout_weight="1"
+	        	    android:layout_marginRight="2.5dp"
+	        	    android:background="@drawable/main_icon_selector"
+	        	    android:adjustViewBounds="true"
+	        	    android:src="@drawable/ic_wash"
+	        	    android:onClick="onWashCarServiceClickListener"/>
+	        	
+	        	<ImageButton 
+	        	    android:layout_width="0dp"
+	        	    android:layout_height="match_parent"
+	        	    android:layout_weight="1"
+	        	    android:layout_marginLeft="2.5dp"
+	        	    android:background="@drawable/main_icon_selector"
+	        	    android:src="@drawable/ic_transgress"
+	        	    android:adjustViewBounds="true"
+	        	    android:onClick="onTransgressQueryClickListener"/>
+	        
+    	</LinearLayout>
+    	
+        <LinearLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="2"
+	        android:layout_marginTop="5dp"
+	        android:orientation="horizontal">
+	        	
+            	<LinearLayout 
+            	    android:layout_width="0dp"
+            	    android:layout_weight="1"
+            	    android:layout_height="match_parent"
+            	    android:orientation="vertical"
+            	    android:layout_marginRight="2.5dp"
+            	    android:adjustViewBounds="true"
+            	    android:src="@drawable/ic_shop">
+            	    
+            	    <ImageButton 
+		        	    android:layout_width="match_parent"
+		        	    android:layout_height="0dp"
+		        	    android:layout_weight="1"
+		        	    android:layout_marginBottom="2.5dp"
+		        	    android:background="@drawable/main_icon_selector"
+		        	    android:src="@drawable/ic_order"
+		        	    android:adjustViewBounds="true"
+		        	    android:onClick="onBespeakClickListener"/>
+		        	
+		        	<ImageButton 
+		        	    android:layout_width="match_parent"
+		        	    android:layout_height="0dp"
+		        	    android:layout_weight="1"
+		        	    android:layout_marginTop="2.5dp"
+		        	    android:background="@drawable/main_icon_selector"
+		        	    android:src="@drawable/ic_shop"
+		        	    android:adjustViewBounds="true"
+		        	    android:onClick="onShopQueryClickListener"/>
+            	    
+            	</LinearLayout>
+            
+	        	<ImageButton 
+	        	    android:layout_width="0dp"
+	        	    android:layout_height="match_parent"
+	        	    android:layout_weight="1"
+	        	    android:layout_marginLeft="2.5dp"
+	        	    android:background="@drawable/main_icon_selector"
+	        	    android:adjustViewBounds="true"
+	        	    android:src="@drawable/ic_condition"
+	        	    android:onClick="onConditionClickListener"/>
+	        	
+    	</LinearLayout>
+    	
+        <LinearLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="1"
+	        android:layout_marginTop="5dp"
+	        android:orientation="horizontal">
+	        	<ImageButton 
+	        	    android:layout_width="0dp"
+	        	    android:layout_height="match_parent"
+	        	    android:layout_weight="1"
+	        	    android:layout_marginRight="2.5dp"
+	        	    android:background="@drawable/main_icon_selector"
+	        	    android:src="@drawable/ic_gas_station"
+	        	    android:adjustViewBounds="true"
+	        	    android:onClick="onGasStationClickListener"/>
+	        	
+	        	<ImageButton 
+	        	    android:layout_width="0dp"
+	        	    android:layout_height="match_parent"
+	        	    android:layout_weight="1"
+	        	    android:layout_marginLeft="2.5dp"
+	        	    android:background="@drawable/main_icon_selector"
+	        	    android:src="@drawable/ic_services"
+	        	    android:adjustViewBounds="true"
+	        	    android:onClick="onServiceQueryClickListener"/>
+    	</LinearLayout>
+        
+    </LinearLayout>
+    
+
+</LinearLayout>

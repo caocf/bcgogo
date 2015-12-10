@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res/com.tonggou.gsm.andclient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    
+    <com.tonggou.gsm.andclient.ui.view.DrivingTrackDateSwitcher
+        android:id="@+id/driving_track_date_switcher"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar_default_height"
+        android:background="@color/holo_blue"/>
+    
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/driving_track_list"
+        style="@style/Match_Match"
+        android:background="@android:color/transparent"
+        ptr:ptrHeaderBackground="@color/white"
+        android:cacheColorHint="#00000000" />
+
+</LinearLayout>

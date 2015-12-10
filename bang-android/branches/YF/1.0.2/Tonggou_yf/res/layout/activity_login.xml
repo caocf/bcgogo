@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login_pure" >
+
+    <ImageView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:src="@drawable/login_bottom"
+        android:adjustViewBounds="true"/>
+    
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:transcriptMode="alwaysScroll" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="50dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp" >
+<!-- 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_launcher" />
+ -->
+            <EditText
+                android:id="@+id/username_edit"
+                style="@style/login_editText"
+                android:drawableLeft="@drawable/ic_edit_mobile"
+                android:hint="@string/txt_username"
+                android:textCursorDrawable="@null"
+                android:maxLength="20" >
+
+                <requestFocus />
+            </EditText>
+
+            <EditText
+                android:id="@+id/pwd_edit"
+                style="@style/login_editText"
+                android:drawableLeft="@drawable/ic_edit_pwd"
+                android:hint="@string/txt_pwd"
+                android:inputType="textPassword"
+                android:textCursorDrawable="@null"
+                android:maxLength="20" >
+            </EditText>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen_10dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/txt_remember_pwd"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_h1" />
+
+                <ToggleButton
+                    android:id="@+id/remeber_pwd_toggle_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="30.55dp"
+                    android:background="@drawable/layer_toggle_btn"
+                    android:textOff=""
+                    android:textOn="" />
+            </LinearLayout>
+
+            <Button
+                style="@style/login_editText"
+                android:background="@drawable/selector_login_btn"
+                android:onClick="onLoginBtnClick"
+                android:text="@string/btn_login"
+                android:textColor="@color/selector_login_btn_text"
+                android:textSize="@dimen/text_h2" />
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

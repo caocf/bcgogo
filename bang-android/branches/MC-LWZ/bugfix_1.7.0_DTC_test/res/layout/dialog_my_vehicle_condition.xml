@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Global_Match_Wrap"
+    android:background="@drawable/bg_dialog_my_vehicle_condition"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/txt_dialog_my_vehicle_condition_heading"
+        style="@style/Global_Match_Wrap"
+        android:gravity="center"
+        android:text="您还未添加任何车辆，"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txt_dialog_my_vehicle_condition_subheading"
+        style="@style/Global_Match_Wrap"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="现在添加？"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        style="@style/Global_Match_Wrap"
+        android:layout_marginTop="15dp"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/iv_dialog_my_vehicle_condition_yes"
+            style="@style/Global_Wrap_Wrap"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/icon_dialog_my_vehicle_condition_yes" />
+
+        <ImageView
+            android:id="@+id/iv_dialog_my_vehicle_condition_no"
+            style="@style/Global_Wrap_Wrap"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/icon_dialog_my_vehicle_condition_no" />
+    </LinearLayout>
+
+</LinearLayout>

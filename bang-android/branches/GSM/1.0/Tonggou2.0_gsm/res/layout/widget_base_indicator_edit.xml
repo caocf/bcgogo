@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tonggou.gsm.andclient.ui.view.IndicatorEditText xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:indicator="http://schemas.android.com/apk/res/com.tonggou.gsm.andclient"
+    style="@style/indicator_edittext"
+    indicator:indicatorTextSize="@dimen/text_h3"
+    indicator:leftIndicatorTextColor="@color/gray"
+    indicator:leftIndicatorTextLength="7" />

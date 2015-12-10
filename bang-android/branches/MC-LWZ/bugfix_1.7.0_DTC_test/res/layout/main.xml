@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/main_car_condition_state"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#88000000" >
+
+        <TextView
+            android:id="@+id/main_car_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="20dp"
+            android:layout_marginRight="50dp"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="#ffffff" />
+
+        <ImageView
+            android:id="@+id/main_car_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/car1" />
+    </LinearLayout>
+
+    <TableLayout
+        style="@style/Global_Match_Match"
+        android:padding="5dp" >
+
+        <TableRow
+            style="@style/Global_Match_Match"
+            android:layout_weight="1" >
+
+            <LinearLayout
+                style="@style/main_func_item_land_ll"
+                android:layout_marginRight="@dimen/main_func_half_gap_margin"
+                android:onClick="onWashCarServiceClickListener" >
+
+                <ImageView
+                    style="@style/main_func_item_img"
+                    android:src="@drawable/ic_wash" />
+
+                <TextView
+                    style="@style/main_func_item_txt"
+                    android:text="@string/main_func_wash" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/main_func_item_land_ll"
+                android:layout_marginLeft="@dimen/main_func_half_gap_margin"
+                android:onClick="onTransgressQueryClickListener" >
+
+                <ImageView
+                    style="@style/main_func_item_img"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_transgress" />
+
+                <TextView
+                    style="@style/main_func_item_txt"
+                    android:text="@string/main_func_transgress" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            style="@style/Global_Match_Match"
+            android:layout_marginTop="5dp"
+            android:layout_weight="2" >
+
+            <TableLayout
+                style="@style/Global_horizontal_weight"
+                android:layout_marginRight="@dimen/main_func_half_gap_margin" >
+
+                <LinearLayout
+                    style="@style/main_func_item_land_ll"
+                    android:layout_marginBottom="@dimen/main_func_half_gap_margin"
+                    android:onClick="onBespeakClickListener" >
+
+                    <ImageView
+                        style="@style/main_func_item_img"
+                        android:src="@drawable/ic_order" />
+
+                    <TextView
+                        style="@style/main_func_item_txt"
+                        android:text="@string/main_func_order" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/main_func_item_land_ll"
+                    android:layout_marginTop="@dimen/main_func_half_gap_margin"
+                    android:onClick="onShopQueryClickListener" >
+
+                    <ImageView
+                        style="@style/main_func_item_img"
+                        android:src="@drawable/ic_shop" />
+
+                    <TextView
+                        style="@style/main_func_item_txt"
+                        android:text="@string/main_func_shop" />
+                </LinearLayout>
+            </TableLayout>
+
+            <LinearLayout
+                style="@style/main_func_item_port_ll"
+                android:layout_marginLeft="@dimen/main_func_half_gap_margin"
+                android:onClick="onConditionClickListener" >
+
+                <ImageView
+                    style="@style/main_func_item_img"
+                    android:src="@drawable/ic_condition" />
+
+                <TextView
+                    style="@style/main_func_item_txt"
+                    android:text="@string/main_func_condition" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            style="@style/Global_Match_Match"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1" >
+
+            <LinearLayout
+                style="@style/main_func_item_land_ll"
+                android:layout_marginRight="@dimen/main_func_half_gap_margin"
+                android:onClick="onGasStationClickListener" >
+
+                <ImageView
+                    style="@style/main_func_item_img"
+                    android:src="@drawable/ic_gas_station" />
+
+                <TextView
+                    style="@style/main_func_item_txt"
+                    android:text="@string/main_func_gas_station" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/main_func_item_land_ll"
+                android:layout_marginLeft="@dimen/main_func_half_gap_margin"
+                android:onClick="onServiceQueryClickListener" >
+
+                <ImageView
+                    style="@style/main_func_item_img"
+                    android:src="@drawable/ic_services" />
+
+                <TextView
+                    style="@style/main_func_item_txt"
+                    android:text="@string/main_func_services" />
+            </LinearLayout>
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

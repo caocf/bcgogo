@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:id="@+id/item"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#f3f4f9"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" >
+<RelativeLayout
+            android:id="@+id/shoplistpic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:padding="5dp" >
+
+            <ImageView
+                android:id="@+id/shoplistpicbk0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/shoppicview"
+                android:visibility="invisible" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/shoplistpicbk0"
+                android:layout_alignLeft="@id/shoplistpicbk0"
+                android:layout_alignRight="@id/shoplistpicbk0"
+                android:layout_alignTop="@id/shoplistpicbk0"
+                android:layout_centerInParent="true"
+                android:background="@drawable/shoppicview"
+                android:padding="1dp" >
+
+                <ImageView
+                    android:id="@+id/shoplistpicView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ok" />
+            </RelativeLayout>
+
+            <!--
+                 <ImageView
+                android:id="@+id/shoplistpicView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/shoplistpicbk0"
+                android:layout_alignLeft="@id/shoplistpicbk0"
+                android:layout_alignRight="@id/shoplistpicbk0"
+                android:layout_alignTop="@id/shoplistpicbk0"
+                android:layout_centerInParent="true"
+                android:scaleType="centerCrop"
+                android:padding="1dp" />
+            -->
+
+            <ImageView
+                android:id="@+id/shoplistpicbk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/shoppicview" />
+        </RelativeLayout>
+        <!-- <RelativeLayout
+            android:id="@+id/shoplistpic"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:padding="5dp" >
+
+            <ImageView
+                android:id="@+id/shoplistpicView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ok" />
+
+            <ImageView
+                android:id="@+id/shoplistpicbk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/shoppicview" />
+        </RelativeLayout>
+ -->
+        <TextView
+            android:id="@+id/shoplisttime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:text=""
+            android:textColor="#aaaaaa"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/shoplistname"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/shoplistpic"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="苏州华政别克"
+            android:textColor="#409beb"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:id="@+id/shopslistdetil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="3dp"
+            android:src="@drawable/shopslistdetil" />
+
+        <LinearLayout
+            android:id="@+id/shoplistnum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shoplistname"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_toRightOf="@id/shoplistpic"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/shopslistitemnum" />
+
+            <TextView
+                android:id="@+id/shoplistnum_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="和大黑的黑洞i额稳定剂我饿定位去京东i玩儿"
+                android:textColor="#565656"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/shoplistservice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shoplistnum"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_toRightOf="@id/shoplistpic"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/shopslistitemservice" />
+
+            <TextView
+                android:id="@+id/shoplistservice_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="和大黑的黑洞i额稳定剂我饿定位去京东i玩儿"
+                android:textColor="#565656"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/shopliststate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shoplistservice"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_toRightOf="@id/shoplistpic"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/shopslistitemstate" />
+
+            <TextView
+                android:id="@+id/shopliststate_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="和大黑的黑洞i额稳定剂我饿定位去京东i玩儿"
+                android:textColor="#565656"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/shopslistline"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/shopliststate"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/line" />
+    </RelativeLayout>
+
+</RelativeLayout>

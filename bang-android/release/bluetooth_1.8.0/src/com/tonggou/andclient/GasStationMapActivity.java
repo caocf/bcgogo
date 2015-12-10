@@ -1,0 +1,654 @@
+package com.tonggou.andclient;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.Header;
+import org.apache.http.client.ClientProtocolException;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.mapapi.map.ItemizedOverlay;
+import com.baidu.mapapi.map.LocationData;
+import com.baidu.mapapi.map.MKEvent;
+import com.baidu.mapapi.map.MKMapViewListener;
+import com.baidu.mapapi.map.MapPoi;
+import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.MyLocationOverlay;
+import com.baidu.mapapi.map.Overlay;
+import com.baidu.mapapi.map.OverlayItem;
+import com.baidu.mapapi.map.PopupClickListener;
+import com.baidu.mapapi.map.PopupOverlay;
+import com.baidu.mapapi.map.RouteOverlay;
+import com.baidu.mapapi.navi.BaiduMapAppNotSupportNaviException;
+import com.baidu.mapapi.navi.BaiduMapNavigation;
+import com.baidu.mapapi.navi.NaviPara;
+import com.baidu.mapapi.search.MKAddrInfo;
+import com.baidu.mapapi.search.MKBusLineResult;
+import com.baidu.mapapi.search.MKDrivingRouteResult;
+import com.baidu.mapapi.search.MKPlanNode;
+import com.baidu.mapapi.search.MKPoiResult;
+import com.baidu.mapapi.search.MKSearch;
+import com.baidu.mapapi.search.MKSearchListener;
+import com.baidu.mapapi.search.MKShareUrlResult;
+import com.baidu.mapapi.search.MKSuggestionResult;
+import com.baidu.mapapi.search.MKTransitRouteResult;
+import com.baidu.mapapi.search.MKWalkingRouteResult;
+import com.baidu.mapapi.utils.CoordinateConvert;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.tonggou.andclient.app.TongGouApplication;
+import com.tonggou.andclient.network.parser.AsyncJsonBaseResponseParseHandler;
+import com.tonggou.andclient.network.request.QueryGasStationRequest;
+import com.tonggou.andclient.parse.GasStationParser;
+import com.tonggou.andclient.parse.GasStationParser.PageInfo;
+import com.tonggou.andclient.parse.JuHeDataManager;
+import com.tonggou.andclient.vo.GasStation;
+
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import android.util.SparseArray;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+
+public class GasStationMapActivity extends BDMapBaseActivity {
+	public static final String TAG = "GasStationMapActivity";
+	public static final String TAG2 = "JuHeDataManager";
+	private MapView mMapView;
+	private RelativeLayout mrlCovering;
+	private LinearLayout mllNoNetWork;
+	private LinearLayout mLLPop;
+	private RelativeLayout mrlBack;
+	private RelativeLayout mrlShowDetail;
+	private TextView mtvTitle;
+	private TextView mTVStationName;
+	private TextView mTVStationDist;
+	private TextView mTVStationPrice;
+	private boolean isRoutePlanOn;
+	private boolean isBackPressed;
+	private boolean isMapShown;
+	private long lastClickToShowDetialTime;
+
+	private List<Overlay> mMapViewOverlays;
+	private LocationClient mLocationClient;
+	private CustomLocationOverlay mMyLocationOverlay;
+	private PopupOverlay mPopupOverlay;
+	private MKSearch mMKSearch;
+	private RouteOverlay mRouteOverlay;
+
+//	private GasStationsTask mGasStationsTask;
+	private GasStation mSelectedGasStation;
+	private LocationData mCurrLocData;
+	private GeoPoint mCurrGeoPoint;
+	private ArrayList<GasStation> mGasStations;
+	private SparseArray<GasStation> mGasStationMap;
+	private PageInfo mPageInfo;
+
+//	public static final int PARSING_NETWORK_ERROR = 10001;
+	public static final int RANGE = 10000;
+	public static final String GAS_STATIONS = "GasStations";
+	private Handler handler = new Handler();
+//	private Handler handler = new Handler() {
+//		public void handleMessage(Message msg) {
+//			switch (msg.what) {
+//			case PARSING_NETWORK_ERROR:
+//				mllNoNetWork.setVisibility(View.VISIBLE);
+//				mrlCovering.setVisibility(View.GONE);
+//				// showToast("网络连接错误");
+//				break;
+//			}
+//		};
+//	};
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		initBMap(mMKGeneralListener);
+		setContentView(R.layout.gas_station_map);
+		initViews();
+		mGasStations = new ArrayList<GasStation>();
+		if (!isNetworkAvailable()) {
+			mllNoNetWork.setVisibility(View.VISIBLE);
+			mrlCovering.setVisibility(View.GONE);
+			return;
+		}
+		initMapController(mMapView);
+		initMyLocationOverlay();
+		initaPopupOverlay();
+		initMKSearch();
+		initLocationClient();
+	}
+
+	private boolean isNetworkAvailable() {
+		ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+		if (networkInfo != null && networkInfo.isAvailable()) {
+			return true;
+		}
+		return false;
+	}
+
+	private void initLocationClient() {
+		mLocationClient = new LocationClient(getApplicationContext());
+		mLocationClient.registerLocationListener(mLocationListener);
+		LocationClientOption clientOption = new LocationClientOption();
+		clientOption.setOpenGps(true);
+		clientOption.setAddrType("all");
+		clientOption.setCoorType(BD09LL);
+		clientOption.disableCache(true);
+		clientOption.setPriority(LocationClientOption.NetWorkFirst);
+		mLocationClient.setLocOption(clientOption);
+		mLocationClient.start();
+	}
+
+	private BDLocationListener mLocationListener = new BDLocationListener() {
+		@Override
+		public void onReceiveLocation(BDLocation location) {
+			int type = location.getLocType();
+			if (location != null && (type == SUCCESS_FROM_GPS || type == SUCCESS_FROM_NETWORK)) {
+				mCurrLocData = getLocData(location);
+				requestGasStationsData(mCurrLocData, 1);
+//				mGasStationsTask = new GasStationsTask();
+//				mGasStationsTask.execute(mCurrLocData);
+			}
+		}
+
+		@Override
+		public void onReceivePoi(BDLocation location) {
+		}
+	};
+	
+	private void requestGasStationsData(final LocationData location, int page) {
+		final List<GasStation> currentPageData = new ArrayList<GasStation>();
+		QueryGasStationRequest request = new QueryGasStationRequest();
+		request.setRequestParams(location.longitude, location.latitude, RANGE, page);
+		request.doRequest(this, new AsyncHttpResponseHandler() {
+			
+			@Override
+			public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+				if( responseBody != null && responseBody.length >0) {
+					try {
+						GasStationParser parser = GasStationParser.parse( new JSONObject(new String(responseBody)) );
+						if( parser.isSuccess() ) {
+							mPageInfo = parser.getPageInfo();
+							currentPageData.addAll(parser.getStations());
+						}
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			
+			@Override
+			public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+				// ignore
+			}
+			
+			@Override
+			public void onFinish() {
+				super.onFinish(); 
+				if( isBackPressed || isFinishing() ) {
+					return;
+				}
+				if(  !currentPageData.isEmpty() && mPageInfo != null && mPageInfo.current < mPageInfo.pnums) {
+					mGasStations.addAll(currentPageData);
+					requestGasStationsData(location, mPageInfo.current + 1);
+				} else {
+					if (mMapView == null || mMapViewOverlays == null) {
+						return;
+					}
+					if ( !mGasStations.isEmpty() ) {
+						mMapView.setVisibility(View.VISIBLE);
+						mrlCovering.setVisibility(View.GONE);
+						displayMylocationOnMap(mCurrLocData);
+						displayGasStationsOnMap(mGasStations, true);
+						isMapShown = true;
+					} else {
+						mllNoNetWork.setVisibility(View.GONE);
+						mrlCovering.setVisibility(View.GONE);
+						showErrorMessageDialog("抱歉，未找到结果");
+					}
+				}
+			}
+		});
+		
+	}
+
+	private void initMyLocationOverlay() {
+		mMyLocationOverlay = new CustomLocationOverlay(mMapView);
+		mMyLocationOverlay.enableCompass();
+		mMapViewOverlays.add(mMyLocationOverlay);
+	}
+
+	private void initaPopupOverlay() {
+		mPopupOverlay = new PopupOverlay(mMapView, mPopupClickListener);
+		mLLPop = (LinearLayout) View.inflate(this, R.layout.gas_station_popupoverlay, null);
+		mTVStationName = (TextView) mLLPop.findViewById(R.id.tv_gas_staion_name);
+		mTVStationDist = (TextView) mLLPop.findViewById(R.id.tv_gas_staion_dist);
+		mTVStationPrice = (TextView) mLLPop.findViewById(R.id.tv_gas_staion_price);
+	}
+
+	private void initMKSearch() {
+		mMKSearch = new MKSearch();
+		mMKSearch.init(mBMapManager, mMKSearchListener);
+	}
+
+	private void initViews() {
+		mMapView = (MapView) findViewById(R.id.mv_gas_staion_map);
+		mMapView.regMapViewListener(mBMapManager, mMKMapViewListener);
+		mMapViewOverlays = mMapView.getOverlays();
+
+		mrlCovering = (RelativeLayout) findViewById(R.id.rl_gas_staion_map_covering);
+		mllNoNetWork = (LinearLayout) findViewById(R.id.ll_gas_staion_map_no_network);
+
+		mrlBack = (RelativeLayout) findViewById(R.id.rl_gas_staion_map_back);
+		mrlShowDetail = (RelativeLayout) findViewById(R.id.rl_gas_staion_map_detail);
+		mtvTitle = (TextView) findViewById(R.id.tv_gas_staion_map_title);
+
+		mrlBack.setOnClickListener(mOnClickListener);
+		mrlShowDetail.setOnClickListener(mOnClickListener);
+	}
+
+	private OnClickListener mOnClickListener = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			switch (v.getId()) {
+			case R.id.rl_gas_staion_map_back:
+				onBackPressed();
+				break;
+			case R.id.rl_gas_staion_map_detail:
+				if (!isMapShown) {
+					long currClickToShowDetialTime = System.currentTimeMillis();
+					if (currClickToShowDetialTime - lastClickToShowDetialTime > 3000) {
+						showToast("加载中...");
+					}
+					lastClickToShowDetialTime = currClickToShowDetialTime;
+				} else {
+					startDetailActivity();
+				}
+				break;
+			}
+		}
+	};
+
+	public synchronized void onBackPressed() {
+		if (isRoutePlanOn) {
+			refreshInitOverlays();
+		} else {
+			isBackPressed = true;
+			GasStationMapActivity.this.finish();
+		}
+	};
+
+	private void startDetailActivity() {
+		if (mPopupOverlay != null) {
+			mPopupOverlay.hidePop();
+		}
+		Intent intent = new Intent();
+		intent.putParcelableArrayListExtra(GAS_STATIONS, mGasStations);
+		intent.setAction(GasStationDetailActivity.ACTION_GAS_STATION_DETAIL);
+		intent.addCategory(Intent.CATEGORY_DEFAULT);
+		startActivityForResult(intent, 0);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (data != null) {
+			final GasStation gasStation = data
+					.getParcelableExtra(GasStationDetailActivity.GAS_STATION);
+			final GeoPoint popupGeoPoint = prepareToShowPopupOverlay(gasStation);
+			handler.postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					mMapController.animateTo(new GeoPoint((int) (gasStation.getLat() * 1e6),
+							(int) (gasStation.getLon() * 1e6)));
+					mSelectedGasStation = gasStation;
+				}
+			}, 750);
+			handler.postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					if( mPopupOverlay == null ) {
+						mPopupOverlay = new PopupOverlay(mMapView, mPopupClickListener);
+					}
+					mPopupOverlay.hidePop();
+					mPopupOverlay.showPopup(mLLPop, popupGeoPoint, 32);
+				}
+			}, 1300);
+		}
+	}
+
+	private class CustomLocationOverlay extends MyLocationOverlay {
+
+		public CustomLocationOverlay(MapView mapView) {
+			super(mapView);
+		}
+
+		@Override
+		protected boolean dispatchTap() {
+			// TODO
+			// showToast("dispatchTap");
+			return super.dispatchTap();
+		}
+
+	}
+
+	private class GasStationOverlay extends ItemizedOverlay<OverlayItem> {
+
+		public GasStationOverlay(Drawable defaultMarker, MapView mapView) {
+			super(defaultMarker, mapView);
+		}
+
+		protected boolean onTap(int index) {
+			// 在此处理item点击事件
+			mSelectedGasStation = mGasStationMap.get(index);
+			showPopupOverlay(mSelectedGasStation);
+			return true;
+		}
+
+		public boolean onTap(GeoPoint pt, MapView mapView) {
+			// 在此处理MapView的点击事件
+			if (mPopupOverlay != null) {
+				mPopupOverlay.hidePop();
+			}
+			return false;
+		}
+
+	}
+
+	private PopupClickListener mPopupClickListener = new PopupClickListener() {
+		@Override
+		public void onClickedPopup(int index) {
+			Log.d(TAG, "popup clicked：" + mSelectedGasStation.toString());
+			mPopupOverlay.hidePop();
+			showAsureDialog();
+		}
+	};
+
+	private void displayMylocationOnMap(LocationData locData) {
+		if (locData != null) {
+			mCurrGeoPoint = new GeoPoint((int) (locData.latitude * 1e6),
+					(int) (locData.longitude * 1e6));
+			mMapController.animateTo(mCurrGeoPoint);
+			mMyLocationOverlay.setData(locData);
+			mMapView.refresh();
+		}
+	}
+
+	private void displayMylocationOnMap() {
+		if (mCurrGeoPoint != null) {
+			mMapViewOverlays.add(mMyLocationOverlay);
+		}
+	}
+
+	private void displayGasStationsOnMap(ArrayList<GasStation> gasStations, boolean changeToBD) {
+		if (gasStations != null) {
+			GasStationOverlay gasStationOverlay = new GasStationOverlay(
+					mResources.getDrawable(R.drawable.icon_gas_station), mMapView);
+			mMapViewOverlays.add(gasStationOverlay);
+			mGasStationMap = new SparseArray<GasStation>();
+			int i = 0;
+			for (GasStation gasStation : gasStations) {
+				OverlayItem overlayItem = new OverlayItem(getGeoPoint(gasStation, changeToBD),
+						gasStation.getId() + "", "");
+				gasStationOverlay.addItem(overlayItem);
+				mGasStationMap.put(i++, gasStation);
+			}
+			mMapView.refresh();
+		}
+	}
+
+	private void refreshInitOverlays() {
+		mMapViewOverlays.clear();
+		mMapController.setZoom(ZOOM_LEVEL);
+		mrlShowDetail.setVisibility(View.VISIBLE);
+		mtvTitle.setText(mResources.getText(R.string.gas_station_map));
+		displayMylocationOnMap();
+		displayGasStationsOnMap(mGasStations, false);
+		mMapController.setCenter(mCurrGeoPoint);
+		isRoutePlanOn = false;
+	}
+
+	private void layoutOnRoutePlanOn() {
+		mMapViewOverlays.clear();
+		mrlShowDetail.setVisibility(View.GONE);
+		mtvTitle.setText(mResources.getText(R.string.gas_station_map_route));
+		isRoutePlanOn = true;
+	}
+
+	// @modify by lwz
+	// 目前聚合 返回的已经是 百度地图的坐标了，不需要转换。
+	// @time 2014-01-15
+	private GeoPoint getGeoPoint(GasStation gasStation, boolean changeToBD) {
+//		GeoPoint geoPoint;
+		GeoPoint bdjGeoPoint = new GeoPoint((int) (gasStation.getLat() * 1e6),
+				(int) (gasStation.getLon() * 1e6));
+//		if (changeToBD) {
+//			GeoPoint bdGeoPoint = CoordinateConvert.fromGcjToBaidu(gcjGeoPoint);
+//			gasStation.setLat(((double) bdGeoPoint.getLatitudeE6()) / 1e6);
+//			gasStation.setLon(((double) bdGeoPoint.getLongitudeE6()) / 1e6);
+//			geoPoint = bdGeoPoint;
+//		} else {
+//			geoPoint = gcjGeoPoint;
+//		}
+		return bdjGeoPoint;
+	}
+
+	private void showPopupOverlay(GasStation gasStation) {
+		GeoPoint popupGeoPoint = prepareToShowPopupOverlay(gasStation);
+		mPopupOverlay.showPopup(mLLPop, popupGeoPoint, 32);
+	}
+
+	private GeoPoint prepareToShowPopupOverlay(GasStation gasStation) {
+		mTVStationName.setText(gasStation.getName());
+		mTVStationDist.setText(String.format(mResources.getString(R.string.gas_station_dist),
+				((float) gasStation.getDistance()) / 1000 + ""));
+//		mTVStationPrice.setText(String.format(
+//				mResources.getString(R.string.gas_station_detail_item_price2), gasStation.getE0()
+//						+ "", gasStation.getE93() + "", gasStation.getE97() + ""));
+		mTVStationPrice.setText("价格：" + GasStation.getGasPriceInfoStr(gasStation));
+		GeoPoint geoPoint = new GeoPoint((int) (gasStation.getLat() * 1e6),
+				(int) (gasStation.getLon() * 1e6));
+		return geoPoint;
+	}
+	
+	private MKMapViewListener mMKMapViewListener = new MKMapViewListener() {
+		@Override
+		public void onMapMoveFinish() {
+			Log.d(TAG, "onMapMoveFinish");
+		}
+
+		@Override
+		public void onMapLoadFinish() {
+			Log.d(TAG, "onMapLoadFinish");
+		}
+
+		@Override
+		public void onMapAnimationFinish() {
+			Log.d(TAG, "onMapAnimationFinish");
+		}
+
+		@Override
+		public void onGetCurrentMap(Bitmap arg0) {
+			Log.d(TAG, "onGetCurrentMap");
+		}
+
+		@Override
+		public void onClickMapPoi(MapPoi arg0) {
+			Log.d(TAG, "onClickMapPoi");
+		}
+	};
+
+	private void startNavigation() {
+		GeoPoint endPoint = new GeoPoint((int) (mSelectedGasStation.getLat() * 1e6),
+				(int) (mSelectedGasStation.getLon() * 1e6));
+		NaviPara naviPara = new NaviPara();
+		naviPara.startPoint = mCurrGeoPoint;
+		naviPara.endPoint = endPoint;
+		naviPara.startName = "从这里开始";
+		naviPara.endName = "到这里结束";
+		try {
+			BaiduMapNavigation.openBaiduMapNavi(naviPara, GasStationMapActivity.this);
+		} catch (BaiduMapAppNotSupportNaviException e) {
+			showNotSupportDialog(endPoint);
+		}
+	}
+
+	private void showAsureDialog() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setMessage("确定打开导航?");
+		builder.setTitle("友情提示");
+		builder.setPositiveButton("确认", new android.content.DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+				startNavigation();
+			}
+		});
+
+		builder.setNegativeButton("取消", new android.content.DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+			}
+		});
+
+		builder.create().show();
+	}
+
+	private void showNotSupportDialog(final GeoPoint endPoint) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setMessage("您尚未安装百度地图app或app版本过低，点击确认安装？");
+		builder.setTitle("百度地图");
+		builder.setPositiveButton("确认", new android.content.DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+				BaiduMapNavigation.GetLatestBaiduMapApp(GasStationMapActivity.this);
+			}
+		});
+
+		builder.setNegativeButton("取消", new android.content.DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+				startDrivingRoutePlan(endPoint);
+			}
+		});
+
+		builder.create().show();
+	}
+
+	private void startDrivingRoutePlan(GeoPoint endPoint) {
+		MKPlanNode stNode = new MKPlanNode();
+		stNode.pt = mCurrGeoPoint;
+		MKPlanNode enNode = new MKPlanNode();
+		enNode.pt = endPoint;
+
+		mMKSearch.drivingSearch("开始", stNode, "结束", enNode);
+	}
+
+	private MKSearchListener mMKSearchListener = new MKSearchListener() {
+
+		@Override
+		public void onGetDrivingRouteResult(MKDrivingRouteResult res, int error) {
+			if (error == MKEvent.ERROR_ROUTE_ADDR) {
+				return;
+			}
+			if (error != 0 || res == null) {
+				showToast("抱歉，未找到结果");
+				return;
+			}
+
+			mRouteOverlay = new RouteOverlay(GasStationMapActivity.this, mMapView);
+			mRouteOverlay.setData(res.getPlan(0).getRoute(0));
+			layoutOnRoutePlanOn();
+			mMapViewOverlays.add(mRouteOverlay);
+			mMapView.refresh();
+			mMapController.zoomToSpan(mRouteOverlay.getLatSpanE6(), mRouteOverlay.getLonSpanE6());
+			mMapController.setCenter(res.getStart().pt);
+		}
+
+		@Override
+		public void onGetAddrResult(MKAddrInfo arg0, int arg1) {
+		}
+
+		@Override
+		public void onGetBusDetailResult(MKBusLineResult arg0, int arg1) {
+		}
+
+		@Override
+		public void onGetPoiDetailSearchResult(int arg0, int arg1) {
+		}
+
+		@Override
+		public void onGetPoiResult(MKPoiResult arg0, int arg1, int arg2) {
+		}
+
+		@Override
+		public void onGetShareUrlResult(MKShareUrlResult arg0, int arg1, int arg2) {
+		}
+
+		@Override
+		public void onGetSuggestionResult(MKSuggestionResult arg0, int arg1) {
+		}
+
+		@Override
+		public void onGetTransitRouteResult(MKTransitRouteResult arg0, int arg1) {
+		}
+
+		@Override
+		public void onGetWalkingRouteResult(MKWalkingRouteResult arg0, int arg1) {
+		}
+	};
+
+	@Override
+	protected void onPause() {
+		if (mMapView != null) {
+			mMapView.onPause();
+		}
+		super.onPause();
+	}
+
+	@Override
+	protected void onResume() {
+		if (mMapView != null) {
+			mMapView.onResume();
+			if (mCurrGeoPoint != null) {
+				mMapController.setCenter(mCurrGeoPoint);
+			}
+		}
+		super.onResume();
+	}
+
+	@Override
+	protected void onDestroy() {
+		if (mMapView != null) {
+			mMapView.destroy();
+		}
+		if (mBMapManager != null) {
+			mBMapManager = null;
+		}
+//		if( mGasStationsTask != null ) {
+//			mGasStationsTask.cancel(true);
+//		}
+		super.onDestroy();
+	}
+
+}

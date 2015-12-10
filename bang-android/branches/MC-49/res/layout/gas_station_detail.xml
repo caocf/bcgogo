@@ -1,0 +1,92 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Global_Match_Match"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/title"
+        style="@style/Global_Match_Wrap"
+        android:background="@drawable/loginheadback" >
+
+        <RelativeLayout
+            android:id="@+id/rl_gas_staion_detail_back"
+            android:layout_width="70dp"
+            android:layout_height="40dp" >
+
+            <ImageView
+                style="@style/Global_Wrap_Wrap"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/back" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/Global_Wrap_Wrap"
+            android:layout_centerInParent="true"
+            android:text="@string/gas_station_detail"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <RelativeLayout
+            android:id="@+id/rl_gas_staion_detail_map"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true" >
+
+            <ImageView
+                style="@style/Global_Wrap_Wrap"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/listtomap" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/shopslistback" >
+
+        <LinearLayout
+            android:id="@+id/ll_gas_staion_detail_sort_by_dist"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/tv_gas_staion_detail_sort_by_dist"
+                style="@style/Global_Wrap_Wrap"
+                android:text="@string/gas_staion_detail_sort_by_dist"
+                android:textColor="@color/gas_station_detail_title_blue" />
+        </LinearLayout>
+
+        <ImageView
+            style="@style/Global_Wrap_Wrap"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/icon_sort_by_separator" />
+
+        <LinearLayout
+            android:id="@+id/ll_gas_staion_detail_sort_by_price"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/tv_gas_staion_detail_sort_by_price"
+                style="@style/Global_Wrap_Wrap"
+                android:text="@string/gas_staion_detail_sort_by_price"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_gas_station_detail"
+        style="@style/Global_Match_Match"
+        android:layout_marginTop="8dp"
+        android:divider="@drawable/gas_station_list_divider"
+        android:listSelector="@android:color/transparent" >
+    </ListView>
+
+</LinearLayout>

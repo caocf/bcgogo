@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:indicatorView="http://schemas.android.com/apk/res/com.tonggou.gsm.andclient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:orientation="vertical" >
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorTextView
+                android:id="@+id/device_no_indicator_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/divider_horizontal_bg"
+                android:paddingBottom="@dimen/dimen_10dp"
+                android:paddingLeft="@dimen/dimen_20dp"
+                android:paddingRight="@dimen/dimen_20dp"
+                android:paddingTop="@dimen/dimen_10dp"
+                indicatorView:leftIndicatorText="@string/device_no"
+                indicatorView:leftIndicatorTextColor="@color/gray"
+                indicatorView:leftIndicatorTextLength="5"
+                indicatorView:mainTextViewTextColor="@color/black" />
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorEditText
+                android:id="@+id/primary_phone_no_indicator_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dimen_10dp"
+                android:paddingLeft="@dimen/dimen_20dp"
+                android:paddingRight="@dimen/dimen_20dp"
+                android:paddingTop="@dimen/dimen_10dp"
+                indicatorView:leftIndicatorText="@string/primary_phone_no"
+                indicatorView:leftIndicatorTextColor="@color/gray"
+                indicatorView:leftIndicatorTextLength="5"
+                indicatorView:mainTextViewHint="@string/txt_hint_primary_phone_no"
+                indicatorView:mainTextViewHintTextColor="@color/holo_blue"
+                indicatorView:mainTextViewMaxLength="@integer/phone_num_max_length"
+                indicatorView:mainTextViewTextColor="@color/black" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_10dp"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:background="@drawable/holo_blue_btn_selector"
+                android:text="@string/btn_send_sms"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_h2"
+                android:onClick="onSendPrimaryPhoneNoBtnClick" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dimen_10dp"
+                android:paddingLeft="@dimen/dimen_20dp"
+                android:paddingRight="@dimen/dimen_20dp"
+                android:text="@string/txt_info_primary_phone_no"
+                android:textColor="@color/holo_red"
+                android:textSize="@dimen/text_h4" />
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorEditText
+                android:id="@+id/sos_phone_no_1_indicator_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/divider_horizontal_bg"
+                android:paddingBottom="@dimen/dimen_10dp"
+                android:paddingLeft="@dimen/dimen_20dp"
+                android:paddingRight="@dimen/dimen_20dp"
+                android:paddingTop="@dimen/dimen_10dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                indicatorView:leftIndicatorText="@string/phone_no_1"
+                indicatorView:leftIndicatorTextColor="@color/gray"
+                indicatorView:leftIndicatorTextLength="6"
+                indicatorView:mainTextViewHint="@string/txt_hint_phone_no"
+                indicatorView:mainTextViewHintTextColor="@color/holo_blue"
+                indicatorView:mainTextViewMaxLength="@integer/phone_num_max_length"
+                indicatorView:mainTextViewTextColor="@color/black" />
+
+            <com.tonggou.gsm.andclient.ui.view.IndicatorEditText
+                android:id="@+id/sos_phone_no_2_indicator_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dimen_10dp"
+                android:paddingLeft="@dimen/dimen_20dp"
+                android:paddingRight="@dimen/dimen_20dp"
+                android:paddingTop="@dimen/dimen_10dp"
+                indicatorView:leftIndicatorText="@string/phone_no_2"
+                indicatorView:leftIndicatorTextColor="@color/gray"
+                indicatorView:leftIndicatorTextLength="6"
+                indicatorView:mainTextViewHint="@string/txt_hint_phone_no"
+                indicatorView:mainTextViewHintTextColor="@color/holo_blue"
+                indicatorView:mainTextViewMaxLength="@integer/phone_num_max_length"
+                indicatorView:mainTextViewTextColor="@color/black" />
+
+            <Button
+                android:id="@+id/send_sos_phone_no_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_10dp"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:background="@drawable/holo_blue_btn_selector"
+                android:text="@string/btn_send_sms"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_h2"
+                android:onClick="onSendSosPhoneNoBtnClick" />
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dimen_10dp"
+                android:paddingLeft="@dimen/dimen_20dp"
+                android:paddingRight="@dimen/dimen_20dp"
+                android:text="@string/txt_info_sos_phone_no"
+                android:textColor="@color/holo_red"
+                android:textSize="@dimen/text_h4" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Global_Wrap_Wrap"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        style="@style/Global_Wrap_Wrap"
+        android:background="@drawable/bg_current_condition_popup"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp" >
+
+        <TextView
+            style="@style/Global_Wrap_Wrap"
+            android:layout_marginTop="5dp"
+            android:text="您上次停车的位置:"
+            android:textColor="@android:color/white"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/txt_myVehicleCondition_popup_content"
+            style="@style/Global_Wrap_Wrap"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="江苏省苏州市吴中区艺坊路"
+            android:textColor="@android:color/white"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+</LinearLayout>

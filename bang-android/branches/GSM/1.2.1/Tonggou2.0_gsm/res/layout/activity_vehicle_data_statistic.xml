@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dobuleTab="http://schemas.android.com/apk/res/com.tonggou.gsm.andclient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <com.tonggou.gsm.andclient.ui.view.DoubleTabView
+        android:id="@+id/tab_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        dobuleTab:fristTabBackground="@drawable/tab_item_left_selector"
+        dobuleTab:fristTabText="@string/tab_data_statistic"
+        dobuleTab:secondTabBackground="@drawable/tab_item_right_selector"
+        dobuleTab:secondTabText="@string/tab_data_chart"
+        dobuleTab:tabTextColor="@color/tab_text_selector" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <com.tonggou.gsm.andclient.ui.view.UnPagingViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        
+        <include 
+            android:id="@+id/no_data_view"
+            layout="@layout/widget_no_data_view"/>
+    </FrameLayout>
+
+</LinearLayout>

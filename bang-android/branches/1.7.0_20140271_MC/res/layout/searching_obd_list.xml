@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/loginheadback" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/connect_obd_devieces"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/obd_devices_research"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/searching_obd_refresh"
+            android:gravity="center" />
+        
+        <!-- <ProgressBar
+            android:id="@+id/search_obd_pb1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="80dp"
+            android:layout_alignParentRight="true"
+             /> -->
+
+    </RelativeLayout>
+   <!--   <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:text="已配对"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+    <LinearLayout 
+        android:id="@+id/obd_devices_paired"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical"
+        >
+        
+        
+    </LinearLayout>
+	<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:text="搜索到"
+            android:textColor="#000000"
+            android:textSize="20dp" /> -->
+    <ListView
+        android:id="@+id/obd_devices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="#00000000"
+        android:scrollbars="none"
+		android:cacheColorHint="#FFFFFF"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="#ffffff"
+         />
+
+</LinearLayout>

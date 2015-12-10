@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_func_txt2img_margin">5dp</dimen>
+    <dimen name="main_func_imgSize">50dp</dimen>
+    <dimen name="main_func_half_gap_margin">2.5dp</dimen>
+</resources>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Global_Match_Match"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        style="@style/Global_Match_Wrap"
+        android:background="@drawable/loginheadback" >
+
+        <RelativeLayout
+            android:id="@+id/rl_vehicle_condition_adjust_back"
+            android:layout_width="70dp"
+            android:layout_height="40dp" >
+
+            <ImageView
+                style="@style/Global_Wrap_Wrap"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/back" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/Global_Wrap_Wrap"
+            android:layout_centerInParent="true"
+            android:text="校准行程"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+    <RelativeLayout style="@style/rl_vehicle_condition_adjust_item" >
+
+        <TextView
+            android:id="@+id/txt_vca_item1_left"
+            style="@style/txt_vehicle_condition_adjust_item_left"
+            android:text="油价：" />
+
+        <TextView
+            android:id="@+id/txt_vca_item1_right"
+            style="@style/txt_vehicle_condition_adjust_item_right"
+            android:text="元" />
+
+        <EditText
+            android:id="@+id/et_vehicle_condition_adjust_oil_price"
+            style="@style/et_vehicle_condition_adjust_item"
+            android:layout_toLeftOf="@id/txt_vca_item1_right"
+            android:layout_toRightOf="@id/txt_vca_item1_left"
+            android:text="2" />
+    </RelativeLayout>
+
+    <RelativeLayout style="@style/rl_vehicle_condition_adjust_item" >
+
+        <TextView
+            android:id="@+id/txt_vca_item5_left"
+            style="@style/txt_vehicle_condition_adjust_item_left"
+            android:text="本次行驶：" />
+
+        <TextView
+            android:id="@+id/txt_vca_item5_right"
+            style="@style/txt_vehicle_condition_adjust_item_right"
+            android:text="公里" />
+
+        <EditText
+            android:id="@+id/et_vehicle_condition_adjust_distance"
+            style="@style/et_vehicle_condition_adjust_item"
+            android:layout_toLeftOf="@id/txt_vca_item5_right"
+            android:layout_toRightOf="@id/txt_vca_item5_left"
+            android:text="2" />
+    </RelativeLayout>
+
+    <RelativeLayout style="@style/rl_vehicle_condition_adjust_item" >
+
+        <TextView
+            android:id="@+id/txt_vca_item2_left"
+            style="@style/txt_vehicle_condition_adjust_item_left"
+            android:text="本次耗油：" />
+
+        <TextView
+            android:id="@+id/txt_vca_item2_right"
+            style="@style/txt_vehicle_condition_adjust_item_right"
+            android:text="升" />
+
+        <EditText
+            android:id="@+id/et_vehicle_condition_adjust_oil_wear"
+            style="@style/et_vehicle_condition_adjust_item"
+            android:layout_toLeftOf="@id/txt_vca_item2_right"
+            android:layout_toRightOf="@id/txt_vca_item2_left"
+            android:enabled="false"
+            android:text="2"
+            android:textColor="@android:color/darker_gray" />
+    </RelativeLayout>
+
+    <RelativeLayout style="@style/rl_vehicle_condition_adjust_item" >
+
+        <TextView
+            android:id="@+id/txt_vca_item3_left"
+            style="@style/txt_vehicle_condition_adjust_item_left"
+            android:text="本次油费：" />
+
+        <TextView
+            android:id="@+id/txt_vca_item3_right"
+            style="@style/txt_vehicle_condition_adjust_item_right"
+            android:text="元" />
+
+        <EditText
+            android:id="@+id/et_vehicle_condition_adjust_oil_cost"
+            style="@style/et_vehicle_condition_adjust_item"
+            android:layout_toLeftOf="@id/txt_vca_item3_right"
+            android:layout_toRightOf="@id/txt_vca_item3_left"
+            android:enabled="false"
+            android:text="2"
+            android:textColor="@android:color/darker_gray" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_vehicle_condition_adjust_commit"
+        style="@style/iv_vehicle_condition_adjust_item"
+        android:src="@drawable/icon_vehicle_condition_adjust_save" />
+
+</LinearLayout>

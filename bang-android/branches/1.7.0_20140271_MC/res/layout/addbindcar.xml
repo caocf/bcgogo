@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/registerback1" >
+
+    <RelativeLayout
+        android:id="@+id/head"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/loginheadback" >
+
+        <RelativeLayout
+            android:id="@+id/left_button"
+            android:layout_width="70dp"
+            android:layout_height="40dp" >
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/back" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/bindcar_more"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/bindcar_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/obdout"
+            android:gravity="center"
+            android:text="@string/button_ok"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/head" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="10dp" >
+
+            <LinearLayout style="@style/bindcars_common_item_ll" >
+
+                <TextView
+                    style="@style/bindcars_common_item_label"
+                    android:text="@string/app_network_servicecarnum" />
+
+                <com.tonggou.andclient.myview.CapitalEditText
+                    android:id="@+id/bindcar_num"
+                    style="@style/bindcars_common_item_content"
+                    android:maxLength="20" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/bindcars_common_item_ll" >
+
+                <TextView
+                    style="@style/bindcars_common_item_label"
+                    android:text="@string/register_carnum" />
+
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/addbindcar_bindcarnum2"
+                        style="@style/bindcars_common_item_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="3"
+                        android:hint="+品牌" />
+
+                    <TextView
+                        android:id="@+id/addbindcar_bindcarnum1"
+                        style="@style/bindcars_common_item_content"
+                        android:layout_weight="2"
+                        android:hint="+车型" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/bindcars_common_item_ll" >
+
+                <TextView
+                    style="@style/bindcars_common_item_label"
+                    android:text="@string/register_vehicle_vin_no" />
+
+                <EditText
+                    android:id="@+id/bindcarvehiclevin"
+                    style="@style/bindcars_common_item_content" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/bindcars_common_item_ll" >
+
+                <TextView
+                    style="@style/bindcars_common_item_label"
+                    android:text="@string/register_engine_no" />
+
+                <EditText
+                    android:id="@+id/bindcarengineno"
+                    style="@style/bindcars_common_item_content" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/bindcars_common_item_ll" >
+
+                <TextView
+                    style="@style/bindcars_common_item_label"
+                    android:text="@string/register_regist_no" />
+
+                <EditText
+                    android:id="@+id/bindcarregistno"
+                    style="@style/bindcars_common_item_content" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/bindcars_common_item_ll" >
+
+                <TextView
+                    style="@style/bindcars_common_item_label"
+                    android:text="@string/register_nowmile" />
+
+                <RelativeLayout
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" >
+
+                    <EditText
+                        android:id="@+id/bindcarmilenow"
+                        style="@style/bindcars_common_item_content2"
+                        android:numeric="integer" />
+
+                    <TextView
+                        style="@style/bindcars_common_item_unit"
+                        android:text="公里" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/bindcars_common_item_ll" >
+
+                <TextView
+                    style="@style/bindcars_common_item_label"
+                    android:text="@string/register_nextmile" />
+
+                <RelativeLayout
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" >
+
+                    <EditText
+                        android:id="@+id/bindcarnextmile"
+                        style="@style/bindcars_common_item_content2"
+                        android:numeric="integer" />
+
+                    <TextView
+                        style="@style/bindcars_common_item_unit"
+                        android:text="公里" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/bindcars_common_item_ll" >
+
+                <TextView
+                    style="@style/bindcars_common_item_label"
+                    android:text="@string/register_nexttime" />
+
+                <TextView
+                    android:id="@+id/bindcarnexttime"
+                    style="@style/bindcars_common_item_content" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/bindcars_common_item_ll" >
+
+                <TextView
+                    style="@style/bindcars_common_item_label"
+                    android:text="@string/register_nexttime2" />
+
+                <TextView
+                    android:id="@+id/bindcarnexttime2"
+                    style="@style/bindcars_common_item_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/progressBar"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="visible" >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</RelativeLayout>

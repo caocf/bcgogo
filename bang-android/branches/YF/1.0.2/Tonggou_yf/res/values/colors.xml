@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#000</color>
+    <color name="white">#FFF</color>
+    <color name="gray">#DDD</color>
+    <color name="gray_deep">#888</color>
+    <color name="holo_blue">#2FA8C5</color>
+    <color name="holo_blue_deep">#1EBBF2</color>
+    <color name="holo_orange">#FF8800</color>
+    <color name="holo_green">#24B260</color>
+    <color name="holo_yellow">#FFE7AB</color>
+    <color name="holo_red">#F15C4A</color>
+    <color name="cyan">#DDF0F7</color>
+    
+    
+    <color name="alpha2_black">#2000</color>
+    <color name="alpha9_gray">#9DDD</color>
+    <color name="alpha9_yellow">#99FFFF00</color>
+    <color name="alpha4_holo_blue">#442FA8C5</color>
+    <color name="alpha9_holo_blue">#992FA8C5</color>
+    <color name="alpha9_holo_green">#9924B260</color>
+    <color name="alpha9_holo_orange">#99FF8800</color>
+    <color name="alpha9_holo_red">#99F15C4A</color>
+
+</resources>

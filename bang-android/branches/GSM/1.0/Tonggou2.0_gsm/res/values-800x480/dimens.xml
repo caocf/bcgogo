@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="driving_track_statisics_item_text">18sp</dimen>
+    <dimen name="driving_track_statisics_item_unit_text">8sp</dimen>
+    
+     <dimen name="text_h1">18sp</dimen>
+    <dimen name="text_h2">16sp</dimen>
+    <dimen name="text_h3">14sp</dimen>
+    <dimen name="text_h4">12sp</dimen>
+    <dimen name="text_h5">10sp</dimen>
+</resources>

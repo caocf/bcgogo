@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/registerback"
+    android:gravity="center_horizontal"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical" >
+
+    <com.tonggou.andclient.myview.SimpleTitleBar
+        android:id="@id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="5"
+                    android:gravity="right"
+                    android:text="@string/register_name"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/text_h2" />
+
+                <com.tonggou.andclient.myview.CapitalEditText
+                    android:id="@+id/account_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/register_editback"
+                    android:hint="@string/account_name_hint"
+                    android:maxLength="11"
+                    android:padding="5dp"
+                    android:singleLine="true" >
+                    <requestFocus />
+                </com.tonggou.andclient.myview.CapitalEditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="5"
+                    android:gravity="right"
+                    android:text="@string/password"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/text_h2" />
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/register_editback"
+                    android:inputType="textPassword"
+                    android:padding="5dp"
+                    android:digits="@string/password_digits"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="5"
+                    android:gravity="right"
+                    android:text="@string/password_again"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/text_h2" />
+
+                <EditText
+                    android:id="@+id/password_again"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/register_editback"
+                    android:inputType="textPassword"
+                    android:padding="5dp"
+                    android:digits="@string/password_digits"
+                    android:singleLine="true" />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="5"
+                    android:gravity="right"
+                    android:text="@string/phone_num"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/text_h2" />
+
+                <EditText
+                    android:id="@+id/phone_num"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/register_editback"
+                    android:inputType="phone"
+                    android:padding="5dp"
+                    android:maxLength="11"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <Button
+                style="@style/blue_button"
+                android:layout_marginTop="20dp"
+                android:text="提交"
+                android:onClick="onRegisterBtnClick" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

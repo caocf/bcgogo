@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- MENU -->
+    <string-array name="left_menu_arr">
+        <item>预约服务</item>
+        <item>消息中心</item>
+        <item>@string/title_4s_shop</item>
+        <item>@string/title_vehicle_data_statistic</item>
+        <item>@string/title_query_video</item>
+        <item>@string/title_dtc_manager</item>
+    </string-array>
+
+    <array name="left_menu_icon">
+        <item>@drawable/ic_clock</item>
+        <item>@drawable/ic_message</item>
+        <item>@drawable/ic_4s_notice</item>
+        <item>@drawable/ic_statistic</item>
+        <item>@drawable/ic_query_movie</item>
+        <item>@drawable/ic_voucher</item>
+    </array>
+
+    <string-array name="right_menu_arr">
+        <item>我的设备</item>
+        <item>修改密码</item>
+        <item>车辆管理</item>
+        <item>我的账单</item>
+        <item>我的4S店</item>
+        <item>检查更新</item>
+    </string-array>
+
+    <array name="right_menu_icon">
+        <item>@drawable/ic_device</item>
+        <item>@drawable/ic_password_edit</item>
+        <item>@drawable/ic_car_manage</item>
+        <item>@drawable/ic_paylist</item>
+        <item>@drawable/ic_4s</item>
+        <item>@drawable/ic_update</item>
+    </array>
+
+    <string-array name="home_driving_track_statistics_info_board_titles">
+        <item>行驶里程(km)</item>
+        <item>人车距离(km)</item>
+    </string-array>
+
+    <!-- DRIVING TRACK -->
+    <string-array name="driving_track_statistics_info_board_titles">
+        <item>行驶里程</item>
+        <item>行驶时长</item>
+        <item>总油耗</item>
+        <item>平均油耗</item>
+    </string-array>
+    <string-array name="driving_track_statistics_info_board_units">
+        <item>@string/unit_km</item>
+        <item>H</item>
+        <item>@string/unit_L</item>
+        <item>@string/unit_L_100KM</item>
+    </string-array>
+    <string-array name="driving_track_item_units">
+        <item>KM</item>
+        <item>Min</item>
+        <item>@string/unit_L_100KM</item>
+        <item>L</item>
+    </string-array>
+
+    <!-- DRIVING TRACK DETAIL -->
+
+    <array name="driving_track_detail_statistics_icons">
+        <item>@drawable/ic_driving_track_distance</item>
+        <item>@drawable/ic_driving_track_traveltime</item>
+        <item>@drawable/ic_driving_track_money</item>
+        <item>@drawable/ic_driving_track_oilwear</item>
+    </array>
+
+    <string-array name="driving_track_detail_statistics_titles">
+        <item>里程</item>
+        <item>时长</item>
+        <item>金额</item>
+        <item>油耗</item>
+    </string-array>
+
+    <array name="driving_track_detail_statistics_colors">
+        <item>@color/holo_blue</item>
+        <item>@color/black</item>
+        <item>#C7AE60</item>
+        <item>@color/holo_orange</item>
+    </array>
+
+    <string-array name="driving_track_detail_statistics_units">
+        <item>KM</item>
+        <item>Min</item>
+        <item>元</item>
+        <item>L</item>
+    </string-array>
+
+    <!-- APPOINTMENT -->
+    <string-array name="shop_service_category">
+        <item>保养</item>
+        <item>维修</item>
+        <item>美容</item>
+    </string-array>
+    <string-array name="shop_service_category_id">
+        <item>"10000010001000002"</item>
+        <item>"10000010001000001"</item>
+        <item>"10000010002000001"</item>
+    </string-array>
+
+    <string-array name="chart_units">
+        <item>@string/unit_km</item>
+        <item>@string/unit_L</item>
+        <item>@string/unit_L_100KM</item>
+        <item>@string/unit_price</item>
+    </string-array>
+
+    <!-- VehilceNo prefix -->
+    <string-array name="vehicle_no_prefix">
+        <item>沪</item>
+        <item>苏</item>
+        <item>浙</item>
+        <item>赣</item>
+        <item>鄂</item>
+        <item>桂</item>
+        <item>甘</item>
+        <item>晋</item>
+        <item>蒙</item>
+        <item>陕</item>
+        <item>吉</item>
+        <item>闽</item>
+        <item>贵</item>
+        <item>粤</item>
+        <item>川</item>
+        <item>青</item>
+        <item>藏</item>
+        <item>琼</item>
+        <item>宁</item>
+        <item>渝</item>
+        <item>京</item>
+        <item>津</item>
+        <item>冀</item>
+        <item>豫</item>
+        <item>云</item>
+        <item>辽</item>
+        <item>黑</item>
+        <item>湘</item>
+        <item>皖</item>
+        <item>鲁</item>
+        <item>新</item>
+    </string-array>
+
+    <!-- Query Movie -->
+    <string-array name="query_movie_title">
+        <item>@string/list_title_car_id</item>
+        <item>@string/list_title_type</item>
+        <item>@string/list_title_time</item>
+        <item>@string/list_title_addr</item>
+        <item>@string/list_title_upload_status</item>
+    </string-array>
+</resources>

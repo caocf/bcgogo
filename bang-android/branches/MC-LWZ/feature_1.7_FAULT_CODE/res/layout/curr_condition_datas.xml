@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Global_Match_Wrap"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/vehicle_condition_datas_height"
+        android:background="@drawable/bg_driving_journal_pull_layout"
+        android:orientation="horizontal" >
+
+        <LinearLayout style="@style/ll_curr_condition_data_item" >
+
+            <ImageView
+                style="@style/imgView_driving_journal_style1"
+                android:src="@drawable/icon_oil_left" />
+
+            <TextView
+                android:id="@+id/txt_curr_condition_oil_left"
+                style="@style/txt_driving_journal_style1"
+                android:text="--" />
+
+            <TextView
+                style="@style/txt_driving_journal_style2"
+                android:text="剩余油量" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/ll_curr_condition_data_item" >
+
+            <ImageView
+                style="@style/imgView_driving_journal_style1"
+                android:src="@drawable/icon_tank_temperature" />
+
+            <TextView
+                android:id="@+id/txt_curr_condition_tank_temperature"
+                style="@style/txt_driving_journal_style1"
+                android:text="--" />
+
+            <TextView
+                style="@style/txt_driving_journal_style2"
+                android:text="水箱温度" />
+        </LinearLayout>
+        <LinearLayout style="@style/ll_curr_condition_data_item" >
+
+            <ImageView
+                style="@style/imgView_driving_journal_style1"
+                android:src="@drawable/icon_driving_oil_wear" />
+
+            <TextView
+                android:id="@+id/txt_curr_condition_oil_wear"
+                style="@style/txt_driving_journal_style1"
+                android:text="0.0L" />
+
+            <TextView
+                style="@style/txt_driving_journal_style2"
+                android:text="本次耗油" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/ll_curr_condition_data_item" >
+
+            <ImageView
+                style="@style/imgView_driving_journal_style1"
+                android:src="@drawable/icon_driving_distance" />
+
+            <TextView
+                android:id="@+id/txt_curr_condition_distance"
+                style="@style/txt_driving_journal_style1"
+                android:text="0.0km" />
+
+            <TextView
+                style="@style/txt_driving_journal_style2"
+                android:text="本次行程" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/ll_curr_condition_data_item" >
+
+            <ImageView
+                style="@style/imgView_driving_journal_style1"
+                android:src="@drawable/icon_driving_time" />
+
+            <TextView
+                android:id="@+id/txt_curr_condition_time"
+                style="@style/txt_driving_journal_style1"
+                android:text="0.0h" />
+
+            <TextView
+                style="@style/txt_driving_journal_style2"
+                android:text="行车时长" />
+        </LinearLayout>
+    </LinearLayout>
+
+</HorizontalScrollView>

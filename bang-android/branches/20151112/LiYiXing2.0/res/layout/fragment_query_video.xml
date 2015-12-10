@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res/com.tonggou.gsm.andclient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/query_video_list"
+        style="@style/Match_Match"
+        android:background="@android:color/transparent"
+        ptr:ptrHeaderBackground="@color/white"
+        ptr:ptrMode="both"
+        android:cacheColorHint="#00000000"/>
+
+</LinearLayout>

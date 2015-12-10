@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:padding="10dp"
+	>
+	
+    <!-- 1头像 -->
+    <RelativeLayout 
+        android:id="@+id/portrait_view"
+        android:layout_width="50dip"
+		android:layout_height="50dip"
+		android:layout_alignParentLeft="true"
+		android:layout_centerVertical="true"
+        >
+	    <ImageView 
+	        android:id="@+id/portrait_imgview"
+	        android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/alarm1"
+			android:layout_centerInParent="true"
+	        />
+	  
+    </RelativeLayout>
+     
+    <!-- 2内容 -->
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip"
+		android:layout_toRightOf="@id/portrait_view"
+		android:layout_toLeftOf="@+id/more_imgview"
+        >
+        <TextView 
+            android:id="@+id/name_txtview"
+            android:layout_width="100dip"
+			android:layout_height="wrap_content"
+			android:textColor="#409beb"
+			android:textSize="18sp"
+			android:text="名字"
+			android:singleLine="true"
+			android:ellipsize="end"
+            />
+        <TextView 
+            android:id="@+id/time_txtview"
+            android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor="#999999"
+			android:textSize="12sp"
+			android:text="2012 12-21 13:14"
+			android:layout_alignParentRight="true"
+			android:layout_alignBottom="@id/name_txtview"
+            />
+        <TextView 
+            android:id="@+id/content_txtview"
+            android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor="#333333"
+			android:textSize="14sp"
+			android:layout_below="@id/name_txtview"
+			android:text="这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容"
+            android:maxLines="2"/>
+    </RelativeLayout>
+    
+    <!-- 3箭头 -->
+    <ImageView 
+        android:id="@+id/more_imgview"
+        android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/setmore"
+		android:layout_alignParentRight="true"
+		android:layout_centerVertical="true"
+        />
+    
+  <!--   <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/portrait_view"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/setline" /> -->
+ 
+</RelativeLayout>
+		   

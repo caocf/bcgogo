@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E27071E1-5CB7-4D22-A67A-F49E3C0A3B8A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TGOBD</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B9E49BA2-5325-4D81-8109-8F0A20329EF0</key>
+		<string>http://61.177.55.242:10080/svn/ios/branches/TGOBD-1.0</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TGOBD.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B9E49BA2-5325-4D81-8109-8F0A20329EF0</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>B9E49BA2-5325-4D81-8109-8F0A20329EF0</key>
+		<string>http://61.177.55.242:10080/svn/ios</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>http://61.177.55.242:10080/svn/ios/branches/TGOBD-1.0/TGOBD.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B9E49BA2-5325-4D81-8109-8F0A20329EF0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryBranchesRelativeLocationKey</key>
+			<string>branches</string>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlRepositoryTagsRelativeLocationKey</key>
+			<string>tags</string>
+			<key>IDESourceControlRepositoryTrunkRelativeLocationKey</key>
+			<string>trunk</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B9E49BA2-5325-4D81-8109-8F0A20329EF0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TGOBD-1</string>
+		</dict>
+	</array>
+</dict>
+</plist>

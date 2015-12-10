@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/dimen_10dp"
+    android:paddingLeft="@dimen/dimen_15dp"
+    android:paddingRight="@dimen/dimen_15dp"
+    android:paddingTop="@dimen/dimen_10dp" >
+
+    <com.tonggou.gsm.andclient.ui.view.ImageWithNumberIndicatorView
+        android:id="@+id/number_icon"
+        android:layout_width="45dp"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/menu_item_content"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_h2" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_menu_list_arrow_right" />
+
+</LinearLayout>

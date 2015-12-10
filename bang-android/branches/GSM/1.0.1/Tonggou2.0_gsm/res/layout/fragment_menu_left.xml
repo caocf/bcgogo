@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Match_Match"
+    android:background="@drawable/bg_menu"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar_default_height"
+        android:gravity="center"
+        android:text="@string/title_left_menu"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_h1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider_menu_list" />
+
+    <ListView
+        android:id="@+id/left_menu_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="#00000000"
+        android:divider="@drawable/divider_menu_list"
+        android:dividerHeight="1dp"
+        android:listSelector="@drawable/list_selector_alpha2_black"
+        android:scrollbars="none" >
+    </ListView>
+
+    <LinearLayout
+        android:id="@+id/one_key_sos_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/holo_red_btn_selector"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dimen_10dp"
+        android:paddingTop="@dimen/dimen_5dp"
+        android:paddingBottom="@dimen/dimen_5dp"
+        android:paddingRight="@dimen/dimen_10dp" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_repair" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:text="@string/btn_one_key_sos"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_h2" />
+    </LinearLayout>
+
+</LinearLayout>

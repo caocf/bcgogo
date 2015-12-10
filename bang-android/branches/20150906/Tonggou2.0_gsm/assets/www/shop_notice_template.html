@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta charset="utf-8">
+	<style type="text/css">
+		body, h3, label, div {
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			padding: 1em;
+			text-align: center;
+		}
+
+		p {
+			word-wrap: break-word;
+			word-break: normal; 
+		}
+
+		img {
+			width: 100%;
+		}
+
+		#title {
+			font-size: 1.2em;
+			font-style: normal;
+		}
+
+		#timestamp {
+			color: #999999;
+			display: block;
+			float: right;
+			font-size: 0.8em;
+			margin: 0.3em 0; 
+		}
+
+		#content {
+			clear: right;
+			text-align: left;
+		}
+	</style>
+</head>
+<body>
+	<h3 id="title"></h3>
+	<label id="timestamp"></label>
+	<div id="content"></div>
+
+	<script type="text/javascript">
+		var title = document.getElementById('title');
+		title.innerText = injection_js.getTitle();
+
+		var timestamp = document.getElementById('timestamp');
+		timestamp.innerText = injection_js.getTimestamp();
+
+		var content = document.getElementById('content');
+		content.innerHTML = injection_js.getContent();
+	</script>
+</body>
+</html>

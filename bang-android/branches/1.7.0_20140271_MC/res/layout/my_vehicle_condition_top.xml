@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Global_Match_Wrap"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        style="@style/Global_Match_Wrap"
+        android:background="@drawable/loginheadback" >
+
+        <RelativeLayout
+            android:id="@+id/rl_myVehicleCondition_back"
+            android:layout_width="70dp"
+            android:layout_height="40dp" >
+
+            <ImageView
+                style="@style/Global_Wrap_Wrap"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/back" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/Global_Wrap_Wrap"
+            android:layout_centerInParent="true"
+            android:text="我的车况"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_myVehicleCondition_oil_price"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="7dp"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Global_Wrap_Wrap"
+                android:layout_marginTop="3dp"
+                android:text="油价"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txt_myVehicleCondition_oil_price"
+                style="@style/Global_Wrap_Wrap"
+                android:text="@string/title_myVehicleCondition_oil_price"
+                android:textColor="@android:color/white"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:id="@+id/iv_curr_condtion_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_toLeftOf="@id/ll_myVehicleCondition_oil_price"
+            android:src="@drawable/current_condition_refresh_selector" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/shopslistback" >
+
+        <LinearLayout
+            android:id="@+id/ll_myVehicleCondition_curr_condtion"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/txt_myVehicleCondition_curr_condtion"
+                style="@style/txt_subtitle_light"
+                android:text="当前车况" />
+        </LinearLayout>
+
+        <ImageView
+            style="@style/Global_Wrap_Wrap"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/icon_sort_by_separator" />
+
+        <LinearLayout
+            android:id="@+id/ll_myVehicleCondition_driving_journal"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/txt_myVehicleCondition_driving_journal"
+                style="@style/txt_subtitle_dim"
+                android:text="行车日志" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

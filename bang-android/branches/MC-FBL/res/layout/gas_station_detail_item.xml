@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Global_Match_Match"
+    android:orientation="vertical"
+    android:background="@android:color/white" >
+
+    <LinearLayout
+        style="@style/Global_Match_Wrap"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center_vertical" >
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/gas_station_detail_item_name"
+                style="@style/Global_Wrap_Wrap"
+                android:text="中国石化平安街加油站"
+                android:textColor="@color/gas_station_detail_font_blue"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/gas_station_detail_item_distance"
+                style="@style/Global_Wrap_Wrap"
+                android:layout_marginTop="3dp"
+                android:text="距离：1.0km"
+                android:textColor="@color/gas_station_detail_font_gray"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/gas_station_detail_item_addr"
+                style="@style/Global_Wrap_Wrap"
+                android:layout_marginTop="3dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:minLines="1"
+                android:text="平安街623号襄阳街头"
+                android:textColor="@color/gas_station_detail_font_gray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/gas_station_detail_item_price"
+                style="@style/Global_Wrap_Wrap"
+                android:layout_marginTop="3dp"
+                android:text="燃油价格"
+                android:textColor="@color/gas_station_detail_font_gray"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <ImageView
+            style="@style/Global_Wrap_Wrap"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/icon_arrow_show_map" />
+    </LinearLayout>
+
+</LinearLayout>

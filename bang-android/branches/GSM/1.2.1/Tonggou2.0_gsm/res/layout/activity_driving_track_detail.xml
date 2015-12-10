@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/subtitle_text"
+                android:text="@string/subtitle_track_statistics" />
+
+            <com.tonggou.gsm.andclient.ui.view.DrivingTrackDetailStatisticsContainer
+                android:id="@+id/track_detail_statistics_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_5dp"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:orientation="horizontal" >
+
+                <com.tonggou.gsm.andclient.ui.view.Chart
+                    android:id="@+id/track_detail_statistics_chart"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:minWidth="@dimen/driving_track_detail_chart_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_marginRight="@dimen/dimen_10dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/current_track_average_oil"
+                        android:textSize="@dimen/text_h3" />
+
+                    <com.tonggou.gsm.andclient.ui.view.DrivingTrackStatisticsItem
+                        android:id="@+id/current_avg_oil_wear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/white_border_red_corner_bg" />
+
+                    <TextView
+                        android:id="@+id/oil_level_status_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:textSize="@dimen/text_h1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="@string/average_oil"
+                        android:textSize="@dimen/text_h3" />
+
+                    <TextView
+                        android:id="@+id/avg_oil_wear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="@dimen/text_h5" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/subtitle_text"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:text="@string/subtitle_track_playback" />
+
+            <FrameLayout
+                android:id="@+id/track_detail_map_container"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/map_fragment_height" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

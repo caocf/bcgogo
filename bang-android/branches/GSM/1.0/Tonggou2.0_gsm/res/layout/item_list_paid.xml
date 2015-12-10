@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:indicatorView="http://schemas.android.com/apk/res/com.tonggou.gsm.andclient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="@dimen/dimen_10dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/black_border_white_content_bg"
+        android:orientation="vertical" >
+
+       <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/item_list_title"
+            android:padding="@dimen/dimen_10dp" >
+
+            <TextView
+                android:id="@+id/timestamp_text"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"/>
+            
+            <ImageView
+                android:id="@+id/item_clickable_indicator"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_paid_detail" />
+        </LinearLayout>
+
+        <com.tonggou.gsm.andclient.ui.view.IndicatorTextView
+            android:id="@+id/service_type_indicator_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:background="@drawable/divider_horizontal_bg"
+            android:padding="@dimen/dimen_10dp"
+            indicatorView:leftIndicatorText="@string/item_list_pay_type"
+            indicatorView:leftIndicatorTextColor="@color/gray"
+            indicatorView:leftIndicatorTextLength="5" />
+
+        <com.tonggou.gsm.andclient.ui.view.IndicatorTextView
+            android:id="@+id/service_second_indicator_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:padding="@dimen/dimen_10dp"
+            indicatorView:leftIndicatorText="@string/item_list_paid_money"
+            indicatorView:leftIndicatorTextColor="@color/gray"
+            indicatorView:leftIndicatorTextLength="5"
+            indicatorView:mainTextViewTextColor="@color/red" />
+    </LinearLayout>
+
+</FrameLayout>
