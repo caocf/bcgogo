@@ -96,7 +96,7 @@
         <quartz.version>1.8.3</quartz.version>
         <spring.version>3.0.5.RELEASE</spring.version>
         <spring.security.version>3.0.5.RELEASE</spring.security.version>
-        <hibernate.version>3.6.1.Final</hibernate.version>
+        <hibernate.version>5.4.24.Final</hibernate.version>
         <mysql.jdbc.version>5.1.13</mysql.jdbc.version>
         <liquibase.version>1.9.5.0</liquibase.version>
         <h2database.version>1.3.149</h2database.version>
