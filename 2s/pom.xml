@@ -94,7 +94,7 @@
         <gwt.version>2.0.4</gwt.version>
         <gwt.maven.version>2.1-20101001.MGWT219</gwt.maven.version>
         <quartz.version>1.8.3</quartz.version>
-        <spring.version>3.0.5.RELEASE</spring.version>
+        <spring.version>3.2.18.RELEASE</spring.version>
         <spring.security.version>3.0.5.RELEASE</spring.security.version>
         <hibernate.version>3.6.1.Final</hibernate.version>
         <mysql.jdbc.version>5.1.13</mysql.jdbc.version>
