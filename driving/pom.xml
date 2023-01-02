@@ -1539,7 +1539,7 @@
                 <groupId>org.codehaus.jettison</groupId>
                 <artifactId>jettison</artifactId>
                 <scope>runtime</scope>
-                <version>1.0.1</version>
+                <version>1.5.2</version>
                 <exclusions>
                     <exclusion>
                         <groupId>stax</groupId>
